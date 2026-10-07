@@ -1,0 +1,29 @@
+{
+ "research_question": "q",
+ "decision_at_risk": "d",
+ "depth": "targeted",
+ "source_classes": [
+  "s"
+ ],
+ "uncertainty_before": "u1",
+ "uncertainty_after": "u2",
+ "entries": [
+  {
+   "source": "s",
+   "source_status": "user_source_unverified",
+   "source_date": "unknown",
+   "source_class": "c",
+   "reliability_basis": "r",
+   "observed": "o",
+   "retained": [
+    "r"
+   ],
+   "rejected": [],
+   "transformed": "t",
+   "decision_changed": "d",
+   "artifact_consequence": "a",
+   "limit": "l"
+  }
+ ],
+ "stop_condition": "stop"
+}

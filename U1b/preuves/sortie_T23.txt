@@ -1,0 +1,3 @@
+exit=1
+READING MAP VALIDATION FAILED
+- LCF-46 : condition de façade non tenue — textes et façades : marqueurs de vague seulement en [VEILLE] daté (propriétaire : SAVOIR ([VEILLE] daté))

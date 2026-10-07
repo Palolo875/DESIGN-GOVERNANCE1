@@ -1,0 +1,12 @@
+== t18_directions_quasi_identiques
+CONTRACT VALIDATION PASSED — fichier ciblé (production_contracts) : /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U1b/preuves/t18_directions_quasi_identiques.json
+exit=0
+== t19_domain_frame_creux
+CONTRACT VALIDATION PASSED — fichier ciblé (domain_frame) : /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U1b/preuves/t19_domain_frame_creux.json
+exit=0
+== t20_research_brief_creux
+CONTRACT VALIDATION PASSED — fichier ciblé (research_brief) : /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U1b/preuves/t20_research_brief_creux.json
+exit=0
+t18_directions_quasi_identiques exit=0
+t19_domain_frame_creux exit=0
+t20_research_brief_creux exit=0

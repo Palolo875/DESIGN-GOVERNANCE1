@@ -1,0 +1,59 @@
+{
+ "domain": "ok",
+ "audience": "ok",
+ "expertise": "ok",
+ "jtbd": "ok",
+ "trust_model": "ok",
+ "critical_actions": [
+  "ok"
+ ],
+ "domain_conventions": [
+  "ok"
+ ],
+ "cultural_context": "ok",
+ "originality_tolerance": "medium",
+ "proof_requirements": [
+  "c1"
+ ],
+ "domain_risks": [
+  "r1"
+ ],
+ "required_research": [
+  "ok"
+ ],
+ "critical_states": [
+  "ok"
+ ],
+ "design_constraints": [
+  "ok"
+ ],
+ "evidence_plan": [
+  {
+   "method": "m",
+   "scope": "s",
+   "artifact": "a",
+   "limit": "l",
+   "next_proof": "n"
+  }
+ ],
+ "policy_profile": {
+  "risk_triggers": [
+   "t"
+  ],
+  "required_controls": [
+   "c1"
+  ],
+  "risk_coverage": [
+   {
+    "risk": "r1",
+    "control": "c1"
+   }
+  ],
+  "depth_rules": [
+   "d"
+  ],
+  "contraindications": [
+   "x"
+  ]
+ }
+}

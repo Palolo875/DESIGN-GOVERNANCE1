@@ -1,0 +1,135 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U1/preuves/p1/avant.html",
+    "artifact_version": "5ca6a11d4e67",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-07T10:25:17Z",
+    "scope": "état initial, largeurs 390,1280 px",
+    "external_requests_blocked": 0
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 390, 1280 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "RETURN",
+      "detail": "button.secondaire #a3a3a3 sur #ffffff = 2.52:1 (seuil 4.5:1, 16 px, « Voir les tarifs ») ; 390 px : 4 texte(s) évalué(s), 4 candidat(s), 0 exclu(s) ; 1280 px : 4 texte(s) évalué(s), 4 candidat(s), 0 exclu(s)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "2 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "2 arrêt(s) à 390 px ; 390 px : page, fin=end, 2 candidat(s) ; 2 arrêt(s) à 1280 px ; 1280 px : page, fin=end, 2 candidat(s) ; style observé, visibilité et contraste du focus à vérifier"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation active"
+    },
+    {
+      "check": "Objet de preuve au premier écran",
+      "status": "NOT-VERIFIED",
+      "detail": "aucun sélecteur fourni (--proof) : à juger à la main"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "button"
+        },
+        {
+          "key": "control-1",
+          "id": "button"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 2
+    },
+    "1280": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "button"
+        },
+        {
+          "key": "control-1",
+          "id": "button"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 2
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 4,
+      "evaluated": 4,
+      "excluded": 0,
+      "unmeasured": []
+    },
+    "1280": {
+      "method": "dom-text-bounded",
+      "candidates": 4,
+      "evaluated": 4,
+      "excluded": 0,
+      "unmeasured": []
+    }
+  },
+  "proof_observations": {
+    "390": null,
+    "1280": null
+  }
+}

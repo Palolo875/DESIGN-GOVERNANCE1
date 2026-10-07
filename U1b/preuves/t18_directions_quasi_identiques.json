@@ -1,0 +1,28 @@
+{
+ "creative_direction_set": {
+  "creative_boot": "Faire sentir la maîtrise d'un incident sans dramatisation décorative.",
+  "directions": [
+   {
+    "id": "A",
+    "tension": "instrument précis ↔ scène de situation",
+    "structural_changes": [
+     "foyer unique sur l'alerte critique",
+     "preuve intégrée dans la scène"
+    ],
+    "first_object": "une alerte détaillée avec cause, âge et action assignable"
+   },
+   {
+    "id": "B",
+    "tension": "instrument précis ↔ scène de situation.",
+    "structural_changes": [
+     "foyer unique sur l'alerte critique",
+     "preuve intégrée dans la scène"
+    ],
+    "first_object": "une alerte détaillée avec cause, âge et action assignable"
+   }
+  ],
+  "selected_direction": "A",
+  "divergence_test": "A et B changent le foyer, la position de la preuve et la temporalité du premier geste; ce ne sont pas des variantes chromatiques.",
+  "reason_for_convergence": "A permet l'identification immédiate de l'alerte critique dans le contexte opérationnel observé."
+ }
+}

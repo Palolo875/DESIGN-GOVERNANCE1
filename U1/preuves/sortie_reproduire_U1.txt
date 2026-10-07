@@ -1,0 +1,38 @@
+Dépôt : /home/user/DESIGN-GOVERNANCE1 @ d90869c
+
+=== T-01..T-05 restauration (script embarqué dans la copie complète) ===
+T-01 fichier local différent : exit=0 ; écrasé=True
+T-02 lien vers fichier interne : exit=0 ; cible modifiée=True
+T-03 dossier lié interne : exit=0 ; fichiers reçus par le dossier cible=17
+T-04 lien vers cible externe : exit=1 ; message=restauration refusée : chemin hors destination : README.md ; externe intact=True
+T-05 dossier non vide (fichier hors inventaire) : exit=0 ; fichier conservé=True
+
+=== T-06..T-14 validateur RUN_CARD (mutations de l'exemple canonique) ===
+T-06 strict, exemple à locators locaux       exit=0 :: RUN_CARD VALIDATION PASSED — fichier ciblé : /tmp/dg-u1-gdcuf0n0/T-06 strict, exemple à locators locaux.json
+T-07 strict, preuve « ok » et URL inventées  exit=0 :: RUN_CARD VALIDATION PASSED — fichier ciblé : /tmp/dg-u1-gdcuf0n0/T-07 strict, preuve « ok » et URL inventées.json
+T-08 enjeu élevé, ancres générées, sans calibr. exit=1 :: - enjeu d’identité élevé : ancrage généré seul exige calibration (real_constraint ou generated_only_reserved)
+T-09 idem, réserve générée, verdict AWR      exit=0 :: RUN_CARD VALIDATION PASSED — fichier ciblé : /tmp/dg-u1-gdcuf0n0/T-09 idem, réserve générée, verdict AWR.json
+T-10 idem, réserve générée, verdict ACCEPTED exit=1 :: - calibration générée seule interdit ACCEPTED
+T-11 A2 : direction acceptée sans ancre      exit=1 :: - DIRECTION sans ancrage : verdict accepté interdit
+T-12 A4 : sans decision_intent               exit=1 :: - run_card : champ obligatoire absent : decision_intent
+T-13 A1 : DIRECTION close sans creative_close exit=1 :: - DIRECTION clôturée exige creative_close
+T-14 A3 : sans preuve                        exit=1 :: - un verdict accepté exige au moins une preuve observed
+
+=== T-15 charge des parcours (octets servis par read_route + SKILL.md) ===
+SKILL.md : 43201 o
+P1 LITE (contraste) : 26969 o -> START/TREE=3429, RUN-LITE=831, FAST-PATH=800, GATE-A=11583, GATE-B=10326
+P2 DIRECTION, trace légère (CHARGE) : 55244 o -> START=8808, EXTERNAL-START=4601, CREATIVE-BOOT=2937, VISUAL_TARGET=9576, FIRST-OBJECT=7286, FIRST-RENDER=1861, UI-UX-REALITY=2484, RUN-DIRECTION=2111, GATE-A=11583, GATE-C=3997
+P2 renvois probables hors CHARGE : 41870 o -> PIPELINE-DIRECTION=12571, VISUAL_PROOF=1654, TOOLS/CONVERGENCE=2338, SELECT=11389, TYPE=3244, DIRECTION-ATELIER=4891, CRAFT/CFT-00=5783
+
+=== T-16 parcours 1 : check_render avant / après la retouche de contraste ===
+avant: exit=1 :: [RETURN               ] Contraste du texte sur fond uni : button.secondaire #a3a3a3 sur #ffffff = 2.52:1 (seuil 4.5:1, 16 px, « Voir les tarifs ») ; 3
+apres: exit=0 :: [PASS                 ] Contraste du texte sur fond uni : aucun texte évalué sous le seuil WCAG 2.2 AA ; 390 px : 4 texte(s) évalué(s), 4 candidat(s),
+
+=== T-17 parcours 3 : formulation §9.2 du plan appliquée à DIRECTION (copie de travail détachée) ===
+a) source + noyau modifiés : exit 1 :: - résumé infidèle (prise de brief : humain présent) : DIRECTION.md « <!-- noyau:début BRIEF --> **Prise de brief.** Au plus trois demandes,… » sans « Humain présent » | - résumé infidèle (prise de brief : humain présent) : SKILL.md « **Prise de brief.** Au plus trois demandes, en un seul échange, pa
+b) garde de fidélité retirée : exit 0 :: FULL VALIDATION PASSED — package, RUN_CARD, build et reproductibilité
+   ancienne règle encore présente dans V1/official/QUICKSTART.md : True
+   ancienne règle encore présente dans README.md : True
+   ancienne règle encore présente dans skills/design-governance-practice/references/examples.md : True
+
+Fin. Dépôt non modifié : True

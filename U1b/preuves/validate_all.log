@@ -1,0 +1,896 @@
++ /usr/bin/python3 -m py_compile scripts/build_core.py scripts/check_render.py scripts/preparer_livraison.py scripts/read_route.py scripts/test_audit_regressions.py scripts/test_check_render.py scripts/test_core_budget.py scripts/test_preparer_livraison.py scripts/test_read_route.py scripts/validate_all.py scripts/validate_contracts.py scripts/validate_design_governance.py scripts/validate_reading_map.py scripts/validate_run_card.py scripts/validate_structure.py
++ /usr/bin/python3 scripts/build_core.py --check
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 43201 / 46000 octets UTF-8
++ /usr/bin/python3 scripts/validate_design_governance.py
+VALIDATION PASSED — GitHub, 69 fichiers attendus, liens, vocabulaire et convention contrôlés
++ /usr/bin/python3 scripts/validate_run_card.py
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ /usr/bin/python3 scripts/validate_contracts.py
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
++ /usr/bin/python3 scripts/validate_reading_map.py
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
++ /usr/bin/python3 scripts/validate_structure.py
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
+CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés
++ /usr/bin/python3 scripts/test_core_budget.py
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.008s
+
+OK
+CORE BUDGET TESTS PASSED — 10 cas
++ /usr/bin/python3 scripts/test_read_route.py
+..................................................
+----------------------------------------------------------------------
+Ran 50 tests in 1.434s
+
+OK
+READ_ROUTE TESTS PASSED — 50 cas
++ /usr/bin/python3 scripts/test_audit_regressions.py
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 1.105s
+
+OK
+AUDIT REGRESSIONS PASSED — 30 cas
++ /usr/bin/python3 scripts/test_preparer_livraison.py
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 0.745s
+
+OK
+PREPARATION TESTS PASSED — 20 cas
++ /usr/bin/python3 scripts/test_check_render.py
+Partie A — interprétation (sans navigateur)
+  [ok] A01 page propre : aucun RETURN : False
+  [ok] A02 sans sélecteur, objet de preuve NOT-VERIFIED : NOT-VERIFIED
+  [ok] A03 objet introuvable : RETURN
+  [ok] A04 objet de hauteur nulle : RETURN
+  [ok] A05 objet masqué : RETURN
+  [ok] A06 objet sous la ligne de flottaison : PASS-WITH-RESERVATION
+  [ok] A07 objet : CSS et rectangle couverts : PASS
+  [ok] A08 objet transparent : RETURN
+  [ok] A09 objet hors écran horizontal : PASS-WITH-RESERVATION
+  [ok] A10 objet faible bande horizontale : PASS-WITH-RESERVATION
+  [ok] A11 objet opacité partielle : PASS-WITH-RESERVATION
+  [ok] A12 objet découpe inconnue : PASS-WITH-RESERVATION
+  [ok] A13 objet ancienne mesure : PASS-WITH-RESERVATION
+  [ok] A14 couleur non convertible : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A15 texte SVG non mesuré : réserve explicite : PASS-WITH-RESERVATION
+  [ok] A16 fond en dégradé : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A17 contraste insuffisant : RETURN
+  [ok] A18 petite cible espacée : PASS
+  [ok] A19 petites cibles serrées : réserve, pas RETURN : PASS-WITH-RESERVATION
+  [ok] A20 focus sans changement de style : PASS-WITH-RESERVATION
+  [ok] A21 feuille ouverte qui défile : RETURN
+  [ok] A22 conteneur défilant voulu ou non : PASS-WITH-RESERVATION
+  [ok] A23 animation infinie en mouvement réduit : RETURN
+  [ok] A24 débordement du document : RETURN
+  [ok] A25 contrôle sans nom : RETURN
+  [ok] A26 opacité de groupe : réserve : PASS-WITH-RESERVATION
+  [ok] A27 opacité non couverte et défaut ailleurs : retour conservé : RETURN
+  [ok] A28 candidat DOM présent : nom calculé non prouvé : PASS-WITH-RESERVATION
+  [ok] A29 aucun contrôle DOM applicable : PASS
+  [ok] A30 ancienne mesure sans méthode de nom : PASS-WITH-RESERVATION
+  [ok] A31 zéro arrêt sans couverture : PASS-WITH-RESERVATION
+  [ok] A32 parcours terminé et candidats atteints : PASS
+  [ok] A33 borne atteinte malgré tous les candidats vus : PASS-WITH-RESERVATION
+  [ok] A34 interactif candidat et zéro arrêt : PASS-WITH-RESERVATION
+  [ok] A35 absence justifiée de candidat et parcours fini : PASS
+  [ok] A36 cycle complet : PASS
+  [ok] A37 une largeur tronquée suffit à réserver : PASS-WITH-RESERVATION
+  [ok] A38 arrêt hors inventaire : réserve : PASS-WITH-RESERVATION
+  [ok] A39 nom inconnu ne promet pas un candidat présent : True
+  [ok] A40 texte opaque évalué : PASS
+  [ok] A41 aucun texte applicable : PASS
+  [ok] A42 candidat non évalué : PASS-WITH-RESERVATION
+  [ok] A43 placeholder non évalué : PASS-WITH-RESERVATION
+  [ok] A44 ancienne mesure de contraste : réserve : PASS-WITH-RESERVATION
+  [ok] A45 une largeur non couverte suffit à réserver le contraste : PASS-WITH-RESERVATION
+  [ok] A46 sortie JSON simulée sans navigateur : 0
+  [ok] A47 JSON conserve couverture contraste et observation de preuve : [{'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}, {'found': True, 'method': 'css-rectangle-bounded', 'w': 300, 'h': 600, 'hidden': False, 'visible': 300, 'intersectionWidth': 300, 'opacity': 1, 'limits': []}]
+  [ok] A48 JSON conserve couverture clavier : end
+Partie C — fonctions JavaScript livrées sur DOM simulés, sans navigateur
+  [ok] C01 bouton dont seul le texte masqué fournit le nom : 
+  [ok] C02 descendant display none exclu : 
+  [ok] C03 texte visible conservé : Valider
+  [ok] C04 aria label : Fermer
+  [ok] C05 référence masquée explicite : Fermer
+  [ok] C06 référence avant aria label : Confirmer
+  [ok] C07 label natif masqué référencé : Prénom
+  [ok] C08 image avec alternative : Exporter
+  [ok] C09 référence inexistante : repli aria label : Valider
+  [ok] C10 référence à soi : Supprimer
+  [ok] C11 référence masquée par un ancêtre : Fermer
+  [ok] C12 pseudo contenu : cas non couvert : True
+  [ok] C13 valeur native implicite : cas non couvert : True
+  [ok] C14 opacité sur le texte et son fond : reserve
+  [ok] C15 opacité d’un ancêtre : reserve
+  [ok] C16 texte opaque conforme : pass
+  [ok] C17 texte opaque insuffisant : return
+  [ok] C18 inventaire de deux boutons sans identifiant : ['control-0', 'control-1']
+  [ok] C19 arrêts homonymes gardent deux identités : ['control-0', 'control-1']
+  [ok] C20 un seul bouton répété clôt le cycle : True
+  [ok] C21 retour à la page : raison de fin observable : True
+  [ok] C22 contrôle masqué hors inventaire actif : [1, 1]
+  [ok] C23 valeur input ignorée auparavant : PASS-WITH-RESERVATION
+  [ok] C24 placeholder ignoré auparavant : PASS-WITH-RESERVATION
+  [ok] C25 textarea courant sans childNode : PASS-WITH-RESERVATION
+  [ok] C26 textarea vide avec ancienne valeur HTML : PASS
+  [ok] C27 placeholder non affiché derrière une valeur espace : PASS-WITH-RESERVATION
+  [ok] C28 input vide sans texte : PASS
+  [ok] C29 placeholder masqué : PASS
+  [ok] C30 select natif : PASS-WITH-RESERVATION
+  [ok] C31 mot de passe : valeur jamais publiée : PASS-WITH-RESERVATION
+  [ok] C32 valeur sensible absente du relevé : False
+  [ok] C33 texte opaque conforme : PASS
+  [ok] C34 texte opaque insuffisant : RETURN
+  [ok] C35 aria hidden ne dispense pas le texte visible de contraste : RETURN
+  [ok] C36 opacité très faible non nulle : PASS-WITH-RESERVATION
+  [ok] C37 texte pseudo détecté : PASS-WITH-RESERVATION
+  [ok] C38 défaut connu prioritaire sur placeholder non évalué : RETURN
+  [ok] C39 texte directement dans body couvert : RETURN
+  [ok] C40 dénominateur de couverture : {'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}
+  [ok] C41 objet opaque dans écran : PASS
+  [ok] C42 objet transparent : RETURN
+  [ok] C43 ancêtre transparent : RETURN
+  [ok] C44 ancêtre display none : RETURN
+  [ok] C45 visibilité masquée : RETURN
+  [ok] C46 objet hors écran à gauche : PASS-WITH-RESERVATION
+  [ok] C47 visibilité rétablie sur le descendant : PASS
+  [ok] C48 objet hors écran à droite : PASS-WITH-RESERVATION
+  [ok] C49 objet sous écran : PASS-WITH-RESERVATION
+  [ok] C50 découpe ancêtre : PASS-WITH-RESERVATION
+  [ok] C51 masque objet : PASS-WITH-RESERVATION
+Partie B — pages pièges (navigateur)
+  [ok] B01 couleur oklch presque blanche : RETURN
+  [ok] B02 ombre permanente sans focus visible : PASS-WITH-RESERVATION
+  [ok] B03 deux boutons sans id = deux arrêts : 2
+  [ok] B04 objet de preuve de hauteur nulle : RETURN
+  [ok] B05 texte SVG non mesuré sur forme sombre : réserve explicite : PASS-WITH-RESERVATION
+  [ok] B06 texte HTML dans SVG : fond des formes non évalué : PASS-WITH-RESERVATION
+  [ok] B07 bouton de 20 px isolé (espacement) : PASS
+  [ok] B08 boutons de 16 px collés : PASS-WITH-RESERVATION
+  [ok] B09 page servie en HTTP chargée : PASS
+  [ok] B10 ressource d'une autre origine bloquée : True
+  [ok] B11 feuille modale : tabulation depuis son début : ['#close']
+  [ok] B12 opacite.html : PASS-WITH-RESERVATION
+  [ok] B13 nommasque.html : RETURN
+  [ok] B14 nomreference.html : PASS-WITH-RESERVATION
+  [ok] B15 inatteignable.html : PASS-WITH-RESERVATION
+  [ok] B16 sanscontrole.html : PASS
+  [ok] B17 limite atteinte même avec un bouton observé : PASS-WITH-RESERVATION
+  [ok] B18 valeur.html : PASS-WITH-RESERVATION
+  [ok] B19 valeur.html couverture publiée : True
+  [ok] B20 placeholder.html : PASS-WITH-RESERVATION
+  [ok] B21 placeholder.html couverture publiée : True
+  [ok] B22 transparent.html : RETURN
+  [ok] B23 horscran.html : PASS-WITH-RESERVATION
+  [ok] B24 page propre : code de sortie : 0
+  [ok] B25 JSON avec provenance AUTOMATED : AUTOMATED
+  [ok] B26 page fautive : code de sortie : 1
+CHECK_RENDER TESTS PASSED — A : 48 cas ; C : 51 cas ; B : 26 cas
++ /usr/bin/python3 scripts/read_route.py DIRECTION/START
+ROUTE: DIRECTION/START
+OWNER: V1/official/DIRECTION.md
+HEADING: ## DIRECTION/START — classer avant d’agir
+---
+## DIRECTION/START — classer avant d’agir
+
+`START` est le point d’entrée quotidien d’un humain, d’une IA ou d’un pipeline. Il choisit le mode et la prochaine route ; il ne remplace ni les cinq absolus, ni les procédures, ni le jugement.
+
+**Source normative de classification.** `DIRECTION/START` est la source normative unique des modes et du risque dominant. `DIRECTION/CHARGE` est la liste de chargement par mode ; `FAST-PATH` est un raccourci pour un delta local ; `EXTERNAL-START` est une vue de transport pour un brief vague. Aucun de ces encadrés ne crée une classification concurrente. En cas de différence, `START` prévaut et le conflit est inscrit dans `CHANGELOG`.
+
+> **Ordre de lecture minimal.** 1) `START` classe le mode et le risque. 2) La protection de niveau interdit toute baisse silencieuse face à un risque critique. 3) `CHARGE` choisit la plus petite route utile ; `FAST-PATH` n’est qu’un encadré pour un correctif local ou une décision presque tranchée. 4) Une capacité n’est chargée que si elle change la construction ou la preuve. 5) `ACTION` porte la preuve et la clôture ; `SAVOIR` le jugement ; `BIBLIOTHEQUE` la structure. 6) Les modules `ATELIER`, grounding, réemploi et atlas restent silencieux tant qu’aucune décision ne peut être modifiée ; chacun n’est activé que si sa décision à modifier est identifiée, et plusieurs ne coexistent que si leurs décisions sont distinctes et utiles.
+
+### Arbre de classification
+
+Pose les questions dans cet ordre :
+
+1. La décision partagée est-elle l’objet direct du run, avec plusieurs consumers, un token, un composant, une convention, une dépendance ou une règle migrable à protéger ? → `ACTION/RUN-SYSTEM`.
+2. Faut-il définir ou redéfinir une identité, un premier contact, une surface de marque ou une hypothèse de direction autonome ? → `ACTION/RUN-DIRECTION`.
+3. Une surface avec direction retrouvable est-elle retouchée en demandant de rappeler et réévaluer la direction dans son périmètre, au-delà d’un fix ou delta local qui la conserve, sans remise en cause identitaire ni changement systémique ? → `ACTION/RUN-ITER`.
+4. S’agit-il d’un fix ou d’un delta local dans un système déjà tranché ? → `ACTION/RUN-LITE`.
+5. Sinon, s’agit-il d’un écran ou flow nouveau sans charge identitaire autonome ni blast radius systémique ? → `ACTION/RUN-STANDARD`.
+6. Si aucune réponse n’est nette, pose **une clarification ciblée** : celle qui peut changer le mode ou le risque dominant. Ne devine pas.
+
+**Frontière LITE / ITER.** Un fix local de contraste, libellé, focus ou wrapping qui conserve la direction déjà tranchée relève de `LITE`. Une retouche de composition qui demande de rappeler et réévaluer la direction retrouvable relève de `ITER`. La taille du diff ne décide pas du mode : une règle partagée reste `SYSTÈME` et la protection de niveau ci-dessous prime sur ces deux cas.
+
+Une décision de système est l’objet direct du run lorsqu’elle doit être adoptée, migrée ou protégée pour plusieurs consumers. Si le changement partagé apparaît comme conséquence d’une décision de direction, traite d’abord la direction ; ouvre ensuite le run système dépendant, sauf si les décisions sont inséparables.
+
+**Protection de niveau.** Un risque critique de tâche, de santé, de sécurité, de confidentialité, de permission ou d’accessibilité interdit `LITE` ou `ITER` dès que le changement touche une action, un état, une sémantique, une donnée, une récupération ou une preuve de ce risque. Un nouvel onboarding, formulaire, consentement, flux de santé, permission ou mécanisme de récupération n’est jamais un micro-delta `LITE` ou `ITER`, même si une seule étape ou un seul libellé semble local. Reclassifie vers `STANDARD`, `DIRECTION` ou `SYSTÈME` selon le blast radius. `LITE` ou `ITER` restent possibles seulement lorsqu’il est démontré que le delta est strictement local, réversible et sans effet sur ces responsabilités.
+
+**Silence des micro-deltas.** Une correction de libellé, de traduction, d’overflow, de contraste, de focus, d’état ou de wrapping dans un composant existant ne constitue pas à elle seule une décision de style, de technique, d’effet, d’asset ou de structure. Ne charge pas la section `DESIGN-ATLAS` de `SAVOIR.md` pour ce type de delta ; reste sur la route locale tant qu’aucune responsabilité n’est réellement modifiée.
+
+**Règle de conflit.** Si plusieurs signaux sont positifs, découpe le travail lorsque les risques sont indépendants. Deux risques sont indépendants si la preuve de l’un ne dépend pas de la décision de l’autre et si leur owner, leur artefact et leur condition de sortie peuvent être distincts. Sinon, retiens le mode qui protège le risque dominant, sans importer les artefacts sans rapport.
+
+### Entrée minimale
+
+Avant toute construction, vérifie que l’entrée courte rend retrouvables les décisions qui peuvent changer l’artefact :
+
+```text
+DECISION — ce qui doit être tranché
+RISK — coût d’erreur dominant
+SCOPE — surface, état, viewport, consumer ou périmètre concerné
+CONSTRAINT — contrainte réelle qui peut changer la décision, dont la destination (démo, prototype ou produit réel) et l’enjeu identitaire
+NEXT-PROOF — observation ou test qui permettra de trancher
+OWNER — responsable de la décision et de la prochaine action
+```
+
+Ce gabarit est une vue d’activation, pas un second schéma : `ACTION/RUN_CARD` reste propriétaire des champs complets, des états, des issues, des verdicts et de la clôture. `OWNER` et `SCOPE` ne sont jamais omis : ils rendent la reprise et la portée vérifiables. Les autres lignes sont omises ou `N/A-JUSTIFIED` si elles ne peuvent rien changer.
+
+> `DIRECTION/CREATIVE-BOOT` : servi séparément
+> `DIRECTION/DOMAIN-FRAME` : servi séparément
+### Sortie immédiate
+
+Crée ou mets à jour une ligne de run :
+
+> `RUN — [ID] — [MODE] — [décision dominante] — [risque principal] — [preuve suivante] — [état].`
+
+La ligne de run doit exister dès qu’une action de production, une vérification ou un changement d’état commence. Lorsque le risque ou la reprise l’exige, l’owner doit être retrouvable depuis cette ligne ou son identifiant.
+
+Au lancement, ajoute :
+
+> `DECISION-INTENT — [décision que la procédure doit permettre de trancher].`
+
+Après une observation qui modifie, confirme ou abandonne effectivement une décision, ajoute :
+
+> `DECISION-CHANGE — [décision effectivement changée, confirmée ou abandonnée grâce à la procédure].`
+
+À la clôture, si aucune décision n’a été changée, confirmée ou abandonnée, les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsqu’aucune conséquence n’était applicable, avec la raison, le risque de continuer sans changement et la prochaine action éventuelle ; `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée. Ne déclare jamais un changement avant qu’une observation ne l’ait rendu réel.
+
+### Mémoire de lancement et renvoi de `RUN_CARD`
+
+La ligne de run constitue une mémoire de lancement, sous-ensemble de lancement de `ACTION/HANDOFF`, non un handoff ni une `RUN_CARD` ; la ligne compacte de la sortie immédiate en est l’affichage : `ID`, `MODE`, `DECISION`, `RISK`, `SCOPE`, `ARTIFACT` attendu, `OWNER`, `NEXT-PROOF`, `LIMIT` et `EXIT-CONDITION`. Elle peut vivre dans un ticket, un manifeste de projet, un espace de travail ou un fichier local.
+
+Le schéma complet de `RUN_CARD` appartient exclusivement à **`ACTION/RUN_CARD`**. DIRECTION ne le reproduit pas et transmet la projection `ACTION/HANDOFF`; les champs non applicables sont `N/A-JUSTIFIED`, les observations non vérifiées restent `NOT-VERIFIED`. Une surface `DIRECTION` qui accepte avec V en `PASS` ou `PASS-WITH-RESERVATION`, dont le risque V/craft est dominant ou dont le verdict V dépend d’une intention encore non confrontée doit suivre `ACTION/GATE-B — B1b` avant clôture. Pour une `RUN_CARD DIRECTION` en `CLOSED`, `creative_close` contient `presence`, `signature`, `craft_detail`, `dominant_defect` et `next_polish_action` ; `direction_status`, `issue` et `verdict` restent les registres séparés d’ACTION.
+
+Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité conserve une trace persistante (trace complète, `ACTION/HANDOFF`) ; sinon, la trace légère suffit. `ITER` peut s’appuyer sur la mémoire locale du projet si la direction précédente, le périmètre, le dernier artefact, la décision, la preuve et le risque restant sont retrouvables. `LITE` peut se limiter à la ligne de run et au verdict court si l’artefact et le risque restent retrouvables.
+
+---
+
+FINDABILITY PASSED — read_route --trouver relie un terme à sa route
++ expected failure (locator inconnu)
++ /usr/bin/python3 scripts/validate_contracts.py schemas/examples/domain_frame.example.json
+CONTRACT VALIDATION PASSED — fichier ciblé (domain_frame) : /home/user/DESIGN-GOVERNANCE1/schemas/examples/domain_frame.example.json
++ /usr/bin/python3 scripts/validate_run_card.py schemas/run_card.example.json
+RUN_CARD VALIDATION PASSED — fichier ciblé : /home/user/DESIGN-GOVERNANCE1/schemas/run_card.example.json
++ expected failure (invalid_capability_profile_missing_basis.json)
++ expected failure (invalid_accepted_lost_in_build.json)
++ expected failure (invalid_critical_without_protection.json)
++ expected failure (invalid_critical_placeholder_protection.json)
++ /usr/bin/python3 scripts/validate_run_card.py --strict /tmp/design-governance-cli-6gmhfviw/strict_card.json
+RUN_CARD VALIDATION PASSED — fichier ciblé : /tmp/design-governance-cli-6gmhfviw/strict_card.json
++ expected failure (strict placeholder)
++ expected failure (JSON malformé)
++ expected failure (fichier absent)
++ bash scripts/build_distributions.sh
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 43201 / 46000 octets UTF-8
+VALIDATION PASSED — GitHub, 69 fichiers attendus, liens, vocabulaire et convention contrôlés
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
+LOCAL EXPORT PASSED — 63 fichiers attendus et liens contrôlés
+VALIDATION PASSED — Local, 63 fichiers attendus, liens, vocabulaire et convention contrôlés
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
++ /usr/bin/python3 -m py_compile scripts/build_core.py scripts/check_render.py scripts/read_route.py scripts/test_audit_regressions.py scripts/test_check_render.py scripts/test_core_budget.py scripts/test_read_route.py scripts/validate_all.py scripts/validate_contracts.py scripts/validate_design_governance.py scripts/validate_reading_map.py scripts/validate_run_card.py scripts/validate_structure.py
++ /usr/bin/python3 scripts/build_core.py --check
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 43198 / 46000 octets UTF-8
++ /usr/bin/python3 scripts/validate_design_governance.py
+VALIDATION PASSED — Local, 63 fichiers attendus, liens, vocabulaire et convention contrôlés
++ /usr/bin/python3 scripts/validate_run_card.py
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ /usr/bin/python3 scripts/validate_contracts.py
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
++ /usr/bin/python3 scripts/validate_reading_map.py
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
++ /usr/bin/python3 scripts/validate_structure.py
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
+CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés
++ /usr/bin/python3 scripts/test_core_budget.py
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.007s
+
+OK
+CORE BUDGET TESTS PASSED — 10 cas
++ /usr/bin/python3 scripts/test_read_route.py
+..................................................
+----------------------------------------------------------------------
+Ran 50 tests in 1.524s
+
+OK
+READ_ROUTE TESTS PASSED — 50 cas
++ /usr/bin/python3 scripts/test_audit_regressions.py
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 1.162s
+
+OK
+AUDIT REGRESSIONS PASSED — 30 cas
++ /usr/bin/python3 scripts/test_check_render.py
+Partie A — interprétation (sans navigateur)
+  [ok] A01 page propre : aucun RETURN : False
+  [ok] A02 sans sélecteur, objet de preuve NOT-VERIFIED : NOT-VERIFIED
+  [ok] A03 objet introuvable : RETURN
+  [ok] A04 objet de hauteur nulle : RETURN
+  [ok] A05 objet masqué : RETURN
+  [ok] A06 objet sous la ligne de flottaison : PASS-WITH-RESERVATION
+  [ok] A07 objet : CSS et rectangle couverts : PASS
+  [ok] A08 objet transparent : RETURN
+  [ok] A09 objet hors écran horizontal : PASS-WITH-RESERVATION
+  [ok] A10 objet faible bande horizontale : PASS-WITH-RESERVATION
+  [ok] A11 objet opacité partielle : PASS-WITH-RESERVATION
+  [ok] A12 objet découpe inconnue : PASS-WITH-RESERVATION
+  [ok] A13 objet ancienne mesure : PASS-WITH-RESERVATION
+  [ok] A14 couleur non convertible : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A15 texte SVG non mesuré : réserve explicite : PASS-WITH-RESERVATION
+  [ok] A16 fond en dégradé : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A17 contraste insuffisant : RETURN
+  [ok] A18 petite cible espacée : PASS
+  [ok] A19 petites cibles serrées : réserve, pas RETURN : PASS-WITH-RESERVATION
+  [ok] A20 focus sans changement de style : PASS-WITH-RESERVATION
+  [ok] A21 feuille ouverte qui défile : RETURN
+  [ok] A22 conteneur défilant voulu ou non : PASS-WITH-RESERVATION
+  [ok] A23 animation infinie en mouvement réduit : RETURN
+  [ok] A24 débordement du document : RETURN
+  [ok] A25 contrôle sans nom : RETURN
+  [ok] A26 opacité de groupe : réserve : PASS-WITH-RESERVATION
+  [ok] A27 opacité non couverte et défaut ailleurs : retour conservé : RETURN
+  [ok] A28 candidat DOM présent : nom calculé non prouvé : PASS-WITH-RESERVATION
+  [ok] A29 aucun contrôle DOM applicable : PASS
+  [ok] A30 ancienne mesure sans méthode de nom : PASS-WITH-RESERVATION
+  [ok] A31 zéro arrêt sans couverture : PASS-WITH-RESERVATION
+  [ok] A32 parcours terminé et candidats atteints : PASS
+  [ok] A33 borne atteinte malgré tous les candidats vus : PASS-WITH-RESERVATION
+  [ok] A34 interactif candidat et zéro arrêt : PASS-WITH-RESERVATION
+  [ok] A35 absence justifiée de candidat et parcours fini : PASS
+  [ok] A36 cycle complet : PASS
+  [ok] A37 une largeur tronquée suffit à réserver : PASS-WITH-RESERVATION
+  [ok] A38 arrêt hors inventaire : réserve : PASS-WITH-RESERVATION
+  [ok] A39 nom inconnu ne promet pas un candidat présent : True
+  [ok] A40 texte opaque évalué : PASS
+  [ok] A41 aucun texte applicable : PASS
+  [ok] A42 candidat non évalué : PASS-WITH-RESERVATION
+  [ok] A43 placeholder non évalué : PASS-WITH-RESERVATION
+  [ok] A44 ancienne mesure de contraste : réserve : PASS-WITH-RESERVATION
+  [ok] A45 une largeur non couverte suffit à réserver le contraste : PASS-WITH-RESERVATION
+  [ok] A46 sortie JSON simulée sans navigateur : 0
+  [ok] A47 JSON conserve couverture contraste et observation de preuve : [{'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}, {'found': True, 'method': 'css-rectangle-bounded', 'w': 300, 'h': 600, 'hidden': False, 'visible': 300, 'intersectionWidth': 300, 'opacity': 1, 'limits': []}]
+  [ok] A48 JSON conserve couverture clavier : end
+Partie C — fonctions JavaScript livrées sur DOM simulés, sans navigateur
+  [ok] C01 bouton dont seul le texte masqué fournit le nom : 
+  [ok] C02 descendant display none exclu : 
+  [ok] C03 texte visible conservé : Valider
+  [ok] C04 aria label : Fermer
+  [ok] C05 référence masquée explicite : Fermer
+  [ok] C06 référence avant aria label : Confirmer
+  [ok] C07 label natif masqué référencé : Prénom
+  [ok] C08 image avec alternative : Exporter
+  [ok] C09 référence inexistante : repli aria label : Valider
+  [ok] C10 référence à soi : Supprimer
+  [ok] C11 référence masquée par un ancêtre : Fermer
+  [ok] C12 pseudo contenu : cas non couvert : True
+  [ok] C13 valeur native implicite : cas non couvert : True
+  [ok] C14 opacité sur le texte et son fond : reserve
+  [ok] C15 opacité d’un ancêtre : reserve
+  [ok] C16 texte opaque conforme : pass
+  [ok] C17 texte opaque insuffisant : return
+  [ok] C18 inventaire de deux boutons sans identifiant : ['control-0', 'control-1']
+  [ok] C19 arrêts homonymes gardent deux identités : ['control-0', 'control-1']
+  [ok] C20 un seul bouton répété clôt le cycle : True
+  [ok] C21 retour à la page : raison de fin observable : True
+  [ok] C22 contrôle masqué hors inventaire actif : [1, 1]
+  [ok] C23 valeur input ignorée auparavant : PASS-WITH-RESERVATION
+  [ok] C24 placeholder ignoré auparavant : PASS-WITH-RESERVATION
+  [ok] C25 textarea courant sans childNode : PASS-WITH-RESERVATION
+  [ok] C26 textarea vide avec ancienne valeur HTML : PASS
+  [ok] C27 placeholder non affiché derrière une valeur espace : PASS-WITH-RESERVATION
+  [ok] C28 input vide sans texte : PASS
+  [ok] C29 placeholder masqué : PASS
+  [ok] C30 select natif : PASS-WITH-RESERVATION
+  [ok] C31 mot de passe : valeur jamais publiée : PASS-WITH-RESERVATION
+  [ok] C32 valeur sensible absente du relevé : False
+  [ok] C33 texte opaque conforme : PASS
+  [ok] C34 texte opaque insuffisant : RETURN
+  [ok] C35 aria hidden ne dispense pas le texte visible de contraste : RETURN
+  [ok] C36 opacité très faible non nulle : PASS-WITH-RESERVATION
+  [ok] C37 texte pseudo détecté : PASS-WITH-RESERVATION
+  [ok] C38 défaut connu prioritaire sur placeholder non évalué : RETURN
+  [ok] C39 texte directement dans body couvert : RETURN
+  [ok] C40 dénominateur de couverture : {'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}
+  [ok] C41 objet opaque dans écran : PASS
+  [ok] C42 objet transparent : RETURN
+  [ok] C43 ancêtre transparent : RETURN
+  [ok] C44 ancêtre display none : RETURN
+  [ok] C45 visibilité masquée : RETURN
+  [ok] C46 objet hors écran à gauche : PASS-WITH-RESERVATION
+  [ok] C47 visibilité rétablie sur le descendant : PASS
+  [ok] C48 objet hors écran à droite : PASS-WITH-RESERVATION
+  [ok] C49 objet sous écran : PASS-WITH-RESERVATION
+  [ok] C50 découpe ancêtre : PASS-WITH-RESERVATION
+  [ok] C51 masque objet : PASS-WITH-RESERVATION
+Partie B — pages pièges (navigateur)
+  [ok] B01 couleur oklch presque blanche : RETURN
+  [ok] B02 ombre permanente sans focus visible : PASS-WITH-RESERVATION
+  [ok] B03 deux boutons sans id = deux arrêts : 2
+  [ok] B04 objet de preuve de hauteur nulle : RETURN
+  [ok] B05 texte SVG non mesuré sur forme sombre : réserve explicite : PASS-WITH-RESERVATION
+  [ok] B06 texte HTML dans SVG : fond des formes non évalué : PASS-WITH-RESERVATION
+  [ok] B07 bouton de 20 px isolé (espacement) : PASS
+  [ok] B08 boutons de 16 px collés : PASS-WITH-RESERVATION
+  [ok] B09 page servie en HTTP chargée : PASS
+  [ok] B10 ressource d'une autre origine bloquée : True
+  [ok] B11 feuille modale : tabulation depuis son début : ['#close']
+  [ok] B12 opacite.html : PASS-WITH-RESERVATION
+  [ok] B13 nommasque.html : RETURN
+  [ok] B14 nomreference.html : PASS-WITH-RESERVATION
+  [ok] B15 inatteignable.html : PASS-WITH-RESERVATION
+  [ok] B16 sanscontrole.html : PASS
+  [ok] B17 limite atteinte même avec un bouton observé : PASS-WITH-RESERVATION
+  [ok] B18 valeur.html : PASS-WITH-RESERVATION
+  [ok] B19 valeur.html couverture publiée : True
+  [ok] B20 placeholder.html : PASS-WITH-RESERVATION
+  [ok] B21 placeholder.html couverture publiée : True
+  [ok] B22 transparent.html : RETURN
+  [ok] B23 horscran.html : PASS-WITH-RESERVATION
+  [ok] B24 page propre : code de sortie : 0
+  [ok] B25 JSON avec provenance AUTOMATED : AUTOMATED
+  [ok] B26 page fautive : code de sortie : 1
+CHECK_RENDER TESTS PASSED — A : 48 cas ; C : 51 cas ; B : 26 cas
++ /usr/bin/python3 scripts/read_route.py DIRECTION/START
+ROUTE: DIRECTION/START
+OWNER: official/DIRECTION.md
+HEADING: ## DIRECTION/START — classer avant d’agir
+---
+## DIRECTION/START — classer avant d’agir
+
+`START` est le point d’entrée quotidien d’un humain, d’une IA ou d’un pipeline. Il choisit le mode et la prochaine route ; il ne remplace ni les cinq absolus, ni les procédures, ni le jugement.
+
+**Source normative de classification.** `DIRECTION/START` est la source normative unique des modes et du risque dominant. `DIRECTION/CHARGE` est la liste de chargement par mode ; `FAST-PATH` est un raccourci pour un delta local ; `EXTERNAL-START` est une vue de transport pour un brief vague. Aucun de ces encadrés ne crée une classification concurrente. En cas de différence, `START` prévaut et le conflit est inscrit dans `CHANGELOG`.
+
+> **Ordre de lecture minimal.** 1) `START` classe le mode et le risque. 2) La protection de niveau interdit toute baisse silencieuse face à un risque critique. 3) `CHARGE` choisit la plus petite route utile ; `FAST-PATH` n’est qu’un encadré pour un correctif local ou une décision presque tranchée. 4) Une capacité n’est chargée que si elle change la construction ou la preuve. 5) `ACTION` porte la preuve et la clôture ; `SAVOIR` le jugement ; `BIBLIOTHEQUE` la structure. 6) Les modules `ATELIER`, grounding, réemploi et atlas restent silencieux tant qu’aucune décision ne peut être modifiée ; chacun n’est activé que si sa décision à modifier est identifiée, et plusieurs ne coexistent que si leurs décisions sont distinctes et utiles.
+
+### Arbre de classification
+
+Pose les questions dans cet ordre :
+
+1. La décision partagée est-elle l’objet direct du run, avec plusieurs consumers, un token, un composant, une convention, une dépendance ou une règle migrable à protéger ? → `ACTION/RUN-SYSTEM`.
+2. Faut-il définir ou redéfinir une identité, un premier contact, une surface de marque ou une hypothèse de direction autonome ? → `ACTION/RUN-DIRECTION`.
+3. Une surface avec direction retrouvable est-elle retouchée en demandant de rappeler et réévaluer la direction dans son périmètre, au-delà d’un fix ou delta local qui la conserve, sans remise en cause identitaire ni changement systémique ? → `ACTION/RUN-ITER`.
+4. S’agit-il d’un fix ou d’un delta local dans un système déjà tranché ? → `ACTION/RUN-LITE`.
+5. Sinon, s’agit-il d’un écran ou flow nouveau sans charge identitaire autonome ni blast radius systémique ? → `ACTION/RUN-STANDARD`.
+6. Si aucune réponse n’est nette, pose **une clarification ciblée** : celle qui peut changer le mode ou le risque dominant. Ne devine pas.
+
+**Frontière LITE / ITER.** Un fix local de contraste, libellé, focus ou wrapping qui conserve la direction déjà tranchée relève de `LITE`. Une retouche de composition qui demande de rappeler et réévaluer la direction retrouvable relève de `ITER`. La taille du diff ne décide pas du mode : une règle partagée reste `SYSTÈME` et la protection de niveau ci-dessous prime sur ces deux cas.
+
+Une décision de système est l’objet direct du run lorsqu’elle doit être adoptée, migrée ou protégée pour plusieurs consumers. Si le changement partagé apparaît comme conséquence d’une décision de direction, traite d’abord la direction ; ouvre ensuite le run système dépendant, sauf si les décisions sont inséparables.
+
+**Protection de niveau.** Un risque critique de tâche, de santé, de sécurité, de confidentialité, de permission ou d’accessibilité interdit `LITE` ou `ITER` dès que le changement touche une action, un état, une sémantique, une donnée, une récupération ou une preuve de ce risque. Un nouvel onboarding, formulaire, consentement, flux de santé, permission ou mécanisme de récupération n’est jamais un micro-delta `LITE` ou `ITER`, même si une seule étape ou un seul libellé semble local. Reclassifie vers `STANDARD`, `DIRECTION` ou `SYSTÈME` selon le blast radius. `LITE` ou `ITER` restent possibles seulement lorsqu’il est démontré que le delta est strictement local, réversible et sans effet sur ces responsabilités.
+
+**Silence des micro-deltas.** Une correction de libellé, de traduction, d’overflow, de contraste, de focus, d’état ou de wrapping dans un composant existant ne constitue pas à elle seule une décision de style, de technique, d’effet, d’asset ou de structure. Ne charge pas la section `DESIGN-ATLAS` de `SAVOIR.md` pour ce type de delta ; reste sur la route locale tant qu’aucune responsabilité n’est réellement modifiée.
+
+**Règle de conflit.** Si plusieurs signaux sont positifs, découpe le travail lorsque les risques sont indépendants. Deux risques sont indépendants si la preuve de l’un ne dépend pas de la décision de l’autre et si leur owner, leur artefact et leur condition de sortie peuvent être distincts. Sinon, retiens le mode qui protège le risque dominant, sans importer les artefacts sans rapport.
+
+### Entrée minimale
+
+Avant toute construction, vérifie que l’entrée courte rend retrouvables les décisions qui peuvent changer l’artefact :
+
+```text
+DECISION — ce qui doit être tranché
+RISK — coût d’erreur dominant
+SCOPE — surface, état, viewport, consumer ou périmètre concerné
+CONSTRAINT — contrainte réelle qui peut changer la décision, dont la destination (démo, prototype ou produit réel) et l’enjeu identitaire
+NEXT-PROOF — observation ou test qui permettra de trancher
+OWNER — responsable de la décision et de la prochaine action
+```
+
+Ce gabarit est une vue d’activation, pas un second schéma : `ACTION/RUN_CARD` reste propriétaire des champs complets, des états, des issues, des verdicts et de la clôture. `OWNER` et `SCOPE` ne sont jamais omis : ils rendent la reprise et la portée vérifiables. Les autres lignes sont omises ou `N/A-JUSTIFIED` si elles ne peuvent rien changer.
+
+> `DIRECTION/CREATIVE-BOOT` : servi séparément
+> `DIRECTION/DOMAIN-FRAME` : servi séparément
+### Sortie immédiate
+
+Crée ou mets à jour une ligne de run :
+
+> `RUN — [ID] — [MODE] — [décision dominante] — [risque principal] — [preuve suivante] — [état].`
+
+La ligne de run doit exister dès qu’une action de production, une vérification ou un changement d’état commence. Lorsque le risque ou la reprise l’exige, l’owner doit être retrouvable depuis cette ligne ou son identifiant.
+
+Au lancement, ajoute :
+
+> `DECISION-INTENT — [décision que la procédure doit permettre de trancher].`
+
+Après une observation qui modifie, confirme ou abandonne effectivement une décision, ajoute :
+
+> `DECISION-CHANGE — [décision effectivement changée, confirmée ou abandonnée grâce à la procédure].`
+
+À la clôture, si aucune décision n’a été changée, confirmée ou abandonnée, les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsqu’aucune conséquence n’était applicable, avec la raison, le risque de continuer sans changement et la prochaine action éventuelle ; `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée. Ne déclare jamais un changement avant qu’une observation ne l’ait rendu réel.
+
+### Mémoire de lancement et renvoi de `RUN_CARD`
+
+La ligne de run constitue une mémoire de lancement, sous-ensemble de lancement de `ACTION/HANDOFF`, non un handoff ni une `RUN_CARD` ; la ligne compacte de la sortie immédiate en est l’affichage : `ID`, `MODE`, `DECISION`, `RISK`, `SCOPE`, `ARTIFACT` attendu, `OWNER`, `NEXT-PROOF`, `LIMIT` et `EXIT-CONDITION`. Elle peut vivre dans un ticket, un manifeste de projet, un espace de travail ou un fichier local.
+
+Le schéma complet de `RUN_CARD` appartient exclusivement à **`ACTION/RUN_CARD`**. DIRECTION ne le reproduit pas et transmet la projection `ACTION/HANDOFF`; les champs non applicables sont `N/A-JUSTIFIED`, les observations non vérifiées restent `NOT-VERIFIED`. Une surface `DIRECTION` qui accepte avec V en `PASS` ou `PASS-WITH-RESERVATION`, dont le risque V/craft est dominant ou dont le verdict V dépend d’une intention encore non confrontée doit suivre `ACTION/GATE-B — B1b` avant clôture. Pour une `RUN_CARD DIRECTION` en `CLOSED`, `creative_close` contient `presence`, `signature`, `craft_detail`, `dominant_defect` et `next_polish_action` ; `direction_status`, `issue` et `verdict` restent les registres séparés d’ACTION.
+
+Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité conserve une trace persistante (trace complète, `ACTION/HANDOFF`) ; sinon, la trace légère suffit. `ITER` peut s’appuyer sur la mémoire locale du projet si la direction précédente, le périmètre, le dernier artefact, la décision, la preuve et le risque restant sont retrouvables. `LITE` peut se limiter à la ligne de run et au verdict court si l’artefact et le risque restent retrouvables.
+
+---
+
+FINDABILITY PASSED — read_route --trouver relie un terme à sa route
++ expected failure (locator inconnu)
++ /usr/bin/python3 scripts/validate_contracts.py schemas/examples/domain_frame.example.json
+CONTRACT VALIDATION PASSED — fichier ciblé (domain_frame) : /home/user/DESIGN-GOVERNANCE1/.build/distributions.T9ZQhl/dist/local/schemas/examples/domain_frame.example.json
++ /usr/bin/python3 scripts/validate_run_card.py schemas/run_card.example.json
+RUN_CARD VALIDATION PASSED — fichier ciblé : /home/user/DESIGN-GOVERNANCE1/.build/distributions.T9ZQhl/dist/local/schemas/run_card.example.json
++ expected failure (invalid_capability_profile_missing_basis.json)
++ expected failure (invalid_accepted_lost_in_build.json)
++ expected failure (invalid_critical_without_protection.json)
++ expected failure (invalid_critical_placeholder_protection.json)
++ /usr/bin/python3 scripts/validate_run_card.py --strict /tmp/design-governance-cli-j53_ida9/strict_card.json
+RUN_CARD VALIDATION PASSED — fichier ciblé : /tmp/design-governance-cli-j53_ida9/strict_card.json
++ expected failure (strict placeholder)
++ expected failure (JSON malformé)
++ expected failure (fichier absent)
+LOCAL VALIDATION PASSED — contrôles documentaires, RUN_CARD et CLI ; build et reproductibilité hors périmètre de l’export Local
+ARCHIVE MEMBERS PASSED — membres = manifeste (GitHub et Local)
+Generated:
+  /home/user/DESIGN-GOVERNANCE1/Design_Governance_V1_GITHUB.zip
+  /home/user/DESIGN-GOVERNANCE1/Design_Governance_V1_LOCAL.zip
++ bash scripts/build_distributions.sh
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 43201 / 46000 octets UTF-8
+VALIDATION PASSED — GitHub, 69 fichiers attendus, liens, vocabulaire et convention contrôlés
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
+LOCAL EXPORT PASSED — 63 fichiers attendus et liens contrôlés
+VALIDATION PASSED — Local, 63 fichiers attendus, liens, vocabulaire et convention contrôlés
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
++ /usr/bin/python3 -m py_compile scripts/build_core.py scripts/check_render.py scripts/read_route.py scripts/test_audit_regressions.py scripts/test_check_render.py scripts/test_core_budget.py scripts/test_read_route.py scripts/validate_all.py scripts/validate_contracts.py scripts/validate_design_governance.py scripts/validate_reading_map.py scripts/validate_run_card.py scripts/validate_structure.py
++ /usr/bin/python3 scripts/build_core.py --check
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 43198 / 46000 octets UTF-8
++ /usr/bin/python3 scripts/validate_design_governance.py
+VALIDATION PASSED — Local, 63 fichiers attendus, liens, vocabulaire et convention contrôlés
++ /usr/bin/python3 scripts/validate_run_card.py
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ /usr/bin/python3 scripts/validate_contracts.py
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
++ /usr/bin/python3 scripts/validate_reading_map.py
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
++ /usr/bin/python3 scripts/validate_structure.py
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
+CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés
++ /usr/bin/python3 scripts/test_core_budget.py
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.009s
+
+OK
+CORE BUDGET TESTS PASSED — 10 cas
++ /usr/bin/python3 scripts/test_read_route.py
+..................................................
+----------------------------------------------------------------------
+Ran 50 tests in 1.444s
+
+OK
+READ_ROUTE TESTS PASSED — 50 cas
++ /usr/bin/python3 scripts/test_audit_regressions.py
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 1.103s
+
+OK
+AUDIT REGRESSIONS PASSED — 30 cas
++ /usr/bin/python3 scripts/test_check_render.py
+Partie A — interprétation (sans navigateur)
+  [ok] A01 page propre : aucun RETURN : False
+  [ok] A02 sans sélecteur, objet de preuve NOT-VERIFIED : NOT-VERIFIED
+  [ok] A03 objet introuvable : RETURN
+  [ok] A04 objet de hauteur nulle : RETURN
+  [ok] A05 objet masqué : RETURN
+  [ok] A06 objet sous la ligne de flottaison : PASS-WITH-RESERVATION
+  [ok] A07 objet : CSS et rectangle couverts : PASS
+  [ok] A08 objet transparent : RETURN
+  [ok] A09 objet hors écran horizontal : PASS-WITH-RESERVATION
+  [ok] A10 objet faible bande horizontale : PASS-WITH-RESERVATION
+  [ok] A11 objet opacité partielle : PASS-WITH-RESERVATION
+  [ok] A12 objet découpe inconnue : PASS-WITH-RESERVATION
+  [ok] A13 objet ancienne mesure : PASS-WITH-RESERVATION
+  [ok] A14 couleur non convertible : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A15 texte SVG non mesuré : réserve explicite : PASS-WITH-RESERVATION
+  [ok] A16 fond en dégradé : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A17 contraste insuffisant : RETURN
+  [ok] A18 petite cible espacée : PASS
+  [ok] A19 petites cibles serrées : réserve, pas RETURN : PASS-WITH-RESERVATION
+  [ok] A20 focus sans changement de style : PASS-WITH-RESERVATION
+  [ok] A21 feuille ouverte qui défile : RETURN
+  [ok] A22 conteneur défilant voulu ou non : PASS-WITH-RESERVATION
+  [ok] A23 animation infinie en mouvement réduit : RETURN
+  [ok] A24 débordement du document : RETURN
+  [ok] A25 contrôle sans nom : RETURN
+  [ok] A26 opacité de groupe : réserve : PASS-WITH-RESERVATION
+  [ok] A27 opacité non couverte et défaut ailleurs : retour conservé : RETURN
+  [ok] A28 candidat DOM présent : nom calculé non prouvé : PASS-WITH-RESERVATION
+  [ok] A29 aucun contrôle DOM applicable : PASS
+  [ok] A30 ancienne mesure sans méthode de nom : PASS-WITH-RESERVATION
+  [ok] A31 zéro arrêt sans couverture : PASS-WITH-RESERVATION
+  [ok] A32 parcours terminé et candidats atteints : PASS
+  [ok] A33 borne atteinte malgré tous les candidats vus : PASS-WITH-RESERVATION
+  [ok] A34 interactif candidat et zéro arrêt : PASS-WITH-RESERVATION
+  [ok] A35 absence justifiée de candidat et parcours fini : PASS
+  [ok] A36 cycle complet : PASS
+  [ok] A37 une largeur tronquée suffit à réserver : PASS-WITH-RESERVATION
+  [ok] A38 arrêt hors inventaire : réserve : PASS-WITH-RESERVATION
+  [ok] A39 nom inconnu ne promet pas un candidat présent : True
+  [ok] A40 texte opaque évalué : PASS
+  [ok] A41 aucun texte applicable : PASS
+  [ok] A42 candidat non évalué : PASS-WITH-RESERVATION
+  [ok] A43 placeholder non évalué : PASS-WITH-RESERVATION
+  [ok] A44 ancienne mesure de contraste : réserve : PASS-WITH-RESERVATION
+  [ok] A45 une largeur non couverte suffit à réserver le contraste : PASS-WITH-RESERVATION
+  [ok] A46 sortie JSON simulée sans navigateur : 0
+  [ok] A47 JSON conserve couverture contraste et observation de preuve : [{'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}, {'found': True, 'method': 'css-rectangle-bounded', 'w': 300, 'h': 600, 'hidden': False, 'visible': 300, 'intersectionWidth': 300, 'opacity': 1, 'limits': []}]
+  [ok] A48 JSON conserve couverture clavier : end
+Partie C — fonctions JavaScript livrées sur DOM simulés, sans navigateur
+  [ok] C01 bouton dont seul le texte masqué fournit le nom : 
+  [ok] C02 descendant display none exclu : 
+  [ok] C03 texte visible conservé : Valider
+  [ok] C04 aria label : Fermer
+  [ok] C05 référence masquée explicite : Fermer
+  [ok] C06 référence avant aria label : Confirmer
+  [ok] C07 label natif masqué référencé : Prénom
+  [ok] C08 image avec alternative : Exporter
+  [ok] C09 référence inexistante : repli aria label : Valider
+  [ok] C10 référence à soi : Supprimer
+  [ok] C11 référence masquée par un ancêtre : Fermer
+  [ok] C12 pseudo contenu : cas non couvert : True
+  [ok] C13 valeur native implicite : cas non couvert : True
+  [ok] C14 opacité sur le texte et son fond : reserve
+  [ok] C15 opacité d’un ancêtre : reserve
+  [ok] C16 texte opaque conforme : pass
+  [ok] C17 texte opaque insuffisant : return
+  [ok] C18 inventaire de deux boutons sans identifiant : ['control-0', 'control-1']
+  [ok] C19 arrêts homonymes gardent deux identités : ['control-0', 'control-1']
+  [ok] C20 un seul bouton répété clôt le cycle : True
+  [ok] C21 retour à la page : raison de fin observable : True
+  [ok] C22 contrôle masqué hors inventaire actif : [1, 1]
+  [ok] C23 valeur input ignorée auparavant : PASS-WITH-RESERVATION
+  [ok] C24 placeholder ignoré auparavant : PASS-WITH-RESERVATION
+  [ok] C25 textarea courant sans childNode : PASS-WITH-RESERVATION
+  [ok] C26 textarea vide avec ancienne valeur HTML : PASS
+  [ok] C27 placeholder non affiché derrière une valeur espace : PASS-WITH-RESERVATION
+  [ok] C28 input vide sans texte : PASS
+  [ok] C29 placeholder masqué : PASS
+  [ok] C30 select natif : PASS-WITH-RESERVATION
+  [ok] C31 mot de passe : valeur jamais publiée : PASS-WITH-RESERVATION
+  [ok] C32 valeur sensible absente du relevé : False
+  [ok] C33 texte opaque conforme : PASS
+  [ok] C34 texte opaque insuffisant : RETURN
+  [ok] C35 aria hidden ne dispense pas le texte visible de contraste : RETURN
+  [ok] C36 opacité très faible non nulle : PASS-WITH-RESERVATION
+  [ok] C37 texte pseudo détecté : PASS-WITH-RESERVATION
+  [ok] C38 défaut connu prioritaire sur placeholder non évalué : RETURN
+  [ok] C39 texte directement dans body couvert : RETURN
+  [ok] C40 dénominateur de couverture : {'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}
+  [ok] C41 objet opaque dans écran : PASS
+  [ok] C42 objet transparent : RETURN
+  [ok] C43 ancêtre transparent : RETURN
+  [ok] C44 ancêtre display none : RETURN
+  [ok] C45 visibilité masquée : RETURN
+  [ok] C46 objet hors écran à gauche : PASS-WITH-RESERVATION
+  [ok] C47 visibilité rétablie sur le descendant : PASS
+  [ok] C48 objet hors écran à droite : PASS-WITH-RESERVATION
+  [ok] C49 objet sous écran : PASS-WITH-RESERVATION
+  [ok] C50 découpe ancêtre : PASS-WITH-RESERVATION
+  [ok] C51 masque objet : PASS-WITH-RESERVATION
+Partie B — pages pièges (navigateur)
+  [ok] B01 couleur oklch presque blanche : RETURN
+  [ok] B02 ombre permanente sans focus visible : PASS-WITH-RESERVATION
+  [ok] B03 deux boutons sans id = deux arrêts : 2
+  [ok] B04 objet de preuve de hauteur nulle : RETURN
+  [ok] B05 texte SVG non mesuré sur forme sombre : réserve explicite : PASS-WITH-RESERVATION
+  [ok] B06 texte HTML dans SVG : fond des formes non évalué : PASS-WITH-RESERVATION
+  [ok] B07 bouton de 20 px isolé (espacement) : PASS
+  [ok] B08 boutons de 16 px collés : PASS-WITH-RESERVATION
+  [ok] B09 page servie en HTTP chargée : PASS
+  [ok] B10 ressource d'une autre origine bloquée : True
+  [ok] B11 feuille modale : tabulation depuis son début : ['#close']
+  [ok] B12 opacite.html : PASS-WITH-RESERVATION
+  [ok] B13 nommasque.html : RETURN
+  [ok] B14 nomreference.html : PASS-WITH-RESERVATION
+  [ok] B15 inatteignable.html : PASS-WITH-RESERVATION
+  [ok] B16 sanscontrole.html : PASS
+  [ok] B17 limite atteinte même avec un bouton observé : PASS-WITH-RESERVATION
+  [ok] B18 valeur.html : PASS-WITH-RESERVATION
+  [ok] B19 valeur.html couverture publiée : True
+  [ok] B20 placeholder.html : PASS-WITH-RESERVATION
+  [ok] B21 placeholder.html couverture publiée : True
+  [ok] B22 transparent.html : RETURN
+  [ok] B23 horscran.html : PASS-WITH-RESERVATION
+  [ok] B24 page propre : code de sortie : 0
+  [ok] B25 JSON avec provenance AUTOMATED : AUTOMATED
+  [ok] B26 page fautive : code de sortie : 1
+CHECK_RENDER TESTS PASSED — A : 48 cas ; C : 51 cas ; B : 26 cas
++ /usr/bin/python3 scripts/read_route.py DIRECTION/START
+ROUTE: DIRECTION/START
+OWNER: official/DIRECTION.md
+HEADING: ## DIRECTION/START — classer avant d’agir
+---
+## DIRECTION/START — classer avant d’agir
+
+`START` est le point d’entrée quotidien d’un humain, d’une IA ou d’un pipeline. Il choisit le mode et la prochaine route ; il ne remplace ni les cinq absolus, ni les procédures, ni le jugement.
+
+**Source normative de classification.** `DIRECTION/START` est la source normative unique des modes et du risque dominant. `DIRECTION/CHARGE` est la liste de chargement par mode ; `FAST-PATH` est un raccourci pour un delta local ; `EXTERNAL-START` est une vue de transport pour un brief vague. Aucun de ces encadrés ne crée une classification concurrente. En cas de différence, `START` prévaut et le conflit est inscrit dans `CHANGELOG`.
+
+> **Ordre de lecture minimal.** 1) `START` classe le mode et le risque. 2) La protection de niveau interdit toute baisse silencieuse face à un risque critique. 3) `CHARGE` choisit la plus petite route utile ; `FAST-PATH` n’est qu’un encadré pour un correctif local ou une décision presque tranchée. 4) Une capacité n’est chargée que si elle change la construction ou la preuve. 5) `ACTION` porte la preuve et la clôture ; `SAVOIR` le jugement ; `BIBLIOTHEQUE` la structure. 6) Les modules `ATELIER`, grounding, réemploi et atlas restent silencieux tant qu’aucune décision ne peut être modifiée ; chacun n’est activé que si sa décision à modifier est identifiée, et plusieurs ne coexistent que si leurs décisions sont distinctes et utiles.
+
+### Arbre de classification
+
+Pose les questions dans cet ordre :
+
+1. La décision partagée est-elle l’objet direct du run, avec plusieurs consumers, un token, un composant, une convention, une dépendance ou une règle migrable à protéger ? → `ACTION/RUN-SYSTEM`.
+2. Faut-il définir ou redéfinir une identité, un premier contact, une surface de marque ou une hypothèse de direction autonome ? → `ACTION/RUN-DIRECTION`.
+3. Une surface avec direction retrouvable est-elle retouchée en demandant de rappeler et réévaluer la direction dans son périmètre, au-delà d’un fix ou delta local qui la conserve, sans remise en cause identitaire ni changement systémique ? → `ACTION/RUN-ITER`.
+4. S’agit-il d’un fix ou d’un delta local dans un système déjà tranché ? → `ACTION/RUN-LITE`.
+5. Sinon, s’agit-il d’un écran ou flow nouveau sans charge identitaire autonome ni blast radius systémique ? → `ACTION/RUN-STANDARD`.
+6. Si aucune réponse n’est nette, pose **une clarification ciblée** : celle qui peut changer le mode ou le risque dominant. Ne devine pas.
+
+**Frontière LITE / ITER.** Un fix local de contraste, libellé, focus ou wrapping qui conserve la direction déjà tranchée relève de `LITE`. Une retouche de composition qui demande de rappeler et réévaluer la direction retrouvable relève de `ITER`. La taille du diff ne décide pas du mode : une règle partagée reste `SYSTÈME` et la protection de niveau ci-dessous prime sur ces deux cas.
+
+Une décision de système est l’objet direct du run lorsqu’elle doit être adoptée, migrée ou protégée pour plusieurs consumers. Si le changement partagé apparaît comme conséquence d’une décision de direction, traite d’abord la direction ; ouvre ensuite le run système dépendant, sauf si les décisions sont inséparables.
+
+**Protection de niveau.** Un risque critique de tâche, de santé, de sécurité, de confidentialité, de permission ou d’accessibilité interdit `LITE` ou `ITER` dès que le changement touche une action, un état, une sémantique, une donnée, une récupération ou une preuve de ce risque. Un nouvel onboarding, formulaire, consentement, flux de santé, permission ou mécanisme de récupération n’est jamais un micro-delta `LITE` ou `ITER`, même si une seule étape ou un seul libellé semble local. Reclassifie vers `STANDARD`, `DIRECTION` ou `SYSTÈME` selon le blast radius. `LITE` ou `ITER` restent possibles seulement lorsqu’il est démontré que le delta est strictement local, réversible et sans effet sur ces responsabilités.
+
+**Silence des micro-deltas.** Une correction de libellé, de traduction, d’overflow, de contraste, de focus, d’état ou de wrapping dans un composant existant ne constitue pas à elle seule une décision de style, de technique, d’effet, d’asset ou de structure. Ne charge pas la section `DESIGN-ATLAS` de `SAVOIR.md` pour ce type de delta ; reste sur la route locale tant qu’aucune responsabilité n’est réellement modifiée.
+
+**Règle de conflit.** Si plusieurs signaux sont positifs, découpe le travail lorsque les risques sont indépendants. Deux risques sont indépendants si la preuve de l’un ne dépend pas de la décision de l’autre et si leur owner, leur artefact et leur condition de sortie peuvent être distincts. Sinon, retiens le mode qui protège le risque dominant, sans importer les artefacts sans rapport.
+
+### Entrée minimale
+
+Avant toute construction, vérifie que l’entrée courte rend retrouvables les décisions qui peuvent changer l’artefact :
+
+```text
+DECISION — ce qui doit être tranché
+RISK — coût d’erreur dominant
+SCOPE — surface, état, viewport, consumer ou périmètre concerné
+CONSTRAINT — contrainte réelle qui peut changer la décision, dont la destination (démo, prototype ou produit réel) et l’enjeu identitaire
+NEXT-PROOF — observation ou test qui permettra de trancher
+OWNER — responsable de la décision et de la prochaine action
+```
+
+Ce gabarit est une vue d’activation, pas un second schéma : `ACTION/RUN_CARD` reste propriétaire des champs complets, des états, des issues, des verdicts et de la clôture. `OWNER` et `SCOPE` ne sont jamais omis : ils rendent la reprise et la portée vérifiables. Les autres lignes sont omises ou `N/A-JUSTIFIED` si elles ne peuvent rien changer.
+
+> `DIRECTION/CREATIVE-BOOT` : servi séparément
+> `DIRECTION/DOMAIN-FRAME` : servi séparément
+### Sortie immédiate
+
+Crée ou mets à jour une ligne de run :
+
+> `RUN — [ID] — [MODE] — [décision dominante] — [risque principal] — [preuve suivante] — [état].`
+
+La ligne de run doit exister dès qu’une action de production, une vérification ou un changement d’état commence. Lorsque le risque ou la reprise l’exige, l’owner doit être retrouvable depuis cette ligne ou son identifiant.
+
+Au lancement, ajoute :
+
+> `DECISION-INTENT — [décision que la procédure doit permettre de trancher].`
+
+Après une observation qui modifie, confirme ou abandonne effectivement une décision, ajoute :
+
+> `DECISION-CHANGE — [décision effectivement changée, confirmée ou abandonnée grâce à la procédure].`
+
+À la clôture, si aucune décision n’a été changée, confirmée ou abandonnée, les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsqu’aucune conséquence n’était applicable, avec la raison, le risque de continuer sans changement et la prochaine action éventuelle ; `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée. Ne déclare jamais un changement avant qu’une observation ne l’ait rendu réel.
+
+### Mémoire de lancement et renvoi de `RUN_CARD`
+
+La ligne de run constitue une mémoire de lancement, sous-ensemble de lancement de `ACTION/HANDOFF`, non un handoff ni une `RUN_CARD` ; la ligne compacte de la sortie immédiate en est l’affichage : `ID`, `MODE`, `DECISION`, `RISK`, `SCOPE`, `ARTIFACT` attendu, `OWNER`, `NEXT-PROOF`, `LIMIT` et `EXIT-CONDITION`. Elle peut vivre dans un ticket, un manifeste de projet, un espace de travail ou un fichier local.
+
+Le schéma complet de `RUN_CARD` appartient exclusivement à **`ACTION/RUN_CARD`**. DIRECTION ne le reproduit pas et transmet la projection `ACTION/HANDOFF`; les champs non applicables sont `N/A-JUSTIFIED`, les observations non vérifiées restent `NOT-VERIFIED`. Une surface `DIRECTION` qui accepte avec V en `PASS` ou `PASS-WITH-RESERVATION`, dont le risque V/craft est dominant ou dont le verdict V dépend d’une intention encore non confrontée doit suivre `ACTION/GATE-B — B1b` avant clôture. Pour une `RUN_CARD DIRECTION` en `CLOSED`, `creative_close` contient `presence`, `signature`, `craft_detail`, `dominant_defect` et `next_polish_action` ; `direction_status`, `issue` et `verdict` restent les registres séparés d’ACTION.
+
+Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité conserve une trace persistante (trace complète, `ACTION/HANDOFF`) ; sinon, la trace légère suffit. `ITER` peut s’appuyer sur la mémoire locale du projet si la direction précédente, le périmètre, le dernier artefact, la décision, la preuve et le risque restant sont retrouvables. `LITE` peut se limiter à la ligne de run et au verdict court si l’artefact et le risque restent retrouvables.
+
+---
+
+FINDABILITY PASSED — read_route --trouver relie un terme à sa route
++ expected failure (locator inconnu)
++ /usr/bin/python3 scripts/validate_contracts.py schemas/examples/domain_frame.example.json
+CONTRACT VALIDATION PASSED — fichier ciblé (domain_frame) : /home/user/DESIGN-GOVERNANCE1/.build/distributions.L5lyHH/dist/local/schemas/examples/domain_frame.example.json
++ /usr/bin/python3 scripts/validate_run_card.py schemas/run_card.example.json
+RUN_CARD VALIDATION PASSED — fichier ciblé : /home/user/DESIGN-GOVERNANCE1/.build/distributions.L5lyHH/dist/local/schemas/run_card.example.json
++ expected failure (invalid_capability_profile_missing_basis.json)
++ expected failure (invalid_accepted_lost_in_build.json)
++ expected failure (invalid_critical_without_protection.json)
++ expected failure (invalid_critical_placeholder_protection.json)
++ /usr/bin/python3 scripts/validate_run_card.py --strict /tmp/design-governance-cli-ufbgmgka/strict_card.json
+RUN_CARD VALIDATION PASSED — fichier ciblé : /tmp/design-governance-cli-ufbgmgka/strict_card.json
++ expected failure (strict placeholder)
++ expected failure (JSON malformé)
++ expected failure (fichier absent)
+LOCAL VALIDATION PASSED — contrôles documentaires, RUN_CARD et CLI ; build et reproductibilité hors périmètre de l’export Local
+ARCHIVE MEMBERS PASSED — membres = manifeste (GitHub et Local)
+Generated:
+  /home/user/DESIGN-GOVERNANCE1/Design_Governance_V1_GITHUB.zip
+  /home/user/DESIGN-GOVERNANCE1/Design_Governance_V1_LOCAL.zip
+FULL VALIDATION PASSED — package, RUN_CARD, build et reproductibilité
