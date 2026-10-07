@@ -139,18 +139,24 @@ Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'ét
 | C19 | L6 (D9) | `b768a3e` | « Piège de conformité » entre dans le bloc POSTURE, lu à chaque run | — |
 | C40 | L6 (D7) | `5c6e210` | `check_render --captures DOSSIER` : une capture pleine page par largeur ; aucun écrasement ; chemins dans la provenance ; documenté dans VISUAL_PROOF, GATE-A et le noyau | Tests A49, A50, B27 |
 | C56 | L6 (D11) | `5c6e210` | CI : Playwright 1.56.0 et Chromium, `validate_all --require-browser` | — |
+| C22 | L2 | `83aa86e` | ACTION/FAST-PATH seul bloc d'exécution courte ; DIRECTION/FAST-PATH en renvoi ; SAVOIR/JUGEMENT-COURT et BIBLIOTHEQUE/AVANT-SELECTION | LCF-08 adapté (oui) |
+| C41 | L2 | `83aa86e` | Axes de position : SAVOIR/CFT-02 seul propriétaire ; DIRECTION y renvoie | — |
+| C05 | L2 | `01a2841` | Boucle d'édition dédupliquée dans six blocs ; liseré une seule fois | — (phrases verrouillées conservées) |
+| C06 | L2 | `01a2841` | Codes du noyau en mots ou locators résolvables ; glossaire : ANCHOR-*, TRUTH/*, B1b, FAIL-ASSUMED | — |
+| C27 | L2 | `01a2841` | Légende d'une ligne des tags du noyau | — |
+| C26 | L2 | `01a2841` | Ordre d'exécution (moyens avant structure) ; Composition découpée en trois sections | — |
 
 **Charge « Charger d'abord » par mode** (noyau + routes servies, octets UTF-8, `charge_par_mode.py`) :
 
-| Mode | `d90869c` | `ae58c5f` (L3) | `f796824` (L4) | Lecture |
-|---|---|---|---|---|
-| LITE | 76,1 Ko | 68,1 Ko | 68,9 Ko | Gate B entière n'est plus chargée |
-| ITER | 75,2 Ko | 75,7 Ko | 76,4 Ko | — |
-| STANDARD | 58,4 Ko | 81,1 Ko | 81,8 Ko | Les gates exigées par RUN-STANDARD deviennent visibles ; pas de charge réelle nouvelle |
-| DIRECTION | 132,6 Ko | 147,6 Ko | 148,4 Ko | PIPELINE-DIRECTION et VISUAL_PROOF, exigés par RUN-DIRECTION, deviennent visibles ; le poids relève de C16 (mesure) |
-| SYSTÈME | 47,6 Ko | 48,1 Ko | 48,4 Ko | — |
+| Mode | `d90869c` | `ae58c5f` (L3) | `f796824` (L4) | `01a2841` (L2) | Lecture |
+|---|---|---|---|---|---|
+| LITE | 76,1 Ko | 68,1 Ko | 68,9 Ko | 68,3 Ko | Gate B entière n'est plus chargée |
+| ITER | 75,2 Ko | 75,7 Ko | 76,4 Ko | 75,7 Ko | — |
+| STANDARD | 58,4 Ko | 81,1 Ko | 81,8 Ko | 81,1 Ko | Les gates exigées par RUN-STANDARD deviennent visibles ; pas de charge réelle nouvelle |
+| DIRECTION | 132,6 Ko | 147,6 Ko | 148,4 Ko | 147,9 Ko | PIPELINE-DIRECTION et VISUAL_PROOF, exigés par RUN-DIRECTION, deviennent visibles ; le poids relève de C16 (mesure) |
+| SYSTÈME | 47,6 Ko | 48,1 Ko | 48,4 Ko | 47,6 Ko | — |
 
-Noyau : 43 201 → 43 685 (L3) → 44 003 (L4) → 44 613 octets (L6), soit +1 412. À compenser au lot L2. Hausse L4 de +0,7 à +0,8 Ko par mode : phrase `check_render` du noyau et options documentées dans Gate A.
+Noyau : 43 201 → 43 685 (L3) → 44 003 (L4) → 44 613 (L6) → **43 168 octets (L2)**, sous le départ, avec tous les ajouts. Hausse L4 de +0,7 à +0,8 Ko par mode : phrase `check_render` du noyau et options documentées dans Gate A.
 
 **Reste à faire en fin de U2 :** une entrée de révision (CHANGELOG, RELEASE_NOTES, ligne « Révision » du README) qui récapitule les corrections U2.
 
