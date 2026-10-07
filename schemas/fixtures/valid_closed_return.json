@@ -1,0 +1,54 @@
+{
+  "run_card": {
+    "mode": "SYSTÈME",
+    "decision_intent": "Étendre un composant partagé sans casser les consommateurs existants.",
+    "risk": {
+      "level": "critical",
+      "statement": "Régression clavier ou mobile chez un consommateur du composant partagé.",
+      "critical_protection": {
+        "control": "Validation de compatibilité et de navigation clavier",
+        "owner": "system-owner",
+        "scope": "composant et trois consommateurs représentatifs",
+        "failure_action": "RETURNED",
+        "evidence_locator": "ticket-ou-commit/accessibility-check",
+        "result": "FAIL"
+      }
+    },
+    "sources": [
+      "DIRECTION/START",
+      "ACTION/RUN-SYSTEM"
+    ],
+    "artifact": {
+      "locator": "ticket-ou-commit",
+      "scope": "composant et trois consommateurs représentatifs"
+    },
+    "proof": {
+      "observed": [
+        "Une régression mobile observée dans le scope."
+      ],
+      "not_verified": [
+        "Tous les consommateurs et toutes les plateformes."
+      ]
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Retour du changement pour corriger la régression mobile.",
+      "evidence": "Capture et test du consommateur représentatif."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "issue": "RETURNED",
+      "verdict": "RETURN",
+      "limitations": [
+        "Le composant doit être corrigé avant une nouvelle clôture."
+      ]
+    },
+    "id": "FIXTURE-VALID_CLOSED_RETURN",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "decision": "Étendre un composant partagé sans casser les consommateurs existants.",
+    "trace_locator": "ticket-ou-commit",
+    "next_proof": "Rejouer la preuve attendue dans le scope déclaré."
+  }
+}
+

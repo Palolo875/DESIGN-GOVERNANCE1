@@ -1,0 +1,86 @@
+# Changelog — Design Governance V1.0.0
+
+**Version expérimentale :** `V1.0.0`  
+**Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
+**Date de V1.0.0 :** 2026-10-01\
+**Révision :** `R2026-10-04-AUDIT2-FIXES`
+
+**Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
+
+## V1.0.0 — Version initiale expérimentale (2026-10-01)
+
+Design Governance V1.0.0 est un cadre de direction, de création, de jugement et de vérification du design pour agents. Il transforme un brief en proposition composée et spécifique, puis en travail vérifiable, avec une trace proportionnée au risque.
+
+- **Sources normatives.** Cinq sources font autorité : `DIRECTION.md` (classer, diriger, charger), `ACTION.md` (preuves, gates, statuts, sorties), `SAVOIR.md` (critique et craft), `BIBLIOTHEQUE.md` (routes de structure) et ce fichier (version, cycle de vie, migration). Les guides, le glossaire et la carte de lecture en dérivent sans créer de règle.
+- **Noyau de fabrication.** Les gestes de structure, de composition, de typographie, de couleur, de contenu et de boucle d’édition sont balisés dans leurs sources et compilés dans la skill `design-governance-practice` (`scripts/build_core.py`). `DIRECTION/CHARGE` est la seule liste de chargement ; les autres tables en sont des vues.
+- **Direction avant fabrication.** Prise de brief minimale (`DIRECTION/EXTERNAL-START` : au plus trois demandes, en un seul échange, sur le contenu réel, la marque, l’asset principal ou la route autorisée, et la destination si elle est incertaine), Creative Boot avec `MODAL` / `PARTI`, premier objet de preuve, marqueurs de vague datés (`[VEILLE 2026-09]`) pour nommer la convergence sans l’interdire.
+- **Proposition et trace graduée.** Par défaut, le run s’arrête à une proposition, en trace légère ; la première proposition vaut checkpoint, sauf action irréversible ou coûteuse. La trace complète (Gate B, paquet de clôture et projection selon `ACTION/CLOSE-PACKAGE`) s’impose si le run est persistant, partagé, audité ou si une acceptation est demandée. La forme courte LITE peut être complète sans RUN_CARD selon `ACTION/HANDOFF`. Valider une proposition n’est pas l’accepter.
+- **Vérité du contenu.** Une destination réelle sans contenu reçoit des exemples marqués, pas des emplacements vides ; l’action principale reste fonctionnelle avec une valeur d’exemple marquée ; les fonctions affirmées d’un produit fictif sont marquées comme exemples.
+- **Ancre graduée.** On explore sans ancre avec une limite déclarée ; une direction identitaire n’est acceptée qu’avec une ancre, observée ou fournie pour un produit réel ; sans ancre, la direction reste `EXPLORATORY` ; `FAIL-ASSUMED` est réservé à un échec connu.
+- **Interfaces.** `ACTION/UI-UX-REALITY` est chargé avant la fabrication d’une surface UI/UX nouvelle ou substantiellement modifiée ; toute exigence UI/UX déclarée est couverte (`OBSERVED`, `NOT-VERIFIED` ou `N/A-JUSTIFIED`).
+- **Entrées.** Une personne entre par la section « Commencer » du README, en quatre questions, sans mode à choisir ; un opérateur par le guide `QUICKSTART.md` ; un agent par la skill (noyau et `DIRECTION/CHARGE`).
+- **Projection machine.** Schéma `RUN_CARD`, contrats de production, cadre de domaine et brief de recherche, avec exemples et fixtures positives et négatives ; profil strict pour les fichiers locaux.
+- **Contrôles.** `scripts/validate_all.py` contrôle l’inventaire, les liens, le vocabulaire structuré, les gardes de propriété et le noyau compilé, les contrats machine, la carte de lecture et la liste close des conditions de façade (`validate_reading_map.py`), le lecteur de routes et la reproductibilité des distributions GitHub et Local. Une divergence hors de cette liste close n’est pas détectée.
+- **Budget de chargement.** Le fichier `SKILL.md` complet (métadonnées, noyau compilé et contenu hors noyau) est borné à 46 000 octets UTF-8. Le contrôle commun de `scripts/build_core.py` refuse une compilation excessive avant écriture et contrôle chaque distribution via la validation structurelle ; la construction directe contrôle aussi la source canonique avant staging. Au-delà du budget, retirer une redondance ou déplacer un détail vers une route en conservant son activation, sans supprimer un plancher protégé pour satisfaire la taille. Ce budget ne mesure ni la charge cognitive ni le coût complet d’un run.
+- **Recherche.** La recherche littérale de routes s’active selon `DIRECTION/CHARGE` ; elle distingue les sources normatives des guides et ne prouve pas l’absence d’un savoir.
+- **Préparation.** `scripts/preparer_livraison.py`, réservé à la distribution GitHub, prépare les exports, conserve le journal des contrôles et expose leurs limites, sans publication distante. Les options `--log` et `--journal` désignent le même journal et restent compatibles.
+- **Recette de rendu.** `scripts/check_render.py` est une recette de rendu à part, optionnelle : elle exige un navigateur et ne rend aucun verdict global. `validate_all.py` exécute ses tests de comportement (`scripts/test_check_render.py`) ; sans navigateur, la partie qui ouvre des pages est déclarée `NOT-VERIFIED`, jamais réussie ; `--require-browser` fait échouer le contrôle si cette preuve est indisponible.
+- **Efficacité.** `NOT-VERIFIED`. Aucune mesure comparative n’établit l’effet du système sur la qualité des rendus ; les runs pratiques orientent sans prouver.
+
+## Autorité et maintenance
+
+**Décision du second audit (2026-10-04).** À la demande du propriétaire, corriger F07–F10 et traiter R01–R04 dans les supports existants. Propriétaires : check_render et ACTION pour couverture du texte et observations CSS ; validate_run_card pour familles d’hôtes strictes ; preparer_livraison pour unicité des destinations ; SAVOIR pour les détails de veille et la traduction par médium, ACTION/BIBLIOTHEQUE pour ressource et intervention, README/build_distributions pour la reprise. Les relais dérivés et le noyau sont mis à jour depuis ces propriétaires.
+
+Périmètre et compatibilité : V1.0.0, schémas et inventaires conservés, protections F01–F06 maintenues. `contrast_coverage` et `proof_observations` sont des sorties de recette, pas des champs RUN_CARD ; les anciens résultats incomplets restent réservés. Le strict refuse également sous-domaines et point final des familles de démonstration ; la restauration refuse les chemins non canoniques ou en collision avant écriture. Le noyau conserve les 42 blocs et les planchers protégés, avec détails datés accessibles par deux sous-locators de `SAVOIR/TOOLS` ; budget inchangé. Ressources et médiums utilisent les traces et contrats existants, sans nouveau registre obligatoire ni installation.
+
+Maintenance et preuve : mainteneur du corpus ; tests de non-régression sans navigateur, DOM simulés, profil strict, restauration et packaging reproductible. Les scénarios de panne et leurs limites sont conservés dans le rapport de correction hors distribution. Limites : texte natif réservé, pixels et occlusion non vérifiés, maîtrise des médiums et gain esthétique non mesurés ; le PID du verrou n’est qu’un indice, aucune purge selon l’âge. Revue suivante : observations spécialisées dans des travaux réels lorsque ce cadre sera demandé et disponible. Retour : restaurer AUDIT-FIXES, recompiler puis reconstruire ; annoncer les limites des anciennes recettes et conserver la procédure de reprise ainsi que les fichiers de sauvegarde, pour ne pas réintroduire un succès trop large ou une suppression aveugle.
+
+**Décision de la révision d’audit interne (2026-10-04).** Les six constats F01–F06 sont traités dans leurs propriétaires et consommateurs : recette HTML prudente pour l’opacité de groupe, candidat de nom DOM distinct d’AccName, inventaire clavier actif et raison d’arrêt ; START distingue fix local conservant la direction et retouche qui la réévalue ; HANDOFF et CLOSE-PACKAGE conservent la forme courte LITE complète sans RUN_CARD ; lecteur et validation de liens partagent la lecture des clôtures de code. Les guides et la copie compilée sont mis à jour. Le corpus reste V1.0.0, avec 69 fichiers GitHub et 63 Local ; aucun nouveau mode, gate, statut ou champ RUN_CARD. La sortie propre à la recette ajoute `keyboard_coverage` ; les lecteurs de ce JSON doivent tolérer ce champ, et les anciennes mesures sans couverture ou méthode restent réservées. Mainteneur : mainteneur du corpus. Régressions : tests sans navigateur, DOM simulés, cas de parsing et mutations LCF-55–56. Limites : composition des groupes et calcul AccName non implémentés ; contrôles navigateur, esthétique et usage non établis par ces tests. Revue suivante : observer les cas de navigateur quand ce cadre sera autorisé et disponible. Retour : restaurer la révision MOBILISATION, recompiler et reconstruire ; conserver explicitement les limites des anciennes recettes pour ne pas réintroduire leurs succès trop larges.
+
+**Décision de la révision de mobilisation.** À la demande du propriétaire du corpus, intégrer la proposition documentaire dans les supports existants. READING_MAP porte neuf connexions dérivées et sourcées ; le lecteur en contrôle révision, complétude et résolution, puis expose le sommaire ou une entrée. DIRECTION conserve classification, chargement et cadrage des moyens ; ACTION possède la vue d’exécution, sa fraîcheur, l’observation et l’autorité ; SAVOIR garde le jugement et BIBLIOTHEQUE les responsabilités structurelles. Aucun nouveau mode, gate, statut, champ de RUN_CARD ou moteur de diagnostic n’est créé. La préparation positive de l’esthétique, la cohérence d’ensemble et le médium sont accessibles avant construction ; leur effet reste attendu jusqu’à observation.
+
+Périmètre : relations ouvertes qui peuvent modifier une décision ; héritage déjà adapté conservé, protections applicables maintenues. Consommateurs : noyau agent, carte, lecteur, schéma des contrats conditionnels et distributions GitHub/Local. Compatibilité V1.0.0 : formats et champs conservés, `RUN_CARD` inchangée ; retrait du seul plafond de trois positions du contrat créatif conditionnel, avec minimum comparatif de deux positions. Les anciens contrats valides le restent ; un ancien validateur doit être remplacé pour lire plus de trois positions. Maintenance : mainteneur du corpus. Corrections protégées par LCF-51 à LCF-54 et leurs mutations ; contrôles d’index, CLI et cardinalité distincts des preuves de qualité. Limite : pertinence, gain esthétique, diversité et charge cognitive non mesurés. Prochaine revue : usage situé quand il sera autorisé, avec effet attendu, observation et coût retrouvables ; aucun run de design n’est exigé par cette correction. Retour : restaurer la révision précédente, recompiler le noyau et reconstruire les distributions ; avant retour au plafond de trois positions, repérer et migrer les nouveaux contrats qui le dépassent. Une suppression du relais seule ne supprime pas les protections préexistantes.
+
+**Décision de la révision d’activation.** BIBLIOTHEQUE possède la traduction intention → responsabilité → levier → effet et la calibration locale de fabrication ; DIRECTION déclenche ce passage, SAVOIR conserve le jugement, ACTION les preuves et les verdicts. Le noyau et les guides en portent les projections. Périmètre : sélection ou héritage dont une relation ou des paramètres restent ouverts ; aucun nouveau style, mode, gate, champ machine ou statut de route. Compatibilité V1.0.0 conservée ; consommateurs concernés : noyau agent, lecture par route et guides. Owner de maintenance : mainteneur du corpus. La vérification documentaire et les parcours bornés ne démontrent pas de gain esthétique général. Prochaine revue : une réalisation complète comparée, avec relation attendue, rendu, correction et limites retrouvables. Retour : retirer ce relais et ses précisions de calibration, puis recompiler depuis la baseline précédente si leur coût ou leur caractère prescriptif dépasse leur contribution observable ; conserver les protections préexistantes.
+
+Les cinq sources normatives sont `DIRECTION.md`, `ACTION.md`, `SAVOIR.md`, `BIBLIOTHEQUE.md` et ce fichier. Les guides d’entrée et les cartes dérivées orientent la lecture sans créer de règle concurrente. Le schéma `RUN_CARD` et ses validateurs définissent les projections machine dans leur périmètre.
+
+Le lecteur projette les identifiants structurels documentés vers leur titre ou leur section porteuse ; `LAYER/*` reste chez `BIBLIOTHEQUE/COMPONENTS`. Ce raccourci est compatible avec les locators existants, conserve le refus d’un nom absent ou ambigu et ne crée pas de route normative. Sa vérification relève des régressions du lecteur, distinctes du jugement esthétique.
+
+Toute évolution doit identifier une source normative unique, un propriétaire, le périmètre concerné, la compatibilité, la preuve attendue, la limite, la prochaine revue et la procédure de retour. Une évolution ne devient une règle transversale qu’après décision explicite du propriétaire du corpus.
+
+L’historique de conception et de travail n’est pas livré avec cette distribution. Il n’est pas requis pour lire, utiliser ou valider V1.
+
+## Cycle de vie des routes
+
+Les statuts de route décrivent la maintenance d’une route candidate ou canonique. Ils ne sont pas des verdicts de design.
+
+| Statut | Sens | Transition autorisée |
+|---|---|---|
+| `SEED` | Route du seed V1, canonique par construction, sans gain mesuré. | `ADOPTED` (contrat de gain réel satisfait, `BIBLIOTHEQUE/EVOLUTION`) ou `DEPRECATED`. |
+| `PILOT` | Route locale ou candidate testée dans un périmètre déclaré. | `ADOPTED` ou `ABANDONED` ; `DEPRECATED` lorsque la route a des consumers. |
+| `ADOPTED` | Route canonique dont le contrat, la maintenance et le gain sont acceptés. | `DEPRECATED`. |
+| `DEPRECATED` | Route conservée pour migration ou compatibilité ; elle ne doit pas être choisie dans un nouveau run. Aucun nouvel usage ; migration par `ACTION/RUN-SYSTEM` (paquet SYSTÈME). | `ABANDONED` après migration. |
+| `ABANDONED` | Route qui n’est plus maintenue ni proposée. | Aucune transition silencieuse. |
+
+Les routes présentes dans le seed de la V1 ont le statut `SEED` : canoniques, sans gain mesuré. `ADOPTED` exige le contrat de gain réel (`BIBLIOTHEQUE/EVOLUTION`). Une route peut être dépréciée depuis tout état publié ou utilisé (`SEED`, `PILOT` avec consumers, `ADOPTED`) ; une dépréciation interdit les nouveaux usages, exige une migration et ne revendique aucun gain. Toute nouvelle route ou promotion doit indiquer son problème, sa décision, son owner, son contrat, sa preuve, sa limite, sa compatibilité et sa prochaine revue.
+
+## Migration des anciens aliases
+
+Les aliases suivants, issus des brouillons antérieurs à V1, ne sont pas des routes actives. Ils sont reclassés selon ce qu’ils établissent réellement ; l’ancien identifiant peut être conservé dans une trace de compatibilité.
+
+| Alias | Reclassification retenue |
+|---|---|
+| `REFERENCES/QUERY` | `SAVOIR/TOOLS` pour une recherche ou un claim à vérifier. |
+| `REFERENCES/SOURCE` | `SAVOIR/SOURCE` pour une ancre ou une référence observée. |
+| `REFERENCES/ASSET` | `DIRECTION/VISUAL_TARGET` pour la route et le rôle de production ; `SAVOIR/SOURCE` pour provenance et limite. |
+| `REFERENCES/MEMORY` | `TRACE-LOCATOR` et artefact local ; une mémoire ne devient pas une source normative. |
+| `REFERENCES/CORPUS` | Le propriétaire normatif réellement concerné ; `CHANGELOG` seulement si le contenu modifie le package. |
+
+Une reclassification ambiguë reste `NOT-VERIFIED` ou `EXPLORATORY` jusqu’à ce que son propriétaire et sa portée soient établis.
+
+## Limites de la version
+
+Une validation de package ou de `RUN_CARD` confirme uniquement les contrôles exécutés. Elle ne remplace ni l’observation d’un rendu, ni un test utilisateur, ni une vérification d’accessibilité exécutée, ni une mesure de performance, ni une preuve d’adoption.
+
+La version reste expérimentale. Toute conclusion d’usage doit préciser ce qui a été observé, par quelle méthode, dans quel scope et avec quelle limite.

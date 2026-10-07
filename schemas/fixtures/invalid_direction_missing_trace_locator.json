@@ -1,0 +1,19 @@
+{
+  "run_card": {
+    "id": "INVALID-DIRECTION-MISSING-TRACE",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "DIRECTION",
+    "decision": "Rendre la direction visible.",
+    "decision_intent": "Rendre la direction visible.",
+    "risk": {"level": "important", "statement": "Risque principal : la décision « Rendre la direction visible » échoue dans le scope déclaré.", "critical_protection": null},
+    "sources": ["DIRECTION/START", "ACTION/RUN-DIRECTION"],
+    "direction": {"thesis": "La matière porte le premier geste.", "anti_direction": ["Hero générique."], "first_object": "Objet directeur.", "identity_stake": "normal"},
+    "artifact": {"locator": "local-artifact", "scope": "première scène", "rights_status": "not_applicable"},
+    "next_proof": "Observer le premier objet dans le rendu réel.",
+    "proof": {"observed": ["La scène a été construite."], "not_verified": ["Revue externe non réalisée."]},
+    "decision_change": {"outcome": "CHANGED", "value": "La scène a été dirigée.", "evidence": "Capture dans le scope déclaré."},
+    "closure": {"state": "CLOSED", "direction_status": "HELD", "issue": null, "verdict": "ACCEPTED-WITH-RESERVATION", "limitations": ["Revue externe non réalisée."]}
+  }
+}
+

@@ -1,0 +1,56 @@
+{
+  "creative_direction_set": {
+    "creative_boot": "Faire sentir la maîtrise d'un incident sans dramatisation décorative.",
+    "directions": [
+      {"id":"A","tension":"instrument précis ↔ scène de situation","structural_changes":["foyer unique sur l'alerte critique","preuve intégrée dans la scène"],"first_object":"une alerte détaillée avec cause, âge et action assignable"},
+      {"id":"B","tension":"vue globale ↔ investigation progressive","structural_changes":["foyer distribué par séquence d'investigation","preuve latérale révélée après sélection"],"first_object":"une séquence incident → cause → action avec historique"}
+    ],
+    "selected_direction":"A",
+    "divergence_test":"A et B changent le foyer, la position de la preuve et la temporalité du premier geste; ce ne sont pas des variantes chromatiques.",
+    "reason_for_convergence":"A permet l'identification immédiate de l'alerte critique dans le contexte opérationnel observé."
+  },
+  "ui_ux_reality_pack": {
+    "content_model":"alerte, gravité, source, horodatage, cause probable, propriétaire et action",
+    "primary_task":"comprendre puis assigner une action sur une alerte critique",
+    "first_gesture":"ouvrir l'alerte critique; feedback par ancrage du panneau et statut de lecture",
+    "state_matrix":["loading des données", "empty sans alerte", "error source indisponible", "unavailable données en retard", "success assignation"],
+    "responsive_matrix":["desktop: contexte et détail côte à côte", "tablette: détail prioritaire, contexte repliable", "petit écran: séquence guidée"],
+    "accessibility_basis":["sémantique des statuts", "focus visible", "clavier", "contraste", "information non portée par la couleur"],
+    "robustness_basis":["libellés longs", "horodatages variables", "absence de données", "non-régression du tri"],
+    "expected_scope":"desktop 1440, tablette 834, clavier, données nominales et source indisponible",
+    "observed_scope":"desktop 1440, clavier, état source indisponible",
+    "coverage_map":[
+      {"requirement":"state_matrix: loading des données", "artifact_locator":"/incidents?state=loading", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"state_matrix: empty sans alerte", "artifact_locator":"/incidents?state=empty", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"state_matrix: error source indisponible", "artifact_locator":"/incidents?state=unavailable", "proof_status":"OBSERVED"},
+      {"requirement":"state_matrix: unavailable données en retard", "artifact_locator":"/incidents?state=stale", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"state_matrix: success assignation", "artifact_locator":"/incidents?state=assigned", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"responsive_matrix: tablette: détail prioritaire, contexte repliable", "artifact_locator":"/incidents@834px", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"accessibility_basis: focus visible", "artifact_locator":"/incidents#alert-focus", "proof_status":"OBSERVED"},
+      {"requirement":"accessibility_basis: contraste", "artifact_locator":"/incidents#contrast", "proof_status":"OBSERVED"},
+      {"requirement":"robustness_basis: libellés longs", "artifact_locator":"/incidents?fixture=long-labels", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"responsive_matrix: desktop: contexte et détail côte à côte", "artifact_locator":"/incidents@1440px", "proof_status":"OBSERVED"},
+      {"requirement":"responsive_matrix: petit écran: séquence guidée", "artifact_locator":"/incidents@390px", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"accessibility_basis: sémantique des statuts", "artifact_locator":"/incidents#status-semantics", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"accessibility_basis: clavier", "artifact_locator":"/incidents#keyboard", "proof_status":"OBSERVED"},
+      {"requirement":"accessibility_basis: information non portée par la couleur", "artifact_locator":"/incidents#status-icons", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"robustness_basis: horodatages variables", "artifact_locator":"/incidents?fixture=timestamps", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"robustness_basis: absence de données", "artifact_locator":"/incidents?state=empty", "proof_status":"NOT-VERIFIED"},
+      {"requirement":"robustness_basis: non-régression du tri", "artifact_locator":"/incidents?sort=severity", "proof_status":"NOT-VERIFIED"}
+    ]
+  },
+  "evaluation_case": {
+    "brief":"concevoir le premier écran de pilotage d'incidents",
+    "domain":"outil B2B industriel",
+    "available_capabilities":["build web", "inspection navigateur", "audit clavier et contraste"],
+    "expected_depth":"deep",
+    "artifact":"route /incidents avec données de démonstration réalistes",
+    "observations":["la gravité et l'âge sont identifiables en moins d'un regard", "le premier geste reste compréhensible"],
+    "task_results":["3 opérateurs sur 4 trouvent l'alerte critique", "2 opérateurs sur 4 comprennent l'action assignée"],
+    "accessibility_results":["focus visible vérifié", "contraste vérifié", "test lecteur d'écran non exécuté"],
+    "visual_review":["présence instrumentale", "signature par hiérarchie des alertes", "défaut dominant: historique trop discret"],
+    "corrections":["renforcer le lien entre alerte et historique", "réobserver le scénario tablette"],
+    "final_limits":["pas de données de production", "pas de test en situation d'incident réel", "lecteur d'écran non vérifié"]
+  }
+}
+
