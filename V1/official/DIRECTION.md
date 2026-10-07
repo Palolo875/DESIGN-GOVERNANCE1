@@ -19,11 +19,11 @@ Une solution senior rend la tâche prioritaire plus claire, la direction visuell
 
 <!-- noyau:début POSTURE -->
 **Première idée.** Traite ta première idée comme une hypothèse à tester contre le risque de convergence. Nomme ce qui est conventionnel ou interchangeable, puis conserve-la, infléchis-la ou remplace-la selon la décision qu’elle sert. Ne remplace pas un biais de conformité par une obligation de nouveauté.
+
+**Piège de conformité.** Ce système est plus facile à satisfaire qu’à honorer. Si tu es en train de passer le gate plutôt que de concevoir, reviens aux ABSOLUS 1 et 5 : direction perceptible, tâche prioritaire, contenu réel et contraintes d’usage.
 <!-- noyau:fin POSTURE -->
 
 **Limite structurelle.** Ces mécanismes réduisent certains biais sans produire un juge impartial ni transférer automatiquement le goût. Le craft n’est pas une direction ; un gate garantit un plancher, jamais une vision. Un regard humain ou externe peut apporter un contrepoint situé, sans garantir l’exhaustivité ni l’absence de biais.
-
-**Piège de conformité.** Ce système est plus facile à satisfaire qu’à honorer. Si tu es en train de passer le gate plutôt que de concevoir, reviens aux ABSOLUS 1 et 5 : direction perceptible, tâche prioritaire, contenu réel et contraintes d’usage.
 
 ---
 
@@ -280,7 +280,7 @@ Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité con
 ## DIRECTION/CHARGE — classer, puis charger
 
 <!-- noyau:début CHARGE-REGLE -->
-> **Règle de vitesse.** Ouvre `START` (en `LITE`, l’arbre `DIRECTION/START/TREE` suffit), classe le mode, charge la ligne de ce mode, puis ajoute seulement le module susceptible de changer la prochaine décision. Si une relation de craft ou de finesse est ouverte, utilise l’activation et les gestes de `SAVOIR/STATE` déjà compilés dans le noyau ; approfondis uniquement le savoir indiqué qui peut modifier l’intervention, dans le périmètre du mode. Cette activation vaut aussi pour un correctif local ; elle n’ouvre pas mécaniquement une nouvelle direction.
+> **Règle de vitesse.** Ouvre `START` (en `LITE`, l’arbre `DIRECTION/START/TREE` suffit), classe le mode, charge la ligne de ce mode, puis ajoute seulement le module susceptible de changer la prochaine décision. Si une relation de craft ou de finesse est ouverte, utilise l’activation et les gestes de `SAVOIR/STATE` déjà compilés dans le noyau ; approfondis uniquement le savoir indiqué qui peut modifier l’intervention, dans le périmètre du mode. Cette activation vaut aussi pour un correctif local ; elle n’ouvre pas mécaniquement une nouvelle direction. Avant de construire, déclare le mode, la décision dominante, le risque principal, la preuve minimale et la condition d’arrêt (absolu 4) : une ligne suffit, dans la trace.
 
 **Retrouver un savoir utile.** Si la route pertinente est inconnue, qu’une notion semble absente ou qu’un signal de finesse reste sans intervention concrète, utilise `python3 scripts/read_route.py --trouver "terme"` avec un terme lié au signal. Cette recherche littérale porte par défaut sur les cinq sources normatives ; elle ne comprend pas les synonymes. Sans résultat, essaie une reformulation ciblée puis déclare la limite de recherche, sans conclure à l’absence du savoir. Lis la route pertinente avec `scripts/read_route.py LOCATOR`, applique son contenu à la décision ouverte et relie, pour la finesse, signal, geste conditionnel et réinspection. Si la route est déjà connue, lis-la directement. Si le lecteur est indisponible, cherche le terme dans la source propriétaire disponible et lis le passage avec son contexte. Reste dans la ligne du mode : cette recherche n’ajoute ni liste de chargement, ni lecture exhaustive, ni nouvelle direction.
 
@@ -373,7 +373,7 @@ Cette traduction n’ajoute ni formulaire ni mode. Elle rend seulement le chemin
 ## DIRECTION/FIRST-OBJECT — compiler le brief et produire le premier objet
 
 <!-- noyau:début PREMIER-OBJET -->
-Lorsque `RUN-PRIORITY`, `VISUAL_TARGET` ou `DIRECTION-ATELIER` peuvent modifier la première scène, rends retrouvables seulement **situation**, **tension**, **geste produit**, **objet de preuve**, **marquage de vérité**, **position/exclusion** et **contre-choix situé**. Sur une surface `DIRECTION`, convertis ensuite le brief vague avec la chaîne **promesse → objet de preuve → geste**. L’objet arrive avant les bénéfices et rend le mécanisme plus clair que le texte seul ; il est de préférence **codé** (composant, donnée, état ou interaction du produit), une illustration ne le portant que fournie, curatée ou générée dirigée. Toute démonstration générée ou hypothétique porte près de l’objet le marquage local `TRUTH/ILLUSTRATIVE`, cumulé avec `TRUTH/MECHANISM` lorsqu’elle matérialise un mécanisme (`DIRECTION/DIRECTION-ATELIER`) ; un exemple ne devient jamais une preuve de client, de performance, de disponibilité, d’intégration, de sécurité ou de résultat réel.
+Lorsque `RUN-PRIORITY`, `VISUAL_TARGET` ou `DIRECTION-ATELIER` peuvent modifier la première scène, rends retrouvables seulement **situation**, **tension**, **geste produit**, **objet de preuve**, **marquage de vérité**, **position/exclusion** et **contre-choix situé**. Sur une surface `DIRECTION`, convertis ensuite le brief vague avec la chaîne **promesse → objet de preuve → geste**. L’objet passe avant les listes de bénéfices et rend le mécanisme plus clair que le texte seul ; au premier regard, l’objet ou le geste peut ouvrir, selon le contexte (`SAVOIR/CRAFT/CFT-04a`) ; il est de préférence **codé** (composant, donnée, état ou interaction du produit), une illustration ne le portant que fournie, curatée ou générée dirigée. Toute démonstration générée ou hypothétique porte près de l’objet le marquage local `TRUTH/ILLUSTRATIVE`, cumulé avec `TRUTH/MECHANISM` lorsqu’elle matérialise un mécanisme (`DIRECTION/DIRECTION-ATELIER`) ; un exemple ne devient jamais une preuve de client, de performance, de disponibilité, d’intégration, de sécurité ou de résultat réel.
 
 <!-- concept:EXD-01 -->
 Les données d’exemple restent cohérentes entre elles : totaux, pourcentages, unités, dates et prix se recoupent. Un chiffre sans référence (« +32 % ») se situe (par rapport à quoi, sur quelle période) ou se retire.
