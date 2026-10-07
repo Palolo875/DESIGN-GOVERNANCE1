@@ -224,7 +224,7 @@ FIDELITY: list[tuple[str, str, str]] = [
     # Parcours
     ("checkpoint : valider n'est pas accepter", r"la personne valide, réoriente ou arrête", "pas une acceptation"),
     ("entrée humaine : valider ou retenir", r"\*\*4\. Comment poursuivre \?\*\*", "vrai produit"),
-    ("prise de brief : humain présent", r"\*\*Prise de brief\.\*\*", "Humain présent"),
+    ("prise de brief : construire dans le même tour", r"\*\*Prise de brief\.\*\*", "dans le même tour"),
     ("sortie des routes en trace légère", r"\*\*Sortie\.\*\* Paquet `(?:LITE|ITER|STANDARD|SYSTÈME)`", "Trace légère : la proposition"),
     ("réponse visible : alternative écartée", r"Pourquoi : la thèse", "l’alternative écartée"),
     # Une route RUN-* ne prescrit DECIDED puis CLOSED qu'en trace complète (TRA-01)
