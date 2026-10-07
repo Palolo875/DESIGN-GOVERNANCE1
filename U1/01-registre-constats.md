@@ -115,6 +115,30 @@ Source : les dix fiches `U1b/01` à `U1b/10`, chacune fondée sur une lecture in
 
 **Contexte historique, non normatif.** Le dépôt `Palolo875/design-governance` (V1.1.1, 26 septembre) est **obsolète** (décision du propriétaire, 2026-10-07). Il ne sert ni de source ni de référence. Deux de ses observations sont seulement citées comme signaux, sous la disposition de C34 et dans la note de discussion `U1b/12`.
 
+## Suivi des corrections (U2)
+
+Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'état de chaque constat corrigé ; chaque commit porte sa fiche de changement (règle 10) et passe `validate_all`.
+
+| ID | Lot | Commit | Correction | Verrou adapté (mutation rouge testée) |
+|---|---|---|---|---|
+| C01 | L3 | `410d365` | Bloc BRIEF : build dans le même tour, hypothèses nommées, demandes jointes à la proposition ; réponse préalable seulement sur demande ou action irréversible ou coûteuse. QUICKSTART, README (Commencer, Q2) et `examples.md` alignés | Garde « prise de brief : construire dans le même tour » (oui) |
+| C14 | L3 | `a9c0de9` | ACTION/FAST-PATH : retour à un mode plus riche si un risque critique est touché (Protection de niveau) ; fix local de contraste, libellé, focus ou wrapping reste `LITE` | — |
+| C04 | L3 | `96f2c71` | Bloc ANCRE : en enjeu identitaire élevé, réserve explicite ou calibration par ancre observée, fournie ou contrainte réelle | — |
+| C17 | L3 | `2041820` | Absolu 4 : README et récapitulatif DIRECTION alignés sur l'énoncé canonique | — |
+| C13, C15 | L3 | `e172c23`, `ae58c5f` | CHARGE devient la seule liste de chargement, complète ; la carte d'ACTION y renvoie. LITE : Gate A et sous-routes B2, B6 seulement. STANDARD : « Gates A et B ciblés » (RUN-STANDARD). DIRECTION : PIPELINE-DIRECTION et VISUAL_PROOF rendus visibles | LCF-25 (oui) ; CHG-04 admet les sous-routes (oui) ; CHG-09 retiré |
+
+**Charge « Charger d'abord » par mode** (noyau + routes servies, octets UTF-8, `charge_par_mode.py`) :
+
+| Mode | `d90869c` | `ae58c5f` | Lecture |
+|---|---|---|---|
+| LITE | 76,1 Ko | 68,1 Ko | Gate B entière n'est plus chargée |
+| ITER | 75,2 Ko | 75,7 Ko | — |
+| STANDARD | 58,4 Ko | 81,1 Ko | Les gates exigées par RUN-STANDARD deviennent visibles ; pas de charge réelle nouvelle |
+| DIRECTION | 132,6 Ko | 147,6 Ko | PIPELINE-DIRECTION et VISUAL_PROOF, exigés par RUN-DIRECTION, deviennent visibles ; le poids relève de C16 (mesure) |
+| SYSTÈME | 47,6 Ko | 48,1 Ko | — |
+
+Noyau : 43 201 → 43 685 octets (+484). À compenser au lot L2.
+
 ## Ce que ce registre ne couvre pas
 
 - *Mise à jour du 2026-10-07 :* l'inventaire U1b a ensuite lu **tous** les fichiers du paquet, y compris les parties non lues en U1 (constats C40 à C60). La phrase qui suit décrit l'état de U1 seulement.
