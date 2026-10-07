@@ -139,8 +139,9 @@ Lorsque la décision visuelle est ouverte, construis dans cet ordre : **intentio
 | **Matière et type** | Quelle surface, voix, typographie, donnée ou absence d’asset porte cette relation ? |
 | **Résolution et retenue** | Quels états, contenus, contraintes et détails doivent déjà tenir, et qu’est-il volontairement retiré ? |
 
-Une proposition est forte lorsque sa beauté vient d’une relation tenue entre produit, composition, contenu, matière, type, geste et contrainte. Elle n’est pas forte parce qu’elle accumule des effets, ni parce qu’elle s’écarte arbitrairement d’une convention.
 <!-- noyau:fin COMP-GRAMMAIRE -->
+
+Une proposition est forte lorsque sa beauté vient d’une relation tenue entre produit, composition, contenu, matière, type, geste et contrainte. Elle n’est pas forte parce qu’elle accumule des effets, ni parce qu’elle s’écarte arbitrairement d’une convention.
 
 ### Pluralité esthétique et goût situé
 
@@ -234,7 +235,7 @@ Une **proposition premium** est une proposition dont la valeur perçue est soute
 ### Creative Quality Review
 
 <!-- noyau:début BOUCLE-REVUE -->
-[MÉTHODE] Pour une décision où la qualité visuelle est dominante, conduis une revue courte après la première scène et après la repasse de craft : **ce qui est présent**, **ce qui est spécifique**, **ce qui est culturellement transformé**, **ce qui est encore générique**, **ce qui manque de résolution** et **l’intervention au gain attendu le plus utile**. Utilise l’activation et le vocabulaire perceptuel de `SAVOIR/STATE`, compilés dans le noyau : relie le défaut observé à un geste exécutable, à sa condition d’usage et au résultat à réinspecter. Les gestes proposés sont des points de départ, pas une liste fermée ; un autre geste reste recevable s’il traite le défaut et rend son effet observable. Nomme l’objet, le terme et la modification (par exemple « Surface : tester un liseré de 1 px sur le bord supérieur de la carte, lumière venant du haut ; comparer la séparation sans halo »). Une incohérence de direction appelle une réouverture, pas une accumulation de détails. Si aucun geste ne promet de gain utile, justifie la conservation. La revue produit une prochaine action, sans score esthétique ni substitution aux preuves d’ACTION.
+[MÉTHODE] Pour une décision où la qualité visuelle est dominante, conduis une revue courte après la première scène et après la repasse de craft : **ce qui est présent**, **ce qui est spécifique**, **ce qui est culturellement transformé**, **ce qui est encore générique**, **ce qui manque de résolution** et **l’intervention au gain attendu le plus utile**. Relie le défaut à un geste du vocabulaire perceptuel de `SAVOIR/STATE`, avec sa condition et l’effet à réinspecter. Les gestes proposés sont des points de départ, pas une liste fermée ; un autre geste reste recevable s’il traite le défaut et rend son effet observable. Nomme l’objet, le terme et la modification. Une incohérence de direction appelle une réouverture, pas une accumulation de détails. Si aucun geste ne promet de gain utile, justifie la conservation. La revue produit une prochaine action, sans score esthétique ni substitution aux preuves d’ACTION.
 <!-- noyau:fin BOUCLE-REVUE -->
 
 Un rendu n’est pas considéré comme suffisamment travaillé parce qu’il contient davantage de détails. Il l’est lorsque chaque détail important renforce la hiérarchie, le sens, la relation au produit ou la qualité de présence. La beauté pertinente peut venir de l’intensité comme de la retenue ; elle peut être éditoriale, technique, tactile, chaleureuse, colorée, ludique ou silencieuse selon le contexte.
@@ -509,7 +510,7 @@ Si le défaut vient de l’organisation de la scène, reprends la traduction de 
 | Image intégrée | Le sujet est coupé, un détourage porte un halo, ou le texte lutte avec l’image. | Ajuster le point focal et le recadrage selon le viewport ; traiter le bord sur son fond réel si un détourage est requis. Pour le texte superposé, choisir une zone calme ou un voile local plutôt qu’assombrir toute l’image par défaut. | Inspecter bord, sujet, texte et raccord sur desktop et mobile ; mesurer le contraste au fond défavorable. Si l’asset est inadéquat, remplacer ou produire par la route autorisée. `SAVOIR/SOURCE` ; `SAVOIR/CRAFT/CFT-03`. |
 | Mouvement | Une transition est saccadée, gratuite ou déstabilise le repère de lecture. | Relier le mouvement à un changement d’état ; régler trajectoire, durée ou atténuation sur ce changement précis. Si le mouvement n’apporte rien, supprimer l’animation ; prévoir une alternative réduite selon le contexte. | Jouer l’interaction, vérifier interruption, fin d’état et mouvement réduit ; une image fixe n’atteste pas la fluidité. `SAVOIR/CONTEXT`. |
 
-**Choix et contrôle.** Chaque ligne relie un symptôme, une intervention possible et une observation ; elle n’impose pas une esthétique. Choisis le geste dont le gain attendu traite le défaut avec le moins de dommages aux relations déjà réussies. Modifie l’artefact, compare avant/après dans le même scope et à taille réelle, puis réinspecte l’ensemble et les états concernés. Conserve, ajuste ou retire selon l’effet observé ; sans capacité de rendu ou d’interaction, déclare la limite correspondante. Si un autre savoir du corpus devient nécessaire, nomme la décision qu’il peut changer avant de le charger. La trace existante suffit ; aucun score, nouveau gate ou dossier par geste.
+**Choix et contrôle.** Chaque ligne relie un symptôme, une intervention possible et une observation ; elle n’impose pas une esthétique. Choisis le geste qui traite le défaut avec le moins de dommages aux relations déjà réussies ; compare avant/après à taille réelle dans le même scope, puis réinspecte l’ensemble et les états concernés ; sans capacité de rendu ou d’interaction, déclare la limite. La trace existante suffit ; aucun score, nouveau gate ou dossier par geste.
 <!-- noyau:fin COMP-VOCABULAIRE -->
 
 La silhouette n’exige pas une identité spectaculaire. Dans une vue administrative ou transactionnelle, elle vérifie surtout la lecture prioritaire au flou.
@@ -917,7 +918,7 @@ Le sourcing de `DIRECTION` sépare trois rôles : **ancrage de direction** — p
 
 <!-- noyau:début MOY-CARTE -->
 <!-- concept:MOY-01 -->
-[VEILLE 2026-09] **Carte des moyens par couche** : des sources, jamais des styles. Si une ressource ou son intégration reste à choisir, charge `SAVOIR/TOOLS/MOYENS` pour chercher par rôle. Vérifie disponibilité, licence et conditions pour chaque ressource retenue au moment de l’intégrer ; le nom d’une plateforme ne vaut ni connexion ni autorisation. Sans intrant ni route autorisée, assets figuratifs et contenu réel restent hors plafond (`FABRICATION`). Revue avant 2027-03.
+[VEILLE 2026-09] **Carte des moyens par couche** : des sources, jamais des styles. Si une ressource ou son intégration reste à choisir, charge `SAVOIR/TOOLS/MOYENS` pour chercher par rôle. Vérifie disponibilité, licence et conditions pour chaque ressource retenue au moment de l’intégrer ; le nom d’une plateforme ne vaut ni connexion ni autorisation. Revue avant 2027-03.
 <!-- noyau:fin MOY-CARTE -->
 
 ### MOYENS — ressources par couche
@@ -1046,7 +1047,7 @@ Ce résumé n’est pas une procédure de livraison. Il ne crée aucune route, g
 - décision et persistance.
 
 <!-- noyau:début BOUCLE-REPASSE -->
-Une repasse complète est attendue en `DIRECTION`, recommandée en `STANDARD` et ciblée en `ITER` ou `LITE` sur le périmètre modifié. Cherche ce qui est resté par défaut : alignement optique, échelle, distance, état, composant, mouvement, contenu réel, breakpoint ou récupération. Traduis le défaut retenu avec `SAVOIR/STATE` en intervention concrète et conditionnée, puis réinspecte son effet ; « rendre plus fin » ou « harmoniser » seul n’est pas une résolution.
+Une repasse complète est attendue en `DIRECTION`, recommandée en `STANDARD` et ciblée en `ITER` ou `LITE` sur le périmètre modifié. Cherche ce qui est resté par défaut : alignement optique, échelle, distance, état, composant, mouvement, contenu réel, breakpoint ou récupération. « Rendre plus fin » ou « harmoniser » seul n’est pas une résolution : nomme le geste et réinspecte son effet.
 <!-- noyau:fin BOUCLE-REPASSE -->
 
 Le système n’installe pas mécaniquement le goût. Il soutient la finesse par des gestes précis, conditionnés et réinspectés, et rend le jugement plus difficile à simuler : références observées, décisions nommées, preuves adaptées, compromis assumés et limites déclarées.

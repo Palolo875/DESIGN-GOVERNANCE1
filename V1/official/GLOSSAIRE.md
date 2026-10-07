@@ -28,6 +28,7 @@ Ce glossaire explique les mots nécessaires pour commencer. Il n’ajoute aucune
 | **Spécificité** | Ce qui relie le rendu au produit et au contexte au point qu’un template générique ne pourrait pas le remplacer sans perte. |
 | **Thèse** | La position de design en une phrase : ce que la proposition affirme sur le produit et sur la personne à qui elle s’adresse. |
 | **Ancre** | Une référence réellement regardée (observée, fournie ou générée) qui calibre une décision visuelle ; on note ce qu’on en retient, ce qu’on écarte et sa date. |
+| **Voies d’ancrage (`ANCHOR-*`)** | `ANCHOR-OBSERVED` : référence réellement regardée ; `ANCHOR-PROVIDED` : fournie par la personne ou le projet ; `ANCHOR-GENERATED` : hypothèse générée, utile pour comparer, sans autorité par défaut. |
 | **Creative Boot** | Le cadrage court fait avant le premier pixel d’une décision visuelle ouverte : promesse, objet de preuve, geste, `MODAL`, `PARTI`, tension, `FABRICATION` et premier objet. |
 | **`MODAL`** | Ce que n’importe quelle IA produirait par défaut pour ce brief (structure, palette, typographie, assets), nommé pour pouvoir le garder ou s’en écarter en connaissance de cause. |
 | **`PARTI`** | La décision prise face au `MODAL` : le garder ou s’en écarter, à quel endroit et pour quelle raison liée à la thèse. |
@@ -42,6 +43,9 @@ Ce glossaire explique les mots nécessaires pour commencer. Il n’ajoute aucune
 | **Trame modale** | L’ordre de sections que n’importe quelle IA produirait pour un brief. Le test de trame la nomme, puis la rompt ou la justifie par la tâche. |
 | **Profil de surface** | Le type de surface (vitrine, application, scène, hors Web) qui fixe les contrôles d’accessibilité à faire d’office. |
 | **Vérité de scène** | La règle qui marque comme illustratif tout exemple, chiffre ou témoignage non observé, et qui le signale au public en langage produit. |
+| **Marquage de vérité (`TRUTH/*`)** | Étiquette interne posée près d’un claim ou d’un objet : `OBSERVED` ou `ILLUSTRATIVE` (factualité, exclusive), cumulable avec `MECHANISM` (nature). Elle n’apparaît jamais dans l’interface. |
+| **B1b** | L’atelier d’édition sur capture : une décision principale éditée par retrait, réduction ou transformation, puis comparée ; requis seulement dans son scope (`ACTION/GATE-B/B1b`). |
+| **`FAIL-ASSUMED`** | Un échec connu et observé, assumé explicitement (`ACTION/OVERRIDE`) ; jamais pour une preuve ou une ancre absente, qui reste `NOT-VERIFIED`. |
 | **Slop** | Une production générique, répétitive ou trompeuse faite avec peu de soin ; le slop procédural est une trace remplie sans décision réelle. |
 | **Premier objet** | L’élément qui rend la direction visible et utile dans la première proposition : objet, scène, composant, interaction ou relation de contenu. |
 | **Boucle d’amélioration** | Après la première proposition, observer le réel, isoler le défaut dominant, modifier l’artefact, observer à nouveau et décider ; une critique textuelle seule ne constitue pas une correction. |
