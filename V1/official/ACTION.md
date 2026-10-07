@@ -10,17 +10,9 @@
 
 ### Carte de lecture par mode
 
-Cette carte est une vue de `DIRECTION/CHARGE`, pas une seconde liste : elle nomme les sections d’ACTION que la route de chaque mode appelle.
+La liste de chargement de chaque mode est `DIRECTION/CHARGE`, la seule du corpus ; la skill en porte une copie compilée. Cette section ne la répète pas : elle précise seulement ce qui s’ajoute selon la trace.
 
 **Socle pour tous les modes :** `ACTION/STATUS` et `ACTION/PRECONDITION`, dès que le run écrit un statut, un gate ou un verdict (trace complète) ; `DIRECTION/CHARGE` reste la liste du démarrage.
-
-| Mode | Sections d’ACTION appelées par la route |
-|---|---|
-| `LITE` | `ACTION/RUN-LITE` ; `ACTION/GATE-A` applicable et `ACTION/GATE-B` du risque dominant |
-| `ITER` | `ACTION/RUN-ITER` ; non-régression pertinente ; `ACTION/GATE-A` applicable et `ACTION/GATE-B` du risque touché ; `ACTION/GATE-C` seulement si le craft change |
-| `STANDARD` | `ACTION/RUN-STANDARD` ; `ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substantiellement modifiée ; `BIBLIOTHEQUE/SELECT` si la structure est ouverte ; `ACTION/GATE-A`, `ACTION/GATE-B` ou `ACTION/GATE-C` ciblés selon le risque |
-| `DIRECTION` | `ACTION/RUN-DIRECTION`, `ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substantiellement modifiée, `ACTION/PIPELINE-DIRECTION`, `ACTION/VISUAL_PROOF`, `ACTION/GATE-A`, `ACTION/GATE-C` ; `ACTION/GATE-B` en trace complète (`ACTION/HANDOFF`) |
-| `SYSTÈME` | `ACTION/RUN-SYSTEM`, puis `CHANGELOG` pour adoption ou migration |
 
 Le paquet de sortie de chaque mode est défini par `ACTION/CLOSE-PACKAGE` ; `ACTION/RUN-DIRECTION` (ancrages) et `ACTION/RUN-SYSTEM` (`closure.system_package`) en précisent le détail.
 

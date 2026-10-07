@@ -19,7 +19,7 @@ Gardes :
  10. ORDRE — dans DIRECTION, rôle, posture et récapitulatif de protection précèdent les sections détaillées.
   9. CHARGEMENT — une seule table de chargement (`DIRECTION/CHARGE`, et sa copie compilée dans la skill) ;
      les façades y renvoient ; la ligne `DIRECTION` garde le build et l'ordre cible → premier objet ;
-     Gate B n'y est chargée qu'en trace complète, comme dans la carte de lecture d'ACTION.
+     Gate B n'y est chargée qu'en trace complète ; la carte de lecture d'ACTION renvoie à CHARGE (D2).
  12. LOCATORS DU VALIDATEUR — un message de `validate_run_card.py` cite un lieu nommé, jamais un numéro de ligne.
  13. ENTRÉE HUMAINE — une seule entrée balisée (README du package, reprise par le README Local), quatre questions,
      aucun mode demandé, vouvoiement ; une seule constitution minimale (ENT-01, CST-01).
@@ -588,12 +588,6 @@ def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
     gb, tc = first.find("`ACTION/GATE-B`"), first.find("trace complète")
     if gb >= 0 and not (0 <= tc < gb):
         errors.append("[CHG-08] chargement : en DIRECTION, Gate B n'est chargée qu'en trace complète (ACTION/HANDOFF)")
-    carte = [l for l in (OFFICIAL / "ACTION.md").read_text(encoding="utf-8").splitlines()
-             if l.startswith("| `DIRECTION` |") and "`ACTION/RUN-DIRECTION`" in l]
-    row = carte[0] if len(carte) == 1 else ""
-    if not row or ("`ACTION/GATE-B`" in row and "`ACTION/GATE-B` en trace complète" not in row
-                   and not 0 <= row.find("trace complète") < row.find("`ACTION/GATE-B`")):
-        errors.append("[CHG-09] chargement : la carte de lecture d'ACTION charge Gate B en DIRECTION hors trace complète")
     if "`ACTION/CLOSE-PACKAGE`" not in body or any("Clôture" in l for l in served if l.startswith("| Mode |")):
         errors.append("[CHG-01] chargement : la clôture de chaque mode renvoie à ACTION/CLOSE-PACKAGE, sans colonne de clôture")
     lite = cells("LITE")

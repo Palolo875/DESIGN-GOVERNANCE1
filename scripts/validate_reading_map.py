@@ -304,9 +304,11 @@ def lcf_24(t: dict[str, str]) -> bool:
 
 def lcf_25(t: dict[str, str]) -> bool:
     carte = t["A"][t["A"].find("### Carte de lecture par mode"):t["A"].find("### ACTION/HANDOFF")]
+    # La carte d'ACTION renvoie à DIRECTION/CHARGE (décision D2, constat C13) : elle ne porte plus de ligne par mode.
     for mode in ("LITE", "ITER"):
-        sk, ac = charge_row(t, mode), row(carte, f"`{mode}`")
-        if not (sk and ac and len(sk) > 2 and "ACTION/GATE-B" in sk[1] and not re.search(r"(?i)gates? B", sk[2]) and "ACTION/GATE-B" in ac[1]):
+        sk = charge_row(t, mode)
+        if not (sk and len(sk) > 2 and "ACTION/GATE-B" in sk[1] and not re.search(r"(?i)gates? B", sk[2])
+                and "`DIRECTION/CHARGE`" in carte and row(carte, f"`{mode}`") is None):
             return False
     return True
 
@@ -649,7 +651,7 @@ def check_facades(errors: list[str]) -> None:
         ("LCF-22", "ACTION (table RUN_CARD, réponse visible, paquets), GLOSSAIRE et façades : DECISION-CHANGE", "ACTION/STATUS (triade) ; RET-1", lcf_22(t)),
         ("LCF-23", "ACTION/GATE-B — B1b, portée", "validate_run_card (check_b1b) ; INV-B3-3 ; RET-2", lcf_23(t)),
         ("LCF-24", "QUICKSTART et skill, Creative Boot", "DIRECTION/CREATIVE-BOOT ; BIBLIOTHEQUE/TENSION ; RET-3", lcf_24(t)),
-        ("LCF-25", "skill et carte d'ACTION, chargement LITE et ITER", "ACTION/PRECONDITION (Gate B du risque) ; RET-4", lcf_25(t)),
+        ("LCF-25", "skill et carte d'ACTION : chargement LITE et ITER dans CHARGE seule", "ACTION/PRECONDITION (Gate B du risque) ; RET-4", lcf_25(t)),
         ("LCF-26", "machine_projection : axes et profile_decision", "schemas/run_card.schema.json ; RET-5", lcf_26(t)),
         ("LCF-27", "CHANGELOG, RELEASE_NOTES, README : portée de la cohérence des façades", "liste close des conditions de façade ; RET-6", lcf_27(t)),
         ("LCF-28", "ACTION, table de correspondance RUN_CARD : lignes VISUAL_TARGET", "DIRECTION/VISUAL_TARGET (table canonique)", lcf_28(t)),
