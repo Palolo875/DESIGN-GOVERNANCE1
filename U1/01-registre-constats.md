@@ -126,18 +126,27 @@ Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'ét
 | C04 | L3 | `96f2c71` | Bloc ANCRE : en enjeu identitaire élevé, réserve explicite ou calibration par ancre observée, fournie ou contrainte réelle | — |
 | C17 | L3 | `2041820` | Absolu 4 : README et récapitulatif DIRECTION alignés sur l'énoncé canonique | — |
 | C13, C15 | L3 | `e172c23`, `ae58c5f` | CHARGE devient la seule liste de chargement, complète ; la carte d'ACTION y renvoie. LITE : Gate A et sous-routes B2, B6 seulement. STANDARD : « Gates A et B ciblés » (RUN-STANDARD). DIRECTION : PIPELINE-DIRECTION et VISUAL_PROOF rendus visibles | LCF-25 (oui) ; CHG-04 admet les sous-routes (oui) ; CHG-09 retiré |
+| C25 | L4 | `9210a78` | `--trouver --guides` couvre le README racine et les références de la skill (GitHub et Local) | Test ajouté (oui) |
+| C10 | L4 | `9210a78` | Restaurateur Markdown : dossier vide ou absent, sans lien symbolique ; plus d'écrasement ni de mélange (T-01 à T-05) | Test ajouté (oui) |
+| C39 | L4 | `9210a78` | Options de `check_render` dans ACTION/GATE-A ; une phrase dans le bloc BOUCLE du noyau ; blocage externe gardé par défaut (D10) | Plancher CORE-01 ajouté (oui) |
+| C43 | L4 | `9210a78` | Section « Installer la skill dans un agent » (README GitHub), paragraphe équivalent (README Local) | — (non testé dans un agent réel) |
+| C47 | L4 | `9210a78` | Profil strict : existence des deux captures de la paire B1b faite (T-22) ; docs alignées | Cas ajoutés à `validate_all` (oui) ; base d'un test d'audit adaptée |
+| C45 | L4 | `f796824` | SAVOIR/SOURCE cite RESEARCH_BRIEF comme projection facultative ; ROLE, OWNER / NEXT-PROOF restent en trace | — |
+| C38 | L4 | `f796824` | SAVOIR/TOOLS/MOYENS : la carte nomme, ne contient ni ne teste ; une ressource compte une fois intégrée et vue ; repli par route de production | — |
 
 **Charge « Charger d'abord » par mode** (noyau + routes servies, octets UTF-8, `charge_par_mode.py`) :
 
-| Mode | `d90869c` | `ae58c5f` | Lecture |
-|---|---|---|---|
-| LITE | 76,1 Ko | 68,1 Ko | Gate B entière n'est plus chargée |
-| ITER | 75,2 Ko | 75,7 Ko | — |
-| STANDARD | 58,4 Ko | 81,1 Ko | Les gates exigées par RUN-STANDARD deviennent visibles ; pas de charge réelle nouvelle |
-| DIRECTION | 132,6 Ko | 147,6 Ko | PIPELINE-DIRECTION et VISUAL_PROOF, exigés par RUN-DIRECTION, deviennent visibles ; le poids relève de C16 (mesure) |
-| SYSTÈME | 47,6 Ko | 48,1 Ko | — |
+| Mode | `d90869c` | `ae58c5f` (L3) | `f796824` (L4) | Lecture |
+|---|---|---|---|---|
+| LITE | 76,1 Ko | 68,1 Ko | 68,9 Ko | Gate B entière n'est plus chargée |
+| ITER | 75,2 Ko | 75,7 Ko | 76,4 Ko | — |
+| STANDARD | 58,4 Ko | 81,1 Ko | 81,8 Ko | Les gates exigées par RUN-STANDARD deviennent visibles ; pas de charge réelle nouvelle |
+| DIRECTION | 132,6 Ko | 147,6 Ko | 148,4 Ko | PIPELINE-DIRECTION et VISUAL_PROOF, exigés par RUN-DIRECTION, deviennent visibles ; le poids relève de C16 (mesure) |
+| SYSTÈME | 47,6 Ko | 48,1 Ko | 48,4 Ko | — |
 
-Noyau : 43 201 → 43 685 octets (+484). À compenser au lot L2.
+Noyau : 43 201 → 43 685 (L3) → 44 003 octets (L4), soit +802. À compenser au lot L2. Hausse L4 de +0,7 à +0,8 Ko par mode : phrase `check_render` du noyau et options documentées dans Gate A.
+
+**Reste à faire en fin de U2 :** une entrée de révision (CHANGELOG, RELEASE_NOTES, ligne « Révision » du README) qui récapitule les corrections U2.
 
 ## Ce que ce registre ne couvre pas
 
