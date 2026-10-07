@@ -106,6 +106,8 @@ Design Governance V1.0.0 est une expérimentation maintenue qui aide à transfor
 
 Un agent entre par [`skill/SKILL.md`](skill/SKILL.md) : noyau de fabrication et liste de chargement unique (`DIRECTION/CHARGE`). Pour piloter un run, lisez le guide opérateur [`official/QUICKSTART.md`](official/QUICKSTART.md) ; le vocabulaire est dans [`official/GLOSSAIRE.md`](official/GLOSSAIRE.md). Le mode d’un run est choisi par l’agent avec `DIRECTION/START` ; il n’est jamais demandé à la personne qui fait la demande.
 
+Pour installer la skill : gardez l’export entier ; avec Claude Code, copiez le dossier `skill` dans `.claude/skills/design-governance-practice/` du projet ou de `~/.claude/` ; avec un autre agent, donnez-lui `skill/SKILL.md` comme instructions. Les commandes de la skill s’exécutent depuis la racine de l’export : travaillez dans ce dossier ou indiquez son chemin à l’agent. Vérifiez avec `python3 scripts/read_route.py DIRECTION/START`. Sans accès à l’export, l’agent n’a que le noyau ; après une mise à jour, recopiez la skill.
+
 <!-- partage:constitution -->
 
 Pour charger un seul bloc :

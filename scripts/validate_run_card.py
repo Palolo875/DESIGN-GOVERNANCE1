@@ -588,7 +588,8 @@ def is_local_locator(locator: str) -> bool:
 
 def check_strict_contract(document: Any, source_path: Path) -> None:
     """Profil strict (INV-C4-2) : mêmes exigences par mode que le profil normal, plus trois contrôles :
-    placeholders exacts, familles d'hôtes de démonstration, existence des locators locaux résolus depuis le dossier de la carte."""
+    placeholders exacts, familles d'hôtes de démonstration, existence des locators locaux résolus depuis le dossier de la carte
+    (artefact, trace et, si la paire B1b est faite, ses deux captures)."""
     exact_placeholders = {
         "lorem ipsum",
         "chemin-ou-url-local",
@@ -618,6 +619,12 @@ def check_strict_contract(document: Any, source_path: Path) -> None:
     card = card if isinstance(card, dict) else {}
     artifact = card.get("artifact") if isinstance(card.get("artifact"), dict) else {}
     locators = [("artifact.locator", artifact.get("locator")), ("trace_locator", card.get("trace_locator"))]
+    closure = card.get("closure") if isinstance(card.get("closure"), dict) else {}
+    b1b = closure.get("b1b") if isinstance(closure.get("b1b"), dict) else {}
+    pair = b1b.get("pair") if b1b.get("status") == "DONE" and isinstance(b1b.get("pair"), dict) else {}
+    locators += [(f"closure.b1b.pair.{side}", pair.get(side)) for side in ("before_locator", "after_locator") if side in pair]
+    kinds = {"artifact.locator": "artefact", "trace_locator": "trace",
+             "closure.b1b.pair.before_locator": "capture B1b avant", "closure.b1b.pair.after_locator": "capture B1b après"}
     if not isinstance(artifact.get("locator"), str) or not artifact["locator"].strip():
         raise ValidationError("strict : artifact.locator doit être renseigné")
     base = source_path.resolve().parent  # dossier de la carte, quel que soit le dossier de lancement
@@ -637,7 +644,7 @@ def check_strict_contract(document: Any, source_path: Path) -> None:
             if not candidate.is_absolute():
                 candidate = base / candidate
             if not candidate.exists():
-                raise ValidationError(f"strict : {'artefact' if label == 'artifact.locator' else 'trace'} local absent : {locator}")
+                raise ValidationError(f"strict : {kinds[label]} local absent : {locator}")
 
 
 def validate_card(document: Any, schema: dict[str, Any], strict: bool = False, source_path: Path | None = None) -> None:

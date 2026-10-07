@@ -99,16 +99,16 @@ python3 scripts/read_route.py ACTION/RUN-LITE
 python3 scripts/read_route.py --trouver "cohérence de rayon"
 ```
 
-`--trouver` recherche les lignes contenant littéralement le terme dans les cinq sources normatives, en ignorant la casse et les accents, puis indique la route qui sert chaque passage. Il ne comprend pas les synonymes : sans résultat, essayer une reformulation ciblée ; l’absence d’occurrence ne prouve pas l’absence du savoir. L’activation pour l’agent appartient à `DIRECTION/CHARGE` et figure dans le noyau compilé. `--guides`, utilisable avec `--trouver`, ajoute les documents d’orientation, explicitement séparés des résultats normatifs. Les marqueurs de compilation et de concept ne sont pas des passages de lecture.
+`--trouver` recherche les lignes contenant littéralement le terme dans les cinq sources normatives, en ignorant la casse et les accents, puis indique la route qui sert chaque passage. Il ne comprend pas les synonymes : sans résultat, essayer une reformulation ciblée ; l’absence d’occurrence ne prouve pas l’absence du savoir. L’activation pour l’agent appartient à `DIRECTION/CHARGE` et figure dans le noyau compilé. `--guides`, utilisable avec `--trouver`, ajoute les documents d’orientation (guides du corpus, README racine et références de la skill), explicitement séparés des résultats normatifs. Les marqueurs de compilation et de concept ne sont pas des passages de lecture.
 
-Le lecteur résout le locator selon `READING_MAP.md` (raccourci, titre propriétaire, puis sous-locator) et n’affiche que le bloc demandé. Pour une carte concrète, le mode strict rejette les placeholders et vérifie les locators d’artefacts locaux. Remplacez les chemins d’exemple ci-dessous par ceux de vos fichiers :
+Le lecteur résout le locator selon `READING_MAP.md` (raccourci, titre propriétaire, puis sous-locator) et n’affiche que le bloc demandé. Pour une carte concrète, le mode strict rejette les placeholders et vérifie l’existence des locators locaux : artefact, trace et captures avant/après de la paire B1b. Remplacez les chemins d’exemple ci-dessous par ceux de vos fichiers :
 
 ```bash
 python3 scripts/validate_run_card.py --strict chemin/vers/run_card.json
 python3 scripts/validate_contracts.py --type production_contracts chemin/vers/contrat.json
 ```
 
-Le mode strict complète la validation structurelle ; il ne transforme pas une preuve documentaire en preuve d’usage. Pour les locators HTTP(S) d’artefact et de trace, il refuse les familles `example.com`, `example.org`, `example.net` et `.invalid`, y compris leurs sous-domaines, après normalisation de casse et du point final. Une URL admise n’est pas vérifiée sur le réseau. Pour une préparation interrompue, voir la procédure de diagnostic et de reprise dans le README du paquet.
+Le mode strict complète la validation structurelle ; il ne transforme pas une preuve documentaire en preuve d’usage. Pour les locators HTTP(S) d’artefact, de trace et de captures, il refuse les familles `example.com`, `example.org`, `example.net` et `.invalid`, y compris leurs sous-domaines, après normalisation de casse et du point final. Une URL admise n’est pas vérifiée sur le réseau. Pour une préparation interrompue, voir la procédure de diagnostic et de reprise dans le README du paquet.
 
 ## 4. Choisir le mode sans le deviner
 

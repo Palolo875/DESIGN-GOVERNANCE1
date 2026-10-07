@@ -134,6 +134,23 @@ class CopyTests(unittest.TestCase):
                 self.assertFalse((self.root / 'outside.json').exists())
                 alias.unlink(); out.rmdir()
 
+    def test_nonempty_or_linked_destination_refused_empty_accepted(self):
+        out = self.root / 'restored'; out.mkdir()
+        (out / 'README.md').write_bytes(b'conserver'); (out / 'hors_inventaire.txt').write_bytes(b'garder')
+        r, _ = self.restore(prep.markdown_copy(self.archive, False))
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn('dossier vide', r.stderr)
+        self.assertEqual((out / 'README.md').read_bytes(), b'conserver')
+        shutil.rmtree(out)
+        real = self.root / 'real'; real.mkdir(); out.symlink_to(real)
+        r, _ = self.restore(prep.markdown_copy(self.archive, False))
+        self.assertNotEqual(r.returncode, 0)
+        self.assertEqual(list(real.iterdir()), [])
+        out.unlink(); out.mkdir()
+        r, _ = self.restore(prep.markdown_copy(self.archive, False))
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertEqual({str(p.relative_to(out)): p.read_bytes() for p in out.rglob('*') if p.is_file()}, self.content)
+
     def test_verify_uses_embedded_restorer_for_both_copies(self):
         for docs in (False, True):
             copy = self.root / "verify.md"; copy.write_text(prep.markdown_copy(self.archive, docs), encoding="utf-8", newline="")

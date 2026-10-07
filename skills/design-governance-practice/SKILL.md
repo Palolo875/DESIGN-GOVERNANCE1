@@ -159,7 +159,7 @@ Place un **marquage local de vérité** à proximité du claim ou de l’objet c
 
 ### 7. Boucle d’édition
 
-La boucle commune est : **préparer → construire → observer → isoler le défaut dominant → modifier l’artefact ou la décision → observer à nouveau → comparer → décider**. La modification doit changer une relation visible, une tâche, une preuve, une contrainte ou une propriété de robustesse. Une nouvelle rationale, une variante décorative ou une reformulation de la trace ne constitue pas une correction.
+La boucle commune est : **préparer → construire → observer → isoler le défaut dominant → modifier l’artefact ou la décision → observer à nouveau → comparer → décider**. La modification doit changer une relation visible, une tâche, une preuve, une contrainte ou une propriété de robustesse. Une nouvelle rationale, une variante décorative ou une reformulation de la trace ne constitue pas une correction. Pour un rendu HTML, `python3 scripts/check_render.py page.html` (navigateur requis) observe les fautes objectivables aux largeurs courantes : `--click SÉLECTEUR` observe un autre état ; les polices et images hébergées ailleurs sont bloquées sauf avec `--allow-external` ; il ne juge ni la direction ni l’usage.
 
 La seconde boucle n’est pas une suite de petits polish. Après observation, choisis la suite qui correspond au diagnostic :
 

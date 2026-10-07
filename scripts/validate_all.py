@@ -153,6 +153,14 @@ def main() -> int:
         temp = Path(temp_dir)
         strict_card = temp / "strict_card.json"
         strict_card.write_text((ROOT / "schemas/run_card.example.json").read_text(encoding="utf-8").replace("chemin-ou-url-local", (ROOT / "schemas/run_card.example.json").as_posix()).replace("ticket-ou-chemin-de-run", (ROOT / "schemas/run_card.example.json").as_posix()), encoding="utf-8")
+        (temp / "captures").mkdir()
+        (temp / "captures/premiere-scene-v1.png").write_bytes(b"")
+        expect_failure(
+            [sys.executable, "scripts/validate_run_card.py", "--strict", str(strict_card)],
+            "strict capture B1b absente",
+            "strict : capture B1b après local absent",
+        )
+        (temp / "captures/premiere-scene-v1-sans-objet.png").write_bytes(b"")
         run([sys.executable, "scripts/validate_run_card.py", "--strict", str(strict_card)])
         expect_failure(
             [sys.executable, "scripts/validate_run_card.py", "--strict", "schemas/run_card.example.json"],

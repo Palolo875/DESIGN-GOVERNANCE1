@@ -623,7 +623,8 @@ CORE_FLOOR = [("| Ajouter seulement si", "colonne « Ajouter seulement si » de 
               ("`ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substantiellement modifiée",
                "déclencheur UI/UX avant fabrication"),
               ("fonctions, intégrations et conformités affirmées", "fonctions d'un produit fictif marquées"),
-              ("`DIRECTION/DOMAIN-FRAME` si la demande est nouvelle", "déclencheur DOMAIN-FRAME dans CHARGE")]
+              ("`DIRECTION/DOMAIN-FRAME` si la demande est nouvelle", "déclencheur DOMAIN-FRAME dans CHARGE"),
+              ("sauf avec `--allow-external`", "recette check_render et son blocage externe par défaut (C39)")]
 
 
 def check_core_floor(errors: list[str]) -> None:

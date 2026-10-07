@@ -50,7 +50,9 @@ class CodeFenceTests(unittest.TestCase):
 class SearchTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
-        self.official = Path(self.tmp.name)
+        self.root = Path(self.tmp.name)
+        self.official = self.root / "official"
+        self.official.mkdir()
         for prefix in reader.PREFIXES:
             (self.official / f"{prefix}.md").write_text(f"# {prefix}\n\n## {prefix}/TEST\nPassage de base.\n", encoding="utf-8")
         (self.official / "READING_MAP.md").write_text("# Carte\n## Locators principaux\n## Condition d’arrêt\n", encoding="utf-8")
@@ -58,7 +60,7 @@ class SearchTests(unittest.TestCase):
             "# Savoir\n## SAVOIR/STATE\nCohérence de rayon : signal utile.\n"
             "### SAVOIR/CHILD\nUn signal enfant précis.\n<!-- concept:TEST-MARKER -->\n", encoding="utf-8")
         (self.official / "QUICKSTART.md").write_text("Cohérence de rayon dans le guide.\n", encoding="utf-8")
-        self.override = patch.multiple(reader, OFFICIAL=self.official, MAP=self.official / "READING_MAP.md")
+        self.override = patch.multiple(reader, ROOT=self.root, OFFICIAL=self.official, MAP=self.official / "READING_MAP.md")
         self.override.start()
 
     def tearDown(self):
@@ -72,6 +74,16 @@ class SearchTests(unittest.TestCase):
     def test_guides_are_opt_in(self):
         self.assertEqual(len(reader.find("cohérence de rayon")), 1)
         self.assertEqual([r[1] for r in reader.find("cohérence de rayon", True)], ["SAVOIR.md", "QUICKSTART.md"])
+
+    def test_guides_include_root_readme_and_skill_references(self):
+        (self.root / "README.md").write_text("Cohérence de rayon à l’entrée.\n", encoding="utf-8")
+        for refs in (self.root / "skills" / "practice" / "references", self.root / "skill" / "references"):
+            refs.mkdir(parents=True)
+            (refs / "examples.md").write_text("Cohérence de rayon en exemple.\n", encoding="utf-8")
+        self.assertEqual(len(reader.find("cohérence de rayon")), 1)
+        self.assertEqual([r[1] for r in reader.find("cohérence de rayon", True)],
+                         ["SAVOIR.md", "QUICKSTART.md", "README.md",
+                          "skills/practice/references/examples.md", "skill/references/examples.md"])
 
     def test_no_semantic_match(self):
         self.assertEqual(reader.find("courbure concentrique"), [])

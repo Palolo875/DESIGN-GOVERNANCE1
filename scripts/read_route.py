@@ -14,8 +14,8 @@ Un identifiant absent, ambigu ou présent seulement dans un bloc de code est ref
 
 Recherche de routes par terme : `--trouver TERME` recherche les lignes contenant littéralement le terme
 dans les cinq sources normatives et indique la route la plus précise qui sert le passage.
-La casse et les accents sont ignorés, pas les synonymes. `--guides` ajoute les documents d'orientation,
-identifiés séparément. Les marqueurs internes sont exclus. Aucun résultat ne prouve l'absence du savoir.
+La casse et les accents sont ignorés, pas les synonymes. `--guides` ajoute les documents d'orientation
+(guides du corpus, README racine, références de la skill), identifiés séparément. Les marqueurs internes sont exclus. Aucun résultat ne prouve l'absence du savoir.
 
 `--connexions [Cxx]` expose un sommaire ou une connexion située de READING_MAP,
 avec ses sources résolues et la révision propriétaire. Aucun classement,
@@ -359,13 +359,23 @@ def find(term: str, include_guides: bool = False) -> list[tuple[str | None, str,
     sources = [OFFICIAL / f"{prefix}.md" for prefix in PREFIXES]
     if include_guides:
         sources += sorted(p for p in OFFICIAL.glob("*.md") if p not in sources)
+        sources += guide_extras()
     for path in sources:
+        name = path.name if path.parent == OFFICIAL else path.relative_to(ROOT).as_posix()
         for number, line in enumerate(path.read_text(encoding="utf-8").splitlines()):
             if not CONCEPT_MARKER.match(line) and query in _fold(line):
                 around = [b for b in blocks if b[0] == path and number in b[1]]
                 best = min(around, key=lambda b: len(b[1]))[2] if around else None
-                results.append((best, path.name, number + 1, line.strip()))
+                results.append((best, name, number + 1, line.strip()))
     return results
+
+
+def guide_extras() -> list[Path]:
+    """Guides hors du corpus : README racine et références de la skill (dispositions GitHub et Local)."""
+    extras = [ROOT / "README.md"] if (ROOT / "README.md").is_file() else []
+    for pattern in ("skills/*/references/*.md", "skill/references/*.md"):
+        extras += sorted(ROOT.glob(pattern))
+    return extras
 
 
 def _excerpt(line: str, term: str, width: int = 120) -> str:
@@ -382,7 +392,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Charge un locator, trouve la route d’un terme ou expose les connexions situées.")
     parser.add_argument("locator", nargs="?", help="locator, par exemple DIRECTION/START ou SAVOIR/CRAFT/CFT-01")
     parser.add_argument("--trouver", metavar="TERME", help="liste les routes où le terme apparaît (casse et accents ignorés)")
-    parser.add_argument("--guides", action="store_true", help="ajouter les documents d’orientation à une recherche --trouver")
+    parser.add_argument("--guides", action="store_true", help="ajouter les documents d’orientation (guides, README racine, références de la skill) à une recherche --trouver")
     parser.add_argument("--connexions", nargs="?", const="", metavar="Cxx", help="sommaire des connexions situées, ou entrée Cxx")
     args = parser.parse_args(argv)
     if sum((args.locator is not None, args.trouver is not None, args.connexions is not None)) != 1:

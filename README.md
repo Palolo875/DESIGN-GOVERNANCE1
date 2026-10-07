@@ -53,6 +53,16 @@ V1 vise une première proposition composée, spécifique et soignée, sans impos
 | Reviewer ou lead | [`READING_MAP.md`](V1/official/READING_MAP.md), puis [`ACTION.md`](V1/official/ACTION.md) | Preuve dans le scope, limites et décision de clôture. |
 | Mainteneur du package | Ce README, [`CHANGELOG.md`](V1/official/CHANGELOG.md) et les validateurs | Contrat cohérent, testable et reproductible. |
 
+### Installer la skill dans un agent
+
+La skill ne contient que le noyau ; ses routes, ses scripts et ses schémas restent dans le paquet. Gardez donc le paquet entier, puis :
+
+1. **Rendre la skill visible.** Avec Claude Code, copiez le dossier `skills/design-governance-practice` dans `.claude/skills/` du projet ou dans `~/.claude/skills/`. Avec un autre agent, donnez-lui `SKILL.md` comme instructions.
+2. **Donner accès au paquet.** Les commandes de la skill (`python3 scripts/read_route.py …`) s’exécutent depuis la racine du paquet : travaillez dans ce dossier, ou indiquez son chemin à l’agent (« Design Governance est dans /chemin/du/paquet ; lance ses scripts depuis ce dossier »). Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium.
+3. **Vérifier.** Depuis la racine du paquet, `python3 scripts/read_route.py DIRECTION/START` affiche la route.
+
+Sans accès au paquet, l’agent n’a que le noyau : les routes que demande la table de chargement lui manquent. Après une mise à jour du paquet, recopiez la skill.
+
 Le mode d’un run est choisi par l’agent avec `DIRECTION/START`, seule classification ; il n’est jamais demandé à la personne qui fait la demande. Le parcours complet d’un run est : classer, diriger, construire, observer, corriger, puis proposer (par défaut, en trace légère : la première proposition vaut checkpoint) ou fermer (trace complète) ; chaque mode n’en garde que les étapes de sa route.
 
 Le README oriente la navigation. Il ne crée aucune règle concurrente. Les sources normatives font foi dans leur périmètre.
@@ -108,7 +118,7 @@ Les cinq sources normatives sont les suivantes :
 
 `README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` facilitent l’orientation et la compréhension ; ils ne créent pas de route, de gate, de statut ou d’autorité supplémentaire.
 
-Pour charger uniquement un bloc documenté, utilisez `python3 scripts/read_route.py DIRECTION/START` ; pour rechercher les passages contenant littéralement un terme dans les sources normatives, `python3 scripts/read_route.py --trouver "terme"` (casse et accents ignorés). Ajoutez `--guides` pour inclure les documents d’orientation, séparés des résultats normatifs. L’absence de résultat ne prouve pas l’absence d’une notion : essayez une reformulation ciblée. Le noyau active cette recherche si la route utile est inconnue ou si un signal reste sans intervention concrète. Pour une carte concrète, `python3 scripts/validate_run_card.py --strict chemin/vers/run_card.json` complète la validation structurelle en rejetant les placeholders et en contrôlant les locators d’artefacts locaux ; remplacez le chemin d’exemple par celui de votre fichier.
+Pour charger uniquement un bloc documenté, utilisez `python3 scripts/read_route.py DIRECTION/START` ; pour rechercher les passages contenant littéralement un terme dans les sources normatives, `python3 scripts/read_route.py --trouver "terme"` (casse et accents ignorés). Ajoutez `--guides` pour inclure les documents d’orientation (guides du corpus, ce README et les références de la skill), séparés des résultats normatifs. L’absence de résultat ne prouve pas l’absence d’une notion : essayez une reformulation ciblée. Le noyau active cette recherche si la route utile est inconnue ou si un signal reste sans intervention concrète. Pour une carte concrète, `python3 scripts/validate_run_card.py --strict chemin/vers/run_card.json` complète la validation structurelle en rejetant les placeholders et en contrôlant l’existence des locators locaux (artefact, trace, captures B1b) ; remplacez le chemin d’exemple par celui de votre fichier.
 
 ## Source de vérité et distributions
 
@@ -124,7 +134,7 @@ Cette commande compile le noyau, exécute les contrôles du package et construit
 
 | Option | Résultat |
 |---|---|
-| `--markdown DOSSIER` | Produit une copie complète restaurable et une copie des documents seuls ; leur restauration est vérifiée à l’octet près. |
+| `--markdown DOSSIER` | Produit une copie complète restaurable et une copie des documents seuls ; leur restauration est vérifiée à l’octet près. Le restaurateur n’écrit que dans un dossier vide ou absent, sans lien symbolique : il n’écrase ni ne mélange rien. |
 | `--empreintes` | Affiche les empreintes SHA256 des archives. |
 | `--log CHEMIN` ou `--journal CHEMIN` | Conserve la sortie détaillée des contrôles dans un fichier `.log` ; les deux options sont équivalentes. Par défaut : `.logs/preparer_livraison.log`. |
 | `--require-browser` | Exige l’exécution des tests de pages et fait échouer la préparation si le navigateur est indisponible. |

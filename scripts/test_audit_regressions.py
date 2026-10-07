@@ -162,6 +162,9 @@ class StrictHostTests(unittest.TestCase):
         baseline['run_card']['artifact']['locator'] = 'https://production.audit-project.test/page'
         baseline['run_card']['proof']['provenance']['artifact_locator'] = baseline['run_card']['artifact']['locator']
         baseline['run_card']['trace_locator'] = 'trace-audit-42'
+        pair = baseline['run_card']['closure']['b1b']['pair']  # captures non locales : hors contrôle d'existence (C47)
+        pair['before_locator'], pair['after_locator'] = ('https://production.audit-project.test/v1.png',
+                                                         'https://production.audit-project.test/v1b.png')
         cards.validate_card(baseline, schema, strict=True)
         for field in ('artifact', 'trace'):
             for host, rejected in [('example.com', True), ('EXAMPLE.COM', True), ('www.example.com', True),

@@ -45,6 +45,8 @@ items = re.findall(pat, text)
 count = re.search(r"<!-" r"- DG-COPY files=(\\d+) -->", text)
 if not count or not items or len(items) != int(count.group(1)):
     raise SystemExit("restauration refusée : inventaire incomplet ou absent")
+if dest.is_symlink() or (dest.exists() and (not dest.is_dir() or any(dest.iterdir()))):
+    raise SystemExit("restauration refusée : la destination doit être un dossier vide ou absent, sans lien symbolique : " + str(dest))
 files = {}; destinations = {}; base = dest.resolve()
 for path, sha, fence, body in items:
     rel = pathlib.PurePosixPath(path)
@@ -123,7 +125,8 @@ def markdown_copy(archive: Path, only_docs: bool) -> str:
     if only_docs:
         head.append("- **Limite** : cette version ne permet pas de reconstituer le paquet exécutable.\n")
     else:
-        head += ["- **Restauration** : enregistrer le script ci-dessous puis `python3 restaurer.py cette_copie.md dossier`.\n",
+        head += ["- **Restauration** : enregistrer le script ci-dessous puis `python3 restaurer.py cette_copie.md dossier` ; "
+                 "le dossier doit être vide ou absent, rien n’est écrasé.\n",
                  "```python", RESTORE, "```\n"]
     head += ["## Table des fichiers\n", "| N° | Chemin | Octets | sha256 (12) |", "|---:|---|---:|---|"]
     body = []
