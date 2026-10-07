@@ -31,18 +31,20 @@ Ne pas charger l’atlas ou une analyse de style si aucune responsabilité de de
 
 **Demande :** « Il me faut un site pour mon atelier de réparation de vélos. » Rien d’autre.
 
+Les crochets marquent ce que chaque run tire de son propre brief : l’exemple ne fournit volontairement ni thèse ni objet de preuve, pour qu’ils ne soient pas recopiés.
+
 **Prise de brief, dans le même tour :** la destination est une vraie mise en ligne. L’agent n’attend pas de réponse pour construire : il nomme ses hypothèses, marque les contenus d’exemple et place ses trois demandes dans la proposition (contenus réels : services, tarifs, horaires, adresse, numéro ; logo ou couleurs s’ils existent ; deux ou trois photos de l’atelier).
 
-**Réponse visible :** « J’ai construit une page d’accueil organisée autour du tableau de l’atelier : les réparations du jour et le délai annoncé. Pourquoi : on veut savoir quand son vélo sera prêt avant de passer ; j’ai écarté la grande photo d’entrée suivie de trois cartes de services, que n’importe quel atelier aurait. Ce qui manque pour la vraie version : vos tarifs, vos horaires et votre numéro, votre logo ou vos couleurs s’ils existent, et deux ou trois photos de l’atelier ; les contenus affichés sont des exemples marqués comme tels, et le bouton « Appeler l’atelier » fonctionne avec un numéro d’exemple. La suite : envoyez ces éléments, je les intègre et je vérifie le mobile. »
+**Réponse visible :** « J’ai construit une page d’accueil organisée autour de [l’objet de preuve, nommé avec ce qu’il montre]. Pourquoi : [ce qu’un client veut savoir avant de venir, et comment l’objet y répond] ; j’ai écarté la grande photo d’entrée suivie de trois cartes de services, que n’importe quel atelier aurait. Ce qui manque pour la vraie version : vos tarifs, vos horaires et votre numéro, votre logo ou vos couleurs s’ils existent, et deux ou trois photos de l’atelier ; les contenus affichés sont des exemples marqués comme tels, et le bouton « Appeler l’atelier » fonctionne avec un numéro d’exemple. La suite : envoyez ces éléments, je les intègre et je vérifie le mobile. »
 
 **Trace (trace légère, écrite à côté de l’artefact) :**
 
 ```text
 MODE: DIRECTION
-THÈSE: savoir quand son vélo sera prêt → le tableau de l’atelier, composant codé (réparations du jour, délai, tarif indicatif) → le tableau remplace la photo d’entrée
-MODAL, TRAME ET PARTI: photo pleine largeur, titre centré, trois cartes « nos services » ; trame héros → services → avis → contact, rompue : le tableau ouvre la page ; s’écarter pour la première scène seulement, garder la navigation et le contact attendus
-PLAFOND ET CONTENUS MARQUÉS: typographie et couleur au plafond (polices libres, palette choisie pour la thèse) ; pas encore de photos : route SANS-ASSET assumée, le tableau codé porte la scène, aucune fausse photo ; tarifs, horaires et numéro marqués « exemple »
-DÉFAUT DOMINANT RESTANT: aucun bloquant ; les délais se lisaient mal sur mobile, taille et contraste corrigés, seconde capture comparée
+THÈSE: [ce que le client veut savoir] → [objet de preuve, composant codé, contenus marqués « exemple »] → [ce que l’objet remplace dans la trame attendue]
+MODAL, TRAME ET PARTI: photo pleine largeur, titre centré, trois cartes « nos services » ; trame héros → services → avis → contact, rompue : l’objet de preuve ouvre la page ; s’écarter pour la première scène seulement, garder la navigation et le contact attendus
+PLAFOND ET CONTENUS MARQUÉS: typographie et couleur au plafond (polices libres, palette choisie pour la thèse) ; pas encore de photos : route SANS-ASSET assumée, l’objet codé porte la scène, aucune fausse photo ; tarifs, horaires et numéro marqués « exemple »
+DÉFAUT DOMINANT RESTANT: aucun bloquant ; [défaut vu sur la capture mobile], corrigé, seconde capture comparée
 PROCHAINE PREUVE: vrais tarifs, horaires et numéro intégrés, puis capture mobile
 ```
 
