@@ -133,6 +133,17 @@ def part_a() -> None:
         expect('A', 'JSON conserve couverture contraste et observation de preuve',
                [result['contrast_coverage']['390'], result['proof_observations']['390']], [covered, visible])
         expect('A', 'JSON conserve couverture clavier', result['keyboard_coverage']['390']['reason'], 'end')
+    with tempfile.TemporaryDirectory() as tmp:
+        shots = Path(tmp) / 'v1'
+        args = cr.parser().parse_args([str(Path(__file__).resolve()), '--widths', '390', '--captures', str(shots), '--json', str(Path(tmp) / 'r.json')])
+        sample = {**raw_case(), 'captures': [str(shots / 'capture-390px.png')]}
+        with patch.object(cr, 'measure', return_value=sample), contextlib.redirect_stdout(io.StringIO()):
+            cr.run(args)
+        expect('A', 'captures listées dans la provenance', json.loads((Path(tmp) / 'r.json').read_text())['provenance']['captures'], sample['captures'])
+        shots.mkdir(); (shots / 'capture-390px.png').write_bytes(b'avant')
+        with patch.object(cr, 'measure', side_effect=AssertionError('mesure lancée')), contextlib.redirect_stderr(io.StringIO()):
+            code = cr.run(args)
+        expect('A', 'capture existante : refus avant toute mesure, rien écrasé', [code, (shots / 'capture-390px.png').read_bytes()], [2, b'avant'])
 
 
 # Partie C : code JavaScript livré, DOM simulé ; aucun navigateur et aucun rendu.
@@ -359,6 +370,9 @@ def part_b(require: bool) -> str:
             expect("B", "JSON avec provenance AUTOMATED", json.loads(out.read_text(encoding="utf-8"))["provenance"]["method"], "AUTOMATED")
             code = subprocess.run([sys.executable, str(HERE / "check_render.py"), str(d / "oklch.html"), "--widths", "390"], capture_output=True, text=True).returncode
             expect("B", "page fautive : code de sortie", code, 1)
+            raw, _ = measure(str(d / "propre.html"), "--captures", str(d / "captures"))
+            png = Path(raw["captures"][0]).read_bytes() if raw["captures"] else b""
+            expect("B", "capture pleine page écrite (PNG)", [Path(p).name for p in raw["captures"]] + [png[:8] == b"\x89PNG\r\n\x1a\n"], ["capture-390px.png", True])
         finally:
             server.shutdown()
     return f"{count['B']} cas"

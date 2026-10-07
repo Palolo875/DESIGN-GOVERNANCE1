@@ -21,6 +21,7 @@ Usage :
     python3 scripts/check_render.py page.html --widths 390,768,1440 --proof "#estimateur" --json preuve.json
     python3 scripts/check_render.py http://127.0.0.1:8000/page.html          # même origine autorisée
     python3 scripts/check_render.py page.html --click "#ouvrir"               # observer un autre état
+    python3 scripts/check_render.py page.html --captures captures/v1          # une capture pleine page par largeur
 """
 from __future__ import annotations
 
@@ -288,7 +289,7 @@ def measure(args: argparse.Namespace) -> dict:
         origin = f"{sp.scheme}://{sp.netloc}"
     widths = [int(w) for w in args.widths.split(",") if w.strip()]
     state = {"blocked": 0}
-    raw: dict = {"widths": widths, "per_width": {}, "running": []}
+    raw: dict = {"widths": widths, "per_width": {}, "running": [], "captures": []}
     with sync_playwright() as pw:
         try:
             browser = pw.chromium.launch()
@@ -321,6 +322,12 @@ def measure(args: argparse.Namespace) -> dict:
 
         for w in widths:
             ctx, page, errs = open_page(w)
+            if args.captures:  # avant la tabulation, qui déplacerait le focus visible
+                shot = capture_paths(args.captures, [w])[0]
+                shot.parent.mkdir(parents=True, exist_ok=True)
+                page.evaluate("window.scrollTo(0, 0)")
+                page.screenshot(path=str(shot), full_page=True)
+                raw["captures"].append(str(shot))
             dims = page.evaluate("({sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth})")
             offenders = page.evaluate("""() => [...document.querySelectorAll('body *')].filter(e => {
                 const r = e.getBoundingClientRect(); return r.right > document.documentElement.clientWidth + 1 && getComputedStyle(e).position !== 'fixed'; })
@@ -514,6 +521,10 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     return checks
 
 
+def capture_paths(folder: str, widths: list[int]) -> list[Path]:
+    return [Path(folder) / f"capture-{w}px.png" for w in widths]
+
+
 def run(args: argparse.Namespace) -> int:
     target = args.page
     is_url = re.match(r"^https?://", target) is not None
@@ -521,6 +532,11 @@ def run(args: argparse.Namespace) -> int:
     if path is not None and not path.is_file():
         print(f"{NOTVER} : fichier introuvable : {target}", file=sys.stderr)
         return 2
+    if args.captures:
+        existing = [str(p) for p in capture_paths(args.captures, [int(w) for w in args.widths.split(",") if w.strip()]) if p.exists()]
+        if existing:  # une capture « avant » ne doit jamais être écrasée par la suivante
+            print(f"{NOTVER} : capture déjà présente, choisir un autre dossier : {', '.join(existing)}", file=sys.stderr)
+            return 2
     try:
         raw = measure(args)
     except ImportError:
@@ -536,6 +552,8 @@ def run(args: argparse.Namespace) -> int:
             "method": "AUTOMATED", "observed_at": now,
             "scope": f"état initial{' puis ' + ' puis '.join(args.click) if args.click else ''}, largeurs {','.join(map(str, raw['widths']))} px",
             "external_requests_blocked": raw["blocked"]}
+    if raw.get("captures"):
+        prov["captures"] = raw["captures"]
     print(f"Recette AUTOMATED (GATE-A) — {target}\n")
     for title, status, detail in checks:
         print(f"[{status:<21}] {title} : {detail}")
@@ -546,6 +564,7 @@ def run(args: argparse.Namespace) -> int:
           "La couverture du contraste est bornée au DOM inspecté. L'objet de preuve mesure CSS et rectangle, sans vérifier les pixels ni l'occlusion. "
           "Les noms sont des candidats DOM, pas un calcul AccName ; leur présence conserve une réserve. "
           "Le clavier porte sur les candidats du périmètre actif et les arrêts observés ; une borne atteinte conserve une réserve. "
+          "Les captures montrent l'état observé ; elles ne jugent rien. "
           "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
     if args.json:
         coverage = {str(w): {**d.get('keyboard', {}), 'observed_stops': len(d['stops'])} for w, d in raw['per_width'].items()}
@@ -567,6 +586,8 @@ def parser() -> argparse.ArgumentParser:
     ap.add_argument("--tab-stops", type=int, default=60, help="nombre maximal de tabulations observées")
     ap.add_argument("--allow-external", action="store_true", help="laisser passer les requêtes vers d'autres origines")
     ap.add_argument("--json", default="", help="écrit les résultats et la provenance dans ce fichier")
+    ap.add_argument("--captures", default="", metavar="DOSSIER",
+                    help="écrit une capture pleine page par largeur (capture-<largeur>px.png), à l'état observé ; n'écrase rien")
     return ap
 
 
