@@ -134,6 +134,11 @@ Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'ét
 | C45 | L4 | `f796824` | SAVOIR/SOURCE cite RESEARCH_BRIEF comme projection facultative ; ROLE, OWNER / NEXT-PROOF restent en trace | — |
 | C38 | L4 | `f796824` | SAVOIR/TOOLS/MOYENS : la carte nomme, ne contient ni ne teste ; une ressource compte une fois intégrée et vue ; repli par route de production | — |
 | C34 | L5 | `7376690` | Exemple vélo : thèse, objet de preuve et défaut deviennent des emplacements entre crochets ; séquence intacte ; aucun choix esthétique ajouté. Reste la demande, identique au brief B3 (D14) | — |
+| C42 | L6 (D8) | `b768a3e` | Noyau : l'objet passe avant les listes de bénéfices ; au premier regard, l'objet ou le geste peut ouvrir selon le contexte (CFT-04a) | — |
+| C18 | L6 (D9) | `b768a3e` | Règle de vitesse : déclarer avant de construire le mode, la décision dominante, le risque principal, la preuve minimale et la condition d'arrêt, en une ligne dans la trace | — |
+| C19 | L6 (D9) | `b768a3e` | « Piège de conformité » entre dans le bloc POSTURE, lu à chaque run | — |
+| C40 | L6 (D7) | `5c6e210` | `check_render --captures DOSSIER` : une capture pleine page par largeur ; aucun écrasement ; chemins dans la provenance ; documenté dans VISUAL_PROOF, GATE-A et le noyau | Tests A49, A50, B27 |
+| C56 | L6 (D11) | `5c6e210` | CI : Playwright 1.56.0 et Chromium, `validate_all --require-browser` | — |
 
 **Charge « Charger d'abord » par mode** (noyau + routes servies, octets UTF-8, `charge_par_mode.py`) :
 
@@ -145,7 +150,7 @@ Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'ét
 | DIRECTION | 132,6 Ko | 147,6 Ko | 148,4 Ko | PIPELINE-DIRECTION et VISUAL_PROOF, exigés par RUN-DIRECTION, deviennent visibles ; le poids relève de C16 (mesure) |
 | SYSTÈME | 47,6 Ko | 48,1 Ko | 48,4 Ko | — |
 
-Noyau : 43 201 → 43 685 (L3) → 44 003 octets (L4), soit +802. À compenser au lot L2. Hausse L4 de +0,7 à +0,8 Ko par mode : phrase `check_render` du noyau et options documentées dans Gate A.
+Noyau : 43 201 → 43 685 (L3) → 44 003 (L4) → 44 613 octets (L6), soit +1 412. À compenser au lot L2. Hausse L4 de +0,7 à +0,8 Ko par mode : phrase `check_render` du noyau et options documentées dans Gate A.
 
 **Reste à faire en fin de U2 :** une entrée de révision (CHANGELOG, RELEASE_NOTES, ligne « Révision » du README) qui récapitule les corrections U2.
 

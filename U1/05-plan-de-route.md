@@ -62,16 +62,16 @@ Inchangés par rapport à la version 1, §1.
 | D4 | La mesure inclut une **condition « sans le système »** |
 | D5 | Règles 9 à 11 ; grille d'audit en quatre axes (§5) |
 | D6 | On corrige d'abord sans run (règle 1) |
+| D7 | Capture simple, desktop et mobile en pleine page, ajoutée à `check_render` (décision du 2026-10-07) |
+| D8 | Premier contact : le noyau reprend la nuance de SAVOIR/CFT-04a, aucun ordre ne gagne par défaut (décision du 2026-10-07) |
+| D9 | Absolu 4 et piège de conformité : une ligne chacun dans le noyau, compensée en L2 (décision du 2026-10-07) |
+| D10 | Blocage externe gardé par défaut dans `check_render`, documenté (appliqué en L4) |
+| D11 | Navigateur ajouté à la CI (décision du 2026-10-07) |
 
 ### 4.2 À prendre (chacune bloque un lot précis, pas tout le plan)
 
 | # | Question | Recommandation | Constat | Lot bloqué |
 |---|---|---|---|---|
-| D7 | Capture d'écran : ajouter une capture simple, desktop et mobile en pleine page, à `check_render`, ou la laisser à l'agent ? | Capture simple dans `check_render` ; les vues floue, en gris et sans texte restent en U6 | C40 | L6 |
-| D8 | Premier contact : objet de preuve d'abord, ou « aucun des deux ne gagne par défaut » ? | Aligner le noyau sur la nuance de SAVOIR (CFT-04a) | C42 | L6 |
-| D9 | Absolu 4 et piège de conformité dans le noyau | Une ligne chacun, compensée par un retrait | C18, C19 | L6 |
-| D10 | `check_render` : polices et images externes autorisées par défaut ? | Garder le blocage par défaut et le documenter ; la mesure (U3) l'autorise pour les **deux** conditions | C39 | L4 |
-| D11 | Navigateur dans la CI | L'ajouter, ou déclarer la limite | C56 | L6 |
 | D12 | Modèle qui produit les rendus en U3 | Celui que tu utiliseras réellement avec le système ; s'il s'agit de Sonnet, le juge principal devient un autre modèle | — | U3 |
 | D13 | Volume de U3 | 7 runs (voir U3), ou 5 sans B3 | — | U3 |
 | D14 | B3 reprend mot pour mot la demande de l'exemple vélo (`examples.md`) : la condition « avec système » aurait déjà sous les yeux un déroulé sur ce même brief | Garder un brief flou de petit commerce réel, mais dans un domaine absent des exemples et des signaux de convergence (ni vélo, ni boulangerie, ni facturation, ni cartographie sonore, ni archive), choisi par toi | C34 | U3 |
