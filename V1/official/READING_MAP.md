@@ -283,7 +283,7 @@ Cette table liste des **raccourcis et sous-locators** ; elle n’est pas un inve
 | `DIRECTION/FIRST-OBJECT` | `DIRECTION.md` — `## DIRECTION/FIRST-OBJECT — compiler le brief et produire le premier objet` |
 | `DIRECTION/VISUAL_TARGET` | `DIRECTION.md` — `## DIRECTION/VISUAL_TARGET — rendre la direction pilotable` |
 | `DIRECTION/DOUBLE-LOOP` | `DIRECTION.md` — `## DIRECTION/DOUBLE-LOOP — créer puis apprendre` |
-| `DIRECTION/FAST-PATH` | `DIRECTION.md` — `### DIRECTION/FAST-PATH — encadré d’exécution courte` |
+| `DIRECTION/FAST-PATH` | `DIRECTION.md` — `### DIRECTION/FAST-PATH — renvoi vers l’exécution courte` |
 | `ACTION/RUN-LITE` | `ACTION.md` — `### \`ACTION/RUN-LITE\`` |
 | `ACTION/RUN-ITER` | `ACTION.md` — `### \`ACTION/RUN-ITER\`` |
 | `ACTION/RUN-STANDARD` | `ACTION.md` — `### \`ACTION/RUN-STANDARD\`` |

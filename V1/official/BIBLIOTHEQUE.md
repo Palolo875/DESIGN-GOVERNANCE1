@@ -172,9 +172,9 @@ Les correspondances suivantes sont des hypothèses de construction. Le contenu, 
 
 La qualité expressive relève du jugement de SAVOIR ; cette table rend son hypothèse construisible. Une sélection peut résoudre le foyer tout en restant froide, générique ou mal finie : réinspecte aussi les qualités prioritaires du premier objet. Une contre-indication demande un choix situé ; elle n’interdit pas un registre expressif.
 
-### BIBLIOTHEQUE/FAST-PATH — vérifier avant de sélectionner
+### BIBLIOTHEQUE/AVANT-SELECTION — vérifier avant de sélectionner
 
-Pour un delta local, réponds avant toute sélection : quelle relation change, quel risque domine, quelle est la preuve la moins coûteuse et quelle décision sera différente si la preuve est positive ou négative ? Si aucune décision ne change, conserve la structure existante et inscris l’héritage ou le cas documentaire ; utilise `N/A-JUSTIFIED` seulement si le contrôle ou la décision est réellement non applicable dans le scope déclaré, avec justification ACTION, owner et prochaine preuve.
+Pour un delta local, réponds avant toute sélection aux quatre questions d’`ACTION/FAST-PATH`, en nommant la relation qui change. Si aucune décision ne change, conserve la structure existante et inscris l’héritage ou le cas documentaire ; utilise `N/A-JUSTIFIED` seulement si le contrôle ou la décision est réellement non applicable dans le scope déclaré, avec justification ACTION, owner et prochaine preuve.
 
 `N/A-JUSTIFIED` n’est pas une sortie de confort. Elle n’est valable que lorsque le contrôle ou la décision principale est réellement non applicable dans le scope déclaré, ou lorsqu’une paire équivalente reste valide après le dernier changement substantiel, avec artefact, owner et `NEXT-PROOF` selon ACTION. Paire équivalente : seulement lorsque B1b est déclenché et que la paire couvre exactement la même décision — voir `ACTION/GATE-B/B1b`. Un héritage documentaire sans contrôle applicable doit être marqué comme tel dans la trace, sans transformer l’absence de changement en verdict.
 

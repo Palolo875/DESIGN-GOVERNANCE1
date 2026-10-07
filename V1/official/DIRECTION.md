@@ -309,18 +309,11 @@ La clôture de chaque mode est `ACTION/CLOSE-PACKAGE`, en trace complète ; en t
 
 **Règle de passage.** `DIRECTION` décide du mode et du risque dominant ; `ACTION` des preuves exécutables, gates, statuts et verdicts ; `SAVOIR` du jugement ; `BIBLIOTHEQUE` de la structure ; `CHANGELOG` de la gouvernance du système.
 
-### DIRECTION/FAST-PATH — encadré d’exécution courte
+### DIRECTION/FAST-PATH — renvoi vers l’exécution courte
 
-`FAST-PATH` est une vue dérivée de `START`, non une porte d’entrée concurrente. Pour un correctif local ou une décision déjà presque tranchée, réponds à quatre questions avant de charger un module :
+`FAST-PATH` est une vue dérivée de `START`, non une porte d’entrée concurrente. Pour un correctif local ou une décision déjà presque tranchée, les quatre questions sont celles d’`ACTION/FAST-PATH`, seul bloc d’exécution courte, à poser avant de charger un module.
 
-| Question | Sortie attendue |
-|---|---|
-| Qu’est-ce qui doit changer ? | Une décision, un delta ou une hypothèse nommée. |
-| Quel est le risque dominant ? | Un risque principal et son owner. |
-| Quelle preuve est la moins coûteuse pour le vérifier ? | Capture, diff, test, scénario, mesure ou comparaison. |
-| Qu’est-ce qui changera si la preuve est positive ou négative ? | Condition d’arrêt et prochaine action. |
-
-Si la réponse à la quatrième question est « rien », ne lance pas un nouveau protocole et ne charge pas l’atlas. Conserve l’existant et omets la ligne sans effet ; utilise `N/A-JUSTIFIED` seulement si aucun contrôle ou aucune décision applicable ne peut changer dans le scope déclaré. `EXPLORATORY` reste réservé au cas où un rendu observable existe mais qu’une preuve requise manque. En exploration, `DECISION-INTENT` peut être une hypothèse à formuler ; `DECISION-CHANGE` devient obligatoire seulement lorsque le run prétend qu’une décision de production a été changée, confirmée ou abandonnée.
+Si la réponse à la quatrième question (ce que la preuve changera) est « rien », ne lance pas un nouveau protocole et ne charge pas l’atlas. Conserve l’existant et omets la ligne sans effet ; utilise `N/A-JUSTIFIED` seulement si aucun contrôle ou aucune décision applicable ne peut changer dans le scope déclaré. `EXPLORATORY` reste réservé au cas où un rendu observable existe mais qu’une preuve requise manque. En exploration, `DECISION-INTENT` peut être une hypothèse à formuler ; `DECISION-CHANGE` devient obligatoire seulement lorsque le run prétend qu’une décision de production a été changée, confirmée ou abandonnée.
 
 ---
 
@@ -761,16 +754,7 @@ Une technique est un moyen de production ou de preuve. Elle ne devient jamais la
 
 Le mode `DIRECTION` exige une comparaison de positions réellement distinctes lorsque la décision est ouverte. Il ne demande pas un catalogue de variantes et n’impose aucun quota de nouveauté.
 
-Avant de diverger, situe la première idée sur plusieurs axes :
-
-| Axe | Pôles possibles |
-|---|---|
-| Structure | Grille stricte ↔ tension sur grille ↔ hors grille. |
-| Matière | Plat ↔ texturé ↔ photographique ↔ illustré/peint/spatial. |
-| Voix | Neutre ↔ expressif ↔ bruyant. |
-| Temporalité | Intemporel ↔ contemporain ↔ nostalgique ↔ prospectif. |
-| Densité | Respiration focalisée ↔ information concentrée. |
-| Rapport texte/image | Texte souverain ↔ preuve souveraine ↔ relation équilibrée. |
+Avant de diverger, situe la première idée sur les axes de position de `SAVOIR/CRAFT/CFT-02`, leur seul propriétaire : structure, matière, voix, temporalité, densité, rapport texte/image.
 
 <!-- concept:ALT-01 -->
 En `DIRECTION`, considère une **alternative située** lorsque la décision est ouverte et qu’une position différente peut raisonnablement modifier le choix. Elle doit répondre à un public, un JTBD, une contrainte ou une opportunité distincte. Ses leviers sont les axes de `SAVOIR/CRAFT/CFT-02` ; sa matérialisation, sa trace selon le niveau retenu et sa comparaison suivent `ACTION/PIPELINE-DIRECTION` (étapes 3 et 7).

@@ -39,9 +39,9 @@ Ne charge jamais l’ensemble de SAVOIR par réflexe. Charge typiquement zéro �
 
 **Chemin minimal.** Décide d’abord la décision et le risque ; charge ensuite la route SAVOIR principale, ou aucune si le changement reste local. Ajoute une route seulement si elle change une question, une preuve ou une limite ; `ACTION` reste propriétaire des preuves, des gates, des verdicts et de la clôture. Un tag `[REQUIS PAR LE MODULE — scope]` indique qu’une responsabilité devient applicable dans le périmètre déclaré ; il n’impose pas de charger toute la bibliothèque, mais d’exécuter ou de tracer honnêtement le contrôle concerné selon le contrat d’ACTION. Sur le chemin d’un run, le plancher de ces obligations est compilé dans le noyau de la skill (composition, typographie, couleur, états, vérité) ; leur détail s’applique lorsque la route est chargée.
 
-### SAVOIR/FAST-PATH — juger sans produire un dossier
+### SAVOIR/JUGEMENT-COURT — juger sans produire un dossier
 
-Pour un delta local, écris seulement : décision touchée, risque dominant, principe utile, preuve la moins coûteuse et conséquence si la preuve est positive ou négative. Si le principe ne change aucune décision, ne le charge pas.
+Pour un delta local, écris seulement les quatre réponses d’`ACTION/FAST-PATH` et le principe utile. Si le principe ne change aucune décision, ne le charge pas.
 
 Le fast path n’autorise pas à ignorer une preuve critique lorsque le risque dominant est élevé. Il réduit la formalité ; il ne réduit pas l’honnêteté du statut.
 

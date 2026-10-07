@@ -270,7 +270,7 @@ Pour réduire le slop procédural, préfère une proposition principale et une a
 
 ## ACTION/FAST-PATH — preuve minimale sans rituel
 
-Pour `LITE` et les petits `ITER`, arrête le protocole après quatre réponses : décision touchée, risque dominant, preuve la moins coûteuse et conséquence de la preuve ; puis, en trace complète, clôture avec le paquet de son mode : forme courte LITE pour `LITE`, paquet `ITER` pour un `ITER` (`ACTION/CLOSE-PACKAGE`) ; en trace légère, la proposition suffit.
+Pour `LITE` et les petits `ITER`, arrête le protocole après quatre réponses : décision ou delta touché ; risque dominant et son owner ; preuve la moins coûteuse (capture, diff, test, scénario, mesure ou comparaison) ; conséquence si la preuve est positive ou négative, avec condition d’arrêt et prochaine action ; puis, en trace complète, clôture avec le paquet de son mode : forme courte LITE pour `LITE`, paquet `ITER` pour un `ITER` (`ACTION/CLOSE-PACKAGE`) ; en trace légère, la proposition suffit.
 
 Si aucune décision ne peut changer, n’ajoute pas de capture, comparaison ou route uniquement pour remplir le paquet. Journalise `N/A-JUSTIFIED` lorsque la procédure ne peut rien modifier.
 

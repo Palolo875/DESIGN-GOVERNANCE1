@@ -603,7 +603,7 @@ def check_facades(errors: list[str]) -> None:
     qs_dir, rd_dir, rd_iter = row(t["Q"], "`DIRECTION`", 1), row(t["README"], "`DIRECTION`", 1), row(t["README"], "`ITER`", 1)
     index = row(t["D"], "Nouvelle structure d’écran")
     entry = after(t["D"], "Ce gabarit est une vue d’activation", 600)
-    fast = row(t["D"], "Quel est le risque dominant ?")
+    fast = next(([l, l] for l in t["A"].splitlines() if l.startswith("Pour `LITE` et les petits `ITER`")), None)  # C22 : questions dans ACTION/FAST-PATH
     prio = fenced_after(t["D"], "```text\nRUN-PRIORITY")
     canon = HANDOFF_TOKENS.findall(fenced_after(t["A"], "### ACTION/HANDOFF"))
     f15, f16, f17 = lcf_15_16_17(t)
@@ -626,7 +626,7 @@ def check_facades(errors: list[str]) -> None:
          bool(index) and "classification `ACTION/RUN-STANDARD`" not in index[1]),
         ("LCF-07", "DIRECTION 72, RUN-PRIORITY, READING_MAP (routage et combinaisons), skill", "DIRECTION 55 (cible avant premier objet)", lcf_07(t)),
         ("LCF-08", "DIRECTION, gabarit START et FAST-PATH", "DIRECTION/START (OWNER et SCOPE jamais omis)",
-         re.search(r"`?OWNER`? et `?SCOPE`?[^.]*jamais omis", entry) is not None and bool(fast) and "si nécessaire" not in fast[1]),
+         re.search(r"`?OWNER`? et `?SCOPE`?[^.]*jamais omis", entry) is not None and bool(fast) and "et son owner" in fast[1] and "si nécessaire" not in fast[1]),
         ("LCF-09", "DIRECTION, RUN-PRIORITY et récapitulatif de protection (point 4)", "BIBLIOTHEQUE/SELECT, SCENE",
          bool(re.search(r"FIRST-OBJECT —[\s\S]*?sauf si", prio))),
         ("LCF-10", "QUICKSTART, table de mode ; README sans table de mode", "D-FAC-1 (classement : voir DIRECTION/START)",
@@ -677,7 +677,7 @@ def check_facades(errors: list[str]) -> None:
         ("LCF-48", "SAVOIR ([VEILLE] daté) et route de production : carte des moyens", "SAVOIR ([VEILLE])", lcf_48(t)),
         ("LCF-49", "SAVOIR (DESIGN-ATLAS) et route de production : traitement des assets moyens", "SAVOIR (DESIGN-ATLAS)", lcf_49(t)),
         ("LCF-50", "SAVOIR, [VEILLE] daté : vague 3", "SAVOIR ([VEILLE])", lcf_50(t)),
-        ("LCF-51", "BIBLIOTHEQUE, entrée et résumés locaux", "BIBLIOTHEQUE/FAST-PATH ; ACTION/STATUS (héritage distinct de non-applicabilité)", lcf_51(t)),
+        ("LCF-51", "BIBLIOTHEQUE, entrée et résumés locaux", "BIBLIOTHEQUE/AVANT-SELECTION ; ACTION/STATUS (héritage distinct de non-applicabilité)", lcf_51(t)),
         ("LCF-52", "GLOSSAIRE, RUN_CARD", "ACTION/HANDOFF ; ACTION/RUN_CARD (niveau de trace et mode)", lcf_52(t)),
         ("LCF-53", "DIRECTION, gabarit DOMAIN-FRAME", "schemas/domain_frame.schema.json (risk_coverage)", lcf_53(t)),
         ("LCF-54", "DIRECTION, noyau et snapshot", "DIRECTION/CHARGE ; ACTION/RUN_CARD (mobilisation, limites et fraîcheur)", lcf_54(t)),
