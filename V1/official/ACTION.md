@@ -282,7 +282,7 @@ Pour `LITE` et les petits `ITER`, arrête le protocole après quatre réponses :
 
 Si aucune décision ne peut changer, n’ajoute pas de capture, comparaison ou route uniquement pour remplir le paquet. Journalise `N/A-JUSTIFIED` lorsque la procédure ne peut rien modifier.
 
-Reviens à un mode plus riche si le changement touche une règle partagée, l’identité, la sécurité, l’accessibilité, le comportement critique ou une décision coûteuse.
+Reviens à un mode plus riche si le changement touche une règle partagée, l’identité, une décision coûteuse, ou un risque critique de tâche, de santé, de sécurité, de confidentialité, de permission ou d’accessibilité (Protection de niveau de `DIRECTION/START`). Un fix local de contraste, libellé, focus ou wrapping qui conserve la direction reste `LITE`.
 
 ---
 
