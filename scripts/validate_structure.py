@@ -598,7 +598,7 @@ def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
         errors.append("[CHG-03] chargement : en SYSTÈME, BIBLIOTHEQUE/COMPONENTS seulement si un composant change")
     for mode in ("LITE", "ITER"):
         c = cells(mode)
-        if len(c) < 2 or "`ACTION/GATE-A`" not in c[1] or "`ACTION/GATE-B`" not in c[1]:
+        if len(c) < 2 or "`ACTION/GATE-A`" not in c[1] or "ACTION/GATE-B" not in c[1]:  # sous-routes admises (C15)
             errors.append(f"[CHG-04] chargement : en {mode}, Gate A applicable et Gate B du risque sont chargés d'abord")
 
 
