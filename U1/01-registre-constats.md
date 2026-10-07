@@ -133,6 +133,7 @@ Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'ét
 | C47 | L4 | `9210a78` | Profil strict : existence des deux captures de la paire B1b faite (T-22) ; docs alignées | Cas ajoutés à `validate_all` (oui) ; base d'un test d'audit adaptée |
 | C45 | L4 | `f796824` | SAVOIR/SOURCE cite RESEARCH_BRIEF comme projection facultative ; ROLE, OWNER / NEXT-PROOF restent en trace | — |
 | C38 | L4 | `f796824` | SAVOIR/TOOLS/MOYENS : la carte nomme, ne contient ni ne teste ; une ressource compte une fois intégrée et vue ; repli par route de production | — |
+| C34 | L5 | `7376690` | Exemple vélo : thèse, objet de preuve et défaut deviennent des emplacements entre crochets ; séquence intacte ; aucun choix esthétique ajouté. Reste la demande, identique au brief B3 (D14) | — |
 
 **Charge « Charger d'abord » par mode** (noyau + routes servies, octets UTF-8, `charge_par_mode.py`) :
 

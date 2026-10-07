@@ -104,12 +104,12 @@ On peut les supprimer sans perte, puisque leurs résultats sont dans les livrabl
 
 | Élément | État |
 |---|---|
-| Dépôt | Lots L3 et L4 faits : 13 constats corrigés (L3 : C01, C04, C13, C14, C15, C17 ; L4 : C10, C25, C38, C39, C43, C45, C47), dernier commit `f796824`, `validate_all` vert ; suivi dans `U1/01-registre-constats.md`, section « Suivi des corrections » |
+| Dépôt | Lots L3, L4 et L5 faits : 14 constats corrigés (L3 : C01, C04, C13, C14, C15, C17 ; L4 : C10, C25, C38, C39, C43, C45, C47 ; L5 : C34), dernier commit `7376690`, `validate_all` vert ; suivi dans `U1/01-registre-constats.md`, section « Suivi des corrections » |
 | Constats | 60 : 32 de type A (lots L1 à L5, plus C09 en option), 5 de type D (lot L6), 16 de type M (U4 et U7), 5 de type S, et 2 déjà traités (C02 dans le plan, C20 par la décision D1). Décompte vérifié par script |
 | Plan | v2 accepté ; U2 en cours, ordre L3, L4, L5, L6 (D7, D8), L2, L1 |
 | Décisions prises | D1 à D6 (plan v2, §4.1) |
-| Décisions à prendre | D7 à D13 (plan v2, §4.2). Aucune ne bloque les lots L1 à L5 |
-| Prochaine action | Lot L5 : C34 |
+| Décisions à prendre | D7 à D14 (plan v2, §4.2). Aucune ne bloque les lots L1 à L5 |
+| Prochaine action | Lot L6 : décisions D7 et D8, puis C18, C19, C56 (D9, D11) |
 
 ## 4. Erreurs de mon côté, corrigées
 

@@ -74,6 +74,7 @@ Inchangés par rapport à la version 1, §1.
 | D11 | Navigateur dans la CI | L'ajouter, ou déclarer la limite | C56 | L6 |
 | D12 | Modèle qui produit les rendus en U3 | Celui que tu utiliseras réellement avec le système ; s'il s'agit de Sonnet, le juge principal devient un autre modèle | — | U3 |
 | D13 | Volume de U3 | 7 runs (voir U3), ou 5 sans B3 | — | U3 |
+| D14 | B3 reprend mot pour mot la demande de l'exemple vélo (`examples.md`) : la condition « avec système » aurait déjà sous les yeux un déroulé sur ce même brief | Garder un brief flou de petit commerce réel, mais dans un domaine absent des exemples et des signaux de convergence (ni vélo, ni boulangerie, ni facturation, ni cartographie sonore, ni archive), choisi par toi | C34 | U3 |
 
 ## 5. Grille d'audit en quatre axes
 
