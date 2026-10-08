@@ -284,6 +284,7 @@ PAGES = {
                    '<dialog id="d"><button id="close">Fermer</button><input id="f1" aria-label="Un"><input id="f2" aria-label="Deux"></dialog>'),
     "svgtexte.html": '<svg viewBox="0 0 200 60" width="200" height="60"><rect width="200" height="60" fill="#1F5563"/><text x="10" y="38" fill="#ffffff" font-size="20">08:31</text></svg>',
     "svgforeignobject.html": '<svg width="200" height="60"><rect width="200" height="60" fill="#111111"/><foreignObject width="200" height="60"><p style="color:#111111">Texte dans une scène SVG</p></foreignObject></svg>',
+    "revele.html": '<style>.r{opacity:0;transition:opacity .2s}.r.in{opacity:1}</style><div style="height:2400px"></div><p class="r" style="color:#bbb;background:#fff">Texte révélé au défilement</p><script>new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in"))).observe(document.querySelector(".r"))</script>',
     "propre.html": '<style>button:focus-visible{outline:3px solid #000}</style><p>Texte lisible</p><button>Valider</button>',
     "opacite.html": '<div style="color:white;background:black;opacity:.5">Texte blanc normal</div>',
     "nommasque.html": '<button><span aria-hidden="true">×</span></button>',
@@ -370,6 +371,8 @@ def part_b(require: bool) -> str:
             expect("B", "JSON avec provenance AUTOMATED", json.loads(out.read_text(encoding="utf-8"))["provenance"]["method"], "AUTOMATED")
             code = subprocess.run([sys.executable, str(HERE / "check_render.py"), str(d / "oklch.html"), "--widths", "390"], capture_output=True, text=True).returncode
             expect("B", "page fautive : code de sortie", code, 1)
+            _, c = measure(str(d / "revele.html"))
+            expect("B", "contenu révélé au défilement : mesuré (contraste faible détecté)", status(c, "Contraste"), RETURN)
             raw, _ = measure(str(d / "propre.html"), "--captures", str(d / "captures"))
             png = Path(raw["captures"][0]).read_bytes() if raw["captures"] else b""
             expect("B", "capture pleine page écrite (PNG)", [Path(p).name for p in raw["captures"]] + [png[:8] == b"\x89PNG\r\n\x1a\n"], ["capture-390px.png", True])

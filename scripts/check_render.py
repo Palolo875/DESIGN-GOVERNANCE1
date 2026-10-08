@@ -315,6 +315,14 @@ def measure(args: argparse.Namespace) -> dict:
             page.on("console", lambda m: errs.append(m.text) if m.type == "error" and "ERR_" not in m.text and "Failed to load resource" not in m.text else None)
             page.goto(url, wait_until="load")
             page.wait_for_timeout(args.wait_ms)
+            # Défilement complet : déclenche le contenu révélé au scroll, qui sera ainsi mesuré et capturé.
+            step, y = page.viewport_size["height"] // 2, 0
+            while y < page.evaluate("document.documentElement.scrollHeight"):
+                page.evaluate(f"window.scrollTo(0, {y})")
+                page.wait_for_timeout(120)
+                y += step
+            page.evaluate("window.scrollTo(0, 0)")
+            page.wait_for_timeout(300)
             for sel in args.click:
                 page.click(sel)
                 page.wait_for_timeout(300)
