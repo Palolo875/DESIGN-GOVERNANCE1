@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A défend un point de vue net, « une facture n'est finie que lorsqu'elle est payée », et le structure par une frise du trajet de la facture, alors que B repose sur une promesse de bénéfice classique (« Facturez en deux minutes ») portée surtout par le tampon PAYÉE."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, A reste propre à la facturation électronique française (trajet d'une facture, statuts déposée/rejetée/refusée/encaissée, calendrier de la réforme), tandis que B pourrait servir à n'importe quel outil de facturation avec ses six cartes de fonctionnalités génériques."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus abouti dans ses composants (cartes à icônes, tarifs, mockup de facture, mobile bien hiérarchisé), alors que A, très soigné en typographie, souffre de légendes de frise minuscules et d'une colonne de texte dense sur desktop."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale systématiquement ce qui est fictif (« nom d'exemple », « Données d'exemple », « Tarifs d'exemple, à confirmer », « Toutes les données affichées sont fictives »), alors que B présente tarifs, faits (« données hébergées en France », « sans engagement ») et notification de paiement sans aucune mention d'exemple, sous la marque « © 2026 Ardoise »."
+ },
+ "defaut_A": "Densité de texte et de mentions « à confirmer » avec des légendes très petites, qui ralentissent la lecture et diluent le message.",
+ "defaut_B": "Gabarit SaaS générique (hero, six cartes d'icônes, trois tarifs, FAQ) dont les fonctionnalités pourraient appartenir à n'importe quel concurrent, avec des données d'exemple présentées comme réelles.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

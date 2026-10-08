@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B s'ouvre sur une thèse (« Une facture n'est finie que lorsqu'elle est payée ») et sur un tableau d'encours qui se lit comme un vrai écran de travail, alors que A, bien exécutée, reste dans le registre SaaS élégant (serif condensé, italique vert, carte de facture) sans prise de position aussi marquée."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B s'appuie sur la mécanique propre à la facturation électronique (chronologie J0 à J+45, statuts Déposée/Rejetée/Refusée/Encaissée expliqués, relance proposée), alors que A, malgré SIREN, Factur-X et relances, reste plus proche d'un modèle générique (cartes de fonctions, grille de tarifs à trois colonnes, FAQ)."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "A est très soignée (typographie expressive, cartes et pastilles cohérentes, mobile propre) mais laisse du vide dans plusieurs cartes et sous le hero ; B a une hiérarchie nette, des tableaux alignés et un mobile propre, mais un grand vide entre le titre et le corps à gauche et un hero un peu austère, donc les deux se valent."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale partout ce qui est exemple (« nom d'exemple », « Données d'exemple », « Offre et fonctions d'exemple, à confirmer avant publication », « Démo, aucun e-mail n'est envoyé »), alors que A présente comme réels un nom de marque, des prix, des chiffres d'encaissement (48 210 €), « Données hébergées en France » et des échéances, sans aucune mention d'exemple, même si elle n'invente ni faux avis ni faux logos."
+ },
+ "defaut_A": "Tout y est présenté comme définitif (marque, tarifs, chiffres, engagements d'hébergement) sans signaler que ce sont des exemples, et la mise en page reste d'un SaaS élégant mais interchangeable.",
+ "defaut_B": "Le hero laisse un grand vide sous la colonne de gauche et la page est plus austère et dense en texte, avec moins de richesse visuelle que A, et ses étiquettes « exemple » répétées alourdissent la lecture.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

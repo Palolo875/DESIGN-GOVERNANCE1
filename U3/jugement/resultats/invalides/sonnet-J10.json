@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue (« Chaque enfant nage à sa profondeur », bonnets de couleur, bassin en coupe) et retient par sa typographie condensée très affirmée, alors que B est charmante mais générique (nageur illustré, canard, vagues) et que ses sections sont vides dans les captures."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A construit toute la page autour de la mécanique propre à une école de natation (profondeurs 0,80 à 2,00 m, bonnets par niveau, objectifs cochés, séance de 45 min découpée, questionnaire de groupe), alors que B, une fois le nom retiré, se réduit à un hero aquatique et à un planning, ce qui pourrait servir à n'importe quelle activité enfants."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie nette, des alignements propres, une typographie cohérente et un mobile soigné, tandis que B a un bon hero desktop et mobile mais, dans les captures, des pans entiers de page sont vides (grands aplats crème et bleu sans contenu, sans doute des révélations au scroll non déclenchées), ce qui casse la lecture de la page."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale partout ce qui est exemple (bandeau « Maquette », pastilles EXEMPLE, HORAIRES D'EXEMPLE, TARIFS D'EXEMPLE, « Chiffres d'exemple »), sans faux avis ni faux logo, alors que B présente comme réels « Inscriptions ouvertes saison 2026-2027 », « 6 max. », un planning détaillé et un copyright, sans aucune mention d'exemple dans ce qui est visible."
+ },
+ "defaut_A": "Le ton est sobre et un peu technique, avec peu de chaleur humaine ni de visuel d'enfants, et le hero impose un questionnaire (carte « Dans quel groupe ? ») avec une zone de résultat vide au premier écran.",
+ "defaut_B": "Dans les captures, la majeure partie de la page est un grand vide (sections invisibles), de sorte que presque rien au-delà du hero n'est lisible, hormis un planning isolé, et les contenus inventés ne sont pas signalés comme exemples.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

@@ -1,0 +1,624 @@
+<!doctype html>
+<!--
+TRACE (légère) — Design Governance V1
+Mode : DIRECTION, trace légère, proposition EXPLORATORY (aucune ancre observée ni fournie ; contenus d'exemple).
+Thèse : « chaque enfant commence là où il a pied » → objet de preuve : le profil du bassin (4 groupes = 4 profondeurs = 4 couleurs de bonnet) piloté par un questionnaire de placement → geste : trouver son groupe puis demander une séance d'essai sur un créneau précis.
+Modal / trame / parti : modal = photo d'enfant souriant + vague SVG + arrondie (Fredoka) cyan/jaune, puis 3 cartes « nos cours », tarifs, avis, contact ; parti = on s'en écarte : pas de photo (aucune autorisée, pas de faux enfants), la page s'organise autour du placement et du bassin ; voix signalétique de piscine (Barlow Condensed, comparée à Fredoka, Barlow et Bricolage sur le vrai titre) ; bleu gardé car c'est l'eau, couleurs portées par les bonnets.
+Plafond : structure, type, couleur, interaction au plafond ; photos et contenu réel hors plafond (route CODE-NATIVE). Marqués « exemple » : nom Clapotis, piscine, adresse, téléphone, e-mail, horaires, places, tarifs, encadrement, température.
+Défaut dominant restant : retient = profil du bassin (profondeur → bonnet → créneaux) et placement en 3 questions ; encore générique = rangée de tarifs en 3 colonnes et absence de toute image de séance ; gestes appliqués et réinspectés : étiquettes sorties de l'eau (collision texte/fond du bassin), frise 45 min rendue proportionnelle avec graduation exacte, alignement des marges hero/sections. Gate A : recette sans faute bloquante, nom accessible des champs du dialogue vérifié dialogue ouvert (dialogue fermé = limite de la recette).
+Prochaine preuve : vrais créneaux, tarifs et photos de séance (consentement parental) ; test avec 3 parents sur le parcours « trouver le groupe → demander un essai ».
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clapotis — école de natation</title>
+<meta name="description" content="Cours de natation pour les 4–12 ans, par petits groupes, du petit bain au grand bain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tile:#F2F7F7;          /* fond : carrelage clair */
+  --tile-2:#E3F1F2;        /* surfaces calmes */
+  --grout:#D3E3E5;         /* joints / frontières */
+  --paper:#FFFFFF;
+  --ink:#0C2B45;           /* texte, action */
+  --ink-2:#3D5A70;         /* texte secondaire */
+  --water-1:#CDEEF1;
+  --water-2:#8FD0D8;
+  --water-3:#4FA9B8;
+  --water-deep:#16708A;
+  --error:#B5361F;
+  --ok:#1D6B45;
+  /* couleurs de bonnet : rôles de groupe, jamais d'action */
+  --cap-jaune:#F5C33B;
+  --cap-vert:#2FA36B;
+  --cap-orange:#F07A2B;
+  --cap-rouge:#D8402F;
+  --r:14px;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --text:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--tile);color:var(--ink);font-family:var(--text);font-size:18px;line-height:1.5}
+a{color:inherit}
+img,svg{display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ex{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--grout);border-radius:999px;padding:1px 7px;vertical-align:2px;white-space:nowrap;background:var(--paper)}
+
+/* ---------- bandeau maquette + barre ---------- */
+.notice{background:var(--ink);color:#E6F0F3;font-size:14px;padding:7px 0;text-align:center}
+.notice .wrap{padding:0 16px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:22px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font-family:var(--display);font-size:30px;line-height:1;letter-spacing:.01em}
+.brand span{font-size:14px;color:var(--ink-2);line-height:1.2}
+.bar nav{display:flex;align-items:center;gap:22px;font-weight:500;font-size:16px}
+.bar nav a.l{text-decoration:none;padding:10px 0}
+.bar nav a.l:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 20px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:#fff;font-weight:600;font-size:17px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#163E60;border-color:#163E60}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--tile-2)}
+.btn.sm{min-height:44px;padding:8px 16px;font-size:16px}
+.tel{font-variant-numeric:tabular-nums}
+
+/* ---------- première scène ---------- */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;padding-top:40px;padding-bottom:64px}
+.kicker{font-weight:600;font-size:16px;color:var(--ink-2);margin:0 0 14px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(56px,7.2vw,104px);line-height:.9;letter-spacing:-.005em;margin:0 0 26px;text-wrap:balance}
+.lede{font-size:21px;line-height:1.45;max-width:31em;margin:0 0 30px}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.facts li{flex:1 1 140px;padding:14px 18px 0 0}
+.facts b{display:block;font-family:var(--display);font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.facts span{display:block;font-size:15px;line-height:1.3;color:var(--ink-2);margin-top:4px}
+.facts-note{font-size:14px;color:var(--ink-2);margin:12px 0 0}
+
+/* questionnaire de placement */
+.finder{background:var(--paper);border:1px solid var(--grout);border-radius:22px;padding:28px 28px 24px;box-shadow:0 1px 0 #fff inset,0 18px 40px -28px rgba(12,43,69,.45)}
+.finder h2{font-family:var(--display);font-size:36px;line-height:1;margin:0 0 6px}
+.finder .sub{margin:0 0 20px;color:var(--ink-2);font-size:16px}
+.qrow{border-top:1px solid var(--grout);padding:14px 0}
+.q{border:0;margin:0;padding:0;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.q legend{float:left;padding:0;max-width:60%;font-weight:500;line-height:1.3}
+.q .n{display:inline-block;width:1.6em;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:2px solid var(--ink);border-radius:999px;padding:2px;flex:none}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{min-height:40px;min-width:64px;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center}
+.seg input:checked+label{background:var(--ink);color:#fff}
+.seg input:focus-visible+label{outline:3px solid var(--ink);outline-offset:3px}
+.q.off{opacity:1}
+.q.off legend{color:var(--ink-2)}
+.q.off .seg{border-color:var(--grout)}
+.q.off .seg label{color:var(--ink-2);cursor:not-allowed}
+.age{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:4px 0 14px}
+.age .lab{font-weight:500}
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper button{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:var(--paper);font-size:22px;font-weight:600;cursor:pointer;line-height:1}
+.stepper button:disabled{border-color:var(--grout);color:var(--ink-2);cursor:not-allowed}
+.stepper output{min-width:78px;text-align:center;font-family:var(--display);font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+.result{margin-top:8px;border-radius:16px;background:var(--tile-2);padding:18px 18px;min-height:156px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center}
+.result .depth{font-family:var(--display);font-weight:700;font-size:58px;line-height:.9;font-variant-numeric:tabular-nums;grid-row:span 2}
+.result .g{font-weight:700;font-size:19px;display:flex;align-items:center;gap:8px;line-height:1.2}
+.result .why{font-size:15px;color:var(--ink-2);margin:0;line-height:1.35}
+.result .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.result.empty{display:flex;align-items:center;color:var(--ink-2);font-size:16px}
+.result.empty p{margin:0}
+.finder .fine{font-size:14px;color:var(--ink-2);margin:14px 0 0}
+
+/* bonnet (pictogramme) */
+.cap{width:26px;height:18px;flex:none}
+.cap path{fill:var(--c)}
+.cap .band{fill:none;stroke:rgba(12,43,69,.35);stroke-width:1.2}
+
+/* ---------- le bassin ---------- */
+.section{padding-top:72px;padding-bottom:72px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+h2.big{font-family:var(--display);font-weight:700;font-size:clamp(40px,5vw,64px);line-height:.95;margin:0;max-width:16em;text-wrap:balance}
+.sec-head p{margin:0;max-width:30em;color:var(--ink-2)}
+#bassin{background:var(--paper);border-top:1px solid var(--grout);border-bottom:1px solid var(--grout)}
+.pool{position:relative;display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);border-radius:var(--r) var(--r) 0 0;overflow:hidden;--P:200px;background:var(--paper)}
+.rope{position:absolute;left:0;right:0;top:20px;height:8px;z-index:2;pointer-events:none;
+  background:repeating-linear-gradient(90deg,#D8402F 0 14px,#fff 14px 18px,#16708A 18px 32px,#fff 32px 36px);border-radius:4px;opacity:.9}
+.lane{position:relative;appearance:none;border:0;border-right:1px solid rgba(12,43,69,.25);background:transparent;padding:0 0 12px;text-align:left;cursor:pointer;display:flex;flex-direction:column}
+.lane:last-child{border-right:0}
+.lane .prof{position:relative;height:var(--P);display:block;background:
+  repeating-linear-gradient(0deg,transparent 0 23px,var(--grout) 23px 24px),
+  repeating-linear-gradient(90deg,transparent 0 23px,var(--grout) 23px 24px),#EDF4F5}
+.lane .air{position:absolute;left:0;right:0;top:0;height:24px;background:var(--paper)}
+.lane .water{position:absolute;left:0;right:0;top:24px;height:calc((var(--P) - 36px) * var(--d) / 2);background:linear-gradient(180deg,var(--water-1),var(--water-2) 70%,var(--water-3));border-bottom:3px solid var(--ink);transition:filter .2s}
+.lane .mark{position:absolute;left:16px;top:34px;font-family:var(--display);font-weight:700;font-size:44px;line-height:1;font-variant-numeric:tabular-nums;color:var(--ink)}
+.lane .mark small{font-size:.55em}
+.lane .who{display:flex;flex-direction:column;gap:2px;padding:12px 12px 0 16px;background:var(--paper);border-top:1px solid rgba(12,43,69,.25);flex:1}
+.lane .who b{display:flex;align-items:center;gap:8px;font-size:18px;line-height:1.2}
+.lane .who span{font-size:15px;color:var(--ink);font-weight:500}
+.lane .tag{align-self:flex-start;margin:8px 0 0 16px;font-size:13px;font-weight:700;background:var(--ink);color:#fff;border-radius:999px;padding:3px 10px;visibility:hidden}
+.lane[data-suggest="1"] .tag{visibility:visible}
+.lane[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--c)}
+.lane[aria-selected="false"] .water{filter:saturate(.5) brightness(1.04)}
+.lane:hover .water{filter:none}
+.lane:focus-visible{outline-offset:-5px}
+.panel{border:2px solid var(--ink);border-top:0;border-radius:0 0 var(--r) var(--r);padding:30px 32px 34px;display:grid;grid-template-columns:1fr 1.1fr;gap:40px;background:var(--paper)}
+.panel h3{font-family:var(--display);font-size:40px;line-height:1;margin:0 0 6px;display:flex;align-items:center;gap:12px}
+.panel h3 .cap{width:40px;height:28px}
+.panel .meta{margin:0 0 18px;color:var(--ink-2);font-size:16px}
+.panel .goal{font-size:20px;margin:0 0 18px;max-width:28em}
+.panel h4{font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:var(--ink-2)}
+.checks{list-style:none;margin:0 0 18px;padding:0;counter-reset:c}
+.checks li{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--grout);line-height:1.35}
+.checks li::before{counter-increment:c;content:counter(c);width:26px;height:26px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.next{font-size:15px;color:var(--ink-2);margin:0}
+.slots{list-style:none;margin:0;padding:0}
+.slot{display:grid;grid-template-columns:118px 1fr auto;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--grout)}
+.slot:last-child{border-bottom:1px solid var(--grout)}
+.slot .when{font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.slot .when span{display:block;font-weight:400;font-size:15px;color:var(--ink-2)}
+.seats{display:flex;align-items:center;gap:10px;font-size:15px;font-variant-numeric:tabular-nums}
+.dots{display:flex;gap:3px}
+.dots i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);display:block}
+.dots i.f{background:var(--ink)}
+.seats.full{color:var(--ink-2)}
+.slot-note{font-size:14px;color:var(--ink-2);margin:12px 0 0}
+
+/* ---------- une séance ---------- */
+.session{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.tbar{display:flex;height:44px;border:2px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--paper)}
+.tbar span{flex:var(--m) 1 0;display:flex;align-items:center;padding-left:8px;font-family:var(--display);font-weight:700;font-size:22px;border-right:1px solid var(--ink);font-variant-numeric:tabular-nums;min-width:0}
+.tbar span:last-child{border-right:0}
+.tbar .main{background:var(--water-1)}
+.scale{position:relative;height:20px;margin:6px 0 0;font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.scale span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.scale span:first-child{transform:none}
+.scale span:last-child{transform:translateX(-100%)}
+.timeline{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr 1.6fr 1.2fr;gap:20px}
+.timeline li{border-top:2px solid var(--ink);padding-top:10px}
+.timeline li.main{border-top-color:var(--water-deep)}
+.timeline b{font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums;margin-right:6px}
+.timeline strong{font-size:17px}
+.timeline span{display:block;font-size:15px;color:var(--ink-2);line-height:1.35;margin-top:4px}
+.care{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.care li{border-top:2px solid var(--ink);padding-top:12px}
+.care strong{display:block;font-size:18px;margin-bottom:4px;line-height:1.25}
+.care span{font-size:16px;color:var(--ink-2)}
+
+/* ---------- inscription ---------- */
+#inscription{background:var(--ink);color:#fff}
+#inscription .sec-head p{color:#C9D8DC}
+#inscription .ex{background:transparent;color:#C9D8DC;border-color:#4A6A82}
+.prices{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0;border-top:2px solid #fff}
+.price{padding:22px 28px 6px 0}
+.price + .price{padding-left:28px;border-left:1px solid #34546E}
+.price .amt{font-family:var(--display);font-weight:700;font-size:64px;line-height:1;font-variant-numeric:tabular-nums}
+.price .amt small{font-size:.4em;font-weight:600}
+.price h3{font-size:19px;margin:0 0 10px}
+.price p{margin:8px 0 0;color:#C9D8DC;font-size:16px}
+.capline{margin:44px 0 0;padding:24px 0 0;border-top:1px solid #34546E;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+.capline .caps{display:flex;gap:6px}
+.capline .caps svg{width:44px;height:30px}
+.capline p{margin:0;font-size:19px;max-width:36em}
+.btn.light{background:#fff;color:var(--ink);border-color:#fff}
+.btn.light:hover{background:#E3F1F2;border-color:#E3F1F2}
+#inscription :focus-visible{outline-color:#fff}
+
+/* ---------- questions ---------- */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+details{border-top:1px solid var(--grout)}
+details:last-child{border-bottom:1px solid var(--grout)}
+summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-weight:600;font-size:19px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:12px;font-size:28px;font-weight:400}
+details[open] summary::after{content:"−"}
+details p{margin:0 0 20px;max-width:38em;color:var(--ink-2)}
+
+/* ---------- pied ---------- */
+footer{border-top:2px solid var(--ink);padding:40px 0 56px}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+.foot h2{font-family:var(--display);font-size:34px;margin:0 0 6px;line-height:1}
+.foot p{margin:0 0 6px}
+.foot .m{color:var(--ink-2);font-size:16px}
+
+/* ---------- demande d'essai ---------- */
+dialog{border:0;border-radius:20px;padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);color:var(--ink);box-shadow:0 30px 80px -20px rgba(12,43,69,.55)}
+dialog::backdrop{background:rgba(12,43,69,.55)}
+.dlg{padding:26px 26px 22px}
+.dlg-head{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-bottom:6px}
+.dlg h2{font-family:var(--display);font-size:36px;line-height:1;margin:0}
+.x{width:44px;height:44px;border-radius:50%;border:2px solid var(--grout);background:#fff;cursor:pointer;font-size:22px;flex:none}
+.dlg .sub{margin:0 0 18px;color:var(--ink-2);font-size:16px}
+.chosen{display:flex;align-items:center;gap:10px;background:var(--tile-2);border-radius:12px;padding:12px 14px;margin-bottom:16px;font-weight:600;line-height:1.3}
+.chosen small{display:block;font-weight:400;color:var(--ink-2);font-size:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:600;font-size:16px;margin-bottom:5px}
+.field input,.field select{width:100%;min-height:48px;border:2px solid #9DB3BE;border-radius:10px;padding:10px 12px;background:#fff}
+.field input:focus-visible,.field select:focus-visible{outline:3px solid var(--ink);outline-offset:1px;border-color:var(--ink)}
+.field[data-err] input,.field[data-err] select{border-color:var(--error)}
+.err{display:none;color:var(--error);font-size:15px;font-weight:600;margin-top:5px}
+.field[data-err] .err{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dlg .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
+.dlg .fine{font-size:14px;color:var(--ink-2);margin:14px 0 0}
+.done[hidden],form[hidden]{display:none}
+.done .okmark{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ok);margin:4px 0 8px}
+
+/* ---------- recomposition ---------- */
+@media (max-width:1000px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-top:24px}
+  .panel{grid-template-columns:1fr;gap:28px}
+  .session,.faq{grid-template-columns:1fr;gap:28px}
+  .prices{grid-template-columns:1fr 1fr}
+  .price:first-child{grid-column:1/-1;padding-right:0}
+  .price:nth-child(2){padding-left:0;border-left:0}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  body{font-size:17px}
+  .wrap{padding-left:16px;padding-right:16px}
+  .bar nav a.l{display:none}
+  .brand span{display:none}
+  .lede{font-size:19px}
+  .facts b{font-size:32px}
+  .finder{padding:22px 18px 18px;border-radius:18px}
+  .q{flex-direction:column;align-items:flex-start;gap:10px}
+  .q legend{max-width:none;float:none}
+  .result{grid-template-columns:auto 1fr}
+  .result .depth{font-size:48px}
+  .section{padding-top:52px;padding-bottom:52px}
+  .pool{--P:150px}
+  .lane .mark{left:8px;font-size:26px;top:30px}
+  .lane .who{padding:10px 4px 0 8px}
+  .lane .who b{font-size:15px;flex-direction:column;align-items:flex-start;gap:4px}
+  .lane .who b .cap{width:22px;height:15px}
+  .lane .who span{font-size:13px}
+  .lane .tag{margin-left:8px;font-size:11px;padding:2px 6px}
+  .panel{padding:22px 16px 26px}
+  .panel h3{font-size:34px}
+  .slot{grid-template-columns:1fr auto;row-gap:6px}
+  .slot .seats{grid-column:1;grid-row:2}
+  .slot .btn{grid-column:2;grid-row:1/span 2}
+  .timeline{grid-template-columns:1fr 1fr;gap:16px}
+  .tbar span{font-size:18px;padding-left:5px}
+  .care{grid-template-columns:1fr;gap:16px}
+  .prices{grid-template-columns:1fr}
+  .price,.price + .price{padding:20px 0 6px;border-left:0}
+  .price + .price{border-top:1px solid #34546E}
+  .capline{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="notice" role="note"><div class="wrap">Maquette : le nom, les horaires, les places, les tarifs et les coordonnées sont des exemples à remplacer.</div></div>
+
+<header class="wrap bar">
+  <a class="brand" href="#top" aria-label="Clapotis, école de natation — haut de page">
+    <svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><path d="M2 22C2 10 8.5 2 17 2s15 8 15 20Z" fill="#F5C33B" stroke="#0C2B45" stroke-width="2"/><path d="M5 15h24" stroke="#0C2B45" stroke-width="2"/></svg>
+    <b>Clapotis</b><span>école de natation<br>4–12 ans</span>
+  </a>
+  <nav aria-label="Navigation principale">
+    <a class="l" href="#bassin">Les groupes</a>
+    <a class="l" href="#seance">Une séance</a>
+    <a class="l" href="#inscription">Tarifs</a>
+    <a class="btn sm" href="#trouver">Séance d’essai</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="wrap hero" aria-labelledby="h1">
+    <div>
+      <p class="kicker">Piscine des Tilleuls, Lyon 7<sup>e</sup> <span class="ex">exemple</span></p>
+      <h1 id="h1">Chaque enfant nage à sa profondeur.</h1>
+      <p class="lede">Quatre groupes, quatre profondeurs de bassin. Votre enfant commence là où il a confiance, et change de bonnet quand il a validé les trois objectifs de son groupe.</p>
+      <ul class="facts">
+        <li><b>6</b><span>enfants au plus par maître-nageur</span></li>
+        <li><b>45 min</b><span>une fois par semaine</span></li>
+        <li><b>30 °C</b><span>dans le bassin d’apprentissage</span></li>
+      </ul>
+      <p class="facts-note">Chiffres d’exemple, à confirmer par l’école.</p>
+    </div>
+
+    <form class="finder" id="trouver" aria-labelledby="finder-t" onsubmit="return false">
+      <h2 id="finder-t">Dans quel groupe ?</h2>
+      <p class="sub">Trois questions sur ce que votre enfant fait déjà. Le maître-nageur confirme pendant la séance d’essai.</p>
+      <div class="age">
+        <span class="lab" id="age-l">Âge de l’enfant</span>
+        <div class="stepper" role="group" aria-labelledby="age-l">
+          <button type="button" id="age-m" aria-label="Diminuer l’âge">−</button>
+          <output id="age" aria-live="polite">6 ans</output>
+          <button type="button" id="age-p" aria-label="Augmenter l’âge">+</button>
+        </div>
+      </div>
+      <div class="qrow"><fieldset class="q" id="q1"><legend><span class="n">1</span>Met la tête sous l’eau sans s’inquiéter ?</legend>
+        <span class="seg"><input type="radio" name="q1" id="q1o" value="1"><label for="q1o">Oui</label><input type="radio" name="q1" id="q1n" value="0"><label for="q1n">Pas encore</label></span></fieldset></div>
+      <div class="qrow"><fieldset class="q" id="q2"><legend><span class="n">2</span>Flotte seul quelques secondes, sans brassards ?</legend>
+        <span class="seg"><input type="radio" name="q2" id="q2o" value="1"><label for="q2o">Oui</label><input type="radio" name="q2" id="q2n" value="0"><label for="q2n">Pas encore</label></span></fieldset></div>
+      <div class="qrow"><fieldset class="q" id="q3"><legend><span class="n">3</span>Nage 15 mètres sans aide ?</legend>
+        <span class="seg"><input type="radio" name="q3" id="q3o" value="1"><label for="q3o">Oui</label><input type="radio" name="q3" id="q3n" value="0"><label for="q3n">Pas encore</label></span></fieldset></div>
+      <div class="result empty" id="result" aria-live="polite"><p>Répondez à la première question : le groupe s’affiche ici.</p></div>
+    </form>
+  </section>
+
+  <section class="section" id="bassin" aria-labelledby="bassin-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="big" id="bassin-t">Du petit bain au grand bain, un bonnet par profondeur.</h2>
+        <p>Choisissez un groupe pour voir ce qu’on y travaille, ce que l’enfant sait faire en sortant, et les créneaux de la semaine. <span class="ex">horaires d’exemple</span></p>
+      </div>
+      <div class="pool" role="tablist" aria-label="Groupes, du moins profond au plus profond" id="pool">
+        <span class="rope" aria-hidden="true"></span>
+      </div>
+      <div class="panel" role="tabpanel" id="panel" tabindex="-1" aria-labelledby=""></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="seance" aria-labelledby="seance-t">
+    <div class="session">
+      <div>
+        <h2 class="big" id="seance-t">Ce qui se passe pendant 45 minutes.</h2>
+        <p style="color:var(--ink-2);margin:16px 0 0">Les parents regardent depuis la galerie vitrée. À la dernière séance du trimestre, ils descendent au bord du bassin pour voir les progrès. <span class="ex">exemple</span></p>
+      </div>
+      <div>
+        <div class="tbar" aria-hidden="true"><span style="--m:5">5′</span><span style="--m:5">5′</span><span style="--m:25" class="main">25′</span><span style="--m:10">10′</span></div>
+        <div class="scale" aria-hidden="true"><span style="left:0">0</span><span style="left:22.22%">10</span><span style="left:44.44%">20</span><span style="left:66.67%">30</span><span style="left:88.89%">40</span><span style="left:100%">45 min</span></div>
+        <ol class="timeline" aria-label="Déroulé d’une séance de 45 minutes">
+          <li><b>5′</b><strong>Au bord</strong><span>Appel, bonnet, la règle du jour.</span></li>
+          <li><b>5′</b><strong>Échauffement</strong><span>Entrée dans l’eau, souffle.</span></li>
+          <li class="main"><b>25′</b><strong>Apprentissage</strong><span>Un seul objectif par séance, travaillé en ateliers de deux ou trois enfants.</span></li>
+          <li><b>10′</b><strong>Jeu encadré</strong><span>Toboggan, objets à repêcher, sauts.</span></li>
+        </ol>
+        <ul class="care">
+          <li><strong>Un maître-nageur diplômé par groupe</strong><span>Dans l’eau avec les bonnets jaune et vert, au bord pour les plus grands.</span></li>
+          <li><strong>Un carnet de bonnet</strong><span>Les trois objectifs du groupe, cochés au fil des séances. Vous le voyez à chaque fin de trimestre.</span></li>
+          <li><strong>Une séance manquée se rattrape</strong><span>Dans un autre créneau du même groupe, s’il reste une place.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="inscription" aria-labelledby="ins-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="big" id="ins-t">Inscription au trimestre, après une séance d’essai.</h2>
+        <p>Saison 2026–2027. <span class="ex">tarifs d’exemple</span></p>
+      </div>
+      <div class="prices">
+        <div class="price">
+          <h3>Trimestre</h3>
+          <div class="amt">195 <small>€</small></div>
+          <p>11 séances de 45 minutes, soit environ 17,70 € la séance. Le bonnet du groupe est fourni.</p>
+        </div>
+        <div class="price">
+          <h3>Année</h3>
+          <div class="amt">540 <small>€</small></div>
+          <p>33 séances, 45 € de moins que trois trimestres.</p>
+        </div>
+        <div class="price">
+          <h3>Séance d’essai</h3>
+          <div class="amt">15 <small>€</small></div>
+          <p>Déduits de l’inscription si l’enfant continue.</p>
+        </div>
+      </div>
+      <div class="capline">
+        <div class="caps" aria-hidden="true" id="capsrow"></div>
+        <p>Quand les trois objectifs sont cochés, l’enfant change de groupe et de bonnet, même en cours de trimestre, sans supplément.</p>
+        <a class="btn light" href="#trouver">Trouver son groupe</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="faq-t">
+    <div class="faq">
+      <h2 class="big" id="faq-t">Questions de parents.</h2>
+      <div>
+        <details><summary>Mon enfant a peur de l’eau. Par où commencer ?</summary><p>Par le bonnet jaune, dans 80 cm d’eau : il a pied partout. Le maître-nageur est dans l’eau avec lui, et personne n’est obligé de mettre la tête sous l’eau à la première séance.</p></details>
+        <details><summary>Et avant 4 ans ?</summary><p>Une séance parent-enfant a lieu le samedi à 8 h 30, de 6 mois à 3 ans, dans le même bassin à 30 °C. <span class="ex">exemple</span></p></details>
+        <details><summary>Que faut-il apporter ?</summary><p>Un maillot (pas de short de bain), une serviette et des lunettes si l’enfant en a. Le bonnet est fourni à la couleur du groupe.</p></details>
+        <details><summary>Que se passe-t-il pendant les vacances scolaires ?</summary><p>Pas de cours. Des stages de cinq matinées sont proposés pendant les vacances de printemps et d’été. <span class="ex">exemple</span></p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <h2>Clapotis</h2>
+      <p class="m">École de natation pour les 4–12 ans. Nom et coordonnées d’exemple.</p>
+    </div>
+    <div>
+      <p><strong>Piscine des Tilleuls</strong></p>
+      <p class="m">12 rue des Tilleuls, 69007 Lyon <span class="ex">exemple</span></p>
+      <p class="m">Accueil du lundi au samedi, 30 min avant chaque créneau.</p>
+    </div>
+    <div>
+      <p><a class="tel" href="tel:+33478000000">04 78 00 00 00</a> <span class="ex">exemple</span></p>
+      <p><a href="mailto:bonjour@clapotis.example">bonjour@clapotis.example</a></p>
+      <p class="m">Réponse sous 48 h ouvrées.</p>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <div class="dlg" id="dlg-in">
+    <div class="dlg-head">
+      <h2 id="dlg-t">Demander une séance d’essai</h2>
+      <button class="x" type="button" id="dlg-x" aria-label="Fermer">×</button>
+    </div>
+    <p class="sub" id="dlg-sub">Nous vous rappelons pour confirmer le jour. Rien n’est payé en ligne.</p>
+    <div class="chosen" id="chosen"></div>
+    <form id="essai" novalidate>
+      <div class="field" id="f-slot"><label for="slot">Créneau souhaité</label><select id="slot" name="slot"></select></div>
+      <div class="row2">
+        <div class="field" id="f-child"><label for="child">Prénom de l’enfant</label><input id="child" name="child" autocomplete="off" aria-describedby="e-child"><div class="err" id="e-child">Indiquez le prénom de l’enfant.</div></div>
+        <div class="field" id="f-age"><label for="dage">Âge</label><select id="dage" name="dage"></select></div>
+      </div>
+      <div class="field" id="f-parent"><label for="parent">Votre nom</label><input id="parent" name="parent" autocomplete="name" aria-describedby="e-parent"><div class="err" id="e-parent">Indiquez votre nom pour que l’on sache qui rappeler.</div></div>
+      <div class="field" id="f-phone"><label for="phone">Téléphone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="e-phone" placeholder="06 12 34 56 78"><div class="err" id="e-phone">Ce numéro semble incomplet : 10 chiffres, par exemple 06 12 34 56 78.</div></div>
+      <div class="actions">
+        <button class="btn" type="submit">Préparer la demande</button>
+        <a class="btn ghost tel" href="tel:+33478000000">Appeler le 04 78 00 00 00</a>
+      </div>
+      <p class="fine">Maquette : la demande s’ouvre dans votre messagerie, adressée à une adresse d’exemple. Aucune donnée n’est enregistrée par cette page.</p>
+    </form>
+    <div class="done" id="done" role="status" hidden>
+      <p class="okmark">Demande prête.</p>
+      <p id="done-txt">Votre messagerie s’ouvre avec la demande pré-remplie ; il reste à l’envoyer.</p>
+      <p class="fine">Rien ne s’est ouvert ? Appelez le <a class="tel" href="tel:+33478000000">04 78 00 00 00</a> <span class="ex">exemple</span> ou écrivez à bonjour@clapotis.example.</p>
+      <div class="actions"><button class="btn ghost" type="button" id="dlg-back">Modifier la demande</button><button class="btn" type="button" id="dlg-ok">Fermer</button></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var LEVELS=[
+    {id:'jaune',name:'Bonnet jaune',depth:'0,80',d:.8,amin:4,amax:6,c:'var(--cap-jaune)',
+     goal:'Être bien dans l’eau : y entrer seul, s’y déplacer, y mettre la tête.',
+     checks:['Entre seul dans l’eau par l’échelle','Met la tête sous l’eau et souffle des bulles','Avance 5 mètres avec une frite'],
+     slots:[['Mercredi','14 h 00',2],['Samedi','9 h 15',0],['Samedi','10 h 00',4]]},
+    {id:'vert',name:'Bonnet vert',depth:'1,10',d:1.1,amin:5,amax:8,c:'var(--cap-vert)',
+     goal:'Faire confiance à l’eau : flotter, couler, remonter, sans rien pour se tenir.',
+     checks:['Flotte 5 secondes sur le ventre, puis sur le dos','Se laisse couler et remonte seul','Avance 10 mètres en battements, avec une planche'],
+     slots:[['Mercredi','14 h 45',1],['Mercredi','16 h 15',3],['Samedi','10 h 45',0]]},
+    {id:'orange',name:'Bonnet orange',depth:'1,40',d:1.4,amin:6,amax:10,c:'var(--cap-orange)',
+     goal:'Nager sans aide et sans avoir pied. Prépare le test d’aisance aquatique.',
+     checks:['Saute dans le grand bain et regagne le bord','Nage 15 mètres sans aide, sur le ventre','Passe sous une ligne d’eau'],
+     slots:[['Lundi','17 h 15',2],['Mercredi','15 h 30',5],['Samedi','11 h 30',1]]},
+    {id:'rouge',name:'Bonnet rouge',depth:'2,00',d:2,amin:8,amax:12,c:'var(--cap-rouge)',
+     goal:'Nager longtemps et à l’aise en eau profonde, avec deux nages.',
+     checks:['Nage 50 mètres en deux nages','Plonge depuis le bord','Ramasse un objet au fond, à 2 mètres'],
+     slots:[['Mardi','17 h 15',3],['Jeudi','17 h 15',0],['Samedi','12 h 15',2]]}
+  ];
+  var MAX=6;
+  function cap(c,cls){return '<svg class="cap '+(cls||'')+'" viewBox="0 0 26 18" aria-hidden="true" style="--c:'+c+'"><path d="M1.5 16.5C1.5 7.5 6.5 1.5 13 1.5S24.5 7.5 24.5 16.5Z" stroke="#0C2B45" stroke-width="1.5"/><path class="band" d="M4 11.5h18"/></svg>';}
+  function placesTxt(n){return n===0?'Complet':(n===1?'1 place':n+' places');}
+  function dots(n){var s='<span class="dots" aria-hidden="true">';for(var i=0;i<MAX;i++)s+='<i class="'+(i<MAX-n?'f':'')+'"></i>';return s+'</span>';}
+
+  /* --- bassin --- */
+  var pool=document.getElementById('pool'),panel=document.getElementById('panel');
+  LEVELS.forEach(function(L,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='lane';b.setAttribute('role','tab');b.id='tab-'+L.id;
+    b.setAttribute('aria-controls','panel');b.style.setProperty('--d',L.d);b.style.setProperty('--c',L.c);
+    b.innerHTML='<span class="prof"><span class="air"></span><span class="water"></span><span class="mark">'+L.depth+'<small> m</small></span></span>'+
+      '<span class="who"><b>'+cap(L.c)+'<span class="nm">'+L.name.replace('Bonnet ','<span class="sr">Bonnet </span>')+'</span></b><span>'+L.amin+'–'+L.amax+' ans</span></span><span class="tag">Suggéré</span>';
+    b.setAttribute('aria-label',L.name+', '+L.depth.replace(',',' virgule ')+' mètre de profondeur, '+L.amin+' à '+L.amax+' ans');
+    b.addEventListener('click',function(){select(i,true)});
+    b.addEventListener('keydown',function(e){
+      var k=e.key,j=null;
+      if(k==='ArrowRight')j=(i+1)%4;else if(k==='ArrowLeft')j=(i+3)%4;else if(k==='Home')j=0;else if(k==='End')j=3;
+      if(j!==null){e.preventDefault();select(j,true);document.getElementById('tab-'+LEVELS[j].id).focus();}
+    });
+    pool.appendChild(b);
+  });
+
+  var current=0;
+  function select(i){
+    current=i;var L=LEVELS[i];
+    LEVELS.forEach(function(M,j){var t=document.getElementById('tab-'+M.id);t.setAttribute('aria-selected',j===i?'true':'false');t.tabIndex=j===i?0:-1;});
+    panel.setAttribute('aria-labelledby','tab-'+L.id);
+    var next=LEVELS[i+1];
+    var h='<div><h3>'+cap(L.c)+L.name+'</h3><p class="meta">'+L.depth+' m de profondeur · '+L.amin+' à '+L.amax+' ans · 6 enfants au plus</p>'+
+      '<p class="goal">'+L.goal+'</p><h4>À la sortie du groupe, l’enfant…</h4><ol class="checks">'+
+      L.checks.map(function(c){return '<li>'+c+'</li>'}).join('')+'</ol>'+
+      '<p class="next">'+(next?'Ces trois objectifs cochés, il passe au '+next.name.toLowerCase()+' ('+next.depth+' m).':'Ensuite : le club de natation ou les stages de perfectionnement.')+'</p></div>'+
+      '<div><h4>Créneaux de la semaine</h4><ul class="slots">'+
+      L.slots.map(function(s,k){var n=s[2];return '<li class="slot"><span class="when">'+s[0]+'<span>'+s[1]+' – 45 min</span></span>'+
+        '<span class="seats'+(n===0?' full':'')+'">'+dots(n)+'<span>'+placesTxt(n)+'</span></span>'+
+        '<button type="button" class="btn sm'+(n===0?' ghost':'')+'" data-l="'+i+'" data-s="'+k+'">'+(n===0?'Liste d’attente':'Essayer')+'<span class="sr"> le '+s[0].toLowerCase()+' à '+s[1]+'</span></button></li>'}).join('')+
+      '</ul><p class="slot-note">Places restantes sur 6, à la date du 8 octobre 2026. Données d’exemple.</p></div>';
+    panel.innerHTML=h;
+    panel.querySelectorAll('.slot .btn').forEach(function(btn){btn.addEventListener('click',function(){openDlg(+btn.dataset.l,+btn.dataset.s,btn)})});
+  }
+  select(0);
+
+  /* rangée de bonnets (tarifs) */
+  document.getElementById('capsrow').innerHTML=LEVELS.map(function(L){return cap(L.c)}).join('');
+
+  /* --- questionnaire --- */
+  var age=6,ageOut=document.getElementById('age'),am=document.getElementById('age-m'),ap=document.getElementById('age-p');
+  function setAge(a){age=Math.max(4,Math.min(12,a));ageOut.textContent=age+' ans';am.disabled=age<=4;ap.disabled=age>=12;compute();}
+  am.addEventListener('click',function(){setAge(age-1)});ap.addEventListener('click',function(){setAge(age+1)});
+  var res=document.getElementById('result');
+  function val(n){var r=document.querySelector('input[name="'+n+'"]:checked');return r?r.value:null;}
+  function lock(id,off){var f=document.getElementById(id);f.classList.toggle('off',off);f.querySelectorAll('input').forEach(function(x){x.disabled=off;if(off)x.checked=false;});}
+  function compute(){
+    var a=val('q1'),b=val('q2'),c=val('q3'),lvl=null,why='';
+    lock('q2',a!=='1');lock('q3',!(a==='1'&&b==='1'));
+    b=val('q2');c=val('q3');
+    if(a===null){res.className='result empty';res.innerHTML='<p>Répondez à la première question : le groupe s’affiche ici.</p>';mark(null);return;}
+    if(a==='0'){lvl=0;why='On commence par se sentir bien dans l’eau, en ayant pied partout.';}
+    else if(b===null){res.className='result empty';res.innerHTML='<p>Encore une question : est-ce qu’il flotte seul ?</p>';mark(null);return;}
+    else if(b==='0'){lvl=1;why='Il met déjà la tête sous l’eau : on travaille la flottaison.';}
+    else if(c===null){res.className='result empty';res.innerHTML='<p>Dernière question : nage-t-il 15 mètres sans aide ?</p>';mark(null);return;}
+    else if(c==='0'){lvl=2;why='Il flotte : on apprend à nager sans aide, là où il n’a plus pied.';}
+    else {lvl=3;why='Il nage déjà : on allonge les distances en eau profonde.';}
+    var L=LEVELS[lvl],note='';
+    if(age<L.amin)note=' À '+age+' ans, il sera parmi les plus jeunes : le maître-nageur vérifie à l’essai.';
+    else if(age>L.amax)note=' À '+age+' ans, il sera parmi les plus grands ; on en parle à l’essai.';
+    var free=L.slots.map(function(s,k){return [s,k]}).filter(function(x){return x[0][2]>0});
+    var f=free[0];
+    res.className='result';
+    res.innerHTML='<span class="depth">'+L.depth+'<small style="font-size:.5em"> m</small></span>'+
+      '<span class="g">'+cap(L.c)+L.name+' · '+L.amin+'–'+L.amax+' ans</span>'+
+      '<p class="why">'+why+note+'</p>'+
+      '<div class="acts">'+(f?'<button type="button" class="btn sm" id="r-try">Essayer '+f[0][0].toLowerCase()+' à '+f[0][1]+'</button>':'')+
+      '<a class="btn sm ghost" href="#bassin" id="r-see">Voir les 3 créneaux</a></div>';
+    mark(lvl);
+    var t=document.getElementById('r-try');if(t)t.addEventListener('click',function(){openDlg(lvl,f[1],t)});
+    document.getElementById('r-see').addEventListener('click',function(){select(lvl)});
+  }
+  function mark(lvl){LEVELS.forEach(function(M,j){document.getElementById('tab-'+M.id).dataset.suggest=(j===lvl?'1':'0')});if(lvl!==null)select(lvl);}
+  document.querySelectorAll('.finder input').forEach(function(x){x.addEventListener('change',compute)});
+  setAge(6);
+
+  /* --- demande d'essai --- */
+  var dlg=document.getElementById('dlg'),din=document.getElementById('dlg-in'),slotSel=document.getElementById('slot'),dage=document.getElementById('dage'),opener=null;
+  for(var a=4;a<=12;a++){var o=document.createElement('option');o.value=a;o.textContent=a+' ans';dage.appendChild(o);}
+  LEVELS.forEach(function(L,i){var g=document.createElement('optgroup');g.label=L.name+' · '+L.amin+'–'+L.amax+' ans';
+    L.slots.forEach(function(s,k){var o=document.createElement('option');o.value=i+'-'+k;o.textContent=s[0]+' '+s[1]+' — '+placesTxt(s[2]).toLowerCase();g.appendChild(o);});slotSel.appendChild(g);});
+  function showChosen(){var p=slotSel.value.split('-'),L=LEVELS[+p[0]],s=L.slots[+p[1]];
+    document.getElementById('chosen').innerHTML=cap(L.c)+'<span>'+L.name+', '+s[0].toLowerCase()+' à '+s[1]+'<small>'+(s[2]===0?'Complet : vous serez inscrit sur la liste d’attente.':placesTxt(s[2])+' sur 6 · séance d’essai 15 €')+'</small></span>';
+    document.getElementById('dlg-t').textContent=s[2]===0?'Rejoindre la liste d’attente':'Demander une séance d’essai';}
+  slotSel.addEventListener('change',showChosen);
+  function sent(on){document.getElementById('essai').hidden=on;document.getElementById('done').hidden=!on;}
+  function openDlg(l,s,from){opener=from||null;slotSel.value=l+'-'+s;dage.value=age;showChosen();sent(false);
+    if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');
+    setTimeout(function(){document.getElementById('child').focus()},30);}
+  function closeDlg(){if(dlg.close)dlg.close();else dlg.removeAttribute('open');}
+  dlg.addEventListener('close',function(){if(opener&&document.body.contains(opener))opener.focus();});
+  document.getElementById('dlg-x').addEventListener('click',closeDlg);
+  document.getElementById('dlg-ok').addEventListener('click',closeDlg);
+  document.getElementById('dlg-back').addEventListener('click',function(){sent(false);document.getElementById('child').focus();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)closeDlg();});
+  function setErr(id,on){var f=document.getElementById('f-'+id),i=document.getElementById(id);if(on){f.setAttribute('data-err','');i.setAttribute('aria-invalid','true');}else{f.removeAttribute('data-err');i.removeAttribute('aria-invalid');}}
+  ['child','parent','phone'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){if(document.getElementById('f-'+id).hasAttribute('data-err'))validate(id)})});
+  function validate(only){
+    var ok=true,first=null;
+    var c=document.getElementById('child').value.trim(),p=document.getElementById('parent').value.trim(),t=document.getElementById('phone').value.replace(/[\s.\-]/g,'').replace(/^\+33/,'0');
+    var checks={child:c.length>0,parent:p.length>0,phone:/^0\d{9}$/.test(t)};
+    Object.keys(checks).forEach(function(k){if(only&&only!==k)return;setErr(k,!checks[k]);if(!checks[k]){ok=false;if(!first)first=k;}});
+    return {ok:ok,first:first,c:c,p:p,t:t};
+  }
+  document.getElementById('essai').addEventListener('submit',function(e){
+    e.preventDefault();var v=validate();
+    if(!v.ok){document.getElementById(v.first).focus();return;}
+    var q=slotSel.value.split('-'),L=LEVELS[+q[0]],s=L.slots[+q[1]],wait=s[2]===0;
+    var subject=(wait?'Liste d’attente':'Séance d’essai')+' — '+L.name+', '+s[0].toLowerCase()+' '+s[1];
+    var body='Bonjour,\n\nJe souhaite '+(wait?'inscrire mon enfant sur la liste d’attente':'une séance d’essai')+' pour '+v.c+' ('+dage.value+' ans), '+L.name.toLowerCase()+', le '+s[0].toLowerCase()+' à '+s[1]+'.\n\n'+v.p+'\n'+document.getElementById('phone').value.trim();
+    document.getElementById('done-txt').textContent='Votre messagerie s’ouvre avec la demande pour '+v.c+', '+L.name.toLowerCase()+', '+s[0].toLowerCase()+' à '+s[1]+'. Il reste à l’envoyer.';
+    sent(true);document.getElementById('dlg-ok').focus();
+    window.location.href='mailto:bonjour@clapotis.example?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>

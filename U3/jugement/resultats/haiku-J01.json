@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B porte une thèse nette, « une facture n'est finie que lorsqu'elle est payée », et la déploie dans tout le parcours (trajet de la facture, statuts, calendrier de la réforme), alors que A reste sur une accroche efficace mais convenue, « sans relancer », avec le tampon PAYÉE comme seul point de vue visuel."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Sans le nom, B reste une page sur le cycle de vie d'une facture électronique (statuts déposée, rejetée, refusée, encaissée, calendrier de la réforme), alors que A, hors la facture mockée, pourrait servir à n'importe quel outil de facturation avec sa grille de six fonctionnalités et ses trois prix."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie très nette, un bel effet de facture tamponnée avec toast de rapprochement, des cartes et une grille de relances bien alignées et un mobile soigné, tandis que B est tout aussi propre mais plus dense, avec une frise un peu encombrée et des libellés qui se tassent."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale systématiquement l'exemple (« Données d'exemple », « nom d'exemple », « Démo, aucun e-mail n'est envoyé », tarifs et réglementation à confirmer, pied de page « toutes les données affichées sont fictives »), alors que A présente prix, conformité « obligatoire » et « Données hébergées en France » sans aucune étiquette, ses seuls indices étant le domaine .example et le SIREN à zéros."
+ },
+ "defaut_A": "Structure de template SaaS convenue (hero, trois étapes, grille de six cartes à icônes, trois prix, FAQ, bloc final sombre) et données d'exemple présentées comme réelles, sans étiquette.",
+ "defaut_B": "Une page davantage explicative que commerciale, saturée de mentions « exemple / à confirmer » et de frise et de tableaux de statuts, qui affaiblissent l'argument de vente et la conversion.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

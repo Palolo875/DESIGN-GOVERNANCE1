@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue : le titre « Une facture n'est finie que lorsqu'elle est payée » est repris par un tableau d'encours vivant, alors que B a un titre « Facturez en deux minutes » et un hero (fausse facture tamponnée « PAYÉE ») qu'on a déjà vus partout, même s'il est bien fait."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A reste propre à la facturation (frise d'une facture de J0 à J+45, statuts Déposée, Rejetée, Refusée et Encaissée avec ce que fait le produit, calendrier de la réforme), alors que B (6 cartes de fonctionnalités, 3 étapes, 3 formules de prix, FAQ) irait aussi bien à un outil de devis ou de paiement une fois le nom retiré."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est très propre et homogène, avec une hiérarchie nette, des cartes régulières, un bon mobile et un hero à deux colonnes équilibré. A est tout aussi soigné dans les détails (chiffres tabulaires, badges de statut avec icône, mobile correct), mais sa colonne gauche reste vide sous le hero et sa frise est dense, d'où un avantage léger à B."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale partout ce qui est exemple (« nom d'exemple », « Données d'exemple », « Tarifs d'exemple, à confirmer », « Démo, aucun e-mail n'est envoyé ») et n'invente ni logos ni avis. B présente comme des faits « Données hébergées en France », « Sans carte bancaire », un badge « Le plus choisi », des tarifs, une réponse de FAQ et « mail de relance écrit à 23 h » sans réserve, mais n'a pas non plus de faux avis ni de faux logos."
+ },
+ "defaut_A": "Le hero laisse un grand vide sous la colonne de gauche. La page est dense et textuelle (frise, tableaux de statuts), un peu austère et sans visuel de produit au-delà du tableau, donc moins immédiate pour un visiteur pressé.",
+ "defaut_B": "C'est un gabarit SaaS générique (hero, bande de logos/formats, 3 étapes, grille de 6 cartes, 3 formules de prix, FAQ) dont l'identité tient surtout à la palette et à la typographie, avec des affirmations et des tarifs inventés présentés comme réels.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className+=" js"</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Petits Plongeons</title>
+<meta name="description" content="École de natation pour enfants de 6 mois à 12 ans : bébés nageurs, jardin aquatique, apprentissage et perfectionnement en petits groupes avec des maîtres-nageurs diplômés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B2A4A;
+  --ink-soft:#3D5672;
+  --pool:#0D6EBD;
+  --pool-deep:#0A4F8A;
+  --aqua:#4CC9DE;
+  --foam:#E6F6FA;
+  --sun:#FFC43D;
+  --coral:#FF7A59;
+  --leaf:#3BB37A;
+  --sand:#FFF9F0;
+  --card:#FFFFFF;
+  --line:#D7E6EE;
+  --radius:22px;
+  --radius-sm:14px;
+  --shadow:0 1px 2px rgba(11,42,74,.06),0 10px 30px -12px rgba(11,42,74,.18);
+  --g-bebe:#FF7A59; --g-bebe-bg:#FFEDE7;
+  --g-jardin:#E9A800; --g-jardin-bg:#FFF4D6;
+  --g-appr:#1AA6BF; --g-appr-bg:#E0F6FA;
+  --g-perf:#0D6EBD; --g-perf-bg:#E3EFFA;
+  --display:"Fredoka",ui-rounded,"Segoe UI",system-ui,sans-serif;
+  --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:var(--pool)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--pool)}
+.eyebrow::before{content:"";width:18px;height:3px;border-radius:3px;background:currentColor}
+.section{padding:96px 0}
+.section-head{max-width:640px;margin-bottom:44px}
+.section-head h2{font-size:clamp(32px,4.4vw,48px);margin-top:12px}
+.section-head p{margin-top:14px;color:var(--ink-soft);font-size:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-family:var(--body);font-weight:800;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background-color .15s ease,box-shadow .15s ease}
+.btn:focus-visible,.chip:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.btn-primary{background:var(--coral);color:#fff;box-shadow:0 6px 0 #D9573A}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 0 #D9573A}
+.btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 #D9573A}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,249,240,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.site-header.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:700;font-size:21px;line-height:1}
+.brand small{display:block;font-family:var(--body);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px}
+.nav-links a:hover{background:var(--foam)}
+.nav-cta{min-height:44px;padding:0 20px;font-size:15px;box-shadow:0 4px 0 #D9573A}
+.menu-btn{display:none;width:46px;height:46px;border-radius:14px;border:2px solid var(--ink);background:transparent;align-items:center;justify-content:center;cursor:pointer;color:var(--ink)}
+@media (max-width:920px){
+  .menu-btn{display:inline-flex}
+  .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;padding:12px 16px 20px;background:var(--sand);border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(11,42,74,.3);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+  .nav-links.open{opacity:1;transform:none;pointer-events:auto}
+  .nav-links a{padding:14px 12px;font-size:17px}
+  .nav-links .nav-cta{margin-top:8px}
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:56px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 8px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:700;font-size:14px;color:var(--ink)}
+.pill .dot{width:22px;height:22px;border-radius:50%;background:var(--leaf);display:grid;place-items:center;color:#fff}
+.hero h1{font-size:clamp(42px,6.4vw,76px);margin-top:22px}
+.hero h1 .swash{color:var(--pool);position:relative;white-space:nowrap}
+.hero h1 .swash svg{position:absolute;left:0;right:0;bottom:-.18em;width:100%;height:.35em;color:var(--aqua)}
+.hero-lead{margin-top:22px;font-size:clamp(18px,1.6vw,20px);color:var(--ink-soft);max-width:34em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:36px;padding:0;list-style:none;font-weight:700;font-size:15px}
+.hero-facts li{display:flex;align-items:center;gap:8px}
+.hero-facts svg{flex:none;color:var(--leaf)}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:540px;justify-self:end;width:100%}
+.hero-art .pool{position:absolute;inset:0;border-radius:44% 56% 52% 48% / 52% 44% 56% 48%;background:linear-gradient(160deg,#7FDCEB 0%,#2BA9D6 45%,#0D6EBD 100%);overflow:hidden;box-shadow:inset 0 -30px 60px rgba(10,79,138,.35)}
+.hero-art .badge{position:absolute;background:#fff;border-radius:18px;padding:12px 16px;box-shadow:var(--shadow);font-weight:800;font-size:14px;line-height:1.3;display:flex;gap:10px;align-items:center}
+.hero-art .badge b{font-family:var(--display);font-weight:600;font-size:24px;display:block;line-height:1}
+.hero-art .badge .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none}
+.badge-a{left:-6%;bottom:16%}
+.badge-b{right:-2%;top:8%}
+.bob{animation:bob 5s ease-in-out infinite}
+.bob.d2{animation-delay:-2.5s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.bubble{animation:rise 7s linear infinite;opacity:0}
+@keyframes rise{0%{transform:translateY(0);opacity:0}10%{opacity:.8}100%{transform:translateY(-260px);opacity:0}}
+.hero-wave{display:block;width:100%;height:auto;margin-top:64px;color:var(--foam)}
+@media (max-width:920px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{justify-self:center;max-width:420px;margin-top:12px}
+  .badge-a{left:0}
+  .badge-b{right:0}
+}
+
+/* ---------- Groups ---------- */
+.groups{background:var(--foam)}
+.group-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.group{position:relative;background:var(--card);border-radius:var(--radius);padding:26px 22px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;border:2px solid transparent;transition:border-color .2s,transform .2s}
+.group.match{border-color:var(--gc);transform:translateY(-6px)}
+.group .age{align-self:flex-start;font-weight:800;font-size:13px;padding:5px 12px;border-radius:999px;background:var(--gbg);color:var(--ink)}
+.group .icon{width:64px;height:64px;border-radius:20px;background:var(--gbg);display:grid;place-items:center;margin:18px 0 16px;color:var(--gc)}
+.group h3{font-size:24px}
+.group p{margin-top:8px;color:var(--ink-soft);font-size:16px}
+.group ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px;font-size:15px;font-weight:700}
+.group li{display:flex;gap:10px;align-items:flex-start}
+.group li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--gc);margin-top:8px}
+.group .meta{margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--ink-soft);font-weight:700;border-top:1px dashed var(--line);margin-top:22px}
+.group .match-tag{position:absolute;top:-13px;right:18px;background:var(--gc);color:#fff;font-weight:800;font-size:12px;padding:5px 10px;border-radius:999px;opacity:0;transform:translateY(4px);transition:.2s}
+.group.match .match-tag{opacity:1;transform:none}
+.g-bebe{--gc:var(--g-bebe);--gbg:var(--g-bebe-bg)}
+.g-jardin{--gc:var(--g-jardin);--gbg:var(--g-jardin-bg)}
+.g-appr{--gc:var(--g-appr);--gbg:var(--g-appr-bg)}
+.g-perf{--gc:var(--g-perf);--gbg:var(--g-perf-bg)}
+
+.finder{margin-top:36px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px}
+.finder h3{font-size:22px}
+.finder p{color:#B9CBDD;font-size:15px;margin-top:2px}
+.finder-ctrl{display:flex;align-items:center;gap:14px;margin-left:auto;flex-wrap:wrap}
+.stepper{display:flex;align-items:center;background:rgba(255,255,255,.08);border-radius:999px;padding:5px}
+.stepper button{width:42px;height:42px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:22px;font-weight:800;cursor:pointer;line-height:1}
+.stepper button:hover{background:var(--sun)}
+.stepper output{min-width:118px;text-align:center;font-family:var(--display);font-size:20px;font-weight:600}
+.finder-result{font-weight:800;min-width:220px}
+.finder-result span{color:var(--sun)}
+@media (max-width:1040px){.group-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.group-grid{grid-template-columns:1fr}.finder-ctrl{margin-left:0}}
+
+/* ---------- Method ---------- */
+.method-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.promises{display:grid;gap:14px}
+.promise{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px 20px}
+.promise .ic{flex:none;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--foam);color:var(--pool)}
+.promise h3{font-size:19px;font-family:var(--body);font-weight:800}
+.promise p{font-size:15.5px;color:var(--ink-soft);margin-top:3px}
+.levels{position:relative;margin-top:8px;padding:28px;border-radius:var(--radius);background:linear-gradient(180deg,#fff 0%,#fff 60%,var(--foam) 100%);border:1px solid var(--line)}
+.levels h3{font-size:22px}
+.levels > p{color:var(--ink-soft);font-size:15.5px;margin-top:6px}
+.track{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:0;counter-reset:lvl}
+.track li{position:relative;display:grid;grid-template-columns:56px 1fr;gap:16px;padding-bottom:22px}
+.track li:last-child{padding-bottom:0}
+.track li::after{content:"";position:absolute;left:27px;top:56px;bottom:0;width:2px;background:repeating-linear-gradient(to bottom,var(--aqua) 0 6px,transparent 6px 12px)}
+.track li:last-child::after{display:none}
+.medal{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid var(--mc);color:var(--mc);font-family:var(--display);font-weight:700;font-size:20px}
+.track h4{margin:4px 0 0;font-family:var(--display);font-weight:600;font-size:19px}
+.track p{font-size:15px;color:var(--ink-soft)}
+@media (max-width:920px){.method-grid{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- Schedule ---------- */
+.schedule{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{min-height:42px;padding:0 16px;border-radius:999px;border:2px solid var(--line);background:#fff;font-family:var(--body);font-weight:800;font-size:14.5px;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.chip .sw{width:10px;height:10px;border-radius:50%;background:var(--gc,var(--ink))}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip:hover{border-color:var(--ink)}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.day{background:var(--sand);border-radius:var(--radius-sm);padding:18px 16px;border:1px solid var(--line)}
+.day h3{font-size:20px;display:flex;justify-content:space-between;align-items:baseline}
+.day h3 small{font-family:var(--body);font-size:13px;color:var(--ink-soft);font-weight:700}
+.slots{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.slot{background:#fff;border-radius:12px;padding:9px 12px;border-left:5px solid var(--gc);display:flex;flex-direction:column;gap:1px;font-size:15px}
+.slot b{font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
+.slot span{font-size:13.5px;font-weight:700;color:var(--ink-soft)}
+.slot[hidden]{display:none}
+.empty{font-size:14px;color:var(--ink-soft);font-style:italic;padding:8px 2px}
+.sched-note{margin-top:20px;font-size:15px;color:var(--ink-soft)}
+@media (max-width:920px){.days{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.days{grid-template-columns:1fr}}
+
+/* ---------- Pricing ---------- */
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.price{background:var(--card);border-radius:var(--radius);padding:24px 22px;border:1px solid var(--line);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.price::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--gc)}
+.price h3{font-size:20px}
+.price .sub{font-size:14px;color:var(--ink-soft);font-weight:700}
+.price .amount{margin:18px 0 4px;font-family:var(--display);font-weight:600;font-size:46px;line-height:1;font-variant-numeric:tabular-nums}
+.price .amount small{font-family:var(--body);font-size:15px;font-weight:700;color:var(--ink-soft)}
+.price .per{font-size:14px;color:var(--ink-soft)}
+.price ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:6px;font-size:15px}
+.price li::before{content:"✓";color:var(--leaf);font-weight:800;margin-right:8px}
+.extras{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.extra{display:flex;gap:14px;align-items:center;background:var(--foam);border-radius:var(--radius-sm);padding:16px 18px;font-size:15px}
+.extra b{display:block;font-size:16px}
+.extra .ic{flex:none;width:42px;height:42px;border-radius:12px;background:#fff;display:grid;place-items:center;color:var(--pool)}
+@media (max-width:1040px){.price-grid{grid-template-columns:repeat(2,1fr)}.extras{grid-template-columns:1fr}}
+@media (max-width:560px){.price-grid{grid-template-columns:1fr}}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--foam)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.faq-list{display:grid;gap:12px}
+details{background:#fff;border-radius:var(--radius-sm);border:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:18px 56px 18px 20px;font-weight:800;font-size:17px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:20px;top:50%;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--foam) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B2A4A' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/12px no-repeat;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details .ans{padding:0 20px 20px;color:var(--ink-soft);font-size:16px}
+.faq-aside{background:var(--ink);color:#fff;border-radius:var(--radius);padding:28px;margin-top:28px}
+.faq-aside h3{font-size:22px}
+.faq-aside p{color:#B9CBDD;margin-top:8px;font-size:15.5px}
+.faq-aside ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-weight:700;font-size:15.5px}
+.faq-aside li{display:flex;gap:10px;align-items:center}
+.faq-aside li::before{content:"";width:20px;height:20px;border-radius:6px;background:var(--sun) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B2A4A' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/13px no-repeat;flex:none}
+@media (max-width:920px){.faq-grid{grid-template-columns:1fr;gap:28px}}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+.form-card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.form-card h3{font-size:26px}
+.form-card > p{color:var(--ink-soft);margin-top:6px;font-size:16px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-weight:800;font-size:14.5px}
+.field label .opt{font-weight:600;color:var(--ink-soft)}
+input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--sand);border:2px solid var(--line);border-radius:12px;padding:12px 14px;min-height:50px;transition:border-color .15s,background-color .15s}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--pool);background:#fff;outline:none}
+.field.invalid input,.field.invalid select{border-color:#D64545;background:#FFF5F5}
+.err{font-size:13.5px;font-weight:700;color:#C03535;min-height:0;display:none}
+.field.invalid .err{display:block}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:22px}
+.form-foot small{color:var(--ink-soft);font-size:13.5px;flex:1 1 220px}
+.form-status{margin-top:18px;padding:14px 16px;border-radius:12px;background:#E6F7EE;color:#14593A;font-weight:700;font-size:15px;display:none}
+.form-status.show{display:block}
+.info-card{background:var(--pool);color:#fff;border-radius:var(--radius);padding:30px;position:relative;overflow:hidden}
+.info-card h3{font-size:24px}
+.info-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:18px;position:relative}
+.info-list li{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+.info-list .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.14);display:grid;place-items:center}
+.info-list b{display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#BFE6F5}
+.info-list a{color:#fff;font-weight:800;text-decoration-color:rgba(255,255,255,.4)}
+.info-card .deco{position:absolute;right:-56px;top:-56px;width:190px;opacity:.16;pointer-events:none}
+.hours{margin-top:22px;background:rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;font-size:15px;position:relative}
+.hours div{display:flex;justify-content:space-between;gap:12px;padding:4px 0}
+.hours div + div{border-top:1px solid rgba(255,255,255,.15)}
+@media (max-width:920px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.fields{grid-template-columns:1fr}.form-card{padding:24px 18px}.info-card{padding:24px 20px}}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--ink);color:#B9CBDD;padding:56px 0 32px;font-size:15px}
+.foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px}
+.site-footer .brand{color:#fff}
+.site-footer .brand small{color:#8FA8C1}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none;padding:0;margin:0}
+.foot-links a{color:#fff;text-decoration:none;font-weight:700}
+.foot-links a:hover{text-decoration:underline}
+.foot-bottom{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13.5px}
+
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;z-index:100;font-weight:800}
+.skip:focus{top:12px}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<!-- SVG symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#0D6EBD"/><path d="M6 30c4 0 4-3 8-3s4 3 8 3 4-3 8-3 4 3 8 3 4-3 4-3v8a18 18 0 0 1-36 0z" fill="#4CC9DE"/><path d="M6 34c4 0 4-3 8-3s4 3 8 3 4-3 8-3 4 3 8 3 4-3 4-3" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="17" r="5.5" fill="#FFC43D"/><circle cx="34" cy="13" r="2" fill="#fff" opacity=".8"/><circle cx="37" cy="19" r="1.3" fill="#fff" opacity=".6"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 9c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 16c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-duck" viewBox="0 0 32 32"><path d="M9 17c-3 0-5 2-5 5 0 4 4 6 11 6s12-2 12-7c0-3-2-4-4-4l-3 .5c1-1.5 1.5-3 1.5-4.5A6.5 6.5 0 0 0 15 6.5c-3.6 0-6.3 2.7-6.3 6 0 1.6.6 3 1.6 4.2" fill="currentColor"/><path d="M8.6 11.5H4.5c0 1.7 1.6 2.6 4.4 2.3" fill="#FFC43D"/><circle cx="13.4" cy="11" r="1.4" fill="#0B2A4A"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="6"/><path d="M16 5a11 11 0 0 1 7.8 3.2M27 16a11 11 0 0 1-3.2 7.8M16 27a11 11 0 0 1-7.8-3.2M5 16a11 11 0 0 1 3.2-7.8" fill="none" stroke="#fff" stroke-width="6"/></symbol>
+  <symbol id="i-goggles" viewBox="0 0 32 32"><path d="M3 15h3M26 15h3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><rect x="5.5" y="10" width="9.5" height="10" rx="5" fill="currentColor"/><rect x="17" y="10" width="9.5" height="10" rx="5" fill="currentColor"/><path d="M15 14.5c.4-.6 1.6-.6 2 0" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M8 13.5c.6-.8 1.6-1.2 2.6-1.1M19.5 13.5c.6-.8 1.6-1.2 2.6-1.1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-swim" viewBox="0 0 32 32"><circle cx="22" cy="9" r="3.2" fill="currentColor"/><path d="M5 16.5l7.5-4.5 3.5 3.5 4.5-2.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 23c2.3 0 2.3-1.8 4.7-1.8s2.3 1.8 4.6 1.8 2.4-1.8 4.7-1.8 2.3 1.8 4.7 1.8 2.3-1.8 4.6-1.8S27.7 23 30 23" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M2.5 20c.6-3.4 3.3-5.5 6.5-5.5s5.9 2.1 6.5 5.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="17" cy="9" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17.5 14.2c2.2.3 3.7 2 4 4.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8l7.5 3v5.6c0 4.6-3.1 8.5-7.5 9.8-4.4-1.3-7.5-5.2-7.5-9.8V5.8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M8.5 12l2.4 2.4 4.6-4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-temp" viewBox="0 0 24 24"><path d="M10 4.5a2 2 0 0 1 4 0v9.3a4 4 0 1 1-4 0z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="17" r="1.8" fill="currentColor"/><path d="M12 15V9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H9.5L5 19.5v-4H4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M8 10.5h8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.5 4-2 1.3a10 10 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="8.5" width="17" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M5 12.5v8h14v-8M12 8.5v12M12 8.5c-1.5-3.5-5.5-4-5.5-1.5S12 8.5 12 8.5zm0 0c1.5-3.5 5.5-4 5.5-1.5S12 8.5 12 8.5z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/></symbol>
+  <symbol id="i-family" viewBox="0 0 24 24"><circle cx="7" cy="6.5" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="6.5" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="13" r="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 20c0-4 1.8-7 4-7M21 20c0-4-1.8-7-4-7M8.5 20.5c.4-2.4 1.8-3.8 3.5-3.8s3.1 1.4 3.5 3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M2.5 10h19M6 15h4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Les Petits Plongeons, accueil">
+      <svg width="42" height="42" aria-hidden="true"><use href="#i-logo"/></svg>
+      <span>Les Petits Plongeons<small>École de natation enfants</small></span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#groupes">Les groupes</a></li>
+      <li><a href="#methode">Notre méthode</a></li>
+      <li><a href="#planning">Planning</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a class="btn btn-primary nav-cta" href="#inscription">Séance d'essai</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="contenu">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill"><span class="dot"><svg width="13" height="13" aria-hidden="true"><use href="#i-check"/></svg></span>Inscriptions ouvertes · saison 2026–2027</span>
+        <h1>Ici, l'eau devient un <span class="swash">terrain de jeu<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12c16-8 32-8 48 0s32 8 48 0 32-8 48 0 32 8 50 0" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></span>.</h1>
+        <p class="hero-lead">Cours de natation en petits groupes pour les enfants de 6&nbsp;mois à 12&nbsp;ans. Nos maîtres-nageurs diplômés les accompagnent à leur rythme, du premier plouf jusqu'aux longueurs en crawl.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#inscription">Réserver une séance d'essai</a>
+          <a class="btn btn-ghost" href="#groupes">Trouver le bon groupe</a>
+        </div>
+        <ul class="hero-facts">
+          <li><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>6 enfants max. par moniteur</li>
+          <li><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>Bassin chauffé</li>
+          <li><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>Bilan à chaque trimestre</li>
+        </ul>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="pool">
+          <svg viewBox="0 0 400 400" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <!-- caustics -->
+            <g fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="3" stroke-linecap="round">
+              <path d="M30 90c30-14 50 10 80-4s50-16 80 0 60 10 90-6 60-8 90 6"/>
+              <path d="M10 150c30-14 60 12 90-2s50-18 80-2 60 14 90-4 60-6 90 8"/>
+              <path d="M20 330c30-14 60 12 90-2s50-18 80-2 60 14 90-4 60-6 90 8"/>
+            </g>
+            <!-- lane rope -->
+            <g>
+              <path d="M-10 250 L410 214" stroke="#0A4F8A" stroke-opacity=".35" stroke-width="3"/>
+              <g>
+                <circle cx="10" cy="248" r="9" fill="#FF7A59"/><circle cx="34" cy="246" r="9" fill="#fff"/><circle cx="58" cy="244" r="9" fill="#FF7A59"/><circle cx="82" cy="242" r="9" fill="#fff"/><circle cx="106" cy="240" r="9" fill="#FF7A59"/><circle cx="130" cy="238" r="9" fill="#fff"/><circle cx="154" cy="236" r="9" fill="#FF7A59"/><circle cx="178" cy="234" r="9" fill="#fff"/><circle cx="202" cy="232" r="9" fill="#FF7A59"/><circle cx="226" cy="230" r="9" fill="#fff"/><circle cx="250" cy="228" r="9" fill="#FF7A59"/><circle cx="274" cy="226" r="9" fill="#fff"/><circle cx="298" cy="224" r="9" fill="#FF7A59"/><circle cx="322" cy="222" r="9" fill="#fff"/><circle cx="346" cy="220" r="9" fill="#FF7A59"/><circle cx="370" cy="218" r="9" fill="#fff"/><circle cx="394" cy="216" r="9" fill="#FF7A59"/>
+              </g>
+            </g>
+            <!-- swimmer kid -->
+            <g transform="translate(118 132)">
+              <ellipse cx="80" cy="66" rx="98" ry="16" fill="#0A4F8A" opacity=".25"/>
+              <!-- body -->
+              <path d="M20 52c20-10 60-14 100-8" stroke="#FFB48A" stroke-width="22" stroke-linecap="round" fill="none"/>
+              <path d="M40 48c16-6 44-8 66-6" stroke="#FFC43D" stroke-width="22" stroke-linecap="round" fill="none"/>
+              <!-- arm reaching -->
+              <path d="M128 40c18-16 34-30 48-40" stroke="#FFB48A" stroke-width="11" stroke-linecap="round" fill="none"/>
+              <!-- kicking legs -->
+              <path d="M24 52c-14-2-26-12-38-6" stroke="#FFB48A" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M26 58c-14 6-24 10-38 18" stroke="#FFB48A" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <!-- head -->
+              <circle cx="140" cy="36" r="22" fill="#FFB48A"/>
+              <path d="M118 34a22 22 0 0 1 44-6c-8-6-30-8-44 6z" fill="#FF7A59"/>
+              <circle cx="128" cy="25" r="3" fill="#fff" opacity=".7"/>
+              <!-- goggles -->
+              <rect x="138" y="30" width="14" height="10" rx="5" fill="#0D6EBD" stroke="#0B2A4A" stroke-width="2"/>
+              <path d="M120 35h18" stroke="#0B2A4A" stroke-width="2.5"/>
+              <path d="M146 48c3 2 7 2 9-1" stroke="#0B2A4A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <!-- splash -->
+              <g fill="#fff">
+                <circle cx="-18" cy="40" r="5" opacity=".9"/><circle cx="-26" cy="54" r="4" opacity=".8"/><circle cx="-12" cy="70" r="4.5" opacity=".85"/><circle cx="-30" cy="36" r="3" opacity=".7"/>
+              </g>
+              <!-- water line over body -->
+              <path d="M-20 62c14 0 14-7 28-7s14 7 28 7 14-7 28-7 14 7 28 7 14-7 28-7 14 7 28 7 14-7 28-7" stroke="#fff" stroke-opacity=".75" stroke-width="4" stroke-linecap="round" fill="none"/>
+            </g>
+            <!-- duck -->
+            <g transform="translate(250 300)">
+              <g class="bob">
+                <ellipse cx="30" cy="40" rx="34" ry="7" fill="#0A4F8A" opacity=".25"/>
+                <path d="M4 26c0-8 8-12 18-10 2-12 10-18 20-16 10 2 14 12 10 20 10 0 14 6 12 14-4 10-18 12-34 12S4 36 4 26z" fill="#FFC43D"/>
+                <path d="M50 8c6-1 12 1 14 4-4 3-10 3-14 0z" fill="#FF7A59"/>
+                <circle cx="44" cy="8" r="2.6" fill="#0B2A4A"/>
+                <path d="M18 26c6 4 14 4 20-2" stroke="#E9A800" stroke-width="3" fill="none" stroke-linecap="round"/>
+              </g>
+            </g>
+            <!-- bubbles -->
+            <g fill="none" stroke="#fff" stroke-width="2.5">
+              <circle class="bubble" cx="80" cy="380" r="7"/>
+              <circle class="bubble" cx="200" cy="390" r="5" style="animation-delay:-2s"/>
+              <circle class="bubble" cx="320" cy="385" r="9" style="animation-delay:-4s"/>
+              <circle class="bubble" cx="140" cy="395" r="4" style="animation-delay:-5.5s"/>
+              <circle class="bubble" cx="360" cy="395" r="5" style="animation-delay:-1s"/>
+            </g>
+          </svg>
+        </div>
+        <div class="badge badge-a bob">
+          <span class="ic" style="background:var(--g-bebe-bg);color:var(--g-bebe)"><svg width="24" height="24"><use href="#i-users"/></svg></span>
+          <span><b>6 max.</b>enfants par moniteur</span>
+        </div>
+        <div class="badge badge-b bob d2">
+          <span class="ic" style="background:var(--g-jardin-bg);color:var(--g-jardin)"><svg width="24" height="24"><use href="#i-temp"/></svg></span>
+          <span><b>Eau chauffée</b>pour les plus petits</span>
+        </div>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0v40H0z" fill="currentColor"/></svg>
+  </section>
+
+  <!-- GROUPS -->
+  <section class="section groups" id="groupes" style="padding-top:40px">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Les groupes</span>
+        <h2>Un groupe pour chaque âge, un objectif pour chaque enfant</h2>
+        <p>Les enfants sont répartis par âge puis par niveau après la séance d'essai. Personne ne passe au groupe suivant tant qu'il n'est pas à l'aise.</p>
+      </div>
+
+      <div class="group-grid">
+        <article class="group g-bebe reveal" data-min="0.5" data-max="3" data-group="bebe">
+          <span class="match-tag">Pour votre enfant</span>
+          <span class="age">6 mois – 3 ans</span>
+          <div class="icon"><svg width="36" height="36" aria-hidden="true"><use href="#i-duck"/></svg></div>
+          <h3>Bébés nageurs</h3>
+          <p>Un moment de complicité dans l'eau, avec papa ou maman.</p>
+          <ul>
+            <li>Découverte de l'eau par le jeu</li>
+            <li>Premières immersions en douceur</li>
+            <li>Un parent dans l'eau avec l'enfant</li>
+          </ul>
+          <div class="meta"><span>30 min</span><span>Eau à 32 °C</span></div>
+        </article>
+
+        <article class="group g-jardin reveal" data-min="3" data-max="5" data-group="jardin">
+          <span class="match-tag">Pour votre enfant</span>
+          <span class="age">3 – 5 ans</span>
+          <div class="icon"><svg width="36" height="36" aria-hidden="true"><use href="#i-ring"/></svg></div>
+          <h3>Jardin aquatique</h3>
+          <p>L'enfant se lance seul, entouré de jeux et de parcours flottants.</p>
+          <ul>
+            <li>Mettre la tête sous l'eau</li>
+            <li>Flotter sur le ventre et le dos</li>
+            <li>Sauter et remonter sans aide</li>
+          </ul>
+          <div class="meta"><span>45 min</span><span>6 enfants max.</span></div>
+        </article>
+
+        <article class="group g-appr reveal" data-min="6" data-max="8" data-group="appr">
+          <span class="match-tag">Pour votre enfant</span>
+          <span class="age">6 – 8 ans</span>
+          <div class="icon"><svg width="36" height="36" aria-hidden="true"><use href="#i-goggles"/></svg></div>
+          <h3>Apprentissage</h3>
+          <p>On apprend à nager vraiment : respiration, propulsion, autonomie.</p>
+          <ul>
+            <li>Nager 25 m sans matériel</li>
+            <li>Dos crawlé et premiers mouvements de crawl</li>
+            <li>Préparation au test d'aisance aquatique</li>
+          </ul>
+          <div class="meta"><span>45 min</span><span>6 enfants max.</span></div>
+        </article>
+
+        <article class="group g-perf reveal" data-min="9" data-max="12" data-group="perf">
+          <span class="match-tag">Pour votre enfant</span>
+          <span class="age">9 – 12 ans</span>
+          <div class="icon"><svg width="36" height="36" aria-hidden="true"><use href="#i-swim"/></svg></div>
+          <h3>Perfectionnement</h3>
+          <p>Pour ceux qui nagent déjà et veulent aller plus loin, plus vite.</p>
+          <ul>
+            <li>Crawl, dos, brasse et papillon</li>
+            <li>Virages, plongeons, endurance</li>
+            <li>Passerelle vers un club sportif</li>
+          </ul>
+          <div class="meta"><span>1 h</span><span>6 enfants max.</span></div>
+        </article>
+      </div>
+
+      <div class="finder reveal" role="group" aria-labelledby="finder-title">
+        <div>
+          <h3 id="finder-title">Quel groupe pour mon enfant ?</h3>
+          <p>Indiquez son âge, on vous montre le groupe adapté.</p>
+        </div>
+        <div class="finder-ctrl">
+          <div class="stepper">
+            <button type="button" id="age-minus" aria-label="Diminuer l'âge">−</button>
+            <output id="age-out" aria-live="polite">4 ans</output>
+            <button type="button" id="age-plus" aria-label="Augmenter l'âge">+</button>
+          </div>
+          <p class="finder-result" id="finder-result" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="section" id="methode">
+    <div class="wrap method-grid">
+      <div>
+        <div class="section-head reveal" style="margin-bottom:28px">
+          <span class="eyebrow">Notre méthode</span>
+          <h2>Apprendre sans peur, progresser en s'amusant</h2>
+          <p>Un enfant qui a confiance dans l'eau apprend deux fois plus vite. Tout notre enseignement part de là.</p>
+        </div>
+        <div class="promises">
+          <div class="promise reveal">
+            <span class="ic"><svg width="24" height="24" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <div><h3>Des maîtres-nageurs diplômés d'État</h3><p>Tous nos moniteurs sont titulaires du BPJEPS AAN ou du BEESAN, et formés à l'accueil des tout-petits.</p></div>
+          </div>
+          <div class="promise reveal">
+            <span class="ic"><svg width="24" height="24" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div><h3>Des petits groupes</h3><p>6 enfants maximum par moniteur : chacun est vu, corrigé et encouragé à chaque séance.</p></div>
+          </div>
+          <div class="promise reveal">
+            <span class="ic"><svg width="24" height="24" aria-hidden="true"><use href="#i-chat"/></svg></span>
+            <div><h3>Les parents informés</h3><p>Un bilan écrit à chaque fin de trimestre, et une séance « portes ouvertes » où vous pouvez regarder depuis le bord.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="levels reveal">
+        <h3>Un parcours en 4 étapes</h3>
+        <p>À chaque étape validée, l'enfant reçoit son diplôme. De quoi rentrer à la maison très fier.</p>
+        <ol class="track">
+          <li><span class="medal" style="--mc:var(--g-bebe)">1</span><div><h4>Têtard · Je découvre</h4><p>Je joue dans l'eau, j'accepte d'être mouillé, je souffle des bulles.</p></div></li>
+          <li><span class="medal" style="--mc:var(--g-jardin)">2</span><div><h4>Grenouille · Je flotte</h4><p>Je mets la tête sous l'eau, je flotte seul, je saute du bord.</p></div></li>
+          <li><span class="medal" style="--mc:var(--g-appr)">3</span><div><h4>Loutre · Je nage</h4><p>Je me déplace sur 25 m, sur le ventre et sur le dos, en respirant bien.</p></div></li>
+          <li><span class="medal" style="--mc:var(--g-perf)">4</span><div><h4>Dauphin · Je maîtrise</h4><p>Je nage les 4 nages, je plonge, j'enchaîne les longueurs.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="section schedule" id="planning">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Planning</span>
+        <h2>Les créneaux de la semaine</h2>
+        <p>Les cours ont lieu hors vacances scolaires, de mi-septembre à fin juin. Filtrez par groupe pour voir les horaires qui vous concernent.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filtrer le planning par groupe">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">Tous les groupes</button>
+        <button class="chip g-bebe" type="button" data-filter="bebe" aria-pressed="false"><span class="sw"></span>Bébés nageurs</button>
+        <button class="chip g-jardin" type="button" data-filter="jardin" aria-pressed="false"><span class="sw"></span>Jardin aquatique</button>
+        <button class="chip g-appr" type="button" data-filter="appr" aria-pressed="false"><span class="sw"></span>Apprentissage</button>
+        <button class="chip g-perf" type="button" data-filter="perf" aria-pressed="false"><span class="sw"></span>Perfectionnement</button>
+      </div>
+      <div class="days" id="days"></div>
+      <p class="sched-note">Un créneau vous convient ? Indiquez-le dans le formulaire d'inscription, nous vous confirmons la place par téléphone.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="tarifs">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Tarifs</span>
+        <h2>Des tarifs simples, au trimestre</h2>
+        <p>Une séance par semaine, environ 11 séances par trimestre. Pas de frais cachés : l'adhésion annuelle comprend l'assurance et le bonnet de l'école.</p>
+      </div>
+      <div class="price-grid">
+        <article class="price g-bebe reveal">
+          <h3>Bébés nageurs</h3><span class="sub">6 mois – 3 ans · 30 min</span>
+          <div class="amount">165 €<small> / trim.</small></div><span class="per">soit 15 € la séance</span>
+          <ul><li>Un parent dans l'eau</li><li>Matériel ludique fourni</li></ul>
+        </article>
+        <article class="price g-jardin reveal">
+          <h3>Jardin aquatique</h3><span class="sub">3 – 5 ans · 45 min</span>
+          <div class="amount">185 €<small> / trim.</small></div><span class="per">soit 17 € la séance</span>
+          <ul><li>6 enfants max.</li><li>Diplôme Grenouille</li></ul>
+        </article>
+        <article class="price g-appr reveal">
+          <h3>Apprentissage</h3><span class="sub">6 – 8 ans · 45 min</span>
+          <div class="amount">195 €<small> / trim.</small></div><span class="per">soit 18 € la séance</span>
+          <ul><li>6 enfants max.</li><li>Bilan trimestriel écrit</li></ul>
+        </article>
+        <article class="price g-perf reveal">
+          <h3>Perfectionnement</h3><span class="sub">9 – 12 ans · 1 h</span>
+          <div class="amount">210 €<small> / trim.</small></div><span class="per">soit 19 € la séance</span>
+          <ul><li>6 enfants max.</li><li>Travail des 4 nages</li></ul>
+        </article>
+      </div>
+      <div class="extras">
+        <div class="extra reveal"><span class="ic"><svg width="22" height="22" aria-hidden="true"><use href="#i-gift"/></svg></span><div><b>Séance d'essai : 15 €</b>déduits si vous inscrivez votre enfant</div></div>
+        <div class="extra reveal"><span class="ic"><svg width="22" height="22" aria-hidden="true"><use href="#i-family"/></svg></span><div><b>−10 % dès le 2ᵉ enfant</b>sur l'ensemble de la fratrie</div></div>
+        <div class="extra reveal"><span class="ic"><svg width="22" height="22" aria-hidden="true"><use href="#i-card"/></svg></span><div><b>Adhésion annuelle : 30 €</b>assurance et bonnet compris</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <div class="section-head reveal" style="margin-bottom:0">
+          <span class="eyebrow">Questions des parents</span>
+          <h2>Tout ce que vous vous demandez avant le premier cours</h2>
+        </div>
+        <div class="faq-aside reveal">
+          <h3>Dans le sac de piscine</h3>
+          <p>Pour que la première séance se passe bien :</p>
+          <ul>
+            <li>Maillot de bain (pas de short)</li>
+            <li>Bonnet de bain</li>
+            <li>Serviette et sandales</li>
+            <li>Couche de bain pour les moins de 3 ans</li>
+            <li>Un petit goûter pour après</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-list">
+        <details class="reveal" open>
+          <summary>Mon enfant a peur de l'eau, est-ce un problème ?</summary>
+          <div class="ans">Pas du tout, c'est même très fréquent. Nos moniteurs ne forcent jamais un enfant à mettre la tête sous l'eau ou à lâcher le bord. On avance par le jeu, à son rythme, et la confiance vient en quelques séances.</div>
+        </details>
+        <details class="reveal">
+          <summary>Comment se passe la séance d'essai ?</summary>
+          <div class="ans">Elle dure le même temps qu'un cours normal, dans le groupe correspondant à l'âge de votre enfant. À la fin, le moniteur prend quelques minutes avec vous pour vous dire où il en est et quel groupe lui conviendra.</div>
+        </details>
+        <details class="reveal">
+          <summary>Est-ce que je peux regarder le cours ?</summary>
+          <div class="ans">Pour les bébés nageurs, un parent est dans l'eau avec l'enfant. Pour les autres groupes, les enfants sont plus concentrés sans leurs parents : nous organisons donc une séance « portes ouvertes » à chaque fin de trimestre où vous pouvez regarder depuis les gradins.</div>
+        </details>
+        <details class="reveal">
+          <summary>Que se passe-t-il si mon enfant rate un cours ?</summary>
+          <div class="ans">Prévenez-nous au moins 24 h à l'avance : votre enfant pourra rattraper la séance sur un autre créneau du même groupe, dans la limite des places disponibles, pendant le trimestre en cours.</div>
+        </details>
+        <details class="reveal">
+          <summary>Peut-on s'inscrire en cours d'année ?</summary>
+          <div class="ans">Oui, tant qu'il reste de la place. Le tarif est alors calculé au prorata des séances restantes dans le trimestre.</div>
+        </details>
+        <details class="reveal">
+          <summary>Quels moyens de paiement acceptez-vous ?</summary>
+          <div class="ans">Carte bancaire, chèque, espèces et chèques vacances ANCV. Le paiement peut être fait en une fois pour l'année ou trimestre par trimestre.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="inscription">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Inscription</span>
+        <h2>Réservez une séance d'essai</h2>
+        <p>Remplissez ce formulaire, nous vous rappelons sous 48 h pour fixer la date et répondre à vos questions.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="form-card reveal" id="trial-form" novalidate>
+          <h3>Votre demande</h3>
+          <p>Les champs sans mention sont obligatoires.</p>
+          <div class="fields">
+            <div class="field">
+              <label for="f-parent">Votre nom</label>
+              <input id="f-parent" name="parent" autocomplete="name" required>
+              <span class="err">Indiquez votre nom.</span>
+            </div>
+            <div class="field">
+              <label for="f-phone">Téléphone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              <span class="err">Indiquez un numéro pour vous rappeler.</span>
+            </div>
+            <div class="field full">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+              <span class="err">Indiquez une adresse e-mail valide.</span>
+            </div>
+            <div class="field">
+              <label for="f-child">Prénom de l'enfant</label>
+              <input id="f-child" name="child" required>
+              <span class="err">Indiquez le prénom de l'enfant.</span>
+            </div>
+            <div class="field">
+              <label for="f-age">Âge de l'enfant</label>
+              <select id="f-age" name="age" required>
+                <option value="">Choisir…</option>
+              </select>
+              <span class="err">Choisissez l'âge de l'enfant.</span>
+            </div>
+            <div class="field full">
+              <label for="f-slot">Créneau souhaité <span class="opt">(facultatif)</span></label>
+              <select id="f-slot" name="slot">
+                <option value="">Pas de préférence</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="f-msg">Un mot sur votre enfant <span class="opt">(facultatif)</span></label>
+              <textarea id="f-msg" name="message" placeholder="Il a un peu peur de l'eau, elle sait déjà nager sous l'eau…"></textarea>
+            </div>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit">Envoyer ma demande</button>
+            <small>Vos coordonnées servent uniquement à vous recontacter pour la séance d'essai.</small>
+          </div>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+
+        <aside class="info-card reveal" aria-labelledby="info-title">
+          <h3 id="info-title">Nous trouver</h3>
+          <ul class="info-list">
+            <li><span class="ic"><svg width="22" height="22" aria-hidden="true"><use href="#i-pin"/></svg></span><div><b>Piscine</b>Centre aquatique des Tilleuls<br>12 rue des Tilleuls, 69000 Lyon</div></li>
+            <li><span class="ic"><svg width="22" height="22" aria-hidden="true"><use href="#i-phone"/></svg></span><div><b>Téléphone</b><a href="tel:+33400000000">04 00 00 00 00</a></div></li>
+            <li><span class="ic"><svg width="22" height="22" aria-hidden="true"><use href="#i-mail"/></svg></span><div><b>E-mail</b><a href="mailto:bonjour@petitsplongeons.fr">bonjour@petitsplongeons.fr</a></div></li>
+          </ul>
+          <div class="hours">
+            <div><strong>Accueil téléphonique</strong><svg width="20" height="20" aria-hidden="true"><use href="#i-clock"/></svg></div>
+            <div><span>Lundi – vendredi</span><span>9 h – 12 h</span></div>
+            <div><span>Mercredi</span><span>9 h – 18 h</span></div>
+            <div><span>Samedi</span><span>9 h – 13 h</span></div>
+          </div>
+          <svg class="deco" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-logo"/></svg>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="#top">
+        <svg width="42" height="42" aria-hidden="true"><use href="#i-logo"/></svg>
+        <span>Les Petits Plongeons<small>École de natation enfants</small></span>
+      </a>
+      <ul class="foot-links">
+        <li><a href="#groupes">Les groupes</a></li>
+        <li><a href="#methode">Notre méthode</a></li>
+        <li><a href="#planning">Planning</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a href="#inscription">Séance d'essai</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Les Petits Plongeons</span>
+      <span><a href="#" style="color:inherit">Mentions légales</a> · <a href="#" style="color:inherit">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ----- Data ----- */
+  var GROUPS = {
+    bebe:{name:"Bébés nageurs",min:0.5,max:3},
+    jardin:{name:"Jardin aquatique",min:3,max:5},
+    appr:{name:"Apprentissage",min:6,max:8},
+    perf:{name:"Perfectionnement",min:9,max:12}
+  };
+  var SCHEDULE = [
+    {day:"Mercredi", note:"après-midi", slots:[
+      ["13:30","14:15","jardin"],["14:15","15:00","appr"],["15:00","15:45","appr"],["16:00","17:00","perf"],["17:00","18:00","perf"]]},
+    {day:"Vendredi", note:"après l'école", slots:[
+      ["17:00","17:45","appr"],["17:45","18:45","perf"]]},
+    {day:"Samedi", note:"matin", slots:[
+      ["09:00","09:30","bebe"],["09:30","10:00","bebe"],["10:00","10:45","jardin"],["10:45","11:30","jardin"],["11:30","12:15","appr"]]},
+    {day:"Dimanche", note:"matin", slots:[
+      ["09:00","09:30","bebe"],["09:30","10:00","bebe"],["10:00","10:45","jardin"],["10:45","11:45","perf"]]}
+  ];
+  function fmt(t){var p=t.split(":");return parseInt(p[0],10)+" h"+(p[1]==="00"?"":" "+p[1]);}
+
+  /* ----- Schedule render + filter ----- */
+  var daysEl=document.getElementById("days");
+  var slotSelect=document.getElementById("f-slot");
+  SCHEDULE.forEach(function(d){
+    var col=document.createElement("div");col.className="day";
+    col.innerHTML='<h3>'+d.day+' <small>'+d.note+'</small></h3>';
+    var ul=document.createElement("ul");ul.className="slots";
+    d.slots.forEach(function(s){
+      var li=document.createElement("li");li.className="slot g-"+s[2];li.dataset.group=s[2];
+      li.innerHTML='<b>'+fmt(s[0])+' – '+fmt(s[1])+'</b><span>'+GROUPS[s[2]].name+'</span>';
+      ul.appendChild(li);
+      var o=document.createElement("option");o.value=d.day+" "+fmt(s[0])+" – "+GROUPS[s[2]].name;o.textContent=d.day+" · "+fmt(s[0])+" – "+fmt(s[1])+" · "+GROUPS[s[2]].name;o.dataset.group=s[2];
+      slotSelect.appendChild(o);
+    });
+    var empty=document.createElement("p");empty.className="empty";empty.textContent="Pas de cours pour ce groupe ce jour-là.";empty.hidden=true;
+    col.appendChild(ul);col.appendChild(empty);daysEl.appendChild(col);
+  });
+  var chips=document.querySelectorAll(".chip");
+  chips.forEach(function(c){c.addEventListener("click",function(){
+    var f=c.dataset.filter;
+    chips.forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false");});
+    document.querySelectorAll(".day").forEach(function(day){
+      var shown=0;
+      day.querySelectorAll(".slot").forEach(function(s){var v=(f==="all"||s.dataset.group===f);s.hidden=!v;if(v)shown++;});
+      day.querySelector(".empty").hidden=shown>0;
+    });
+  });});
+
+  /* ----- Age finder ----- */
+  var AGES=[0.5,1,1.5,2,2.5,3,4,5,6,7,8,9,10,11,12];
+  var idx=6;
+  function ageLabel(a){return a<1?"6 mois":a%1?Math.floor(a)+" an"+(a>=2?"s":"")+" ½":a+" an"+(a>1?"s":"");}
+  function groupFor(a){
+    if(a<3)return "bebe"; if(a<6)return "jardin"; if(a<9)return "appr"; return "perf";
+  }
+  var out=document.getElementById("age-out"),res=document.getElementById("finder-result");
+  function updateFinder(scroll){
+    var a=AGES[idx],g=groupFor(a);
+    out.textContent=ageLabel(a);
+    res.innerHTML='Groupe conseillé : <span>'+GROUPS[g].name+'</span>';
+    document.querySelectorAll(".group").forEach(function(el){el.classList.toggle("match",el.dataset.group===g);});
+  }
+  document.getElementById("age-minus").addEventListener("click",function(){if(idx>0){idx--;updateFinder();}});
+  document.getElementById("age-plus").addEventListener("click",function(){if(idx<AGES.length-1){idx++;updateFinder();}});
+  updateFinder();
+
+  /* ----- Form: age options + slot hint ----- */
+  var ageSel=document.getElementById("f-age");
+  AGES.forEach(function(a){var o=document.createElement("option");o.value=a;o.textContent=ageLabel(a);ageSel.appendChild(o);});
+  ageSel.addEventListener("change",function(){
+    var g=ageSel.value?groupFor(parseFloat(ageSel.value)):null;
+    Array.prototype.forEach.call(slotSelect.options,function(o){ if(!o.dataset.group)return; var ok=!g||o.dataset.group===g; o.hidden=!ok; o.disabled=!ok; });
+    if(slotSelect.selectedOptions[0]&&slotSelect.selectedOptions[0].disabled)slotSelect.value="";
+  });
+
+  /* ----- Form validation + send by e-mail ----- */
+  var form=document.getElementById("trial-form"),status=document.getElementById("form-status");
+  var SCHOOL_EMAIL="bonjour@petitsplongeons.fr";
+  function check(el){
+    var ok=el.value.trim()!=="";
+    if(ok&&el.type==="email")ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());
+    if(ok&&el.type==="tel")ok=el.value.replace(/\D/g,"").length>=9;
+    el.closest(".field").classList.toggle("invalid",!ok);
+    el.setAttribute("aria-invalid",ok?"false":"true");
+    return ok;
+  }
+  form.querySelectorAll("[required]").forEach(function(el){
+    el.addEventListener("blur",function(){if(el.value)check(el);});
+    el.addEventListener("input",function(){if(el.closest(".field").classList.contains("invalid"))check(el);});
+  });
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var first=null,allOk=true;
+    form.querySelectorAll("[required]").forEach(function(el){if(!check(el)){allOk=false;if(!first)first=el;}});
+    if(!allOk){first.focus();return;}
+    var d=new FormData(form);
+    var body=["Demande de séance d'essai","",
+      "Parent : "+d.get("parent"),"Téléphone : "+d.get("phone"),"E-mail : "+d.get("email"),"",
+      "Enfant : "+d.get("child")+" ("+ageLabel(parseFloat(d.get("age")))+")",
+      "Groupe conseillé : "+GROUPS[groupFor(parseFloat(d.get("age")))].name,
+      "Créneau souhaité : "+(d.get("slot")||"pas de préférence"),"",
+      d.get("message")||""].join("\n");
+    window.location.href="mailto:"+SCHOOL_EMAIL+"?subject="+encodeURIComponent("Séance d'essai – "+d.get("child"))+"&body="+encodeURIComponent(body);
+    status.textContent="Votre messagerie s'ouvre avec la demande pré-remplie : il ne reste qu'à l'envoyer. Si rien ne s'ouvre, écrivez-nous à "+SCHOOL_EMAIL+".";
+    status.classList.add("show");
+  });
+
+  /* ----- Mobile menu ----- */
+  var btn=document.querySelector(".menu-btn"),menu=document.getElementById("menu");
+  btn.addEventListener("click",function(){var o=menu.classList.toggle("open");btn.setAttribute("aria-expanded",o);btn.setAttribute("aria-label",o?"Fermer le menu":"Ouvrir le menu");});
+  menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){menu.classList.remove("open");btn.setAttribute("aria-expanded","false");});});
+
+  /* ----- Header shadow + reveal ----- */
+  var header=document.querySelector(".site-header");
+  window.addEventListener("scroll",function(){header.classList.toggle("scrolled",window.scrollY>8);},{passive:true});
+  document.getElementById("year").textContent=new Date().getFullYear();
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+    document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in");});
+  }
+})();
+</script>
+</body>
+</html>

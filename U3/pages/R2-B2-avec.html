@@ -1,0 +1,609 @@
+<!doctype html>
+<!--
+TRACE (Design Governance V1, trace légère — proposition EXPLORATORY)
+1. Mode : DIRECTION (premier contact d'une marque, brief vague, personne indisponible) ; décision : quelle scène fait croire à un logiciel de facturation ; risque : landing SaaS interchangeable + claims non vérifiés ; preuve : captures 390/768/1440 + check_render + état « relance » cliqué ; arrêt : un défaut dominant corrigé et réobservé.
+2. Thèse : « une facture n'est finie que lorsqu'elle est payée » → objet de preuve : l'encours codé et manipulable (qui doit quoi, depuis quand) + le trajet daté d'une facture → geste : relancer un client en retard dans la page.
+3. Modal : hero promesse + capture, logos, 3 bénéfices, tarifs 3 cartes, FAQ ; objet convergent « facture tamponnée » ; grotesque large + accent unique. Parti : l'encours remplace la capture et ouvre la page, l'ordre suit les questions d'un lundi matin (qui me doit → où en est la facture → la réforme → combien) ; pas de logos ni bénéfices ; tarifs en registre de compte, pas en cartes. Alternative écartée : page organisée autour de la conformité (réforme d'abord), écartée parce que la peur réglementaire vend l'obligation, pas le paiement.
+4. Plafond : code-natif, sans asset (aucune marque, photo ni capture fournie) ; Zilla Slab (titres, mécane des formulaires) + IBM Plex Sans (texte, chiffres tabulaires) ; papier vert-blanc, bandes de listing comptable, encre verte, statuts par rôle + libellé. Marqués : nom « Quittance », clients, montants, tarifs, fonctions, partenaire plateforme. Calendrier réforme et 4 statuts vérifiés le 8/10/2026 sur sources secondaires (CCI Paris, éditeurs) — à confirmer sur impots.gouv.fr.
+5. Revue : retient l'encours manipulable et l'axe du trajet gradué au jour près (45 j) ; générique : sections réforme/FAQ et trame tarifs+questions conservée (nécessaire à la décision d'achat). Défaut dominant observé en v1 (_travail/v1) : titre en 4 lignes dans une colonne étroite, encours tassé (cellules qui passent à la ligne) et bandes vertes lues comme une sélection. Gestes : masse visuelle → titre sur toute la largeur (2 lignes), encours en 8/12 ; bandes retirées de l'encours (gardées dans les tarifs où elles codent de vrais groupes) ; mobile : encours remonté avant les « en bref ». Réinspecté en v2/v3 : foyer net, 0 débordement, états relance/erreur/envoyée et formulaire vérifiés au clic.
+   Antécédent (REUSE-CHALLENGE) : aucune trace de run précédent lisible dans le périmètre autorisé → LIMIT, non reconstitué. Thème sombre non fait.
+6. Prochaine preuve : vraie marque + vrais tarifs/fonctions ; test du geste « relancer » avec 5 gérant·es de TPE.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quittance — facturation suivie jusqu’au paiement</title>
+<meta name="description" content="Proposition de landing page pour un logiciel de facturation : l’encours, le trajet d’une facture et la réforme de la facturation électronique.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F7F2;
+  --paper-2:#FBFCFA;
+  --band:#E3EDDF;
+  --rule:#C6D3C2;
+  --rule-strong:#93A58F;
+  --ink:#13211A;
+  --ink-2:#3F5046;
+  --ink-3:#56675D;
+  --action:#13211A;
+  --action-ink:#F4F7F2;
+  --focus:#1D6B48;
+  --late:#A8321A;
+  --late-bg:#F7E4DE;
+  --soon:#7A5200;
+  --soon-bg:#F5EBD3;
+  --paid:#1D6B45;
+  --paid-bg:#DDEEE2;
+  --neutral-bg:#E7ECE6;
+  --serif:"Zilla Slab", "Rockwell", "Roboto Slab", Georgia, serif;
+  --sans:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --r:10px;
+  --gutter:clamp(16px, 4vw, 56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter)}
+.num{font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:6px;z-index:10}
+.skip:focus{left:8px}
+.ex{font:500 12px/1.3 var(--sans);color:var(--ink-3);letter-spacing:.01em}
+.ex::before{content:"";display:inline-block;width:7px;height:7px;border:1.5px solid currentColor;border-radius:50%;margin-right:6px;vertical-align:1px}
+
+/* ---------- header ---------- */
+header.top{border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:28px;min-height:68px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand b{font:700 25px/1 var(--serif);letter-spacing:-.01em}
+nav.main{display:flex;gap:26px;margin-left:auto}
+nav.main a{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-2);padding:10px 0}
+nav.main a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;border:1.5px solid var(--action);background:var(--action);color:var(--action-ink);font:600 16px/1 var(--sans);text-decoration:none;cursor:pointer}
+.btn:hover{background:#24362C;border-color:#24362C}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--band)}
+.btn.sm{min-height:40px;padding:0 16px;font-size:15px}
+.top .btn{margin-left:8px}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(36px,6vw,80px) 0 clamp(56px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(32px,4.5vw,72px);align-items:start}
+.hero h1{grid-column:1/-1}
+.hero h1{font:600 clamp(42px,6vw,88px)/.98 var(--serif);letter-spacing:-.02em;margin:8px 0 clamp(28px,3.5vw,48px);max-width:13.5em;text-wrap:balance}
+.lede{font-size:clamp(18px,1.4vw,20px);line-height:1.5;color:var(--ink-2);max-width:33em;margin:6px 0 30px}
+.lede strong{color:var(--ink);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center}
+.textlink{font-weight:500;text-underline-offset:5px;padding:10px 0}
+.facts{list-style:none;padding:0;margin:34px 0 0;border-top:1px solid var(--rule);display:grid;gap:0}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-2)}
+.facts li span:last-child{color:var(--ink);font-weight:500;text-align:right}
+
+/* ---------- ledger (proof object) ---------- */
+.ledger{background:var(--paper-2);border:1px solid var(--rule);border-radius:14px;box-shadow:0 1px 0 #fff inset,0 18px 40px -28px rgba(19,33,26,.35);overflow:hidden}
+.ledger-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px 0}
+.ledger-head h2{font:600 15px/1.3 var(--sans);margin:0;color:var(--ink-2)}
+.ledger-head h2 b{color:var(--ink)}
+.totals{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0;padding:14px 22px 20px;border-bottom:1.5px solid var(--ink)}
+.totals div{padding-right:14px}
+.totals div+div{padding-left:16px;border-left:1px solid var(--rule)}
+.totals dt{font-size:13px;color:var(--ink-3);margin-bottom:4px}
+.totals dd{margin:0}
+.totals .big{font:600 clamp(30px,3vw,40px)/1.05 var(--sans);letter-spacing:-.02em}
+.totals .mid{font:600 22px/1.25 var(--sans);letter-spacing:-.01em;display:block;margin-top:6px}
+.totals .late{color:var(--late)}
+.totals small{display:block;font-size:13px;color:var(--ink-3);margin-top:4px}
+table.rows{width:100%;border-collapse:collapse;font-size:15px}
+.rows th{font:500 12.5px/1.2 var(--sans);color:var(--ink-3);text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.rows th:first-child,.rows td:first-child{padding-left:22px}
+.rows th:last-child,.rows td:last-child{padding-right:22px;text-align:right}
+.rows td{padding:13px 12px;vertical-align:middle}
+.rows th.amt,.rows td.amt{text-align:right}
+/* green-bar listing: bands every two rows, as on continuous accounting paper */
+.rows tbody tr.inv+tr.inv td,.rows tbody tr.draft+tr.inv td{border-top:1px solid var(--rule)}
+.rows .client{font-weight:600}
+.rows .ref{display:block;font-size:12.5px;color:var(--ink-3);font-weight:400}
+.rows .due small{display:block;font-size:12.5px;color:var(--ink-3)}
+.rows tr.is-late .due small{color:var(--late);font-weight:500}
+.rows .amt{font-weight:500}
+.status{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 8px;border-radius:999px;font:500 13px/1.2 var(--sans);white-space:nowrap}
+.status svg{flex:none}
+.s-late{background:var(--late-bg);color:var(--late)}
+.s-soon{background:var(--soon-bg);color:var(--soon)}
+.s-paid{background:var(--paid-bg);color:var(--paid)}
+.s-dep{background:var(--neutral-bg);color:var(--ink-2)}
+.s-sent{background:var(--neutral-bg);color:var(--ink)}
+.act{min-height:36px;padding:0 14px;border-radius:999px;border:1.5px solid var(--ink);background:var(--paper-2);color:var(--ink);font:600 14px/1 var(--sans);cursor:pointer;white-space:nowrap}
+.act:hover{background:var(--ink);color:var(--paper)}
+.act[aria-expanded="true"]{background:var(--ink);color:var(--paper)}
+.done{font-size:13.5px;color:var(--ink-2);white-space:nowrap}
+.rows tr.draft td{padding:0 22px 18px;text-align:left!important}
+.draft-box{border:1.5px solid var(--ink);border-radius:var(--r);background:#fff;padding:14px 16px;margin-top:2px}
+.draft-box label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.draft-box textarea{width:100%;min-height:150px;resize:vertical;border:1px solid var(--rule-strong);border-radius:6px;padding:10px 12px;font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--paper-2)}
+.draft-box textarea[aria-invalid="true"]{border-color:var(--late);box-shadow:0 0 0 1px var(--late)}
+.draft-actions{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:10px}
+.draft-actions .note{font-size:13px;color:var(--ink-3);margin-left:auto}
+.err{display:none;color:var(--late);font-size:14px;font-weight:500;margin-top:8px}
+.err.on{display:block}
+.ledger-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 22px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-3)}
+
+/* ---------- sections ---------- */
+section.block{padding:clamp(64px,8vw,112px) 0;border-top:1px solid var(--rule)}
+.kicker{font:500 14px/1.3 var(--sans);color:var(--ink-3);margin:0 0 14px}
+h2.title{font:600 clamp(32px,3.6vw,50px)/1.06 var(--serif);letter-spacing:-.012em;margin:0 0 18px;max-width:20em;text-wrap:balance}
+.intro{font-size:18px;color:var(--ink-2);max-width:38em;margin:0}
+
+/* journey: a proportional time axis, 24 Aug → 8 Oct 2026 = 45 days */
+.journey{margin-top:56px}
+.axis{position:relative;height:340px;margin:0 6px}
+.axis .line{position:absolute;left:0;width:86%;top:160px;height:2px;background:var(--ink)}
+.axis .future{position:absolute;left:86%;right:0;top:160px;height:0;border-top:2px dashed var(--rule-strong)}
+.ticks{position:absolute;left:0;right:0;top:154px;height:14px}
+.ticks i{position:absolute;top:2px;width:1px;height:10px;background:var(--rule-strong)}
+.ticks i.m{top:-3px;height:20px;background:var(--ink)}
+.ticklab{position:absolute;top:176px;font-size:12.5px;color:var(--ink-3);transform:translateX(-50%);white-space:nowrap}
+.pin{position:absolute;top:154px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--paper);border:2.5px solid var(--ink)}
+.pin.now{background:var(--late);border-color:var(--late)}
+.pin.next{border-style:dashed;border-color:var(--ink-3)}
+.ev{position:absolute;width:14%;padding-left:12px;border-left:1px solid var(--ink)}
+.ev.up{bottom:198px;padding-bottom:2px}
+.ev.down{top:204px}
+.ev.right{transform:translateX(-100%);text-align:right;padding-left:0;padding-right:12px;border-left:0;border-right:1px solid var(--ink)}
+.ev .d{font:600 13px/1.2 var(--sans);color:var(--ink-3);display:block;margin-bottom:4px}
+.ev b{display:block;font:600 16px/1.25 var(--sans)}
+.ev p{margin:4px 0 0;font-size:14px;line-height:1.4;color:var(--ink-2)}
+.ev.now{border-color:var(--late)}
+.ev.now b{color:var(--late)}
+.ev.next{border-color:var(--rule-strong);border-right-style:dashed}
+.ev.next b{color:var(--ink-2)}
+.journey-mobile{display:none}
+
+.statuses{margin-top:64px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,4vw,64px);align-items:start}
+.statuses h3{font:600 26px/1.15 var(--serif);margin:0 0 10px}
+.statuses .side p{color:var(--ink-2);margin:0 0 10px;font-size:16px}
+dl.st{margin:0;border-top:1.5px solid var(--ink)}
+dl.st div{display:grid;grid-template-columns:150px 1fr 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--rule)}
+dl.st dt{padding-top:2px}
+dl.st dd{margin:0;font-size:15.5px;color:var(--ink-2)}
+dl.st dd strong{display:block;color:var(--ink);font-weight:600;margin-bottom:2px;font-size:13px}
+
+/* reform */
+.reform{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:start}
+.dates{display:grid;gap:0;border-top:1.5px solid var(--ink)}
+.date{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--rule)}
+.date .when{font:600 34px/1.05 var(--serif);letter-spacing:-.01em}
+.date .when small{display:block;font:500 14px/1.4 var(--sans);color:var(--ink-3);margin-top:8px;letter-spacing:0}
+.date h3{font:600 19px/1.3 var(--sans);margin:0 0 6px}
+.date p{margin:0;color:var(--ink-2);font-size:16px}
+.date.passed .when small{color:var(--paid)}
+.date.coming .when small{color:var(--soon)}
+.src{font-size:13.5px;color:var(--ink-3);margin-top:18px}
+.src a{color:var(--ink-2)}
+
+/* pricing as a statement of account */
+.pricing{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,80px);align-items:start}
+table.price{width:100%;border-collapse:collapse;font-size:16px}
+.price caption{text-align:left;caption-side:bottom;padding-top:14px}
+.price th,.price td{padding:14px 16px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.price thead th{border-bottom:1.5px solid var(--ink);vertical-align:bottom}
+.price thead th.plan{font:600 24px/1.1 var(--serif)}
+.price thead th.plan span{display:block;font:600 30px/1.1 var(--sans);letter-spacing:-.02em;margin-top:10px}
+.price thead th.plan span small{font:400 14px var(--sans);color:var(--ink-3);letter-spacing:0}
+.price tbody th{font-weight:500;color:var(--ink-2);width:36%}
+.price tbody tr:nth-child(4n+1),.price tbody tr:nth-child(4n+2){background:transparent}
+.price tbody tr:nth-child(4n+3),.price tbody tr:nth-child(4n+4){background:var(--band)}
+.price .yes{font-weight:500}
+.price tfoot td{border-bottom:0;padding-top:20px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,5vw,80px)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq details:first-child{border-top:1.5px solid var(--ink)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font:600 18px/1.35 var(--sans);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:27px;width:10px;height:10px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(-135deg);top:31px}
+.faq details p{margin:0 0 22px;color:var(--ink-2);max-width:40em}
+
+/* signup */
+.signup{background:var(--ink);color:var(--paper);border-top:0}
+.signup .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:end}
+.signup h2.title{color:var(--paper)}
+.signup .intro{color:#C9D6CC}
+form.join{display:grid;gap:10px}
+form.join label{font-weight:600;font-size:15px}
+.field{display:flex;gap:10px;flex-wrap:wrap}
+.field input{flex:1 1 240px;min-height:52px;border-radius:999px;border:1.5px solid #8FA394;background:#1C2D24;color:var(--paper);padding:0 20px;font:400 17px var(--sans)}
+.field input::placeholder{color:#A9BAAE}
+.field input[aria-invalid="true"]{border-color:#F0A38F}
+.signup .btn{background:var(--paper);color:var(--ink);border-color:var(--paper);min-height:52px}
+.signup .btn:hover{background:#DDE8DA}
+.signup :focus-visible{outline-color:#9FD8B8}
+.join .hint{font-size:14px;color:#BCCBBF;margin:0}
+.join .msg{min-height:1.5em;font-size:15px;margin:0}
+.join .msg.bad{color:#F6B4A3;font-weight:500}
+.join .msg.ok{color:#B7E6C8;font-weight:500}
+footer{background:var(--ink);color:#BCCBBF;font-size:14px;border-top:1px solid #2E4237}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;padding-bottom:32px}
+
+/* ---------- responsive recomposition ---------- */
+@media (max-width:1080px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero .lead-col{display:contents}
+  .hero h1{order:1}.hero .lede{order:2}.hero .cta-row{order:3}
+  .hero .ledger{order:4;margin-top:32px}
+  .hero .facts{order:5;margin-top:32px}.hero .facts-ex{order:6}
+  .hero h1{max-width:14em}
+  .facts{max-width:640px}
+  nav.main,nav.main a{display:none}
+  .top .btn{margin-left:auto}
+  .reform,.pricing,.faq,.statuses,.signup .wrap{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:1080px){
+  .axis{display:none}
+  .journey-mobile{display:block;list-style:none;margin:0;padding:0;border-left:2px solid var(--ink);margin-left:6px}
+  .journey-mobile li{position:relative;padding:0 0 26px 26px}
+  .journey-mobile li::before{content:"";position:absolute;left:-9px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2.5px solid var(--ink)}
+  .journey-mobile li.now::before{background:var(--late);border-color:var(--late)}
+  .journey-mobile li.next::before{border-style:dashed;border-color:var(--rule-strong)}
+  .journey-mobile li.next{border-left:2px dashed var(--rule-strong);margin-left:-2px}
+  .journey-mobile .d{font:600 13px/1.2 var(--sans);color:var(--ink-3)}
+  .journey-mobile b{display:block;font-size:17px;margin:3px 0 2px}
+  .journey-mobile li.now b{color:var(--late)}
+  .journey-mobile p{margin:0;font-size:15px;color:var(--ink-2)}
+}
+@media (max-width:880px){
+  dl.st div{grid-template-columns:1fr;gap:8px}
+  .date{grid-template-columns:1fr;gap:10px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .top .wrap{min-height:60px;gap:12px}
+  .brand .ex{display:none}
+  .hero h1{font-size:clamp(38px,10.5vw,48px)}
+  .totals{grid-template-columns:1fr 1fr;padding:12px 16px 16px;row-gap:14px}
+  .totals div:first-child{grid-column:1/-1;padding-right:0}
+  .totals div:nth-child(2){padding-left:0;border-left:0}
+  .ledger-head{padding:16px 16px 0}
+  .ledger-foot{padding:12px 16px}
+  table.rows thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.rows,table.rows tbody{display:block}
+  .rows tr.inv{display:grid;grid-template-columns:1fr auto;grid-template-areas:"c a" "d s" "x x";gap:6px 12px;padding:14px 16px}
+  .rows tr.inv td{padding:0!important;display:block;text-align:left!important;border-top:0!important}
+  .rows tr.inv+tr.inv,.rows tr.draft+tr.inv{border-top:1px solid var(--rule)}
+  .rows td.c-client{grid-area:c}
+  .rows td.amt{grid-area:a;text-align:right!important;font-size:16px;font-weight:600}
+  .rows td.due{grid-area:d}
+  .rows td.c-status{grid-area:s;text-align:right!important}
+  .rows td.c-act{grid-area:x}
+  .rows td.c-act:empty{display:none}
+  .rows td.c-act .act{width:100%;min-height:44px;margin-top:6px}
+  .rows td.c-act .done{display:block;margin-top:2px}
+  .rows tr.draft{display:block}
+  .rows tr.draft td{display:block;padding:0 16px 16px}
+  .draft-actions .note{margin-left:0}
+  .price th,.price td{padding:12px 6px;font-size:14.5px}
+  .price tfoot .btn{padding:0 12px;width:100%}
+  .price thead th.plan{font-size:20px}
+  .price thead th.plan span{font-size:24px}
+  .price tbody th{width:40%;font-size:14.5px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Quittance, accueil (nom d’exemple)"><b>Quittance</b><span class="ex">nom d’exemple</span></a>
+    <nav class="main" aria-label="Sections">
+      <a href="#trajet">Le trajet d’une facture</a>
+      <a href="#reforme">La réforme</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <a class="btn sm" href="#essai">Essayer 30 jours</a>
+  </div>
+</header>
+
+<main id="contenu">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <h1 id="h1">Une facture n’est finie que lorsqu’elle est payée.</h1>
+    <div class="lead-col">
+      <p class="lede">Quittance crée vos factures au format électronique, les transmet à vos clients et <strong>les suit jusqu’au virement</strong>. Chaque matin, vous savez qui vous doit quoi, depuis quand, et ce qu’il reste à faire.</p>
+      <div class="cta-row">
+        <a class="btn" href="#essai">Essayer 30 jours gratuitement</a>
+        <a class="textlink" href="#trajet">Suivre une facture jusqu’au virement</a>
+      </div>
+      <ul class="facts" aria-label="En bref">
+        <li><span>Essai sans carte bancaire</span><span>Résiliable en un clic</span></li>
+        <li><span>Format électronique</span><span>Factur-X, prêt pour 2027</span></li>
+        <li><span>Export pour votre comptable</span><span>FEC et CSV</span></li>
+      </ul>
+      <p class="ex facts-ex" style="margin-top:12px">Offre et fonctions d’exemple, à confirmer avant publication</p>
+    </div>
+
+    <!-- PROOF OBJECT: coded, operable receivables ledger. Illustrative data (TRUTH/ILLUSTRATIVE + MECHANISM). -->
+    <article class="ledger" id="encours" aria-labelledby="ledger-title">
+      <div class="ledger-head">
+        <h2 id="ledger-title"><b>Encours</b> au jeudi 8 octobre 2026</h2>
+        <span class="ex">Données d’exemple</span>
+      </div>
+      <dl class="totals">
+        <div><dt>À encaisser</dt><dd><span class="big num">12&#8239;900,00&nbsp;€</span><small>5 factures en attente de paiement</small></dd></div>
+        <div><dt>Dont en retard</dt><dd><span class="mid num late">4&#8239;020,00&nbsp;€</span><small id="late-note">2 factures</small></dd></div>
+        <div><dt>Encaissé en octobre</dt><dd><span class="mid num">1&#8239;740,00&nbsp;€</span><small>1 facture</small></dd></div>
+      </dl>
+      <table class="rows">
+        <caption class="ex" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Factures en cours, montants TTC, données d’exemple</caption>
+        <thead><tr><th scope="col">Client</th><th scope="col">Échéance</th><th scope="col" class="amt">Montant TTC</th><th scope="col">Statut</th><th scope="col"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Action</span></th></tr></thead>
+        <tbody>
+          <tr class="inv is-late" data-id="0138" data-client="Atelier Brume" data-amount="2&#8239;880,00&nbsp;€" data-due="23 septembre" data-rappel="26 septembre">
+            <td class="c-client"><span class="client">Atelier Brume</span><span class="ref">F-2026-0138</span></td>
+            <td class="due">23 sept.<small>en retard de 15 jours</small></td>
+            <td class="amt num">2&#8239;880,00&nbsp;€</td>
+            <td class="c-status"><span class="status s-late"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 6v3.6M8 11.6v.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>En retard</span></td>
+            <td class="c-act"><button class="act" type="button" aria-expanded="false" aria-controls="draft-0138">Relancer</button></td>
+          </tr>
+          <tr class="draft" id="draft-0138" hidden><td colspan="5"></td></tr>
+          <tr class="inv is-late" data-id="0141" data-client="Coopérative Les Halles" data-amount="1&#8239;140,00&nbsp;€" data-due="2 octobre" data-rappel="5 octobre">
+            <td class="c-client"><span class="client">Coopérative Les Halles</span><span class="ref">F-2026-0141</span></td>
+            <td class="due">2 oct.<small>en retard de 6 jours</small></td>
+            <td class="amt num">1&#8239;140,00&nbsp;€</td>
+            <td class="c-status"><span class="status s-late"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 6v3.6M8 11.6v.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>En retard</span></td>
+            <td class="c-act"><button class="act" type="button" aria-expanded="false" aria-controls="draft-0141">Relancer</button></td>
+          </tr>
+          <tr class="draft" id="draft-0141" hidden><td colspan="5"></td></tr>
+          <tr class="inv">
+            <td class="c-client"><span class="client">Studio Fennec</span><span class="ref">F-2026-0144</span></td>
+            <td class="due">15 oct.<small>dans 7 jours</small></td>
+            <td class="amt num">4&#8239;320,00&nbsp;€</td>
+            <td class="c-status"><span class="status s-soon"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 4.6V8l2.4 1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Approuvée</span></td>
+            <td class="c-act"></td>
+          </tr>
+          <tr class="inv">
+            <td class="c-client"><span class="client">Maison Ortal</span><span class="ref">F-2026-0146</span></td>
+            <td class="due">31 oct.<small>dans 23 jours</small></td>
+            <td class="amt num">3&#8239;600,00&nbsp;€</td>
+            <td class="c-status"><span class="status s-dep"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5 6.2 12 13.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Reçue</span></td>
+            <td class="c-act"></td>
+          </tr>
+          <tr class="inv">
+            <td class="c-client"><span class="client">Cabinet Verlaine</span><span class="ref">F-2026-0147</span></td>
+            <td class="due">7 nov.<small>dans 30 jours</small></td>
+            <td class="amt num">960,00&nbsp;€</td>
+            <td class="c-status"><span class="status s-dep"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 9.5h10M8 2.5v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 9.5v4h6v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Déposée</span></td>
+            <td class="c-act"></td>
+          </tr>
+          <tr class="inv">
+            <td class="c-client"><span class="client">Boulangerie Ferrand</span><span class="ref">F-2026-0139</span></td>
+            <td class="due">6 oct.<small>payée le 6 oct.</small></td>
+            <td class="amt num">1&#8239;740,00&nbsp;€</td>
+            <td class="c-status"><span class="status s-paid"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="currentColor"/><path d="M5 8.2 7.1 10.3 11 6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Encaissée</span></td>
+            <td class="c-act"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ledger-foot"><span>Essayez : relancez un client en retard.</span><span>Démo, aucun e-mail n’est envoyé.</span></div>
+      <p class="sr" id="live" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></p>
+    </article>
+  </div>
+</section>
+
+<section class="block" id="trajet" aria-labelledby="trajet-t">
+  <div class="wrap">
+    <p class="kicker">Le trajet d’une facture</p>
+    <h2 class="title" id="trajet-t">F-2026-0138, du 24 août à aujourd’hui.</h2>
+    <p class="intro">Une facture de 2&#8239;880&nbsp;€ pour Atelier Brume, payable à 30 jours. Voici ce que Quittance a fait pendant ces 45 jours, et ce qu’il vous propose ce matin.</p>
+
+    <div class="journey">
+      <!-- proportional axis: 45 days = 100% ; positions = day/45 -->
+      <div class="axis" aria-hidden="true">
+        <div class="line"></div>
+        <div class="future"></div>
+        <div class="ticks" id="ticks"></div>
+        <span class="ticklab" style="left:15.29%">1er sept.</span>
+        <span class="ticklab" style="left:72.62%">1er oct.</span>
+        <span class="pin" style="left:0%"></span><span class="pin" style="left:1.91%"></span><span class="pin" style="left:57.33%"></span><span class="pin" style="left:63.07%"></span><span class="pin now" style="left:86.00%"></span><span class="pin next" style="left:100%"></span>
+        <div class="ev up" style="left:0%"><span class="d">24 août · J0</span><b>Émise et déposée</b><p>Factur-X transmis via la plateforme agréée.</p></div>
+        <div class="ev down" style="left:1.91%"><span class="d">25 août · J+1</span><b>Reçue par le client</b><p>Le statut remonte tout seul.</p></div>
+        <div class="ev up right" style="left:57.33%"><span class="d">23 sept. · J+30</span><b>Échéance</b><p>Aucun virement rapproché.</p></div>
+        <div class="ev down" style="left:63.07%"><span class="d">26 sept. · J+33</span><b>Relance automatique</b><p>Un rappel courtois, facture jointe.</p></div>
+        <div class="ev down now" style="left:86.00%"><span class="d">8 oct. · J+45 · aujourd’hui</span><b>Relance proposée</b><p>Un second message, plus ferme, prêt à partir.</p></div>
+        <div class="ev up next right" style="left:100%"><span class="d">À venir</span><b>Encaissée</b><p>Le virement est rapproché, la facture se ferme.</p></div>
+      </div>
+      <ol class="journey-mobile">
+        <li><span class="d">24 août · J0</span><b>Émise et déposée</b><p>Factur-X transmis via la plateforme agréée.</p></li>
+        <li><span class="d">25 août · J+1</span><b>Reçue par le client</b><p>Le statut remonte tout seul.</p></li>
+        <li><span class="d">23 sept. · J+30</span><b>Échéance</b><p>Aucun virement rapproché.</p></li>
+        <li><span class="d">26 sept. · J+33</span><b>Relance automatique</b><p>Un rappel courtois, avec la facture jointe.</p></li>
+        <li class="now"><span class="d">8 oct. · J+45</span><b>Relance proposée</b><p>Un second message, plus ferme, prêt à partir.</p></li>
+        <li class="next"><span class="d">À venir</span><b>Encaissée</b><p>Le virement est rapproché, la facture se ferme.</p></li>
+      </ol>
+      <p class="ex">Exemple ; plateforme partenaire et rapprochement bancaire à confirmer</p>
+    </div>
+
+    <div class="statuses">
+      <div class="side">
+        <h3>Quand le trajet dévie</h3>
+        <p>Avec la facture électronique, chaque facture porte un statut que l’administration connaît aussi. Quatre sont obligatoires. Quittance vous dit lequel, pourquoi, et quoi faire.</p>
+      </div>
+      <dl class="st">
+        <div><dt><span class="status s-dep">Déposée</span></dt><dd><strong>Ce que ça veut dire</strong>La plateforme a accepté techniquement la facture.</dd><dd><strong>Ce que fait Quittance</strong>Rien à faire de votre côté : le suivi démarre.</dd></div>
+        <div><dt><span class="status s-late">Rejetée</span></dt><dd><strong>Ce que ça veut dire</strong>Un problème technique : format, mention ou donnée manquante.</dd><dd><strong>Ce que fait Quittance</strong>Il désigne le champ à corriger, par exemple le SIREN du client, puis redépose.</dd></div>
+        <div><dt><span class="status s-soon">Refusée</span></dt><dd><strong>Ce que ça veut dire</strong>Votre client conteste la facture.</dd><dd><strong>Ce que fait Quittance</strong>Il affiche son motif et prépare l’avoir ou la facture corrigée.</dd></div>
+        <div><dt><span class="status s-paid">Encaissée</span></dt><dd><strong>Ce que ça veut dire</strong>Le paiement est reçu. Obligatoire si votre TVA est due à l’encaissement.</dd><dd><strong>Ce que fait Quittance</strong>Il propose le statut dès que le virement apparaît sur votre compte.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="reforme" aria-labelledby="reforme-t">
+  <div class="wrap reform">
+    <div>
+      <p class="kicker">La réforme de la facturation électronique</p>
+      <h2 class="title" id="reforme-t">La loi change le tuyau. Pas votre façon de travailler.</h2>
+      <p class="intro">Le PDF envoyé par e-mail ne suffira plus. Quittance produit le bon format et passe par une plateforme agréée : vous continuez à créer une facture comme avant.</p>
+      <p class="ex" style="margin-top:16px">Plateforme partenaire à confirmer</p>
+    </div>
+    <div>
+      <div class="dates">
+        <div class="date passed"><p class="when">1er sept. 2026<small>En vigueur</small></p><div><h3>Toutes les entreprises reçoivent</h3><p>Quelle que soit sa taille, chaque entreprise doit pouvoir recevoir des factures électroniques.</p></div></div>
+        <div class="date coming"><p class="when">1er sept. 2027<small>Dans 328 jours</small></p><div><h3>Les PME et micro-entreprises émettent</h3><p>Vos propres factures devront partir au format électronique, via une plateforme agréée.</p></div></div>
+      </div>
+      <p class="src">Calendrier relevé le 8 octobre 2026. À vérifier sur <a href="https://www.impots.gouv.fr/facturation-electronique-et-plateformes-agreees" rel="noopener">impots.gouv.fr</a> ou auprès de votre expert-comptable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="tarifs" aria-labelledby="tarifs-t">
+  <div class="wrap pricing">
+    <div>
+      <p class="kicker">Tarifs</p>
+      <h2 class="title" id="tarifs-t">Un prix au nombre de factures, pas au nombre d’options.</h2>
+      <p class="intro">Les deux formules font la même chose. La seconde en fait plus, pour plus de monde.</p>
+    </div>
+    <table class="price">
+      <caption class="ex">Tarifs d’exemple, hors taxes, à confirmer</caption>
+      <thead>
+        <tr><td></td><th scope="col" class="plan">Solo<span class="num">12&nbsp;€ <small>HT / mois</small></span></th><th scope="col" class="plan">Équipe<span class="num">39&nbsp;€ <small>HT / mois</small></span></th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Factures par mois</th><td class="num">30</td><td>Illimitées</td></tr>
+        <tr><th scope="row">Utilisateurs</th><td class="num">1</td><td class="num">5</td></tr>
+        <tr><th scope="row">Émission et réception électroniques</th><td class="yes">Incluses</td><td class="yes">Incluses</td></tr>
+        <tr><th scope="row">Suivi des statuts</th><td class="yes">Inclus</td><td class="yes">Inclus</td></tr>
+        <tr><th scope="row">Relances</th><td>Manuelles</td><td>Automatiques, à J+3 puis J+15</td></tr>
+        <tr><th scope="row">Rapprochement bancaire</th><td>—</td><td class="yes">Inclus</td></tr>
+        <tr><th scope="row">Export comptable</th><td>FEC, CSV</td><td>FEC, CSV, accès comptable</td></tr>
+      </tbody>
+      <tfoot><tr><td></td><td><a class="btn ghost sm" href="#essai">Essayer Solo</a></td><td><a class="btn sm" href="#essai">Essayer Équipe</a></td></tr></tfoot>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="questions" aria-labelledby="faq-t">
+  <div class="wrap faq">
+    <div>
+      <p class="kicker">Questions</p>
+      <h2 class="title" id="faq-t">Avant de changer d’outil.</h2>
+    </div>
+    <div>
+      <details><summary>Je facture déjà avec un tableur. Je repars de zéro ?</summary><p>Non. Vous importez vos clients et vos factures en cours depuis un fichier CSV ; la numérotation reprend là où vous l’aviez laissée, sans trou.</p></details>
+      <details><summary>Mon expert-comptable doit-il changer d’outil ?</summary><p>Non. Il reçoit un export FEC ou CSV, ou un accès en lecture seule avec la formule Équipe.</p></details>
+      <details><summary>Que se passe-t-il si une facture est rejetée ?</summary><p>Quittance affiche le motif et le champ concerné. Vous corrigez, il redépose ; la facture garde son numéro.</p></details>
+      <details><summary>Puis-je arrêter quand je veux ?</summary><p>Oui, sans préavis. Vous gardez l’export complet de vos factures et de leurs statuts.</p></details>
+      <p class="ex" style="margin-top:14px">Réponses d’exemple, à valider avec l’équipe produit</p>
+    </div>
+  </div>
+</section>
+
+<section class="block signup" id="essai" aria-labelledby="essai-t">
+  <div class="wrap">
+    <div>
+      <h2 class="title" id="essai-t">Votre prochaine facture, suivie jusqu’au bout.</h2>
+      <p class="intro">30 jours d’essai, sans carte bancaire. Vous créez votre première facture en quelques minutes.</p>
+    </div>
+    <form class="join" novalidate>
+      <label for="email">Adresse e-mail professionnelle</label>
+      <div class="field">
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="vous@entreprise.fr" aria-describedby="join-msg join-hint">
+        <button class="btn" type="submit">Créer mon compte</button>
+      </div>
+      <p class="join msg" id="join-msg" role="status"></p>
+      <p class="hint" id="join-hint">Formulaire d’exemple : aucune donnée n’est envoyée depuis cette page.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Quittance, nom et offre d’exemple. Proposition de page, octobre 2026.</span>
+    <span>Toutes les données affichées sont fictives.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ticks on the proportional axis: one per day, longer on month starts
+  var t=document.getElementById('ticks');
+  if(t){for(var d=0;d<=45;d++){var i=document.createElement('i');var day=new Date(2026,7,24+d).getDate();if(day===1)i.className='m';i.style.left=(d/45*86)+'%';t.appendChild(i);}}
+
+  var live=document.getElementById('live');
+  var lateNote=document.getElementById('late-note');
+  var sent=0;
+  function say(s){live.textContent='';setTimeout(function(){live.textContent=s},30)}
+
+  function draftText(row){
+    return 'Bonjour,\n\nSauf erreur de notre part, la facture '+'F-2026-'+row.dataset.id+' de '+row.dataset.amount.replace(/ | /g,' ')+' arrivée à échéance le '+row.dataset.due+' reste impayée, malgré notre rappel du '+row.dataset.rappel+'. Pourriez-vous nous indiquer la date de règlement prévue ?\n\nBien cordialement';
+  }
+
+  document.querySelectorAll('tr.is-late .act').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var row=btn.closest('tr');
+      var dr=document.getElementById(btn.getAttribute('aria-controls'));
+      var open=btn.getAttribute('aria-expanded')==='true';
+      if(open){close();return;}
+      var id=row.dataset.id;
+      dr.firstElementChild.innerHTML=
+        '<div class="draft-box">'+
+        '<label for="msg-'+id+'">Message à '+row.dataset.client+'</label>'+
+        '<textarea id="msg-'+id+'" aria-describedby="err-'+id+'"></textarea>'+
+        '<p class="err" id="err-'+id+'">Le message est vide. Écrivez quelques mots avant d’envoyer.</p>'+
+        '<div class="draft-actions"><button type="button" class="btn sm send">Envoyer la relance</button>'+
+        '<button type="button" class="btn ghost sm cancel">Annuler</button>'+
+        '<span class="note">Démo : rien ne part.</span></div></div>';
+      var ta=dr.querySelector('textarea');ta.value=draftText(row);
+      dr.hidden=false;btn.setAttribute('aria-expanded','true');ta.focus();ta.setSelectionRange(0,0);ta.scrollTop=0;
+      var err=dr.querySelector('.err');
+      ta.addEventListener('input',function(){if(ta.value.trim()){err.classList.remove('on');ta.removeAttribute('aria-invalid');}});
+      dr.querySelector('.cancel').addEventListener('click',function(){close();btn.focus();});
+      dr.querySelector('.send').addEventListener('click',function(e){
+        var s=e.currentTarget;
+        if(!ta.value.trim()){err.classList.add('on');ta.setAttribute('aria-invalid','true');ta.focus();return;}
+        s.disabled=true;s.textContent='Envoi…';
+        setTimeout(function(){
+          dr.hidden=true;dr.firstElementChild.innerHTML='';
+          var st=row.querySelector('.status');
+          st.className='status s-sent';
+          st.innerHTML='<svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.8 7.6 14 2.2 10.6 14 7.6 9.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>Relancée';
+          row.querySelector('.due small').textContent='en retard · relancé le 8 oct.';
+          var cell=row.querySelector('.c-act');
+          cell.innerHTML='<span class="done">Réponse attendue sous 7 jours</span>';
+          sent++;
+          lateNote.textContent='2 factures · '+sent+(sent>1?' relances envoyées':' relance envoyée')+' aujourd’hui';
+          say('Relance envoyée à '+row.dataset.client+'. Démo : aucun e-mail n’est réellement parti.');
+          var next=document.querySelector('tr.is-late .act');
+          (next||document.getElementById('ledger-title')).focus&&(next?next.focus():null);
+        },700);
+      });
+      function close(){dr.hidden=true;dr.firstElementChild.innerHTML='';btn.setAttribute('aria-expanded','false');}
+    });
+  });
+
+  var form=document.querySelector('form.join');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var inp=form.querySelector('input');var msg=document.getElementById('join-msg');
+    var v=inp.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){
+      msg.className='join msg bad';
+      msg.textContent=v?'Cette adresse ne semble pas complète : vérifiez la partie après le @.':'Indiquez votre adresse e-mail pour créer le compte.';
+      inp.setAttribute('aria-invalid','true');inp.focus();return;
+    }
+    inp.removeAttribute('aria-invalid');
+    msg.className='join msg ok';
+    msg.textContent='C’est noté pour '+v+'. Sur la vraie page, vous recevriez ici le lien d’activation ; cette démo n’envoie rien.';
+  });
+})();
+</script>
+</body>
+</html>

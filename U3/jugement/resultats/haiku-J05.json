@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B pose une thèse nette, « Une facture n’est finie que lorsqu’elle est payée », et la tient jusqu’au bout avec le trajet des statuts, alors que A reste une promesse plus convenue, « Facturez en deux minutes », même si le tampon « Payée » et l’accent italique donnent du caractère."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Les deux sont propres à la facturation française (SIREN, TVA, Factur-X, relances J-3 à J+30), mais B construit tout son récit autour des statuts réglementaires (déposée, rejetée, refusée, encaissée) et d’une lecture « ce que ça veut dire / ce que fait l’outil », que n’importe quel outil générique ne pourrait pas reprendre tel quel."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a plus de soin dans les détails (tampon, notifications flottantes, système de cartes homogène, rythme typographique serif/mono), tandis que B, propre et bien aligné, perd en hiérarchie dans les blocs de petit corps du trajet et du tableau ; le mobile tient bien dans les deux cas."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale systématiquement ce qui est exemple (« nom d’exemple », « Données d’exemple », « Tarifs d’exemple, à confirmer », « toutes les données affichées sont fictives ») et renvoie le calendrier réglementaire à vérifier ; A n’étiquette ni ses factures, ni son graphique de chiffres, ni ses prix, même s’il n’invente ni avis ni faux logos."
+ },
+ "defaut_A": "Chiffres, factures et prix d’exemple présentés sans étiquette de fiction, sur une page longue qui s’étire en grilles de cartes au texte très petit.",
+ "defaut_B": "Micro-typographie dense (légendes du trajet, colonnes du tableau, tableau de bord du hero) qui alourdit la lecture et fatigue sur la longueur.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

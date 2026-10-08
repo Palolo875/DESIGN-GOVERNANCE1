@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B a un vrai point de vue, avec un titre qui reprend l'idée de profondeur, des bonnets de couleur par bassin et un diagnostic interactif en trois questions. A est chaleureuse et mémorable grâce à son illustration (nageur, bouée, canard), mais son titre et son ton restent ceux d'un site de loisirs enfants courant."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Chez B, la coupe des profondeurs 0,80 / 1,10 / 1,40 / 2,00 m, les bonnets, les objectifs cochés, les places restantes et la frise des 45 minutes ne conviennent qu'à une école de natation. A a des détails propres au métier (lignes d'eau, diplômes Têtard à Dauphin, eau à 32 °C), mais sa structure (hero, cartes d'âge, méthode, tarifs, FAQ, formulaire) irait aussi bien à une école de danse ou de musique."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "A est très soignée (hiérarchie claire, cartes régulières, illustration maîtrisée, mobile propre, formulaire complet), avec des cartes de hauteurs inégales et une mise en page un peu convenue. B a une typographie condensée très tenue, des alignements nets et un bandeau mobile lisible, mais son hero n'a aucune image et son encart de résultat reste vide au premier regard."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B affiche un bandeau « Maquette » et des pastilles EXEMPLE ou HORAIRES D'EXEMPLE sur les chiffres, les tarifs, les places et les coordonnées. A présente comme réels un prix (165 €), des diplômes BPJEPS AAN, une adresse, un téléphone et « Inscriptions ouvertes saison 2026-2027 », sans signaler que ce sont des exemples. A n'invente cependant ni faux avis ni faux logos."
+ },
+ "defaut_A": "Une page gabarit « école pour enfants » aimable mais interchangeable, qui présente des contenus inventés (tarifs, adresse, téléphone, diplômes) comme s'ils étaient réels, sans marquage d'exemple.",
+ "defaut_B": "Un hero sans image ni chaleur pour une clientèle de parents d'enfants, plus austère que ludique, avec un diagnostic qui paraît vide tant qu'on n'a pas répondu.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

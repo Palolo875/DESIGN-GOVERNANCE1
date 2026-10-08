@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ardoise — Facturation</title>
+<meta name="description" content="Ardoise : créez vos factures en deux minutes, conformes à la facture électronique, et soyez payé sans relancer à la main.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f3ec;
+  --paper-2:#efeadf;
+  --card:#fffdf8;
+  --ink:#1b2333;
+  --ink-2:#4a5266;
+  --ink-3:#7a8194;
+  --line:#ddd6c7;
+  --accent:#d6452b;       /* vermillon du tampon */
+  --accent-ink:#ffffff;
+  --accent-soft:#f8dfd7;
+  --ok:#2f7d5b;
+  --ok-soft:#dcefe5;
+  --warn:#b7791f;
+  --warn-soft:#f6ead2;
+  --shadow:0 1px 0 rgba(27,35,51,.04),0 12px 32px -12px rgba(27,35,51,.18);
+  --radius:14px;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14181f;--paper-2:#191e27;--card:#1e2430;--ink:#eef0f4;--ink-2:#b4bac7;--ink-3:#868d9c;
+    --line:#2d3442;--accent:#ef6a4f;--accent-ink:#1a0c08;--accent-soft:#3a221c;--ok:#5cc497;--ok-soft:#1d3329;
+    --warn:#e0a54a;--warn-soft:#352b1a;--shadow:0 1px 0 rgba(0,0,0,.2),0 16px 40px -16px rgba(0,0,0,.6);color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14181f;--paper-2:#191e27;--card:#1e2430;--ink:#eef0f4;--ink-2:#b4bac7;--ink-3:#868d9c;
+  --line:#2d3442;--accent:#ef6a4f;--accent-ink:#1a0c08;--accent-soft:#3a221c;--ok:#5cc497;--ok-soft:#1d3329;
+  --warn:#e0a54a;--warn-soft:#352b1a;--shadow:0 1px 0 rgba(0,0,0,.2),0 16px 40px -16px rgba(0,0,0,.6);color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line-height:1.1;margin:0}
+p{margin:0}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+.eyebrow{font:500 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{color:var(--ink-2);font-size:19px;max-width:38em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease,border-color .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{border-color:var(--line);background:transparent;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:15px}
+
+/* Navigation */
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 22px/1 var(--serif);letter-spacing:-.02em}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);color:var(--paper);display:grid;place-items:center}
+.logo-mark svg{width:18px;height:18px}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;color:var(--ink-2);font-size:15px;font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.nav-login{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none;padding:8px 6px}
+.nav-login:hover{color:var(--ink)}
+
+/* Hero */
+.hero{padding:72px 0 88px;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,6vw,72px);margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:600}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-notes{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;color:var(--ink-3);font-size:14px;list-style:none;padding:0}
+.hero-notes li{display:flex;align-items:center;gap:7px}
+.hero-notes svg{width:16px;height:16px;color:var(--ok);flex:none}
+
+/* Facture factice */
+.stage{position:relative;padding:20px 0 80px 20px}
+.invoice{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 28px 24px;transform:rotate(-1.2deg)}
+.inv-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.inv-from{font-weight:600}
+.inv-from small{display:block;font-weight:400;color:var(--ink-3);font-size:13px;line-height:1.5}
+.inv-num{text-align:right;font-family:var(--mono);font-size:13px;color:var(--ink-3);line-height:1.6}
+.inv-num b{display:block;color:var(--ink);font-size:15px;font-weight:500}
+.inv-to{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--ink-3);padding:14px 0}
+.inv-to strong{color:var(--ink);font-weight:500;display:block;font-size:15px}
+.inv-lines{width:100%;border-collapse:collapse;font-size:14px}
+.inv-lines th{text-align:left;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:10px 0;border-bottom:1px solid var(--line)}
+.inv-lines td{padding:11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.inv-lines .r{padding-left:16px;text-align:right;font-family:var(--mono);white-space:nowrap}
+.inv-tot{margin-left:auto;width:min(100%,250px);font-size:14px;padding-top:12px}
+.inv-tot div{display:flex;justify-content:space-between;padding:3px 0;color:var(--ink-2)}
+.inv-tot div span:last-child{font-family:var(--mono)}
+.inv-tot .grand{color:var(--ink);font-weight:600;font-size:17px;border-top:1px solid var(--ink);margin-top:6px;padding-top:9px}
+.inv-foot{display:flex;align-items:center;gap:8px;margin-top:16px;font:500 11px/1.3 var(--mono);color:var(--ink-3);letter-spacing:.04em}
+.inv-foot i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.stamp{position:absolute;left:34px;bottom:62px;border:3px solid var(--accent);color:var(--accent);font:700 26px/1 var(--serif);letter-spacing:.12em;padding:8px 14px 6px;border-radius:8px;transform:rotate(-14deg) scale(1);opacity:.92;mix-blend-mode:multiply;pointer-events:none}
+.stamp small{display:block;font:500 10px/1.2 var(--mono);letter-spacing:.06em;text-align:center;margin-top:4px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stamp{mix-blend-mode:normal}}
+:root[data-theme="dark"] .stamp{mix-blend-mode:normal}
+.js .stamp{opacity:0;transform:rotate(-14deg) scale(1.8)}
+.js .stamp.in{animation:stamp .5s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes stamp{0%{opacity:0;transform:rotate(-14deg) scale(1.8)}100%{opacity:.92;transform:rotate(-14deg) scale(1)}}
+
+.toast{position:absolute;left:-8px;bottom:0;display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px 12px 12px;box-shadow:var(--shadow);font-size:14px;max-width:290px}
+.toast-ic{width:34px;height:34px;border-radius:9px;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center;flex:none}
+.toast-ic svg{width:18px;height:18px}
+.toast b{display:block;font-weight:600}
+.toast span{color:var(--ink-3);font-size:13px}
+.js .toast{opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+.js .toast.in{opacity:1;transform:none}
+
+/* Bandeau conformité */
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap}
+.band p{font-size:15px;color:var(--ink-2);max-width:30em}
+.band p strong{color:var(--ink)}
+.badges{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.badges li{font:500 13px/1 var(--mono);padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink-2)}
+
+/* Sections */
+section{scroll-margin-top:80px}
+.sec{padding:104px 0}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(32px,4.2vw,48px);margin:14px 0 18px}
+
+/* Étapes */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{padding:28px 32px 8px 0;position:relative}
+.steps li+li{padding-left:32px;border-left:1px solid var(--line)}
+.steps .n{font:500 13px/1 var(--mono);color:var(--accent)}
+.steps h3{font-size:26px;margin:14px 0 10px}
+.steps p{color:var(--ink-2)}
+.steps .meta{margin-top:16px;font:500 13px/1 var(--mono);color:var(--ink-3)}
+
+/* Fonctionnalités */
+.features{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.feat .ic{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:20px}
+.feat .ic svg{width:22px;height:22px}
+.feat h3{font-family:var(--sans);font-size:18px;font-weight:600;letter-spacing:0;margin-bottom:8px}
+.feat p{color:var(--ink-2);font-size:16px}
+
+/* Relances */
+.dun .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.dun-list{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:14px}
+.dun-list li{display:flex;gap:12px;color:var(--ink-2)}
+.dun-list svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:3px}
+.dun-list strong{color:var(--ink);font-weight:600}
+.timeline{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.tl-tabs{display:flex;border-bottom:1px solid var(--line);overflow-x:auto}
+.tl-tab{flex:1;min-width:84px;background:none;border:0;border-bottom:2px solid transparent;padding:14px 10px 12px;font:500 13px/1.3 var(--mono);color:var(--ink-3);cursor:pointer;text-align:center}
+.tl-tab span{display:block;font-family:var(--sans);font-size:12px;font-weight:400;margin-top:2px}
+.tl-tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tl-tab:hover{color:var(--ink)}
+.tl-body{padding:26px 28px 28px}
+.mail-meta{font-size:14px;color:var(--ink-3);display:grid;gap:4px;padding-bottom:16px;border-bottom:1px dashed var(--line);margin-bottom:18px}
+.mail-meta b{color:var(--ink);font-weight:500}
+.mail-text{white-space:pre-line;color:var(--ink-2);font-size:16px;min-height:9.6em}
+.mail-btn{display:inline-block;margin-top:18px;padding:10px 16px;background:var(--ink);color:var(--paper);border-radius:8px;font-weight:600;font-size:14px}
+.tone{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--mono);padding:6px 10px;border-radius:999px;margin-bottom:14px}
+.tone.soft{background:var(--ok-soft);color:var(--ok)}
+.tone.firm{background:var(--warn-soft);color:var(--warn)}
+.tone.final{background:var(--accent-soft);color:var(--accent)}
+
+/* Tarifs */
+.pricing{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pricing .sec-head{margin-left:auto;margin-right:auto;text-align:center}
+.pricing .sec-head .lede{margin:0 auto}
+.switch{display:inline-flex;margin:0 auto 40px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.switch button{border:0;background:none;padding:10px 18px;border-radius:999px;font:500 15px/1 var(--sans);color:var(--ink-2);cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.switch .save{font:500 12px/1 var(--mono);color:var(--accent);margin-left:6px}
+.switch button[aria-pressed="true"] .save{color:inherit;opacity:.8}
+.center{text-align:center}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;position:relative}
+.plan.hot{border:2px solid var(--ink);box-shadow:var(--shadow)}
+.plan .tag{position:absolute;top:-13px;left:28px;background:var(--accent);color:var(--accent-ink);font:500 12px/1 var(--mono);padding:7px 10px;border-radius:999px}
+.plan h3{font-family:var(--sans);font-size:20px;font-weight:600;letter-spacing:0}
+.plan .for{color:var(--ink-3);font-size:15px;margin-top:4px}
+.price{margin:24px 0 4px;display:flex;align-items:baseline;gap:6px}
+.price .amt{font:600 52px/1 var(--serif);letter-spacing:-.03em}
+.price .per{color:var(--ink-3);font-size:15px}
+.price-note{font-size:13px;color:var(--ink-3);min-height:1.6em}
+.plan ul{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:10px;font-size:15px;color:var(--ink-2)}
+.plan li{display:flex;gap:10px}
+.plan li svg{width:18px;height:18px;color:var(--ok);flex:none;margin-top:3px}
+.plan .btn{margin-top:auto;width:100%}
+
+/* FAQ */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:600;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;flex:none;transition:transform .2s}
+.faq summary .pm svg{width:14px;height:14px}
+.faq details[open] summary .pm{transform:rotate(45deg);border-color:var(--ink)}
+.faq details p{color:var(--ink-2);padding:0 48px 24px 0}
+
+/* CTA final */
+.final{padding:0 0 104px}
+.final-card{background:var(--ink);color:var(--paper);border-radius:22px;padding:72px 56px;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.final-card h2{font-size:clamp(32px,4.4vw,52px)}
+.final-card p{color:color-mix(in srgb,var(--paper) 72%,transparent);margin-top:16px;font-size:18px}
+.final-card .btn-primary{background:var(--accent);color:var(--accent-ink)}
+.final-card .btn-primary:hover{background:var(--paper);color:var(--ink)}
+.final-card .btn-ghost{color:var(--paper);border-color:color-mix(in srgb,var(--paper) 30%,transparent)}
+.final-card .btn-ghost:hover{border-color:var(--paper)}
+.final-actions{display:grid;gap:12px;justify-items:stretch}
+.final-actions small{text-align:center;color:color-mix(in srgb,var(--paper) 60%,transparent);font-size:13px}
+.final-card .ghost-stamp{position:absolute;right:-30px;top:-34px;border:3px solid color-mix(in srgb,var(--paper) 10%,transparent);color:color-mix(in srgb,var(--paper) 10%,transparent);font:700 96px/1 var(--serif);letter-spacing:.1em;padding:14px 24px 6px;border-radius:14px;transform:rotate(-12deg);pointer-events:none}
+
+/* Pied de page */
+footer{border-top:1px solid var(--line);padding:48px 0 40px;font-size:14px;color:var(--ink-3)}
+.foot{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px}
+.foot h4{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:6px 0 16px}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink)}
+.foot-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+
+/* Responsive */
+@media (max-width:980px){
+  .nav-links{display:none}
+  .hero .wrap,.dun .wrap,.faq .wrap{grid-template-columns:1fr;gap:48px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .plans{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .final-card{grid-template-columns:1fr;padding:56px 36px}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .hero{padding:40px 0 64px}
+  .lede{font-size:17px}
+  .sec{padding:72px 0}
+  .sec-head{margin-bottom:40px}
+  .steps{grid-template-columns:1fr}
+  .steps li,.steps li+li{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .grid{grid-template-columns:1fr}
+  .nav-login{display:none}
+  .stage{padding:8px 0 96px}
+  .invoice{padding:20px 18px;transform:none}
+  .inv-head{flex-direction:column;gap:10px}
+  .inv-num{text-align:left}
+  .stamp{left:auto;top:22px;bottom:auto;right:14px;font-size:20px}
+  .toast{left:8px;right:8px;max-width:none;bottom:0}
+  .tl-body{padding:22px 18px}
+  .faq details p{padding-right:0}
+  .final{padding-bottom:72px}
+  .final-card{padding:44px 22px;border-radius:18px}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot>div:first-child{grid-column:1/-1}
+  .hero-ctas .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .stamp{opacity:.92;transform:rotate(-14deg)}
+  .js .toast{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Ardoise, accueil">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9.5 12.5l2 2 4-4.5"/></svg>
+      </span>
+      Ardoise
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links">
+        <li><a href="#comment">Comment ça marche</a></li>
+        <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+        <li><a href="#relances">Relances</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-login" href="#">Se connecter</a>
+      <a class="btn btn-primary btn-sm" href="#essai">Essai gratuit</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Facturation pour indépendants et PME</p>
+        <h1>Facturez en deux minutes. Soyez payé <em>sans relancer</em>.</h1>
+        <p class="lede">Devis, factures, paiements en ligne et relances automatiques au même endroit. Vos factures sont conformes à la facture électronique, et votre comptable reçoit tout, déjà rapproché.</p>
+        <div class="hero-ctas" id="essai">
+          <a class="btn btn-primary" href="#tarifs">Essayer 30 jours gratuitement</a>
+          <a class="btn btn-ghost" href="#comment">Voir comment ça marche</a>
+        </div>
+        <ul class="hero-notes">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sans carte bancaire</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sans engagement</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Données hébergées en France</li>
+        </ul>
+      </div>
+
+      <div class="stage" aria-label="Aperçu d’une facture créée avec Ardoise">
+        <div class="invoice">
+          <div class="inv-head">
+            <div class="inv-from">Atelier Brun &amp; Fils
+              <small>12 rue des Tanneurs, 69002 Lyon<br>SIREN 000 000 000</small>
+            </div>
+            <div class="inv-num"><b>Facture F-2026-0142</b>Émise le 02/10/2026<br>Échéance 01/11/2026</div>
+          </div>
+          <div class="inv-to">
+            <div>Facturé à<strong>Studio Méridien</strong></div>
+            <div style="text-align:right">Mode de règlement<strong>Virement · Carte</strong></div>
+          </div>
+          <table class="inv-lines">
+            <thead><tr><th>Désignation</th><th class="r">Qté</th><th class="r">Montant HT</th></tr></thead>
+            <tbody>
+              <tr><td>Refonte de l’identité visuelle</td><td class="r">1</td><td class="r">2 400,00 €</td></tr>
+              <tr><td>Déclinaison papeterie</td><td class="r">3</td><td class="r">540,00 €</td></tr>
+            </tbody>
+          </table>
+          <div class="inv-tot">
+            <div><span>Total HT</span><span>2 940,00 €</span></div>
+            <div><span>TVA 20 %</span><span>588,00 €</span></div>
+            <div class="grand"><span>Total TTC</span><span>3 528,00 €</span></div>
+          </div>
+          <div class="inv-foot"><i aria-hidden="true"></i>FACTUR-X · TRANSMISE VIA PLATEFORME AGRÉÉE</div>
+          <div class="stamp" id="stamp" aria-hidden="true">PAYÉE<small>le 04/10/2026</small></div>
+        </div>
+        <div class="toast" id="toast" role="status">
+          <span class="toast-ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+          <div><b>Paiement reçu : 3 528,00 €</b><span>Facture rapprochée automatiquement</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU CONFORMITÉ -->
+  <div class="band">
+    <div class="wrap">
+      <p><strong>Prêt pour la facture électronique obligatoire.</strong> Émission, réception et archivage dans les formats exigés par la réforme.</p>
+      <ul class="badges" aria-label="Formats et normes pris en charge">
+        <li>Factur-X</li><li>UBL</li><li>CII</li><li>Export FEC</li><li>SEPA</li><li>RGPD</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="sec" id="comment">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>Du devis signé à l’argent sur le compte, en trois étapes.</h2>
+        <p class="lede">Pas de tableur, pas de copier-coller, pas de mail de relance écrit à 23 h.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="n">01</span>
+          <h3>Créez</h3>
+          <p>Choisissez un client, ajoutez vos prestations depuis votre catalogue. Numérotation, mentions légales et TVA sont remplies pour vous.</p>
+          <p class="meta">Devis → facture en un clic</p>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <h3>Envoyez</h3>
+          <p>La facture part au bon format : électronique pour les entreprises, PDF avec lien de paiement pour les particuliers. Vous voyez quand elle est ouverte.</p>
+          <p class="meta">Suivi d’ouverture en temps réel</p>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <h3>Encaissez</h3>
+          <p>Votre client paie par carte, virement ou prélèvement. Le paiement est rapproché de la facture, et les relances s’arrêtent toutes seules.</p>
+          <p class="meta">Rapprochement bancaire automatique</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FONCTIONNALITÉS -->
+  <section class="sec features" id="fonctionnalites">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Fonctionnalités</p>
+        <h2>Tout ce qu’il faut pour facturer. Rien de ce qui encombre.</h2>
+      </div>
+      <div class="grid">
+        <article class="feat">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg></div>
+          <h3>Devis et factures</h3>
+          <p>Modèles à vos couleurs, acomptes, avoirs et factures récurrentes pour vos abonnements clients.</p>
+        </article>
+        <article class="feat">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Relances automatiques</h3>
+          <p>Un scénario de rappels courtois puis fermes, envoyé au bon moment et arrêté dès que le client paie.</p>
+        </article>
+        <article class="feat">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg></div>
+          <h3>Paiement en ligne</h3>
+          <p>Lien de paiement sur chaque facture : carte bancaire, virement instantané ou prélèvement SEPA.</p>
+        </article>
+        <article class="feat">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l8-6 8 6M6 10v8M10 10v8M14 10v8M18 10v8M4 20h16"/></svg></div>
+          <h3>Rapprochement bancaire</h3>
+          <p>Connectez votre banque : chaque encaissement est associé à sa facture, sans pointage manuel.</p>
+        </article>
+        <article class="feat">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg></div>
+          <h3>Tableau de trésorerie</h3>
+          <p>Chiffre d’affaires, encours clients et retards de paiement, lisibles en un coup d’œil.</p>
+        </article>
+        <article class="feat">
+          <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></div>
+          <h3>Export comptable</h3>
+          <p>Fichier FEC et exports compatibles avec les principaux logiciels comptables. Ou invitez directement votre expert-comptable.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELANCES -->
+  <section class="sec dun" id="relances">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Relances</p>
+        <h2 style="font-size:clamp(32px,4.2vw,48px);margin:14px 0 18px">Les relances partent toutes seules. Le ton reste le vôtre.</h2>
+        <p class="lede">Choisissez quand relancer et ce que vous dites. Ardoise s’occupe d’envoyer, au bon client, au bon moment.</p>
+        <ul class="dun-list">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Arrêt automatique</strong> dès que le paiement est reçu, même partiel.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Textes modifiables</strong> à chaque étape, par client si besoin.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Pénalités de retard</strong> et indemnité forfaitaire calculées pour vous.</span></li>
+        </ul>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-tabs" role="tablist" aria-label="Étapes du scénario de relance">
+          <button class="tl-tab" role="tab" aria-selected="false" data-i="0">J−3<span>Rappel</span></button>
+          <button class="tl-tab" role="tab" aria-selected="true" data-i="1">J+1<span>Courtois</span></button>
+          <button class="tl-tab" role="tab" aria-selected="false" data-i="2">J+10<span>Ferme</span></button>
+          <button class="tl-tab" role="tab" aria-selected="false" data-i="3">J+20<span>Dernier avis</span></button>
+        </div>
+        <div class="tl-body" role="tabpanel" aria-live="polite">
+          <span class="tone soft" id="tone">Ton courtois</span>
+          <div class="mail-meta">
+            <div>À : <b>compta@studio-meridien.example</b></div>
+            <div>Objet : <b id="subject">Facture F-2026-0142 arrivée à échéance</b></div>
+          </div>
+          <p class="mail-text" id="mail"></p>
+          <span class="mail-btn" aria-hidden="true">Régler 3 528,00 €</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFS -->
+  <section class="sec pricing" id="tarifs">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Tarifs</p>
+        <h2>Un prix simple, sans frais par facture.</h2>
+        <p class="lede">30 jours d’essai sur toutes les formules. Changez ou arrêtez quand vous voulez.</p>
+      </div>
+      <div class="center">
+        <div class="switch" role="group" aria-label="Période de facturation">
+          <button type="button" aria-pressed="false" data-period="m">Mensuel</button>
+          <button type="button" aria-pressed="true" data-period="y">Annuel <span class="save">−20 %</span></button>
+        </div>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <h3>Solo</h3>
+          <p class="for">Pour les indépendants</p>
+          <div class="price"><span class="amt" data-m="15" data-y="12">12 €</span><span class="per">HT / mois</span></div>
+          <p class="price-note" data-m="Facturé chaque mois" data-y="Soit 144 € HT facturés par an">Soit 144 € HT facturés par an</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Factures et devis illimités</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Facture électronique incluse</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Paiement en ligne</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>1 compte bancaire connecté</li>
+          </ul>
+          <a class="btn btn-ghost" href="#">Commencer l’essai</a>
+        </article>
+        <article class="plan hot">
+          <span class="tag">Le plus choisi</span>
+          <h3>Équipe</h3>
+          <p class="for">Pour les TPE et PME</p>
+          <div class="price"><span class="amt" data-m="36" data-y="29">29 €</span><span class="per">HT / mois</span></div>
+          <p class="price-note" data-m="Facturé chaque mois" data-y="Soit 348 € HT facturés par an">Soit 348 € HT facturés par an</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tout Solo, plus :</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Relances automatiques</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>5 utilisateurs, accès comptable</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Comptes bancaires illimités</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Prélèvement SEPA</li>
+          </ul>
+          <a class="btn btn-primary" href="#">Commencer l’essai</a>
+        </article>
+        <article class="plan">
+          <h3>Entreprise</h3>
+          <p class="for">Pour les volumes importants</p>
+          <div class="price"><span class="amt" style="font-size:40px">Sur devis</span></div>
+          <p class="price-note">Selon volume et intégrations</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tout Équipe, plus :</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Utilisateurs illimités</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>API et connecteurs ERP</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Interlocuteur dédié</li>
+          </ul>
+          <a class="btn btn-ghost" href="#">Parler à l’équipe</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec faq" id="faq">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2 style="font-size:clamp(32px,4.2vw,48px);margin:14px 0 18px">Avant de vous lancer.</h2>
+        <p class="lede">Une autre question ? Écrivez-nous, un humain vous répond dans la journée.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Ardoise est-il prêt pour la facture électronique obligatoire ?<span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+          <p>Oui. Vos factures sont émises et reçues aux formats Factur-X, UBL ou CII, et transmises via une plateforme agréée. Vous n’avez rien à paramétrer de votre côté.</p>
+        </details>
+        <details>
+          <summary>Puis-je importer mes clients et mes factures existants ?<span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+          <p>Oui, depuis un fichier CSV ou Excel. Votre numérotation reprend là où vous l’aviez laissée, pour rester dans la continuité légale.</p>
+        </details>
+        <details>
+          <summary>Que se passe-t-il à la fin de l’essai ?<span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+          <p>Rien d’automatique : aucune carte n’est demandée à l’inscription. Vous choisissez une formule si vous souhaitez continuer, sinon votre compte passe en lecture seule et vos factures restent téléchargeables.</p>
+        </details>
+        <details>
+          <summary>Mon expert-comptable peut-il accéder à mes données ?<span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+          <p>Invitez-le gratuitement avec un accès dédié. Il consulte les factures, les encaissements et télécharge le FEC sans vous solliciter.</p>
+        </details>
+        <details>
+          <summary>Où sont stockées mes données ?<span class="pm" aria-hidden="true"><svg><use href="#i-plus"/></svg></span></summary>
+          <p>En France, chez un hébergeur certifié, avec sauvegardes quotidiennes et chiffrement. Vos factures sont archivées pendant la durée légale de conservation.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final">
+    <div class="wrap">
+      <div class="final-card">
+        <span class="ghost-stamp" aria-hidden="true">PAYÉE</span>
+        <div>
+          <h2>Votre prochaine facture pourrait déjà être payée.</h2>
+          <p>Créez votre compte en deux minutes et envoyez votre première facture aujourd’hui.</p>
+        </div>
+        <div class="final-actions">
+          <a class="btn btn-primary" href="#">Essayer gratuitement</a>
+          <a class="btn btn-ghost" href="#">Demander une démo</a>
+          <small>30 jours offerts · Sans carte bancaire</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#top" aria-label="Ardoise, accueil">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9.5 12.5l2 2 4-4.5"/></svg></span>
+          Ardoise
+        </a>
+        <p style="margin-top:14px;max-width:24em">Le logiciel de facturation des indépendants et des PME.</p>
+      </div>
+      <div><h4>Produit</h4><ul><li><a href="#fonctionnalites">Fonctionnalités</a></li><li><a href="#relances">Relances</a></li><li><a href="#tarifs">Tarifs</a></li></ul></div>
+      <div><h4>Ressources</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#">Guide de la facture électronique</a></li><li><a href="#">Centre d’aide</a></li></ul></div>
+      <div><h4>Société</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="foot-base"><span>© 2026 Ardoise</span><span>Hébergé en France</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Bordure de la nav au défilement
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>8)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Tampon « PAYÉE » puis notification
+  var stamp=document.getElementById('stamp'),toast=document.getElementById('toast');
+  setTimeout(function(){stamp.classList.add('in')},700);
+  setTimeout(function(){toast.classList.add('in')},1150);
+
+  // Scénario de relance
+  var steps=[
+    {tone:['soft','Rappel amical'],subject:'Votre facture F-2026-0142 arrive à échéance',
+     text:"Bonjour,\n\nPetit rappel : la facture F-2026-0142 de 3 528,00 € arrive à échéance le 01/11/2026.\nVous pouvez la régler en un clic avec le lien ci-dessous.\n\nBelle journée,\nAtelier Brun & Fils"},
+    {tone:['soft','Ton courtois'],subject:'Facture F-2026-0142 arrivée à échéance',
+     text:"Bonjour,\n\nSauf erreur de notre part, la facture F-2026-0142 de 3 528,00 € est arrivée à échéance hier.\nSi le règlement est déjà parti, merci de ne pas tenir compte de ce message.\n\nBien cordialement,\nAtelier Brun & Fils"},
+    {tone:['firm','Ton ferme'],subject:'Relance : facture F-2026-0142 impayée',
+     text:"Bonjour,\n\nNous n’avons pas encore reçu le règlement de la facture F-2026-0142 (3 528,00 €), échue depuis 10 jours.\nMerci de procéder au paiement dans les meilleurs délais.\n\nCordialement,\nAtelier Brun & Fils"},
+    {tone:['final','Dernier avis'],subject:'Dernier avis avant pénalités : F-2026-0142',
+     text:"Bonjour,\n\nMalgré nos relances, la facture F-2026-0142 reste impayée.\nSans règlement sous 8 jours, des pénalités de retard et l’indemnité forfaitaire de 40 € seront appliquées.\n\nCordialement,\nAtelier Brun & Fils"}
+  ];
+  var tabs=[].slice.call(document.querySelectorAll('.tl-tab'));
+  var tone=document.getElementById('tone'),subject=document.getElementById('subject'),mail=document.getElementById('mail');
+  function show(i){
+    tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');t.tabIndex=k===i?0:-1});
+    var s=steps[i];tone.className='tone '+s.tone[0];tone.textContent=s.tone[1];subject.textContent=s.subject;mail.textContent=s.text;
+  }
+  tabs.forEach(function(t,k){
+    t.addEventListener('click',function(){show(k)});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(d){e.preventDefault();var n=(k+d+tabs.length)%tabs.length;show(n);tabs[n].focus()}
+    });
+  });
+  show(1);
+
+  // Bascule mensuel / annuel
+  var btns=[].slice.call(document.querySelectorAll('.switch button'));
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var p=b.dataset.period;
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      document.querySelectorAll('.amt[data-m]').forEach(function(a){a.textContent=a.dataset[p]+' €'});
+      document.querySelectorAll('.price-note[data-m]').forEach(function(n){n.textContent=n.dataset[p]});
+    });
+  });
+})();
+</script>
+</body>
+</html>

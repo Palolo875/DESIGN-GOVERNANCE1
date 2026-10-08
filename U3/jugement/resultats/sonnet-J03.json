@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B ouvre sur une maquette de produit interactive (frise J+31, facture en retard, prochaine relance) et sur un parti pris net, « Quitus s'occupe des semaines qui suivent », alors que A, malgré sa facture tamponnée « PAYÉE » et son italique rouge, reste dans le gabarit SaaS attendu."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B montre le vrai travail de la facturation (mentions légales bloquantes, Factur-X, relances jamais le week-end, rapprochement d'un virement partiel) et ne tient pas sans ce métier, tandis que A, une fois le nom retiré, a des sections « étapes / fonctionnalités / tarifs / FAQ » qui conviendraient à presque n'importe quel SaaS."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A est très propre et régulière (hiérarchie claire, grille de cartes alignée, deux polices bien appariées, tarifs lisibles, mobile soigné avec boutons pleine largeur), alors que B est riche mais dense, avec un journal de facture coupé net dans sa carte et un premier écran un peu chargé ; son mobile reste correct."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale clairement l'exemple (bandeau « page de démonstration », pastilles « nom d'exemple », « offre d'exemple », « à confirmer », « données fictives »), alors que A présente comme réels un prix, un badge « Le plus choisi », « Données hébergées en France » et la conformité à la facture électronique, sans aucune mention d'exemple, même si elle n'invente ni faux avis ni faux logos."
+ },
+ "defaut_A": "Une page générique et prévisible, bien finie mais interchangeable, qui affirme comme des faits des éléments inventés (tarifs, « le plus choisi », hébergement, conformité) sans les signaler comme exemples.",
+ "defaut_B": "Une densité et une complexité élevées (hero très chargé, beaucoup de petites pastilles et de textes fins, journal tronqué dans sa carte) qui demandent un effort de lecture et un CTA moins évident, ce qui peut freiner une landing page.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

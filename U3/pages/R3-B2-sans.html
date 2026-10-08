@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Échéance — Facturation</title>
+<meta name="description" content="Échéance crée vos devis et factures conformes, les envoie au format électronique, relance vos clients et rapproche les paiements de votre banque.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2EA;
+  --surface:#FFFFFF;
+  --surface-2:#ECE7DB;
+  --ink:#17191A;
+  --ink-2:#464A4D;
+  --muted:#6E7275;
+  --line:#DCD5C6;
+  --line-strong:#C7BEAB;
+  --accent:#1C5A42;
+  --accent-hover:#164A36;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#DDE9E1;
+  --stamp:#C2412A;
+  --stamp-soft:#F5DDD5;
+  --amber:#9A6A12;
+  --amber-soft:#F3E6C8;
+  --band-bg:#17191A;
+  --band-ink:#F1EEE6;
+  --band-ink-2:#B4B2AA;
+  --band-line:#33373A;
+  --band-accent:#7FCBA4;
+  --shadow:0 1px 2px rgba(23,25,26,.06),0 12px 32px -12px rgba(23,25,26,.18);
+  --radius:14px;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#111312;
+    --surface:#191C1A;
+    --surface-2:#212522;
+    --ink:#ECEAE3;
+    --ink-2:#B9B8B0;
+    --muted:#8D8F89;
+    --line:#2D322F;
+    --line-strong:#3D433F;
+    --accent:#72C69C;
+    --accent-hover:#8AD4AE;
+    --accent-ink:#0C1D15;
+    --accent-soft:#1C3328;
+    --stamp:#F0806A;
+    --stamp-soft:#3A221D;
+    --amber:#E4B65C;
+    --amber-soft:#352C18;
+    --band-bg:#1B1F1C;
+    --band-ink:#ECEAE3;
+    --band-ink-2:#A3A49D;
+    --band-line:#2F3531;
+    --band-accent:#72C69C;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111312;
+  --surface:#191C1A;
+  --surface-2:#212522;
+  --ink:#ECEAE3;
+  --ink-2:#B9B8B0;
+  --muted:#8D8F89;
+  --line:#2D322F;
+  --line-strong:#3D433F;
+  --accent:#72C69C;
+  --accent-hover:#8AD4AE;
+  --accent-ink:#0C1D15;
+  --accent-soft:#1C3328;
+  --stamp:#F0806A;
+  --stamp-soft:#3A221D;
+  --amber:#E4B65C;
+  --amber-soft:#352C18;
+  --band-bg:#1B1F1C;
+  --band-ink:#ECEAE3;
+  --band-ink-2:#A3A49D;
+  --band-line:#2F3531;
+  --band-accent:#72C69C;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.6);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:400}
+p{margin:0}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 16px}
+@media (min-width:720px){.wrap{padding:0 32px}}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:500 16px/1 var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn svg{width:16px;height:16px}
+
+/* ---------- header ---------- */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.top.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);color:var(--bg);display:grid;place-items:center}
+.logo-mark svg{width:18px;height:18px}
+.nav-links{display:none;gap:28px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;color:var(--ink-2);font-size:15px}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.nav-cta .login{display:none;text-decoration:none;font-size:15px;color:var(--ink-2);padding:0 12px}
+.nav-cta .btn{min-height:40px;padding:0 16px;font-size:15px}
+@media (min-width:900px){.nav-links{display:flex}.nav-cta .login{display:inline-flex}}
+
+/* ---------- hero ---------- */
+.hero{padding:40px 0 72px}
+.hero-grid{display:grid;gap:48px;align-items:center}
+@media (min-width:980px){.hero{padding:72px 0 104px}.hero-grid{grid-template-columns:1.05fr .95fr;gap:56px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-2);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px 6px 8px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.hero h1{font-family:var(--serif);font-size:clamp(46px,8.4vw,84px);line-height:.98;letter-spacing:-.02em;margin:22px 0 22px;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.lede{font-size:clamp(17px,1.6vw,19px);color:var(--ink-2);max-width:34em;text-wrap:pretty}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.reassure{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:20px;font-size:14px;color:var(--muted);padding:0;list-style:none}
+.reassure li{display:flex;align-items:center;gap:6px}
+.reassure svg{width:14px;height:14px;color:var(--accent)}
+
+/* invoice mockup */
+.stage{position:relative;padding:8px 0 36px}
+@media (min-width:600px){.stage{padding:24px 28px 44px}}
+.invoice{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;font-size:14px;max-width:480px;margin:0 auto}
+@media (min-width:600px){.invoice{padding:30px 32px}}
+.inv-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:18px;border-bottom:1px dashed var(--line-strong)}
+.inv-title{font-family:var(--serif);font-size:30px;line-height:1}
+.inv-meta{color:var(--muted);font-size:13px;margin-top:6px}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;padding:5px 10px;border-radius:999px;white-space:nowrap;transition:background .3s,color .3s}
+.status::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-draft{background:var(--surface-2);color:var(--ink-2)}
+.s-sent{background:var(--accent-soft);color:var(--accent)}
+.s-late{background:var(--amber-soft);color:var(--amber)}
+.s-paid{background:var(--accent);color:var(--accent-ink)}
+.inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:18px 0;font-size:13px}
+.inv-parties .k{color:var(--muted);font-size:12px;margin-bottom:2px}
+.inv-lines{width:100%;border-collapse:collapse;font-size:13.5px}
+.inv-lines th{text-align:left;font-weight:500;color:var(--muted);font-size:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.inv-lines td{padding:10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.inv-lines .r{text-align:right}
+.inv-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:16px}
+.inv-total .lbl{color:var(--ink-2)}
+.inv-total .amt{font-family:var(--mono);font-size:24px;font-weight:500;letter-spacing:-.02em}
+.inv-foot{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding-right:136px;min-height:58px;align-content:flex-start}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:3px 7px}
+.stamp{position:absolute;right:24px;bottom:22px;font-family:var(--mono);font-weight:500;font-size:20px;letter-spacing:.12em;color:var(--accent);border:2.5px solid currentColor;border-radius:8px;padding:6px 12px;transform:rotate(-11deg) scale(1.6);opacity:0;pointer-events:none;transition:opacity .25s,transform .35s cubic-bezier(.2,1.4,.4,1)}
+.stamp small{display:block;font-size:10px;letter-spacing:.06em;text-align:center;margin-top:2px}
+.invoice.is-paid .stamp{opacity:.9;transform:rotate(-11deg) scale(1)}
+.inv-wrap{position:relative;max-width:480px;margin:0 auto}
+.chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px 14px;font-size:13px;line-height:1.3;transition:opacity .3s,transform .3s}
+.chip .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex:none}
+.chip .ic svg{width:16px;height:16px}
+.chip b{font-weight:500;display:block}
+.chip span{color:var(--muted)}
+.chip-remind{left:-28px;bottom:-30px}
+.chip-remind .ic{background:var(--amber-soft);color:var(--amber)}
+.chip-bank{right:-28px;top:-30px}
+.chip-bank .ic{background:var(--accent-soft);color:var(--accent)}
+.chip.off{opacity:0;transform:translateY(6px)}
+@media (max-width:599px){.chip-bank{display:none}.chip-remind{left:-6px}.invoice{padding-bottom:40px}}
+.timeline-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:52px}
+.timeline-dots button{all:unset;cursor:pointer;font-size:12px;color:var(--muted);padding:4px 10px;border-radius:999px;border:1px solid transparent}
+.timeline-dots button[aria-pressed="true"]{color:var(--ink);border-color:var(--line-strong);background:var(--surface)}
+
+/* ---------- section scaffolding ---------- */
+section{padding:72px 0}
+@media (min-width:980px){section{padding:112px 0}}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.h2{font-family:var(--serif);font-size:clamp(36px,5.4vw,58px);line-height:1.02;letter-spacing:-.015em;margin-top:14px;text-wrap:balance}
+.h2 em{font-style:italic}
+.sec-head{max-width:720px;margin-bottom:48px}
+.sec-head p{color:var(--ink-2);margin-top:18px;font-size:18px;max-width:36em}
+
+/* ---------- problem strip ---------- */
+.pains{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
+.pains-grid{display:grid}
+@media (min-width:820px){.pains-grid{grid-template-columns:repeat(3,1fr)}}
+.pain{padding:28px 0;border-bottom:1px solid var(--line)}
+.pain:last-child{border-bottom:0}
+@media (min-width:820px){.pain{padding:36px 32px;border-bottom:0;border-left:1px solid var(--line)}.pain:first-child{border-left:0;padding-left:0}}
+.pain .before{font-size:14px;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--stamp);text-decoration-thickness:1.5px}
+.pain .after{font-size:19px;margin-top:6px;font-weight:500;letter-spacing:-.01em}
+
+/* ---------- cycle / features ---------- */
+.cycle{display:grid;gap:16px}
+@media (min-width:900px){.cycle{grid-template-columns:repeat(6,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card .step{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.card h3{font-family:var(--serif);font-size:30px;line-height:1.05}
+.card p{color:var(--ink-2);font-size:16px}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px;color:var(--ink-2)}
+.card ul li{display:flex;gap:10px}
+.card ul li::before{content:"";flex:none;width:14px;height:1px;background:var(--line-strong);margin-top:12px}
+@media (min-width:900px){
+  .c-quote{grid-column:span 2}
+  .c-invoice{grid-column:span 2}
+  .c-pay{grid-column:span 2}
+  .c-remind{grid-column:span 4}
+  .c-bank{grid-column:span 2}
+}
+.viz{margin-top:auto;padding-top:8px}
+/* relance timeline */
+.rem-track{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.rem-track::before{content:"";position:absolute;left:6px;right:6px;top:6px;height:2px;background:var(--line)}
+.rem{position:relative;padding-top:22px;font-size:13px;min-width:0}
+.rem::before{content:"";position:absolute;top:0;left:0;width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--line-strong)}
+.rem.done::before{background:var(--accent);border-color:var(--accent)}
+.rem.now::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 4px var(--amber-soft)}
+.rem b{display:block;font-family:var(--mono);font-weight:500;font-size:12.5px}
+.rem span{color:var(--muted);display:block;line-height:1.35;margin-top:2px}
+@media (max-width:560px){.rem-track{grid-template-columns:1fr 1fr;row-gap:18px}.rem-track::before{display:none}}
+.mail{margin-top:18px;border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14px;background:var(--bg)}
+.mail .from{font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.mail p{color:var(--ink-2)}
+/* pay methods */
+.pay-link{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--bg)}
+.pay-link .url{font-family:var(--mono);font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pay-row{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.pay-row span{font-size:12.5px;padding:5px 9px;border-radius:6px;background:var(--surface);border:1px solid var(--line)}
+/* bank match */
+.match{display:grid;gap:8px;font-size:13.5px}
+.match-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.match-row .d{color:var(--muted);font-size:12px}
+.match-row .ok{font-size:12px;color:var(--accent);font-weight:500}
+/* quote -> invoice */
+.convert{display:flex;align-items:center;gap:10px;font-size:13px}
+.doc{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg);min-width:0}
+.doc b{display:block;font-family:var(--mono);font-weight:500;font-size:12.5px}
+.doc span{color:var(--muted);font-size:12px}
+.convert svg{width:18px;height:18px;color:var(--muted);flex:none}
+.mentions{display:flex;flex-wrap:wrap;gap:6px}
+.mentions span{font-size:12.5px;padding:4px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+
+/* ---------- e-invoicing band ---------- */
+.band{background:var(--band-bg);color:var(--band-ink)}
+.band .kicker{color:var(--band-accent)}
+.band .sec-head p{color:var(--band-ink-2)}
+.band-grid{display:grid;gap:48px}
+@media (min-width:980px){.band-grid{grid-template-columns:1fr 1fr;gap:80px;align-items:start}}
+.dates{display:grid;gap:0;border-top:1px solid var(--band-line)}
+.date{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--band-line)}
+@media (min-width:600px){.date{grid-template-columns:150px 1fr}}
+.date .when{font-family:var(--serif);font-size:30px;line-height:1}
+.date .when small{display:block;font-family:var(--mono);font-size:12px;color:var(--band-ink-2);margin-top:6px;letter-spacing:.02em}
+.date p{color:var(--band-ink-2);font-size:16px}
+.date p b{color:var(--band-ink);font-weight:500}
+.date.now .when{color:var(--band-accent)}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.checks li{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--band-line)}
+.checks li:first-child{padding-top:0}
+.checks svg{width:20px;height:20px;color:var(--band-accent);margin-top:3px}
+.checks b{font-weight:500;display:block}
+.checks span{color:var(--band-ink-2);font-size:15.5px}
+.band-note{font-size:13.5px;color:var(--band-ink-2);margin-top:24px}
+
+/* ---------- accountant ---------- */
+.acct{display:grid;gap:40px;align-items:center}
+@media (min-width:980px){.acct{grid-template-columns:.9fr 1.1fr;gap:72px}}
+.acct-list{display:grid;gap:12px;margin-top:28px}
+@media (min-width:600px){.acct-list{grid-template-columns:1fr 1fr}}
+.acct-item{border-top:1px solid var(--line-strong);padding-top:14px}
+.acct-item b{font-weight:500;display:block}
+.acct-item span{color:var(--ink-2);font-size:15px}
+.dash{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;min-width:0}
+.dash-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dash-top h3{font-family:var(--sans);font-size:15px;font-weight:500}
+.dash-top span{font-size:13px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 24px}
+.kpi{border-left:2px solid var(--line);padding-left:12px;min-width:0}
+.kpi .l{font-size:12.5px;color:var(--muted)}
+.kpi .v{font-family:var(--mono);font-size:clamp(17px,2.4vw,22px);font-weight:500;letter-spacing:-.02em;margin-top:2px;white-space:nowrap}
+.kpi.k-ok{border-color:var(--accent)}
+.kpi.k-wait{border-color:var(--line-strong)}
+.kpi.k-late{border-color:var(--amber)}
+.bars{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:end;height:150px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.bar{display:flex;flex-direction:column-reverse;gap:2px;height:100%}
+.bar i{display:block;border-radius:3px 3px 0 0}
+.bar i.p{background:var(--accent)}
+.bar i.w{background:var(--line-strong)}
+.bar-labels{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:8px;font-size:12px;color:var(--muted);text-align:center}
+.legend{display:flex;gap:16px;margin-top:14px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:block}
+.dash-note{font-size:12px;color:var(--muted);margin-top:10px}
+
+/* ---------- pricing ---------- */
+.price-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.price-head .sec-head{margin-bottom:0}
+.toggle{display:inline-flex;padding:4px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface)}
+.toggle button{all:unset;cursor:pointer;font-size:14.5px;padding:8px 16px;border-radius:999px;color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.toggle .save{font-size:11.5px;font-family:var(--mono);color:var(--accent)}
+.toggle button[aria-pressed="true"] .save{color:inherit;opacity:.8}
+.plans{display:grid;gap:16px}
+@media (min-width:900px){.plans{grid-template-columns:repeat(3,1fr)}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column}
+.plan.featured{border:1.5px solid var(--accent);box-shadow:var(--shadow)}
+.plan-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.plan h3{font-family:var(--serif);font-size:30px}
+.badge{font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.plan .for{color:var(--ink-2);font-size:15px;margin-top:6px;min-height:2.6em}
+.price{display:flex;align-items:baseline;gap:6px;margin:22px 0 4px}
+.price .amt{font-family:var(--mono);font-size:44px;font-weight:500;letter-spacing:-.04em;line-height:1}
+.price .per{color:var(--muted);font-size:14px}
+.billed{font-size:13px;color:var(--muted);min-height:1.5em}
+.plan .btn{margin:22px 0 24px;width:100%}
+.plan ul{list-style:none;margin:0;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;font-size:15px}
+.plan li{display:grid;grid-template-columns:18px 1fr;gap:10px}
+.plan li svg{width:16px;height:16px;color:var(--accent);margin-top:4px}
+.price-foot{margin-top:20px;font-size:14px;color:var(--muted)}
+
+/* ---------- faq ---------- */
+.faq-grid{display:grid;gap:32px}
+@media (min-width:980px){.faq-grid{grid-template-columns:.8fr 1.2fr;gap:72px}}
+.faq{border-top:1px solid var(--line-strong)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 0;font-size:18px;font-weight:500;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;transition:transform .2s}
+.faq summary .pm svg{width:12px;height:12px}
+.faq details[open] summary .pm{transform:rotate(45deg)}
+.faq .a{padding:0 44px 22px 0;color:var(--ink-2)}
+
+/* ---------- final cta ---------- */
+.final{padding-top:0}
+.final-box{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:48px 24px;text-align:center;position:relative;overflow:hidden}
+@media (min-width:720px){.final-box{padding:80px 48px}}
+.final-box h2{font-family:var(--serif);font-size:clamp(38px,6vw,68px);line-height:1;letter-spacing:-.02em;max-width:14ch;margin:0 auto;text-wrap:balance}
+.final-box h2 em{color:var(--accent)}
+.final-box p{color:var(--ink-2);margin:18px auto 0;max-width:32em}
+.final-box .hero-actions{justify-content:center}
+.final-box .reassure{justify-content:center}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:48px 0 40px;font-size:14px;color:var(--ink-2)}
+.foot-grid{display:grid;gap:32px}
+@media (min-width:820px){.foot-grid{grid-template-columns:1.4fr repeat(3,1fr)}}
+.foot-grid h4{margin:0 0 12px;font-size:13px;font-weight:500;color:var(--muted)}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot-grid a{text-decoration:none}
+.foot-grid a:hover{color:var(--ink)}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#" aria-label="Échéance, accueil">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12l2 2 4-4"/></svg>
+      </span>
+      Échéance
+    </a>
+    <ul class="nav-links">
+      <li><a href="#produit">Produit</a></li>
+      <li><a href="#facture-electronique">Facture électronique</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="login" href="#">Se connecter</a>
+      <a class="btn btn-primary" href="#essai">Essai gratuit</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Prêt pour la facture électronique obligatoire</span>
+      <h1>Facturez en deux minutes. <em>Soyez payé</em> sans courir après.</h1>
+      <p class="lede">Échéance crée vos devis et factures conformes, les transmet au format électronique, relance vos clients à votre place et rapproche chaque paiement de votre compte bancaire.</p>
+      <div class="hero-actions" id="essai">
+        <a class="btn btn-primary" href="#tarifs">Essayer gratuitement 14 jours
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#produit">Voir comment ça marche</a>
+      </div>
+      <ul class="reassure">
+        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Sans carte bancaire</li>
+        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Import de vos clients en un clic</li>
+        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Données hébergées en France</li>
+      </ul>
+    </div>
+
+    <div class="stage" aria-label="Exemple de facture suivie par Échéance">
+      <div class="inv-wrap">
+      <div class="chip chip-bank off" id="chipBank" aria-hidden="true">
+        <div class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l6-3 6 3M3 6v6M13 6v6M6 7v4M10 7v4M2 13h12"/></svg></div>
+        <div><b>Virement reçu · rapproché</b><span>Atelier Morel · 2 640,00 €</span></div>
+      </div>
+
+      <article class="invoice" id="invoice">
+        <div class="inv-head">
+          <div>
+            <div class="inv-title">Facture</div>
+            <div class="inv-meta num">N° F-2026-0142 · 02/10/2026</div>
+          </div>
+          <span class="status s-draft" id="status" aria-live="polite">Brouillon</span>
+        </div>
+        <div class="inv-parties">
+          <div><div class="k">De</div>Studio Lune<br><span class="num" style="color:var(--muted)">SIREN 912 345 678</span></div>
+          <div><div class="k">Pour</div>Atelier Morel<br><span class="num" style="color:var(--muted)">SIREN 834 210 977</span></div>
+        </div>
+        <table class="inv-lines">
+          <thead><tr><th>Prestation</th><th class="r">Qté</th><th class="r">Montant HT</th></tr></thead>
+          <tbody>
+            <tr><td>Identité visuelle</td><td class="r num">1</td><td class="r num">1 600,00 €</td></tr>
+            <tr><td>Déclinaisons print</td><td class="r num">3</td><td class="r num">600,00 €</td></tr>
+          </tbody>
+        </table>
+        <div class="inv-total">
+          <span class="lbl">Total TTC <span style="color:var(--muted);font-size:12.5px">(TVA 20 %)</span></span>
+          <span class="amt">2 640,00 €</span>
+        </div>
+        <div class="inv-foot">
+          <span class="tag">Factur-X</span><span class="tag">Échéance 01/11/2026</span><span class="tag">Prestations</span>
+        </div>
+        <div class="stamp" aria-hidden="true">PAYÉE<small class="num">28/10/2026</small></div>
+      </article>
+
+      <div class="chip chip-remind off" id="chipRemind" aria-hidden="true">
+        <div class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5a4 4 0 00-4 4v2.5L3 11h10l-1-2V6.5a4 4 0 00-4-4zM6.5 13a1.5 1.5 0 003 0"/></svg></div>
+        <div><b>Relance courtoise envoyée</b><span>3 jours avant l'échéance</span></div>
+      </div>
+      </div>
+
+      <div class="timeline-dots" role="group" aria-label="Étapes de la facture">
+        <button type="button" data-step="0" aria-pressed="true">Brouillon</button>
+        <button type="button" data-step="1" aria-pressed="false">Envoyée</button>
+        <button type="button" data-step="2" aria-pressed="false">Relancée</button>
+        <button type="button" data-step="3" aria-pressed="false">Payée</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAINS -->
+<section class="pains" aria-label="Ce qui change">
+  <div class="wrap pains-grid">
+    <div class="pain">
+      <p class="before">Recopier un devis dans un tableur pour en faire une facture</p>
+      <p class="after">Un clic : le devis signé devient facture.</p>
+    </div>
+    <div class="pain">
+      <p class="before">Écrire soi-même le mail gênant « petit rappel… »</p>
+      <p class="after">Les relances partent seules, sur le ton que vous avez choisi.</p>
+    </div>
+    <div class="pain">
+      <p class="before">Pointer les virements ligne par ligne en fin de mois</p>
+      <p class="after">Chaque paiement est rapproché de sa facture.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section id="produit">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Du devis à l'encaissement</span>
+      <h2 class="h2">Tout le cycle, <em>sans ressaisie</em>.</h2>
+      <p>Chaque document hérite du précédent : client, lignes, conditions, TVA. Vous ne tapez une information qu'une seule fois.</p>
+    </div>
+
+    <div class="cycle">
+      <article class="card c-quote">
+        <span class="step">01 — Devis</span>
+        <h3>Un devis signé en ligne</h3>
+        <p>Votre client accepte et signe depuis son téléphone. Vous êtes prévenu, le devis se transforme en facture.</p>
+        <div class="viz convert" aria-hidden="true">
+          <div class="doc"><b>D-2026-0088</b><span>Signé le 30/09</span></div>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          <div class="doc"><b>F-2026-0142</b><span>Prête à envoyer</span></div>
+        </div>
+      </article>
+
+      <article class="card c-invoice">
+        <span class="step">02 — Facture</span>
+        <h3>Conforme sans y penser</h3>
+        <p>Numérotation continue, mentions obligatoires, taux de TVA, pénalités de retard : Échéance vérifie avant l'envoi.</p>
+        <div class="viz mentions" aria-label="Mentions contrôlées">
+          <span>SIREN client</span><span>N° de TVA</span><span>Nature de l'opération</span><span>Adresse de livraison</span><span>Option TVA sur les débits</span>
+        </div>
+      </article>
+
+      <article class="card c-pay">
+        <span class="step">03 — Paiement</span>
+        <h3>Payable en un clic</h3>
+        <p>Chaque facture porte un lien de paiement. Votre client règle comme il préfère, l'argent arrive sur votre compte.</p>
+        <div class="viz pay-link" aria-hidden="true">
+          <div class="url">paiement.echeance.fr/studio-lune/F-2026-0142</div>
+          <div class="pay-row"><span>Carte bancaire</span><span>Virement</span><span>Prélèvement SEPA</span></div>
+        </div>
+      </article>
+
+      <article class="card c-remind">
+        <span class="step">04 — Relances</span>
+        <h3>Des relances qui partent toutes seules, et qui restent polies</h3>
+        <p>Choisissez le calendrier et le ton une fois pour toutes. Échéance s'arrête dès que le paiement arrive : vos clients ne reçoivent jamais de rappel pour une facture déjà réglée.</p>
+        <div class="viz">
+          <div class="rem-track">
+            <div class="rem done"><b>J−3</b><span>Rappel amical avant l'échéance</span></div>
+            <div class="rem now"><b>J+2</b><span>Facture échue, lien de paiement</span></div>
+            <div class="rem"><b>J+10</b><span>Relance ferme, copie au gérant</span></div>
+            <div class="rem"><b>J+30</b><span>Mise en demeure à valider</span></div>
+          </div>
+          <div class="mail" aria-label="Exemple de relance">
+            <div class="from">De : Studio Lune · Objet : Facture F-2026-0142 arrivée à échéance</div>
+            <p>Bonjour Claire, la facture F-2026-0142 de 2 640,00 € est arrivée à échéance le 1er novembre. Vous pouvez la régler en un clic depuis ce lien. Si c'est déjà fait, merci, et ignorez ce message.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card c-bank">
+        <span class="step">05 — Banque</span>
+        <h3>Rapprochement automatique</h3>
+        <p>Connectez votre banque : les virements entrants sont associés à la bonne facture, qui passe en « payée ».</p>
+        <div class="viz match" aria-hidden="true">
+          <div class="match-row"><div>VIR ATELIER MOREL<div class="d num">28/10 · 2 640,00 €</div></div><span class="ok">F-0142 ✓</span></div>
+          <div class="match-row"><div>VIR SARL BRUNEL<div class="d num">27/10 · 960,00 €</div></div><span class="ok">F-0139 ✓</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- E-INVOICING -->
+<section class="band" id="facture-electronique">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Réforme de la facturation électronique</span>
+      <h2 class="h2">Le PDF par e-mail, c'est terminé. <em>Vous n'avez rien à changer.</em></h2>
+      <p>En France, les factures entre entreprises doivent désormais transiter par une plateforme agréée, dans un format structuré. Échéance s'en occupe : vous facturez comme d'habitude.</p>
+    </div>
+    <div class="band-grid">
+      <div class="dates">
+        <div class="date now">
+          <div class="when">1ᵉʳ sept. 2026<small>EN VIGUEUR</small></div>
+          <p><b>Toutes les entreprises</b> doivent pouvoir recevoir des factures électroniques. Les grandes entreprises et les ETI doivent aussi les émettre.</p>
+        </div>
+        <div class="date">
+          <div class="when">1ᵉʳ sept. 2027<small>PROCHAINE ÉTAPE</small></div>
+          <p><b>PME, TPE et micro-entreprises</b> doivent à leur tour émettre leurs factures au format électronique et transmettre leurs données de transaction (e-reporting).</p>
+        </div>
+      </div>
+      <ul class="checks">
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.5l2.3 2.3 4.7-5"/></svg><div><b>Réception</b><span>Les factures de vos fournisseurs arrivent dans Échéance, prêtes à être validées et transmises à votre comptable.</span></div></li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.5l2.3 2.3 4.7-5"/></svg><div><b>Émission au bon format</b><span>Factur-X, UBL ou CII : le format est choisi selon le destinataire, sans manipulation.</span></div></li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.5l2.3 2.3 4.7-5"/></svg><div><b>Statuts de cycle de vie</b><span>Déposée, reçue, acceptée, refusée, encaissée : vous savez où en est chaque facture.</span></div></li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10.5l2.3 2.3 4.7-5"/></svg><div><b>E-reporting</b><span>Les ventes aux particuliers et à l'étranger sont déclarées automatiquement.</span></div></li>
+      </ul>
+    </div>
+    <p class="band-note">Calendrier issu de la loi de finances 2024. Échéance transmet vos factures via une plateforme agréée par l'administration fiscale.</p>
+  </div>
+</section>
+
+<!-- ACCOUNTANT / DASHBOARD -->
+<section>
+  <div class="wrap acct">
+    <div>
+      <span class="kicker">Trésorerie et comptabilité</span>
+      <h2 class="h2">Vous savez qui vous doit quoi. <em>Votre comptable aussi.</em></h2>
+      <div class="acct-list">
+        <div class="acct-item"><b>Encours en temps réel</b><span>Payé, en attente, en retard : un coup d'œil suffit.</span></div>
+        <div class="acct-item"><b>Accès expert-comptable</b><span>Invitez votre cabinet, en lecture seule ou en édition.</span></div>
+        <div class="acct-item"><b>Exports FEC et CSV</b><span>Compatibles avec les principaux logiciels comptables.</span></div>
+        <div class="acct-item"><b>Multi-devises</b><span>Facturez en euros, livres, dollars ou francs suisses.</span></div>
+      </div>
+    </div>
+    <figure class="dash" style="margin:0" aria-label="Exemple de tableau de bord de trésorerie">
+      <div class="dash-top"><h3>Encaissements</h3><span>Mai — oct. 2026</span></div>
+      <div class="kpis">
+        <div class="kpi k-ok"><div class="l">Encaissé</div><div class="v">48 210 €</div></div>
+        <div class="kpi k-wait"><div class="l">À venir</div><div class="v">9 860 €</div></div>
+        <div class="kpi k-late"><div class="l">En retard</div><div class="v">1 320 €</div></div>
+      </div>
+      <div class="bars" aria-hidden="true">
+        <div class="bar"><i class="p" style="height:52%"></i></div>
+        <div class="bar"><i class="p" style="height:64%"></i></div>
+        <div class="bar"><i class="p" style="height:48%"></i></div>
+        <div class="bar"><i class="p" style="height:71%"></i></div>
+        <div class="bar"><i class="p" style="height:60%"></i></div>
+        <div class="bar"><i class="p" style="height:44%"></i><i class="w" style="height:36%"></i></div>
+      </div>
+      <div class="bar-labels" aria-hidden="true"><span>Mai</span><span>Juin</span><span>Juil.</span><span>Août</span><span>Sept.</span><span>Oct.</span></div>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Encaissé</span><span><i style="background:var(--line-strong)"></i>Attendu</span></div>
+      <figcaption class="dash-note">Données d'exemple.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="tarifs" style="padding-top:0">
+  <div class="wrap">
+    <div class="price-head">
+      <div class="sec-head">
+        <span class="kicker">Tarifs</span>
+        <h2 class="h2">Un prix clair, <em>comme vos factures</em>.</h2>
+      </div>
+      <div class="toggle" role="group" aria-label="Période de facturation">
+        <button type="button" data-period="month" aria-pressed="true">Mensuel</button>
+        <button type="button" data-period="year" aria-pressed="false">Annuel <span class="save">−20 %</span></button>
+      </div>
+    </div>
+
+    <div class="plans">
+      <article class="plan">
+        <div class="plan-top"><h3>Solo</h3></div>
+        <p class="for">Indépendants et micro-entreprises qui démarrent.</p>
+        <div class="price"><span class="amt num" data-month="12" data-year="9,60">12</span><span class="per">€ HT / mois</span></div>
+        <div class="billed" data-month="Sans engagement" data-year="Soit 115,20 € HT par an">Sans engagement</div>
+        <a class="btn btn-ghost" href="#">Commencer l'essai</a>
+        <ul>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Devis et factures illimités</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Facture électronique (émission et réception)</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Lien de paiement par carte et virement</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>1 utilisateur</li>
+        </ul>
+      </article>
+
+      <article class="plan featured">
+        <div class="plan-top"><h3>Pro</h3><span class="badge">Le plus choisi</span></div>
+        <p class="for">TPE et PME qui veulent être payées plus vite.</p>
+        <div class="price"><span class="amt num" data-month="29" data-year="23,20">29</span><span class="per">€ HT / mois</span></div>
+        <div class="billed" data-month="Sans engagement" data-year="Soit 278,40 € HT par an">Sans engagement</div>
+        <a class="btn btn-primary" href="#">Commencer l'essai</a>
+        <ul>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Tout Solo, plus :</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Relances automatiques personnalisables</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Rapprochement bancaire</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Signature électronique des devis</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Accès expert-comptable</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>3 utilisateurs</li>
+        </ul>
+      </article>
+
+      <article class="plan">
+        <div class="plan-top"><h3>Équipe</h3></div>
+        <p class="for">Structures avec plusieurs activités ou entités.</p>
+        <div class="price"><span class="amt num" data-month="79" data-year="63,20">79</span><span class="per">€ HT / mois</span></div>
+        <div class="billed" data-month="Sans engagement" data-year="Soit 758,40 € HT par an">Sans engagement</div>
+        <a class="btn btn-ghost" href="#">Parler à l'équipe</a>
+        <ul>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Tout Pro, plus :</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Multi-sociétés et multi-devises</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Rôles et validation des factures</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>API et webhooks</li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Utilisateurs illimités</li>
+        </ul>
+      </article>
+    </div>
+    <p class="price-foot">14 jours d'essai sur toutes les offres, sans carte bancaire. Changez d'offre ou résiliez à tout moment.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="kicker">Questions fréquentes</span>
+      <h2 class="h2">Avant de vous lancer.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Suis-je concerné par la facture électronique ?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a">Oui, si vous êtes assujetti à la TVA en France et facturez d'autres entreprises. Depuis le 1ᵉʳ septembre 2026, vous devez pouvoir recevoir des factures électroniques ; l'obligation d'émettre s'applique aux PME, TPE et micro-entreprises à partir du 1ᵉʳ septembre 2027.</div>
+      </details>
+      <details>
+        <summary>Puis-je reprendre mes factures et clients existants ?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a">Importez vos clients, produits et historique depuis un fichier CSV ou Excel. Votre numérotation reprend là où elle s'était arrêtée, sans rupture de séquence.</div>
+      </details>
+      <details>
+        <summary>Mes clients doivent-ils créer un compte pour payer ?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a">Non. Ils ouvrent le lien de la facture et paient par carte, virement ou prélèvement SEPA, sans inscription.</div>
+      </details>
+      <details>
+        <summary>Où sont stockées mes données ?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a">En France, chez un hébergeur certifié. Vos factures sont archivées pendant dix ans, la durée de conservation légale.</div>
+      </details>
+      <details>
+        <summary>Que se passe-t-il à la fin de l'essai ?<span class="pm" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></span></summary>
+        <div class="a">Rien n'est prélevé automatiquement. Vous choisissez une offre si Échéance vous convient ; sinon, vous exportez vos documents et votre compte est fermé.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-box">
+      <h2>Votre prochaine facture, <em>payée à l'heure</em>.</h2>
+      <p>Créez votre compte, importez vos clients et envoyez une première facture conforme en moins de dix minutes.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#">Essayer gratuitement 14 jours
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#">Réserver une démo</a>
+      </div>
+      <ul class="reassure">
+        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Sans carte bancaire</li>
+        <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Sans engagement</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#" aria-label="Échéance, accueil">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          Échéance
+        </a>
+        <p style="margin-top:12px;max-width:26em">La facturation des TPE et PME, du devis à l'encaissement.</p>
+      </div>
+      <div><h4>Produit</h4><ul><li><a href="#produit">Fonctionnalités</a></li><li><a href="#facture-electronique">Facture électronique</a></li><li><a href="#tarifs">Tarifs</a></li></ul></div>
+      <div><h4>Ressources</h4><ul><li><a href="#faq">Questions fréquentes</a></li><li><a href="#">Guide de la réforme</a></li><li><a href="#">Centre d'aide</a></li></ul></div>
+      <div><h4>Société</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Échéance</span><span>Conçu pour les entreprises françaises</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Sticky header border
+  var header=document.getElementById('top');
+  var onScroll=function(){header.classList.toggle('scrolled',window.scrollY>8)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Hero invoice lifecycle
+  var steps=[
+    {label:'Brouillon',cls:'s-draft',remind:false,bank:false,paid:false},
+    {label:'Envoyée',cls:'s-sent',remind:false,bank:false,paid:false},
+    {label:'Relancée',cls:'s-late',remind:true,bank:false,paid:false},
+    {label:'Payée',cls:'s-paid',remind:true,bank:true,paid:true}
+  ];
+  var status=document.getElementById('status'),inv=document.getElementById('invoice'),
+      chipR=document.getElementById('chipRemind'),chipB=document.getElementById('chipBank'),
+      btns=[].slice.call(document.querySelectorAll('.timeline-dots button'));
+  var cur=0,timer=null;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i){
+    cur=i;var s=steps[i];
+    status.textContent=s.label;status.className='status '+s.cls;
+    chipR.classList.toggle('off',!s.remind);
+    chipB.classList.toggle('off',!s.bank);
+    inv.classList.toggle('is-paid',s.paid);
+    btns.forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false')});
+  }
+  function play(){timer=setInterval(function(){show((cur+1)%steps.length)},2200)}
+  btns.forEach(function(b){b.addEventListener('click',function(){clearInterval(timer);show(+b.dataset.step)})});
+  if(reduce){show(3)}else{show(0);play()}
+
+  // Pricing toggle
+  var tbtns=[].slice.call(document.querySelectorAll('.toggle button'));
+  tbtns.forEach(function(b){b.addEventListener('click',function(){
+    var p=b.dataset.period;
+    tbtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    document.querySelectorAll('[data-month]').forEach(function(el){el.textContent=el.dataset[p]});
+  })});
+})();
+</script>
+</body>
+</html>

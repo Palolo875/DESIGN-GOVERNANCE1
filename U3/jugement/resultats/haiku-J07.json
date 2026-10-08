@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B défend une thèse claire et singulière (« Pas de liste de fonctionnalités », la facture suivie de J0 à l'encaissement) et l'incarne dans un journal de facture vivant, là où A repose sur des promesses plus génériques (« sans courir après »)."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Sans le nom, la page B reste propre à la facturation française (mentions obligatoires avec blocage, Factur-X, plateforme agréée, cadence de relance J-5/J+1/J+8/J+15, rapprochement SEPA), tandis que A, tout aussi ciblée, s'appuie davantage sur des blocs de promesses lisses."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A tient une hiérarchie serif/mono très maîtrisée, des cartes alignées et un mobile propre, alors que B présente un journal de facture coupé en bas du premier écran et une composition plus dense."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale partout ce qui est fictif (bandeau « Page de démonstration », « nom d'exemple », « données fictives », « à confirmer ») alors que A présente chiffres, SIREN, encaissements et tarifs comme des faits sans aucune mention d'exemple."
+ },
+ "defaut_A": "Ses données fictives (tableau d'encaissements, SIREN, tarifs, virements rapprochés) sont présentées comme réelles sans aucun signalement, ce qui crée une fausse crédibilité.",
+ "defaut_B": "La répétition des mentions « exemple » et « à confirmer » et la coupure du journal sur le premier écran donnent une impression de prototype encombré.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

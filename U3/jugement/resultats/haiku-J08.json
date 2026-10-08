@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Quitus assume une position tranchée (« Pas de liste de fonctionnalités », une promesse centrée sur les semaines qui suivent l'envoi), là où Échéance reprend une formule de landing plus attendue."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Les mécanismes propres à la facturation française (relances J-5 à J+15 jamais le week-end, mise en demeure jamais seule, envoi bloqué sans bon de commande, indemnité forfaitaire de 40 €) tiennent même sans le nom, alors que B repose surtout sur des blocs SaaS génériques (cartes, prix, FAQ)."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Les deux ont une hiérarchie typographique maîtrisée, des alignements propres et un premier écran mobile lisible ; A gagne en détail de tableau et de chronologie mais est alourdi par ses mockups denses, B en équilibre du hero."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale l'exemple partout (bandeau « Page de démonstration », badges « nom d'exemple » et « offre d'exemple », « données fictives », « à valider avec un juriste »), tandis que B affiche sans marquage visible des chiffres de trésorerie, des SIREN et une conformité présentée comme acquise."
+ },
+ "defaut_A": "Premier écran et sections très denses en mockups et en petites légendes grises, ce qui alourdit la lecture et dilue le bouton d'action.",
+ "defaut_B": "Fausses preuves non signalées (chiffres de trésorerie, SIREN, « prêt pour la facture électronique obligatoire » et « données hébergées en France » affirmés comme réels) dans une structure SaaS générique.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

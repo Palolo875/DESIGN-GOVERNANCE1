@@ -1,0 +1,771 @@
+<!doctype html>
+<!--
+TRACE (légère, proposition EXPLORATORY)
+1. Mode : DIRECTION (premier contact, brief vague, aucune marque ni contenu fournis ; personne pour répondre).
+2. Thèse : « on s'occupe des semaines entre l'envoi et le virement » → objet de preuve codé : le suivi d'UNE facture d'exemple, J0→J+40, que l'on fait défiler (états, relances, virement partiel, solde, relance annulée) → geste : faire avancer les jours, puis créer son compte.
+3. Modal : promesse + logos + 3 bénéfices + tarifs + FAQ ; facture tamponnée « PAYÉE » ; crème/serif ou blanc/grotesque/accent unique. Parti : la page suit la chronologie d'une seule facture ; pas de plinthe de logos ; couleur = états de paiement (neutre + 4 états), action en encre ; titre en mécane (Zilla Slab, voix de courrier administratif) comparée à grotesque et serif sur le vrai titre ; données en Public Sans tabulaire.
+4. Plafond : CODE-NATIVE, sans asset ni ancre observée ; nom « Quitus », tarifs, intégrations, plateforme agréée, conformité et données = exemples marqués ; calendrier de la réforme = connaissance du modèle non revérifiée (marqué « à confirmer ») ; formulaire = démonstration locale.
+5. Boucle : v1 → objet de preuve à moitié sous la ligne de flottaison et état courant invisible sur la barre (J+36, J+38) → hero resserré, barre « attente » allégée (contraste 3,4:1), tête de curseur colorée par l'état, segment « encaissée » clos ; montants insécables ; quantité et prix unitaire fusionnés en une colonne pour le mobile. Reste générique : tarifs en deux cartes et FAQ (trame gardée, faible enjeu). Mobile : l'objet arrive après le formulaire (recomposition voulue).
+6. Prochaine preuve : vrais contenus (nom, prix, intégrations), test du curseur avec 5 personnes de la cible, revue juridique des mentions.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quitus — facturation suivie jusqu'au virement</title>
+<meta name="description" content="Factures conformes, envoi électronique, relances programmées et rapprochement bancaire : chaque facture est suivie jusqu'à son encaissement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F4F1;
+  --paper:#FFFFFF;
+  --ink:#15191E;
+  --ink-2:#48505B;
+  --ink-3:#5F6772;
+  --rule:#D6DAD4;
+  --rule-strong:#B9BFB8;
+  --wait:#4F6288;   --wait-bar:#6E80A6; --wait-bg:#E7EBF3;
+  --late:#B42318;   --late-bg:#FBE8E5;
+  --part:#8A5600;   --part-bar:#B07112; --part-bg:#FCEFD6;
+  --paid:#0D6A46;   --paid-bg:#DFF1E8;
+  --focus:#2557C7;
+  --display:"Zilla Slab", "Rockwell", "Roboto Slab", Georgia, serif;
+  --text:"Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --r:14px;
+  --gutter:32px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.55 var(--text);font-feature-settings:"kern"}
+.num{font-variant-numeric:tabular-nums lining-nums}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* bandeau d'honnêteté */
+.demo-bar{background:var(--ink);color:#E9ECE6;font-size:.8125rem;line-height:1.4;padding:8px 0;text-align:center}
+.demo-bar .wrap{padding-top:0;padding-bottom:0}
+
+/* en-tête */
+header.top{border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;align-items:center;gap:28px;min-height:68px}
+.brand{font:700 1.5rem/1 var(--display);letter-spacing:-.01em;text-decoration:none;display:inline-flex;align-items:baseline;gap:8px}
+.brand small{font:500 .6875rem/1 var(--text);color:var(--ink-3);letter-spacing:.02em;border:1px solid var(--rule-strong);border-radius:99px;padding:3px 7px}
+nav.main{display:flex;gap:22px;margin-left:auto;font-size:.9375rem}
+nav.main a{text-decoration:none;color:var(--ink-2);padding:10px 2px}
+nav.main a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.btn{appearance:none;border:0;cursor:pointer;font:600 .9375rem/1 var(--text);background:var(--ink);color:#fff;border-radius:10px;padding:0 18px;min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;white-space:nowrap}
+.btn:hover{background:#2C333C}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--rule-strong)}
+.btn.ghost:hover{background:#E8EAE5}
+header.top .btn{min-height:40px}
+
+/* hero */
+.hero{padding:52px 0 32px}
+.hero-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px;align-items:end}
+.hero h1{grid-column:1 / span 7;margin:0;font:600 clamp(2.4rem,5vw,4.1rem)/1.02 var(--display);letter-spacing:-.018em;text-wrap:balance}
+.hero h1 span{display:block;color:var(--ink-3);font-weight:500}
+.hero-side{grid-column:9 / span 4;padding-bottom:8px}
+.lead{font-size:1.125rem;line-height:1.55;color:var(--ink-2);margin:0 0 24px;text-wrap:pretty}
+form.signup{display:flex;flex-direction:column;gap:8px}
+form.signup label{font-size:.875rem;font-weight:600}
+.field{display:flex;gap:8px}
+.field input{flex:1;min-width:0;min-height:46px;border:1px solid var(--rule-strong);background:var(--paper);border-radius:10px;padding:0 14px;font:400 1rem var(--text);color:var(--ink)}
+.field input[aria-invalid="true"]{border-color:var(--late);box-shadow:0 0 0 1px var(--late)}
+.form-note{font-size:.8125rem;color:var(--ink-3);margin:2px 0 0}
+.form-msg{font-size:.875rem;margin:4px 0 0;min-height:1.4em}
+.form-msg.err{color:var(--late)}
+.form-msg.ok{color:var(--paid)}
+
+/* objet de preuve : le suivi */
+.tracker{margin-top:40px;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);box-shadow:0 1px 0 rgba(21,25,30,.04),0 18px 40px -28px rgba(21,25,30,.28)}
+.t-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding:16px 24px;border-bottom:1px solid var(--rule)}
+.t-head h2{margin:0;font:600 1rem/1.3 var(--text)}
+.t-head .meta{color:var(--ink-2);font-size:.9375rem}
+.t-head .flag{margin-left:auto;font-size:.8125rem;color:var(--ink-3)}
+.t-body{padding:24px 24px 8px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px;row-gap:20px}
+.t-now{grid-column:1 / span 7;display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 40px}
+.day{font:600 clamp(2.25rem,4vw,3.25rem)/1 var(--text);letter-spacing:-.02em}
+.day-date{display:block;font:400 .9375rem/1.3 var(--text);color:var(--ink-2);letter-spacing:0;margin-top:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;font:600 .875rem/1 var(--text);padding:7px 11px 7px 9px;border-radius:99px;background:var(--wait-bg);color:var(--wait)}
+.chip svg{flex:none}
+.chip[data-s="late"]{background:var(--late-bg);color:var(--late)}
+.chip[data-s="part"]{background:var(--part-bg);color:var(--part)}
+.chip[data-s="paid"]{background:var(--paid-bg);color:var(--paid)}
+.due{display:flex;flex-direction:column;gap:6px}
+.due .lbl{font-size:.8125rem;color:var(--ink-2)}
+.due .amt{font:600 1.75rem/1 var(--text);letter-spacing:-.01em}
+.t-next{grid-column:8 / span 5;align-self:end;border-left:2px solid var(--ink);padding:2px 0 2px 16px}
+.t-next .lbl{font-size:.8125rem;color:var(--ink-2);display:block;margin-bottom:4px}
+.t-next p{margin:0;font-weight:500;line-height:1.4}
+
+/* piste des jours */
+.track-zone{grid-column:1 / -1;padding-top:6px}
+.track{position:relative;padding:0 12px;height:96px}
+.track-in{position:absolute;left:12px;right:12px;top:0;bottom:0}
+.due-mark{position:absolute;top:0;bottom:30px;width:0;border-left:1px dashed var(--ink)}
+.due-mark span{position:absolute;top:0;left:6px;white-space:nowrap;font-size:.75rem;font-weight:600}
+.bar{position:absolute;left:0;right:0;top:34px;height:14px;border-radius:4px;background:repeating-linear-gradient(90deg,#ECEEEA 0 6px,#E2E5E0 6px 7px)}
+.seg{position:absolute;top:0;bottom:0}
+.seg.wait{background:var(--wait-bar)}
+.seg.late{background:var(--late)}
+.seg.part{background:var(--part-bar)}
+.seg.paid{background:var(--paid)}
+.seg:first-child{border-radius:4px 0 0 4px}
+.ev{position:absolute;top:26px;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.ev.done{background:var(--ink)}
+.ticks{position:absolute;left:0;right:0;top:54px;height:12px}
+.tick{position:absolute;top:0;width:1px;height:10px;background:var(--rule-strong)}
+.tick.we{height:5px;background:#CDD1CB}
+.tick.mon{height:12px;background:var(--ink-3)}
+.tlabels{position:absolute;left:0;right:0;top:70px;font-size:.75rem;color:var(--ink-2)}
+.tlabels span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.tlabels span.first{transform:none}
+.cursor{position:absolute;top:22px;bottom:30px;width:2px;margin-left:-1px;background:var(--ink);pointer-events:none}
+.cursor::before{content:"";position:absolute;left:-6px;top:-8px;width:14px;height:14px;border-radius:4px;background:var(--ink);box-shadow:0 0 0 2px var(--paper)}
+.cursor[data-s="wait"]::before{background:var(--wait)}
+.cursor[data-s="late"]::before{background:var(--late)}
+.cursor[data-s="part"]::before{background:var(--part-bar)}
+.cursor[data-s="paid"]::before{background:var(--paid)}
+input.scrub{position:absolute;inset:16px 0 26px 0;width:100%;height:auto;margin:0;background:transparent;opacity:1;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+input.scrub::-webkit-slider-runnable-track{height:100%;background:transparent}
+input.scrub::-moz-range-track{height:100%;background:transparent}
+input.scrub::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:54px;background:transparent;border:0}
+input.scrub::-moz-range-thumb{width:24px;height:54px;background:transparent;border:0}
+input.scrub:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.8125rem;color:var(--ink-2);margin:6px 12px 0}
+.legend i{display:inline-block;width:14px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.chapters{display:flex;flex-wrap:wrap;gap:8px;margin:16px 12px 0}
+.chapters button{appearance:none;font:500 .875rem/1.2 var(--text);color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:99px;min-height:36px;padding:6px 14px;cursor:pointer}
+.chapters button .num{color:var(--ink-3);margin-left:6px}
+.chapters button:hover{border-color:var(--rule-strong)}
+.chapters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chapters button[aria-pressed="true"] .num{color:#C9CDD3}
+
+.t-foot{display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px;border-top:1px solid var(--rule);margin-top:16px}
+.mail{grid-column:1 / span 7;padding:20px 24px 24px}
+.journal{grid-column:8 / span 5;padding:20px 24px 24px 0}
+.sub{font-size:.8125rem;font-weight:600;color:var(--ink-2);margin:0 0 10px}
+.letter{border:1px solid var(--rule);border-radius:10px;padding:14px 16px;background:#FBFBFA}
+.letter .hd{font-size:.8125rem;color:var(--ink-2);display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding-bottom:10px;border-bottom:1px solid var(--rule);margin-bottom:10px}
+.letter .hd b{font-weight:600;color:var(--ink)}
+.letter p{margin:0;font-size:.9375rem;line-height:1.55}
+.letter.none p{color:var(--ink-2)}
+.journal ol{list-style:none;margin:0;padding:0 4px 0 0;max-height:262px;overflow:auto;border-radius:6px}
+.journal ol:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.journal li{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:8px 0;border-top:1px solid #ECEEEA;font-size:.875rem;line-height:1.4}
+.journal li:first-child{border-top:0}
+.journal li time{color:var(--ink-3)}
+.journal li b{font-weight:600;display:block}
+.journal li span.d{color:var(--ink-2)}
+.journal li.latest b::after{content:" · dernier";font-weight:400;color:var(--ink-3)}
+
+/* sections */
+section{padding:96px 0 0}
+.kicker{font-size:.875rem;font-weight:600;color:var(--ink-2);margin:0 0 12px}
+h2.sec{font:600 clamp(2rem,3.6vw,3rem)/1.05 var(--display);letter-spacing:-.012em;margin:0;max-width:18ch;text-wrap:balance}
+.sec-intro{display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px;align-items:end;margin-bottom:48px}
+.sec-intro > div:first-child{grid-column:1 / span 7}
+.sec-intro p{grid-column:9 / span 4;margin:0;color:var(--ink-2)}
+
+/* registre des moments */
+.moment{display:grid;grid-template-columns:150px 1fr;column-gap:32px;border-top:1px solid var(--ink);padding:28px 0 44px}
+.moment .when{font-weight:600}
+.moment .when span{display:block;font-weight:400;color:var(--ink-2);font-size:.875rem}
+.m-body{display:grid;grid-template-columns:repeat(10,1fr);column-gap:32px;row-gap:20px}
+.m-text{grid-column:1 / span 4}
+.m-text h3{font:600 1.5rem/1.15 var(--display);margin:0 0 10px;text-wrap:balance}
+.m-text p{margin:0 0 10px;color:var(--ink-2)}
+.m-art{grid-column:5 / span 6}
+.paperbox{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:20px}
+.note{font-size:.8125rem;color:var(--ink-3)}
+.tag{display:inline-block;font-size:.75rem;font-weight:500;color:var(--ink-2);border:1px solid var(--rule-strong);border-radius:99px;padding:1px 7px;margin-left:4px;white-space:nowrap;vertical-align:1px}
+
+/* facture */
+table.lines{width:100%;border-collapse:collapse;font-size:.9375rem}
+table.lines th{font-size:.75rem;font-weight:600;color:var(--ink-2);text-align:left;padding:0 0 8px;border-bottom:1px solid var(--rule)}
+table.lines td{padding:10px 0;border-bottom:1px solid #ECEEEA;vertical-align:top}
+table.lines .r{text-align:right;padding-left:16px;white-space:nowrap}
+table.lines tfoot td{border-bottom:0;padding:6px 0}
+table.lines tfoot tr.total td{font-weight:700;font-size:1.0625rem;border-top:2px solid var(--ink);padding-top:10px}
+.checks{list-style:none;margin:18px 0 0;padding:16px 0 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;font-size:.875rem}
+.checks li{display:flex;gap:8px;align-items:flex-start}
+.checks svg{flex:none;margin-top:3px}
+.checks li.warn{grid-column:1 / -1;background:var(--part-bg);color:#5C3A00;border-radius:8px;padding:10px 12px}
+.checks li.warn b{font-weight:600}
+
+/* acheminement */
+.route{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:10px;font-size:.875rem}
+.node{border:1px solid var(--rule);border-radius:10px;padding:12px;background:var(--paper)}
+.node b{display:block;font-weight:600}
+.node span{color:var(--ink-2);font-size:.8125rem}
+.arrow{color:var(--ink-3)}
+.statuses{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.st{font-size:.8125rem;border:1px solid var(--rule);border-radius:99px;padding:4px 10px;background:var(--paper)}
+.st b{font-weight:600}
+.law{margin-top:18px;border-left:2px solid var(--wait);padding:4px 0 4px 14px;font-size:.9375rem;color:var(--ink-2)}
+.law b{color:var(--ink)}
+
+/* séquence de relances */
+.seq{list-style:none;margin:0;padding:0}
+.seq li{display:grid;grid-template-columns:70px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-top:1px solid #ECEEEA}
+.seq li:first-child{border-top:0;padding-top:0}
+.seq .off{font-weight:700}
+.seq .what b{display:block;font-weight:600}
+.seq .what span{font-size:.875rem;color:var(--ink-2)}
+.pill{font-size:.75rem;font-weight:600;border-radius:99px;padding:4px 9px;white-space:nowrap}
+.pill.auto{background:var(--wait-bg);color:var(--wait)}
+.pill.hand{background:var(--ink);color:#fff}
+.rules{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);font-size:.875rem;color:var(--ink-2)}
+
+/* rapprochement */
+.match{display:grid;grid-template-columns:1fr 34px 1fr;align-items:center;row-gap:12px;font-size:.875rem}
+.match .bank,.match .inv{border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:var(--paper)}
+.match .bank{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.8125rem;color:var(--ink-2)}
+.match .bank b{display:block;color:var(--ink);font-family:var(--text);font-size:.9375rem}
+.match .inv b{display:block}
+.match .link{justify-self:center;width:100%;height:1px;background:var(--ink)}
+.match .inv.paid{background:var(--paid-bg);border-color:#B8DCC9}
+.match .inv.part{background:var(--part-bg);border-color:#EED7A6}
+
+/* tarifs */
+.plans{display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px;row-gap:20px}
+.plan{grid-column:span 5;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);padding:28px;display:flex;flex-direction:column}
+.plan.wide{grid-column:span 5}
+.plan h3{font:600 1.375rem/1.1 var(--display);margin:0 0 6px}
+.plan .who{color:var(--ink-2);margin:0 0 18px;font-size:.9375rem}
+.price{font:600 2.5rem/1 var(--text);letter-spacing:-.02em}
+.price small{font:400 .9375rem var(--text);color:var(--ink-2);letter-spacing:0}
+.plan ul{list-style:none;padding:0;margin:20px 0 24px;display:grid;gap:8px;font-size:.9375rem}
+.plan li{display:flex;gap:10px}
+.plan li svg{flex:none;margin-top:4px}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.plans aside{grid-column:span 2;font-size:.875rem;color:var(--ink-2);align-self:end}
+
+/* questions */
+.faq{display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px}
+.faq h2{grid-column:1 / span 4}
+.faq .qs{grid-column:6 / span 7}
+details{border-top:1px solid var(--rule)}
+details:last-child{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;font-weight:600;position:relative;font-size:1.0625rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:10px;height:10px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:translateY(-70%) rotate(45deg);transition:transform .15s}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details p{margin:0 0 18px;color:var(--ink-2);max-width:62ch}
+
+/* fin */
+.closing{padding:104px 0 96px}
+.closing .box{border-top:1px solid var(--ink);padding-top:32px;display:grid;grid-template-columns:repeat(12,1fr);column-gap:32px;align-items:end;row-gap:20px}
+.closing h2{grid-column:1 / span 8;margin:0;font:600 clamp(2rem,4vw,3.25rem)/1.04 var(--display);letter-spacing:-.015em;text-wrap:balance}
+.closing .act{grid-column:10 / span 3;justify-self:end}
+footer{border-top:1px solid var(--rule);padding:24px 0 40px;font-size:.8125rem;color:var(--ink-3)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:space-between}
+
+/* responsive : recomposition */
+@media (max-width:1020px){
+  .hero h1{grid-column:1 / -1}
+  .hero-side{grid-column:1 / span 9;padding-top:28px}
+  .t-now{grid-column:1 / -1}
+  .t-next{grid-column:1 / -1}
+  .mail{grid-column:1 / -1;padding-bottom:8px}
+  .journal{grid-column:1 / -1;padding:12px 24px 24px}
+  .moment{grid-template-columns:1fr;row-gap:14px}
+  .m-text{grid-column:1 / -1}
+  .m-art{grid-column:1 / -1}
+  .sec-intro > div:first-child,.sec-intro p{grid-column:1 / -1}
+  .sec-intro p{margin-top:16px}
+  .plan,.plan.wide{grid-column:span 6}
+  .plans aside{grid-column:1 / -1}
+  .faq h2,.faq .qs{grid-column:1 / -1}
+  .faq h2{margin-bottom:24px}
+  .closing h2,.closing .act{grid-column:1 / -1;justify-self:start}
+}
+@media (max-width:720px){
+  :root{--gutter:16px}
+  nav.main{display:none}
+  header.top .btn{margin-left:auto}
+  .hero{padding:44px 0 24px}
+  .hero-side{grid-column:1 / -1}
+  .field{flex-direction:column}
+  .field .btn{width:100%}
+  .tracker{margin-top:36px;margin-left:-6px;margin-right:-6px}
+  .t-head{padding:14px 16px}
+  .t-head .flag{margin-left:0;flex-basis:100%}
+  .t-body{padding:18px 16px 4px;column-gap:16px}
+  .t-now{gap:14px 28px}
+  .track{padding:0 10px}
+  .track-in{left:10px;right:10px}
+  .tlabels .opt{display:none}
+  .due-mark span{left:auto;right:6px}
+  .legend,.chapters{margin-left:4px;margin-right:4px}
+  .mail{padding:18px 16px 4px}
+  .journal{padding:12px 16px 20px}
+  .journal li{grid-template-columns:64px 1fr}
+  section{padding-top:72px}
+  .checks{grid-template-columns:1fr}
+  table.lines .r{padding-left:10px}
+  .route{grid-template-columns:1fr;justify-items:stretch}
+  .route .arrow{transform:rotate(90deg);justify-self:center}
+  .seq li{grid-template-columns:52px 1fr;row-gap:6px}
+  .seq .pill{grid-column:2;justify-self:start}
+  .match{grid-template-columns:1fr;row-gap:6px}
+  .match .link{width:1px;height:14px;justify-self:start;margin-left:20px}
+  .match .inv{margin-bottom:10px}
+  .plan,.plan.wide{grid-column:1 / -1;padding:22px}
+  .closing{padding:80px 0 72px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-bar" role="note"><div class="wrap">Page de démonstration : le nom, les tarifs, les intégrations et toutes les données affichées sont des exemples.</div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Quitus, accueil (nom d'exemple)">Quitus <small>nom d'exemple</small></a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="#suivi">Le suivi</a>
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <a class="btn" href="#essai">Essayer</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <h1>Envoyer une facture prend deux minutes. <span>Quitus s'occupe des semaines qui suivent.</span></h1>
+        <div class="hero-side">
+          <p class="lead">Factures conformes, envoi au format électronique, relances programmées et rapprochement avec vos virements&#8239;: chaque facture est suivie jusqu'à son encaissement, sans tableur ni pense-bête.</p>
+          <form class="signup" id="essai" novalidate>
+            <label for="email">Votre e-mail professionnel</label>
+            <div class="field">
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="vous@entreprise.fr" aria-describedby="email-msg email-note" required>
+              <button class="btn" type="submit">Créer mon compte</button>
+            </div>
+            <p class="form-msg" id="email-msg" aria-live="polite"></p>
+            <p class="form-note" id="email-note">Essai de 30&nbsp;jours sans carte bancaire <span class="tag">offre d'exemple</span></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- OBJET DE PREUVE : une facture suivie jour par jour -->
+      <div class="tracker" id="suivi" aria-labelledby="t-title">
+        <div class="t-head">
+          <h2 id="t-title">Facture F-2026-0142</h2>
+          <span class="meta">Studio Lefèvre → Atelier Morel · <span class="num">1&#8239;440,00&nbsp;€</span> TTC · à 30&nbsp;jours</span>
+          <span class="flag">Exemple illustratif, données fictives. Faites glisser le curseur pour avancer dans le temps.</span>
+        </div>
+        <div class="t-body">
+          <div class="t-now" aria-live="polite" aria-atomic="true">
+            <div class="day num"><span id="d-num">J+31</span><span class="day-date" id="d-date">jeudi 3 septembre 2026</span></div>
+            <div><span class="chip" id="d-chip" data-s="late"></span></div>
+            <div class="due"><span class="lbl">Reste à encaisser</span><span class="amt num" id="d-left">1&#8239;440,00&nbsp;€</span></div>
+          </div>
+          <div class="t-next">
+            <span class="lbl">Prochaine action prévue par Quitus</span>
+            <p id="d-next"></p>
+          </div>
+
+          <div class="track-zone">
+            <div class="track" id="track">
+              <div class="track-in" id="track-in" aria-hidden="true">
+                <div class="due-mark" style="left:75%"><span>Échéance · 2 sept.</span></div>
+                <div class="bar" id="bar"></div>
+                <div id="evdots"></div>
+                <div class="ticks" id="ticks"></div>
+                <div class="tlabels" id="tlabels"></div>
+                <div class="cursor" id="cursor"></div>
+              </div>
+              <label class="sr" for="scrub">Jour dans la vie de la facture, de 0 à 40</label>
+              <input class="scrub" id="scrub" type="range" min="0" max="40" step="1" value="31">
+            </div>
+            <div class="legend" aria-hidden="true">
+              <span><i style="background:var(--wait-bar)"></i>En attente</span>
+              <span><i style="background:var(--late)"></i>En retard</span>
+              <span><i style="background:var(--part-bar)"></i>Partiellement payée</span>
+              <span><i style="background:var(--paid)"></i>Encaissée</span>
+              <span>Traits courts&#8239;: week-ends, jamais de relance</span>
+            </div>
+            <div class="chapters" role="group" aria-label="Aller à un moment">
+              <button type="button" data-day="0">Envoi <span class="num">J0</span></button>
+              <button type="button" data-day="25">Rappel <span class="num">J+25</span></button>
+              <button type="button" data-day="31">Relance <span class="num">J+31</span></button>
+              <button type="button" data-day="36">Virement partiel <span class="num">J+36</span></button>
+              <button type="button" data-day="38">Encaissée <span class="num">J+38</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="t-foot">
+          <div class="mail">
+            <p class="sub">Dernier message reçu par le client</p>
+            <div class="letter" id="letter"></div>
+          </div>
+          <div class="journal">
+            <p class="sub">Journal de la facture</p>
+            <ol id="journal" tabindex="0" aria-label="Journal : événements jusqu'au jour affiché"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="fonctionnement" aria-labelledby="f-title">
+    <div class="wrap">
+      <div class="sec-intro">
+        <div>
+          <p class="kicker">Fonctionnement</p>
+          <h2 class="sec" id="f-title">La même facture, de sa création à sa dernière écriture.</h2>
+        </div>
+        <p>Pas de liste de fonctionnalités&#8239;: quatre moments de la vie de F-2026-0142, et ce que Quitus y fait à votre place. Les montants se recoupent d'un moment à l'autre.</p>
+      </div>
+
+      <article class="moment">
+        <div class="when num">J0 · 09:40<span>lundi 3 août</span></div>
+        <div class="m-body">
+          <div class="m-text">
+            <h3>Créer&#8239;: les mentions sont vérifiées avant l'envoi.</h3>
+            <p>Lignes, TVA et total se calculent pendant la saisie. Quitus bloque l'envoi tant qu'une mention exigée manque, et vous dit laquelle.</p>
+          </div>
+          <div class="m-art">
+            <div class="paperbox">
+              <table class="lines">
+                <thead><tr><th scope="col">Désignation</th><th scope="col" class="r">Qté × PU HT</th><th scope="col" class="r">Total HT</th></tr></thead>
+                <tbody class="num">
+                  <tr><td>Identité visuelle, ateliers et déclinaisons</td><td class="r">3&nbsp;j × 300,00&nbsp;€</td><td class="r">900,00&nbsp;€</td></tr>
+                  <tr><td>Signalétique de l'atelier, fichiers d'impression</td><td class="r">1&nbsp;j × 300,00&nbsp;€</td><td class="r">300,00&nbsp;€</td></tr>
+                </tbody>
+                <tfoot class="num">
+                  <tr><td colspan="2">Total HT</td><td class="r">1&#8239;200,00&nbsp;€</td></tr>
+                  <tr><td colspan="2">TVA 20&nbsp;%</td><td class="r">240,00&nbsp;€</td></tr>
+                  <tr class="total"><td colspan="2">Total TTC, à régler le 2 septembre 2026</td><td class="r">1&#8239;440,00&nbsp;€</td></tr>
+                </tfoot>
+              </table>
+              <ul class="checks" aria-label="Contrôle des mentions">
+                <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#0D6A46" stroke-width="2"/></svg>SIREN et TVA intracommunautaire des deux parties</li>
+                <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#0D6A46" stroke-width="2"/></svg>Numéro chronologique sans rupture</li>
+                <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#0D6A46" stroke-width="2"/></svg>Date d'échéance et pénalités de retard</li>
+                <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#0D6A46" stroke-width="2"/></svg>Indemnité forfaitaire de recouvrement de 40&nbsp;€</li>
+                <li class="warn"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="#8A5600" stroke-width="1.6"/><path d="M7 3.6v4.2M7 9.6v1" stroke="#8A5600" stroke-width="1.6"/></svg><span><b>À compléter avant l'envoi&#8239;:</b> Atelier Morel exige son numéro de bon de commande. Ajoutez-le, l'envoi se débloque.</span></li>
+              </ul>
+            </div>
+            <p class="note" style="margin-top:10px">Liste de contrôle illustrative, à valider avec un juriste pour la version réelle.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="moment">
+        <div class="when num">J0 · 09:42<span>lundi 3 août</span></div>
+        <div class="m-body">
+          <div class="m-text">
+            <h3>Envoyer&#8239;: au format électronique, sans y penser.</h3>
+            <p>La facture part au format Factur-X par une plateforme agréée, et chaque étape côté client revient dans votre journal. Vous savez qu'elle est arrivée, et qui l'a validée.</p>
+          </div>
+          <div class="m-art">
+            <div class="route">
+              <div class="node"><b>Studio Lefèvre</b><span>vous, depuis Quitus</span></div>
+              <span class="arrow" aria-hidden="true">→</span>
+              <div class="node"><b>Plateforme agréée</b><span>partenaire d'exemple <span class="tag">à confirmer</span></span></div>
+              <span class="arrow" aria-hidden="true">→</span>
+              <div class="node"><b>Atelier Morel</b><span>sa propre plateforme</span></div>
+            </div>
+            <div class="statuses num" aria-label="Statuts reçus">
+              <span class="st"><b>Déposée</b> · 3 août 09:42</span>
+              <span class="st"><b>Reçue</b> · 4 août 11:15</span>
+              <span class="st"><b>Prise en charge</b> · 5 août 16:30</span>
+            </div>
+            <p class="law"><b>Facture électronique.</b> Depuis le 1<sup>er</sup>&nbsp;septembre 2026, toute entreprise doit pouvoir recevoir ses factures sous forme électronique&#8239;; l'émission devient obligatoire pour les PME et micro-entreprises au 1<sup>er</sup>&nbsp;septembre 2027. <span class="tag">calendrier à confirmer</span></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="moment">
+        <div class="when num">J+25 → J+38<span>28 août → 10 sept.</span></div>
+        <div class="m-body">
+          <div class="m-text">
+            <h3>Relancer&#8239;: poli d'abord, ferme ensuite, jamais le week-end.</h3>
+            <p>Les messages partent de votre adresse, signés de votre nom. Le montant suit les paiements reçus, et une relance devenue inutile est annulée.</p>
+            <p>La mise en demeure ne part jamais seule&#8239;: elle attend votre accord.</p>
+          </div>
+          <div class="m-art">
+            <div class="paperbox">
+              <ol class="seq num" aria-label="Séquence de relances par défaut">
+                <li><span class="off">J−5</span><span class="what"><b>Rappel avant échéance</b><span>Courtois, avec le RIB et la facture jointe</span></span><span class="pill auto">Automatique</span></li>
+                <li><span class="off">J+1</span><span class="what"><b>Relance n°&nbsp;1</b><span>Cordiale&#8239;: demande une date de paiement</span></span><span class="pill auto">Automatique</span></li>
+                <li><span class="off">J+8</span><span class="what"><b>Relance n°&nbsp;2</b><span>Ferme&#8239;: rappelle les pénalités prévues</span></span><span class="pill auto">Automatique</span></li>
+                <li><span class="off">J+15</span><span class="what"><b>Mise en demeure</b><span>Préparée, jamais envoyée sans vous</span></span><span class="pill hand">Votre accord</span></li>
+              </ol>
+              <div class="rules"><span>Jours comptés depuis l'échéance</span><span>Envoi à 9&nbsp;h, jours ouvrés</span><span>Chaque étape se modifie ou se coupe, client par client</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="moment">
+        <div class="when num">J+36 · J+38<span>8 et 10 sept.</span></div>
+        <div class="m-body">
+          <div class="m-text">
+            <h3>Encaisser&#8239;: chaque virement retrouve sa facture.</h3>
+            <p>Quitus lit les opérations de votre compte et les rapproche de vos factures, même quand le client paie en deux fois ou oublie la référence. L'écriture part chez votre comptable.</p>
+          </div>
+          <div class="m-art">
+            <div class="match num">
+              <div class="bank"><b>+1&#8239;000,00&nbsp;€</b>08/09 VIR SEPA ATELIER MOREL REF F2026-0142</div>
+              <span class="link" aria-hidden="true"></span>
+              <div class="inv part"><b>F-2026-0142 · partiellement payée</b>Reste 440,00&nbsp;€, relance ajustée</div>
+              <div class="bank"><b>+440,00&nbsp;€</b>10/09 VIR SEPA ATELIER MOREL</div>
+              <span class="link" aria-hidden="true"></span>
+              <div class="inv paid"><b>F-2026-0142 · encaissée</b>1&#8239;440,00&nbsp;€ sur 1&#8239;440,00&nbsp;€, exportée</div>
+            </div>
+            <p class="note" style="margin-top:10px">Connexion bancaire et export comptable présentés à titre d'exemple&#8239;: banques et formats pris en charge à confirmer.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="tarifs" aria-labelledby="p-title">
+    <div class="wrap">
+      <div class="sec-intro">
+        <div>
+          <p class="kicker">Tarifs <span class="tag">exemples</span></p>
+          <h2 class="sec" id="p-title">Un prix fixe, quel que soit le nombre de factures.</h2>
+        </div>
+        <p>Prix hors taxes, sans engagement. Les deux offres envoient, relancent et rapprochent de la même façon&#8239;; seule l'équipe change.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Indépendant</h3>
+          <p class="who">Vous facturez seul·e.</p>
+          <div class="price num">9&nbsp;€ <small>HT par mois</small></div>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#15191E" stroke-width="2"/></svg>Factures et devis illimités</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#15191E" stroke-width="2"/></svg>Relances programmées</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#15191E" stroke-width="2"/></svg>Un compte bancaire rapproché</li>
+          </ul>
+          <a class="btn ghost" href="#essai">Commencer l'essai</a>
+        </div>
+        <div class="plan wide">
+          <h3>Équipe</h3>
+          <p class="who">Plusieurs personnes émettent ou valident.</p>
+          <div class="price num">29&nbsp;€ <small>HT par mois</small></div>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#15191E" stroke-width="2"/></svg>Jusqu'à 5 utilisateurs et rôles</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#15191E" stroke-width="2"/></svg>Validation des relances fermes</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="#15191E" stroke-width="2"/></svg>Plusieurs comptes bancaires, accès comptable</li>
+          </ul>
+          <a class="btn" href="#essai">Commencer l'essai</a>
+        </div>
+        <aside>30&nbsp;jours d'essai, puis le prix de l'offre choisie. Montants à remplacer par la grille réelle.</aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="questions" aria-labelledby="q-title">
+    <div class="wrap faq">
+      <h2 class="sec" id="q-title">Questions avant de changer d'outil</h2>
+      <div class="qs">
+        <details>
+          <summary>Suis-je concerné par la facture électronique&#8239;?</summary>
+          <p>Si vous facturez d'autres entreprises en France, oui&#8239;: la réception est déjà obligatoire, l'émission le sera selon la taille de l'entreprise. Quitus envoie au bon format dès la première facture. Le calendrier exact est à confirmer avant publication de cette page.</p>
+        </details>
+        <details>
+          <summary>Et si mon client paie en plusieurs fois&#8239;?</summary>
+          <p>Chaque virement est rapproché séparément. La facture passe en «&#8239;partiellement payée&#8239;», la relance suivante porte sur le reste dû, et elle est annulée si le solde arrive avant son envoi&#8239;: c'est le cas de F-2026-0142 ci-dessus.</p>
+        </details>
+        <details>
+          <summary>Mes clients voient-ils que les relances sont automatiques&#8239;?</summary>
+          <p>Les messages partent de votre adresse, avec votre signature et un ton que vous choisissez. Vous pouvez relire chaque modèle, et couper les relances pour un client précis.</p>
+        </details>
+        <details>
+          <summary>Je facture avec un tableur. Que devient l'existant&#8239;?</summary>
+          <p>Importez la liste de vos clients et de vos factures en attente&#8239;: elles entrent directement dans le suivi, avec leur échéance d'origine. La numérotation reprend où vous l'aviez laissée.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="closing">
+    <div class="wrap">
+      <div class="box">
+        <h2>Votre prochaine facture, suivie jusqu'au virement.</h2>
+        <div class="act"><a class="btn" href="#essai" id="to-form">Créer mon compte</a></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Quitus est un nom d'exemple. Tarifs, intégrations, conformité et données sont illustratifs et restent à confirmer.</span>
+    <span>Page de démonstration, octobre 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var MAX = 40, TOTAL = 1440;
+  var J0 = new Date(2026, 7, 3); // lundi 3 août 2026
+  var eur = new Intl.NumberFormat('fr-FR', {style:'currency', currency:'EUR'});
+  var longDate = new Intl.DateTimeFormat('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+  var shortDate = new Intl.DateTimeFormat('fr-FR', {day:'numeric', month:'short'});
+  function dateOf(d){ var x = new Date(J0); x.setDate(x.getDate() + d); return x; }
+
+  var EVENTS = [
+    {d:0,  t:'09:40', title:'Créée', detail:'2 lignes, TVA 20\u00A0% calculée, mentions vérifiées.'},
+    {d:0,  t:'09:42', title:'Déposée', detail:'Envoyée au format Factur-X par la plateforme agréée.'},
+    {d:1,  t:'11:15', title:'Reçue', detail:"Mise à disposition sur la plateforme d'Atelier Morel."},
+    {d:2,  t:'16:30', title:'Prise en charge', detail:'Validée par la comptabilité du client.'},
+    {d:25, t:'09:00', title:'Rappel avant échéance', detail:'Message courtois, RIB joint.', msg:{subj:'Échéance de la facture F-2026-0142', body:"Bonjour Claire, petit rappel\u202F: la facture F-2026-0142 de 1\u202F440,00\u00A0€ arrive à échéance mercredi 2 septembre. Le RIB figure en bas de la facture, jointe à ce message. Bonne fin de semaine, Julie Lefèvre"}},
+    {d:30, t:'23:59', title:'Échéance passée', detail:'Aucun paiement reçu.'},
+    {d:31, t:'09:00', title:'Relance n°\u00A01', detail:'Envoyée automatiquement, ton cordial.', msg:{subj:'Facture F-2026-0142 en attente de règlement', body:"Bonjour Claire, sauf erreur de ma part, la facture F-2026-0142 de 1\u202F440,00\u00A0€, échue le 2 septembre, n'est pas encore réglée. Pourriez-vous m'indiquer la date de paiement prévue\u202F? Merci, Julie Lefèvre"}},
+    {d:36, t:'07:12', title:'Virement partiel rapproché', detail:'+1\u202F000,00\u00A0€ reçu. Reste 440,00\u00A0€.', paid:1000},
+    {d:36, t:'07:12', title:'Relance n°\u00A02 ajustée', detail:'Portera sur 440,00\u00A0€ au lieu de 1\u202F440,00\u00A0€.'},
+    {d:38, t:'07:05', title:'Solde rapproché', detail:'+440,00\u00A0€ reçu. Facture encaissée.', paid:440},
+    {d:38, t:'07:05', title:'Relance n°\u00A02 annulée', detail:'Prévue à 9\u00A0h, devenue inutile.'},
+    {d:38, t:'07:06', title:'Écriture exportée', detail:'Statut « encaissée » transmis, comptable prévenu.'}
+  ];
+  var DOTS = [0, 25, 31, 36, 38];
+  var SEGS = [ {from:0,to:30,c:'wait'}, {from:30,to:36,c:'late'}, {from:36,to:38,c:'part'}, {from:38,to:MAX,c:'paid'} ];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var scrub = $('scrub');
+  var pct = function(d){ return (d / MAX * 100) + '%'; };
+
+  // graduation : un trait par jour, court le week-end, long le lundi
+  var ticks = $('ticks'), labels = $('tlabels'), dots = $('evdots');
+  for (var i = 0; i <= MAX; i++){
+    var t = document.createElement('div');
+    var wd = dateOf(i).getDay();
+    t.className = 'tick' + ((wd === 0 || wd === 6) ? ' we' : '') + (wd === 1 ? ' mon' : '');
+    t.style.left = pct(i);
+    ticks.appendChild(t);
+  }
+  [[0,'lun. 3 août','first'],[7,'10 août','opt'],[14,'17 août',''],[21,'24 août','opt'],[28,'31 août',''],[35,'7 sept.','']].forEach(function(l){
+    var s = document.createElement('span'); s.textContent = l[1]; s.style.left = pct(l[0]); if (l[2]) s.className = l[2]; labels.appendChild(s);
+  });
+  DOTS.forEach(function(d){ var e = document.createElement('div'); e.className = 'ev'; e.style.left = pct(d); e.dataset.d = d; dots.appendChild(e); });
+
+  function paidAt(d){ return EVENTS.reduce(function(s,e){ return s + ((e.paid && e.d <= d) ? e.paid : 0); }, 0); }
+
+  var ICON = {
+    wait:'<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 3.4V6l1.8 1.2" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
+    late:'<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1 11.2 10.5H.8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 4.4v3M6 8.4v.9" stroke="currentColor" stroke-width="1.5"/></svg>',
+    part:'<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 1.4a4.6 4.6 0 0 1 0 9.2z" fill="currentColor"/></svg>',
+    paid:'<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.6 6.4 4.6 9.2 10.4 2.8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>'
+  };
+
+  function state(d){
+    var paid = paidAt(d), left = TOTAL - paid;
+    if (left <= 0) return {s:'paid', label:'Encaissée en 38 jours', left:0};
+    if (paid > 0) return {s:'part', label:'Partiellement payée · ' + (d - 30) + ' j de retard', left:left};
+    if (d > 30) return {s:'late', label:'En retard · ' + (d - 30) + (d - 30 > 1 ? ' jours' : ' jour'), left:left};
+    if (d === 30) return {s:'wait', label:"Échéance aujourd'hui", left:left};
+    var n = 30 - d;
+    return {s:'wait', label:'En attente · échéance dans ' + n + (n > 1 ? ' jours' : ' jour'), left:left};
+  }
+  function nextAction(d){
+    if (d < 25) return 'Rappel courtois le vendredi 28 août à 9\u00A0h, cinq jours avant l’échéance.';
+    if (d < 31) return 'Relance n°\u00A01 le jeudi 3 septembre à 9\u00A0h, seulement si rien n’est reçu.';
+    if (d < 36) return 'Relance n°\u00A02, ton ferme, le jeudi 10 septembre à 9\u00A0h pour 1\u202F440,00\u00A0€.';
+    if (d < 38) return 'Relance n°\u00A02 le jeudi 10 septembre à 9\u00A0h, ramenée au reste de 440,00\u00A0€.';
+    return 'Rien. La facture est soldée, rapprochée et transmise à votre comptable.';
+  }
+
+  function render(d){
+    d = Math.max(0, Math.min(MAX, d|0));
+    var st = state(d), dt = dateOf(d);
+    $('d-num').textContent = d === 0 ? 'J0' : 'J+' + d;
+    $('d-date').textContent = longDate.format(dt);
+    var chip = $('d-chip'); chip.dataset.s = st.s; chip.innerHTML = ICON[st.s] + '<span></span>'; chip.lastChild.textContent = st.label;
+    $('d-left').textContent = eur.format(st.left);
+    $('d-next').textContent = nextAction(d);
+    scrub.setAttribute('aria-valuetext', ($('d-num').textContent) + ', ' + longDate.format(dt) + ' : ' + st.label + ', reste ' + eur.format(st.left));
+
+    // barre de vie, remplie jusqu'au jour affiché
+    var bar = $('bar'); bar.innerHTML = '';
+    SEGS.forEach(function(sg){
+      var to = (sg.c === 'paid' && st.s === 'paid') ? MAX : Math.min(sg.to, d);
+      if (to <= sg.from) return;
+      var e = document.createElement('div'); e.className = 'seg ' + sg.c;
+      e.style.left = pct(sg.from); e.style.width = ((to - sg.from) / MAX * 100) + '%';
+      bar.appendChild(e);
+    });
+    var cur = $('cursor'); cur.style.left = pct(d); cur.dataset.s = st.s;
+    Array.prototype.forEach.call(dots.children, function(e){ e.classList.toggle('done', +e.dataset.d <= d); });
+
+    // journal : du plus récent au plus ancien
+    var past = EVENTS.filter(function(e){ return e.d <= d; });
+    var ol = $('journal'); ol.innerHTML = '';
+    past.slice().reverse().forEach(function(e, k){
+      var li = document.createElement('li'); if (k === 0) li.className = 'latest';
+      var tm = document.createElement('time'); tm.className = 'num'; tm.textContent = shortDate.format(dateOf(e.d)).replace('.', '') + ' ' + e.t;
+      var box = document.createElement('div');
+      var b = document.createElement('b'); b.textContent = e.title;
+      var sp = document.createElement('span'); sp.className = 'd'; sp.textContent = e.detail;
+      box.appendChild(b); box.appendChild(sp); li.appendChild(tm); li.appendChild(box); ol.appendChild(li);
+    });
+
+    // dernier message envoyé
+    var last = past.filter(function(e){ return e.msg; }).pop();
+    var letter = $('letter');
+    letter.className = 'letter' + (last ? '' : ' none');
+    letter.innerHTML = '';
+    if (last){
+      var hd = document.createElement('div'); hd.className = 'hd';
+      hd.innerHTML = '<span>De</span><b>Julie Lefèvre · Studio Lefèvre</b><span>Objet</span><b></b><span>Envoyé</span><span class="num"></span>';
+      hd.children[3].textContent = last.msg.subj;
+      hd.children[5].textContent = longDate.format(dateOf(last.d)) + ', ' + parseInt(last.t,10) + '\u00A0h' + (last.t.slice(3) === '00' ? '' : last.t.slice(3));
+      var p = document.createElement('p'); p.textContent = last.msg.body;
+      letter.appendChild(hd); letter.appendChild(p);
+      if (d >= 38){ var n = document.createElement('p'); n.className = 'note'; n.style.marginTop = '10px'; n.textContent = 'La relance n°\u00A02 prévue le 10 septembre n’a pas été envoyée : le solde est arrivé à 7\u00A0h\u00A005.'; letter.appendChild(n); }
+    } else {
+      var p0 = document.createElement('p'); p0.textContent = 'Aucun message pour l’instant : la facture suit son cours, Quitus attend l’échéance.'; letter.appendChild(p0);
+    }
+
+    document.querySelectorAll('.chapters button').forEach(function(btn){ btn.setAttribute('aria-pressed', String(+btn.dataset.day === d)); });
+  }
+
+  scrub.addEventListener('input', function(){ render(+scrub.value); });
+  document.querySelectorAll('.chapters button').forEach(function(btn){
+    btn.addEventListener('click', function(){ scrub.value = btn.dataset.day; render(+btn.dataset.day); });
+  });
+  render(+scrub.value);
+
+  // navigation : retirée de l'arbre sous 720 px (les ancres restent atteignables par la page)
+  var nav = document.querySelector('nav.main'), mq = window.matchMedia('(max-width:720px)');
+  function syncNav(){ nav.hidden = mq.matches; }
+  syncNav(); if (mq.addEventListener) mq.addEventListener('change', syncNav);
+
+  // formulaire : démonstration locale, rien n'est envoyé
+  var form = $('essai'), input = $('email'), msg = $('email-msg');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var v = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){
+      input.setAttribute('aria-invalid', 'true');
+      msg.className = 'form-msg err';
+      msg.textContent = v ? 'Cette adresse semble incomplète. Exemple : julie@studio-lefevre.fr' : 'Indiquez votre e-mail pour créer le compte.';
+      input.focus();
+      return;
+    }
+    input.removeAttribute('aria-invalid');
+    msg.className = 'form-msg ok';
+    msg.textContent = 'Démonstration : aucune inscription n’est envoyée depuis cette page. Dans la vraie version, un lien d’accès partirait vers ' + v + '.';
+  });
+  input.addEventListener('input', function(){ if (input.getAttribute('aria-invalid')){ input.removeAttribute('aria-invalid'); msg.textContent = ''; msg.className = 'form-msg'; } });
+  document.querySelectorAll('a[href="#essai"]').forEach(function(a){
+    a.addEventListener('click', function(){ setTimeout(function(){ input.focus({preventScroll:true}); }, 350); });
+  });
+})();
+</script>
+</body>
+</html>

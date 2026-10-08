@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue (titre condensé massif « Chaque enfant nage à sa profondeur », bandeau sombre, visuel de profondeurs de bassin) alors que B est joyeux mais générique (cercle bleu, canard, vague, pastilles)."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, A reste propre à la natation enfant (bonnets par profondeur 0,80 à 2,00 m, objectifs cochés, découpage d'une séance de 45 min, ligne d'eau en bordure), tandis que B (cartes de groupes, tarifs, FAQ, formulaire) pourrait servir à n'importe quelle école d'activité enfants."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est très régulier et complet (grille de cartes, planning, tarifs, FAQ, formulaire, menu mobile, hiérarchie claire), alors que A, malgré une belle typo et une bonne hiérarchie, a un hero un peu chargé, un bloc de résultat vide au premier écran et des textes secondaires très petits et pâles."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale partout ce qui est exemple (bandeau « Maquette », pastilles EXEMPLE, « Chiffres d'exemple », « Données d'exemple », domaine .example), alors que B présente comme réels, sans aucune mention d'exemple, des diplômes d'État (BPJEPS AAN, BEESAN), des tarifs, des horaires, un téléphone, une adresse et « Inscriptions ouvertes saison 2026-2027 »."
+ },
+ "defaut_A": "Le premier écran est dense et un peu austère (grosse typo sombre, widget de questionnaire dont la zone de résultat est vide au chargement, petits textes pâles), moins chaleureux et rassurant pour des parents, sans illustration ni photo d'enfant.",
+ "defaut_B": "Le gabarit est générique, un « site d'école pour enfants » interchangeable (cercle bleu, canard, pastilles, cartes), et toutes les preuves inventées (diplômes, tarifs, horaires, contact, inscriptions ouvertes) sont présentées comme vraies sans signalement.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

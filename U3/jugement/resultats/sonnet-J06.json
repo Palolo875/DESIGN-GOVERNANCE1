@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un point de vue net : le titre « Une facture n'est finie que lorsqu'elle est payée » pose une thèse, et le tableau d'encours avec ses statuts le prouve dès le premier écran. B a un beau titre en serif avec italique, mais sa promesse (« Facturez en deux minutes ») est celle de tous les outils de facturation."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A reste propre au métier une fois le nom retiré : suivi d'une facture sur 45 jours, statuts de la plateforme (Déposée, Rejetée, Refusée, Encaissée), chronologie J0 à J+45, relance proposée. B (devis, TVA, relances, rapprochement bancaire, offre Solo/Pro/Équipe) suit le gabarit SaaS habituel, avec un vocabulaire du domaine mais une structure interchangeable."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "A est cohérent : grille éditoriale, chiffres bien alignés, tableau soigné, mobile correct, mais la colonne gauche du hero est un peu vide et le texte de la frise est petit. B est riche et propre sur tous les blocs, mais les pastilles Brouillon/Envoyée/Relancée flottent sous la carte, les phrases barrées en rouge sont minuscules, et le grand vide sous le hero pèse."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale partout ce qui est exemple (« nom d'exemple », « Données d'exemple », « Offre et fonctions d'exemple, à confirmer », formulaire de démonstration) et n'invente ni avis ni logos. B présente comme réels un prix (Solo 12 €, Pro 29 €, Équipe 79 €), des encaissements chiffrés (48 210 €), « Données hébergées en France » et « Sans carte bancaire », sans bandeau d'exemple visible."
+ },
+ "defaut_A": "Une page dense et sobre, avec peu de respiration visuelle et beaucoup de mentions d'exemple en petit : elle se lit comme un dossier de conception plus que comme une page de conversion, et le hero laisse un vide à gauche sous les arguments.",
+ "defaut_B": "Une page générique, dont les promesses chiffrées et les garanties (hébergement en France, prix, tableau de bord) sont posées comme des faits sans signaler qu'il s'agit d'exemples.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

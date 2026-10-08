@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B a un vrai point de vue (les bonnets par profondeur de bassin, un questionnaire « Dans quel groupe ? » dès le premier écran, un grand titre condensé), alors que A est charmant mais générique : mascotte, canard en plastique et cercle bleu sur fond crème."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Le système de bonnets jaune, vert, orange et rouge lié aux profondeurs 0,80 à 2,00 m, les objectifs cochés, le découpage de la séance de 45 min et les créneaux avec places restantes ne servent que pour une école de natation, alors que le « Eau chauffée » et le « 6 max. » de A passeraient dans n'importe quel club d'activité enfants."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est cohérent de bout en bout : typographie condensée maîtrisée, alignements nets, rythme de sections clair et mobile propre ; A a un bon premier écran et un mobile correct, mais sur la page entière et les tranches la plupart des sections (groupes, méthode, tarifs, questions) sont des aplats vides, et seul le planning est visible."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B affiche un bandeau « Maquette » et des pastilles EXEMPLE, HORAIRES D'EXEMPLE et TARIFS D'EXEMPLE, et n'a ni faux avis ni faux logo ; A présente « 6 enfants max. », « Bassin chauffé », « Bilan à chaque trimestre » et « Inscriptions ouvertes saison 2026–2027 » comme des faits, sans aucune mention d'exemple dans ce qui est visible."
+ },
+ "defaut_A": "Sur la page entière et les tranches, la plus grande partie de la page est vide (grands aplats bleu clair et crème sans contenu, probablement des sections qui n'apparaissent pas), et les affirmations d'exemple sont présentées comme réelles.",
+ "defaut_B": "Le ton est très sobre et institutionnel : peu de chaleur ou d'image pour une école d'enfants, une palette marine et sarcelle assez froide et pas d'illustration, et le widget du premier écran affiche un grand bloc vide tant qu'on n'a pas répondu.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

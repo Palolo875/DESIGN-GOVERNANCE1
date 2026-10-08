@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B a un vrai point de vue : une facture suivie dans le temps (J+31, frise, journal, prochaine relance) avec un curseur à manipuler, alors que A, malgré un titre serif italique élégant et mémorable, reste une belle mise en page de SaaS assez attendue."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B montre des mécanismes propres à la facturation (relances qui sautent les week-ends, mise en demeure jamais envoyée seule, virement partiel rapproché, mention manquante qui bloque l'envoi), alors que A garde un récit plus générique « devis, facture, paiement, relance, banque » que beaucoup d'outils concurrents pourraient reprendre."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A est très soignée (typographie serif et mono cohérente, palette crème et vert, cartes alignées, section sombre, mobile propre), alors que B est solide mais a des défauts visibles : le journal de la facture est coupé net dans sa carte (« 4 août Reçue… » tronqué), la colonne de droite du hero est creuse et le titre en gris sur gris perd un peu de contraste."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B annonce « page de démonstration » en bandeau, ajoute des pastilles « nom d'exemple », « offre d'exemple », « à confirmer », écrit « données fictives » et « à valider avec un juriste » et n'invente ni avis ni logos, alors que A présente sans aucune mention d'exemple des tarifs précis (12/29/79 €), « hébergé en France », des virements bancaires et un encaissé de 48 210 € comme s'ils étaient réels, même si elle n'a ni faux avis ni faux logos."
+ },
+ "defaut_A": "Tout est présenté comme réel (prix, offres, hébergement, chiffres d'encaissement, conformité) sans aucun signalement d'exemple, et le contenu reste plus générique et moins mémorable que son habillage ne le laisse croire.",
+ "defaut_B": "Une présentation plus dense et plus austère, avec des détails de finition inachevés (journal tronqué, hero déséquilibré, gris sur gris), qui demande plus d'effort au visiteur pour comprendre qu'un tarif et un appel à l'action existent plus bas.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

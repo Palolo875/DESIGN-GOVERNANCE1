@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B tient un concept unique, « la même facture, de sa création à sa dernière écriture », développé du premier écran au dernier, avec un widget de frise vivant ; A a une accroche forte (« sans relancer » en italique rouge, tampon PAYÉE) mais retombe ensuite dans une structure de SaaS standard."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Sans le nom, B reste une page de relance et de facturation (Factur-X, séquence J-5 à J+15 « jamais le week-end », mise en demeure, rapprochement bancaire, bon de commande exigé) qu'aucun autre métier ne pourrait reprendre ; A est aussi française (Factur-X, FEC, PAYÉE) mais sa grille de six fonctionnalités et sa FAQ conviendraient à presque n'importe quel SaaS."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A est plus net et plus aéré : hiérarchie serif/sans-serif bien tenue, cartes et alignements réguliers, tarifs lisibles et mobile propre, alors que B est plus dense (widget de frise et journal coupé au bas du panneau) et demande un effort de lecture supplémentaire."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale en permanence ce qui est exemple (bandeau « Page de démonstration », badges « nom d'exemple » et « offre d'exemple », « données fictives », « montants à remplacer », « à confirmer ») et ne présente aucun chiffre comme une preuve réelle ; A n'invente ni faux avis ni faux logos, mais présente facture, client, « Paiement reçu : 3 528,00 € » et promesses de conformité comme réels, sans aucun marquage d'exemple."
+ },
+ "defaut_A": "Les contenus d'exemple (facture, client, paiement reçu, promesses de conformité) sont présentés comme réels sans aucun marquage, et le milieu de page retombe dans une grille de six cartes de fonctionnalités génériques.",
+ "defaut_B": "Les mentions « exemple », « à confirmer » et « à valider » reviennent si souvent qu'elles alourdissent le message, et le widget dense rend la page moins immédiate et moins vendeuse que A.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

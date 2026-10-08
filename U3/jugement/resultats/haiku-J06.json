@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le titre « Une facture n'est finie que lorsqu'elle est payée » et la section « Quand le trajet dévie » assument un angle éditorial net, là où B reste sur une promesse de SaaS classique (« Facturez en deux minutes »)."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Toute la page raconte le parcours d'une facture (statuts, relances, réforme), alors que B, sans son nom, glisserait vers un gabarit de logiciel de facturation avec tarifs et FAQ interchangeables."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Les deux ont une hiérarchie typographique soignée, des alignements propres et un mobile fonctionnel, A grâce à sa frise précise et B grâce à sa maquette de facture et à ses cartes, sans écart net."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A étiquette systématiquement ses données, tarifs et calendrier comme exemple ou à vérifier, alors que B présente des SIREN fictifs, des montants de graphique et des tarifs comme réels, sans mention d'exemple."
+ },
+ "defaut_A": "Texte explicatif dense et légendes minuscules, avec peu de démonstration produit au-delà du premier écran.",
+ "defaut_B": "Structure de landing SaaS générique (triptyque barré, grille de cartes, trois tarifs, FAQ) et chiffres présentés comme réels sans étiquette d'exemple.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

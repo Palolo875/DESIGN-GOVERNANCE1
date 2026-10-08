@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Quitus affirme un point de vue net sur le métier (« Quitus s'occupe des semaines qui suivent », relances jamais le week-end) et le matérialise dans un suivi de facture vivant, là où Ardoise promet surtout « Soyez payé sans relancer » sans aller plus loin."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Le parcours J0 à J+38, la chronologie des relances et la règle « jamais le week-end » restent propres à la facturation même sans le nom, alors qu'Ardoise garde une grille de fonctionnalités générique (« Tout ce qu'il faut pour facturer ») qui pourrait servir à un autre outil."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "Quitus combine une hiérarchie serif/sans, une colonne de méta-données (J0 · 09:40), une frise et des chiffres alignés, avec un rendu mobile propre, tandis qu'Ardoise est soignée mais plus conventionnelle dans ses cartes et sa grille, et Quitus n'a qu'un journal tronqué et un bloc dense à lui reprocher."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "Quitus signale chaque élément fictif (bandeau de démonstration, « nom d'exemple », « offre d'exemple », données « fictives », connexions bancaires « à titre d'exemple »), alors qu'Ardoise présente comme réels ses tarifs (12 €, 29 €), « Données hébergées en France », « Prêt pour la facture électronique obligatoire » et un dossier client sans aucune mention d'exemple."
+ },
+ "defaut_A": "Les mentions « exemple » et « à confirmer » reviennent à chaque section, ce qui alourdit un texte de vente et rend la page longue et dense.",
+ "defaut_B": "Une grille de fonctionnalités et des sections génériques, avec des prix et des garanties présentés comme réels sans aucune mention d'exemple.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

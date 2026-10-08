@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue : un titre en deux temps (« Envoyer une facture prend deux minutes. Quitus s'occupe des semaines qui suivent. ») et une démo interactive de la vie d'une facture (J+31, frise, journal). B a un beau hero, mais c'est un modèle de landing SaaS déjà vu (titre serif avec mot en italique orange, carte inclinée, tampon PAYÉE)."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A reste ancrée dans la facturation : relances sans week-end, mise en demeure soumise à l'accord de l'utilisateur, rapprochement bancaire ligne à ligne, mentions légales avec bon de commande manquant. B (six cartes de fonctionnalités, trois étapes, tarifs Solo/Équipe/Entreprise, FAQ) irait à n'importe quel SaaS, le tampon PAYÉE étant son seul élément propre au métier."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus homogène : rythme régulier, cartes alignées, tarifs et FAQ propres, hero mobile soigné. A a de bons détails (chiffres tabulaires, typographie, mobile lisible), mais le journal de la démo est coupé net à la dernière ligne (« 4 août / Mise à disposition… »), et des vides inégaux ainsi que le bloc de texte flottant en haut à droite du hero affaiblissent l'ensemble."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A annonce « Page de démonstration » dans un bandeau, ajoute « nom d'exemple », « offre d'exemple », « à confirmer » et « données fictives », et précise que la liste de contrôle est illustrative. B invente sans le signaler des tarifs, un badge « Le plus choisi », « Données hébergées en France » et des formats « Prêt pour la facture électronique ». Elle n'a ni faux avis ni faux logos, mais rien n'indique que ces éléments sont des exemples."
+ },
+ "defaut_A": "La page est dense et austère, avec un hero sans image forte et une démo qui exige de la lecture, avec des vides inégaux et un journal coupé. Elle retient par l'intelligence plus que par l'émotion, et le CTA est moins mis en avant.",
+ "defaut_B": "Elle est générique et interchangeable : la structure et le visuel sont ceux d'un modèle de landing SaaS, et ses affirmations (hébergement en France, tarifs, conformité) sont présentées comme réelles, sans mention d'exemple.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

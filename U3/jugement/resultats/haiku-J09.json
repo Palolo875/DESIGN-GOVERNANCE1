@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B tient une idée forte et propre, l'échelle des bonnets par profondeur de bassin déclinée jusqu'au planning et aux tarifs, alors que A est chaleureuse et joliment illustrée mais reste un gabarit ludique sans idée propre au-delà de son slogan."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B reste reconnaissable sans son nom grâce à son échelle de profondeur, ses créneaux à places restantes et son déroulé de 45 minutes, alors que A garde son nageur illustré et ses étapes Têtard-Dauphin mais sa structure (groupes par âge, méthode, tarifs, FAQ, formulaire) pourrait servir à une école de musique ou de judo."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "A a une hiérarchie douce, un rythme de cartes régulier et un premier écran mobile propre, B a une typographie plus rigoureuse et des tableaux bien alignés mais plus dense, et aucune des deux ne montre de défaut de finition net sur les captures."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale chaque élément d'exemple (bandeau « maquette », badges EXEMPLE, « chiffres d'exemple, à confirmer par l'école »), alors que A présente comme des faits ses tarifs, les diplômes de ses moniteurs, la température de l'eau et son adresse sans aucun signalement."
+ },
+ "defaut_A": "Ses contenus inventés (tarifs de 165 à 210 €, diplômes BPJEPS et BEESAN, adresse, chiffres) sont présentés comme réels, sans aucun marquage d'exemple.",
+ "defaut_B": "Son ton est froid et dense, avec typographie condensée, bandeaux marine et tableaux, ce qui parle davantage à un adulte qu'à des parents d'enfants de 4 ans.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

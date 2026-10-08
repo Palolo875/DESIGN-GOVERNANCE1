@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B affirme un point de vue (« Une facture n'est finie que lorsqu'elle est payée ») et le prouve dès le premier écran avec un tableau d'encours vivant, alors qu'A a un beau titre à italique rouge mais reste une mise en page de landing SaaS déjà vue."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Sans le nom, B reste propre à la facturation (suivi d'une facture F-2026-0138 jour par jour, statuts Déposée/Rejetée/Refusée/Encaissée, calendrier de la réforme de la facturation électronique), tandis que le squelette d'A (étapes, grille de 6 fonctionnalités, tarifs, FAQ) pourrait servir à n'importe quel SaaS, malgré la facture-maquette tamponnée « PAYÉE »."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A est très propre et chaleureux (hiérarchie claire, serif et accent rouge maîtrisés, cartes régulières, mobile bien empilé), alors que B est solide mais a un vide à gauche sous le héros, beaucoup de petit texte gris très discret et une frise dense, ce qui me fait donner un léger avantage à A."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale partout ce qui est exemple (« nom d'exemple », « Données d'exemple », « Offre et fonctions d'exemple, à confirmer », « Démo, aucun e-mail n'est envoyé », pied de page « données fictives ») et n'a ni faux avis ni faux logos, tandis qu'A présente tarifs (12 €/29 €), promesses (« Données hébergées en France », « Prêt pour la facture électronique obligatoire », badges de formats) et facture sans mention d'exemple ni de réserve."
+ },
+ "defaut_A": "Une landing SaaS bien faite mais générique et sans point de vue au-delà de la promesse « sans relancer », qui présente tarifs, garanties et conformité comme des faits réels sans aucun signalement d'exemple.",
+ "defaut_B": "Le zèle d'honnêteté et de détail alourdit la page (étiquettes « exemple » répétées, petits textes grisés, frise et tableaux denses) et laisse un vide dans la colonne gauche du héros, ce qui nuit à l'impact et à la lisibilité.",
+ "preference": "B",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

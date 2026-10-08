@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Clapotis affirme une idée forte (« Chaque enfant nage à sa profondeur ») portée par un système visuel de bonnets par profondeur, alors que Les Petits Plongeons reste une promesse aimable sans point de vue net."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Les quatre profondeurs de bassin, les créneaux à places restantes et la frise des 45 minutes relient la structure même de la page au métier, alors que B repose surtout sur une illustration de nageur et un habillage ludique qui pourrait servir à une autre école d'enfants."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie typographique plus nette et des alignements plus rigoureux sur ordinateur, avec un léger flottement en mobile (stats de l'accroche réparties de façon bancale sur deux lignes), tandis que B est soigné et bien adapté au mobile mais sur un gabarit de cartes arrondies très attendu."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale systématiquement ce qui est fictif (bandeau « Maquette », étiquettes EXEMPLE, « Données d'exemple », « à confirmer par l'école »), alors que B présente comme réels des diplômes (BPJEPS AAN, BEESAN), un bilan trimestriel, des inscriptions ouvertes et une adresse lyonnaise sans aucun marquage d'exemple."
+ },
+ "defaut_A": "Ton sombre, massif et très typographique, presque adulte, sans aucune image d'enfant pour une école destinée aux 4 à 12 ans.",
+ "defaut_B": "Habillage de gabarit générique (cartes arrondies, illustration de nageur, badges) qui pourrait servir à n'importe quelle école d'enfants, avec de faux éléments de crédibilité présentés comme réels.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

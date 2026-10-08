@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue : un titre qui s'engage (« Envoyer une facture prend deux minutes. Quitus s'occupe des semaines qui suivent. ») et une frise interactive J+31 avec un message client et un journal, qui montrent le produit en train de travailler. B est élégant avec son serif condensé et son vert, mais son hero « facture + onglets de statut » est le schéma attendu du SaaS."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A suit une seule facture de sa création à son encaissement, avec des détails propres à la facturation française : mentions obligatoires, indemnité de 40 €, Factur-X, relances qui évitent les week-ends, mise en demeure soumise à l'accord de l'utilisateur. B contient aussi des éléments du métier (Factur-X, rapprochement bancaire, calendrier de la réforme), mais sa structure (bandeau de 3 bénéfices, cartes de fonctionnalités, bloc sombre, 3 tarifs, FAQ) conviendrait à n'importe quel outil de gestion."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est très cohérent : typographie soignée, rythme des sections, cartes propres, bloc sombre bien placé, mobile net et aéré. A est solide en hiérarchie et en alignements, mais son journal est coupé net en bas (« Mise à disposition… » tronqué), la colonne de texte à droite du hero est un peu lâche, beaucoup de texte est en petit corps gris, et le bas de page est plus sobre. L'écart est faible."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale partout ce qui est exemple : bandeau « Page de démonstration », pastilles « nom d'exemple », « offre d'exemple » et « exemples », mentions « données fictives », « à confirmer », « à valider avec un juriste », et note de bas de page. Il n'a ni faux avis ni faux logos. B n'a ni faux avis ni faux logos non plus, mais il présente sans réserve des chiffres inventés (48 210 € encaissés, tarifs 12/29/79 €) et des promesses factuelles (« Données hébergées en France », « © 2026 Échéance »). Il ne signale jamais que les contenus sont des exemples."
+ },
+ "defaut_A": "Page dense et très rédigée, avec beaucoup de petit texte gris et un journal tronqué ; elle est plus exigeante à lire, avec un hero moins chaleureux et peu d'air.",
+ "defaut_B": "Elle suit le gabarit SaaS générique et présente comme réels des données et des engagements inventés (chiffres du tableau de bord, tarifs, hébergement en France), sans aucune mention d'exemple.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}
