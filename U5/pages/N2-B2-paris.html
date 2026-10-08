@@ -1,0 +1,646 @@
+<!doctype html>
+<!--
+TRACE (légère, Design Governance V1) — proposition EXPLORATORY, aucune acceptation
+1. Mode : DIRECTION (premier contact, marque fictive, brief vague) ; personne joignable : non → plafond déclaré, demandes listées à la livraison.
+2. Thèse : « savoir où en est chaque facture jusqu'au virement » → objet de preuve codé : registre d'octobre interactif (statuts du cycle de vie e-facture, relance, refus corrigeable, totaux recalculés) → geste : ouvrir une facture, corriger un refus, puis démarrer l'essai.
+3. Modal : promesse + capture de dashboard en split, plinthe de logos, 3 cartes bénéfices, 3 cartes tarifs, FAQ ; violet/Inter ou crème/serif ; facture tamponnée ; grotesque sur blanc + accent unique. Parti : pas de logos (aucun client réel), le registre est le hero et organise la page (registre → réforme en outil → relances en séquence réelle → tarifs en table → essai) ; couleur réservée aux statuts, action à l'encre ; titre en mécane (Zilla Slab, comparée à Hanken Grotesk sur le vrai titre) pour le registre administratif/bordereau, corps et chiffres en IBM Plex Sans tabulaire. Alternative écartée : page centrée sur le calendrier de la réforme (urgence) — plus datée, moins durable que le suivi.
+4. Plafond : CODE-NATIVE intégral (aucune photo, aucun logomark), polices Google Fonts externes ; nom « Encaisse », clients, montants, prix, raccordement à une plateforme agréée = exemples marqués ; dates de la réforme vérifiées ce run sur sources secondaires (éditeurs), non officielles.
+5. Revue après captures 390/768/1440 + états (refus→erreur→corrigé, relances, réforme GE, formulaire erreur/succès) : retient = registre comme foyer, totaux à double filet, statuts à indice non chromatique ; corrigé = noms clients tronqués (colonne « Émise » retirée), titre de section mal coupé, vide sous le registre (légende du parcours ajoutée), erreur placée sous son champ, repère « aujourd'hui » sorti de la couleur de statut ; reste générique = en-tête/hero titre + paragraphe + CTA, carte réforme et table tarifs plus sages que le registre.
+6. Prochaine preuve : contenus et marque réels, statut d'immatriculation PA, test avec 5 dirigeants de TPE/PME sur la compréhension du registre.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encaisse — suivi de factures</title>
+<meta name="description" content="Maquette de landing page pour un logiciel de facturation : chaque facture suivie, de l'envoi au virement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2f4f2;
+  --sheet:#ffffff;
+  --ink:#14211d;
+  --ink-2:#45534e;
+  --ink-3:#5d6a65;
+  --rule:#d6ddd9;
+  --rule-2:#b9c5bf;
+  --hover:#eef2ef;
+  --select:#e6ece8;
+  /* statuts : seule couleur de la page */
+  --paid:#17703f;   --paid-bg:#e2f1e7;
+  --wait:#2457a0;   --wait-bg:#e4ecf8;
+  --recv:#4d5c57;   --recv-bg:#e9edeb;
+  --late:#965200;   --late-bg:#fbefdd;
+  --ref:#b0261d;    --ref-bg:#fbe7e5;
+  --radius:12px;
+  --display:'Zilla Slab', 'Rockwell', Georgia, serif;
+  --text:'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.55;font-variant-numeric:tabular-nums}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--wait);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* bandeau maquette */
+.mock{background:var(--ink);color:#e8eeeb;font-size:14px;text-align:center;padding:8px 16px}
+
+/* en-tête */
+header.top{border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:32px;height:68px}
+.brand{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:baseline;gap:2px}
+.brand span{display:inline-block;width:18px;border-bottom:3px double var(--ink);margin-left:3px;transform:translateY(-3px)}
+.top nav{display:flex;gap:26px;margin-left:auto;font-size:15px}
+.top nav a{text-decoration:none;color:var(--ink-2);padding:10px 0}
+.top nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;font:600 16px/1 var(--text);text-decoration:none;border:0;cursor:pointer}
+.btn:hover{background:#26362f}
+.btn.sm{min-height:42px;padding:0 18px;font-size:15px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--hover)}
+
+/* hero */
+.hero{padding:64px 0 36px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px 56px;align-items:end}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(44px,6.4vw,82px);line-height:.98;letter-spacing:-.012em;margin:0;max-width:12ch;text-wrap:balance}
+.lead{font-size:19px;color:var(--ink-2);max-width:46ch;margin:0 0 22px}
+.lead strong{color:var(--ink);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.cta-row .note{font-size:14px;color:var(--ink-3)}
+
+/* registre */
+.ledger-sec{padding:8px 0 88px}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:0 1px 0 rgba(20,33,29,.04),0 18px 40px -28px rgba(20,33,29,.35);overflow:hidden}
+.sheet-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;padding:18px 24px;border-bottom:1px solid var(--rule)}
+.sheet-head h2{font:600 17px/1.3 var(--text);margin:0}
+.sheet-head .period{color:var(--ink-3);font-size:15px}
+.tag{font-size:13px;color:var(--ink-2);background:var(--recv-bg);padding:3px 10px;border-radius:999px;margin-left:auto}
+.totals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--rule)}
+.tot{padding:16px 24px 18px;border-right:1px solid var(--rule)}
+.tot:last-child{border-right:0}
+.tot dt{font-size:14px;color:var(--ink-2)}
+.tot dd{margin:2px 0 0;font:600 26px/1.2 var(--text);letter-spacing:-.01em}
+.tot dd small{font:400 14px/1.4 var(--text);color:var(--ink-2);display:block;letter-spacing:0;margin-top:2px}
+.tot.blocked dd{color:var(--ref)}
+.tot.blocked.is-clear dd{color:var(--paid)}
+.ledger{display:grid;grid-template-columns:minmax(0,1fr) 380px}
+.rows{border-right:1px solid var(--rule)}
+.cols,.row{display:grid;grid-template-columns:104px minmax(0,1fr) 150px 112px 84px;gap:0 14px;align-items:center;padding:0 20px 0 24px}
+.cols{font-size:13px;color:var(--ink-2);height:40px;border-bottom:1px solid var(--rule-2)}
+.cols .num,.row .amt{text-align:right}
+ul.list{list-style:none;margin:0;padding:0}
+.row{width:100%;min-height:62px;background:none;border:0;border-bottom:1px solid var(--rule);font:inherit;font-size:15px;color:inherit;text-align:left;cursor:pointer;position:relative}
+.row:hover{background:var(--hover)}
+.row[aria-pressed="true"]{background:var(--select)}
+.row[aria-pressed="true"]::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ink)}
+.row .no{color:var(--ink-2);font-size:14px}
+.row .cl{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .d{color:var(--ink-2);font-size:14px}
+.row .amt{font-weight:500}
+.total-row{display:grid;grid-template-columns:104px minmax(0,1fr) 150px 112px 84px;gap:0 14px;padding:14px 20px 18px 24px;font-size:15px}
+.total-row .lbl{grid-column:1 / 4;color:var(--ink-2)}
+.total-row .amt{text-align:right;font-weight:600;border-bottom:3px double var(--ink);padding-bottom:2px}
+
+.st{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:3px 9px 3px 7px;border-radius:6px;white-space:nowrap;line-height:1.35}
+.st svg{width:13px;height:13px;flex:none}
+.st.paid{color:var(--paid);background:var(--paid-bg)}
+.st.wait{color:var(--wait);background:var(--wait-bg)}
+.st.recv{color:var(--recv);background:var(--recv-bg)}
+.st.late{color:var(--late);background:var(--late-bg)}
+.st.ref{color:var(--ref);background:var(--ref-bg)}
+
+.legend{padding:22px 24px 26px;border-top:1px solid var(--rule);margin-top:6px}
+.lg-t{font-size:14px;font-weight:600;margin:0 0 10px}
+.lg-steps{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px}
+.lg-steps li{display:flex;align-items:center;gap:7px}
+.lg-steps i{width:22px;height:6px;border-radius:2px;background:var(--ink-2)}
+.lg-steps i.paid{background:var(--paid)}
+.lg-n{margin:0;font-size:14px;color:var(--ink-2);max-width:62ch}
+/* mini parcours */
+.row .d.due{text-align:right}
+.row .dl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.trail{display:flex;gap:3px;justify-content:flex-end;margin-top:5px}
+.trail i{width:14px;height:6px;border-radius:2px;background:var(--rule)}
+.trail i.on{background:var(--ink-2)}
+.trail i.paid{background:var(--paid)}
+.trail i.x{background:var(--ref)}
+
+/* détail */
+.detail{padding:22px 24px 26px;background:#fbfcfb}
+.detail .kicker{font-size:14px;color:var(--ink-2);margin:0}
+.detail h3{font:600 30px/1.15 var(--display);margin:2px 0 4px}
+.detail .meta{font-size:15px;color:var(--ink-2);margin:0 0 14px}
+.path{list-style:none;margin:0 0 18px;padding:0;position:relative}
+.path li{position:relative;padding:0 0 11px 30px;font-size:15px;line-height:1.4}
+.path li::before{content:"";position:absolute;left:8px;top:16px;bottom:-2px;width:2px;background:var(--rule)}
+.path li:last-child::before{display:none}
+.path li.done::before{background:var(--ink-2)}
+.path .dot{position:absolute;left:1px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--sheet);border:2px solid var(--rule-2);display:grid;place-items:center}
+.path .done .dot{background:var(--ink-2);border-color:var(--ink-2)}
+.path .paid .dot{background:var(--paid);border-color:var(--paid)}
+.path .ref .dot{background:var(--ref);border-color:var(--ref)}
+.path .late .dot{border-color:var(--late);border-style:dashed}
+.path .dot svg{width:9px;height:9px}
+.path b{font-weight:600}
+.path .when{color:var(--ink-2);display:block;font-size:14px}
+.next{border-top:1px solid var(--rule);padding-top:16px}
+.next h4{font:600 14px/1.3 var(--text);color:var(--ink-2);margin:0 0 6px}
+.next p{margin:0 0 12px;font-size:15px}
+.fix label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.fix .field{display:flex;gap:8px;flex-wrap:wrap}
+input[type=text],input[type=email]{font:inherit;font-size:16px;min-height:46px;padding:0 14px;border:1.5px solid var(--rule-2);border-radius:8px;background:#fff;color:var(--ink);min-width:0}
+input::placeholder{color:var(--ink-3);opacity:1}
+input:focus-visible{outline:3px solid var(--wait);outline-offset:1px;border-color:var(--ink)}
+input[aria-invalid="true"]{border-color:var(--ref)}
+.fix input{width:100%;display:block}
+.fix .btn{margin-top:12px}
+.fix .err{margin-top:6px}
+.err{color:var(--ref);font-size:14px;margin:8px 0 0;display:flex;gap:6px;align-items:flex-start}
+.demo{font-size:13px;color:var(--ink-3);margin:10px 0 0;font-style:italic}
+.mail{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.5;margin-top:10px}
+.mail p{margin:0 0 6px}
+.linkbtn{background:none;border:0;padding:6px 0;font:600 15px var(--text);color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer;min-height:44px}
+.below{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;margin-top:14px;font-size:14px;color:var(--ink-3)}
+
+/* sections */
+section.band{padding:88px 0;border-top:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:24px 56px;align-items:end;margin-bottom:40px}
+h2.big{font:600 clamp(34px,4vw,50px)/1.04 var(--display);letter-spacing:-.008em;margin:0;max-width:16ch;text-wrap:balance}
+.sec-head p{margin:0;color:var(--ink-2);font-size:18px;max-width:52ch}
+
+/* réforme */
+.reform{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px 56px;align-items:start}
+fieldset{border:0;margin:0;padding:0}
+legend{font-weight:600;font-size:15px;margin-bottom:12px}
+.sizes{display:grid;gap:8px}
+.size{display:flex;align-items:center;gap:12px;min-height:54px;padding:8px 16px;border:1.5px solid var(--rule-2);border-radius:10px;background:var(--sheet);cursor:pointer;font-size:16px}
+.size small{display:block;color:var(--ink-2);font-size:13px}
+.size input{width:18px;height:18px;accent-color:var(--ink);margin:0;flex:none}
+.size:has(input:checked){border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.size:has(input:focus-visible){outline:3px solid var(--wait);outline-offset:2px}
+.size input::placeholder{color:var(--ink-3);opacity:1}
+input:focus-visible{outline:none}
+.verdict{background:var(--sheet);border:1px solid var(--rule);border-radius:var(--radius);padding:28px 28px 24px}
+.dates{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:26px}
+.date dt{font-size:14px;color:var(--ink-2)}
+.date dd{margin:2px 0 0;font:600 30px/1.15 var(--display)}
+.date dd sup,h1 sup{line-height:0;font-size:.55em}
+.date .state{font:500 14px/1.4 var(--text);margin-top:6px;display:flex;gap:6px;align-items:center}
+.date .state.now{color:var(--paid)}
+.date .state.soon{color:var(--wait)}
+.ruler{position:relative;height:74px;margin:0 6px 8px}
+.ruler .base{position:absolute;left:0;right:0;top:34px;height:2px;background:var(--ink)}
+.ruler .tick{position:absolute;top:28px;width:1px;height:8px;background:var(--ink-2)}
+.ruler .tick.y{height:16px;top:22px;width:2px;background:var(--ink)}
+.ruler .yl{position:absolute;top:42px;font-size:13px;color:var(--ink-2);margin-left:6px}
+.ruler .ev{position:absolute;top:0;transform:translateX(-50%);font-size:12px;font-weight:600;white-space:nowrap}
+.ruler .ev::after{content:"";position:absolute;left:50%;top:18px;width:10px;height:10px;border-radius:50%;background:var(--sheet);border:2.5px solid currentColor;transform:translate(-50%,0)}
+.ruler .ev.r{color:var(--ink)}
+.ruler .ev.e{color:var(--wait)}
+.ruler .today{position:absolute;top:22px;height:30px;width:0;border-left:2px dashed var(--ink-2)}
+.ruler .today span{position:absolute;top:30px;left:-30px;width:60px;text-align:center;font-size:12px;font-weight:600;color:var(--ink-2)}
+.src{font-size:13px;color:var(--ink-3);margin:16px 0 0;border-top:1px solid var(--rule);padding-top:12px}
+.does{margin:0 0 6px;font-size:16px}
+
+/* relances */
+.dun{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px 56px;align-items:start}
+.steps{list-style:none;margin:0;padding:0;border-left:2px solid var(--ink);margin-left:6px}
+.steps li{position:relative;padding:0 0 26px 26px}
+.steps li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.steps li.cur::before{background:var(--ink)}
+.steps .j{font:600 22px/1.2 var(--display)}
+.steps p{margin:2px 0 0;color:var(--ink-2);font-size:16px}
+.letter{background:var(--sheet);border:1px solid var(--rule);border-radius:var(--radius);padding:28px 32px}
+.letter .hd{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px;color:var(--ink-2);padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:18px}
+.letter .hd b{color:var(--ink);font-weight:500}
+.letter p{margin:0 0 12px;font-size:16px}
+.letter .pay{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border:1px solid var(--rule-2);border-radius:8px;padding:12px 16px;margin:16px 0 14px;font-size:15px}
+.letter .pay strong{font-size:18px}
+.tones{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tones button{font:500 14px var(--text);min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--rule-2);background:var(--sheet);color:var(--ink);cursor:pointer}
+.tones button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* tarifs */
+.price{width:100%;border-collapse:collapse;background:var(--sheet);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;font-size:16px}
+.price th,.price td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--rule);vertical-align:top}
+.price thead th{font-size:14px;font-weight:500;color:var(--ink-2);padding-top:14px;padding-bottom:14px;border-bottom-color:var(--rule-2)}
+.price tbody th{font:600 24px/1.2 var(--display)}
+.price tbody th small{display:block;font:400 14px/1.4 var(--text);color:var(--ink-2);margin-top:2px}
+.price .p{white-space:nowrap;font-weight:600;font-size:22px}
+.price .p small{font-weight:400;font-size:14px;color:var(--ink-2)}
+.price tr.rec{background:#f7f9f8}
+.price tbody tr:last-child th,.price tbody tr:last-child td{border-bottom:0}
+.price-note{font-size:14px;color:var(--ink-3);margin:12px 0 0}
+
+/* essai */
+.trial{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:40px 56px;align-items:start}
+.trial form{background:var(--sheet);border:1px solid var(--rule);border-radius:var(--radius);padding:28px}
+.trial label{display:block;font-weight:600;font-size:15px;margin:0 0 6px}
+.trial .hint{display:block;font-weight:400;color:var(--ink-2);font-size:14px}
+.trial input{width:100%;margin-bottom:4px}
+.trial .f{margin-bottom:18px}
+.ok{background:var(--paid-bg);color:#0f4f2b;border-radius:8px;padding:14px 16px;font-size:15px;margin-top:16px}
+.trial ul{margin:0;padding:0 0 0 20px;color:var(--ink-2)}
+.trial li{margin-bottom:6px}
+
+footer{border-top:1px solid var(--rule);padding:32px 0 48px;font-size:14px;color:var(--ink-3)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+
+/* responsive */
+@media (max-width:1080px){
+  .ledger{grid-template-columns:1fr}
+  .rows{border-right:0;border-bottom:1px solid var(--rule)}
+}
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .hero{padding:40px 0 28px}
+  .hero .wrap,.sec-head,.reform,.dun,.trial{grid-template-columns:1fr}
+  .top .wrap{flex-wrap:wrap;height:auto;padding-top:12px;padding-bottom:4px;gap:4px 16px;justify-content:space-between}
+  .top nav{order:3;width:100%;margin-left:0;gap:20px;overflow-x:auto;font-size:14px}
+  .totals{grid-template-columns:1fr}
+  .tot{border-right:0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 20px}
+  .tot:last-child{border-bottom:0}
+  .tot dd{text-align:right;font-size:21px}
+  .cols{display:none}
+  .row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"cl amt" "no st" "d d";gap:4px 12px;padding:14px 20px;min-height:0}
+  .row .cl{grid-area:cl}.row .amt{grid-area:amt}.row .no{grid-area:no}.row .sw{grid-area:st;justify-self:end}
+  .row .d.issue{display:none}.row .d.due{grid-area:d;grid-column:1 / -1;display:flex;justify-content:flex-start;align-items:center;gap:4px}
+  .row .d.due .trail{margin:0 0 0 auto}
+  .total-row{grid-template-columns:1fr auto;padding:14px 20px 18px}
+  .total-row .lbl{grid-column:1}
+  .total-row .sp{display:none}
+  .row .dl{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:pre}
+  .row .d.due{text-align:left}
+  .steps{display:none}
+  .detail{padding:20px}
+  section.band{padding:64px 0}
+  .dates{grid-template-columns:1fr}
+  .verdict,.letter,.trial form{padding:22px 20px}
+  .price thead{display:none}
+  .price,.price tbody,.price tr,.price th,.price td{display:block}
+  .price tr{border-bottom:1px solid var(--rule);padding:6px 0}
+  .price th,.price td{border:0;padding:6px 20px}
+  .price tbody th{padding-top:14px}
+  .price td:last-child{padding-bottom:16px}
+  .sheet-head .tag{margin-left:0}
+}
+@media (max-width:420px){
+  .brand{font-size:23px}
+  .top .btn.sm{padding:0 14px}
+}
+</style>
+</head>
+<body>
+<p class="mock">Maquette — le nom « Encaisse », les clients, montants, prix et raccordements sont des exemples.</p>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Encaisse, accueil">Encaisse<span aria-hidden="true"></span></a>
+    <nav aria-label="Sections">
+      <a href="#registre">Le suivi</a>
+      <a href="#reforme">Réforme 2026</a>
+      <a href="#relances">Relances</a>
+      <a href="#tarifs">Tarifs</a>
+    </nav>
+    <a class="btn sm" href="#essai">Essai gratuit</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="titre">
+  <div class="wrap">
+    <h1 id="titre">Chaque facture suivie, de l’envoi au virement.</h1>
+    <div>
+      <p class="lead">Depuis le 1<sup>er</sup> septembre 2026, chaque facture électronique porte un statut&nbsp;: déposée, reçue, refusée, encaissée. <strong>Encaisse les range sur une seule ligne</strong>, relance quand l’échéance passe et vous dit ce qui rentrera ce mois-ci.</p>
+      <div class="cta-row">
+        <a class="btn" href="#essai">Démarrer l’essai — 30 jours</a>
+        <span class="note">Sans carte bancaire</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ledger-sec" id="registre" aria-labelledby="reg-titre">
+  <div class="wrap">
+    <div class="sheet">
+      <div class="sheet-head">
+        <h2 id="reg-titre">Vos factures d’octobre</h2>
+        <span class="period">au 8 octobre 2026</span>
+        <span class="tag">Exemple interactif · données fictives</span>
+      </div>
+      <dl class="totals" aria-live="polite">
+        <div class="tot"><dt>Encaissé en octobre</dt><dd id="t-paid">4&nbsp;320,00&nbsp;€</dd></div>
+        <div class="tot"><dt>Attendu d’ici le 31 octobre</dt><dd><span id="t-due">12&nbsp;000,00&nbsp;€</span><small id="t-late">dont 1&nbsp;860,00&nbsp;€ en retard</small></dd></div>
+        <div class="tot blocked" id="t-block-box"><dt>Bloqué par un refus</dt><dd><span id="t-block">2&nbsp;940,00&nbsp;€</span><small id="t-block-s">1 facture à corriger</small></dd></div>
+      </dl>
+      <div class="ledger">
+        <div class="rows">
+          <div class="cols" aria-hidden="true"><span>N°</span><span>Client</span><span>Statut</span><span class="num">Montant TTC</span><span class="num">Échéance</span></div>
+          <ul class="list" id="list" aria-label="Factures, choisissez-en une pour voir son parcours"></ul>
+          <div class="total-row"><span class="lbl">Total facturé · 5 factures</span><span class="amt">21&nbsp;600,00&nbsp;€</span></div>
+          <div class="legend">
+            <p class="lg-t">Lire le parcours</p>
+            <ol class="lg-steps" aria-label="Étapes du parcours">
+              <li><i></i>Déposée</li><li><i></i>Reçue</li><li><i></i>Approuvée</li><li><i class="paid"></i>Encaissée</li>
+            </ol>
+            <p class="lg-n">Un trait par étape, tel que le statut remonte de la plateforme de votre client. Trait rouge et croix&nbsp;: refusée, avec son motif. Choisissez une ligne pour voir le détail.</p>
+          </div>
+        </div>
+        <div class="detail" id="detail" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="reforme" aria-labelledby="ref-titre">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="big" id="ref-titre">La réforme, pour votre entreprise.</h2>
+      <p>Recevoir des factures électroniques est obligatoire pour toutes les entreprises depuis le 1<sup>er</sup> septembre 2026. L’obligation d’émettre dépend de votre taille.</p>
+    </div>
+    <div class="reform">
+      <fieldset>
+        <legend>Votre entreprise est…</legend>
+        <div class="sizes" id="sizes">
+          <label class="size"><input type="radio" name="size" value="micro"><span>Micro-entreprise<small>moins de 10 salariés</small></span></label>
+          <label class="size"><input type="radio" name="size" value="pme" checked><span>PME<small>moins de 250 salariés</small></span></label>
+          <label class="size"><input type="radio" name="size" value="eti"><span>ETI<small>moins de 5 000 salariés</small></span></label>
+          <label class="size"><input type="radio" name="size" value="ge"><span>Grande entreprise<small>5 000 salariés et plus</small></span></label>
+        </div>
+      </fieldset>
+      <div class="verdict" aria-live="polite">
+        <dl class="dates">
+          <div class="date"><dt>Recevoir des e-factures</dt><dd>1<sup>er</sup> sept. 2026</dd><div class="state now"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2"/></svg>En vigueur</div></div>
+          <div class="date"><dt>Émettre des e-factures</dt><dd id="emit-date">1<sup>er</sup> sept. 2027</dd><div class="state soon" id="emit-state"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 4v3.3l2 1.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span id="emit-left">Dans 328 jours</span></div></div>
+        </dl>
+        <div class="ruler" id="ruler" aria-hidden="true"></div>
+        <p class="does" id="does">D’ici là, envoyez vos factures en PDF comme aujourd’hui : Encaisse les suit déjà, et basculera en facture électronique le jour venu, sans changer vos habitudes.</p>
+        <p class="src">Calendrier d’après des sources publiques consultées le 8 octobre 2026. Vérifiez votre situation sur impots.gouv.fr. Le raccordement d’Encaisse à une plateforme agréée est un exemple de cette maquette.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="relances" aria-labelledby="rel-titre">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="big" id="rel-titre">Quand l’échéance passe, la relance part.</h2>
+      <p>Trois messages, du plus courtois au plus précis. Vous gardez la main : chaque relance peut être relue, reportée ou coupée pour un client.</p>
+    </div>
+    <div class="dun">
+      <ol class="steps" id="steps">
+        <li data-tone="1" class="cur"><div class="j">J+1</div><p>Rappel aimable, avec la facture et le lien de paiement.</p></li>
+        <li data-tone="2"><div class="j">J+10</div><p>Relance précise : montant, date d’échéance, coordonnées bancaires.</p></li>
+        <li data-tone="3"><div class="j">J+20</div><p>Dernier rappel, avec les pénalités prévues par vos conditions.</p></li>
+      </ol>
+      <div class="letter">
+        <div class="tones" role="group" aria-label="Voir la relance">
+          <button type="button" data-t="1" aria-pressed="true">J+1 · aimable</button>
+          <button type="button" data-t="2" aria-pressed="false">J+10 · précise</button>
+          <button type="button" data-t="3" aria-pressed="false">J+20 · ferme</button>
+        </div>
+        <div class="hd"><span>À</span><b>compta@brasseriedeshalles.fr</b><span>Objet</span><b id="l-subj">Facture F-2026-0418 — petit rappel</b></div>
+        <div id="l-body"></div>
+        <div class="pay"><span>Facture F-2026-0418 · échue le 30 sept. 2026</span><strong>1&nbsp;860,00&nbsp;€</strong></div>
+        <p class="demo">Message d’exemple, modifiable dans les réglages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="tarifs" aria-labelledby="tar-titre">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="big" id="tar-titre">Un prix au volume de factures.</h2>
+      <p>Le suivi, les relances et la réception des e-factures sont inclus dans chaque formule. Vous changez de formule quand votre volume change.</p>
+    </div>
+    <table class="price">
+      <caption class="sr">Formules et prix d’exemple</caption>
+      <thead><tr><th scope="col">Formule</th><th scope="col">Factures émises</th><th scope="col">Inclus</th><th scope="col">Prix HT</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Solo<small>indépendants, micro-entreprises</small></th><td>jusqu’à 20 par mois</td><td>1 utilisateur · relances automatiques · rapprochement bancaire</td><td class="p">9&nbsp;€ <small>/ mois</small></td></tr>
+        <tr class="rec"><th scope="row">Atelier<small>TPE et PME</small></th><td>jusqu’à 200 par mois</td><td>5 utilisateurs · relances personnalisées · export comptable</td><td class="p">29&nbsp;€ <small>/ mois</small></td></tr>
+        <tr><th scope="row">Cabinet<small>volumes et multi-sociétés</small></th><td>au-delà de 200</td><td>Sociétés multiples · accès expert-comptable · API</td><td class="p">Sur devis</td></tr>
+      </tbody>
+    </table>
+    <p class="price-note">Prix d’exemple de la maquette, à remplacer par la grille réelle.</p>
+  </div>
+</section>
+
+<section class="band" id="essai" aria-labelledby="ess-titre">
+  <div class="wrap trial">
+    <div>
+      <h2 class="big" id="ess-titre">Importez vos factures en cours, voyez où elles en sont.</h2>
+      <ul style="margin-top:22px">
+        <li>30 jours d’essai, sans carte bancaire.</li>
+        <li>Import de vos factures en PDF ou depuis votre outil actuel.</li>
+        <li>Votre SIREN suffit pour remplir la fiche de votre entreprise.</li>
+      </ul>
+    </div>
+    <form id="form" novalidate>
+      <div class="f">
+        <label for="email">E-mail professionnel</label>
+        <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-err" required>
+        <p class="err" id="email-err" hidden></p>
+      </div>
+      <div class="f">
+        <label for="siren">SIREN <span class="hint">9 chiffres, sur votre extrait Kbis ou avis de situation</span></label>
+        <input type="text" id="siren" name="siren" inputmode="numeric" autocomplete="off" aria-describedby="siren-err" required>
+        <p class="err" id="siren-err" hidden></p>
+      </div>
+      <button class="btn" type="submit">Démarrer l’essai</button>
+      <div class="ok" id="ok" role="status" hidden></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Encaisse — maquette de proposition, octobre 2026.</span>
+    <span>Nom, clients, montants, prix, conformité et raccordements : exemples à remplacer.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var fmt = function(n){ return n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}).replace(/ |\s/g,' ') + ' €'; };
+  var ICON = {
+    paid:'<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>',
+    wait:'<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M8 3.5L11.5 7 8 10.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    recv:'<svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    late:'<svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 3.8v3.5l2.2 1.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    ref:'<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>'
+  };
+  var CHECK = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.3l2 2 4-4.6" fill="none" stroke="#fff" stroke-width="1.8"/></svg>';
+  var CROSS = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5" fill="none" stroke="#fff" stroke-width="1.8"/></svg>';
+
+  var inv = [
+    {id:'F-2026-0412', client:'Atelier Morel', issue:'5 sept.', due:'5 oct.', amt:4320, st:'paid', label:'Encaissée',
+     steps:[['done','Déposée','5 sept.'],['done','Reçue par Atelier Morel','5 sept.'],['done','Approuvée','9 sept.'],['paid','Encaissée','3 oct. — virement rapproché automatiquement']],
+     next:'<h4>Prochaine action</h4><p>Aucune. Le virement « ATELIER MOREL F-2026-0412 » a été rapproché de la facture le 3 octobre.</p>'},
+    {id:'F-2026-0418', client:'Brasserie des Halles', issue:'12 sept.', due:'30 sept.', amt:1860, st:'late', label:'En retard · J+8',
+     steps:[['done','Déposée','12 sept.'],['done','Reçue par Brasserie des Halles','12 sept.'],['done','Approuvée','15 sept.'],['late','Paiement attendu','échue le 30 sept. · relance 1 envoyée le 1<sup>er</sup>\u00a0oct., ouverte le 2\u00a0oct.']],
+     next:'<h4>Prochaine action</h4><p>Relance 2 (précise) programmée le <b>10 octobre à 9 h</b>.</p><a class="linkbtn" href="#relances" data-tone="2">Lire la relance 2</a>'},
+    {id:'F-2026-0425', client:'Cabinet Lefèvre & associés', issue:'24 sept.', due:'24 oct.', amt:7200, st:'wait', label:'Approuvée',
+     steps:[['done','Déposée','24 sept.'],['done','Reçue par Cabinet Lefèvre & associés','24 sept.'],['done','Approuvée','29 sept.'],['todo','Encaissée','attendue le 24 oct.']],
+     next:'<h4>Prochaine action</h4><p>Rien avant l’échéance. Sans virement le 24 octobre, le rappel aimable part le 25.</p>'},
+    {id:'F-2026-0431', client:'SCI Les Tilleuls', issue:'2 oct.', due:'31 oct.', amt:2940, st:'ref', label:'Refusée',
+     steps:[['done','Déposée','2 oct.'],['done','Reçue par SCI Les Tilleuls','2 oct.'],['ref','Refusée','3 oct. — motif : numéro de bon de commande absent'],['todo','Encaissée','bloquée tant que la facture n’est pas corrigée']],
+     fix:true},
+    {id:'F-2026-0433', client:'Studio Nadir', issue:'6 oct.', due:'5 nov.', amt:5280, st:'recv', label:'Reçue',
+     steps:[['done','Déposée','6 oct.'],['done','Reçue par Studio Nadir','6 oct.'],['todo','Approuvée','en attente de validation chez Studio Nadir'],['todo','Encaissée','attendue le 5 nov.']],
+     next:'<h4>Prochaine action</h4><p>Aucune pour l’instant. Vous serez prévenu si Studio Nadir refuse ou met la facture en litige.</p>'}
+  ];
+  var sel = 1, fixedPO = null;
+  var list = document.getElementById('list'), detail = document.getElementById('detail');
+
+  function trail(f){
+    var n = 0, cls = [];
+    f.steps.forEach(function(s){ cls.push(s[0]==='done'?'on':s[0]==='paid'?'paid':s[0]==='ref'?'x':''); });
+    return '<span class="trail" aria-hidden="true">' + cls.map(function(c){return '<i class="'+c+'"></i>';}).join('') + '</span>';
+  }
+  function chip(f){ return '<span class="st '+f.st+'">'+ICON[f.st]+f.label+'</span>'; }
+
+  // colonne « Échéance » : la puce de statut porte l'état, la date sous elle
+  function renderListFinal(){
+    list.innerHTML = inv.map(function(f,i){
+      return '<li><button type="button" class="row" aria-pressed="'+(i===sel)+'" data-i="'+i+'">'+
+        '<span class="no">'+f.id+'</span>'+
+        '<span class="cl">'+f.client+'</span>'+
+        '<span class="sw">'+chip(f)+'</span>'+
+        '<span class="amt">'+fmt(f.amt)+'</span>'+
+        '<span class="d due"><span class="dl">Échéance </span>'+f.due+trail(f)+'</span>'+
+        '</button></li>';
+    }).join('');
+  }
+
+  function renderDetail(){
+    var f = inv[sel];
+    var h = '<p class="kicker">'+f.id+' · émise le '+f.issue+'</p><h3>'+f.client+'</h3><p class="meta">'+fmt(f.amt)+' TTC · échéance '+f.due+' 2026</p><ol class="path">';
+    f.steps.forEach(function(s){
+      var dot = s[0]==='ref'?CROSS:(s[0]==='todo'||s[0]==='late')?'':CHECK;
+      h += '<li class="'+(s[0]==='todo'?'':s[0]==='late'?'late':s[0]==='ref'?'ref':s[0]==='paid'?'paid done':'done')+'"><span class="dot">'+dot+'</span><b>'+s[1]+'</b><span class="when">'+s[2]+'</span></li>';
+    });
+    h += '</ol><div class="next">';
+    if (f.fix && !fixedPO){
+      h += '<h4>Prochaine action</h4><p>SCI Les Tilleuls exige un numéro de bon de commande sur ses factures.</p>'+
+        '<form class="fix" id="fix" novalidate><label for="po">N° de bon de commande</label><input type="text" id="po" placeholder="ex. BC-2026-118" aria-describedby="po-err po-demo">'+
+        '<p class="err" id="po-err" hidden></p><button class="btn sm" type="submit">Corriger et redéposer</button><p class="demo" id="po-demo">Démonstration : rien n’est transmis.</p></form>';
+    } else {
+      h += f.next;
+    }
+    h += '</div>';
+    detail.innerHTML = h;
+    var fx = document.getElementById('fix');
+    if (fx) fx.addEventListener('submit', onFix);
+  }
+
+  function onFix(e){
+    e.preventDefault();
+    var po = document.getElementById('po'), err = document.getElementById('po-err');
+    var v = po.value.trim();
+    if (!v){
+      err.hidden = false; err.textContent = 'Saisissez le numéro indiqué sur le bon de commande de SCI Les Tilleuls.';
+      po.setAttribute('aria-invalid','true'); po.focus(); return;
+    }
+    fixedPO = v;
+    var f = inv[3];
+    f.st = 'recv'; f.label = 'Redéposée';
+    f.steps = [['done','Déposée','2 oct.'],['done','Reçue par SCI Les Tilleuls','2 oct.'],['done','Refusée, puis corrigée','8 oct. — bon de commande '+v.replace(/[<>&"]/g,'')+' ajouté'],['todo','Redéposée, en attente d’approbation','attendue le 31 oct.']];
+    f.next = '<h4>Prochaine action</h4><p>Facture corrigée et redéposée. Vous serez prévenu dès que SCI Les Tilleuls l’approuve.</p><p class="demo">Démonstration : rien n’a été transmis.</p>';
+    totals(); renderListFinal(); renderDetail();
+    var b = list.querySelector('[data-i="3"]'); if (b) b.focus();
+  }
+
+  function totals(){
+    var blocked = inv[3].st==='ref' ? inv[3].amt : 0;
+    document.getElementById('t-block').textContent = fmt(blocked);
+    document.getElementById('t-block-s').textContent = blocked ? '1 facture à corriger' : 'aucune facture à corriger';
+    document.getElementById('t-block-box').classList.toggle('is-clear', !blocked);
+  }
+
+  list.addEventListener('click', function(e){
+    var b = e.target.closest('.row'); if (!b) return;
+    sel = +b.getAttribute('data-i');
+    list.querySelectorAll('.row').forEach(function(r){ r.setAttribute('aria-pressed', String(+r.getAttribute('data-i')===sel)); });
+    renderDetail();
+    if (window.matchMedia('(max-width:1080px)').matches) detail.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'nearest'});
+  });
+  detail.addEventListener('click', function(e){
+    var a = e.target.closest('[data-tone]'); if (a) setTone(a.getAttribute('data-tone'));
+  });
+  renderListFinal(); renderDetail();
+
+  /* réforme */
+  var MS = 864e5;
+  var today = new Date(); today.setHours(0,0,0,0);
+  var D26 = new Date(2026,8,1), D27 = new Date(2027,8,1);
+  var start = new Date(2026,0,1), end = new Date(2028,0,1);
+  function pos(d){ return Math.max(0,Math.min(100,(d-start)/(end-start)*100)); }
+  function ruler(emit){
+    var r = document.getElementById('ruler'), h = '<div class="base"></div>';
+    for (var m=0;m<=24;m++){ var d = new Date(2026,m,1); h += '<span class="tick'+(m%12===0?' y':'')+'" style="left:'+pos(d)+'%"></span>'; }
+    h += '<span class="yl" style="left:0">2026</span><span class="yl" style="left:'+pos(new Date(2027,0,1))+'%">2027</span>';
+    var same = emit.getTime()===D26.getTime();
+    h += '<span class="ev r" style="left:'+pos(D26)+'%">'+(same?'Recevoir et émettre':'Recevoir')+'</span>';
+    if (!same) h += '<span class="ev e" style="left:'+pos(D27)+'%">Émettre</span>';
+    if (today>=start && today<end) h += '<span class="today" style="left:'+pos(today)+'%"><span>Aujourd’hui</span></span>';
+    r.innerHTML = h;
+  }
+  function setSize(v){
+    var big = (v==='eti'||v==='ge'), emit = big?D26:D27;
+    document.getElementById('emit-date').innerHTML = big ? '1<sup>er</sup> sept. 2026' : '1<sup>er</sup> sept. 2027';
+    var st = document.getElementById('emit-state'), left = Math.round((emit-today)/MS);
+    st.className = 'state ' + (left<=0?'now':'soon');
+    document.getElementById('emit-left').textContent = left<=0 ? 'En vigueur' : ('Dans '+left+' jours');
+    document.getElementById('does').textContent = big
+      ? 'Vos factures partent déjà au format électronique : Encaisse les dépose, suit leurs statuts et transmet les données de facturation attendues.'
+      : 'D’ici là, envoyez vos factures en PDF comme aujourd’hui : Encaisse les suit déjà, et basculera en facture électronique le jour venu, sans changer vos habitudes.';
+    ruler(emit);
+  }
+  document.getElementById('sizes').addEventListener('change', function(e){ setSize(e.target.value); });
+  setSize('pme');
+
+  /* relances */
+  var L = {
+    '1':{s:'Facture F-2026-0418 — petit rappel', b:'<p>Bonjour,</p><p>Sauf erreur de notre part, la facture F-2026-0418 arrivait à échéance hier. Si le virement est déjà parti, merci de ne pas tenir compte de ce message.</p><p>Vous pouvez la régler en un clic depuis le lien ci-dessous.</p>'},
+    '2':{s:'Facture F-2026-0418 — échue depuis 10 jours', b:'<p>Bonjour,</p><p>La facture F-2026-0418 de 1&nbsp;860,00&nbsp;€, échue le 30 septembre, reste impayée à ce jour.</p><p>IBAN : FR76 0000 0000 0000 0000 0000 000 (exemple) — référence à indiquer : F-2026-0418.</p>'},
+    '3':{s:'Facture F-2026-0418 — dernier rappel avant pénalités', b:'<p>Bonjour,</p><p>Malgré nos deux rappels, la facture F-2026-0418 reste impayée. Sans règlement sous 8 jours, les pénalités de retard prévues à nos conditions et l’indemnité forfaitaire de 40&nbsp;€ pour frais de recouvrement s’appliqueront.</p>'}
+  };
+  function setTone(t){
+    document.querySelectorAll('.tones button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-t')===t)); });
+    document.querySelectorAll('#steps li').forEach(function(li){ li.classList.toggle('cur', li.getAttribute('data-tone')===t); });
+    document.getElementById('l-subj').textContent = L[t].s;
+    document.getElementById('l-body').innerHTML = L[t].b;
+  }
+  document.querySelector('.tones').addEventListener('click', function(e){ var b=e.target.closest('button'); if(b) setTone(b.getAttribute('data-t')); });
+  setTone('1');
+
+  /* essai */
+  var form = document.getElementById('form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var em = form.email, sn = form.siren, ok = true, first = null;
+    function setErr(inp, id, msg){
+      var p = document.getElementById(id);
+      if (msg){ p.hidden=false; p.textContent=msg; inp.setAttribute('aria-invalid','true'); ok=false; first = first||inp; }
+      else { p.hidden=true; p.textContent=''; inp.removeAttribute('aria-invalid'); }
+    }
+    var ev = em.value.trim(), sv = sn.value.replace(/\s/g,'');
+    setErr(em,'email-err', !ev ? 'Indiquez votre e-mail professionnel.' : (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ev) ? 'Cette adresse semble incomplète : vérifiez le « @ » et le domaine.' : ''));
+    setErr(sn,'siren-err', !sv ? 'Indiquez votre SIREN.' : (!/^\d{9}$/.test(sv) ? 'Le SIREN compte 9 chiffres ; vous en avez saisi '+sv.replace(/\D/g,'').length+'.' : ''));
+    var box = document.getElementById('ok');
+    if (!ok){ box.hidden = true; first.focus(); return; }
+    box.hidden = false;
+    box.textContent = 'Maquette : rien n’a été envoyé. Dans la vraie version, un lien de connexion partirait vers ' + ev + ' et la fiche de l’entreprise ' + sv.replace(/(\d{3})(\d{3})(\d{3})/,'$1 $2 $3') + ' serait préremplie.';
+  });
+})();
+</script>
+</body>
+</html>

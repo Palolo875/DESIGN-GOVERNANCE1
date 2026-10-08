@@ -1,0 +1,776 @@
+<!doctype html>
+<!--
+TRACE (légère) — Design Governance V1
+Mode : DIRECTION, proposition EXPLORATORY (pas de verdict). Brief vague, personne pour répondre : hypothèses nommées, aucune ancre observée ou fournie (marque, produit, captures).
+Thèse : « une facture n'est finie que lorsqu'elle est encaissée » → objet de preuve codé : la fiche de suivi d'UNE facture à travers les statuts de la facturation électronique (déposée, rejetée, refusée, encaissée…), avec 4 scénarios et l'action proposée pour chacun → geste : résoudre l'incident dans la démo, puis « Ouvrir un compte ».
+Modal, trame et parti : modal = hero promesse + capture, logos, 3 bénéfices, 3 tarifs, FAQ ; facture-document « tamponnée PAYÉE » (marqueur de convergence 30-09-2026) ; fond crème + serif. Parti : la page suit une facture (suivi → rejet/refus → relevé → calendrier de la réforme → tarifs → compte) ; pas de logos ni témoignages ; papier de registre vert-gris, couleur réservée aux statuts, Schibsted Grotesk (comparée à Newsreader et Spectral sur le vrai titre) + Hanken Grotesk chiffres tabulaires. Alternative écartée : un composeur de facture interactif au hero (montre la saisie, pas ce qui arrive après — la vraie inquiétude en 2026).
+Plafond et contenus marqués : CODE-NATIVE / SANS-ASSET (aucune photo, aucun logo). Nom « Échéance », clients, montants, prix, fonctions, intégrations et agrément = exemples (mention globale + locales prix/compte/conformité). Calendrier et statuts de la réforme : sources secondaires vérifiées ce jour (08-10-2026), texte officiel non relu.
+Défaut dominant restant / prochaine preuve : revue après capture (390/768/1440 + états rejet, refus, retard, formulaire erreur/succès) — retient : la fiche de suivi et ses 4 cas résolus en un clic, la règle du calendrier exacte (position du jour calculée), les espaces fines françaises ; générique : l'en-tête de section titre gauche / texte droite répété cinq fois et les deux cartes de tarifs. Gestes appliqués et réinspectés : sticky du texte de hero retiré (texte remonté au premier écran), panneau « ce que fait Échéance » réduit à son contenu, scénarios en grille 2×2, étiquettes de la règle sorties des repères (contraste RETURN → réserve) et réduites aux bornes sur mobile. Prochaine preuve : ancre réelle (marque, produit, statut d'agrément PA), relecture juridique du calendrier, test de compréhension rejet/refus avec 5 dirigeants de TPE.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Échéance — facturation électronique suivie jusqu’à l’encaissement</title>
+<meta name="description" content="Maquette de landing page pour un logiciel de facturation : chaque facture suivie, statut par statut, jusqu’à l’encaissement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  /* surfaces : papier de registre */
+  --paper:#EDF1EA;
+  --sheet:#FAFBF7;
+  --sunk:#E3E9E0;
+  /* encre */
+  --ink:#122019;
+  --ink-2:#3D4B43;
+  --ink-3:#56645B;
+  /* frontières */
+  --rule:#CAD4C6;
+  --rule-strong:#93A391;
+  /* statuts — la couleur ne sert qu'à eux */
+  --st-flow:#2C5878;      /* en circulation */
+  --st-flow-bg:#E1EAF1;
+  --st-ok:#1D6646;        /* approuvée, paiement transmis */
+  --st-ok-bg:#DDEDE3;
+  --st-alert:#AE3418;     /* rejet technique, retard */
+  --st-alert-bg:#F7E3DC;
+  --st-warn:#7E5300;      /* refus commercial */
+  --st-warn-bg:#F5EBD3;
+  /* action */
+  --action:#122019;
+  --action-ink:#FAFBF7;
+  --focus:#2C5878;
+
+  --f-display:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-text:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-id:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --r-sheet:14px;
+  --r-inner:8px;   /* 14 − 6 d'inset */
+  --gutter:16px;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 17px/1.55 var(--f-text);
+  font-variant-numeric: tabular-nums lining-nums;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+@media (min-width:768px){:root{--gutter:32px}}
+.skip{position:absolute;left:8px;top:8px;transform:translateY(-200%);background:var(--ink);color:var(--sheet);padding:10px 14px;border-radius:6px;z-index:10}
+.skip:focus{transform:none}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.id{font-family:var(--f-id);font-size:.88em;letter-spacing:0}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* bande maquette */
+.mock{background:var(--sunk);border-bottom:1px solid var(--rule);font-size:13.5px;color:var(--ink-2)}
+.mock .wrap{padding-top:7px;padding-bottom:7px}
+
+/* en-tête */
+header.top{border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.mark{font:800 22px/1 var(--f-display);letter-spacing:-.02em;text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.mark small{font:500 12.5px/1 var(--f-text);color:var(--ink-2);letter-spacing:0}
+nav.links{display:none;gap:28px;font-size:15.5px}
+nav.links a{text-decoration:none;color:var(--ink-2);padding:10px 0}
+nav.links a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+@media (min-width:1000px){nav.links{display:flex}}
+@media (max-width:999px){nav.links a{display:none}}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:46px;padding:0 20px;border-radius:999px;border:1.5px solid var(--action);
+  background:var(--action);color:var(--action-ink);font:600 16px/1 var(--f-text);text-decoration:none;cursor:pointer;
+  transition:background .15s ease, color .15s ease;
+}
+.btn:hover{background:#26362D}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--sunk)}
+.btn.sm{min-height:44px;padding:0 16px;font-size:15px}
+
+/* hero */
+.hero{padding:44px 0 72px}
+.hero .wrap{display:grid;gap:36px}
+@media (min-width:1000px){
+  .hero{padding:72px 0 96px}
+  .hero .wrap{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+  .hero-copy{padding-top:12px}
+}
+.kicker{font-size:15px;color:var(--ink-2);margin:0 0 18px;display:flex;flex-wrap:wrap;gap:6px 14px}
+h1{
+  font:800 clamp(40px, 6.2vw, 66px)/1.0 var(--f-display);letter-spacing:-.035em;margin:0 0 22px;
+  text-wrap:balance;max-width:13ch;
+}
+.lead{font-size:19px;line-height:1.5;color:var(--ink-2);margin:0 0 28px;max-width:34em}
+.lead strong{color:var(--ink);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.cta-note{font-size:14.5px;color:var(--ink-2)}
+
+/* ---- fiche de suivi (objet de preuve) ---- */
+.sheet{
+  background:var(--sheet);border:1px solid var(--rule);border-radius:var(--r-sheet);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 18px 40px -28px rgba(18,32,25,.35);
+}
+.track-card{padding:6px}
+.tc-head{padding:18px 18px 16px;display:grid;gap:14px;border-bottom:1px solid var(--rule)}
+.tc-id{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px}
+.tc-id .who{font:700 20px/1.2 var(--f-display);letter-spacing:-.01em;margin:0}
+.tc-id .who .id{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-bottom:6px}
+.tc-amount{text-align:left}
+@media (min-width:520px){.tc-amount{text-align:right}}
+.tc-amount b{display:block;font:700 26px/1.1 var(--f-display);letter-spacing:-.02em}
+.tc-amount span{font-size:13.5px;color:var(--ink-2)}
+.tc-meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14px;color:var(--ink-2);margin:0}
+.tc-meta b{color:var(--ink);font-weight:600}
+
+.scen{padding:14px 18px 4px}
+.scen-label{font-size:14px;color:var(--ink-2);margin:0 0 10px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{
+  font:500 14.5px/1 var(--f-text);color:var(--ink);background:transparent;cursor:pointer;
+  min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--rule-strong);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.seg button:hover{background:var(--sunk)}
+@media (min-width:520px){.scen .seg{display:grid;grid-template-columns:1fr 1fr}.scen .seg button{justify-content:flex-start}}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.seg .pip{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.9}
+.seg button[data-s="normal"] .pip{background:var(--st-ok)}
+.seg button[data-s="rejet"] .pip,.seg button[data-s="retard"] .pip{background:var(--st-alert)}
+.seg button[data-s="refus"] .pip{background:var(--st-warn)}
+.seg button[aria-pressed="true"] .pip{box-shadow:0 0 0 2px var(--sheet)}
+
+.tc-body{display:grid;gap:0}
+@media (min-width:620px){.tc-body{grid-template-columns:minmax(0,1fr) minmax(0,.86fr)}}
+
+ol.steps{list-style:none;margin:0;padding:16px 18px 18px;position:relative}
+ol.steps li{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:12px;padding:0 0 16px}
+ol.steps li:last-child{padding-bottom:2px}
+ol.steps li::before{ /* fil */
+  content:"";position:absolute;left:10px;top:20px;bottom:-2px;width:2px;background:var(--rule);
+}
+ol.steps li:last-child::before{display:none}
+ol.steps li.done::before{background:var(--ink)}
+.mk{grid-row:1 / span 2;width:22px;height:22px;display:grid;place-items:center;margin-top:1px;position:relative;z-index:1}
+.mk i{display:block;width:12px;height:12px;background:var(--ink)}
+.off .mk i{border-radius:2px}               /* statut officiel : carré */
+.evt .mk i{border-radius:50%;background:var(--sheet);border:2px solid var(--ink)} /* événement Échéance : anneau */
+.todo .mk i{background:var(--sheet);border:2px solid var(--rule-strong)}
+.cur .mk i{background:var(--st-flow);box-shadow:0 0 0 4px var(--st-flow-bg)}
+.evt.cur .mk i{background:var(--sheet);border-color:var(--st-flow)}
+.pb .mk i{background:var(--st-alert);box-shadow:0 0 0 4px var(--st-alert-bg)}
+.pb.warn .mk i{background:var(--st-warn);box-shadow:0 0 0 4px var(--st-warn-bg)}
+.evt.pb .mk i{background:var(--sheet);border-color:var(--st-alert)}
+.closed .mk i{background:var(--sheet);border:2px solid var(--ink-3)}
+.closed .st{text-decoration:line-through;text-decoration-thickness:1.5px;color:var(--ink-3)}
+.final .mk i{width:14px;height:14px;background:var(--st-ok);border-radius:2px;box-shadow:0 0 0 4px var(--st-ok-bg)}
+.sl{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px}
+.st{font:600 16px/1.3 var(--f-text)}
+.todo .st{color:var(--ink-3);font-weight:500}
+.when{font-size:13.5px;color:var(--ink-2);white-space:nowrap}
+.dt{grid-column:2;font-size:14.5px;line-height:1.45;color:var(--ink-2);margin:2px 0 0}
+.todo .dt{display:none}
+.tag{display:inline-block;font:600 12.5px/1 var(--f-text);padding:4px 7px;border-radius:4px;margin-left:6px;vertical-align:2px}
+.tag.alert{background:var(--st-alert-bg);color:var(--st-alert)}
+.tag.warn{background:var(--st-warn-bg);color:var(--st-warn)}
+.tag.ok{background:var(--st-ok-bg);color:var(--st-ok)}
+.tag.flow{background:var(--st-flow-bg);color:var(--st-flow)}
+
+.next{
+  margin:0 6px 6px;border-radius:var(--r-inner);background:var(--sunk);padding:16px;
+  display:flex;flex-direction:column;gap:10px;align-self:start;
+}
+@media (min-width:620px){.next{margin:6px 6px 6px 0}}
+.next h3{font:700 13.5px/1.2 var(--f-text);margin:0;color:var(--ink-2)}
+.next p{margin:0;font-size:15px;line-height:1.5}
+.next .why{color:var(--ink-2);font-size:14.5px}
+.next .btn{align-self:flex-start;margin-top:4px}
+.next .done-note{font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;padding:12px 18px 14px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{display:inline-block;width:10px;height:10px;background:var(--ink);border-radius:2px}
+.legend i.ring{border-radius:50%;background:transparent;border:2px solid var(--ink)}
+.legend .ex{margin-left:auto}
+
+/* sections */
+section{scroll-margin-top:20px}
+.sec{padding:80px 0;border-top:1px solid var(--rule)}
+.sec-head{display:grid;gap:14px;margin-bottom:36px}
+@media (min-width:1000px){.sec-head{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:end}}
+h2{font:800 clamp(30px,4vw,44px)/1.05 var(--f-display);letter-spacing:-.03em;margin:0;text-wrap:balance;max-width:18ch}
+.sec-head p{margin:0;color:var(--ink-2);font-size:18px;max-width:36em}
+
+/* rejet / refus */
+.versus{display:grid;gap:20px}
+@media (min-width:860px){.versus{grid-template-columns:1fr 1fr;gap:0}}
+.vs{padding:26px 24px 24px;background:var(--sheet);border:1px solid var(--rule)}
+.vs:first-child{border-radius:var(--r-sheet)}
+.vs:last-child{border-radius:var(--r-sheet)}
+@media (min-width:860px){
+  .vs:first-child{border-radius:var(--r-sheet) 0 0 var(--r-sheet)}
+  .vs:last-child{border-radius:0 var(--r-sheet) var(--r-sheet) 0;border-left:0}
+}
+.vs h3{font:700 24px/1.15 var(--f-display);letter-spacing:-.02em;margin:10px 0 6px}
+.vs .who{font-size:15px;color:var(--ink-2);margin:0 0 18px}
+.vs dl{margin:0;display:grid;gap:14px}
+.vs dt{font-weight:600;font-size:15px}
+.vs dd{margin:2px 0 0;color:var(--ink-2);font-size:15.5px}
+.vs .resp{margin-top:20px;padding-top:16px;border-top:1px solid var(--rule);font-size:15.5px}
+.vs .resp b{display:block;font-size:13.5px;color:var(--ink-2);font-weight:600;margin-bottom:4px}
+
+/* relevé */
+.ledger{padding:6px}
+.lg-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px 16px}
+.lg-sum{display:flex;flex-wrap:wrap;gap:6px 28px;margin:0}
+.lg-sum div{display:flex;flex-direction:column}
+.lg-sum dt{font-size:13.5px;color:var(--ink-2)}
+.lg-sum dd{margin:0;font:700 22px/1.2 var(--f-display);letter-spacing:-.01em}
+.lg-sum dd.alert{color:var(--st-alert)}
+table.lg{width:100%;border-collapse:separate;border-spacing:0;background:var(--paper);border-radius:var(--r-inner);overflow:hidden;
+  background-image:repeating-linear-gradient(to bottom, transparent 0 55px, var(--rule) 55px 56px)}
+.lg caption{text-align:left;padding:0 16px 10px;font-size:13.5px;color:var(--ink-2)}
+.lg th{font:600 13.5px/1.2 var(--f-text);color:var(--ink-2);text-align:left;padding:12px 14px;background:var(--sunk);border-bottom:1px solid var(--rule-strong)}
+.lg td{padding:0 14px;height:56px;font-size:15.5px;border-bottom:1px solid var(--rule);background:var(--sheet)}
+.lg tr:last-child td{border-bottom:0}
+.lg .r{text-align:right}
+.lg tr.hl td{background:#F1F6EE}
+.lg td .sub{display:block;font-size:13px;color:var(--ink-2);line-height:1.2}
+.lg tr[hidden]{display:none}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 var(--f-text);padding:6px 9px;border-radius:5px;white-space:nowrap}
+.chip::before{content:"";width:7px;height:7px;border-radius:1px;background:currentColor}
+.chip.flow{background:var(--st-flow-bg);color:var(--st-flow)}
+.chip.ok{background:var(--st-ok-bg);color:var(--st-ok)}
+.chip.alert{background:var(--st-alert-bg);color:var(--st-alert)}
+.chip.done{background:var(--ink);color:var(--sheet)}
+.chip.evt::before{border-radius:50%;background:transparent;border:1.5px solid currentColor}
+@media (max-width:760px){
+  table.lg{background-image:none}
+  .lg thead{position:absolute;left:-9999px}
+  .lg tr{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:14px;background:var(--sheet);border-bottom:1px solid var(--rule)}
+  .lg tr:last-child{border-bottom:0}
+  .lg td{display:block;height:auto;padding:0;border:0;background:transparent!important}
+  .lg td.c-id{grid-column:1}
+  .lg td.c-amt{grid-column:2;grid-row:1;text-align:right;font-weight:600}
+  .lg td.c-cl{grid-column:1 / -1}
+  .lg td.c-dt{grid-column:1;font-size:14px;color:var(--ink-2)}
+  .lg td.c-st{grid-column:1 / -1;margin-top:6px}
+  .lg td.c-em{display:none}
+  .lg tr.hl{background:#F1F6EE}
+  .lg td.c-dt::before{content:"Échéance : "}
+}
+
+/* calendrier */
+.cal{padding:28px 24px 26px}
+.ruler{position:relative;height:84px;margin:8px 4px 0}
+.ruler .base{position:absolute;left:0;right:0;top:46px;height:2px;background:var(--ink)}
+.ruler .gone{position:absolute;left:0;top:44px;height:6px;background:var(--ink);border-radius:3px}
+.ruler .tick{position:absolute;top:40px;width:1px;height:14px;background:var(--rule-strong)}
+.ruler .lb{position:absolute;top:62px;transform:translateX(-50%);font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+.ruler .lb.s{transform:none}.ruler .lb.e{transform:translateX(-100%)}
+@media (max-width:600px){.ruler .lb.m{display:none}}
+.ruler .ms{position:absolute;top:34px;width:2px;height:26px;background:var(--ink)}
+.ruler .today{position:absolute;top:0;display:flex;flex-direction:column;align-items:flex-start;transform:translateX(-1px)}
+.ruler .today.r{align-items:flex-end;transform:translateX(-100%) translateX(1px)}
+.ruler .today b{font:600 13.5px/1.2 var(--f-text);background:var(--st-flow);color:#fff;padding:5px 8px;border-radius:5px;white-space:nowrap}
+.ruler .today i{width:2px;height:22px;background:var(--st-flow)}
+.ms-list{display:grid;gap:22px;margin-top:22px}
+@media (min-width:860px){.ms-list{grid-template-columns:1fr 1fr;gap:40px}}
+.ms-item h3{font:700 22px/1.2 var(--f-display);letter-spacing:-.015em;margin:0 0 8px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.ms-item p{margin:0;color:var(--ink-2)}
+.ms-item p+p{margin-top:8px}
+.countdown{font:800 clamp(40px,6vw,64px)/1 var(--f-display);letter-spacing:-.03em;margin:0}
+.cal-foot{margin-top:24px;padding-top:16px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-2)}
+
+/* tarifs */
+.plans{display:grid;gap:20px}
+@media (min-width:860px){.plans{grid-template-columns:1fr 1fr}}
+.plan{padding:26px 24px}
+.plan h3{font:700 22px/1.2 var(--f-display);margin:0 0 4px}
+.plan .for{margin:0 0 18px;color:var(--ink-2);font-size:15.5px}
+.price{display:flex;align-items:baseline;gap:8px;margin:0 0 18px}
+.price b{font:800 46px/1 var(--f-display);letter-spacing:-.03em}
+.price span{color:var(--ink-2);font-size:15px}
+.plan ul{margin:0 0 22px;padding:0;list-style:none;display:grid;gap:8px}
+.plan li{padding-left:22px;position:relative;font-size:15.5px}
+.plan li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:2px;background:var(--ink)}
+.ex-note{font-size:13.5px;color:var(--ink-2);margin:14px 0 0}
+
+/* compte */
+.account{display:grid;gap:32px}
+@media (min-width:1000px){.account{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px}}
+form.signup{padding:26px 24px;display:grid;gap:18px}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:15.5px}
+.field .hint{font-size:14px;color:var(--ink-2);margin:0}
+.field input{
+  font:400 17px/1.3 var(--f-text);color:var(--ink);background:#fff;
+  border:1.5px solid var(--rule-strong);border-radius:8px;min-height:48px;padding:10px 14px;width:100%;
+}
+.field input:focus-visible{outline:3px solid var(--focus);outline-offset:1px;border-color:var(--focus)}
+.field input[aria-invalid="true"]{border-color:var(--st-alert)}
+.err{display:none;font-size:14.5px;color:var(--st-alert);font-weight:500;margin:0}
+.err::before{content:"! ";font-weight:800}
+.field.bad .err{display:block}
+.form-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+.success{display:none;border-radius:var(--r-inner);background:var(--st-ok-bg);padding:16px;color:var(--ink)}
+.success.on{display:block}
+.success b{display:block;margin-bottom:4px}
+
+footer{border-top:1px solid var(--rule);padding:32px 0 48px;font-size:14px;color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.fade{animation:fade .28s ease both}
+@keyframes fade{from{opacity:.25;transform:translateY(3px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<div class="mock" role="note"><div class="wrap">Maquette : nom du produit, clients, montants, prix et fonctions sont des exemples.</div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Échéance, accueil">Échéance <small>facturation</small></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#suivi">Le suivi</a>
+      <a href="#rejet-refus">Rejet ou refus</a>
+      <a href="#releve">Le relevé</a>
+      <a href="#calendrier">Calendrier 2026–2027</a>
+      <a href="#tarifs">Tarifs</a>
+    </nav>
+    <a class="btn sm" href="#compte">Ouvrir un compte</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1. Promesse + objet de preuve : la fiche de suivi d'une facture -->
+<section class="hero" id="suivi" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="kicker">Facturation électronique pour TPE, PME et indépendants</p>
+      <h1 id="h1">Une facture n’est finie que lorsqu’elle est encaissée.</h1>
+      <p class="lead">Depuis septembre 2026, chaque facture passe par une plateforme et change de statut : déposée, rejetée, refusée, encaissée… <strong>Échéance lit chacun de ces statuts et vous dit quoi faire</strong>, jusqu’au virement.</p>
+      <div class="cta-row">
+        <a class="btn" href="#compte">Ouvrir un compte</a>
+        <span class="cta-note">30 jours d’essai, sans carte bancaire <span class="sr">(offre d’exemple)</span><span aria-hidden="true">· offre d’exemple</span></span>
+      </div>
+    </div>
+
+    <article class="sheet track-card" aria-labelledby="tc-title">
+      <div class="tc-head">
+        <div class="tc-id">
+          <h2 class="who" id="tc-title" style="font-size:20px;max-width:none;letter-spacing:-.01em"><span class="id">F-2026-0142</span>Atelier Moreau SARL</h2>
+          <p class="tc-amount" style="margin:0"><b class="num">2 880,00 €</b><span class="num">TTC · 2 400,00 € HT + TVA 20 %</span></p>
+        </div>
+        <p class="tc-meta"><span>Émise le <b>4 sept. 2026</b></span><span>Paiement à <b>30 jours</b></span><span>Échéance <b>4 oct. 2026</b></span></p>
+      </div>
+
+      <div class="scen">
+        <p class="scen-label" id="scen-label">Voir le parcours de cette facture si…</p>
+        <div class="seg" role="group" aria-labelledby="scen-label">
+          <button type="button" data-s="normal" aria-pressed="true"><span class="pip" aria-hidden="true"></span>tout se passe bien</button>
+          <button type="button" data-s="rejet" aria-pressed="false"><span class="pip" aria-hidden="true"></span>la plateforme la rejette</button>
+          <button type="button" data-s="refus" aria-pressed="false"><span class="pip" aria-hidden="true"></span>le client la refuse</button>
+          <button type="button" data-s="retard" aria-pressed="false"><span class="pip" aria-hidden="true"></span>le paiement tarde</button>
+        </div>
+      </div>
+
+      <div class="tc-body">
+        <ol class="steps" id="steps" aria-label="Statuts de la facture F-2026-0142"></ol>
+        <div class="next" id="next" aria-live="polite"></div>
+      </div>
+
+      <div class="legend">
+        <span><i aria-hidden="true"></i>Statut transmis par la plateforme</span>
+        <span><i class="ring" aria-hidden="true"></i>Suivi ajouté par Échéance</span>
+        <span class="ex">Facture d’exemple, données fictives</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 2. La distinction qui coûte cher -->
+<section class="sec" id="rejet-refus" aria-labelledby="h-rr">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-rr">Rejetée ou refusée : ce n’est pas le même problème.</h2>
+      <p>Les deux statuts bloquent le paiement, mais ils ne viennent pas du même endroit et ne se corrigent pas de la même façon. Échéance vous dit lequel vous avez, et prépare la bonne réponse.</p>
+    </div>
+    <div class="versus">
+      <div class="vs">
+        <span class="chip alert">Rejetée</span>
+        <h3>Un problème technique</h3>
+        <p class="who">Posé par la plateforme. Votre client n’a jamais reçu la facture.</p>
+        <dl>
+          <div><dt>Causes fréquentes</dt><dd>Mention obligatoire manquante, format invalide, destinataire introuvable (SIREN absent ou erroné).</dd></div>
+          <div><dt>Ce qu’il faut faire</dt><dd>Corriger la donnée en cause, puis redéposer la même facture.</dd></div>
+        </dl>
+        <p class="resp"><b>Avec Échéance</b>Les mentions et le SIREN sont vérifiés avant le dépôt ; en cas de rejet, le champ fautif est désigné et le redépôt se fait en un clic.</p>
+      </div>
+      <div class="vs">
+        <span class="chip" style="background:var(--st-warn-bg);color:var(--st-warn)">Refusée</span>
+        <h3>Un désaccord commercial</h3>
+        <p class="who">Posé par votre client. La facture est conforme, mais il conteste son contenu.</p>
+        <dl>
+          <div><dt>Causes fréquentes</dt><dd>Quantité ou montant contesté, prestation non reçue, conditions différentes du devis.</dd></div>
+          <div><dt>Ce qu’il faut faire</dt><dd>Clarifier avec le client, puis émettre une nouvelle facture rectifiée.</dd></div>
+        </dl>
+        <p class="resp"><b>Avec Échéance</b>Le motif du refus s’affiche sur la facture ; la facture rectifiée reprend les lignes d’origine pour que vous ne corrigiez que l’écart.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Le relevé : toutes les factures, la même lecture -->
+<section class="sec" id="releve" aria-labelledby="h-lg">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-lg">Toutes vos factures, lues de la même façon.</h2>
+      <p>Le relevé met en haut ce qui demande une action : une facture rejetée à corriger, un retard à relancer. Le reste suit son cours sans vous.</p>
+    </div>
+    <div class="sheet ledger">
+      <div class="lg-bar">
+        <dl class="lg-sum">
+          <div><dt>À encaisser</dt><dd class="num">9 216,00 €</dd></div>
+          <div><dt>Dont en retard</dt><dd class="num alert">660,00 €</dd></div>
+          <div><dt>Encaissé en octobre</dt><dd class="num">2 880,00 €</dd></div>
+        </dl>
+        <div class="seg" role="group" aria-label="Filtrer le relevé">
+          <button type="button" data-f="all" aria-pressed="true">Toutes <span class="num">(6)</span></button>
+          <button type="button" data-f="todo" aria-pressed="false">À traiter <span class="num">(2)</span></button>
+          <button type="button" data-f="cours" aria-pressed="false">En cours <span class="num">(3)</span></button>
+        </div>
+      </div>
+      <table class="lg">
+        <caption>Relevé d’exemple au 8 octobre 2026 — clients et montants fictifs.</caption>
+        <thead><tr><th scope="col">Facture</th><th scope="col">Client</th><th scope="col">Émise</th><th scope="col">Échéance</th><th scope="col" class="r">Montant TTC</th><th scope="col">Statut et action</th></tr></thead>
+        <tbody id="lg-body">
+          <tr data-g="todo"><td class="c-id"><span class="id">F-2026-0149</span></td><td class="c-cl">Garage Da Silva</td><td class="c-em">29 sept.</td><td class="c-dt">29 oct.</td><td class="c-amt r num">936,00 €</td><td class="c-st"><span class="chip alert">Rejetée</span> <span class="sub" style="display:inline">SIREN du client absent — à corriger</span></td></tr>
+          <tr data-g="todo"><td class="c-id"><span class="id">F-2026-0146</span></td><td class="c-cl">Studio Lenoir</td><td class="c-em">15 sept.</td><td class="c-dt">30 sept.</td><td class="c-amt r num">660,00 €</td><td class="c-st"><span class="chip alert evt">8 jours de retard</span> <span class="sub" style="display:inline">Relance n°1 proposée</span></td></tr>
+          <tr data-g="cours"><td class="c-id"><span class="id">F-2026-0150</span></td><td class="c-cl">Maison Kerbrat</td><td class="c-em">6 oct.</td><td class="c-dt">5 nov.</td><td class="c-amt r num">2 160,00 €</td><td class="c-st"><span class="chip flow">Déposée</span></td></tr>
+          <tr data-g="cours"><td class="c-id"><span class="id">F-2026-0148</span></td><td class="c-cl">Cabinet Rivière</td><td class="c-em">22 sept.</td><td class="c-dt">22 oct.</td><td class="c-amt r num">4 320,00 €</td><td class="c-st"><span class="chip flow">Prise en charge</span></td></tr>
+          <tr data-g="cours"><td class="c-id"><span class="id">F-2026-0145</span></td><td class="c-cl">Boulangerie Ferrand</td><td class="c-em">12 sept.</td><td class="c-dt">12 oct.</td><td class="c-amt r num">1 140,00 €</td><td class="c-st"><span class="chip ok">Approuvée</span></td></tr>
+          <tr data-g="done" class="hl"><td class="c-id"><span class="id">F-2026-0142</span></td><td class="c-cl">Atelier Moreau SARL</td><td class="c-em">4 sept.</td><td class="c-dt">4 oct.</td><td class="c-amt r num">2 880,00 €</td><td class="c-st"><span class="chip done">Encaissée le 2 oct.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Le calendrier réel de la réforme -->
+<section class="sec" id="calendrier" aria-labelledby="h-cal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-cal">Recevoir, c’est déjà obligatoire. Émettre, ce sera l’an prochain.</h2>
+      <p>La réforme s’applique en deux temps. Si vous êtes une PME, une TPE ou un indépendant, vous recevez déjà vos factures fournisseurs par une plateforme ; il vous reste quelques mois pour émettre les vôtres de la même façon.</p>
+    </div>
+    <div class="sheet cal">
+      <div class="ruler" id="ruler" aria-hidden="true">
+        <div class="base"></div>
+        <div class="gone" id="gone"></div>
+      </div>
+      <div class="ms-list">
+        <div class="ms-item">
+          <h3><span>1<sup>er</sup> septembre 2026</span><span class="chip done">En vigueur</span></h3>
+          <p>Toutes les entreprises assujetties à la TVA doivent pouvoir <strong>recevoir</strong> des factures électroniques via une plateforme agréée. Les grandes entreprises et les ETI doivent aussi les émettre.</p>
+        </div>
+        <div class="ms-item">
+          <h3><span>1<sup>er</sup> septembre 2027</span><span class="chip flow">Dans <span id="days" class="num">328 jours</span></span></h3>
+          <p>PME, TPE et micro-entreprises doivent <strong>émettre</strong> leurs factures au format électronique.</p>
+        </div>
+      </div>
+      <p class="cal-foot">Calendrier en vigueur au 8 octobre 2026. Vérifiez votre situation sur impots.gouv.fr ou auprès de votre expert-comptable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Tarifs -->
+<section class="sec" id="tarifs" aria-labelledby="h-px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-px">Deux formules, la même lecture des statuts.</h2>
+      <p>La réception de vos factures fournisseurs est incluse dans les deux formules.</p>
+    </div>
+    <div class="plans">
+      <div class="sheet plan">
+        <h3>Indépendant</h3>
+        <p class="for">Pour facturer seul, jusqu’à 40 factures par mois.</p>
+        <p class="price"><b class="num">12 €</b><span>HT / mois</span></p>
+        <ul>
+          <li>Suivi de chaque statut, de « déposée » à « encaissée »</li>
+          <li>Vérification des mentions avant dépôt</li>
+          <li>Relances automatiques, modèles modifiables</li>
+        </ul>
+        <a class="btn ghost" href="#compte" data-plan="Indépendant">Choisir Indépendant</a>
+      </div>
+      <div class="sheet plan">
+        <h3>Équipe</h3>
+        <p class="for">Pour une PME : factures illimitées, jusqu’à 5 utilisateurs.</p>
+        <p class="price"><b class="num">39 €</b><span>HT / mois</span></p>
+        <ul>
+          <li>Tout ce que contient Indépendant</li>
+          <li>Rapprochement avec le relevé bancaire</li>
+          <li>Rôles : qui émet, qui valide, qui relance</li>
+        </ul>
+        <a class="btn" href="#compte" data-plan="Équipe">Choisir Équipe</a>
+      </div>
+    </div>
+    <p class="ex-note">Prix et contenus des formules donnés à titre d’exemple : ils ne constituent pas une offre.</p>
+  </div>
+</section>
+
+<!-- 6. Ouvrir un compte -->
+<section class="sec" id="compte" aria-labelledby="h-acc">
+  <div class="wrap account">
+    <div>
+      <h2 id="h-acc">Commencez par une facture.</h2>
+      <p style="color:var(--ink-2);font-size:18px;margin:16px 0 0;max-width:30em">Indiquez votre e-mail et votre SIREN : Échéance préremplit vos mentions légales et vous montre votre première facture prête à déposer.</p>
+    </div>
+    <form class="sheet signup" id="signup" novalidate>
+      <div class="field" id="f-mail">
+        <label for="mail">E-mail professionnel</label>
+        <input id="mail" name="mail" type="email" autocomplete="email" inputmode="email" aria-describedby="mail-err" placeholder="vous@entreprise.fr">
+        <p class="err" id="mail-err">Indiquez une adresse e-mail complète, par exemple vous@entreprise.fr.</p>
+      </div>
+      <div class="field" id="f-siren">
+        <label for="siren">SIREN de votre entreprise</label>
+        <p class="hint" id="siren-hint">9 chiffres, visibles sur votre avis de situation Insee ou votre extrait Kbis.</p>
+        <input id="siren" name="siren" inputmode="numeric" autocomplete="off" aria-describedby="siren-hint siren-err" placeholder="9 chiffres">
+        <p class="err" id="siren-err">Ce numéro ne correspond pas à un SIREN : vérifiez les 9 chiffres.</p>
+      </div>
+      <div class="form-row">
+        <button class="btn" type="submit">Ouvrir mon compte</button>
+        <span class="cta-note" id="plan-note">Formule : à choisir plus tard</span>
+      </div>
+      <div class="success" id="ok" role="status" tabindex="-1"></div>
+      <p class="ex-note" style="margin:0">Maquette : ce formulaire ne transmet aucune donnée.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--ink)">Échéance</b> — nom d’exemple.</span>
+    <span>Maquette de landing page : clients, montants, prix, fonctions et intégrations sont fictifs.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- fiche de suivi : scénarios ----------
+     kind : off = statut officiel transmis par la plateforme ; evt = événement ajouté par Échéance
+     s : done | cur | todo | pb | pbw (refus) | closed | final */
+  var S = {
+    normal: {
+      steps: [
+        ['off','Déposée','4 sept. · 9 h 12','Acceptée par la plateforme, au format Factur‑X.','done'],
+        ['off','Mise à disposition','4 sept. · 9 h 13','Disponible pour Atelier Moreau sur sa plateforme.','done'],
+        ['off','Prise en charge','5 sept.','Ouverte par le service comptable du client.','done'],
+        ['off','Approuvée','9 sept.','Montant validé : 2 880,00 € TTC.','done'],
+        ['off','Paiement transmis','1er oct.','Virement annoncé par le client.','done'],
+        ['off','Encaissée','2 oct.','2 880,00 € retrouvés sur votre relevé bancaire, deux jours avant l’échéance. La facture est finie.','final']
+      ],
+      next: {title:'Ce que fait Échéance', body:'Rien de plus : chaque statut a été noté au moment où il est arrivé. Vous n’avez pas eu à ouvrir la facture.', why:'Les incidents, eux, demandent une réponse différente selon leur origine. Essayez les trois autres cas.'}
+    },
+    rejet: {
+      steps: [
+        ['off','Rejetée','4 sept. · 9 h 12','La plateforme refuse le dépôt : <b>SIREN du client absent</b>.','pb','alert','Rejet technique'],
+        ['off','Déposée','','','todo'],
+        ['off','Prise en charge','','','todo'],
+        ['off','Approuvée','','','todo'],
+        ['off','Encaissée','','','todo']
+      ],
+      next: {title:'Ce que propose Échéance', body:'Compléter le SIREN d’Atelier Moreau, puis redéposer la même facture.', why:'Un rejet est technique : la facture n’a jamais atteint votre client. Inutile de le relancer, il ne l’a pas.', action:'Compléter le SIREN et redéposer', to:'rejetOk'}
+    },
+    rejetOk: {
+      steps: [
+        ['off','Rejetée','4 sept. · 9 h 12','SIREN complété : 4 sept. · 9 h 19.','closed'],
+        ['off','Déposée','4 sept. · 9 h 20','Acceptée par la plateforme.','done'],
+        ['off','Mise à disposition','4 sept. · 9 h 21','Disponible pour Atelier Moreau.','done'],
+        ['off','Prise en charge','','En attente du client.','cur','flow','En cours'],
+        ['off','Approuvée','','','todo'],
+        ['off','Encaissée','','','todo']
+      ],
+      next: {title:'C’est reparti', body:'La facture est redéposée, huit minutes après le rejet. Le délai de paiement court à nouveau normalement.', why:'Échéance vous préviendra à la prochaine étape, ou si rien ne bouge.', done:true, back:'rejet'}
+    },
+    refus: {
+      steps: [
+        ['off','Déposée','4 sept. · 9 h 12','','done'],
+        ['off','Mise à disposition','4 sept. · 9 h 13','','done'],
+        ['off','Prise en charge','5 sept.','','done'],
+        ['off','Refusée','9 sept.','Motif du client : <b>10 jours réalisés, 12 facturés</b>.','pbw','warn','Désaccord'],
+        ['off','Paiement transmis','','','todo'],
+        ['off','Encaissée','','','todo']
+      ],
+      next: {title:'Ce que propose Échéance', body:'Émettre une facture rectifiée pour 10 jours : 2 000,00 € HT, soit 2 400,00 € TTC.', why:'Un refus est commercial : la facture était conforme, c’est son contenu qui est contesté. On n’en redépose pas une copie ; on en émet une nouvelle.', action:'Émettre la facture rectifiée', to:'refusOk'}
+    },
+    refusOk: {
+      steps: [
+        ['off','Refusée','9 sept.','F-2026-0142 est close : 12 jours facturés au lieu de 10.','closed'],
+        ['evt','Facture rectifiée émise','9 sept.','<span class="id">F-2026-0151</span> · 2 400,00 € TTC, mêmes lignes, 10 jours.','done'],
+        ['off','Déposée','9 sept. · 16 h 40','','done'],
+        ['off','Approuvée','10 sept.','Le client valide 2 400,00 € TTC.','done'],
+        ['off','Paiement transmis','','En attente, échéance au 9 oct.','cur','flow','En cours'],
+        ['off','Encaissée','','','todo']
+      ],
+      next: {title:'Désaccord réglé', body:'La facture rectifiée a été approuvée le lendemain. L’écart de 480,00 € TTC ne sera pas réclamé.', why:'Le motif du refus reste attaché aux deux factures, pour votre comptable.', done:true, back:'refus'}
+    },
+    retard: {
+      steps: [
+        ['off','Déposée','4 sept. · 9 h 12','','done'],
+        ['off','Prise en charge','5 sept.','','done'],
+        ['off','Approuvée','9 sept.','Montant validé : 2 880,00 € TTC.','done'],
+        ['evt','Échéance dépassée','4 oct.','<b>4 jours de retard</b> au 8 oct. Aucun paiement annoncé.','pb','alert','Retard'],
+        ['off','Paiement transmis','','','todo'],
+        ['off','Encaissée','','','todo']
+      ],
+      next: {title:'Ce que propose Échéance', body:'Envoyer la relance n°1 au contact comptable d’Atelier Moreau, avec la facture approuvée en pièce jointe.', why:'La facture a été approuvée le 9 sept. : le client ne la conteste pas, il a simplement oublié. Un ton courtois suffit.', action:'Envoyer la relance n°1', to:'retardOk'}
+    },
+    retardOk: {
+      steps: [
+        ['off','Approuvée','9 sept.','Montant validé : 2 880,00 € TTC.','done'],
+        ['evt','Échéance dépassée','4 oct.','4 jours de retard au 8 oct.','done'],
+        ['evt','Relance n°1 envoyée','8 oct. · 10 h 02','À compta@atelier-moreau.example, avec la facture.','done'],
+        ['off','Paiement transmis','','En attente du client.','cur','flow','En cours'],
+        ['off','Encaissée','','','todo']
+      ],
+      next: {title:'Relance partie', body:'Si aucun paiement n’est annoncé, la relance n°2 partira le 15 oct., au même contact.', why:'Vous pouvez la modifier ou l’annuler d’ici là.', done:true, back:'retard'}
+    }
+  };
+  var root = 'normal';
+  var stepsEl = document.getElementById('steps');
+  var nextEl = document.getElementById('next');
+  var buttons = document.querySelectorAll('.scen .seg button');
+
+  function esc(t){return t;}
+  function render(key, animate){
+    var sc = S[key];
+    var html = '';
+    sc.steps.forEach(function(s){
+      var kind=s[0], label=s[1], when=s[2], det=s[3], st=s[4], tag=s[5], tagText=s[6];
+      var cls = [kind];
+      if(st==='done') cls.push('done');
+      if(st==='todo') cls.push('todo');
+      if(st==='cur') cls.push('cur');
+      if(st==='pb') cls.push('pb');
+      if(st==='pbw') cls.push('pb','warn');
+      if(st==='closed') cls.push('closed','done');
+      if(st==='final') cls.push('final');
+      var stateWord = {done:'fait',todo:'à venir',cur:'en cours',pb:'incident',pbw:'incident',closed:'clos',final:'terminé'}[st];
+      html += '<li class="'+cls.join(' ')+'">'+
+        '<span class="mk" aria-hidden="true"><i></i></span>'+
+        '<div class="sl"><span class="st">'+label+(tag?'<span class="tag '+tag+'">'+tagText+'</span>':'')+
+        (st==='final'?'<span class="tag ok">Terminée</span>':'')+
+        '<span class="sr"> — '+stateWord+(kind==='evt'?', suivi Échéance':'')+'</span></span>'+
+        (when?'<span class="when">'+when+'</span>':'')+'</div>'+
+        (det?'<p class="dt">'+det+'</p>':'')+
+      '</li>';
+    });
+    stepsEl.innerHTML = html;
+    var n = sc.next;
+    var nh = '<h3>'+n.title+'</h3><p class="'+(n.done?'done-note':'')+'">'+n.body+'</p><p class="why">'+n.why+'</p>';
+    if(n.action) nh += '<button type="button" class="btn sm" data-to="'+n.to+'">'+n.action+'</button>';
+    if(n.back) nh += '<button type="button" class="btn sm ghost" data-to="'+n.back+'">Rejouer l’incident</button>';
+    nextEl.innerHTML = nh;
+    if(animate){stepsEl.classList.remove('fade');nextEl.classList.remove('fade');void stepsEl.offsetWidth;stepsEl.classList.add('fade');nextEl.classList.add('fade');}
+  }
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      buttons.forEach(function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+      root = b.dataset.s; render(root, true);
+    });
+  });
+  nextEl.addEventListener('click', function(e){
+    var t = e.target.closest('[data-to]'); if(!t) return;
+    render(t.dataset.to, true);
+    var first = nextEl.querySelector('button'); if(first) first.focus();
+  });
+  render('normal', false);
+
+  /* ---------- relevé : filtres ---------- */
+  var fb = document.querySelectorAll('#releve .seg button');
+  var rows = document.querySelectorAll('#lg-body tr');
+  fb.forEach(function(b){
+    b.addEventListener('click', function(){
+      fb.forEach(function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+      var f = b.dataset.f;
+      rows.forEach(function(r){ r.hidden = !(f==='all' || r.dataset.g===f); });
+    });
+  });
+
+  /* ---------- calendrier : règle exacte ---------- */
+  (function(){
+    var start = Date.UTC(2026,8,1), end = Date.UTC(2027,8,1);
+    var now = new Date(); var today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    var ruler = document.getElementById('ruler');
+    var months = ['sept.','oct.','nov.','déc.','janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.'];
+    function lab(txt, p, cls){ var l=document.createElement('span'); l.className='lb '+cls; l.style.left=p+'%'; l.textContent=txt; ruler.appendChild(l); }
+    for(var m=0;m<=12;m++){
+      var d = Date.UTC(2026, 8+m, 1);
+      var p = (d-start)/(end-start)*100;
+      var el = document.createElement('div');
+      el.className = (m===0||m===12)?'ms':'tick';
+      el.style.left = 'calc('+p+'% - '+(m===12?2:0)+'px)';
+      ruler.appendChild(el);
+      if(m===0) lab('1er sept. 2026', p, 's');
+      else if(m===12) lab('1er sept. 2027', p, 'e');
+      else if(m%3===0) lab(months[m]+(m===6?' 2027':''), p, 'm');
+    }
+    var t = Math.min(Math.max(today, start), end);
+    var pt = (t-start)/(end-start)*100;
+    document.getElementById('gone').style.width = pt+'%';
+    var tag = document.createElement('div'); tag.className='today'+(pt>50?' r':''); tag.style.left = pt+'%';
+    var fmt = new Date(t).toLocaleDateString('fr-FR',{day:'numeric',month:'short',timeZone:'UTC'});
+    tag.innerHTML = '<b>Aujourd’hui, '+fmt+'</b><i></i>';
+    ruler.appendChild(tag);
+    var left = Math.round((end - today)/864e5);
+    var dEl = document.getElementById('days');
+    if(left>1) dEl.textContent = left+' jours';
+    else if(left>=0) dEl.textContent = left===1?'1 jour':'aujourd’hui';
+    else { dEl.parentNode.textContent = 'En vigueur'; dEl.parentNode && (dEl.parentNode.className='chip done'); }
+  })();
+
+  /* ---------- compte : formulaire ---------- */
+  var plan = null;
+  document.querySelectorAll('[data-plan]').forEach(function(a){
+    a.addEventListener('click', function(){ plan = a.dataset.plan; document.getElementById('plan-note').textContent = 'Formule : '+plan; });
+  });
+  function luhn(s){var t=0;for(var i=0;i<s.length;i++){var d=+s[s.length-1-i];if(i%2){d*=2;if(d>9)d-=9;}t+=d;}return t%10===0;}
+  var form = document.getElementById('signup');
+  var mail = document.getElementById('mail'), siren = document.getElementById('siren');
+  function setBad(fieldId, input, bad){
+    document.getElementById(fieldId).classList.toggle('bad', bad);
+    input.setAttribute('aria-invalid', bad?'true':'false');
+  }
+  siren.addEventListener('input', function(){
+    var raw = siren.value.replace(/\D/g,'').slice(0,9);
+    siren.value = raw.replace(/(\d{3})(?=\d)/g,'$1 ');
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var m = mail.value.trim(), s = siren.value.replace(/\s/g,'');
+    var mBad = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m);
+    var sBad = !(/^\d{9}$/.test(s) && luhn(s));
+    setBad('f-mail', mail, mBad); setBad('f-siren', siren, sBad);
+    var ok = document.getElementById('ok');
+    if(mBad || sBad){ ok.classList.remove('on'); (mBad?mail:siren).focus(); return; }
+    ok.innerHTML = '<b>Demande prête, mais non envoyée.</b>Ceci est une maquette : dans la vraie version, un lien de confirmation partirait à '+m.replace(/[<>&"]/g,'')+' et votre première facture serait préremplie avec le SIREN '+s.replace(/(\d{3})(?=\d)/g,'$1 ')+'.';
+    ok.classList.add('on'); ok.focus();
+  });
+})();
+</script>
+</body>
+</html>

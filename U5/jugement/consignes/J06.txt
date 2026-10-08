@@ -1,0 +1,15 @@
+Tu es directeur·rice artistique senior et tu juges deux propositions de design répondant à la même demande d'un client : « Il me faut une landing page pour notre SaaS de facturation. » Le client n'a rien fourni d'autre ; les deux propositions inventent donc des contenus d'exemple.
+
+Regarde les images avec l'outil Read, dans cet ordre. Proposition A : /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/R-desktop-premier-ecran.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/R-mobile-premier-ecran.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/R-desktop-page-entiere.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/R-desktop-tranche-1.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/R-desktop-tranche-2.png. Proposition B : /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/B-desktop-premier-ecran.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/B-mobile-premier-ecran.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/B-desktop-page-entiere.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/B-desktop-tranche-1.png, /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/jugement/images/B-desktop-tranche-2.png.
+(premier écran ordinateur, premier écran mobile, page entière réduite, puis tranches de la page à taille réelle.)
+
+Compare A et B sur cinq critères, en une phrase chacun, et dis lequel l'emporte (A, B ou égal) :
+1. présence : la page retient-elle, a-t-elle un point de vue ?
+2. spécificité : si l'on retire le nom, la page reste-t-elle propre à ce métier, ou pourrait-elle servir à n'importe qui ?
+3. finition : hiérarchie, alignements, typographie, détails, mobile ;
+4. vérité : la page évite-t-elle les fausses preuves (faux avis, faux logos, chiffres présentés comme réels) et signale-t-elle ce qui est exemple ?
+5. défaut dominant de chacune, en une phrase.
+Puis donne ta préférence globale (A ou B) et sa force (nette, légère, indécise).
+
+Ne cherche rien d'autre que ces images ; n'ouvre aucun autre fichier. Réponds uniquement par un objet JSON :
+{"presence":{"gagnant":"A|B|egal","raison":"…"},"specificite":{…},"finition":{…},"verite":{…},"defaut_A":"…","defaut_B":"…","preference":"A|B","force":"nette|legere|indecise"}

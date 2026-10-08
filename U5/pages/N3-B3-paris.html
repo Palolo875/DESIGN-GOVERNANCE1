@@ -1,0 +1,775 @@
+<!doctype html>
+<!--
+TRACE (légère) — Design Governance V1
+Mode : DIRECTION (nouvelle surface de marque, premier contact) — proposition EXPLORATORY, ancre ANCHOR-GENERATED seulement (aucune ancre observée ou fournie).
+Thèse : promesse « chaque enfant apprend à sa profondeur, en petit groupe » → objet de preuve : la coupe du bassin où les 5 groupes sont nommés par leur profondeur + l'orientation « où en est votre enfant ? » (TRUTH/ILLUSTRATIVE + MECHANISM) → geste : réserver une séance d'essai dans le groupe et le créneau trouvés.
+Modal, trame et parti : modal = photo d'enfant souriant + double CTA, vagues SVG, cyan/jaune bonbon, police arrondie (Fredoka), 3 cartes bénéfices, niveaux-animaux, tarifs, avis, FAQ. Parti : on s'en écarte — la page s'ouvre sur l'outil d'orientation dans la coupe du bassin ; voix signalétique de piscine (Barlow Condensed, chiffres de profondeur en rouge) sur carrelage blanc froid, eau sarcelle, flotteur jaune ; Figtree pour le texte. Pas d'avis ni de logos (aucune preuve réelle disponible).
+Plafond : structure, type, couleur, objet de preuve codé = au plafond ; photos = hors plafond (route CODE-NATIVE, aucune fausse photo) ; contenus (nom, adresse, horaires, places, tarifs, encadrement) = exemples marqués globalement + localement (tarifs, places, téléphone, encadrement, envoi du formulaire).
+Défaut dominant observé (capture v1) : sur mobile, la réponse à la question s'affichait loin sous le bassin et le bassin restait hors du premier écran ; geste : recomposition en zones (titre↔bassin, question↔réponse sur ordinateur ; titre, bassin, question, réponse sur mobile), bassin agrandi (profondeurs plus lisibles) — réinspecté, conservé. Autres corrections : libellé « Complet » raccourci, heures alignées, champs du formulaire alignés, ancres sous l'en-tête collant. Reste générique/limite : la coupe du bassin est une abstraction codée, aucune photo réelle de séance — à calibrer avec les photos de l'école (accord parental).
+Prochaine preuve : contenus et photos réels de l'école, test avec 3–5 parents sur la question d'orientation (comprennent-ils leur groupe sans aide ?).
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Petites Longueurs — école de natation pour enfants (maquette)</title>
+<meta name="description" content="École de natation pour enfants de 4 à 12 ans, en groupes de 6 rangés par profondeur. Maquette avec contenus d'exemple.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tile:#F2F6F6;          /* carrelage blanc froid : fond */
+  --tile-2:#E4ECED;        /* joint / panneau */
+  --tile-3:#D3DFE1;        /* frontière */
+  --cut:#C9D6D8;           /* masse coupée du bassin */
+  --ink:#0D2B3A;           /* texte, action principale */
+  --ink-2:#3A5563;         /* texte secondaire */
+  --water-text:#0A6377;    /* liens, sur fond clair */
+  --water-1:#9EDCE4;
+  --water-2:#43B3C6;
+  --water-3:#127F96;
+  --water-4:#0B5B6E;
+  --depth:#BF2E26;         /* chiffres de profondeur (signalétique) */
+  --lane:#F3C232;          /* flotteur, repère enfant */
+  --ok:#1F6B45;
+  --white:#fff;
+  --radius:14px;
+  --shadow:0 1px 0 rgba(255,255,255,.8) inset, 0 10px 30px -18px rgba(13,43,58,.35);
+  --display:"Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--tile);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:var(--water-text);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.num{font-variant-numeric:tabular-nums}
+.nw{white-space:nowrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* maquette */
+.mock{background:var(--ink);color:#E8F1F2;font-size:13.5px;text-align:center;padding:7px 16px}
+.mock strong{color:#fff;font-weight:600}
+
+/* en-tête */
+header.top{position:sticky;top:0;z-index:20;background:rgba(242,246,246,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--tile-3)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.brand b{font-family:var(--display);font-weight:700;font-size:27px;letter-spacing:.2px;line-height:1}
+.brand span{font-size:13px;color:var(--ink-2)}
+nav.main{display:flex;gap:22px;margin-left:auto}
+nav.main a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15.5px;padding:8px 0}
+nav.main a:hover{text-decoration:underline}
+.tel{font-weight:600;color:var(--ink);text-decoration:none;font-size:15.5px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;white-space:nowrap}
+.btn:hover{background:#174257;color:#fff}
+.btn.small{min-height:44px;padding:0 18px;font-size:15px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* héros */
+.hero{padding:44px 0 40px}
+.hero .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"intro pool" "ask result";column-gap:48px;row-gap:28px;align-items:start}
+.h-intro{grid-area:intro}.h-ask{grid-area:ask}.h-pool{grid-area:pool;align-self:end}.h-result{grid-area:result}
+.h-result .result{margin-top:0}
+.eyebrow{font-size:14.5px;color:var(--ink-2);font-weight:500;margin:0 0 14px}
+.eyebrow .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--depth);vertical-align:middle;margin:0 8px 2px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(52px,6.4vw,92px);line-height:.92;letter-spacing:-.5px;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--depth)}
+.lede{font-size:18.5px;max-width:34em;margin:0 0 28px;color:var(--ink)}
+.lede strong{font-weight:600}
+
+/* question d'orientation */
+.ask{border:0;margin:0;padding:0}
+.ask legend{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.1;margin-bottom:12px;padding:0}
+.choices{display:grid;gap:8px}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choice label{display:flex;align-items:center;gap:14px;min-height:50px;padding:10px 16px 10px 12px;background:var(--white);border:1.5px solid var(--tile-3);border-radius:12px;cursor:pointer;font-size:16px;line-height:1.3}
+.choice label .d{flex:0 0 58px;font-family:var(--display);font-weight:700;font-size:20px;color:var(--depth);text-align:right;padding-right:12px;border-right:1.5px solid var(--tile-2)}
+.choice input:hover + label{border-color:var(--water-3)}
+.choice input:checked + label{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:#FFFDF2}
+.choice input:checked + label::after{content:"";margin-left:auto;flex:0 0 12px;height:12px;border-radius:50%;background:var(--lane);box-shadow:0 0 0 2px var(--ink)}
+.choice input:focus-visible + label{outline:3px solid var(--ink);outline-offset:3px}
+.age{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.age label{font-weight:600;font-size:16px}
+select,input[type=text],input[type=tel],input[type=email],textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid var(--tile-3);border-radius:10px;min-height:46px;padding:8px 12px}
+select{padding-right:34px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230D2B3A' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+select:hover,input:hover,textarea:hover{border-color:var(--water-3)}
+.age .hint{font-size:14.5px;color:var(--ink-2)}
+
+/* le bassin */
+.pool{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow);border:1px solid var(--tile-3)}
+.deck{display:grid;grid-template-columns:repeat(5,1fr);background:
+  linear-gradient(90deg,var(--tile-2) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(0deg,var(--tile-2) 1px,transparent 1px) 0 0/24px 24px,#fff;border-bottom:1px solid var(--tile-3)}
+.zone{appearance:none;border:0;background:transparent;font:inherit;color:var(--ink);text-align:left;padding:12px 14px 10px;cursor:pointer;border-right:1px dashed var(--tile-3);min-height:74px;position:relative}
+.zone:last-child{border-right:0}
+.zone .d{display:block;font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--depth)}
+.zone .d small{font-size:.62em;margin-left:2px}
+.zone .n{display:block;font-size:13.5px;font-weight:600;line-height:1.2;margin-top:4px}
+.zone:hover{background:rgba(255,255,255,.75)}
+.zone[aria-pressed=true]{background:#FFFDF2;box-shadow:inset 0 -4px 0 var(--lane)}
+.zone[aria-pressed=true] .n{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.basin{position:relative}
+.basin svg{width:100%;height:auto}
+#swimmer{transition:transform .9s cubic-bezier(.3,.7,.2,1),opacity .4s}
+#swimmer .bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(3px)}}
+.zonefill{transition:opacity .4s}
+@media (prefers-reduced-motion:reduce){#swimmer{transition:none}#swimmer .bob{animation:none}.zonefill{transition:none}}
+.pool-cap{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--ink-2);padding:9px 14px;border-top:1px solid var(--tile-2);background:var(--tile)}
+
+/* résultat */
+.result{margin-top:18px;background:#fff;border:1px solid var(--tile-3);border-radius:var(--radius);box-shadow:var(--shadow);min-height:278px}
+.result .empty{padding:26px 26px;display:grid;gap:6px;color:var(--ink-2)}
+.result .empty b{color:var(--ink);font-size:18px;font-weight:600}
+.r-head{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:end;padding:22px 24px 16px;border-bottom:1px solid var(--tile-2)}
+.r-depth{grid-row:span 2;font-family:var(--display);font-weight:700;font-size:64px;line-height:.82;color:var(--depth)}
+.r-depth small{font-size:.45em;margin-left:3px}
+.r-name{font-family:var(--display);font-weight:600;font-size:30px;line-height:1}
+.r-meta{font-size:15px;color:var(--ink-2)}
+.r-body{display:grid;grid-template-columns:1.1fr 1fr;gap:0}
+.r-col{padding:16px 24px 22px}
+.r-col + .r-col{border-left:1px solid var(--tile-2)}
+.r-col h3{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:0 0 10px}
+.skills{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:15.5px;line-height:1.35}
+.skills li{display:grid;grid-template-columns:18px 1fr;gap:8px}
+.skills li::before{content:"";width:10px;height:10px;margin-top:5px;border-radius:50%;border:2px solid var(--water-3)}
+.next{margin:12px 0 0;font-size:14.5px;color:var(--ink-2)}
+.note{margin:12px 0 0;padding:10px 12px;background:#FFF8DD;border-radius:10px;font-size:14.5px;line-height:1.4}
+.slots{display:grid;gap:7px}
+.slot{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border:1.5px solid var(--tile-3);border-radius:10px;background:#fff;font:inherit;font-size:15.5px;color:var(--ink);text-align:left;cursor:pointer;width:100%}
+.slot:hover{border-color:var(--ink)}
+.slot .when b{font-weight:600}
+.slot .pl{font-size:14px;font-weight:600;white-space:nowrap}
+.slot .pl.few{color:var(--depth)}
+.slot.full{background:var(--tile);border-style:dashed}
+.slot.full .when{color:var(--ink-2)}
+.slot.full .pl{color:var(--ink-2);font-weight:500}
+.slot.special{border-color:var(--lane);background:#FFFCEE}
+.r-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding:14px 24px 20px;border-top:1px solid var(--tile-2)}
+.r-foot p{margin:0;font-size:14px;color:var(--ink-2);flex:1 1 220px}
+.ex{font-size:12.5px;color:var(--ink-2);font-weight:500}
+.ex::before{content:"";display:inline-block;width:7px;height:7px;border:1.5px solid currentColor;border-radius:2px;margin-right:6px;vertical-align:1px}
+
+/* sections */
+section[id]{scroll-margin-top:76px}
+section.band{padding:72px 0;border-top:1px solid var(--tile-3)}
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end;margin-bottom:32px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(38px,4.2vw,58px);line-height:.95;margin:0;text-wrap:balance}
+.sec-head p{margin:0;color:var(--ink-2);max-width:40em}
+
+/* horaires */
+.week{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.day{background:#fff;border:1px solid var(--tile-3);border-radius:var(--radius);overflow:hidden}
+.day h3{margin:0;padding:12px 14px;font-family:var(--display);font-weight:600;font-size:22px;border-bottom:1px solid var(--tile-2);display:flex;justify-content:space-between;align-items:baseline}
+.day h3 span{font-family:var(--body);font-size:13px;font-weight:500;color:var(--ink-2)}
+.day ul{list-style:none;margin:0;padding:8px;display:grid;gap:6px}
+.wslot{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;width:100%;padding:8px 10px;border:1.5px solid transparent;border-radius:10px;background:var(--tile);font:inherit;color:var(--ink);text-align:left;cursor:pointer;min-height:56px}
+.wslot:hover{border-color:var(--ink)}
+.wslot .t{grid-row:span 2;min-width:3.3em;font-family:var(--display);font-weight:600;font-size:21px;line-height:1.1;align-self:center}
+.wslot .g{font-size:14px;font-weight:600;line-height:1.25}
+.wslot .g i{font-style:normal;color:var(--depth);font-family:var(--display);font-size:16px;font-weight:700;margin-right:5px}
+.wslot .p{font-size:13px;color:var(--ink-2);line-height:1.25}
+.wslot.full{background:transparent;border:1.5px dashed var(--tile-3)}
+.wslot.full .t,.wslot.full .g{color:var(--ink-2)}
+.wslot.hl{border-color:var(--lane);background:#FFFCEE}
+.week-foot{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:16px;font-size:14px;color:var(--ink-2)}
+
+/* séance */
+.session{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}
+.clock{background:#fff;border:1px solid var(--tile-3);border-radius:var(--radius);padding:22px 22px 18px;box-shadow:var(--shadow)}
+.bar{display:flex;height:16px;border-radius:999px;overflow:hidden;margin:6px 0 4px;background:var(--tile-2)}
+.bar span{display:block;height:100%}
+.ticks{display:flex;font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.steps{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:70px 14px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--tile-2)}
+.steps .m{font-family:var(--display);font-weight:600;font-size:20px;font-variant-numeric:tabular-nums;line-height:1.2}
+.steps .sw{width:14px;height:14px;border-radius:4px;margin-top:5px}
+.steps b{display:block;font-weight:600}
+.steps p{margin:2px 0 0;font-size:15.5px;color:var(--ink-2)}
+.parents h3{font-family:var(--display);font-weight:600;font-size:28px;margin:0 0 12px}
+.bring{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px}
+.bring li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:16px;line-height:1.4}
+.bring svg{width:20px;height:20px;margin-top:1px;color:var(--water-3)}
+details{border-top:1px solid var(--tile-3)}
+details:last-of-type{border-bottom:1px solid var(--tile-3)}
+summary{cursor:pointer;list-style:none;padding:14px 32px 14px 0;font-weight:600;position:relative;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:10px;font-family:var(--display);font-size:26px;line-height:1;color:var(--water-text)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--ink-2);font-size:16px}
+
+/* tarifs */
+.prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid var(--tile-3);border-radius:var(--radius);overflow:hidden}
+.price{padding:24px 26px 26px}
+.price + .price{border-left:1px solid var(--tile-2)}
+.price h3{margin:0 0 4px;font-size:16px;font-weight:600}
+.price .amt{font-family:var(--display);font-weight:700;font-size:54px;line-height:1;font-variant-numeric:tabular-nums}
+.price .amt small{font-size:.5em;margin-left:2px}
+.price .per{font-size:15px;color:var(--ink-2);margin:6px 0 0}
+.price.lead{background:#FFFCEE;box-shadow:inset 0 4px 0 var(--lane)}
+.price-notes{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:14px;font-size:14.5px;color:var(--ink-2)}
+
+/* réservation */
+.book{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.book aside p{color:var(--ink-2);margin:14px 0 0}
+.contact{margin-top:24px;display:grid;gap:4px;font-size:16px}
+.contact a{font-weight:600}
+form.trial{background:#fff;border:1px solid var(--tile-3);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:grid;gap:6px;margin-bottom:16px;align-content:start}
+.f > label{font-weight:600;font-size:15px}
+.f .help{font-size:13.5px;color:var(--ink-2)}
+.f input,.f select,.f textarea{width:100%}
+.f textarea{min-height:84px;resize:vertical}
+.f .err{display:none;color:var(--depth);font-size:14px;font-weight:600}
+.f.bad .err{display:block}
+.f.bad input,.f.bad select{border-color:var(--depth);box-shadow:inset 0 0 0 1px var(--depth)}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:6px}
+.form-foot p{margin:0;font-size:13.5px;color:var(--ink-2);flex:1 1 240px}
+.errsum{display:none;margin:0 0 16px;padding:12px 14px;border-radius:10px;background:#FBEAE8;color:#7A1C16;font-size:15px}
+.errsum.on{display:block}
+.done{display:none;padding:22px;border-radius:var(--radius);background:#EAF5EF;border:1px solid #BFDCCB}
+.done.on{display:block}
+.done h3{margin:0 0 6px;font-family:var(--display);font-size:30px;font-weight:700;color:var(--ok)}
+.done p{margin:6px 0 0}
+.done .ex{display:block;margin-top:10px}
+
+footer{border-top:1px solid var(--tile-3);padding:36px 0 48px;font-size:14.5px;color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+footer b{color:var(--ink);font-family:var(--display);font-size:22px;font-weight:700}
+
+/* tablette */
+@media (max-width:1100px){
+  nav.main,nav.main a{display:none}
+  .sec-head,.session,.book{grid-template-columns:1fr;gap:28px}
+  .hero .grid{grid-template-columns:1fr;grid-template-areas:"intro" "pool" "ask" "result";row-gap:24px}
+  .week{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .tel{margin-left:auto}
+}
+/* mobile */
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .top .wrap{height:60px;gap:12px}
+  .brand span{display:none}
+  .brand b{font-size:23px}
+  .tel{display:none}
+  .top .btn{margin-left:auto;min-height:44px;padding:0 16px;font-size:14.5px}
+  .hero{padding:26px 0 28px}
+  h1{font-size:50px}
+  .lede{font-size:17px;margin-bottom:22px}
+  .zone{padding:9px 6px 8px;min-height:52px;text-align:center}
+  .zone .d{font-size:21px}
+  .zone .n{display:none}
+  .pool-cap{flex-direction:column;gap:2px}
+  .r-head{padding:18px 16px 14px;gap:2px 14px}
+  .r-depth{font-size:50px}
+  .r-name{font-size:25px}
+  .r-body{grid-template-columns:1fr}
+  .r-col{padding:14px 16px 16px}
+  .r-col + .r-col{border-left:0;border-top:1px solid var(--tile-2)}
+  .r-foot{padding:14px 16px 18px}
+  .r-foot .btn{width:100%}
+  section.band{padding:52px 0}
+  .week{grid-template-columns:1fr}
+  .prices{grid-template-columns:1fr}
+  .price + .price{border-left:0;border-top:1px solid var(--tile-2)}
+  .row{grid-template-columns:1fr;gap:0}
+  form.trial{padding:18px 16px}
+  .form-foot .btn{width:100%}
+  .steps li{grid-template-columns:52px 12px 1fr;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="mock" role="note"><strong>Maquette</strong> — nom, adresse, horaires, places restantes, tarifs et coordonnées sont des exemples à remplacer.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Les Petites Longueurs, accueil"><b>Les Petites Longueurs</b><span>école de natation · 4–12 ans</span></a>
+    <nav class="main" aria-label="Sections">
+      <a href="#groupes">Les groupes</a>
+      <a href="#horaires">Horaires</a>
+      <a href="#seance">Une séance</a>
+      <a href="#tarifs">Tarifs</a>
+    </nav>
+    <a class="tel num" href="tel:+33199001234" aria-label="Appeler l'école, numéro d'exemple 01 99 00 12 34">01 99 00 12 34</a>
+    <a class="btn small" href="#essai">Séance d'essai</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- 1. Héros : la question et la coupe du bassin -->
+<section class="hero" id="groupes" aria-labelledby="h1">
+  <div class="wrap grid">
+    <div class="h-intro">
+      <p class="eyebrow"><span class="nw">École de natation pour enfants</span><span class="dot" aria-hidden="true"></span><span class="nw">4 à 12 ans</span><span class="dot" aria-hidden="true"></span><span class="nw">Paris 11<sup>e</sup></span></p>
+      <h1 id="h1">Chaque enfant a sa <em>profondeur.</em></h1>
+      <p class="lede">Ici, les groupes ne sont pas rangés par âge mais par profondeur d'eau : <strong>six enfants au plus</strong>, du bord à 0,80&nbsp;m jusqu'au grand bain. Dites-nous où en est le vôtre, on vous montre son groupe et ses créneaux.</p>
+    </div>
+    <div class="h-ask">
+
+      <fieldset class="ask" id="ask">
+        <legend>Aujourd'hui, dans l'eau, votre enfant…</legend>
+        <div class="choices">
+          <div class="choice"><input type="radio" name="lvl" id="l0" value="0"><label for="l0"><span class="d num" aria-hidden="true">0,80</span>ne met pas encore la tête sous l'eau</label></div>
+          <div class="choice"><input type="radio" name="lvl" id="l1" value="1"><label for="l1"><span class="d num" aria-hidden="true">1,00</span>met la tête sous l'eau, mais ne flotte pas seul</label></div>
+          <div class="choice"><input type="radio" name="lvl" id="l2" value="2"><label for="l2"><span class="d num" aria-hidden="true">1,30</span>flotte seul et avance de quelques mètres</label></div>
+          <div class="choice"><input type="radio" name="lvl" id="l3" value="3"><label for="l3"><span class="d num" aria-hidden="true">1,80</span>nage 15 mètres sans aide</label></div>
+          <div class="choice"><input type="radio" name="lvl" id="l4" value="4"><label for="l4"><span class="d num" aria-hidden="true">2,20</span>nage 25 mètres et plus</label></div>
+        </div>
+        <div class="age">
+          <label for="age">Il ou elle a</label>
+          <select id="age" class="num">
+            <option value="4">4 ans</option><option value="5">5 ans</option><option value="6" selected>6 ans</option><option value="7">7 ans</option><option value="8">8 ans</option><option value="9">9 ans</option><option value="10">10 ans</option><option value="11">11 ans</option><option value="12">12 ans</option>
+          </select>
+          <span class="hint">L'âge sert à choisir le bon créneau.</span>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="h-pool">
+      <div class="pool" id="pool">
+        <div class="deck" role="group" aria-label="Les cinq groupes, du petit au grand bain">
+          <button class="zone" type="button" data-g="0" aria-pressed="false"><span class="d num">0,80<small>m</small></span><span class="n">Apprivoiser l'eau</span></button>
+          <button class="zone" type="button" data-g="1" aria-pressed="false"><span class="d num">1,00<small>m</small></span><span class="n">Flotter</span></button>
+          <button class="zone" type="button" data-g="2" aria-pressed="false"><span class="d num">1,30<small>m</small></span><span class="n">Premiers mètres</span></button>
+          <button class="zone" type="button" data-g="3" aria-pressed="false"><span class="d num">1,80<small>m</small></span><span class="n">Traverser</span></button>
+          <button class="zone" type="button" data-g="4" aria-pressed="false"><span class="d num">2,20<small>m</small></span><span class="n">Grand bain</span></button>
+        </div>
+        <div class="basin">
+          <svg viewBox="0 0 1000 340" role="img" aria-labelledby="basin-t">
+            <title id="basin-t">Coupe du bassin : le fond descend de 0,80 m à 2,20 m, un groupe par profondeur.</title>
+            <defs>
+              <pattern id="tiles" width="24" height="24" patternUnits="userSpaceOnUse">
+                <rect width="24" height="24" fill="#fff"/>
+                <path d="M24 0V24M0 24H24" stroke="#E1E9EA" stroke-width="1.5"/>
+              </pattern>
+              <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#9EDCE4" stop-opacity=".78"/>
+                <stop offset=".55" stop-color="#43B3C6" stop-opacity=".82"/>
+                <stop offset="1" stop-color="#0B5B6E" stop-opacity=".92"/>
+              </linearGradient>
+              <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="waterclip"><path id="wpath" d="M0 46H1000V321H830L790 271H630L590 208H430L390 171H230L190 146H0Z"/></clipPath>
+            </defs>
+            <!-- carrelage du bassin (visible à travers l'eau) -->
+            <rect x="0" y="0" width="1000" height="340" fill="url(#tiles)"/>
+            <!-- masse coupée sous le fond -->
+            <path d="M0 146H190L230 171H390L430 208H590L630 271H790L830 321H1000V340H0Z" fill="#C9D6D8"/>
+            <path d="M0 146H190L230 171H390L430 208H590L630 271H790L830 321H1000" fill="none" stroke="#0D2B3A" stroke-width="2"/>
+            <!-- eau -->
+            <rect x="0" y="0" width="1000" height="340" fill="url(#water)" clip-path="url(#waterclip)"/>
+            <g clip-path="url(#waterclip)">
+              <g class="zonefill" id="zf0" opacity="0"><rect x="0" y="46" width="200" height="230" fill="#fff" opacity=".32"/></g>
+              <g class="zonefill" id="zf1" opacity="0"><rect x="200" y="46" width="200" height="230" fill="#fff" opacity=".32"/></g>
+              <g class="zonefill" id="zf2" opacity="0"><rect x="400" y="46" width="200" height="230" fill="#fff" opacity=".32"/></g>
+              <g class="zonefill" id="zf3" opacity="0"><rect x="600" y="46" width="200" height="230" fill="#fff" opacity=".32"/></g>
+              <g class="zonefill" id="zf4" opacity="0"><rect x="800" y="46" width="200" height="230" fill="#fff" opacity=".32"/></g>
+              <rect x="0" y="46" width="1000" height="26" fill="url(#sheen)"/>
+            </g>
+            <!-- ligne de fond (bande noire de couloir, avec son T) -->
+            <path d="M0 139H186L226 164H386L426 201H586L626 264H786L826 314H952" fill="none" stroke="#0D2B3A" stroke-opacity=".55" stroke-width="7"/>
+            <path d="M952 303V325" stroke="#0D2B3A" stroke-opacity=".55" stroke-width="7"/>
+            <!-- séparations de zones -->
+            <g stroke="#fff" stroke-opacity=".55" stroke-dasharray="3 6" stroke-width="1.5">
+              <path d="M200 50V160"/><path d="M400 50V196"/><path d="M600 50V258"/><path d="M800 50V310"/>
+            </g>
+            <!-- surface et ligne d'eau (flotteurs) -->
+            <path d="M0 46H1000" stroke="#0B5B6E" stroke-width="2"/>
+            <g id="rope"></g>
+            <!-- l'enfant -->
+            <g id="swimmer" opacity="0" transform="translate(100 0)">
+              <path id="gauge" d="M0 62V122" stroke="#0D2B3A" stroke-width="2" stroke-dasharray="2 5"/>
+              <g class="bob">
+                <ellipse cx="0" cy="47" rx="26" ry="5" fill="#fff" opacity=".7"/>
+                <circle cx="0" cy="38" r="15" fill="#F3C232" stroke="#0D2B3A" stroke-width="2.5"/>
+                <path d="M-15 38a15 15 0 0 1 30 0" fill="#F3C232"/>
+                <path d="M-11 33h22" stroke="#0D2B3A" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+              </g>
+              <circle id="floor-dot" cx="0" cy="122" r="5" fill="#0D2B3A"/>
+            </g>
+          </svg>
+        </div>
+        <div class="pool-cap"><span>Coupe du bassin d'apprentissage, du bord peu profond au grand bain.</span><span>Profondeurs d'exemple.</span></div>
+      </div>
+    </div>
+    <div class="h-result">
+
+      <div class="result" id="result" aria-live="polite">
+        <div class="empty">
+          <b>Répondez à la question, ou touchez une profondeur du bassin.</b>
+          <span>Le groupe de votre enfant s'affiche ici, avec ce qu'il y apprend et ses créneaux de la semaine.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Horaires -->
+<section class="band" id="horaires" aria-labelledby="h-hor">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-hor">La semaine au bassin</h2>
+      <p>Séances de 45 minutes, toute l'année scolaire hors vacances. Chaque créneau accueille six enfants au plus. Touchez un créneau pour le choisir pour la séance d'essai.</p>
+    </div>
+    <div class="week" id="week"></div>
+    <div class="week-foot"><span class="ex">Places restantes d'exemple, non mises à jour</span><span>Créneau complet : vous pouvez demander la liste d'attente.</span></div>
+  </div>
+</section>
+
+<!-- 3. Une séance -->
+<section class="band" id="seance" aria-labelledby="h-sea">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-sea">45 minutes, et pas une de plus</h2>
+      <p>Les enfants apprennent mieux quand la séance a toujours la même forme : ils savent ce qui vient, la peur baisse, et le temps passé dans l'eau compte.</p>
+    </div>
+    <div class="session">
+      <div class="clock">
+        <div class="bar" aria-hidden="true">
+          <span style="flex:5;background:#C9D6D8"></span>
+          <span style="flex:5;background:#9EDCE4"></span>
+          <span style="flex:25;background:#127F96"></span>
+          <span style="flex:7;background:#F3C232"></span>
+          <span style="flex:3;background:#0D2B3A"></span>
+        </div>
+        <div class="ticks" aria-hidden="true"><span style="flex:5">0'</span><span style="flex:5">5'</span><span style="flex:25">10'</span><span style="flex:7">35'</span><span style="flex:3">42'</span></div>
+        <ol class="steps">
+          <li><span class="m">0–5'</span><span class="sw" style="background:#C9D6D8" aria-hidden="true"></span><div><b>Accueil au bord</b><p>Le maître-nageur appelle chaque enfant par son prénom, on rappelle la règle du jour.</p></div></li>
+          <li><span class="m">5–10'</span><span class="sw" style="background:#9EDCE4" aria-hidden="true"></span><div><b>Échauffement dans l'eau</b><p>Bulles, sauts, glissades : tout le groupe ensemble, à sa profondeur.</p></div></li>
+          <li><span class="m">10–35'</span><span class="sw" style="background:#127F96" aria-hidden="true"></span><div><b>Ateliers</b><p>Trois ateliers tournants sur les gestes du groupe. C'est là que se joue le passage à la profondeur suivante.</p></div></li>
+          <li><span class="m">35–42'</span><span class="sw" style="background:#F3C232" aria-hidden="true"></span><div><b>Jeu</b><p>Un jeu collectif qui réutilise le geste du jour, pour finir sur un bon souvenir.</p></div></li>
+          <li><span class="m">42–45'</span><span class="sw" style="background:#0D2B3A" aria-hidden="true"></span><div><b>Retour au bord</b><p>On note ce qui est acquis dans le carnet de l'enfant, que vous retrouvez à la sortie.</p></div></li>
+        </ol>
+      </div>
+
+      <div class="parents">
+        <h3>Côté parents</h3>
+        <ul class="bring">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M7 8l-4 4 4 4"/></svg><span>Arrivez <b>10 minutes avant</b> : vestiaires familles, puis l'enfant attend au bord avec son groupe.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>Bonnet de bain et maillot</b> obligatoires ; les shorts de bain ne sont pas acceptés à la piscine.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>Vous regardez depuis <b>la galerie vitrée</b>, sans entrer sur le bord.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M5 10l7-7 7 7"/></svg><span>Deux maîtres-nageurs diplômés pour six enfants dans les groupes 0,80&nbsp;m et 1,00&nbsp;m, un pour six ensuite. <span class="ex">Encadrement d'exemple, à confirmer</span></span></li>
+        </ul>
+        <details>
+          <summary>Mon enfant a peur de l'eau.</summary>
+          <p>C'est le point de départ du groupe 0,80 m : on a pied partout, rien n'est forcé, et la tête sous l'eau vient quand l'enfant le décide. Dites-le dans la demande d'essai, le maître-nageur sera prévenu.</p>
+        </details>
+        <details>
+          <summary>Il a 9 ans et débute : sera-t-il avec des petits ?</summary>
+          <p>Non. Les 8–12 ans qui débutent ont leur propre créneau en 0,80 m, le mercredi à 17 h, pour apprendre entre grands.</p>
+        </details>
+        <details>
+          <summary>Comment passe-t-il au groupe suivant ?</summary>
+          <p>Dès que les gestes du carnet sont acquis, à n'importe quel moment de l'année. On vous propose alors un créneau de la profondeur suivante.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Tarifs -->
+<section class="band" id="tarifs" aria-labelledby="h-tar">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-tar">Tarifs</h2>
+      <p>Entrée de la piscine incluse. La séance d'essai est déduite si vous inscrivez votre enfant ensuite.</p>
+    </div>
+    <div class="prices">
+      <div class="price lead"><h3>Séance d'essai</h3><div class="amt num">12<small>€</small></div><p class="per">Une séance de 45 min, pour trouver le bon groupe.</p></div>
+      <div class="price"><h3>Trimestre · 10 séances</h3><div class="amt num">165<small>€</small></div><p class="per num">soit 16,50 € la séance</p></div>
+      <div class="price"><h3>Année · 30 séances</h3><div class="amt num">450<small>€</small></div><p class="per num">soit 15,00 € la séance</p></div>
+    </div>
+    <div class="price-notes"><span class="ex">Tarifs d'exemple, à remplacer par les vôtres</span><span>Paiement en une ou trois fois.</span></div>
+  </div>
+</section>
+
+<!-- 5. Réserver -->
+<section class="band" id="essai" aria-labelledby="h-ess">
+  <div class="wrap book">
+    <aside>
+      <h2 id="h-ess">Réserver une séance d'essai</h2>
+      <p>Le maître-nageur observe votre enfant pendant la séance et confirme son groupe. On vous rappelle sous 48 heures pour valider le créneau.</p>
+      <div class="contact">
+        <span>Par téléphone : <a class="num" href="tel:+33199001234">01 99 00 12 34</a></span>
+        <span>Piscine du bassin d'apprentissage, 12 rue de l'Exemple, 75011 Paris</span>
+        <span class="ex">Coordonnées et adresse d'exemple</span>
+      </div>
+    </aside>
+
+    <div>
+      <form class="trial" id="trial" novalidate>
+        <div class="errsum" id="errsum" role="alert" tabindex="-1"></div>
+        <div class="row">
+          <div class="f" id="f-kid"><label for="kid">Prénom de l'enfant</label><input type="text" id="kid" name="kid" autocomplete="off" aria-describedby="e-kid"><span class="err" id="e-kid">Indiquez le prénom de l'enfant.</span></div>
+          <div class="f" id="f-kage"><label for="kage">Âge</label>
+            <select id="kage" name="kage" class="num" aria-describedby="e-kage"><option value="">Choisir</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select>
+            <span class="err" id="e-kage">Choisissez l'âge de l'enfant.</span></div>
+        </div>
+        <div class="row">
+          <div class="f" id="f-grp"><label for="grp">Groupe</label>
+            <select id="grp" name="grp" aria-describedby="h-grp e-grp"><option value="">Choisir</option></select>
+            <span class="help" id="h-grp">Pas sûr ? Répondez à la question en haut de page.</span>
+            <span class="err" id="e-grp">Choisissez un groupe.</span></div>
+          <div class="f" id="f-slot"><label for="slot">Créneau</label>
+            <select id="slot" name="slot" aria-describedby="e-slot"><option value="">Choisir d'abord un groupe</option></select>
+            <span class="err" id="e-slot">Choisissez un créneau.</span></div>
+        </div>
+        <div class="row">
+          <div class="f" id="f-par"><label for="par">Votre nom</label><input type="text" id="par" name="par" autocomplete="name" aria-describedby="e-par"><span class="err" id="e-par">Indiquez votre nom.</span></div>
+          <div class="f" id="f-tel"><label for="tel">Téléphone</label><input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" aria-describedby="h-tel e-tel"><span class="help" id="h-tel">Pour vous rappeler et confirmer le créneau.</span><span class="err" id="e-tel">Ce numéro semble incomplet : 10 chiffres, par exemple 06 12 34 56 78.</span></div>
+        </div>
+        <div class="f"><label for="msg">À savoir pour le maître-nageur <span style="font-weight:400;color:var(--ink-2)">(facultatif)</span></label><textarea id="msg" name="msg" placeholder="Peur de l'eau, asthme, lunettes…"></textarea></div>
+        <div class="form-foot">
+          <button class="btn" type="submit">Demander la séance d'essai</button>
+          <p>Maquette : la demande n'est pas envoyée. Dans la vraie version, elle arrive à l'école.</p>
+        </div>
+      </form>
+      <div class="done" id="done" role="status" tabindex="-1"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Les Petites Longueurs</b><br>École de natation pour enfants, 4 à 12 ans.</div>
+    <div>12 rue de l'Exemple, 75011 Paris<br><a class="num" href="tel:+33199001234">01 99 00 12 34</a></div>
+    <div>Maquette : nom, adresse, horaires, places,<br>tarifs et encadrement d'exemple.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Données d'exemple — cohérentes : 6 places par créneau, séances de 45 min.
+  var CAP = 6;
+  var G = [
+    {d:"0,80", name:"Apprivoiser l'eau", ages:"4–6 ans", min:4, x:100, floor:146,
+     skills:["Entrer seul dans l'eau par l'escalier","Souffler des bulles, le visage dans l'eau","Se déplacer partout où l'on a pied"],
+     next:"Passe en 1,00 m quand il met la tête sous l'eau sans crainte."},
+    {d:"1,00", name:"Flotter", ages:"5–7 ans", min:5, x:300, floor:171,
+     skills:["Flotter sur le ventre puis sur le dos, sans aide","Ramasser un anneau au fond","Lâcher le bord et revenir seul"],
+     next:"Passe en 1,30 m quand il flotte seul 5 secondes."},
+    {d:"1,30", name:"Premiers mètres", ages:"6–8 ans", min:6, x:500, floor:208,
+     skills:["Nager 15 m sans aide, sur le ventre","Sauter et remonter seul à la surface","Respirer sur le côté"],
+     next:"Passe en 1,80 m quand il nage 15 m sans s'arrêter."},
+    {d:"1,80", name:"Traverser", ages:"7–10 ans", min:7, x:700, floor:271,
+     skills:["Nager 25 m, sur le ventre et sur le dos","Sauter là où l'on n'a pas pied","Se reposer en surplace 30 secondes"],
+     next:"Passe au grand bain quand il traverse 25 m deux fois."},
+    {d:"2,20", name:"Grand bain", ages:"8–12 ans", min:8, x:900, floor:321,
+     skills:["Nager 50 m avec deux nages","Plonger et passer sous un obstacle","Savoir se sortir seul d'une situation en eau profonde"],
+     next:"Dernier groupe : prépare aux clubs et aux tests scolaires de natation."}
+  ];
+  // Créneaux : jour, heure, groupe, places restantes, spécial (grands débutants)
+  var S = [
+    {id:"me10", day:"Mercredi", t:"10:00", g:0, left:2},
+    {id:"me11", day:"Mercredi", t:"11:00", g:1, left:3},
+    {id:"me14", day:"Mercredi", t:"14:00", g:2, left:1},
+    {id:"me15", day:"Mercredi", t:"15:00", g:3, left:4},
+    {id:"me16", day:"Mercredi", t:"16:00", g:4, left:2},
+    {id:"me17", day:"Mercredi", t:"17:00", g:0, left:3, big:true},
+    {id:"lu17", day:"Lundi", t:"17:30", g:3, left:3},
+    {id:"je18", day:"Jeudi", t:"18:00", g:4, left:1},
+    {id:"sa09", day:"Samedi", t:"09:15", g:0, left:0},
+    {id:"sa10", day:"Samedi", t:"10:00", g:0, left:1},
+    {id:"sa11", day:"Samedi", t:"10:45", g:1, left:2},
+    {id:"sa12", day:"Samedi", t:"11:30", g:2, left:0},
+    {id:"sa14", day:"Samedi", t:"14:00", g:3, left:2},
+    {id:"sa15", day:"Samedi", t:"14:45", g:4, left:5},
+    {id:"di09", day:"Dimanche", t:"09:15", g:1, left:4},
+    {id:"di10", day:"Dimanche", t:"10:00", g:2, left:2}
+  ];
+  var DAYS = ["Lundi","Mercredi","Jeudi","Samedi","Dimanche"];
+  function hh(t){return t.replace(/^0/,"").replace(":"," h ").replace(" h 00"," h")}
+  function placesTxt(n){return n===0?"Complet":(n===1?"1 place":n+" places")}
+  function slotLabel(s){return s.day+" "+hh(s.t)+(s.big?" · 8–12 ans débutants":"")}
+
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // flotteurs de la ligne d'eau
+  var rope = document.getElementById("rope"), ns="http://www.w3.org/2000/svg";
+  for (var x=11, i=0; x<1000; x+=22, i++){
+    var c=document.createElementNS(ns,"ellipse");
+    c.setAttribute("cx",x); c.setAttribute("cy",46); c.setAttribute("rx",9); c.setAttribute("ry",5);
+    c.setAttribute("fill", i%2 ? "#fff" : "#F3C232"); c.setAttribute("stroke","#0B5B6E"); c.setAttribute("stroke-width","1.2");
+    rope.appendChild(c);
+  }
+
+  var current = null, chosenSlot = null;
+  var result = document.getElementById("result");
+  var ageSel = document.getElementById("age");
+
+  function maxByAge(a){ return a<=5?2 : a<=7?3 : 4; }
+
+  function place(gi, fromQuestion){
+    current = gi;
+    var g = G[gi], age = +ageSel.value;
+    // bassin
+    var sw = document.getElementById("swimmer");
+    sw.setAttribute("opacity","1");
+    sw.setAttribute("transform","translate("+g.x+" 0)");
+    sw.style.transform = "translate("+g.x+"px,0)";
+    document.getElementById("gauge").setAttribute("d","M0 56V"+(g.floor-7));
+    document.getElementById("floor-dot").setAttribute("cy", g.floor-7);
+    for (var k=0;k<5;k++){
+      document.getElementById("zf"+k).setAttribute("opacity", k===gi?"1":"0");
+      document.querySelector('.zone[data-g="'+k+'"]').setAttribute("aria-pressed", k===gi?"true":"false");
+    }
+    // créneaux
+    var slots = S.filter(function(s){return s.g===gi;});
+    var note = "";
+    if (gi<=1 && age>=8){
+      slots.sort(function(a,b){return (b.big?1:0)-(a.big?1:0);});
+      if (gi===0) note = "À "+age+" ans, votre enfant apprendra entre grands : le mercredi à 17 h est réservé aux 8–12 ans qui débutent.";
+    } else {
+      slots = slots.filter(function(s){return !s.big;});
+    }
+    if (fromQuestion && age < g.min){
+      note = "À "+age+" ans, il sera parmi les plus jeunes de ce groupe ("+g.ages+"). Le maître-nageur le confirme pendant l'essai, ou propose la profondeur d'avant.";
+    }
+    var html = '<div class="r-head"><div class="r-depth num">'+g.d+'<small>m</small></div>'+
+      '<div class="r-name">'+g.name+'</div><div class="r-meta"><span class="nw">'+g.ages+'</span> · <span class="nw">6 enfants au plus</span> · <span class="nw">45 min</span></div></div>'+
+      '<div class="r-body"><div class="r-col"><h3>Ce qu\'il apprend à cette profondeur</h3><ul class="skills">'+
+      g.skills.map(function(s){return "<li>"+s+"</li>";}).join("")+'</ul><p class="next">'+g.next+'</p>'+
+      (note?'<p class="note">'+note+'</p>':'')+
+      '</div><div class="r-col"><h3>Créneaux de la semaine</h3><div class="slots">'+
+      slots.map(function(s){
+        var full = s.left===0;
+        return '<button type="button" class="slot num'+(full?' full':'')+(s.big?' special':'')+'" data-slot="'+s.id+'" aria-label="'+slotLabel(s)+', '+(full?'complet, demander la liste d\'attente':placesTxt(s.left))+'">'+
+          '<span class="when"><b>'+s.day+'</b> '+hh(s.t)+(s.big?' · grands débutants':'')+'</span>'+
+          '<span class="pl'+(s.left>0&&s.left<=2?' few':'')+'">'+(full?'Complet':placesTxt(s.left))+'</span></button>';
+      }).join("")+'</div><span class="ex" style="display:block;margin-top:10px">Places d\'exemple · créneau complet : liste d\'attente possible</span></div></div>'+
+      '<div class="r-foot"><a class="btn" href="#essai" data-book="'+gi+'">Réserver l\'essai en '+g.d+' m</a>'+
+      '<p>Rien n\'est figé : le maître-nageur confirme le groupe pendant la séance d\'essai.</p></div>';
+    result.innerHTML = html;
+    highlightWeek();
+  }
+
+  // semaine
+  var week = document.getElementById("week");
+  function renderWeek(){
+    week.innerHTML = DAYS.map(function(day){
+      var list = S.filter(function(s){return s.day===day;}).sort(function(a,b){return a.t<b.t?-1:1;});
+      return '<div class="day"><h3>'+day+'<span>'+list.length+' créneau'+(list.length>1?'x':'')+'</span></h3><ul>'+
+        list.map(function(s){
+          var g=G[s.g], full=s.left===0;
+          return '<li><button type="button" class="wslot num'+(full?' full':'')+'" data-slot="'+s.id+'" data-g="'+s.g+'" aria-label="'+slotLabel(s)+', groupe '+g.d+' mètre, '+g.name+', '+(full?'complet':placesTxt(s.left))+'">'+
+            '<span class="t">'+hh(s.t)+'</span><span class="g"><i>'+g.d+'</i>'+(s.big?'Débutants 8–12 ans':g.name)+'</span>'+
+            '<span class="p">'+(full?'Complet':placesTxt(s.left))+'</span></button></li>';
+        }).join("")+'</ul></div>';
+    }).join("");
+  }
+  function highlightWeek(){
+    var b = document.querySelectorAll(".wslot");
+    for (var i=0;i<b.length;i++) b[i].classList.toggle("hl", current!==null && +b[i].getAttribute("data-g")===current);
+  }
+  renderWeek();
+
+  // formulaire
+  var grp = document.getElementById("grp"), slotSel = document.getElementById("slot"), kage = document.getElementById("kage");
+  grp.innerHTML = '<option value="">Choisir</option>'+G.map(function(g,i){return '<option value="'+i+'">'+g.d+' m · '+g.name+'</option>';}).join("");
+  function fillSlots(gi, pick){
+    if (gi===""||gi===null){ slotSel.innerHTML='<option value="">Choisir d\'abord un groupe</option>'; return; }
+    var list = S.filter(function(s){return s.g===+gi;});
+    slotSel.innerHTML = '<option value="">Choisir</option>'+list.map(function(s){
+      return '<option value="'+s.id+'">'+slotLabel(s)+' — '+(s.left===0?'complet, liste d\'attente':placesTxt(s.left))+'</option>';
+    }).join("");
+    if (pick) slotSel.value = pick;
+  }
+  grp.addEventListener("change", function(){ fillSlots(grp.value); });
+
+  function prefill(gi, slotId){
+    grp.value = String(gi); fillSlots(gi, slotId||"");
+    if (!kage.value) kage.value = ageSel.value;
+    clearErr(["grp","slot","kage"]);
+  }
+  function goForm(){
+    var target = document.getElementById("essai");
+    target.scrollIntoView({behavior: reduce?"auto":"smooth", block:"start"});
+    setTimeout(function(){ document.getElementById("kid").focus({preventScroll:true}); }, reduce?0:450);
+  }
+
+  // événements
+  document.querySelectorAll('input[name="lvl"]').forEach(function(r){
+    r.addEventListener("change", function(){
+      var gi = Math.min(+r.value, maxByAge(+ageSel.value));
+      place(gi, true);
+    });
+  });
+  ageSel.addEventListener("change", function(){
+    var r = document.querySelector('input[name="lvl"]:checked');
+    if (r) place(Math.min(+r.value, maxByAge(+ageSel.value)), true);
+    else if (current!==null) place(current, false);
+  });
+  document.querySelectorAll(".zone").forEach(function(z){
+    z.addEventListener("click", function(){ place(+z.getAttribute("data-g"), false); });
+  });
+  document.addEventListener("click", function(e){
+    var s = e.target.closest("[data-slot]");
+    if (s){
+      var slot = S.filter(function(x){return x.id===s.getAttribute("data-slot");})[0];
+      prefill(slot.g, slot.id); goForm(); return;
+    }
+    var b = e.target.closest("[data-book]");
+    if (b){ e.preventDefault(); prefill(+b.getAttribute("data-book")); goForm(); }
+  });
+
+  var form = document.getElementById("trial"), errsum = document.getElementById("errsum"), done = document.getElementById("done");
+  function clearErr(ids){ ids.forEach(function(id){ var f=document.getElementById("f-"+id); if(f){f.classList.remove("bad"); var el=document.getElementById(id); el.removeAttribute("aria-invalid");} }); }
+  ["kid","kage","grp","slot","par","tel"].forEach(function(id){
+    document.getElementById(id).addEventListener("input", function(){ clearErr([id]); });
+    document.getElementById(id).addEventListener("change", function(){ clearErr([id]); });
+  });
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var bad = [];
+    function need(id, ok){ var f=document.getElementById("f-"+id), el=document.getElementById(id);
+      if(!ok){ f.classList.add("bad"); el.setAttribute("aria-invalid","true"); bad.push(id);} else { f.classList.remove("bad"); el.removeAttribute("aria-invalid"); } }
+    need("kid", document.getElementById("kid").value.trim().length>0);
+    need("kage", kage.value!=="");
+    need("grp", grp.value!=="");
+    need("slot", slotSel.value!=="");
+    need("par", document.getElementById("par").value.trim().length>0);
+    var digits = document.getElementById("tel").value.replace(/\D/g,"").replace(/^33/,"0");
+    need("tel", /^0\d{9}$/.test(digits));
+    if (bad.length){
+      var labels = {kid:"le prénom de l'enfant",kage:"l'âge",grp:"le groupe",slot:"le créneau",par:"votre nom",tel:"le téléphone"};
+      errsum.innerHTML = "Il manque "+(bad.length>1?bad.length+" informations":"une information")+" : "+bad.map(function(b){return '<a href="#'+b+'">'+labels[b]+'</a>';}).join(", ")+". Le reste est conservé.";
+      errsum.classList.add("on");
+      document.getElementById(bad[0]).focus();
+      return;
+    }
+    errsum.classList.remove("on");
+    var s = S.filter(function(x){return x.id===slotSel.value;})[0], g = G[+grp.value];
+    var kid = document.getElementById("kid").value.trim();
+    var wait = s.left===0;
+    done.innerHTML = '<h3>'+(wait?'Demande de liste d\'attente prête':'Demande prête')+'</h3>'+
+      '<p><b>'+kid.replace(/[<>&]/g,"")+'</b>, '+kage.value+' ans · groupe '+g.d+' m, '+g.name+' · '+slotLabel(s)+'.</p>'+
+      '<p>'+(wait?'Ce créneau est complet : l\'école vous rappellera dès qu\'une place se libère.':'L\'école vous rappelle sous 48 heures pour confirmer le créneau.')+'</p>'+
+      '<span class="ex">Maquette : aucune demande n\'a été envoyée.</span>'+
+      '<p><button type="button" class="btn ghost small" id="again">Modifier la demande</button></p>';
+    form.style.display = "none";
+    done.classList.add("on");
+    done.focus();
+    document.getElementById("again").addEventListener("click", function(){
+      done.classList.remove("on"); form.style.display = ""; document.getElementById("kid").focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>

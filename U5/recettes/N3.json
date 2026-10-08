@@ -1,0 +1,638 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/runs/N3-B3-paris/index.html",
+    "artifact_version": "b4057ee9f95e",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-08T11:41:47Z",
+    "scope": "état initial, largeurs 390,1440 px",
+    "external_requests_blocked": 0,
+    "captures": [
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/captures/N3/capture-390px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/d50555cc-e888-5d84-bb8b-64d228442ef5/scratchpad/U5/captures/N3/capture-1440px.png"
+    ]
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 390, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 390 px : 183 texte(s) évalué(s), 245 candidat(s), 17 exclu(s) ; 1440 px : 189 texte(s) évalué(s), 245 candidat(s), 6 exclu(s) ; 390 px : texte non évalué : #age (texte de contrôle natif), summary (contenu ::after), summary (contenu ::after), summary (contenu ::after), #kage (texte de contrôle natif), #grp (texte de contrôle natif) ; 390 px : candidat(s) restant hors évaluation ; 1440 px : texte non évalué : #age (texte de contrôle natif), summary (contenu ::after), summary (contenu ::after), summary (contenu ::after), #kage (texte de contrôle natif), #grp (texte de contrôle natif) ; 1440 px : candidat(s) restant hors évaluation ; fond en dégradé ou en image, non évalué : option, small, span.d.num, span.n ; texte SVG non évalué (#basin-t) : relever fill/stroke, opacités et fond réel, puis calculer le contraste ; méthode dans ACTION/GATE-A"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "47 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié ; candidat hors couverture : button.zone, summary"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement ; 1 petite(s) cible(s) admise(s) par l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "38 arrêt(s) à 390 px ; 390 px : page, fin=end, 42 candidat(s) ; 43 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 47 candidat(s) ; 390 px : candidat(s) non atteint(s) : #l1, #l2, #l3, #l4 ; vérifier aussi la navigation alternative ; 1440 px : candidat(s) non atteint(s) : #l1, #l2, #l3, #l4 ; vérifier aussi la navigation alternative ; style observé, visibilité et contraste du focus à vérifier"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation active"
+    },
+    {
+      "check": "Objet de preuve au premier écran",
+      "status": "NOT-VERIFIED",
+      "detail": "aucun sélecteur fourni (--proof) : à juger à la main"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "#l0"
+        },
+        {
+          "key": "control-3",
+          "id": "#l1"
+        },
+        {
+          "key": "control-4",
+          "id": "#l2"
+        },
+        {
+          "key": "control-5",
+          "id": "#l3"
+        },
+        {
+          "key": "control-6",
+          "id": "#l4"
+        },
+        {
+          "key": "control-7",
+          "id": "#age"
+        },
+        {
+          "key": "control-8",
+          "id": "button"
+        },
+        {
+          "key": "control-9",
+          "id": "button"
+        },
+        {
+          "key": "control-10",
+          "id": "button"
+        },
+        {
+          "key": "control-11",
+          "id": "button"
+        },
+        {
+          "key": "control-12",
+          "id": "button"
+        },
+        {
+          "key": "control-13",
+          "id": "button"
+        },
+        {
+          "key": "control-14",
+          "id": "button"
+        },
+        {
+          "key": "control-15",
+          "id": "button"
+        },
+        {
+          "key": "control-16",
+          "id": "button"
+        },
+        {
+          "key": "control-17",
+          "id": "button"
+        },
+        {
+          "key": "control-18",
+          "id": "button"
+        },
+        {
+          "key": "control-19",
+          "id": "button"
+        },
+        {
+          "key": "control-20",
+          "id": "button"
+        },
+        {
+          "key": "control-21",
+          "id": "button"
+        },
+        {
+          "key": "control-22",
+          "id": "button"
+        },
+        {
+          "key": "control-23",
+          "id": "button"
+        },
+        {
+          "key": "control-24",
+          "id": "button"
+        },
+        {
+          "key": "control-25",
+          "id": "button"
+        },
+        {
+          "key": "control-26",
+          "id": "button"
+        },
+        {
+          "key": "control-27",
+          "id": "button"
+        },
+        {
+          "key": "control-28",
+          "id": "button"
+        },
+        {
+          "key": "control-29",
+          "id": "summary"
+        },
+        {
+          "key": "control-30",
+          "id": "summary"
+        },
+        {
+          "key": "control-31",
+          "id": "summary"
+        },
+        {
+          "key": "control-32",
+          "id": "a"
+        },
+        {
+          "key": "control-33",
+          "id": "#kid"
+        },
+        {
+          "key": "control-34",
+          "id": "#kage"
+        },
+        {
+          "key": "control-35",
+          "id": "#grp"
+        },
+        {
+          "key": "control-36",
+          "id": "#slot"
+        },
+        {
+          "key": "control-37",
+          "id": "#par"
+        },
+        {
+          "key": "control-38",
+          "id": "#tel"
+        },
+        {
+          "key": "control-39",
+          "id": "#msg"
+        },
+        {
+          "key": "control-40",
+          "id": "button"
+        },
+        {
+          "key": "control-41",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-22",
+        "control-23",
+        "control-24",
+        "control-25",
+        "control-26",
+        "control-27",
+        "control-28",
+        "control-29",
+        "control-30",
+        "control-31",
+        "control-32",
+        "control-33",
+        "control-34",
+        "control-35",
+        "control-36",
+        "control-37",
+        "control-38",
+        "control-39",
+        "control-40",
+        "control-41",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [
+        "#l1",
+        "#l2",
+        "#l3",
+        "#l4"
+      ],
+      "unexpected": [],
+      "observed_stops": 38
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "#l0"
+        },
+        {
+          "key": "control-8",
+          "id": "#l1"
+        },
+        {
+          "key": "control-9",
+          "id": "#l2"
+        },
+        {
+          "key": "control-10",
+          "id": "#l3"
+        },
+        {
+          "key": "control-11",
+          "id": "#l4"
+        },
+        {
+          "key": "control-12",
+          "id": "#age"
+        },
+        {
+          "key": "control-13",
+          "id": "button"
+        },
+        {
+          "key": "control-14",
+          "id": "button"
+        },
+        {
+          "key": "control-15",
+          "id": "button"
+        },
+        {
+          "key": "control-16",
+          "id": "button"
+        },
+        {
+          "key": "control-17",
+          "id": "button"
+        },
+        {
+          "key": "control-18",
+          "id": "button"
+        },
+        {
+          "key": "control-19",
+          "id": "button"
+        },
+        {
+          "key": "control-20",
+          "id": "button"
+        },
+        {
+          "key": "control-21",
+          "id": "button"
+        },
+        {
+          "key": "control-22",
+          "id": "button"
+        },
+        {
+          "key": "control-23",
+          "id": "button"
+        },
+        {
+          "key": "control-24",
+          "id": "button"
+        },
+        {
+          "key": "control-25",
+          "id": "button"
+        },
+        {
+          "key": "control-26",
+          "id": "button"
+        },
+        {
+          "key": "control-27",
+          "id": "button"
+        },
+        {
+          "key": "control-28",
+          "id": "button"
+        },
+        {
+          "key": "control-29",
+          "id": "button"
+        },
+        {
+          "key": "control-30",
+          "id": "button"
+        },
+        {
+          "key": "control-31",
+          "id": "button"
+        },
+        {
+          "key": "control-32",
+          "id": "button"
+        },
+        {
+          "key": "control-33",
+          "id": "button"
+        },
+        {
+          "key": "control-34",
+          "id": "summary"
+        },
+        {
+          "key": "control-35",
+          "id": "summary"
+        },
+        {
+          "key": "control-36",
+          "id": "summary"
+        },
+        {
+          "key": "control-37",
+          "id": "a"
+        },
+        {
+          "key": "control-38",
+          "id": "#kid"
+        },
+        {
+          "key": "control-39",
+          "id": "#kage"
+        },
+        {
+          "key": "control-40",
+          "id": "#grp"
+        },
+        {
+          "key": "control-41",
+          "id": "#slot"
+        },
+        {
+          "key": "control-42",
+          "id": "#par"
+        },
+        {
+          "key": "control-43",
+          "id": "#tel"
+        },
+        {
+          "key": "control-44",
+          "id": "#msg"
+        },
+        {
+          "key": "control-45",
+          "id": "button"
+        },
+        {
+          "key": "control-46",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-22",
+        "control-23",
+        "control-24",
+        "control-25",
+        "control-26",
+        "control-27",
+        "control-28",
+        "control-29",
+        "control-3",
+        "control-30",
+        "control-31",
+        "control-32",
+        "control-33",
+        "control-34",
+        "control-35",
+        "control-36",
+        "control-37",
+        "control-38",
+        "control-39",
+        "control-4",
+        "control-40",
+        "control-41",
+        "control-42",
+        "control-43",
+        "control-44",
+        "control-45",
+        "control-46",
+        "control-5",
+        "control-6",
+        "control-7"
+      ],
+      "unreached": [
+        "#l1",
+        "#l2",
+        "#l3",
+        "#l4"
+      ],
+      "unexpected": [],
+      "observed_stops": 43
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 245,
+      "evaluated": 183,
+      "excluded": 17,
+      "unmeasured": [
+        {
+          "sel": "#age",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "#kage",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#grp",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#slot",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#msg",
+          "kind": "placeholder affiché"
+        }
+      ]
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 245,
+      "evaluated": 189,
+      "excluded": 6,
+      "unmeasured": [
+        {
+          "sel": "#age",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "#kage",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#grp",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#slot",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#msg",
+          "kind": "placeholder affiché"
+        }
+      ]
+    }
+  },
+  "proof_observations": {
+    "390": null,
+    "1440": null
+  }
+}
