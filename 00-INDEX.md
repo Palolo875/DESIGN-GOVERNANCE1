@@ -109,7 +109,7 @@ On peut les supprimer sans perte, puisque leurs résultats sont dans les livrabl
 | Plan | v2 accepté ; U2 en cours, ordre L3, L4, L5, L6 (D7, D8), L2, L1 |
 | Décisions prises | D1 à D6 (plan v2, §4.1) |
 | Décisions à prendre | Paris U4, après lecture de la mesure U3 (D7 à D14 prises). Aucune ne bloque les lots L1 à L5 |
-| Prochaine action | Bilan U3 avec toi (`U3/resultats.md`) ; confirmer ton classement B2 ; décider des paris U4 |
+| Prochaine action | U5 : remesure des paris P1 et P3 (3 runs + 20 jugements), sur ton feu vert ; voir `U4/paris.md` |
 
 ## 4. Erreurs de mon côté, corrigées
 

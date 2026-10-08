@@ -15,7 +15,7 @@
 
 ## Classement du propriétaire (2026-10-08)
 
-- B2 : écrit « V, M, V, XT » ; lu **V > M > X > T** d'après ses commentaires (V devant X, M devant T). À confirmer.
+- B2 : **V > M > X > T** (confirmé le 2026-10-08).
 - B3 : **K > P**.
 - Commentaires (résumés fidèlement) : M a un hero plus crédible que T, plus scannable, un meilleur contraste perçu et un bon pied de page, mais des cartes de fonctionnalités peu aimées ; T a plus de diagrammes mais il est moins lisible. X a le hero le plus travaillé, mais V est plus propre et moins encombré en défilant, avec un meilleur « trajet d'une facture » ; X est chargé de cartes et on ne sait pas où regarder sur ordinateur ; le pied de page de V est plus présent. K est clair, ordonné et va à l'essentiel, mais ses couleurs sont pâles et peu vivantes ; P est plus vivant et illustratif mais mal exécuté pour un site censé être professionnel, trop centré sur l'enfant dessiné.
 
