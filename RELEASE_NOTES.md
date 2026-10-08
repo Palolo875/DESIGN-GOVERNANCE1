@@ -4,7 +4,15 @@
 **Date de V1.0.0 :** 2026-10-01\
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
-## Révision R2026-10-04-AUDIT2-FIXES
+## Révision R2026-10-08-CORRECTIONS
+
+Corrections faites sans run de mesure, à partir d’un audit complet du paquet, pour que la mesure comparative porte sur une version cohérente. La prise de brief construit dans le même tour ; `DIRECTION/CHARGE` est la seule liste de chargement, complète, et `LITE` se charge plus léger. Un seul bloc d’exécution courte (`ACTION/FAST-PATH`) et un seul jeu d’axes de position. Le noyau gagne l’absolu 4, le piège de conformité et la nuance du premier contact, perd ses répétitions de la boucle d’édition, suit l’ordre d’exécution et reste sous sa taille précédente (43 110 octets).
+
+`check_render --captures` écrit une capture pleine page par largeur sans rien écraser ; ses options et limites (contraste non textuel non mesuré) sont documentées. Le profil strict contrôle les captures de la paire B1b ; la restauration Markdown n’écrit que dans un dossier vide ; `--trouver --guides` couvre le README et les références de la skill ; la CI exécute les tests de pages. L’exemple de brief flou ne fournit plus d’objet à recopier.
+
+Compatibilité : V1.0.0, 69 fichiers GitHub et 63 Local ; aucun nouveau mode, gate, statut ni champ RUN_CARD. Les anciens blocs FAST-PATH de SAVOIR et de BIBLIOTHEQUE deviennent `SAVOIR/JUGEMENT-COURT` et `BIBLIOTHEQUE/AVANT-SELECTION`. Une carte stricte dont une capture B1b locale manque est désormais refusée. **Efficacité : toujours `NOT-VERIFIED`** ; aucun effet sur la qualité des rendus n’est revendiqué.
+
+## Révision précédente R2026-10-04-AUDIT2-FIXES
 
 Les quatre constats F07–F10 du second audit sont corrigés. Le contraste expose sa couverture DOM ; valeurs courantes, placeholders affichés et textes natifs détectés hors calcul conservent une réserve. Un défaut calculé conserve RETURN. L’objet de preuve distingue présence, surface, opacité cumulée et intersection sur les deux axes ; découpes et anciennes mesures incomplètes sont réservées. Son PASS reste borné au CSS et au rectangle, sans certifier pixels, occlusion ou pertinence.
 

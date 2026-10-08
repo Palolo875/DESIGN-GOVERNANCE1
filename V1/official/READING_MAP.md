@@ -77,7 +77,7 @@ Arrêter l’orchestration lorsque la décision, le risque, le scope, l’owner,
 
 ## Connexions situées
 
-**Base de sources :** `R2026-10-04-AUDIT2-FIXES`.
+**Base de sources :** `R2026-10-08-CORRECTIONS`.
 
 Cet index dérivé rapproche des contributions des propriétaires ; chaque liaison est une hypothèse d’orientation à confronter au contexte. Il ne classe pas le mode, ne remplace pas CHARGE et ne déclare ni applicabilité ni résultat par reconnaissance d’un mot. Les sources ci-dessous appartiennent à la révision indiquée ; une différence de version impose leur réexamen. Les protections applicables restent dues même lorsqu’une suggestion facultative est écartée.
 

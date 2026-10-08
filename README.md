@@ -1,6 +1,6 @@
 # Design Governance V1.0.0
 
-**Révision : `R2026-10-04-AUDIT2-FIXES` — corrections du second audit et maintenance.** Couverture du contraste, observation CSS de l’objet de preuve, familles d’hôtes strictes et restauration sans collisions sont corrigées. La marge du noyau et les relais vers ressources, médiums et reprise sont renforcés. Les formats et champs V1.0.0 sont conservés ; les protections des révisions précédentes restent actives. Limites : [notes de version](RELEASE_NOTES.md). L’historique des révisions de travail est tenu hors distribution.
+**Révision : `R2026-10-08-CORRECTIONS` — corrections d’audit avant mesure.** Prise de brief dans le même tour, chargement unique et complet, noyau dédupliqué et réordonné, captures dans `check_render`, profil strict et restauration renforcés, CI avec navigateur. Les formats et champs V1.0.0 sont conservés ; les protections des révisions précédentes restent actives. Limites : [notes de version](RELEASE_NOTES.md). L’historique des révisions de travail est tenu hors distribution.
 
 Design Governance V1 est un cadre de **direction, de création, de jugement et de vérification du design**. Il aide à transformer un brief en décision située, artefact réel, observation pertinente et trace proportionnée au risque.
 

@@ -3,7 +3,7 @@
 **Version expérimentale :** `V1.0.0`  
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
 **Date de V1.0.0 :** 2026-10-01\
-**Révision :** `R2026-10-04-AUDIT2-FIXES`
+**Révision :** `R2026-10-08-CORRECTIONS`
 
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
@@ -28,6 +28,8 @@ Design Governance V1.0.0 est un cadre de direction, de création, de jugement et
 - **Efficacité.** `NOT-VERIFIED`. Aucune mesure comparative n’établit l’effet du système sur la qualité des rendus ; les runs pratiques orientent sans prouver.
 
 ## Autorité et maintenance
+
+**Décision de la révision de corrections (2026-10-08).** À la demande du propriétaire, corriger sans run de mesure les constats objectifs d’un audit complet du paquet, avant toute mesure comparative. Prise de brief : build dans le même tour, demandes jointes à la proposition. Chargement : `DIRECTION/CHARGE` seule liste, complète ; en `LITE`, seules les sous-routes B2 et B6 de Gate B. Exécution courte : `ACTION/FAST-PATH` seul bloc ; `SAVOIR/JUGEMENT-COURT` et `BIBLIOTHEQUE/AVANT-SELECTION` remplacent les anciens `FAST-PATH` de SAVOIR et BIBLIOTHEQUE ; axes de position tenus par `SAVOIR/CRAFT/CFT-02` seul. Noyau : absolu 4 et piège de conformité ajoutés, premier contact nuancé (`SAVOIR/CRAFT/CFT-04a`), boucle d’édition dédupliquée, codes rendus résolvables, sections dans l’ordre d’exécution ; 43 110 octets contre 43 201 avant la révision. Outils : `check_render --captures` (une capture pleine page par largeur, sans écrasement) et options documentées ; profil strict étendu aux captures B1b ; restauration Markdown limitée à un dossier vide ou absent ; `--trouver --guides` étendu au README et aux références de la skill ; CI avec navigateur. Exemples : la fabrication depuis un brief flou ne fournit plus ni thèse ni objet de preuve ; chiffres d’exemple marqués. Compatibilité : V1.0.0, 69 fichiers GitHub et 63 Local ; aucun nouveau mode, gate, statut ni champ RUN_CARD ; les anciens blocs FAST-PATH de SAVOIR et de BIBLIOTHEQUE sont renommés ; une carte stricte dont une capture B1b locale manque est refusée ; la provenance JSON de la recette peut porter `captures`. Les neuf connexions de READING_MAP se résolvent sur cette révision ; leur contenu n’est pas modifié. Mainteneur : mainteneur du corpus. Preuve : validation complète avec navigateur ; mutation rouge pour chaque verrou adapté ou ajouté. Limites : aucun effet sur la qualité des rendus n’est mesuré. Revue suivante : mesure comparative avec et sans système. Retour : restaurer `R2026-10-04-AUDIT2-FIXES` depuis l’historique, recompiler et reconstruire.
 
 **Décision du second audit (2026-10-04).** À la demande du propriétaire, corriger F07–F10 et traiter R01–R04 dans les supports existants. Propriétaires : check_render et ACTION pour couverture du texte et observations CSS ; validate_run_card pour familles d’hôtes strictes ; preparer_livraison pour unicité des destinations ; SAVOIR pour les détails de veille et la traduction par médium, ACTION/BIBLIOTHEQUE pour ressource et intervention, README/build_distributions pour la reprise. Les relais dérivés et le noyau sont mis à jour depuis ces propriétaires.
 
