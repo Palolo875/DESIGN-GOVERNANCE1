@@ -104,12 +104,12 @@ On peut les supprimer sans perte, puisque leurs résultats sont dans les livrabl
 
 | Élément | État |
 |---|---|
-| Dépôt | Lots L3 à L6 et L2 faits : 25 constats corrigés (L3 : C01, C04, C13, C14, C15, C17 ; L4 : C10, C25, C38, C39, C43, C45, C47 ; L5 : C34 ; L6 : C18, C19, C40, C42, C56 ; L2 : C05, C06, C22, C26, C27, C41), dernier commit `01a2841`, noyau 43 168 octets, `validate_all` vert ; suivi dans `U1/01-registre-constats.md`, section « Suivi des corrections » |
+| Dépôt | **U2 terminée** : 36 constats corrigés (L3 : C01, C04, C13, C14, C15, C17 ; L4 : C10, C25, C38, C39, C43, C45, C47 ; L5 : C34 ; L6 : C18, C19, C40, C42, C56 ; L2 : C05, C06, C22, C26, C27, C41 ; L1 : C07, C08, C12, C21, C23, C30, C31, C32, C36, C44, C46), révision `R2026-10-08-CORRECTIONS`, dernier commit `01be58d`, noyau 43 110 octets, `validate_all` vert ; suivi dans `U1/01-registre-constats.md`, section « Suivi des corrections » |
 | Constats | 60 : 32 de type A (lots L1 à L5, plus C09 en option), 5 de type D (lot L6), 16 de type M (U4 et U7), 5 de type S, et 2 déjà traités (C02 dans le plan, C20 par la décision D1). Décompte vérifié par script |
 | Plan | v2 accepté ; U2 en cours, ordre L3, L4, L5, L6 (D7, D8), L2, L1 |
 | Décisions prises | D1 à D6 (plan v2, §4.1) |
 | Décisions à prendre | D12 à D14 (plan v2, §4.2) ; D7 à D11 prises le 2026-10-07. Aucune ne bloque les lots L1 à L5 |
-| Prochaine action | Lot L1 (hygiène) : C07, C08, C12, C21, C23, C30, C31, C32, C36, C44, C46 ; puis entrée de révision U2 |
+| Prochaine action | U3 (mesure) après tes décisions D12 (modèle producteur), D13 (volume) et D14 (brief B3) |
 
 ## 4. Erreurs de mon côté, corrigées
 

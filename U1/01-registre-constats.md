@@ -145,6 +145,17 @@ Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'ét
 | C06 | L2 | `01a2841` | Codes du noyau en mots ou locators résolvables ; glossaire : ANCHOR-*, TRUTH/*, B1b, FAIL-ASSUMED | — |
 | C27 | L2 | `01a2841` | Légende d'une ligne des tags du noyau | — |
 | C26 | L2 | `01a2841` | Ordre d'exécution (moyens avant structure) ; Composition découpée en trois sections | — |
+| C12 | L1 | `02b6e4c` | Gate C : renvois « §n » remplacés par les noms de section du noyau | — |
+| C07 | L1 | `02b6e4c` | L'agent n'interroge READING_MAP que par `--connexions` (noyau, références) | — |
+| C08 | L1 | `02b6e4c` | Atelier d'édition et alternative située à l'impératif | — |
+| C23 | L1 | `02b6e4c` | Compteur « 27 régressions » retiré du README | — |
+| C30 | L1 | `02b6e4c` | « Premium » : une définition (six termes), l'autre renvoie | — |
+| C31 | L1 | `02b6e4c` | Résumés du noyau non datés ; dates dans leur route seulement | Fidélité « Signaux à confirmer » conservée |
+| C32 | L1 | `02b6e4c` | Titre vide « Preuve par médium » retiré | — |
+| C36 | L1 | `02b6e4c` | Exemple RUN_CARD : `decision_intent` distinct de `decision` | — |
+| C46 | L1 | `02b6e4c` | Capture citée par `check_render --captures` ; chiffres d'exemple marqués illustratifs | — |
+| C44 | L1 | `02b6e4c` | Illustrations de préparation retirées de READING_MAP (règle 9) | Test de connexion rendu plus strict |
+| C21 | L1 | `02b6e4c` | Limite déclarée : contraste non textuel non mesuré, ratio d'un texte qui passe non rapporté | — |
 
 **Charge « Charger d'abord » par mode** (noyau + routes servies, octets UTF-8, `charge_par_mode.py`) :
 
@@ -158,7 +169,7 @@ Les lignes citées plus haut restent celles de `d90869c`. Cette table suit l'ét
 
 Noyau : 43 201 → 43 685 (L3) → 44 003 (L4) → 44 613 (L6) → **43 168 octets (L2)**, sous le départ, avec tous les ajouts. Hausse L4 de +0,7 à +0,8 Ko par mode : phrase `check_render` du noyau et options documentées dans Gate A.
 
-**Reste à faire en fin de U2 :** une entrée de révision (CHANGELOG, RELEASE_NOTES, ligne « Révision » du README) qui récapitule les corrections U2.
+**Fin de U2 :** révision `R2026-10-08-CORRECTIONS` (commit `01be58d`) : CHANGELOG, RELEASE_NOTES, README et base des connexions. Noyau final : 43 110 octets. Reste optionnel : C09 (contrôle d'échéance des `[VEILLE]`, avant 2027-03).
 
 ## Ce que ce registre ne couvre pas
 
