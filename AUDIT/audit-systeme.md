@@ -83,3 +83,18 @@ Ordre proposé : 1, 2, 4 (outil), puis 3 et 7 (cartes dérivées), puis 5 ; 6 se
 ## Limites
 
 Test de trouvabilité construit par l'auditeur (besoins et routes attendues choisis à la main) ; usage observé sur 9 runs seulement ; profondeur calculée sur les renvois explicites ; la charge cognitive est approchée par des tailles et des longueurs de phrase, pas mesurée sur un lecteur.
+
+## Suivi — étapes 1 et 2 appliquées (commit `928d006`)
+
+Lecteur : `--sommaire` et `--sommaire LOCATOR`, recherche par mots entiers et alias, correspondance partielle puis mots séparés, routes classées (8 premières, `--tout`), fin silencieuse sur sortie coupée. `find()` reste littéral.
+
+| Mesure (40 besoins, 121 termes) | Avant | Après (8 premières routes) | Après (`--tout`) |
+|---|---|---|---|
+| Termes menant à une route attendue | 73 | 98 | 101 |
+| Besoins trouvés par tous leurs termes | 8 | 26 | 28 |
+| Rang médian de la route attendue | 4 | 1 | 1 |
+| Route attendue aux rangs 1 à 3 | 34 termes | 85 termes | 85 termes |
+
+Réserve : les alias ont été construits à partir des échecs de ce test ; le gain sur d'autres formulations n'est pas mesuré. Un second jeu de besoins, écrit sans regarder les alias, donnerait une mesure indépendante.
+
+Échecs restants : surtout des sujets absents du système (enfant, mineur), des mots trop vagues (« vide », « chargé », « poids ») et quelques routes attendues mal choisies par l'auditeur.

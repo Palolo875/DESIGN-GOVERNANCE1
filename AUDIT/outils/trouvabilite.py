@@ -50,7 +50,7 @@ B = [  # (besoin, routes attendues (préfixes), termes)
 res = []
 for besoin, attendu, termes in B:
     for t in termes:
-        out = subprocess.run([sys.executable, f"{REPO}/scripts/read_route.py", "--trouver", t], capture_output=True, text=True, cwd=REPO).stdout
+        out = subprocess.run([sys.executable, f"{REPO}/scripts/read_route.py", "--trouver", t, *sys.argv[2:]], capture_output=True, text=True, cwd=REPO).stdout
         locs = []
         for line in out.splitlines():
             m = re.match(r"^((?:DIRECTION|ACTION|SAVOIR|BIBLIOTHEQUE)/\S+)\s", line)

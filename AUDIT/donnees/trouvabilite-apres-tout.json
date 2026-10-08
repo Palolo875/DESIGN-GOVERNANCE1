@@ -1,0 +1,1534 @@
+[
+ {
+  "besoin": "contraste du texte",
+  "terme": "contraste",
+  "lignes": 70,
+  "routes": 28,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/STYLE",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "contraste du texte",
+  "terme": "contrast",
+  "lignes": 70,
+  "routes": 28,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/STYLE",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "contraste du texte",
+  "terme": "lisibilité",
+  "lignes": 19,
+  "routes": 12,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/STYLE",
+   "SAVOIR/TYPE"
+  ]
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "texte sur image",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "texte sur photo",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "overlay",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "voile",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "typographie",
+  "lignes": 76,
+  "routes": 31,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/TYPE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "police",
+  "lignes": 76,
+  "routes": 31,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/TYPE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "font",
+  "lignes": 76,
+  "routes": 31,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/TYPE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "fonte",
+  "lignes": 76,
+  "routes": 31,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/TYPE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "construire une palette",
+  "terme": "palette",
+  "lignes": 19,
+  "routes": 11,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "construire une palette",
+  "terme": "couleur",
+  "lignes": 32,
+  "routes": 16,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-A",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "construire une palette",
+  "terme": "color",
+  "lignes": 32,
+  "routes": 16,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-A",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "mode sombre",
+  "terme": "dark mode",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "mode sombre",
+  "terme": "mode sombre",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "mode sombre",
+  "terme": "thème sombre",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "adapter au mobile",
+  "terme": "mobile",
+  "lignes": 67,
+  "routes": 34,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "adapter au mobile",
+  "terme": "responsive",
+  "lignes": 67,
+  "routes": 34,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "adapter au mobile",
+  "terme": "petit écran",
+  "lignes": 67,
+  "routes": 34,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "état vide",
+  "terme": "état vide",
+  "lignes": 9,
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/UI-UX-REALITY",
+   "ACTION/VISUAL_PROOF"
+  ]
+ },
+ {
+  "besoin": "état vide",
+  "terme": "empty",
+  "lignes": 9,
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/UI-UX-REALITY",
+   "ACTION/VISUAL_PROOF"
+  ]
+ },
+ {
+  "besoin": "état vide",
+  "terme": "vide",
+  "lignes": 30,
+  "routes": 17,
+  "trouve": true,
+  "rang": 13,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/VISUAL_PROOF"
+  ]
+ },
+ {
+  "besoin": "bouton désactivé",
+  "terme": "désactivé",
+  "lignes": 5,
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/UI-UX-REALITY",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "BIBLIOTHEQUE/GATE"
+  ]
+ },
+ {
+  "besoin": "bouton désactivé",
+  "terme": "disabled",
+  "lignes": 5,
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/UI-UX-REALITY",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "BIBLIOTHEQUE/GATE"
+  ]
+ },
+ {
+  "besoin": "bouton désactivé",
+  "terme": "inactif",
+  "lignes": 5,
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/UI-UX-REALITY",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "BIBLIOTHEQUE/GATE"
+  ]
+ },
+ {
+  "besoin": "message d'erreur de formulaire",
+  "terme": "erreur",
+  "lignes": 37,
+  "routes": 22,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE",
+   "SAVOIR/FRAME",
+   "DIRECTION/DOMAIN-FRAME"
+  ]
+ },
+ {
+  "besoin": "message d'erreur de formulaire",
+  "terme": "formulaire",
+  "lignes": 12,
+  "routes": 9,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "ACTION/GATE-A",
+   "ACTION/UI-UX-REALITY",
+   "BIBLIOTHEQUE/CONTRACTS"
+  ]
+ },
+ {
+  "besoin": "message d'erreur de formulaire",
+  "terme": "validation",
+  "lignes": 18,
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/RUN_CARD",
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "focus clavier",
+  "terme": "focus",
+  "lignes": 34,
+  "routes": 18,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "BIBLIOTHEQUE/GRID",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "focus clavier",
+  "terme": "clavier",
+  "lignes": 21,
+  "routes": 12,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/CONTEXT",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "focus clavier",
+  "terme": "keyboard",
+  "lignes": 21,
+  "routes": 12,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/CONTEXT",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "taille des cibles tactiles",
+  "terme": "cible",
+  "lignes": 50,
+  "routes": 23,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "DIRECTION/DOUBLE-LOOP",
+   "DIRECTION/VISUAL_TARGET"
+  ]
+ },
+ {
+  "besoin": "taille des cibles tactiles",
+  "terme": "target size",
+  "lignes": 50,
+  "routes": 23,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "DIRECTION/DOUBLE-LOOP",
+   "DIRECTION/VISUAL_TARGET"
+  ]
+ },
+ {
+  "besoin": "taille des cibles tactiles",
+  "terme": "tactile",
+  "lignes": 11,
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/CONTEXT"
+  ]
+ },
+ {
+  "besoin": "lecteur d'écran",
+  "terme": "lecteur d'écran",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/STATUS",
+   "BIBLIOTHEQUE/MODIFIER"
+  ]
+ },
+ {
+  "besoin": "lecteur d'écran",
+  "terme": "screen reader",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/STATUS",
+   "BIBLIOTHEQUE/MODIFIER"
+  ]
+ },
+ {
+  "besoin": "lecteur d'écran",
+  "terme": "aria",
+  "lignes": 45,
+  "routes": 21,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "animation et mouvement réduit",
+  "terme": "animation",
+  "lignes": 50,
+  "routes": 21,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "ACTION/GATE-A",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "animation et mouvement réduit",
+  "terme": "motion",
+  "lignes": 50,
+  "routes": 21,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "ACTION/GATE-A",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "animation et mouvement réduit",
+  "terme": "mouvement",
+  "lignes": 50,
+  "routes": 21,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "ACTION/GATE-A",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "performance et poids",
+  "terme": "performance",
+  "lignes": 46,
+  "routes": 27,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "SAVOIR/FRAME",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "performance et poids",
+  "terme": "poids",
+  "lignes": 11,
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "SAVOIR/TYPE",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "performance et poids",
+  "terme": "chargement",
+  "lignes": 27,
+  "routes": 11,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "SAVOIR/STATE",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "multilingue",
+  "terme": "multilingue",
+  "lignes": 19,
+  "routes": 13,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "multilingue",
+  "terme": "traduction",
+  "lignes": 19,
+  "routes": 13,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "multilingue",
+  "terme": "localisation",
+  "lignes": 19,
+  "routes": 13,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "faux témoignages",
+  "terme": "témoignage",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "faux témoignages",
+  "terme": "avis",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/GATE-A",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "faux témoignages",
+  "terme": "testimonial",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "logos de clients",
+  "terme": "logos",
+  "lignes": 3,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "logos de clients",
+  "terme": "logo clients",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "logos de clients",
+  "terme": "preuve sociale",
+  "lignes": 3,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "contenu d'exemple",
+  "terme": "exemple",
+  "lignes": 34,
+  "routes": 14,
+  "trouve": true,
+  "rang": 6,
+  "premieres": [
+   "BIBLIOTHEQUE/CONTRACTS",
+   "SAVOIR/TOOLS",
+   "ACTION/MAINTENANCE"
+  ]
+ },
+ {
+  "besoin": "contenu d'exemple",
+  "terme": "placeholder",
+  "lignes": 6,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/GATE-A",
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "contenu d'exemple",
+  "terme": "lorem",
+  "lignes": 6,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/GATE-A",
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "photo ou image d'illustration",
+  "terme": "photo",
+  "lignes": 8,
+  "routes": 8,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "ACTION/GATE-C",
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/VISUAL_TARGET"
+  ]
+ },
+ {
+  "besoin": "photo ou image d'illustration",
+  "terme": "image",
+  "lignes": 60,
+  "routes": 25,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "SAVOIR/STATE",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "DIRECTION/VISUAL_TARGET"
+  ]
+ },
+ {
+  "besoin": "photo ou image d'illustration",
+  "terme": "banque d'images",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "illustration",
+  "terme": "illustration",
+  "lignes": 16,
+  "routes": 11,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "SAVOIR/STYLE",
+   "ACTION/GATE-C"
+  ]
+ },
+ {
+  "besoin": "illustration",
+  "terme": "dessin",
+  "lignes": 3,
+  "routes": 3,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/DESIGN-ATLAS",
+   "SAVOIR/TECH"
+  ]
+ },
+ {
+  "besoin": "icônes",
+  "terme": "icône",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "ACTION/GATE-A",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "icônes",
+  "terme": "icon",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "ACTION/GATE-A",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "icônes",
+  "terme": "pictogramme",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "ACTION/GATE-A",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "grain et texture",
+  "terme": "grain",
+  "lignes": 4,
+  "routes": 4,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/MODIFIER",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "grain et texture",
+  "terme": "texture",
+  "lignes": 13,
+  "routes": 8,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "grain et texture",
+  "terme": "bruit",
+  "lignes": 4,
+  "routes": 4,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/MODIFIER",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "grille de mise en page",
+  "terme": "grille",
+  "lignes": 72,
+  "routes": 17,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/GRID",
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/READ"
+  ]
+ },
+ {
+  "besoin": "grille de mise en page",
+  "terme": "grid",
+  "lignes": 72,
+  "routes": 17,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/GRID",
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/READ"
+  ]
+ },
+ {
+  "besoin": "grille de mise en page",
+  "terme": "colonnes",
+  "lignes": 6,
+  "routes": 4,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STYLE",
+   "BIBLIOTHEQUE/CONTRACTS"
+  ]
+ },
+ {
+  "besoin": "rangée de cartes",
+  "terme": "cartes",
+  "lignes": 10,
+  "routes": 6,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "rangée de cartes",
+  "terme": "cards",
+  "lignes": 10,
+  "routes": 6,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "rangée de cartes",
+  "terme": "trois cartes",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "premier écran",
+  "terme": "premier écran",
+  "lignes": 18,
+  "routes": 10,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SELECT",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "premier écran",
+  "terme": "hero",
+  "lignes": 18,
+  "routes": 10,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SELECT",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "premier écran",
+  "terme": "above the fold",
+  "lignes": 18,
+  "routes": 10,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SELECT",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "page de tarifs",
+  "terme": "tarif",
+  "lignes": 6,
+  "routes": 6,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "page de tarifs",
+  "terme": "prix",
+  "lignes": 6,
+  "routes": 6,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "page de tarifs",
+  "terme": "pricing",
+  "lignes": 6,
+  "routes": 6,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "graphique de données",
+  "terme": "graphique",
+  "lignes": 3,
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/MICRO",
+   "SAVOIR/DESIGN-ATLAS",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "graphique de données",
+  "terme": "chart",
+  "lignes": 3,
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/MICRO",
+   "SAVOIR/DESIGN-ATLAS",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "graphique de données",
+  "terme": "courbe",
+  "lignes": 2,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "chiffres alignés",
+  "terme": "chiffres",
+  "lignes": 8,
+  "routes": 6,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE",
+   "SAVOIR/TYPE",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "chiffres alignés",
+  "terme": "tabular",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE",
+   "SAVOIR/TYPE"
+  ]
+ },
+ {
+  "besoin": "chiffres alignés",
+  "terme": "tabulaire",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE",
+   "SAVOIR/TYPE"
+  ]
+ },
+ {
+  "besoin": "ombres et élévation",
+  "terme": "ombre",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "SAVOIR/DESIGN-ATLAS",
+   "ACTION/GATE-C",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "ombres et élévation",
+  "terme": "shadow",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "SAVOIR/DESIGN-ATLAS",
+   "ACTION/GATE-C",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "ombres et élévation",
+  "terme": "élévation",
+  "lignes": 3,
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-C",
+   "SAVOIR/CRAFT",
+   "SAVOIR/SYSTEM"
+  ]
+ },
+ {
+  "besoin": "coins arrondis",
+  "terme": "arrondi",
+  "lignes": 17,
+  "routes": 15,
+  "trouve": true,
+  "rang": 11,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "ACTION/GATE-B",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "coins arrondis",
+  "terme": "radius",
+  "lignes": 17,
+  "routes": 15,
+  "trouve": true,
+  "rang": 11,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "ACTION/GATE-B",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "coins arrondis",
+  "terme": "coins",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "espacement",
+  "terme": "espacement",
+  "lignes": 8,
+  "routes": 7,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "ACTION/GATE-A",
+   "ACTION/GATE-C"
+  ]
+ },
+ {
+  "besoin": "espacement",
+  "terme": "spacing",
+  "lignes": 8,
+  "routes": 7,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "ACTION/GATE-A",
+   "ACTION/GATE-C"
+  ]
+ },
+ {
+  "besoin": "espacement",
+  "terme": "marge",
+  "lignes": 4,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "BIBLIOTHEQUE/CONTRACTS",
+   "DIRECTION/DOMAIN-FRAME",
+   "BIBLIOTHEQUE/SCENE"
+  ]
+ },
+ {
+  "besoin": "densité d'information",
+  "terme": "densité",
+  "lignes": 41,
+  "routes": 21,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STYLE",
+   "BIBLIOTHEQUE/TENSION"
+  ]
+ },
+ {
+  "besoin": "densité d'information",
+  "terme": "dense",
+  "lignes": 14,
+  "routes": 11,
+  "trouve": true,
+  "rang": 6,
+  "premieres": [
+   "BIBLIOTHEQUE/MICRO",
+   "SAVOIR/STYLE",
+   "BIBLIOTHEQUE/COMPONENTS"
+  ]
+ },
+ {
+  "besoin": "densité d'information",
+  "terme": "chargé",
+  "lignes": 55,
+  "routes": 19,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "DIRECTION/FIRST-OBJECT",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "éviter le générique",
+  "terme": "slop",
+  "lignes": 20,
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/ANTI-SLOP",
+   "SAVOIR/STYLE",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "éviter le générique",
+  "terme": "générique",
+  "lignes": 27,
+  "routes": 13,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "éviter le générique",
+  "terme": "convergence",
+  "lignes": 15,
+  "routes": 7,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "BIBLIOTHEQUE/SELECT",
+   "ACTION/RUN-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "tendance du moment",
+  "terme": "tendance",
+  "lignes": 19,
+  "routes": 10,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "SAVOIR/CRAFT",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "tendance du moment",
+  "terme": "trend",
+  "lignes": 19,
+  "routes": 10,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "SAVOIR/CRAFT",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "tendance du moment",
+  "terme": "vague",
+  "lignes": 11,
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "SAVOIR/TOOLS",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "capture du rendu",
+  "terme": "capture",
+  "lignes": 88,
+  "routes": 33,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "ACTION/GATE-B",
+   "ACTION/VISUAL_PROOF",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "capture du rendu",
+  "terme": "screenshot",
+  "lignes": 88,
+  "routes": 33,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "ACTION/GATE-B",
+   "ACTION/VISUAL_PROOF",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "capture du rendu",
+  "terme": "check_render",
+  "lignes": 7,
+  "routes": 4,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-A",
+   "ACTION/VISUAL_PROOF",
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "hiérarchie visuelle",
+  "terme": "hiérarchie",
+  "lignes": 87,
+  "routes": 32,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "SAVOIR/TECH",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "hiérarchie visuelle",
+  "terme": "hierarchy",
+  "lignes": 87,
+  "routes": 32,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "SAVOIR/TECH",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "hiérarchie visuelle",
+  "terme": "foyer",
+  "lignes": 39,
+  "routes": 20,
+  "trouve": true,
+  "rang": 8,
+  "premieres": [
+   "DIRECTION/FIRST-OBJECT",
+   "SAVOIR/FRAME",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "données d'enfants",
+  "terme": "enfant",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "données d'enfants",
+  "terme": "mineur",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "données d'enfants",
+  "terme": "données personnelles",
+  "lignes": 11,
+  "routes": 7,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/CLOSE-PACKAGE",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "ACTION/FAST-PATH"
+  ]
+ },
+ {
+  "besoin": "navigation du site",
+  "terme": "navigation",
+  "lignes": 17,
+  "routes": 12,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/MODIFIER",
+   "BIBLIOTHEQUE/TENSION",
+   "BIBLIOTHEQUE/DERIVE"
+  ]
+ },
+ {
+  "besoin": "navigation du site",
+  "terme": "menu",
+  "lignes": 17,
+  "routes": 12,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/MODIFIER",
+   "BIBLIOTHEQUE/TENSION",
+   "BIBLIOTHEQUE/DERIVE"
+  ]
+ },
+ {
+  "besoin": "navigation du site",
+  "terme": "nav",
+  "lignes": 4,
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "BIBLIOTHEQUE/COMPAT",
+   "BIBLIOTHEQUE/OBJECT"
+  ]
+ },
+ {
+  "besoin": "ton et microcopie",
+  "terme": "microcopie",
+  "lignes": 16,
+  "routes": 10,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/FRAME",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "ton et microcopie",
+  "terme": "ton",
+  "lignes": 4,
+  "routes": 4,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/FRAME",
+   "SAVOIR/TYPE"
+  ]
+ },
+ {
+  "besoin": "ton et microcopie",
+  "terme": "rédaction",
+  "lignes": 16,
+  "routes": 10,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/FRAME",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "design system et tokens",
+  "terme": "token",
+  "lignes": 31,
+  "routes": 17,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/COMPONENTS",
+   "SAVOIR/SYSTEM",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "design system et tokens",
+  "terme": "design system",
+  "lignes": 31,
+  "routes": 17,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/COMPONENTS",
+   "SAVOIR/SYSTEM",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "design system et tokens",
+  "terme": "composant",
+  "lignes": 65,
+  "routes": 31,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "SAVOIR/STATE",
+   "SAVOIR/SYSTEM",
+   "SAVOIR/TOOLS"
+  ]
+ }
+]
