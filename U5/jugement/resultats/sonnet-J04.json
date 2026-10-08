@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B a un point de vue net et mémorable (« Une facture n'est finie que lorsqu'elle est encaissée ») et un titre noir très dense, avec un parcours de facture à quatre scénarios. A est élégant, mais sa promesse (« deux minutes ») est plus attendue et son rendu plus feutré."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B s'appuie sur la réforme de la facturation électronique, sur la différence entre rejetée et refusée, et sur les statuts de plateforme, ce qui ne servirait pas à un autre métier. A est aussi très ancré (relances J+1/J+8, mise en demeure, rapprochement bancaire), donc l'écart est faible."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie constante, des tableaux et cartes propres, et un mobile sain. Son défaut est un grand vide sous la note dans la carte du héros. A a un mobile correct et un bel éditorial, mais le journal de la facture est coupé net (texte rogné « Mise à disposition… »), la légende est minuscule et la carte du héros est très dense."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "Les deux signalent partout l'exemple (bandeau, badges, « données fictives »). A va plus loin avec « à confirmer », « calendrier à confirmer » et « à valider avec un juriste », et ne présente aucun chiffre comme réel. B affirme des échéances réglementaires comme des faits (« Depuis septembre 2026… », « En vigueur ») et un « Aujourd'hui, 8 oct. », sans la même prudence."
+ },
+ "defaut_A": "Une carte de démonstration du héros très dense, avec un journal tronqué et des textes minuscules, et un titre dont la promesse (« deux minutes ») reste générique et peu mémorable.",
+ "defaut_B": "Des affirmations réglementaires présentées comme acquises, sans réserve explicite, et un héros déséquilibré (colonne gauche vide, grand vide dans la carte), avec un titre serré en gras.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

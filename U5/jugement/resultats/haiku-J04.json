@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B défend une thèse nette, « Une facture n'est finie que lorsqu'elle est encaissée », et une distinction éditoriale forte entre rejet et refus, alors que A repose sur une promesse plus générique, « prend deux minutes »."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Les statuts de la facturation électronique (déposée, reçue, prise en charge, rejetée, refusée) et la distinction entre problème technique et désaccord commercial ne servent guère à un autre métier, alors que la logique de relance de A pourrait s'appliquer à d'autres créances."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A offre une hiérarchie et une typographie très propres, un mockup de facture soigné et un mobile vérifié sans débordement, alors que B est tout aussi soignée sur bureau mais n'a aucune vue mobile de la page entière et ses sections sont plus denses."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux pages signalent systématiquement les exemples (bandeau de démonstration, « offre d'exemple », données fictives, prix « à titre d'exemple ») sans faux avis ni faux logos, B affichant toutefois des dates réglementaires comme « En vigueur » là où A les marque « à confirmer »."
+ },
+ "defaut_A": "Une structure de landing SaaS standard (hero, quatre étapes, deux prix, FAQ) qui s'essouffle en bas de page avec une tarification et une FAQ génériques.",
+ "defaut_B": "Des sections explicatives et tableaux denses (relevé, calendrier réglementaire, deux colonnes rejet et refus) qui alourdissent la page et présentent des dates réglementaires comme acquises.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

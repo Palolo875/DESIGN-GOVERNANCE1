@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B porte une idée forte et mémorable, l'échéancier qui montre les relances jour ouvré par jour jusqu'au virement, avec la métaphore de la souche ; A affirme une promesse nette mais s'appuie sur un tableau de bord plus conventionnel."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B traite de l'ordre d'une facture française (numérotation continue, mentions obligatoires, indemnité forfaitaire de 40 €, TVA ventilée, carnet à souche), donc il resterait propre au métier sans son nom ; A est aussi ancré dans la réforme et les relances, mais ses blocs pourraient servir à un autre logiciel de facturation."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie plus aérée et des alignements plus réguliers sur desktop et mobile, avec une première vue lisible, alors que B est plus dense, avec beaucoup de petits libellés et une rangée orpheline en fin de section « Avant l'envoi »."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux évitent les fausses preuves et signalent clairement les exemples : A par une bannière visible en haut et des mentions de maquette, B par des étiquettes d'exemple, des mentions « à confirmer » sur les points réglementaires et une note de simulation."
+ },
+ "defaut_A": "Structure de landing SaaS classique (hero, tableau de bord, trois blocs, tarifs) dont la mise en scène reste sage et repose surtout sur la typographie serif.",
+ "defaut_B": "Densité : l'échéancier et le registre multiplient les petits libellés et une grille serrée, ce qui nuit à la lisibilité au premier regard.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

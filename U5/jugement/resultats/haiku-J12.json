@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "La hero de B, avec son échéancier de relances et la métaphore du carnet à souche, affirme un point de vue plus visible dès le premier écran que la promesse de A, plus générale."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux pages restent propres à la facturation (statuts de trajet et réforme pour A, mentions obligatoires et relances pour B), et aucune ne servirait à une autre activité si l'on retire le nom."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A tient une hiérarchie serif, des alignements et un tracé de trajet plus nets, tandis que B surcharge sa hero de micro-libellés et mal équilibre le titre et le texte de sa section facture électronique."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent systématiquement l'exemple (« Données d'exemple », « à confirmer », « Toutes les données affichées sont fictives » pour A ; « Maquette », « Simulation », « aucune donnée n'est envoyée » pour B) et n'affichent ni faux logos ni faux avis."
+ },
+ "defaut_A": "Le tableau de bord de la hero et la suite de sections (tarifs, FAQ, CTA) suivent un gabarit SaaS attendu, et le tracé du trajet n'a que des libellés minuscules.",
+ "defaut_B": "Le graphique d'échéancier de la hero est saturé de micro-libellés et disparaît sur mobile, où le premier écran ne montre plus que du texte et une carte tronquée.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

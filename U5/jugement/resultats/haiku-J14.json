@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "Le concept de la souche de carnet, annoncé dans le titre et repris jusqu'au tableau de registre, donne à B une identité plus mémorable que la voix éditoriale de A, bonne mais moins marquée."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux pages reposent sur la mécanique réelle de la facturation française (numérotation continue, mentions obligatoires, Factur-X, relances et mise en demeure) et perdraient leur sens si l'on retirait le nom."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "La hiérarchie de la carte de facture et de la frise J+ est un peu plus nette et les alignements sont plus réguliers, même si le journal est coupé en bas de carte sur desktop."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale l'exemple par un bandeau sur chaque écran et badge individuellement l'essai gratuit et les dates réglementaires, alors que B renvoie l'essentiel de ses mentions au pied de page ou à de petites notes."
+ },
+ "defaut_A": "Les libellés « exemple » et « à confirmer » reviennent sur presque chaque bloc, ce qui fait ressembler la page à un brouillon et affaiblit la confiance dans le texte.",
+ "defaut_B": "Le caractère fictif est peu visible au premier écran (petit libellé sous le logo) et le prix de 19 € comme l'offre d'essai n'ont qu'une note minuscule, ce qui peut faire passer l'exemple pour une vraie offre.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B a un slogan court et affirmé (« Facturez une fois. Souche relance jusqu'au paiement. »), une métaphore tenue (la souche du carnet, le pointillé de perforation) et une palette verte reconnaissable, alors que A est solide mais plus sage, en noir sur gris."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux sont propres à la facturation : A suit une même facture de sa création à l'encaissement (Factur-X, rapprochement bancaire, mentions légales) et B montre un échéancier de relances décalées aux jours ouvrés, un registre client et le contrôle avant envoi, donc aucune ne conviendrait à un autre métier."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus aéré, avec une hiérarchie nette, un échéancier lisible et un mobile soigné (sélecteurs de scénario visibles dès le premier écran), tandis que A est plus dense, avec un journal dont la dernière ligne est tronquée dans la carte du hero, un hero un peu déséquilibré et beaucoup de micro-étiquettes."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale l'exemple partout (bandeau « Page de démonstration » en haut, pastilles « nom d'exemple », « offre d'exemple » et « à confirmer », notes sous chaque maquette) ; B signale aussi bien (« nom d'exemple », « facture d'exemple », pied de page « Maquette ») mais avec moins de rigueur, et ni l'une ni l'autre n'invente de faux avis ou de faux logos."
+ },
+ "defaut_A": "Page dense et bavarde, où les mentions « exemple » et les micro-textes encombrent, avec un journal tronqué dans le hero et des sections basses (tarifs à deux offres, questions, appel à l'action) plus conventionnelles que le hero.",
+ "defaut_B": "Après le hero et l'échéancier, les sections basses (liste de contrôle, tarif unique avec formulaire) retombent dans un gabarit SaaS classique, et le marquage d'exemple est plus discret que chez A.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

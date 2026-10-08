@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le graphique de bassin à l'échelle, avec des silhouettes d'enfants posées à chaque palier, donne à la page un point de vue visuel original qui se retient dès le premier écran ; B, avec ses bonnets colorés, est aussi forte mais moins singulière."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Les paliers, les profondeurs réelles et la séance découpée au « flotteur » ne serviraient qu'à une école de natation pour enfants, alors que le système de bonnets de B reste plus transposable."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Hiérarchie, alignements et typographie sont très soignés des deux côtés ; l'écart tient à des détails mineurs et ne suffit pas à départager."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B étiquette chaque bloc d'exemple (badges EXEMPLE, HORAIRES et TARIFS D'EXEMPLE, places marquées données d'exemple), alors que A ne signale les exemples que par un bandeau, quelques mentions et un pied de page."
+ },
+ "defaut_A": "Après le premier écran, la page retombe dans un gabarit de sections standard (tarifs en tableau, cartes « Avant la première séance », FAQ) qui perd l'idée des paliers.",
+ "defaut_B": "Le système de bonnets colorés reste plus décoratif qu'un outil de lecture, avec des textes secondaires minuscules et gris (timeline, bandeau d'inscription) et une stat mobile mal répartie (« 30 °C » orpheline).",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

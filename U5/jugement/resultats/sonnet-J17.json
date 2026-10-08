@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A défend une idée unique, « Facturez une fois. Souche relance jusqu'au paiement. », avec un échéancier interactif en guise de héros. B a un bon titre et un tableau de bord convaincant, mais l'ensemble ressemble davantage à un SaaS de suivi classique."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A repose sur des détails propres à la facturation : relances décalées au jour ouvré, mise en demeure annulée à l'encaissement, contrôle des mentions obligatoires, numérotation continue, pénalités et indemnité de 40 €. B est aussi très ancrée dans le métier (statuts de facture électronique, calendrier de la réforme 2026-2027), mais sa structure tableau, tarifs et formulaire est plus interchangeable."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus régulière : tableau et panneau de détail bien alignés, pastilles de statut lisibles, rythme homogène entre sections, bon premier écran mobile. A a de belles pièces typographiques, mais son héros laisse un grand vide entre le titre et le CTA flottant à droite, la frise est coupée sur le premier écran desktop, et ses cartes de frise sont un peu serrées."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "Les deux signalent clairement ce qui est exemple : A avec « nom d'exemple » à côté du logo, « Simulation… », « Tarif… d'exemple » et un pied de page de maquette ; B avec le bandeau « Maquette », le badge « données fictives » et des notes. A est plus franche : elle marque en rouge ce qui reste à confirmer. B énonce des échéances réglementaires comme des faits, même si elle les accompagne d'une note de sources."
+ },
+ "defaut_A": "Le héros est mal composé (grand vide, CTA isolé à droite, frise coupée sous la ligne de flottaison) et la page est plus dense et plus texte que B dans ses sections basses.",
+ "defaut_B": "La page est plus générique dans sa forme (tableau de bord, pastilles, tarifs en grille), avec un point de vue moins tranché et un héros qui promet du suivi plus que de l'action.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A affirme une thèse nette, « Facturez une fois. Souche relance jusqu'au paiement. », et la file jusqu'aux titres de section sur la métaphore du carnet à souche."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, la page reste celle d'un outil de relance de factures en France (jours ouvrés, mise en demeure, pénalités, mentions obligatoires), alors que B, sans son nom, ressemble davantage à n'importe quel logiciel de facturation derrière son slogan."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Les deux ont une hiérarchie claire, une typographie soignée et un mobile propre ; A est plus dense (échéancier et tableaux en petits corps), B plus aéré mais avec un badge « Données d'exemple » qui passe mal à la ligne sur mobile."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux étiquettent systématiquement ce qui est exemple (« Simulation », « Maquette », « Données d'exemple », « Démo, aucun e-mail n'est envoyé ») et n'affichent ni faux logos ni faux avis."
+ },
+ "defaut_A": "Dense avant le récit : l'échéancier et le tableau de la hero concentrent beaucoup de micro-texte et une charge visuelle élevée pour une landing page.",
+ "defaut_B": "Slogan générique (« Une facture n'est finie que lorsqu'elle est payée ») et structure de SaaS standard (tarifs, FAQ) qui pourrait servir à un autre outil de facturation.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

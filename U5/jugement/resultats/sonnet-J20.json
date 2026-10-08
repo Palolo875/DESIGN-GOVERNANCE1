@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "La coupe du bassin avec ses silhouettes à l'échelle et ses cinq paliers donne un vrai point de vue visuel dès le premier écran, alors que A, malgré un titre massif et un questionnaire interactif, montre un encadré de résultat vide et des barres de profondeur plus abstraites."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Sans le nom, les deux restent nettement des écoles de natation pour enfants : A avec ses bonnets de couleur par profondeur et ses objectifs cochés, B avec la coupe du bassin, les paliers, le « à pied » et la liste de ce qu'il faut mettre dans le sac."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie plus nette, des alignements propres, des sections bien rythmées (clair, sombre, clair) et un mobile soigné, tandis que B a un retour à la ligne forcé dans le titre, de grands vides entre titre de section et texte, un hero déséquilibré et des illustrations de silhouettes un peu frustes."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux ont un bandeau « Maquette » et signalent les exemples sur les chiffres, les tarifs, les horaires, le téléphone et l'adresse, sans faux avis ni faux logos ; A met des pastilles « EXEMPLE » plus fines, B des mentions « (exemple) » et une note de pied de page."
+ },
+ "defaut_A": "Le premier écran repose sur un questionnaire dont le résultat reste vide au départ, et la page est plus mince en informations pratiques (accès, sac, peur de l'eau) que celle de B.",
+ "defaut_B": "La mise en page est plus lâche (hero déséquilibré, vides, long défilement dense), et les illustrations de silhouettes manquent un peu de raffinement.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

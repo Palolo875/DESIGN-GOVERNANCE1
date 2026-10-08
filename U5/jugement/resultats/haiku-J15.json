@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A porte une image de marque distincte (titre en serif éditorial et métaphore de la souche de carnet à factures) qu'elle tient sur toute la page, alors que B a une thèse nette et un scénario interactif mais une voix plus interchangeable."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Les deux restent propres à la facturation française, mais B va plus loin avec la distinction rejet par la plateforme / refus commercial et les statuts de dépôt, qui ne serviraient à aucun autre produit."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie typographique plus tranchée, des badges de statut et des tableaux homogènes et un rendu mobile plus propre, alors que A est soignée mais plus dense en micro-textes."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent clairement les exemples (mentions « d'exemple », « données fictives », « ne constituent pas une offre », bandeau de maquette), n'affichent ni faux avis ni faux logos, et laissent à vérifier les dates réglementaires."
+ },
+ "defaut_A": "Page très dense : micro-textes, tableaux et légendes à chaque section diluent le message et l'appel à l'action.",
+ "defaut_B": "Identité visuelle générique : boutons noirs arrondis, cartes blanches et pastilles répétées, avec peu de signature visuelle au-delà du premier écran.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

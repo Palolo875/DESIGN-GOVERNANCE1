@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A porte un point de vue net, « Du petit bain au grand bain, un palier à la fois », avec une coupe du bassin à l'échelle où chaque palier est repéré par la taille d'un enfant, ce qui crée une signature visuelle forte dès le premier écran ; B affirme aussi une position (« six enfants au plus ») mais son visuel reste plus neutre."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, A reste propre à la natation d'enfants grâce à sa coupe de bassin à repères d'enfants, au « il a pied » et aux étapes « Flotter seul » et « Nager 25 m », alors que B s'appuie aussi sur les profondeurs et les groupes mais avec une ossature de réservation plus transposable à d'autres activités."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "Les deux sont très soignés en hiérarchie, alignements et typographie, mais A remplit son premier écran sans vide et ses tableaux et sa frise de séance sont plus nets, alors que B laisse un grand panneau vide sous sa question d'accueil et des cartes de planning de hauteurs inégales."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "Les deux signalent clairement leurs contenus d'exemple (bandeau « maquette », « (exemple) », « prix d'exemple », formulaire qui n'envoie rien), mais A le fait de façon plus systématique, y compris sur le téléphone, l'adresse et la température de l'eau, là où B laisse le numéro de téléphone sans étiquette inline."
+ },
+ "defaut_A": "Les sections basses (séance, tarifs, préparatifs, questions fréquentes) retombent dans un gabarit de site standard, et le bassin signature disparaît du premier écran mobile.",
+ "defaut_B": "Le premier écran desktop laisse un grand panneau vide sous la question d'accueil, et la grille hebdomadaire aux cartes de hauteurs inégales laisse de nombreux vides.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

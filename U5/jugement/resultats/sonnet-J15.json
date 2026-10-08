@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le titre serif massif et le jeu de mots « Souche relance jusqu'au paiement » donnent à A un ton et un point de vue plus reconnaissables que le titre grotesque, efficace mais plus attendu, de B."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "A est très propre au métier (relances décalées au jour ouvré, mentions obligatoires, mise en demeure) et B l'est aussi (statuts rejetée/refusée, Factur-X, calendrier de la réforme 2026-2027) : aucune des deux ne pourrait servir à un autre secteur."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus régulière en hiérarchie, tableaux, pastilles de statut et mobile ; A est belle mais sa frise a des cartes et des traits de liaison qui se croisent, un grand vide à droite du titre, et un CTA éloigné du titre."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B annonce « Maquette : … des exemples » en bandeau avant même le menu, et répète « données fictives » et « ne constituent pas une offre » ; A signale aussi ses exemples (« nom d'exemple », « À confirmer » en rouge, pied de page) mais plus discrètement."
+ },
+ "defaut_A": "Le premier écran est surtout du titre avec de grands vides, et la frise interactive est dense, avec des étiquettes et des traits qui se chevauchent.",
+ "defaut_B": "Le point de vue est moins singulier (titre plus générique) et la carte du héros est déséquilibrée : une note orpheline à droite laisse un trou, et le texte de gauche flotte au-dessus d'un vide.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

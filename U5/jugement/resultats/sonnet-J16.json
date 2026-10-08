@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B a un point de vue net et mémorable (« Facturez une fois. Souche relance jusqu'au paiement. », serif à empattements, vert sur crème, métaphore de la souche) et une frise de relances interactive qui occupe le premier écran, alors que A, avec un grotesque noir très serré et une carte de facture à droite, est solide mais plus attendu."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A est ancrée dans la facture électronique française (statuts déposée/rejetée/refusée/encaissée, Factur-X, SIREN, calendrier 2026-2027, rejet technique vs refus commercial) et ne servirait presque à aucun autre métier ; B est aussi très métier (relances, mise en demeure, mentions obligatoires, jours ouvrés) mais son angle « relance de paiement » est un peu plus générique."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie plus ample, des alignements tenus, une typographie plus soignée, une frise très détaillée (week-ends, décalage en jour ouvré) et un mobile propre, tandis que A est propre mais plus dense et son hero laisse un grand vide sous la colonne de texte à gauche, la carte de statuts étant très haute."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale l'exemple de façon quasi exhaustive (bandeau « Maquette » en haut, « Facture d'exemple, données fictives », « Relevé d'exemple », « Prix ... à titre d'exemple », formulaire « ne transmet aucune donnée ») et n'a ni faux avis ni faux logos ; B est honnête aussi (« nom d'exemple », « Simulation », pied de page) mais ses mentions sont plus discrètes, et son « 19 € » avec « à confirmer » en rouge est moins clairement balisé."
+ },
+ "defaut_A": "Hero déséquilibré et dense : la carte de facture interactive est très haute, laisse du vide à gauche, et le ton est plus informatif que mémorable, avec un titre sage et un empilement de sections pédagogiques.",
+ "defaut_B": "Le hero est dominé par un titre massif suivi d'une frise complexe aux étiquettes parfois serrées ou superposées, et les marqueurs d'exemple sont plus discrets et quelques notes (« à confirmer » en rouge) paraissent laissées en brouillon.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "La promesse « Une facture n'est finie que lorsqu'elle est payée » et la section « La loi change le tuyau. Pas votre façon de travailler. » assument un point de vue tranché, là où B reste à une formule descriptive (« Chaque facture suivie, de l'envoi au virement. »)."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux pages ne tiennent que par la facturation électronique française (statuts déposée, refusée, encaissée, calendrier de la réforme, relances), donc elles ne serviraient à aucun autre métier sans être pour autant de simples gabarits."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Les deux ont une hiérarchie typographique propre, des alignements tenus et un rendu mobile correct ; B pousse plus loin le tableau de bord (panneau de détail, barres d'étapes) et A a une frise plus aérée."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent clairement ce qui est exemple (A par les étiquettes « Données d'exemple », les notes « à confirmer » et la mention que le formulaire n'envoie rien ; B par un bandeau « Maquette » pleine largeur et les mentions « à remplacer »)."
+ },
+ "defaut_A": "Le bas de page enchaîne cinq blocs de poids égal (frise, tableau, réforme, tarifs, FAQ) qui diluent l'accroche du hero.",
+ "defaut_B": "Le bandeau « Maquette » et les mentions répétées « à remplacer » font ressembler la landing à une présentation de maquette plutôt qu'à une page prête à publier.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

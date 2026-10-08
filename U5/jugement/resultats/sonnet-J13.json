@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le titre géant « Facturez une fois. Souche relance jusqu'au paiement. » et l'échéancier interactif au premier écran donnent à A une promesse tranchée et un vrai point de vue, alors que B, tout aussi sérieuse, est plus sage et plus uniforme."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux sont très propres à la facturation (échéance sur jours ouvrés, relance puis mise en demeure, mentions obligatoires, TVA, facture électronique), A avec son registre de factures et B avec le cycle d'une même facture (Factur-X, rapprochement bancaire)."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B tient mieux sur toute la page (grille éditoriale, tableau de devis, flux plateforme, tarifs, FAQ, CTA final, mobile propre avec formulaire dans le hero), malgré un journal tronqué dans la carte ; A est soignée mais plus mince, avec un hero très aéré et un échéancier dont les connecteurs et cartes se chevauchent un peu."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B annonce la démonstration dans un bandeau permanent, étiquette chaque élément incertain (« offre d'exemple », « à confirmer », « données fictives ») et évite tout faux avis ou faux logo ; A est aussi honnête (« nom d'exemple », mentions rouges « à confirmer », pied de page) mais signale moins systématiquement."
+ },
+ "defaut_A": "Page plus courte et moins argumentée, avec un hero très aéré dont le grand vide à droite du titre et l'échéancier dense aux cartes qui se chevauchent affaiblissent la lisibilité, sans preuve de fonctionnement au-delà de la démo.",
+ "defaut_B": "Titre à deux tons un peu timide, texte très petit et pléthore de pastilles « exemple » qui alourdissent, plus un journal de facture tronqué en bas de carte.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

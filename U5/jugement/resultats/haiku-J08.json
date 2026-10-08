@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "La promesse « Envoyer une facture prend deux minutes. Quitus s'occupe des semaines qui suivent. » pose une thèse nette, reprise par des titres éditoriaux comme « Pas de liste de fonctionnalités », alors que B reste sur une promesse de suivi plus attendue."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux pages restent propres à la facturation française (Factur-X, réforme 2026, relances, statuts de transmission) et perdraient leur sens si l'on retirait le nom."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus aéré, avec une hiérarchie plus nette, un tableau de bord bien aligné et moins de micro-texte, alors que A tasse son premier écran autour d'une timeline et d'une légende en petits caractères."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale « nom d'exemple », « offre d'exemple », « à confirmer » et « à valider avec un juriste » sans revendiquer de vérification, alors que B affirme des sources « consultées le 8 octobre 2026 », même si ses données et ses prix sont bien étiquetés comme exemples."
+ },
+ "defaut_A": "Page trop dense : le premier écran empile promesse, tableau de suivi et légende en micro-texte, et la page entière devient un long mur de petites cartes peu respirant.",
+ "defaut_B": "Structure de gabarit SaaS classique (promesse de suivi générique, tableau de bord, trois étapes, trois prix) que rien ne distingue d'un autre outil de suivi, hormis le détail des statuts.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

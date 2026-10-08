@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un point de vue fort : le titre « Du petit bain au grand bain, un palier à la fois » est posé à côté d'une coupe de bassin dessinée, avec des silhouettes à la bonne taille et des lignes d'eau. B a aussi un grand titre accrocheur (« profondeur » en rouge), mais son illustration est plus générique et le premier écran se termine sur un grand cadre blanc vide."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux sont ancrées dans la natation des enfants : A par ses paliers, son profil de bassin et son déroulé de séance ; B par le classement des groupes par profondeur, ses créneaux à six enfants et la galerie vitrée. Aucune des deux ne pourrait servir à un autre métier."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A est nette et cohérente, avec une hiérarchie claire, des alignements propres, un tableau de tarifs lisible et un mobile bien tenu. B est plus complète (planning, formulaire) mais a un grand cadre vide au premier écran, des colonnes de créneaux inégales avec beaucoup de vide, et de petits symboles carrés qui ressemblent à un glyphe manquant devant les notes d'exemple."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "Les deux ont un bandeau « Maquette » et aucun faux avis ni faux logo. A ajoute « (exemple) » à côté de chaque donnée inventée (téléphone, adresse, eau à 30 °C) et note les tarifs comme exemples. B invente davantage de chiffres qui ressemblent à du réel (places restantes, « Complet », encadrement) et ne les signale que par de petites notes."
+ },
+ "defaut_A": "Le premier écran est chargé et très textuel (quiz, grand schéma et encadré d'explication en même temps), et le déroulé de séance en frise est un peu confus à lire.",
+ "defaut_B": "Le premier écran se termine sur un grand panneau blanc vide, et le planning hebdomadaire est déséquilibré, avec des colonnes presque vides à côté d'autres surchargées, ce qui donne un air de maquette inachevée.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

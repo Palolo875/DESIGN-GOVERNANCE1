@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "La métaphore de la souche (le carnet qui garde une trace de chaque envoi) donne à A un angle reconnaissable, repris dans le titre, le registre et la checklist ; B a une promesse nette (deux minutes, puis les semaines suivantes) et un widget J+31 mémorable, mais moins d'idée directrice."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, A reste propre à la facturation française (registre de souche, numérotation continue, SIREN et TVA intracommunautaire, jours ouvrés) ; B est tout aussi concrète sur le fond (Factur-X, relances J-5 à J+15), mais son squelette de landing reste transposable à n'importe quel outil de facturation."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie plus propre (titre à deux tons, widget aéré, quatre étapes alignées sur une même grille, prix lisibles), alors que A entasse la frise de l'accueil avec des libellés minuscules qui se chevauchent et une page de texte dense ; B a tout de même une liste du journal coupée en bas de widget."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B affiche une bannière de démonstration en tête de page et répète « données fictives » dans le widget, le footer et les badges « à confirmer » ; A signale aussi ses exemples (« nom d'exemple », « d'exemple », footer, « à confirmer » sur la réforme), mais de façon plus discrète, et aucun des deux n'utilise de faux avis ni de faux logos."
+ },
+ "defaut_A": "Accueil et tableau trop denses : la frise de l'échéancier porte des libellés minuscules qui se chevauchent et la page enchaîne beaucoup de texte explicatif, si bien qu'elle ressemble à une documentation produit plus qu'à une landing.",
+ "defaut_B": "Squelette de landing SaaS générique (accueil, quatre étapes, deux offres de prix, FAQ en accordéon, CTA final) dont seul le widget J+31 sort vraiment du lot.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

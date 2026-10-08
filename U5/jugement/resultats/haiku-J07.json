@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A affirme un point de vue daté et précis (« Depuis le 1er septembre 2026 », « Encaisse les range sur une seule ligne ») appuyé par une maquette de tableau de bord lisible, alors que B pose une promesse vive mais plus générique (« prend deux minutes ») portée par un scrubber ingénieux."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux ne tiennent pas sans leur métier : A par le calendrier de la réforme et les statuts du cycle de vie d'une facture, B par les mentions obligatoires, l'indemnité forfaitaire de 40 € et des relances bornées aux jours ouvrés."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie typographique plus nette et une maquette de tableau mieux dosée, alors que B est tout aussi soigné mais plus dense en micro-libellés, avec un journal coupé en bas de carte et un premier écran chargé ; au mobile, les deux tiennent la marge."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux bannières, les pastilles « exemple » et les pieds de page signalent clairement noms, montants et tarifs fictifs, sans faux avis ni faux logos ; B ajoute des « à confirmer » sur dates et intégrations, A cite ses sources et renvoie à impots.gouv.fr, ce qui compense."
+ },
+ "defaut_A": "Après un premier écran très affirmé, la suite retombe en blocs SaaS standards (trois formules, formulaire final) et le mobile n'expose la maquette qu'au pli.",
+ "defaut_B": "Le premier écran est surchargé (scrubber, pastilles, journal, e-mail) et la promesse « deux minutes » reste un cliché, avec un journal coupé en bas de carte.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

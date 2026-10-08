@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A tient un point de vue net : un bonnet colore par profondeur, décliné de la hero aux groupes, à la frise et aux tarifs, avec un quiz « Dans quel groupe ? » en guise d'entrée ; B affirme aussi un parti pris fort (profondeur plutôt qu'âge, coupe de bassin rouge et bleu), mais le reste de la page le dilue davantage."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, A reste reconnaissable comme école de natation pour enfants grâce aux bonnets jaune, vert, orange et rouge et aux créneaux, objets propres à ce métier ; B reste clairement de la natation grâce à sa coupe de bassin, mais sa grille horaire et son vocabulaire de profondeurs pourraient servir à d'autres activités aquatiques."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une grille, des alignements et une hiérarchie typographique très constants sur desktop, avec une frise proportionnelle et des cartes homogènes ; B est propre aussi, mais sa grille hebdomadaire déséquilibrée et ses colonnes creuses la rendent moins aboutie."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "Chaque bloc factuel d'A porte un badge EXEMPLE ou une mention « à confirmer » (horaires, places, tarifs, encadrement, coordonnées), sans faux avis ni faux logo ; B fait un bon travail avec sa bannière et ses mentions « d'exemple », mais son téléphone de navigation n'est pas signalé en ligne."
+ },
+ "defaut_A": "Le panneau de résultat du quiz dans la hero reste vide (« Répondez à la première question »), ce qui donne un aspect inachevé au premier écran.",
+ "defaut_B": "La grille hebdomadaire laisse des colonnes presque vides (lundi, jeudi, dimanche) à côté d'un samedi surchargé, et le panneau de résultat de la hero est lui aussi vide.",
+ "preference": "A",
+ "force": "nette",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

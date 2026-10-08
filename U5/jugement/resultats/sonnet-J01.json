@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B accroche par un titre serif pleine largeur très lisible, un tableau d'encours où l'on peut agir (Relancer), une frise datée de l'aujourd'hui et un bandeau final sombre qui donne du rythme, alors que A reste sur un fond vert pâle uniforme sur toute la page malgré un titre gras percutant et un sélecteur de scénarios malin."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "A construit toute la page sur le vocabulaire des statuts (déposée, rejetée, refusée, encaissée) et sur l'opposition rejetée/refusée, avec SIREN et calendrier de la réforme, tandis que B, tout aussi ancrée dans la facturation électronique, finit sur une FAQ et un tableau de tarifs plus interchangeables."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie plus claire, des alignements nets, un tableau et des pastilles de statut soignés, un tableau de tarifs lisible et un mobile propre, alors que A laisse la colonne gauche du hero vide sous le bouton, a une carte hero très longue et empile des sections peu différenciées, même si son mobile reste correct."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale l'exemple de façon constante et explicite (bandeau « Maquette » en tête de page, « Facture d'exemple, données fictives », prix donnés à titre d'exemple, formulaire qui ne transmet rien), alors que B le signale bien aussi mais par de petites notes discrètes et répétées (« à confirmer ») et affirme sans réserve des fonctions comme « Chaque matin, vous savez qui vous doit quoi »."
+ },
+ "defaut_A": "Une page monotone : sections toutes sur le même fond pâle, hero déséquilibré (colonne gauche vide sous le bouton, carte interactive très haute) et pas de moment fort ni de clôture marquante.",
+ "defaut_B": "Beaucoup de micro-mentions « exemple / à confirmer » en tout petit qui encombrent la page, et un dernier tiers (tarifs, FAQ) plus générique qui dilue le point de vue sur les statuts.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

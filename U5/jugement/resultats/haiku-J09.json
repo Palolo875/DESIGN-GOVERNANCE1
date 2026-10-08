@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B porte une idée visuelle tenue sur toute la page, un bonnet de couleur par profondeur présent dans le héros, les sections, les logos et les bordures, alors que A a un beau schéma de coupe du bassin mais une page ensuite plus générique."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Sans le nom, B reste clairement une école de natation grâce aux bonnets jaune, vert, orange et rouge, au carnet de bonnet, au toboggan et aux objets à repêcher, alors qu'A reste propre au métier surtout par son échelle de profondeurs."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie, un rythme et des alignements plus calmes (titres, grille de créneaux, frise de 45 minutes, tarifs), tandis que B est plus chargée de petites tuiles, pastilles et bordures."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B étiquette chaque bloc factuel (coordonnées, tarifs, horaires, adresse, places) par une pastille EXEMPLE et une date, alors qu'A s'appuie surtout sur sa bannière pour le téléphone et l'adresse."
+ },
+ "defaut_A": "Ton institutionnel et palette marine et rouge sobre qui parle davantage aux parents qu'aux enfants, la page devenant une grille de cartes assez générique après le héros.",
+ "defaut_B": "Surcharge de micro-éléments (pastilles EXEMPLE, bordures pointillées, rayures tricolores, tuiles de créneaux serrées) qui alourdit la page et nuit à la lisibilité des horaires.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A tient une idée unique, le carnet à souche, qui irrigue le titre, les textes et la frise de relance, là où B enchaîne des arguments séparés (statuts, réforme, relances, tarifs)."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B ancre sa page dans la réforme française de la facture électronique (sélecteur de taille d'entreprise, calendrier 2026-2027, statuts de facture), contenu qu'un SaaS générique ne pourrait pas reprendre, alors que A reste très propre à la facturation sans aller aussi loin dans le contexte réglementaire."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie et des tableaux plus réguliers et un mobile complet et cohérent, alors que A est tout aussi soignée mais son premier écran et sa frise de relance sont plus denses en micro-libellés."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale la maquette en bandeau sur chaque vue, avec badge « données fictives », mentions « prix d'exemple » et calendrier « à vérifier », là où A balise surtout par notes de bas de page et étiquettes de carte, sans faux avis ni faux logos dans les deux cas."
+ },
+ "defaut_A": "Le premier écran empile titre, frise à micro-libellés et tableau de relance sans laisser respirer la promesse, et la section facture électronique reste un bloc de texte maigre.",
+ "defaut_B": "La page est longue et homogène, avec cinq sections de même poids et un tableau de bord de démonstration qui concurrence le titre.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le titre géant bicolore (« profondeur » en rouge), les chiffres rouges de profondeur et le bandeau marine donnent à A une voix forte et reconnaissable dès le premier écran, alors que le titre de B est monochrome et plus sage."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux ont le même concept propre à la natation enfant (groupes par profondeur ou palier, coupe du bassin, séance de 45 minutes, bonnet et maillot, peur de l'eau) et ne pourraient pas servir à un autre métier ; B ajoute des silhouettes d'enfants et un déroulé en flotteurs, A une grille horaire par profondeur."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "A a une hiérarchie nette et un mobile propre, mais un grand panneau de résultat vide au premier écran et des colonnes de planning très inégales ; B est plus complet et mieux rempli (tarifs en tableau, FAQ, pied de page), mais son déroulé laisse des vides, sa frise est un peu fine et son menu mobile est tassé."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux affichent un bandeau « Maquette » et marquent les exemples (coordonnées, tarifs, places restantes, encadrement) sans faux avis, faux logos ni statistiques ; A signale chaque donnée au plus près, B a un pied de page plus explicite."
+ },
+ "defaut_A": "Le panneau de résultat du premier écran reste une grande boîte blanche presque vide, et le planning hebdomadaire est déséquilibré, avec des colonnes quasi vides à côté de colonnes pleines.",
+ "defaut_B": "Le titre monochrome et le hero partagé entre un quiz et un encart en pointillés manquent de contraste et de point focal ; le tout est plus ordonné que marquant.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

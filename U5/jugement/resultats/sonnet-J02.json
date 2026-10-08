@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le titre en serif très grand, le ton éditorial et le tableau d'encours en haut de page donnent à A une voix reconnaissable dès le premier écran. B a aussi un point de vue, avec ses scénarios cliquables, mais sa grotesque serrée et sa carte de démo coupée par le bas du premier écran le rendent plus ordinaire."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux restent propres à la facturation électronique française, avec des statuts (déposée, rejetée, refusée, encaissée), Factur-X, le SIREN, le FEC, le calendrier de la réforme et la relance d'une facture en retard. Aucune des deux ne tient à son nom, et aucune ne l'emporte sur l'autre sur ce point."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie nette, des alignements propres, un tableau et une frise lisibles, et un mobile bien cadré qui montre déjà les chiffres clés. B est soigné, mais sa carte de démo est dense, avec un panneau d'explication flottant à moitié vide et une frise étroite. Le bandeau « Maquette » et la carte coupée prennent aussi de la place sur mobile."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B annonce d'emblée par un bandeau fixe en haut que tout est exemple, puis répète « fictifs » sur les données, le formulaire et le pied de page, et distingue les statuts transmis par la plateforme de ceux ajoutés par le produit. A signale aussi ses exemples section par section, mais de façon plus discrète, avec de petits « ○ exemple ». Ni l'une ni l'autre n'invente d'avis ni de logos."
+ },
+ "defaut_A": "Le premier écran laisse un grand vide sous la colonne de gauche, et les mentions « exemple » sont petites et dispersées, si bien qu'on les rate facilement.",
+ "defaut_B": "La carte de démo est trop dense et déborde du premier écran. Le bandeau « Maquette » et l'en-tête pèsent sur le mobile. Le ton, plus générique et plus lourd que celui de A, a moins de caractère.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

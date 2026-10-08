@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "La coupe du bassin avec un nageur à chaque palier, sous le titre « un palier à la fois », donne à la page une image signature et un point de vue net."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Sans le nom, la coupe du bassin, les paliers de profondeur et la ligne d'eau restent propres à une école de natation, alors que A repose surtout sur un système de bonnets colorés plus transposable."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Les deux maquettes sont soignées et bien hiérarchisées : A gagne en cohérence de système (bonnets, frise, tarifs), B en propreté au mobile, ce qui se compense."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent explicitement les exemples (bandeau de maquette, mentions EXEMPLE ou « d'exemple », numéros et domaines fictifs) et n'affichent ni faux avis ni faux logos."
+ },
+ "defaut_A": "Page longue et dense : nombreuses sections en cartes et micro-libellés gris qui diluent la hiérarchie au fil du défilement.",
+ "defaut_B": "Le bas de page retombe dans des gabarits génériques (tableau tarifaire, trois cartes, FAQ), moins propres au métier que la coupe du bassin du premier écran.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

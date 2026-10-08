@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "Le titre « Une facture n'est finie que lorsqu'elle est payée » est une position claire, que la page tient jusqu'au bout (chronologie d'une seule facture, bandeau final sombre). A, plus fonctionnel, est un peu plus neutre malgré un titre très affirmé."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux pages restent propres à la facturation électronique française : statuts, relances à J+x, réforme du 1er septembre 2026, SIREN pour A, Factur-X, FEC et rapprochement bancaire pour B. Sans le nom, aucune ne pourrait servir à un autre secteur."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "A a une hiérarchie nette, une bonne table de bord et une navigation conservée sur mobile, mais son rythme est uniforme et son formulaire final est sec. B a un meilleur rythme de sections, mais ses légendes sont minuscules, ses lignes de tarifs vertes sont étranges et la navigation disparaît sur mobile."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Aucune fausse preuve : ni faux avis, ni faux logos, ni chiffres de clientèle. A signale l'exemple par un bandeau en tête de page et des pastilles « données fictives », B par « nom d'exemple », « Données d'exemple » et des mentions bloc par bloc, avec « aucun e-mail n'est envoyé » pour la démo."
+ },
+ "defaut_A": "La page est dense et sobre, avec toujours le même schéma titre à gauche et paragraphe à droite. Le formulaire final est pauvre et la navigation est tassée sur mobile.",
+ "defaut_B": "Les mentions « exemple » et les légendes minuscules, répétées à chaque bloc, alourdissent la lecture. Sur mobile, la navigation disparaît et le haut de la page laisse un vide à côté du tableau.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

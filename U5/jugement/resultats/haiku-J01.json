@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A tient un point de vue net, organisé autour du parcours des statuts (« Échéance lit chacun de ces statuts et vous dit quoi faire ») et d'une thèse sur la différence entre rejet et refus."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, la page reste propre à la facturation électronique grâce au sélecteur de parcours de facture, aux cartes rejet/refus et au relevé d'actions, avec un léger avantage sur B."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Deux pages très soignées, avec une hiérarchie claire, une grille stable et un mobile propre, dont les écarts relèvent davantage du goût que de la qualité d'exécution."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent systématiquement ce qui est exemple (bandeau, étiquettes de carte, mentions de prix et de calendrier à vérifier) et n'affichent ni faux avis ni faux logos."
+ },
+ "defaut_A": "Densité : sept sections de texte explicatif et de mentions « exemple » répétées rendent la page chargée et proche d'une documentation.",
+ "defaut_B": "Les légendes de la timeline sont très petites et serrées, et la page répète le même motif carte-tableau après le hero, sans rupture visuelle forte.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

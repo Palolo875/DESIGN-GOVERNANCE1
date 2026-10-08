@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B raconte une seule facture de sa création à son encaissement, avec une frise interactive J+31 et un titre en deux tons, ce qui donne un vrai point de vue ; A retient aussi avec son titre massif et son tableau de statuts, mais reste plus proche d'un tableau de bord SaaS attendu."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B s'appuie sur des mentions légales de facture, le format Factur-X, le rapprochement bancaire SEPA, le paiement partiel et les relances jamais le week-end, ce qui ne servirait à aucun autre métier ; A est propre à la facturation (statuts, réforme 2026, relances), mais plusieurs de ses blocs, comme le tarif et le formulaire, seraient interchangeables."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie nette, des alignements réguliers, un tableau très lisible et un mobile propre, alors que B a un journal rogné dans la carte du premier écran, une colonne de texte du hero mal calée sur le titre, un bloc tarifs avec une note flottante et plus de petites pastilles qui encombrent."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "Les deux ont un bandeau « maquette » et évitent faux avis et faux logos, mais B marque l'exemple au point exact (pastille « nom d'exemple », « offre d'exemple », « à confirmer », « illustratif ») tandis que A présente des dates réglementaires et un compteur « Dans 328 jours » de façon plus affirmative, avec une seule note de bas de bloc."
+ },
+ "defaut_A": "Page trop centrée sur une maquette de tableau de bord avec des blocs secondaires plus génériques (sélecteur de taille d'entreprise, tarifs, formulaire vide), donc moins singulière et plus conventionnelle.",
+ "defaut_B": "Densité et finition inégales : le journal de la facture est coupé dans la carte du premier écran et les nombreuses pastilles d'avertissement alourdissent la lecture.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "Le titre « Une facture n'est finie que lorsqu'elle est payée. » affirme une thèse, et la frise « Le trajet d'une facture » en fait un parti pris visuel, alors que A promet surtout un service décrit (« Chaque facture suivie, de l'envoi au virement. »)."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Sans le nom, la frise des statuts (déposée, rejetée, refusée, encaissée) et le tableau « Quand le trajet dévie » restent propres à la facturation électronique française ; A reste aussi très ancré (relances J+1 à J+20, calendrier de la réforme), mais B fait de ce parcours la logique même de la page."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A tient une grille et un rythme de sections plus constants, une hiérarchie nette jusqu'au tableau de prix, et une version mobile qui garde la navigation, tandis que B a des légendes très petites et une section de réforme dont le style de titre semble légèrement différent."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent systématiquement les données fictives (bandeau « Maquette » chez A, mentions « d'exemple » chez B, dont le formulaire précisé comme sans envoi), sans faux logos ni faux avis, et les dates réglementaires sont sourcées dans les deux."
+ },
+ "defaut_A": "Structure de template SaaS standard (hero, tableau de bord, sections en trois colonnes, tableau de prix, formulaire) qui montre le produit sans aller au-delà d'un titre descriptif.",
+ "defaut_B": "Légendes et textes secondaires très petits et denses dans la frise et le tableau des statuts, peu lisibles à taille réelle.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

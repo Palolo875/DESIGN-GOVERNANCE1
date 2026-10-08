@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "Le titre en serif « Envoyer une facture prend deux minutes. Quitus s'occupe des semaines qui suivent. » est en deux tons, et le curseur temporel J+31 montre tout de suite un retard et une relance, ce qui donne un vrai point de vue; A est aussi affirmée avec son grotesque très serré et ses quatre scénarios, mais elle a moins de relief."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux restent propres à la facturation et ne serviraient pas à un autre métier: A tient sur la distinction rejetée/refusée, le relevé de statuts et le calendrier de la réforme, B sur les mentions légales, le Factur-X, l'échelle de relances J+x et le rapprochement bancaire."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie nette, un formulaire e-mail visible dès le premier écran mobile et des modules bien alignés, mais le journal de la facture est coupé en bas de sa carte; A est propre et lisible, avec un tableau très soigné, mais sa colonne gauche reste vide sous le bouton, face à une carte très haute, et la page est un peu uniforme."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "Les deux annoncent clairement la maquette (bandeau, mentions « exemple », « données fictives », prix non contractuels) et n'inventent ni avis ni logos; B va un cran plus loin avec le badge « nom d'exemple », les « à confirmer » sur le calendrier réglementaire et le conseil de faire valider par un juriste, alors qu'A présente l'obligation de septembre 2026 comme un fait."
+ },
+ "defaut_A": "Le premier écran est déséquilibré, avec un grand vide à gauche sous le bouton, et la page, longue, répète le même format de sections, ce qui la rend monotone et moins mémorable.",
+ "defaut_B": "Le journal de la facture est tronqué dans sa carte, et la grande carte de démonstration, dense en micro-texte, passe avant le message et fait de l'ombre à l'appel à l'action.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

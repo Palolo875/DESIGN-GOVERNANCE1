@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le titre « Chaque enfant a sa profondeur. » et la prise de position « groupes par profondeur, pas par âge » donnent à A un point de vue net, plus affirmé que la promesse générique de B."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "Le système de paliers (flotter seul, nager 25 m, toutes les nages), le sélecteur de phrases et la séquence des cinq temps sont propres à l'apprentissage de la natation, alors que A reste plus proche d'une structure de cours adaptable à d'autres activités."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B a une hiérarchie plus régulière, des cartes de créneaux et de tarifs mieux alignées, une timeline de séance lisible et un mobile sans tassement, là où A présente une grille hebdomadaire inégale et des libellés coupés."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale systématiquement les coordonnées, la température de l'eau et les tarifs comme exemples (« (exemple) » en ligne et mention explicite en pied de page), alors que A repose surtout sur le bandeau et laisse un numéro de téléphone sans marquage."
+ },
+ "defaut_A": "Grille hebdomadaire dense et inégale, avec libellés coupés et colonnes creuses, qui casse le rythme de la page.",
+ "defaut_B": "Le système de paliers est répété trois fois (graphique, sélecteur, planning), ce qui alourdit le premier écran.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

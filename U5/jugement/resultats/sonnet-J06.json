@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "Le titre « Une facture n'est finie que lorsqu'elle est payée. » prend position et reste en mémoire, alors que celui de B (« Chaque facture suivie, de l'envoi au virement ») décrit le produit sans l'incarner."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B va plus loin dans le métier (tableau de statuts avec détail par ligne, sélecteur de taille d'entreprise pour le calendrier de la réforme, aperçu des e-mails de relance J+1/J+10/J+20), alors qu'A, déjà spécifique avec la frise d'une facture et ses statuts, reste plus narrative."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "Le tableau de bord de B est plus abouti (table et panneau de détail, hiérarchie nette, mobile propre avec navigation conservée), alors qu'A laisse un grand vide sous la colonne gauche du héros et une frise un peu chargée, avec des repères proches et des étiquettes tassées."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent tout comme exemple : A par des pastilles « exemple » partout (un peu envahissantes), B par un bandeau « Maquette » en haut et des mentions locales (données fictives, prix d'exemple, source du calendrier) ; aucun faux avis ni faux logo dans l'une comme dans l'autre."
+ },
+ "defaut_A": "Les mentions « exemple » répétées partout alourdissent la lecture, et la mise en page du héros est déséquilibrée (grand vide à gauche), avec une frise de facture encombrée et une FAQ réduite à des questions fermées.",
+ "defaut_B": "Le titre est descriptif et moins marquant, et la page reste sage et très « bonne pratique », avec un formulaire final nu (champs sans indication) qui manque de punch.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

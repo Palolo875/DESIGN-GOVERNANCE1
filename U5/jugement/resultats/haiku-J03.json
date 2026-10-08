@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "egal",
+  "raison": "Les deux pages ont une thèse claire, A avec « Une facture n'est finie que lorsqu'elle est encaissée » et la distinction rejet/refus, B avec « Envoyer une facture prend deux minutes. Quitus s'occupe des semaines qui suivent. » et sa voix éditoriale en typographie sérif."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B détaille des mécanismes propres au métier (mentions obligatoires vérifiées avant envoi, cadence de relance J-5 à J+15 jamais le week-end, rapprochement SEPA avec les factures), là où A reste surtout centrée sur la liste des statuts et le relevé."
+ },
+ "finition": {
+  "gagnant": "egal",
+  "raison": "Les deux maquettes ont une hiérarchie nette, des alignements tenus, une typographie soignée et un rendu mobile propre, sans écart notable de finition."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale explicitement chaque élément à confirmer (« à confirmer », « à valider avec un juriste », « montants à remplacer par la grille réelle »), alors que A signale bien les données fictives mais affirme plus fermement certaines règles et dates."
+ },
+ "defaut_A": "Page sobre et uniforme où chaque section reprend le même schéma titre plus cartes ou tableau, sans moment visuel fort après le hero.",
+ "defaut_B": "Densité de micro-libellés, de pastilles et de texte gris secondaire qui rend la page chargée et parfois peu contrastée.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

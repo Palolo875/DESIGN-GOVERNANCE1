@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue (« Facturez une fois. Souche relance jusqu'au paiement. ») et un échéancier interactif qui fait vivre la promesse dès le premier écran, alors que B, au titre tout aussi fort, se range vite dans le schéma classique tableau de bord, tarifs, FAQ."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Les relances décalées au jour ouvré, le courriel de relance rédigé, la mise en demeure annulée à réception du virement et la relecture des mentions obligatoires n'appartiennent qu'à la facturation ; B est aussi spécifique (statuts Factur-X, réforme) mais sa structure tableau, tarifs, FAQ resservirait à n'importe quel SaaS."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus régulière et plus propre (hero en deux colonnes qui montre le produit tout de suite, tableau lisible, frise nette, pastilles de statut cohérentes, bon mobile), tandis que A a un grand vide entre titre et CTA, une frise dont les connecteurs et cartes se chevauchent et un écran initial qui coupe la visualisation."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent partout ce qui est exemple (nom, données, démo sans envoi d'e-mail, tarifs à confirmer) et n'inventent ni faux avis ni faux logos ; A est un peu plus franc avec son pied de page « maquette » et ses « à confirmer » en rouge, B plus systématique avec ses pastilles « Exemple »."
+ },
+ "defaut_A": "Une page dense et un peu bavarde dont le premier écran n'offre que le titre et une visualisation tronquée, avec une frise aux cartes et connecteurs qui s'entrecroisent et des annotations rouges « à confirmer » qui alourdissent.",
+ "defaut_B": "Une structure de landing SaaS convenue (tableau de bord, tarifs, FAQ, bandeau final sombre) qui diffère moins que le titre ne le promet, avec un bas de hero resté vide à gauche et beaucoup de petites mentions d'exemple.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

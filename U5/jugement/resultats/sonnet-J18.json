@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "B (Souche) a un slogan en deux temps (« Facturez une fois. Souche relance jusqu'au paiement. ») et une frise de relances interactive dès le premier écran, ce qui en fait une image mémorable et une idée de produit défendue. A (Encaisse) a aussi un bon titre et un tableau de bord crédible, mais son point de vue (le suivi des statuts) est plus attendu."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux restent propres à la facturation : A avec la réforme de la facture électronique, les statuts déposée/reçue/refusée/encaissée et le SIREN ; B avec les mentions obligatoires, les pénalités, la TVA ventilée et le décalage des relances au jour ouvré. Aucune des deux ne servirait à un autre métier."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A est plus cohérente : hiérarchie nette, grille régulière, sections bien rythmées, formulaire final et mobile propres. B a un vide à droite du titre avec un CTA isolé, un filet pointillé collé au titre de la section suivante, une ligne « Facture électronique » orpheline avec une mention rouge brute, et un tableau de frise un peu chargé."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Aucune des deux n'invente d'avis ni de logos. A signale l'exemple partout (bandeau « Maquette », pastille « données fictives », prix et raccordement flagués) mais énonce des dates réglementaires avec assurance, tempérées par une note de source. B signale aussi (« nom d'exemple », « Tarif … d'exemple », pied de page) et marque « À confirmer » sur ce qu'elle ne sait pas, ce qui est honnête mais laisse du brouillon visible."
+ },
+ "defaut_A": "Une page dense et un peu « tableau de bord » : la réforme et le jargon de statuts passent avant la promesse, et le ton reste sage, moins distinctif que l'idée de relance de B.",
+ "defaut_B": "Une finition inégale avec des placeholders visibles (« À confirmer » en rouge, ligne orpheline, vide dans le hero) qui donnent l'impression d'une maquette inachevée.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

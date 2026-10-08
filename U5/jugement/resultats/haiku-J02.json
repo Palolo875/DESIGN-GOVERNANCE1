@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A pose un ton éditorial reconnaissable (titre en serif, « Le trajet d'une facture », « Quand le trajet dévie ») alors que B a une démo interactive forte mais un discours plus fonctionnel."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B descend dans les mécanismes du métier (rejet technique contre refus commercial, champ SIREN à corriger, relevé trié par action à traiter), là où A se limite surtout à la frise et au tableau des statuts."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A a une hiérarchie plus aérée et un rythme typographique plus calme (display serif, texte sans-serif, alignements propres), tandis que B est très serré et que ses petits libellés de frise et de relevé se lisent difficilement."
+ },
+ "verite": {
+  "gagnant": "B",
+  "raison": "B signale les données fictives en bandeau haut de page, sous chaque bloc et en pied, et précise que le formulaire ne transmet aucune donnée, alors que A les signale surtout par de petites notes sous les sections."
+ },
+ "defaut_A": "Passé le premier écran, la page suit un gabarit SaaS classique (tarifs, FAQ, CTA final) sans argument propre.",
+ "defaut_B": "Les blocs sont denses et les libellés de frise et de relevé très petits, ce qui affaiblit la lisibilité au premier coup d'œil.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

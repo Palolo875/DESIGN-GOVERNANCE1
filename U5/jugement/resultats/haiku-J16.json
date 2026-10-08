@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "La proposition A tient une thèse sur toute la page, « Une facture n'est finie que lorsqu'elle est encaissée », avec la distinction rejet plateforme / refus client et un relevé qui trie les actions à mener."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, la page reste propre au recouvrement de factures en France (Factur-X, SIREN, rejet et refus, relevé d'encaissement) et ne servirait pas à n'importe quel secteur."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "Hiérarchie, alignements et système de statuts sont très cohérents en desktop comme en mobile, alors que l'échéancier du héros de B est plus chargé et se tasse en mobile."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "A signale l'exemple de façon systématique (bandeau Maquette en haut, offre d'exemple sur le CTA, données fictives sur chaque bloc, formulaire qui ne transmet rien), sans fausse preuve ; B fait bien de même avec un À confirmer réglementaire, mais moins systématiquement."
+ },
+ "defaut_A": "Trop de blocs explicatifs sous le héros (réforme, rejet et refus, relevé, deux formules) qui transforment la landing en brochure longue et diluent sa tension.",
+ "defaut_B": "Le premier écran est surchargé : échéancier à cinq jalons, aperçu d'e-mail, sélecteurs et comparaison, et la version mobile coupe la frise avant son terme.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-haiku-5-5"
+ ]
+}

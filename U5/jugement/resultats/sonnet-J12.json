@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "B",
+  "raison": "Le titre en trois temps (« Facturez une fois. Souche relance jusqu'au paiement. ») et la maquette interactive d'échéancier donnent à B un point de vue net et une métaphore tenue (la souche). A est solide, avec un titre fort et un tableau d'encours lisible dès le premier écran, mais son hero reste plus attendu."
+ },
+ "specificite": {
+  "gagnant": "B",
+  "raison": "B s'appuie sur des détails propres à la facturation : relance décalée au jour ouvré, contrôle des mentions obligatoires avant envoi, indemnité de 40 €, TVA ventilée, mise en demeure. A est aussi spécifique avec ses statuts de facture électronique (déposée, rejetée, refusée, encaissée) et le calendrier de la réforme, mais sa grille de tarifs et sa FAQ pourraient servir à n'importe quel SaaS."
+ },
+ "finition": {
+  "gagnant": "A",
+  "raison": "A est plus net : hiérarchie claire, hero équilibré avec l'argumentaire à gauche et le tableau à droite, frise et tableaux bien alignés, mobile propre. B est très soigné aussi, mais son échéancier a des connecteurs qui croisent les cartes, le CTA flotte à droite du hero, et la démo est coupée au premier écran."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux signalent systématiquement le nom, les données, les tarifs et les fonctions comme exemples (« nom d'exemple », « Données d'exemple », « à confirmer », mention en pied de page) et n'inventent ni faux avis ni faux logos. A date en plus le calendrier de la réforme et renvoie à impots.gouv.fr ; B marque en rouge ce qui reste à confirmer."
+ },
+ "defaut_A": "Au-delà du hero et de la frise, la page retombe dans la structure SaaS habituelle (tableau de tarifs à deux formules, FAQ, bandeau final), avec moins d'interaction et un point de vue qui s'atténue.",
+ "defaut_B": "La démo d'échéancier est dense et un peu fragile visuellement (cartes décalées, connecteurs qui se croisent, hero déséquilibré avec un CTA isolé), et la page est moins complète : pas de FAQ ni de comparaison de formules.",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue visuel : la coupe du bassin avec ses silhouettes d'enfants et ses profondeurs est la première chose qu'on voit et qu'on retient. B a un titre fort (« Chaque enfant nage à sa profondeur ») mais un hero plus classique, un titre à gauche et un quiz à droite."
+ },
+ "specificite": {
+  "gagnant": "A",
+  "raison": "Sans le nom, la coupe du bassin par paliers, la ligne d'eau, le séjour « il a pied » et la chronologie par flotteur ne conviennent qu'à une école de natation. B reste spécifique avec ses bonnets de couleur, ses profondeurs et les créneaux, mais sa structure (stats, quiz, tarifs, FAQ) est plus générique."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus net : hiérarchie claire, rythme de sections avec un bandeau sombre pour les tarifs, grille régulière, boutons d'état Oui/Pas encore et hero mobile bien composé. A a de l'espace mort sous le bloc de droite du hero, une frise de séance aux colonnes inégales et aux grands vides, et un hero dense."
+ },
+ "verite": {
+  "gagnant": "egal",
+  "raison": "Les deux annoncent la maquette dans un bandeau et marquent les données comme exemples, sans faux avis ni faux logos. B met des pastilles « EXEMPLE » plus nombreuses, mais invente des places restantes datées du 8 octobre 2026, et A est un peu plus discrète sur ses prix (« exemple » en petit)."
+ },
+ "defaut_A": "Hero chargé et déséquilibré, avec un grand vide à droite sous le bloc d'explication et des sections inférieures (frise de séance, tarifs) plus plates et moins soignées que le premier écran.",
+ "defaut_B": "Le hero est plus convenu, la page reste plus générique, et l'ensemble (tarifs, FAQ, stats) ressemble à un modèle de site d'école, avec des places restantes simulées présentées comme données du jour.",
+ "preference": "A",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}

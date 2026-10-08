@@ -1,0 +1,25 @@
+{
+ "presence": {
+  "gagnant": "A",
+  "raison": "A a un vrai point de vue : un titre en deux temps (« Envoyer une facture prend deux minutes. Quitus s'occupe des semaines qui suivent. ») et une frise J+31 sur une seule facture, avec curseur à faire glisser, qui donne envie de jouer. B est solide et retient aussi, avec son tableau de bord d'octobre et sa frise de la réforme, mais son titre est plus descriptif."
+ },
+ "specificite": {
+  "gagnant": "egal",
+  "raison": "Les deux pages sont ancrées dans la facturation française : A avec Factur-X, l'indemnité de 40 €, la mise en demeure, la relance « jamais le week-end » et le journal d'une facture ; B avec les statuts déposée/reçue/refusée/encaissée, le choix micro-entreprise/PME/ETI et les échéances de la réforme 2026-2027. Aucune des deux ne pourrait servir à un autre métier."
+ },
+ "finition": {
+  "gagnant": "B",
+  "raison": "B est plus propre et plus régulière : tableau net, pastilles de statut lisibles, rythme vertical constant, mobile soigné avec la navigation qui passe sous le logo. A est très travaillée aussi, mais le journal de la facture est coupé net en bas de la carte du premier écran (ligne « 4 août / Reçue » tronquée), ses pastilles « exemple » sont nombreuses, et son premier écran mobile s'arrête au milieu de la carte."
+ },
+ "verite": {
+  "gagnant": "A",
+  "raison": "Les deux évitent faux avis et faux logos, et signalent le bandeau de démonstration et les données fictives. A est plus systématique : pastilles « nom d'exemple », « offre d'exemple », « à confirmer », « calendrier à confirmer », liste de contrôle « à valider avec un juriste », pied de page explicite. B présente en revanche la réforme comme un fait daté (avec « Dans 328 jours »), même si une note renvoie à impots.gouv.fr."
+ },
+ "defaut_A": "Une page très (trop) balisée de pastilles « exemple » et de mentions de précaution, avec une carte de démonstration dense dont le journal est tronqué en bas, ce qui alourdit la lecture et abîme un peu le premier écran.",
+ "defaut_B": "Un titre plus convenu et un premier écran qui laisse voir surtout un tableau ; la section réforme affirme des dates légales comme des faits, et le formulaire final reste très sobre (champs vides, sans accroche forte).",
+ "preference": "B",
+ "force": "legere",
+ "_modele": [
+  "claude-sonnet-5-5"
+ ]
+}
