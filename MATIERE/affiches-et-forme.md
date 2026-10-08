@@ -80,3 +80,21 @@ Déjà connu du système : trois de ces écrans (tennis de table, Peloton, Numi 
 | Franchissement de cadre en interface : la carte émerge du nuage, les avatars débordent du billet | Numi 2, Plan&go | Absente (voir la première série) |
 
 Vérité : Plan&go affiche une adresse e-mail réaliste (« 9760960795@gmail.com ») dans une maquette ; c'est la donnée personnelle d'apparence réelle que le système veut éviter. Peloton est une marque réelle : référence d'exécution, pas d'identité à reprendre.
+
+## Quatrième série d'images (5) : widgets et micro-unités
+
+Images : cartes de score de crédit (jauge, bulletin par lettres, barre d'utilisation graduée, courbe annotée) ; tuner radio (« 088.5 » au zéro estompé, échelle 87-90 à aiguille rouge, mascotte pixel posée sur le bord) ; invitation et résumé d'appel (accent vert acide) ; deux cartes de portefeuille crypto (gros montant, pile de jetons, échanger et envoyer).
+
+Déjà couvert, et bien : `BIBLIOTHEQUE/MICRO` (lecture « identité → état → mesure ou choix → conséquence → action » ; `USAGE_LEDGER` : valeur, unité, plafond, période ; `QUERY_HEALTH` : « comparé à quoi »). La carte d'utilisation (solde, plafond, échelle, 6 %) est presque la définition d'`USAGE_LEDGER`. `BIBLIOTHEQUE/DERIVE` refuse déjà les noms de peau comme `SCENE/BENTO`. Figures tabulaires : `SAVOIR/TYPE` et `SAVOIR/STATE`.
+
+À ajouter (savoir et esthétique, pas de nouvelle route) :
+- **Une carte, une question** : le chiffre héros à très grande échelle, son repère visible (échelle « Great → Poor », graduation 87-90, plafond), une conséquence, une action. C'est l'inverse de nos tableaux de bord U5 à micro-libellés.
+- **Le graphique qui s'annote** : la conclusion est écrite sur la courbe (« score en hausse de 13 points »), pas laissée au lecteur.
+- **L'instrument réduit** : cadran, jauge, règle graduée, issus d'un objet physique du domaine. Même famille que le document vernaculaire ; N4 (premier choix du propriétaire) graduait déjà son échéancier au jour. Natation : profondimètre, ligne d'eau.
+- **Le chiffre comme typographie** : le zéro estompé du tuner dit « afficheur » sans dessin.
+- **Une dose de caractère** : la mascotte pixel posée sur le bord (franchissement de cadre, quatrième série où il revient).
+- **La série de cartes** : forme et place du titre constantes, teinte et type de graphique propres à chaque carte.
+
+Vague à nommer (VEILLE, fréquence NOT-VERIFIED) : widgets « bento » (carrés arrondis, très gros chiffre, accent vert acide, ombre douce, pile de jetons, dégradé vitreux, ce dernier déjà en vague 1).
+
+Vérité : montants et scores fictifs, logos de cryptomonnaies réels ; sur une page produit, à marquer et à ne pas présenter comme résultats.
