@@ -1,0 +1,194 @@
+<title>Carte de Design Governance</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout : en-tête (règle de passage, chemin d'entrée), barre des modes, puis quatre couloirs de routes et un panneau de détail ; carte des sujets en bas. */
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --fg:#151920; --muted:#586070; --line:#d8dde5; --soft:#eef1f5;
+  --dir:#2f58c9; --act:#0d7466; --sav:#7f47b5; --bib:#9a5600; --on:#ffffff;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1217; --surface:#171b22; --fg:#e5e8ee; --muted:#9aa3b2; --line:#2b313b; --soft:#1e232c;
+  --dir:#86a6ff; --act:#56c5b2; --sav:#c69df0; --bib:#e7a85a; --on:#0f1217; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1217; --surface:#171b22; --fg:#e5e8ee; --muted:#9aa3b2; --line:#2b313b; --soft:#1e232c;
+  --dir:#86a6ff; --act:#56c5b2; --sav:#c69df0; --bib:#e7a85a; --on:#0f1217; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--body);padding-inline:16px;padding-block:28px 56px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance;letter-spacing:.005em}
+h1{font-size:clamp(1.7rem,3.2vw,2.3rem)} h2{font-size:1.3rem} h3{font-size:1.05rem}
+p{margin:0;max-width:68ch}
+code,.mono{font-family:var(--mono);font-size:.86em}
+.lede{color:var(--muted)}
+.passage{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.owner{border-left:4px solid var(--c);background:var(--surface);padding:10px 12px;border-radius:0 6px 6px 0;display:grid;gap:2px}
+.owner b{font-family:var(--display);font-size:1.05rem}
+.owner span{color:var(--muted);font-size:.9rem}
+.path{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:.92rem}
+.path .step{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 9px}
+.path .arrow{color:var(--muted)}
+.bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;position:sticky;top:env(safe-area-inset-top,0px);z-index:2;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line)}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:500 .88rem var(--body);color:var(--fg);background:none;border:0;padding:7px 12px;cursor:pointer;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.seg button:focus-visible,.chip:focus-visible,.copy:focus-visible,.tlink:focus-visible{outline:3px solid var(--dir);outline-offset:2px}
+.search{flex:1 1 220px;min-width:0}
+.search input{width:100%;font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+.count{color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--muted)}
+.legend i{display:inline-block;width:22px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.lg-d{background:var(--muted)} .lg-s{border:1.5px dashed var(--muted)} .lg-n{background:var(--soft);border:1px solid var(--line)}
+main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;align-items:start}
+.lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.lane{display:grid;gap:8px;align-content:start;min-width:0}
+.lane header{border-top:4px solid var(--c);padding-top:8px;display:grid;gap:2px}
+.lane header span{color:var(--muted);font-size:.85rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{--w:60px;font:500 .78rem var(--mono);text-align:left;cursor:pointer;border-radius:5px;padding:5px 7px;width:min(var(--w),100%);
+  background:var(--soft);color:var(--muted);border:1px solid var(--line);overflow-wrap:anywhere;position:relative}
+.chip.d{background:var(--c);color:var(--on);border-color:var(--c)}
+.chip.s{background:var(--surface);color:var(--fg);border:1.5px dashed var(--c)}
+.chip.sel{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--fg)}
+.chip.dim{opacity:.28}
+.chip .core{position:absolute;top:3px;right:4px;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.7}
+aside{position:sticky;top:76px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:12px;min-width:0}
+aside .loc{font:600 1rem var(--mono);overflow-wrap:anywhere;color:var(--c)}
+aside .meta{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted)}
+.tag.d{border-color:var(--c);color:var(--fg)}
+.cmd{display:flex;gap:8px;align-items:center;background:var(--soft);border-radius:6px;padding:6px 8px;min-width:0}
+.cmd code{flex:1;min-width:0;overflow-x:auto;white-space:nowrap}
+.copy{font:500 .8rem var(--body);background:var(--fg);color:var(--bg);border:0;border-radius:5px;padding:4px 9px;cursor:pointer}
+.outline{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.88rem;max-height:300px;overflow-y:auto}
+.outline li{display:flex;justify-content:space-between;gap:8px}
+.outline li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.outline .sub{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.topics{display:grid;gap:10px}
+.ttable{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 .78rem var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tlink{font:500 .8rem var(--mono);background:none;border:0;padding:0;color:var(--fg);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;cursor:pointer;margin-right:10px}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:1100px){main{grid-template-columns:1fr} aside{position:static}}
+@media (max-width:820px){.lanes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.lanes{grid-template-columns:1fr} .bar{position:static}}
+@media (prefers-reduced-motion:no-preference){.chip{transition:opacity .15s,background .15s}}
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:12px">
+    <h1>Carte de Design Governance</h1>
+    <p class="lede">Les 70 routes du système, qui décide de quoi, et ce que l’agent charge selon le mode. Carte dérivée des sources : elle oriente, la source propriétaire fait foi.</p>
+    <div class="passage" id="passage"></div>
+    <div class="path" aria-label="Chemin d’entrée de l’agent">
+      <span class="step" id="noyau">Noyau de la skill</span><span class="arrow">→</span>
+      <span class="step"><code>DIRECTION/START</code> classe le mode</span><span class="arrow">→</span>
+      <span class="step"><code>DIRECTION/CHARGE</code> charge la ligne du mode</span><span class="arrow">→</span>
+      <span class="step">routes « Charger d’abord », puis celles qui changent une décision</span>
+    </div>
+  </header>
+
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Mode" id="modes"></div>
+    <label class="search"><span class="count" style="display:block;margin-bottom:2px">Filtrer les routes</span>
+      <input id="q" type="search" placeholder="couleur, capture, B1b, mobile…" autocomplete="off"></label>
+    <div class="count" id="count" aria-live="polite"></div>
+  </div>
+  <div class="legend"><span><i class="lg-d"></i>chargée d’abord</span><span><i class="lg-s"></i>si elle change une décision</span><span><i class="lg-n"></i>hors ligne du mode</span><span>● citée dans le noyau</span><span>START et CHARGE ouvrent chaque run</span><span>largeur ≈ taille de la route</span></div>
+
+  <main>
+    <div class="lanes" id="lanes"></div>
+    <aside id="detail" aria-live="polite"></aside>
+  </main>
+
+  <section class="topics" aria-labelledby="t-sujets">
+    <h2 id="t-sujets">Carte des sujets</h2>
+    <p class="lede">Pour un sujet traité à plusieurs endroits : la route propriétaire, puis les renvois utiles. La recherche du lecteur l’affiche en tête (<code>--trouver</code>).</p>
+    <div class="ttable"><table><thead><tr><th>Sujet</th><th>Propriétaire</th><th>Voir aussi</th></tr></thead><tbody id="topics"></tbody></table></div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = __DATA__;
+const LANES = [
+  {src:"DIRECTION", c:"var(--dir)", role:"décide du mode et du risque dominant"},
+  {src:"ACTION", c:"var(--act)", role:"preuves, gates, statuts et verdicts"},
+  {src:"SAVOIR", c:"var(--sav)", role:"le jugement"},
+  {src:"BIBLIOTHEQUE", c:"var(--bib)", role:"la structure"}];
+const ENTRY = ["DIRECTION/START", "DIRECTION/CHARGE"];
+const color = Object.fromEntries(LANES.map(l => [l.src, l.c]));
+let mode = "DIRECTION", selected = "DIRECTION/START", query = "";
+try { mode = localStorage.getItem("dg-mode") || mode; } catch (e) {}
+const byLoc = Object.fromEntries(DATA.routes.map(r => [r.loc, r]));
+const fold = s => s.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const el = (t, a = {}, ...kids) => { const n = document.createElement(t); for (const [k, v] of Object.entries(a)) { if (k === "style") n.style.cssText = v; else if (k.startsWith("on")) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v); } kids.flat().forEach(k => n.append(k)); return n; };
+
+document.getElementById("passage").append(...LANES.map(l => el("div", {class: "owner", style: `--c:${l.c}`}, el("b", {}, l.src), el("span", {}, l.role))),
+  el("div", {class: "owner", style: "--c:var(--muted)"}, el("b", {}, "CHANGELOG"), el("span", {}, "la gouvernance du système")));
+document.getElementById("noyau").textContent = `Noyau de la skill (${(DATA.noyau_octets / 1000).toFixed(1).replace(".", ",")} k, toujours chargé)`;
+document.getElementById("foot").textContent = `Générée depuis les sources au commit ${DATA.commit} : routes, rôles (première phrase de chaque route), ligne DIRECTION/CHARGE et carte des sujets de READING_MAP. Lire une route : python3 scripts/read_route.py LOCATOR ; sommaire : --sommaire.`;
+
+const modesEl = document.getElementById("modes");
+["Aucun", ...DATA.modes].forEach(m => modesEl.append(el("button", {type: "button", "data-m": m, onclick: () => { mode = m; try { localStorage.setItem("dg-mode", m); } catch (e) {} render(); }}, m)));
+document.getElementById("q").addEventListener("input", e => { query = fold(e.target.value.trim()); render(); });
+
+function matches(r) {
+  if (!query) return true;
+  const hay = fold([r.loc, r.role, ...r.outline.map(o => o.t), ...DATA.topics.filter(t => t.proprio.startsWith(r.loc) || t.aussi.some(a => a.startsWith(r.loc))).map(t => t.sujet)].join(" "));
+  return hay.includes(query);
+}
+function render() {
+  modesEl.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.m === mode)));
+  const lanes = document.getElementById("lanes"); lanes.replaceChildren();
+  let d = 0, s = 0, kd = 0, shown = 0;
+  for (const l of LANES) {
+    const rs = DATA.routes.filter(r => r.src === l.src);
+    const k = rs.reduce((a, r) => a + r.k, 0);
+    const chips = el("div", {class: "chips"});
+    for (const r of rs) {
+      const st = mode !== "Aucun" && ENTRY.includes(r.loc) ? "d" : (r.charge[mode] || "");
+      if (st === "d") { d++; kd += r.k; } else if (st === "s") s++;
+      const hit = matches(r); if (hit) shown++;
+      const w = Math.round(46 + Math.min(r.k, 21) * 9);
+      const chip = el("button", {type: "button", class: `chip ${st} ${r.loc === selected ? "sel" : ""} ${hit ? "" : "dim"}`, style: `--c:${l.c};--w:${w}px`,
+        title: `${r.loc} — ${r.k.toFixed(1)} k`, "aria-pressed": String(r.loc === selected), onclick: () => { selected = r.loc; render(); }},
+        r.loc.split("/")[1], r.noyau ? el("span", {class: "core", "aria-hidden": "true"}) : "");
+      chips.append(chip);
+    }
+    lanes.append(el("section", {class: "lane", style: `--c:${l.c}`, "aria-label": l.src},
+      el("header", {}, el("h3", {}, l.src), el("span", {}, `${l.role} · ${rs.length} routes · ${Math.round(k)} k`)), chips));
+  }
+  const c = document.getElementById("count");
+  c.textContent = mode === "Aucun" ? `${shown} route(s) affichée(s)` : `${mode} : ${d} route(s) d’abord (${Math.round(kd)} k) · ${s} si décision · ${shown} affichée(s)`;
+  detail();
+}
+function detail() {
+  const r = byLoc[selected], a = document.getElementById("detail"); a.replaceChildren(); a.style.setProperty("--c", color[r.src]);
+  const cmd = `python3 scripts/read_route.py ${r.loc}`;
+  const copy = el("button", {type: "button", class: "copy", onclick: async e => { const b = e.currentTarget; try { await navigator.clipboard.writeText(cmd); b.textContent = "Copiée"; } catch (err) { const range = document.createRange(); range.selectNodeContents(code); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range); b.textContent = "Sélectionnée"; } setTimeout(() => b.textContent = "Copier", 1500); }}, "Copier");
+  const code = el("code", {}, cmd);
+  const modesTags = DATA.modes.filter(m => r.charge[m]).map(m => el("span", {class: `tag ${r.charge[m]}`}, `${m} · ${r.charge[m] === "d" ? "d’abord" : "si décision"}`));
+  const owns = DATA.topics.filter(t => t.proprio.startsWith(r.loc)).map(t => t.sujet);
+  const also = DATA.topics.filter(t => t.aussi.some(x => x.startsWith(r.loc))).map(t => t.sujet);
+  a.append(el("div", {class: "loc"}, r.loc),
+    el("p", {}, r.role || "—"),
+    el("div", {class: "meta"}, el("span", {class: "tag"}, `${r.k.toFixed(1).replace(".", ",")} k`), el("span", {class: "tag"}, `${r.subs} sous-section(s)`), r.noyau ? el("span", {class: "tag"}, "citée dans le noyau") : "", ...modesTags),
+    el("div", {class: "cmd"}, code, copy));
+  if (owns.length || also.length) a.append(el("p", {class: "count"}, [owns.length ? `Propriétaire : ${owns.join(", ")}` : "", also.length ? `Renvoi pour : ${also.join(", ")}` : ""].filter(Boolean).join(" · ")));
+  if (r.outline.length) a.append(el("h3", {}, "Sous-sections"), el("ul", {class: "outline"}, r.outline.map(o =>
+    el("li", {style: `padding-left:${Math.max(o.l - 1, 0) * 12}px`}, el("span", {}, o.t, o.sub ? el("span", {class: "sub"}, ` → ${o.sub}`) : ""), el("span", {}, `${o.k.toFixed(1).replace(".", ",")} k`)))));
+}
+const tb = document.getElementById("topics");
+for (const t of DATA.topics) {
+  const link = loc => { const top = loc.split("/").slice(0, 2).join("/"); return el("button", {type: "button", class: "tlink", onclick: () => { selected = top; render(); document.getElementById("detail").scrollIntoView({block: "nearest"}); }}, loc); };
+  tb.append(el("tr", {}, el("td", {}, t.sujet), el("td", {}, link(t.proprio)), el("td", {}, t.aussi.map(link))));
+}
+render();
+</script>

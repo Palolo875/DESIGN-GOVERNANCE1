@@ -98,3 +98,9 @@ Lecteur : `--sommaire` et `--sommaire LOCATOR`, recherche par mots entiers et al
 Réserve : les alias ont été construits à partir des échecs de ce test ; le gain sur d'autres formulations n'est pas mesuré. Un second jeu de besoins, écrit sans regarder les alias, donnerait une mesure indépendante.
 
 Échecs restants : surtout des sujets absents du système (enfant, mineur), des mots trop vagues (« vide », « chargé », « poids ») et quelques routes attendues mal choisies par l'auditeur.
+
+## Suivi — étapes 3 et 4 appliquées
+
+- **Îlots (commit `32c71aa`)** : cinq renvois depuis les propriétaires naturels (START → SERVICE-BOUNDARY ; ACTION/RUN → PRECONDITION ; RUN-SYSTEM → MAINTENANCE ; SELECT → BIBLIOTHEQUE/READ et COMPAT ; noyau → SAVOIR/READ et SAVOIR/ROUTING). Résultat : 70 routes sur 70 atteignables depuis le noyau en trois renvois au plus (46, 19, 5) ; seule ACTION/RUN, conteneur des blocs RUN-*, reste sans renvoi entrant.
+- **Carte des sujets (commit `8d1c441`)** : section dérivée de READING_MAP, 16 sujets avec propriétaire et renvois ; affichée en tête de `--trouver` ; contrôle SUJ-01 (chaque route citée se résout et traite le sujet).
+- **Carte visuelle** : page générée depuis les sources (`AUDIT/outils/donnees_carte.py`, `construire_carte.py`, gabarit dans `CARTE/`), publiée en page privée. Reconstruire après un changement des sources : extraire les données, puis injecter dans le gabarit.
