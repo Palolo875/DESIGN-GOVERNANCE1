@@ -39,3 +39,22 @@ Limites : six opérations tirées de cinq images ; à transformer en opérations
 ## Constat outil incident
 
 `read_route.py --trouver ... | head` lève un BrokenPipeError (trace Python) quand la sortie est coupée. Les agents utilisent `| head` : à corriger (sortie silencieuse sur tube fermé).
+
+## Deuxième série d'images (4) : séries, présentations, page web
+
+Images : présentation Matisse (portrait-silhouette rempli de ses œuvres, puis diapositives) ; présentation « Originality » (illustrations, « Part. 01 / 02 ») ; série de six affiches des termes solaires (même gabarit, scène changeante) ; page web « Stand out » (tentacules).
+
+Leçon dominante : **la série**. Une page est une suite de sections ; ces images montrent comment varier sans uniformiser.
+
+| Opération | Où on la voit | Couverture actuelle | Transposition web |
+|---|---|---|---|
+| Constantes et variables : un mobilier de cadre fixe (repères aux coins, numérotation, bande basse) et une variation réglée (position et échelle de l'image, côté du texte) | Matisse, Originality, termes solaires | Absente (GRID règle la circulation dans une surface, pas la variation d'une surface à l'autre) | Rythme des sections sans boîtes identiques : on change la position et l'échelle, on garde les repères |
+| Numérotation comme ossature | « Part. 01 / 02 », « 01 / 02 » | Absente | Sections ordonnées quand la page est un parcours (étapes, paliers) |
+| Bord travaillé comme transition : le bas de l'image a une forme, le titre la chevauche | termes solaires | Absente | Transition entre sections ; à condition que le bord vienne du sujet (la ligne d'eau pour la natation), sinon c'est le cliché du séparateur en vague |
+| Motif récurrent qui traverse la séquence | Stand out (les tentacules reviennent et débordent le cadre de la photo) | Absente | Le fil de l'arc de page ; relie le premier écran au reste |
+| Image dans une forme : le portrait fait des œuvres | Matisse | Partielle (côté savoir : warmth) | Un objet composite qui dit la thèse |
+| Accent prélevé dans l'image | Originality (pastilles de couleur tirées des illustrations) | Couverte côté savoir (CFT-05, palette par rôles) | — |
+
+Contre-exemple dans la même image : « Stand out » réussit son premier écran et son fil, puis retombe au milieu dans la rangée générique « icône + titre + texte × 4 ». C'est exactement le schéma de nos runs U5 (premier écran situé, milieu gabarit).
+
+Mises en garde : deux présentations sont des modèles avec faux texte (« Far far away… ») : la structure est la leçon, pas le contenu. La page web date d'environ 2014 (icônes plates, rangée de services) : c'est la vague de son époque. Le séparateur en vague est un cliché sauf s'il vient du sujet.
