@@ -334,6 +334,56 @@ def extract(lines: list[str], index: int) -> list[str]:
     return [text for _, text in served_lines(lines, index)]
 
 
+CORE_START = re.compile(r"^\s*<!-- noyau:début ([A-Z0-9\-]+) -->\s*$")
+CORE_END = re.compile(r"^\s*<!-- noyau:fin ([A-Z0-9\-]+) -->\s*$")
+
+
+def core_blocks(lines: list[str]) -> dict[int, str]:
+    """Index source → nom du bloc compilé dans le noyau, pour les lignes entre marqueurs."""
+    block_of, current = {}, None
+    for i, line in enumerate(lines):
+        start, end = CORE_START.match(line), CORE_END.match(line)
+        if start:
+            current = start.group(1)
+        elif end:
+            current = None
+        elif current:
+            block_of[i] = current
+    return block_of
+
+
+def core_section(first_line: str) -> str | None:
+    """Section de la skill compilée (« 7. Gestes de finition ») qui contient cette ligne de bloc."""
+    for skill in (ROOT / "skills" / "design-governance-practice" / "SKILL.md", ROOT / "skill" / "SKILL.md"):
+        if skill.is_file():
+            section = None
+            for line in skill.read_text(encoding="utf-8").splitlines():
+                if line.startswith("### "):
+                    section = line[4:].strip()
+                if first_line and line.strip() == first_line.strip():
+                    return section
+    return None
+
+
+def fold_core(lines: list[str], index: int) -> list[str]:
+    """Texte servi où chaque bloc compilé dans le noyau de la skill devient une ligne de renvoi :
+    l'agent a déjà ce bloc en contexte. La lecture complète reste disponible (--complet)."""
+    block_of = core_blocks(lines)
+    out, seen = [], set()
+    for i, text in served_lines(lines, index):
+        name = block_of.get(i)
+        if name is None:
+            out.append(text)
+        elif name not in seen:
+            seen.add(name)
+            first = next((lines[k] for k in sorted(k for k, n in block_of.items() if n == name)
+                          if lines[k].strip() and not CONCEPT_MARKER.match(lines[k])), "")
+            section = core_section(first)
+            where = f"section « {section} »" if section else "noyau"
+            words = re.sub(r"[*`>]", "", first).strip()
+            out.append(f"> [Déjà dans le noyau de la skill, {where} : « {words[:70]}… » — --complet pour l'afficher ici]")
+    return out
+
 def _fold(text: str) -> str:
     """Minuscules sans accents, pour une recherche tolérante."""
     return "".join(c for c in unicodedata.normalize("NFKD", text) if not unicodedata.combining(c)).casefold()
@@ -593,6 +643,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Charge un locator, trouve la route d’un terme ou expose les connexions situées.")
     parser.add_argument("locator", nargs="?", help="locator, par exemple DIRECTION/START ou SAVOIR/CRAFT/CFT-01")
     parser.add_argument("--trouver", metavar="TERME", help="routes classées où le terme ou ses alias apparaissent (mots entiers, casse et accents ignorés)")
+    parser.add_argument("--complet", action="store_true", help="avec un locator : affiche aussi les blocs déjà compilés dans le noyau de la skill")
     parser.add_argument("--tout", action="store_true", help="avec --trouver : toutes les routes trouvées, pas seulement les premières")
     parser.add_argument("--sommaire", nargs="?", const="", metavar="LOCATOR", help="liste des routes avec leur rôle, ou table des matières d’une route")
     parser.add_argument("--guides", action="store_true", help="ajouter les documents d’orientation (guides, README racine, références de la skill) à une recherche --trouver")
@@ -600,6 +651,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None)) != 1:
         parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR]")
+    if args.complet and args.locator is None:
+        parser.error("--complet exige un locator")
     if args.tout and not args.trouver:
         parser.error("--tout exige --trouver TERME")
     if args.guides and not args.trouver:
@@ -665,6 +718,7 @@ def main(argv: list[str] | None = None) -> int:
         normative = [r for r in results if r[1] in {f"{p}.md" for p in PREFIXES}]
         guides = [r for r in results if r not in normative]
         ranked = rank_routes(normative, terms)
+        core_index = {f"{p}.md": core_blocks((OFFICIAL / f"{p}.md").read_text(encoding="utf-8").splitlines()) for p in PREFIXES}
         outside = [r for r in normative if r[0] is None]
         shown = ranked if args.tout else ranked[:TOP_ROUTES]
         extra = f" ; alias : {', '.join(terms[1:])}" if len(terms) > 1 and mode != "mots séparés sur une même ligne" else ""
@@ -679,7 +733,8 @@ def main(argv: list[str] | None = None) -> int:
             for locator, lines in shown:
                 print(f"{locator:<34} {len(lines)} ligne(s)")
                 for _, name, number, line in lines[:2]:
-                    print(f"    {name}:{number:<5} {_excerpt_any(line, terms)}")
+                    mark = " (noyau)" if number - 1 in core_index.get(name, {}) else ""
+                    print(f"    {name}:{number:<5}{mark} {_excerpt_any(line, terms)}")
             if len(ranked) > len(shown):
                 print(f"… {len(ranked) - len(shown)} autre(s) route(s) : ajouter --tout")
             for _, name, number, line in outside[:3]:
@@ -688,7 +743,7 @@ def main(argv: list[str] | None = None) -> int:
             print("GUIDES — orientation, sans autorité normative")
             for _, name, number, line in guides:
                 print(f"    {name}:{number:<5} {_excerpt_any(line, terms)}")
-        print("Lire une route : python3 scripts/read_route.py LOCATOR ; ses sous-sections : --sommaire LOCATOR")
+        print("Lire une route : python3 scripts/read_route.py LOCATOR ; ses sous-sections : --sommaire LOCATOR ; (noyau) : passage déjà chargé avec la skill")
         return 0
     try:
         path, lines, index = resolve(args.locator)
@@ -698,7 +753,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"OWNER: {path.relative_to(ROOT)}")
     print(f"HEADING: {lines[index].strip()}")
     print("---")
-    print("\n".join(extract(lines, index)))
+    print("\n".join(extract(lines, index) if args.complet else fold_core(lines, index)))
     return 0
 
 

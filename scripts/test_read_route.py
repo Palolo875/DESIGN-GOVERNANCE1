@@ -264,7 +264,7 @@ class CliTests(unittest.TestCase):
         self.assertEqual(r.returncode, 2)
 
     def test_known_route_still_readable(self):
-        r = self.cli("SAVOIR/STATE")
+        r = self.cli("SAVOIR/STATE", "--complet")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("Cohérence de rayon", r.stdout)
         self.assertNotIn("<!-- concept:", r.stdout)
@@ -386,6 +386,29 @@ class SearchAndSummaryTests(unittest.TestCase):
         self.assertTrue(any("ne traite pas « couleur »" in e for e in errors), errors)
         errors = []; rmap.check_topics(text.replace("`BIBLIOTHEQUE/READ` |", "`BIBLIOTHEQUE/NOPE` |"), errors)
         self.assertTrue(any("ne se résout pas" in e for e in errors), errors)
+
+    def test_core_blocks_folded_with_section_pointer(self):
+        r = self.cli("SAVOIR/STATE")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertNotIn("Cohérence de rayon", r.stdout)
+        self.assertIn("Déjà dans le noyau de la skill, section « 7. Gestes de finition »", r.stdout)
+        self.assertNotIn("<!-- noyau:", r.stdout)
+        full = self.cli("SAVOIR/STATE", "--complet").stdout
+        self.assertLess(len(r.stdout), len(full))
+
+    def test_every_core_block_names_its_skill_section(self):
+        for prefix in ("DIRECTION", "ACTION", "SAVOIR", "BIBLIOTHEQUE"):
+            lines = (reader.OFFICIAL / f"{prefix}.md").read_text(encoding="utf-8").splitlines()
+            blocks = reader.core_blocks(lines)
+            for name in set(blocks.values()):
+                first = next(lines[k] for k in sorted(k for k, n in blocks.items() if n == name)
+                             if lines[k].strip() and not reader.CONCEPT_MARKER.match(lines[k]))
+                self.assertIsNotNone(reader.core_section(first), f"{prefix} {name}")
+
+    def test_search_marks_core_passages(self):
+        out = self.cli("--trouver", "cohérence de rayon").stdout
+        self.assertIn("SAVOIR.md:499   (noyau)", out)
+        self.assertEqual(self.cli("--complet").returncode, 2)
 
     def test_new_options_refused_in_bad_combinations(self):
         self.assertEqual(self.cli("--tout").returncode, 2)
