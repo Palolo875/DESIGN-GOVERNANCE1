@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Régressions du lecteur : propriété, recherche littérale, périmètre et erreurs CLI."""
+"""Régressions du lecteur : propriété, recherche (littérale, alias, classement), sommaire, périmètre et erreurs CLI."""
 from __future__ import annotations
 
 import subprocess
@@ -302,6 +302,80 @@ class CliTests(unittest.TestCase):
 
     def test_blank_connection_refused(self):
         self.assertEqual(self.cli("--connexions", "  ").returncode, 2)
+
+
+class SearchAndSummaryTests(unittest.TestCase):
+    """Recherche par alias et mots entiers, classement, sommaire, sortie coupée (audit 2026-10-08)."""
+
+    def cli(self, *args):
+        return subprocess.run([sys.executable, str(ROOT / "scripts/read_route.py"), *args], capture_output=True, text=True)
+
+    def test_cut_output_is_silent(self):
+        proc = subprocess.Popen([sys.executable, str(ROOT / "scripts/read_route.py"), "--trouver", "composant", "--tout"],
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        proc.stdout.close()  # lecteur parti avant la première écriture, comme « | head »
+        err = proc.stderr.read(); proc.wait()
+        self.assertEqual(proc.returncode, 0, err)
+        self.assertNotIn("Traceback", err)
+        self.assertNotIn("Broken pipe", err)
+
+    def test_alias_reaches_canonical_term(self):
+        r = self.cli("--trouver", "premier écran")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("alias : premier contact", r.stdout)
+        self.assertIn("SAVOIR/CRAFT", r.stdout)
+        self.assertIn("ACTION/UI-UX-REALITY", self.cli("--trouver", "désactivé").stdout)
+
+    def test_every_alias_group_reaches_sources(self):
+        for group in reader.ALIAS_GROUPS:
+            self.assertTrue(reader.search(group[0])[2], f"groupe d'alias sans occurrence : {group}")
+
+    def test_whole_words_before_partial_match(self):
+        mode, _, results = reader.search("age")
+        self.assertEqual(mode, "mots entiers")
+        for _, _, _, line in results:
+            self.assertRegex(reader._fold(line), r"(?<![a-z0-9])age")
+
+    def test_separate_words_fallback(self):
+        mode, words, results = reader.search("image texte")
+        self.assertEqual(mode, "mots séparés sur une même ligne")
+        self.assertEqual(words, ["image", "texte"])
+        self.assertIn("SAVOIR/CRAFT", {r[0] for r in results})
+
+    def test_defining_route_ranked_first(self):
+        routes = [l.split()[0] for l in self.cli("--trouver", "COHERENCE DE RAYON").stdout.splitlines() if l.startswith(("SAVOIR/", "ACTION/"))]
+        self.assertEqual(routes[0], "SAVOIR/STATE")
+
+    def test_top_routes_then_all(self):
+        short, full = self.cli("--trouver", "composant").stdout, self.cli("--trouver", "composant", "--tout").stdout
+        count = lambda out: sum(1 for l in out.splitlines() if l.split(" ")[0].count("/") >= 1 and "ligne(s)" in l)
+        self.assertEqual(count(short), reader.TOP_ROUTES)
+        self.assertIn("ajouter --tout", short)
+        self.assertGreater(count(full), reader.TOP_ROUTES)
+
+    def test_summary_lists_every_route(self):
+        out = self.cli("--sommaire").stdout
+        for prefix in ("DIRECTION", "ACTION", "SAVOIR", "BIBLIOTHEQUE"):
+            lines = (reader.OFFICIAL / f"{prefix}.md").read_text(encoding="utf-8").splitlines()
+            for _, _, text in reader.headings(lines):
+                locator = reader.heading_locator(text)
+                if locator:
+                    self.assertIn(f"\n{locator} ", out)
+
+    def test_route_outline_gives_readable_sublocators(self):
+        rows = reader.outline("SAVOIR/CRAFT")
+        subs = [sub for _, _, sub, _ in rows if sub]
+        self.assertIn("SAVOIR/CRAFT/CFT-05", subs)
+        self.assertIn("SUPPORT/FREE_FIELD", [s for _, _, s, _ in reader.outline("BIBLIOTHEQUE/SUPPORT") if s])
+        for sub in subs:
+            self.assertEqual(self.cli(sub).returncode, 0, sub)
+
+    def test_new_options_refused_in_bad_combinations(self):
+        self.assertEqual(self.cli("--tout").returncode, 2)
+        self.assertEqual(self.cli("DIRECTION/START", "--sommaire").returncode, 2)
+        r = self.cli("--sommaire", "NOPE/X")
+        self.assertNotEqual(r.returncode, 0)
+        self.assertNotIn("Traceback", r.stderr)
 
 
 class ActivationTests(unittest.TestCase):

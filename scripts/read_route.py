@@ -12,9 +12,11 @@ Les identifiants structurels documentés (GRID/…, OBJECT/…, etc.) sont des r
 vers BIBLIOTHEQUE : titre exact, ou section porteuse si l'identifiant est une ligne de table.
 Un identifiant absent, ambigu ou présent seulement dans un bloc de code est refusé.
 
-Recherche de routes par terme : `--trouver TERME` recherche les lignes contenant littéralement le terme
-dans les cinq sources normatives et indique la route la plus précise qui sert le passage.
-La casse et les accents sont ignorés, pas les synonymes. `--guides` ajoute les documents d'orientation
+Recherche de routes par terme : `--trouver TERME` cherche le terme en mots entiers, avec ses alias
+(synonymes et traductions stricts d'ALIAS_GROUPS), puis en correspondance partielle, puis mot à mot sur
+une même ligne ; les routes sont classées et les premières affichées (`--tout` pour toutes).
+La casse et les accents sont ignorés, pas le sens. `--sommaire [LOCATOR]` liste les routes et leur rôle,
+ou les sous-sections d'une route. `--guides` ajoute les documents d'orientation
 (guides du corpus, README racine, références de la skill), identifiés séparément. Les marqueurs internes sont exclus. Aucun résultat ne prouve l'absence du savoir.
 
 `--connexions [Cxx]` expose un sommaire ou une connexion située de READING_MAP,
@@ -24,7 +26,9 @@ diagnostic, choix de pertinence ou génération de snapshot n'est automatisé.
 from __future__ import annotations
 
 import argparse
+import os
 import re
+import sys
 import unicodedata
 from pathlib import Path
 
@@ -340,6 +344,11 @@ def find(term: str, include_guides: bool = False) -> list[tuple[str | None, str,
     query = _fold(term.strip())
     if not query:
         raise RouteError("terme de recherche vide")
+    return _scan(lambda folded: query in folded, include_guides)
+
+
+def _scan(match, include_guides: bool = False) -> list[tuple[str | None, str, int, str]]:
+    """Lignes dont la forme repliée satisfait match, avec la route la plus précise qui les sert."""
     routes = parse_routes(MAP.read_text(encoding="utf-8"))
     locators = set(routes)
     for prefix in PREFIXES:
@@ -363,11 +372,174 @@ def find(term: str, include_guides: bool = False) -> list[tuple[str | None, str,
     for path in sources:
         name = path.name if path.parent == OFFICIAL else path.relative_to(ROOT).as_posix()
         for number, line in enumerate(path.read_text(encoding="utf-8").splitlines()):
-            if not CONCEPT_MARKER.match(line) and query in _fold(line):
+            if not CONCEPT_MARKER.match(line) and match(_fold(line)):
                 around = [b for b in blocks if b[0] == path and number in b[1]]
                 best = min(around, key=lambda b: len(b[1]))[2] if around else None
                 results.append((best, name, number + 1, line.strip()))
     return results
+
+
+# Synonymes stricts et traductions : une requête sur un terme cherche aussi les autres termes du groupe.
+# Chaque groupe garde au moins un terme présent dans les sources (test_read_route).
+ALIAS_GROUPS = (
+    ("premier écran", "premier contact", "premier regard", "hero", "above the fold", "first screen"),
+    ("désactivé", "disabled", "inactif"),
+    ("mode sombre", "thème sombre", "dark mode"),
+    ("lecteur d'écran", "lecteur d’écran", "screen reader", "technologies d’assistance", "technologies d'assistance"),
+    ("ombre", "ombres", "shadow"),
+    ("espacement", "spacing"),
+    ("graphique", "chart", "diagramme"),
+    ("tarif", "tarifs", "prix", "pricing"),
+    ("clavier", "keyboard"),
+    ("taille des cibles", "cible tactile", "target size", "cible", "cibles"),
+    ("tendance", "trend"),
+    ("hiérarchie", "hierarchy"),
+    ("témoignage", "témoignages", "testimonial", "avis client"),
+    ("capture", "captures", "screenshot", "capture d'écran"),
+    ("cartes", "cards"),
+    ("texte sur image", "texte sur photo", "overlay"),
+    ("confidentialité", "vie privée", "privacy", "donnée personnelle", "données personnelles"),
+    ("preuve sociale", "social proof", "réputation", "logos"),
+    ("microcopie", "microcopy", "rédaction", "copywriting"),
+    ("design system", "système de design", "token", "tokens"),
+    ("multilingue", "multilingual", "localisation", "traduction", "i18n"),
+    ("placeholder", "lorem", "lorem ipsum", "faux texte"),
+    ("icône", "icônes", "icon", "pictogramme"),
+    ("grain", "noise", "bruit"),
+    ("navigation", "menu"),
+    ("police", "polices", "font", "fonte", "typographie"),
+    ("couleur", "couleurs", "color", "colour"),
+    ("grille", "grid"),
+    ("mouvement", "motion", "animation"),
+    ("arrondi", "coins arrondis", "radius", "rayon"),
+    ("contraste", "contrast"),
+    ("mobile", "responsive", "petit écran"),
+    ("état vide", "empty state", "empty"),
+    ("tabulaire", "tabular", "chiffres tabulaires"),
+    ("densité", "density"),
+)
+STOPWORDS = {"le", "la", "les", "un", "une", "des", "de", "du", "d", "l", "et", "ou", "en", "a", "au", "aux", "sur",
+             "pour", "par", "avec", "dans", "the", "of", "and", "to", "for"}
+TOP_ROUTES = 8
+
+
+def aliases(term: str) -> list[str]:
+    """Termes à chercher : la requête puis les autres membres de ses groupes, sans doublon replié."""
+    query = _fold(term.strip())
+    terms = [term.strip()]
+    for group in ALIAS_GROUPS:
+        if query in {_fold(g) for g in group}:
+            terms += [g for g in group if _fold(g) not in {_fold(x) for x in terms}]
+    return terms
+
+
+def _word(term: str) -> re.Pattern:
+    """Mot ou expression entière, pluriel simple admis (s, x, es)."""
+    return re.compile(r"(?<![a-z0-9])" + re.escape(_fold(term)) + r"(?:e?s|x)?(?![a-z0-9])")
+
+
+def search(term: str, include_guides: bool = False) -> tuple[str, list[str], list[tuple[str | None, str, int, str]]]:
+    """(mode, termes cherchés, lignes). Mots entiers et alias d'abord ; sinon correspondance partielle ;
+    sinon tous les mots significatifs sur une même ligne."""
+    terms = aliases(term)
+    if not _fold(term.strip()):
+        raise RouteError("terme de recherche vide")
+    patterns = [_word(t) for t in terms]
+    results = _scan(lambda folded: any(p.search(folded) for p in patterns), include_guides)
+    if results:
+        return "mots entiers", terms, results
+    folded_terms = [_fold(t) for t in terms]
+    results = _scan(lambda folded: any(f in folded for f in folded_terms), include_guides)
+    if results:
+        return "correspondance partielle", terms, results
+    words = [w for w in re.split(r"[^a-z0-9]+", _fold(term)) if len(w) > 1 and w not in STOPWORDS]
+    if len(words) > 1:
+        word_patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(w)) for w in words]
+        results = _scan(lambda folded: all(p.search(folded) for p in word_patterns), include_guides)
+        if results:
+            return "mots séparés sur une même ligne", words, results
+    return "aucun", terms, []
+
+
+def rank_routes(results: list[tuple[str | None, str, int, str]], terms: list[str]) -> list[tuple[str, list[tuple[str | None, str, int, str]]]]:
+    """Routes classées : terme dans le nom ou un titre de la route, puis citation dans le noyau, puis nombre de lignes."""
+    skill = ROOT / "skills" / "design-governance-practice" / "SKILL.md"
+    if not skill.is_file():
+        skill = ROOT / "skill" / "SKILL.md"
+    core = _fold(skill.read_text(encoding="utf-8")) if skill.is_file() else ""
+    folded_terms = [_fold(t) for t in terms]
+    grouped: dict[str, list] = {}
+    for r in results:
+        if r[0] is not None:
+            grouped.setdefault(r[0], []).append(r)
+
+    def score(item):
+        locator, lines = item
+        named = any(f in _fold(locator.replace("-", " ").replace("_", " ")) for f in folded_terms)
+        in_heading = any(line.lstrip().startswith("#") for _, _, _, line in lines)
+        defines = any(_fold(line).lstrip("|>-*# ").lstrip("*`").startswith(f) for _, _, _, line in lines for f in folded_terms)
+        return (-(10 * named + 4 * defines + 3 * in_heading + 2 * (_fold(locator) in core) + min(len(lines), 5)), locator)
+    return sorted(grouped.items(), key=score)
+
+
+def summary_rows() -> list[tuple[str, str, int, int, str]]:
+    """(locator, fichier, taille servie, sous-sections, rôle) pour chaque route de premier niveau."""
+    rows = []
+    for prefix in PREFIXES[:4]:
+        path = OFFICIAL / f"{prefix}.md"
+        lines = path.read_text(encoding="utf-8").splitlines()
+        heads = headings(lines)
+        for index, _, text in heads:
+            locator = heading_locator(text)
+            if not locator:
+                continue
+            body = extract(lines, index)
+            end = block_end(lines, heads, index)
+            subs = sum(1 for i, _, _ in heads if index < i < end)
+            rows.append((locator, path.name, sum(len(l) + 1 for l in body), subs, _role(body[1:])))
+    return rows
+
+
+def _role(body: list[str]) -> str:
+    """Première phrase de prose de la route, sans balisage, tronquée."""
+    for line in body:
+        s = line.strip()
+        if not s or s.startswith(("#", "|", "```", "<!--", "---")):
+            continue
+        s = re.sub(r"^[>*\-]\s*", "", s)
+        s = re.sub(r"\[(REQUIS PAR LE MODULE[^\]]*|MÉTHODE|DURABLE|VEILLE[^\]]*|À ADAPTER)\]\s*", "", s)
+        rest = re.sub(r"^\*\*[^*]{1,40}\*\*\s*", "", s)
+        s = rest if rest else s
+        s = re.sub(r"[*`]", "", s)
+        s = re.split(r"(?<=[.;:])\s", s, maxsplit=1)[0]
+        return s if len(s) <= 110 else s[:109].rstrip() + "…"
+    return ""
+
+
+def outline(locator: str) -> list[tuple[int, str, str | None, int]]:
+    """(niveau relatif, titre, sous-locator lisible ou None, taille) des sous-sections d'une route."""
+    path, lines, index = resolve(locator)
+    heads = headings(lines)
+    end = block_end(lines, heads, index)
+    base = next(lvl for i, lvl, _ in heads if i == index)
+    rows = []
+    for i, lvl, text in heads:
+        if not index < i < end:
+            continue
+        title = text.lstrip("#").strip()
+        leaf = re.match(r"`?([A-Za-z0-9][A-Za-z0-9_\-]*(?:/[A-Za-z0-9_\-]+)?)`?", title)
+        sub = None
+        if leaf and re.search(r"[0-9]|^[A-Z][A-Z_\-/]+$", leaf.group(1)):
+            for candidate in (f"{locator}/{leaf.group(1)}", leaf.group(1)):
+                try:
+                    if resolve(candidate)[2] == i:
+                        sub = candidate
+                        break
+                except (RouteError, SystemExit, StopIteration):
+                    pass
+        size = sum(len(l) + 1 for l in lines[i:block_end(lines, heads, i)])
+        rows.append((lvl - base, title, sub, size))
+    return rows
 
 
 def guide_extras() -> list[Path]:
@@ -388,15 +560,26 @@ def _excerpt(line: str, term: str, width: int = 120) -> str:
     return ("…" if start else "") + piece + ("…" if start + width < len(line) else "")
 
 
+def _excerpt_any(line: str, terms: list[str]) -> str:
+    """Extrait centré sur le premier terme (requête ou alias) présent dans la ligne."""
+    folded = _fold(line)
+    hit = next((term for term in terms if _fold(term) in folded), terms[0])
+    return _excerpt(line, hit)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Charge un locator, trouve la route d’un terme ou expose les connexions situées.")
     parser.add_argument("locator", nargs="?", help="locator, par exemple DIRECTION/START ou SAVOIR/CRAFT/CFT-01")
-    parser.add_argument("--trouver", metavar="TERME", help="liste les routes où le terme apparaît (casse et accents ignorés)")
+    parser.add_argument("--trouver", metavar="TERME", help="routes classées où le terme ou ses alias apparaissent (mots entiers, casse et accents ignorés)")
+    parser.add_argument("--tout", action="store_true", help="avec --trouver : toutes les routes trouvées, pas seulement les premières")
+    parser.add_argument("--sommaire", nargs="?", const="", metavar="LOCATOR", help="liste des routes avec leur rôle, ou table des matières d’une route")
     parser.add_argument("--guides", action="store_true", help="ajouter les documents d’orientation (guides, README racine, références de la skill) à une recherche --trouver")
     parser.add_argument("--connexions", nargs="?", const="", metavar="Cxx", help="sommaire des connexions situées, ou entrée Cxx")
     args = parser.parse_args(argv)
-    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None)) != 1:
-        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx]")
+    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None)) != 1:
+        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR]")
+    if args.tout and not args.trouver:
+        parser.error("--tout exige --trouver TERME")
     if args.guides and not args.trouver:
         parser.error("--guides exige --trouver TERME")
     if args.trouver is not None and not args.trouver.strip():
@@ -428,26 +611,58 @@ def main(argv: list[str] | None = None) -> int:
             print("Lire une entrée : python3 scripts/read_route.py --connexions Cxx")
         print("Effet attendu avant construction ; effet observé seulement après observation réelle.")
         return 0
+    if args.sommaire is not None:
+        try:
+            rows = outline(args.sommaire) if args.sommaire else summary_rows()
+        except (RouteError, OSError) as exc:
+            fail(str(exc))
+        if args.sommaire:
+            print(f"SOMMAIRE — {args.sommaire} : {len(rows)} sous-section(s)")
+            for level, title, sub, size in rows:
+                print(f"{'  ' * max(level - 1, 0)}- {title}  ({size // 100 / 10:.1f} k)" + (f"  → {sub}" if sub else ""))
+            print("Lire la route entière : python3 scripts/read_route.py " + args.sommaire)
+        else:
+            print(f"SOMMAIRE — {len(rows)} routes ; taille servie en milliers de caractères, nombre de sous-sections, rôle")
+            current = None
+            for locator, name, size, subs, role in rows:
+                if name != current:
+                    current = name
+                    print(f"\n{name}")
+                print(f"{locator:<34} {size // 100 / 10:>5.1f} k  {subs:>2} s.-s.  {role}")
+            print("\nTable des matières d’une route : python3 scripts/read_route.py --sommaire LOCATOR")
+        return 0
     if args.trouver:
         try:
-            results = find(args.trouver, args.guides)
+            mode, terms, results = search(args.trouver, args.guides)
         except (RouteError, OSError) as exc:
             fail(str(exc))
         if not results:
-            print(f"AUCUNE OCCURRENCE LITTÉRALE — « {args.trouver} » dans le périmètre recherché. "
-                  "Essayer une reformulation ; ce résultat ne prouve pas l’absence du savoir.")
+            print(f"AUCUNE OCCURRENCE — « {args.trouver} »" + (f" (alias : {', '.join(terms[1:])})" if len(terms) > 1 else "")
+                  + " dans le périmètre recherché. Essayer une reformulation ; ce résultat ne prouve pas l’absence du savoir.")
             return 1
         normative = [r for r in results if r[1] in {f"{p}.md" for p in PREFIXES}]
         guides = [r for r in results if r not in normative]
-        routes_hit = {r[0] for r in normative if r[0] is not None}
-        print(f"TROUVER (littéral) : « {args.trouver} » — {len(normative)} ligne(s) normative(s), "
-              f"{len(routes_hit)} route(s) ; {len(guides)} ligne(s) de guide")
-        for label, items in (("SOURCES NORMATIVES", normative), ("GUIDES — orientation, sans autorité normative", guides)):
-            if items:
-                print(label)
-                for locator, name, number, line in items:
-                    print(f"{(locator or '(hors route)'):<34} {name}:{number:<5} {_excerpt(line, args.trouver)}")
-        print("Lire une route : python3 scripts/read_route.py LOCATOR")
+        ranked = rank_routes(normative, terms)
+        outside = [r for r in normative if r[0] is None]
+        shown = ranked if args.tout else ranked[:TOP_ROUTES]
+        extra = f" ; alias : {', '.join(terms[1:])}" if len(terms) > 1 and mode != "mots séparés sur une même ligne" else ""
+        print(f"TROUVER ({mode}{extra}) : « {args.trouver} » — {len(normative)} ligne(s) normative(s), "
+              f"{len(ranked)} route(s) ; {len(guides)} ligne(s) de guide")
+        if shown or outside:
+            print("SOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)")
+            for locator, lines in shown:
+                print(f"{locator:<34} {len(lines)} ligne(s)")
+                for _, name, number, line in lines[:2]:
+                    print(f"    {name}:{number:<5} {_excerpt_any(line, terms)}")
+            if len(ranked) > len(shown):
+                print(f"… {len(ranked) - len(shown)} autre(s) route(s) : ajouter --tout")
+            for _, name, number, line in outside[:3]:
+                print(f"(hors route)                       {name}:{number:<5} {_excerpt_any(line, terms)}")
+        if guides:
+            print("GUIDES — orientation, sans autorité normative")
+            for _, name, number, line in guides:
+                print(f"    {name}:{number:<5} {_excerpt_any(line, terms)}")
+        print("Lire une route : python3 scripts/read_route.py LOCATOR ; ses sous-sections : --sommaire LOCATOR")
         return 0
     try:
         path, lines, index = resolve(args.locator)
@@ -462,4 +677,10 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        code = main()
+        sys.stdout.flush()
+    except BrokenPipeError:  # sortie coupée par le lecteur (| head) : fin silencieuse
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+        code = 0
+    raise SystemExit(code)
