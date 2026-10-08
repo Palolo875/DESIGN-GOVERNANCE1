@@ -1,6 +1,6 @@
 # Matière à enrichir — affiches de référence et forme de page (2026-10-08)
 
-Statut : matière gardée en tête, pas encore une correction. À transformer en **opérations** (savoir), jamais en exemples à copier (règle 9).
+Statut : **intégrée** le 2026-10-08 (révision `R2026-10-08-ACCES-MATIERE`, commits `d11b8ff` à `9681d4e`, branche `claude/repo-analysis-g87gag`) ; voir « Intégration » en fin de document. À transformer en **opérations** (savoir), jamais en exemples à copier (règle 9).
 
 ## Affiches partagées par le propriétaire (5)
 
@@ -212,3 +212,22 @@ Images : publication « Alternative Off-White Colors to #FFFFFF » (huit blancs 
 - **Accessibilité.** Textes gris clair de petite taille (dates de « Real-Time Alerts », libellés de l'application de santé), chiffres mono très petits ; jaune pâle sur blanc cassé dans les graphiques de sommeil. Bons gestes : statuts écrits, ligne d'objectif étiquetée.
 - **Culture, désirabilité, retenue.** Retenue forte : « Real-Time Alerts » (une carte, une question). Désirabilité : Jooba. Culture visuelle : rien de transformé ; ce sont des pièces de bonne exécution, pas de références détournées.
 - **Voix.** Spécifique et concrète : « long before invoices explode » ; « Your perfect hire won't apply ».
+
+
+## Intégration (2026-10-08)
+
+| Matière | Intégrée dans | Commit |
+|---|---|---|
+| Forme de page : arc, série, moment de champ, transition, fil, fin et colophon ; trame sur toute la page ; cartes et onglets | `BIBLIOTHEQUE/SEQUENCE` (nouvelle route), chargement conditionnel en mode DIRECTION | `d11b8ff` |
+| Structure mobile : une décision par écran, zone du pouce, feuille sur contexte | `BIBLIOTHEQUE/SEQUENCE`, « Structure mobile » | `d11b8ff` |
+| Document ou instrument du métier comme objet | `BIBLIOTHEQUE/OBJECT`, « Objet du métier » | `d11b8ff` |
+| Mot et image dans le même plan ; échelle et champ calme ; franchissement et ancrage aux coins | `SAVOIR/CRAFT/CFT-03` ; renvoi dans TXI-01 du noyau | `6506e3e` |
+| Idée par rapprochement ou contresens | `SAVOIR/CRAFT/CFT-01` | `6506e3e` |
+| Couleur située : palette tirée du sujet, lien image-texte, température du fond, retenue | `SAVOIR/CRAFT/CFT-05` | `6506e3e` |
+| Lot d'assets, pertinence de chaque image, registre d'illustration | `SAVOIR/SOURCE` | `f059f96` |
+| Graphique annoté, repère, couleur selon le sens de la mesure | `BIBLIOTHEQUE/MICRO` | `f059f96` |
+| Premier état montré (rempli, pas vide) | `ACTION/UI-UX-REALITY` | `f059f96` |
+| Cohérence de domaine des exemples ; fiction assumée contre fausse preuve | Noyau, bloc du contenu | `f059f96` |
+| Marqueurs : slogan en deux temps, pastille-étiquette, titre en deux tons, carte vitrée sur image de fond, widget à gros chiffre | `SAVOIR/TOOLS/CONVERGENCE`, [VEILLE 2026-10] « Signaux de page » | `18055c3` |
+
+Non intégré, par choix : simplification d'un logo selon la taille (utile seulement si un run crée une marque) ; texte vertical, calligraphie et bord peint (couverts par la comparaison de voix et la matière conçue existantes). Aucun effet sur les rendus n'est mesuré à ce jour.
