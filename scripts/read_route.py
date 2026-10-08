@@ -461,6 +461,28 @@ def search(term: str, include_guides: bool = False) -> tuple[str, list[str], lis
     return "aucun", terms, []
 
 
+def topics(text: str | None = None) -> dict[str, tuple[str, str, list[str]]]:
+    """Carte des sujets de READING_MAP : sujet replié → (sujet, propriétaire, voir aussi)."""
+    text = MAP.read_text(encoding="utf-8") if text is None else text
+    if "## Carte des sujets" not in text:
+        return {}
+    section = text.split("## Carte des sujets", 1)[1].split("\n## ", 1)[0]
+    found = {}
+    for line in section.splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) == 3 and cells[1].startswith("`"):
+            owner = cells[1].strip("`")
+            also = re.findall(r"`([^`]+)`", cells[2])
+            found[_fold(cells[0])] = (cells[0], owner, also)
+    return found
+
+
+def topic_for(term: str) -> tuple[str, str, list[str]] | None:
+    """Entrée de la carte des sujets nommée par la requête ou l'un de ses alias."""
+    table = topics()
+    return next((table[_fold(t)] for t in aliases(term) if _fold(t) in table), None)
+
+
 def rank_routes(results: list[tuple[str | None, str, int, str]], terms: list[str]) -> list[tuple[str, list[tuple[str | None, str, int, str]]]]:
     """Routes classées : terme dans le nom ou un titre de la route, puis citation dans le noyau, puis nombre de lignes."""
     skill = ROOT / "skills" / "design-governance-practice" / "SKILL.md"
@@ -648,6 +670,10 @@ def main(argv: list[str] | None = None) -> int:
         extra = f" ; alias : {', '.join(terms[1:])}" if len(terms) > 1 and mode != "mots séparés sur une même ligne" else ""
         print(f"TROUVER ({mode}{extra}) : « {args.trouver} » — {len(normative)} ligne(s) normative(s), "
               f"{len(ranked)} route(s) ; {len(guides)} ligne(s) de guide")
+        topic = topic_for(args.trouver)
+        if topic:
+            print(f"SUJET « {topic[0]} » (carte dérivée, READING_MAP) — propriétaire : {topic[1]}"
+                  + (f" ; voir aussi : {', '.join(topic[2])}" if topic[2] else ""))
         if shown or outside:
             print("SOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)")
             for locator, lines in shown:

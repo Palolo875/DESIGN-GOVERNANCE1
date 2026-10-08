@@ -130,6 +130,24 @@ def check_reader_witness(text: str, errors: list[str]) -> None:
             errors.append(f"témoin du lecteur : propriétaire incohérent non diagnostiqué ({exc})")
 
 
+def check_topics(text: str, errors: list[str]) -> None:
+    """Carte des sujets : chaque route citée se résout et traite le sujet (ou un alias) en mots entiers."""
+    table = rr.topics(text)
+    if not table:
+        errors.append("[SUJ-01] carte des sujets absente ou vide")
+        return
+    for topic, owner, also in table.values():
+        patterns = [rr._word(term) for term in rr.aliases(topic)]
+        for locator in [owner, *also]:
+            try:
+                _, lines, index = rr.resolve(locator)
+            except rr.RouteError as exc:
+                errors.append(f"[SUJ-01] carte des sujets : {topic} → {locator} ne se résout pas ({exc})")
+                continue
+            if not any(p.search(rr._fold(line)) for line in rr.extract(lines, index) for p in patterns):
+                errors.append(f"[SUJ-01] carte des sujets : {locator} ne traite pas « {topic} »")
+
+
 # ---------- 2. Façades : liste close des conditions (LCF) ----------
 HANDOFF_TOKENS = re.compile(r"\b(MODE|DECISION-CHANGE|DECISION|RISK|SCOPE|ARTIFACT|OBSERVATION|METHOD|TRACE-LOCATOR|NOT-VERIFIED|"
                             r"NEXT-ACTION|OWNER|NEXT-PROOF|EXIT-CONDITION)\b")
@@ -717,6 +735,7 @@ def main() -> int:
     check_map(text, errors)
     check_connections(text, errors)
     check_reader_witness(text, errors)
+    check_topics(text, errors)
     check_facades(errors)
     if errors:
         print("READING MAP VALIDATION FAILED")

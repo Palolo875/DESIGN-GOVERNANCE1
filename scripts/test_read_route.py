@@ -370,6 +370,23 @@ class SearchAndSummaryTests(unittest.TestCase):
         for sub in subs:
             self.assertEqual(self.cli(sub).returncode, 0, sub)
 
+    def test_topic_map_heads_search(self):
+        for query in ("couleur", "color"):
+            out = self.cli("--trouver", query).stdout
+            self.assertIn("SUJET « couleur » (carte dérivée, READING_MAP) — propriétaire : SAVOIR/CRAFT/CFT-05", out)
+        self.assertNotIn("SUJET", self.cli("--trouver", "cohérence de rayon").stdout)
+
+    def test_topic_map_owner_must_treat_topic(self):
+        import validate_reading_map as rmap
+        text = reader.MAP.read_text(encoding="utf-8")
+        errors = []; rmap.check_topics(text, errors)
+        self.assertEqual(errors, [])
+        broken = text.replace("| couleur | `SAVOIR/CRAFT/CFT-05` |", "| couleur | `ACTION/HANDOFF` |")
+        errors = []; rmap.check_topics(broken, errors)
+        self.assertTrue(any("ne traite pas « couleur »" in e for e in errors), errors)
+        errors = []; rmap.check_topics(text.replace("`BIBLIOTHEQUE/READ` |", "`BIBLIOTHEQUE/NOPE` |"), errors)
+        self.assertTrue(any("ne se résout pas" in e for e in errors), errors)
+
     def test_new_options_refused_in_bad_combinations(self):
         self.assertEqual(self.cli("--tout").returncode, 2)
         self.assertEqual(self.cli("DIRECTION/START", "--sommaire").returncode, 2)

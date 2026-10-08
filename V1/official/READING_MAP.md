@@ -37,6 +37,29 @@ Les cinq absolus de `DIRECTION` protègent chaque run : résumé dans la section
 
 Sortie : réponse visible et trace légère par défaut ; handoff et clôture (`ACTION/CLOSE-PACKAGE`) en trace complète (`ACTION/HANDOFF`).
 
+## Carte des sujets
+
+Pour un sujet traité dans plusieurs routes, cette carte dérivée nomme la route propriétaire puis les renvois utiles. Elle ne crée ni route, ni chargement, ni autorité : la source propriétaire reste normative. `python3 scripts/read_route.py --trouver` l’affiche en tête lorsque la requête nomme un sujet ou l’un de ses alias. Le validateur vérifie que chaque route citée se résout et traite le sujet en toutes lettres.
+
+| Sujet | Propriétaire | Voir aussi |
+|---|---|---|
+| capture | `ACTION/VISUAL_PROOF` | `ACTION/GATE-B/B1b`, `ACTION/GATE-A` |
+| hiérarchie | `SAVOIR/CRAFT/CFT-03` | `SAVOIR/CRAFT/CFT-00`, `SAVOIR/TYPE` |
+| contraste | `ACTION/GATE-A` | `SAVOIR/CRAFT/CFT-05`, `ACTION/POLICIES` |
+| typographie | `SAVOIR/TYPE` | `SAVOIR/CRAFT/CFT-05`, `ACTION/GATE-C` |
+| couleur | `SAVOIR/CRAFT/CFT-05` | `ACTION/GATE-A` |
+| mobile | `ACTION/UI-UX-REALITY` | `SAVOIR/STATE`, `SAVOIR/CONTEXT` |
+| état | `SAVOIR/STATE` | `ACTION/UI-UX-REALITY` |
+| performance | `SAVOIR/TECH` | `SAVOIR/CONTEXT` |
+| accessibilité | `SAVOIR/CONTEXT` | `ACTION/GATE-A`, `ACTION/POLICIES` |
+| densité | `SAVOIR/CRAFT/CFT-03` | `ACTION/GATE-C` |
+| grille | `BIBLIOTHEQUE/GRID` | `BIBLIOTHEQUE/SELECT` |
+| composant | `BIBLIOTHEQUE/COMPONENTS` | `SAVOIR/SYSTEM`, `ACTION/RUN-SYSTEM` |
+| exemple | `DIRECTION/EXTERNAL-START` | `DIRECTION/FIRST-OBJECT` |
+| image | `SAVOIR/SOURCE` | `DIRECTION/VISUAL_TARGET`, `SAVOIR/DESIGN-ATLAS` |
+| convergence | `SAVOIR/TOOLS/CONVERGENCE` | `SAVOIR/CRAFT/CFT-05`, `BIBLIOTHEQUE/SELECT` |
+| structure | `BIBLIOTHEQUE/SELECT` | `BIBLIOTHEQUE/READ` |
+
 ## Combinaisons par résultat recherché
 
 Cette section aide à combiner plusieurs capacités lorsque chacune peut **modifier la même décision** ou **protéger un risque déclaré**. Elle ne crée ni mode, ni route, ni gate, ni statut, ni verdict, ni champ machine. Le mode est d’abord classé par `DIRECTION/START` ; la combinaison est ensuite choisie selon le résultat recherché et le scope réel.
