@@ -98,3 +98,20 @@ Déjà couvert, et bien : `BIBLIOTHEQUE/MICRO` (lecture « identité → état �
 Vague à nommer (VEILLE, fréquence NOT-VERIFIED) : widgets « bento » (carrés arrondis, très gros chiffre, accent vert acide, ombre douce, pile de jetons, dégradé vitreux, ce dernier déjà en vague 1).
 
 Vérité : montants et scores fictifs, logos de cryptomonnaies réels ; sur une page produit, à marquer et à ne pas présenter comme résultats.
+
+## Cinquième série d'images (5) : premiers écrans de SaaS IA (2025-2026)
+
+Images : Meetary (bureau macOS, notification « I'll take it from here! » pendant un appel vidéo, puis bandeau de photos sans rapport) ; Finlayer (fenêtre de navigateur, paysage tramé, carte vitrée de question-réponse, logos Google, Payoneer, Stripe, Amazon) ; Chainova (grille de plan apparente, cases hachurées, libellés mono, « 50B+ », cubes isométriques tramés bleu Klein, « Trusted by 500+ », logos) ; Growcode (paysage tramé vert, navigation en pilule, slogan en deux temps) ; Fabric (papier déchiré rouge, extrait de code, slogan en deux temps).
+
+**Lecture : c'est la vague actuelle, presque entièrement nommée par le système.** Vague 3 de `SAVOIR/TOOLS/CONVERGENCE` : tramage, bleu Klein, libellés mono en capitales, hachures de plan, repères de recadrage, paysage peint en fond (Chainova, Growcode, Finlayer). Vague 1 : halos et dégradés (fond macOS de Meetary). Fausses preuves déjà bloquées : plinthe de logos avant l'objet de preuve (`STRUCT-SIGNAUX`), « Trusted by 500+ », chiffres « 50B+ » non sourcés (vérité). Usage : un jeu de calibration négative, ce à quoi ressemble le choix attendu en 2026.
+
+Marqueurs à ajouter en VEILLE (datés, fréquence NOT-VERIFIED, à revoir avant 2027-03) :
+- **Slogan en deux temps** (« Build an agent. Give it a job. », « Elevate your brand. Dominate your market. ») ; déjà vu dans les écrans d'app (série 3) et chez N4 (« Facturez une fois. Souche relance jusqu'au paiement. »).
+- **Pastille-étiquette au-dessus du titre** (« AI-POWERED MEETING NOTES », « ABOUT US ») ; les pastilles et micro-libellés de nos runs U5 en relèvent.
+- **Carte vitrée posée sur un paysage tramé**, dans une fenêtre de navigateur ou de système.
+
+Ce qui reste bon à garder, déjà couvert par `FIRST-OBJECT` et `OBJECT` :
+- **Le produit là où il vit, au moment de l'usage** : la notification de Meetary pendant l'appel montre le geste en situation.
+- **L'artefact que l'utilisateur écrira** comme preuve : le code de Fabric se termine par sa conséquence (« ticket #4821 resolved »).
+
+Contre-exemple de forme de page : Meetary passe d'un premier écran situé à une section « About us » en deux colonnes de texte, puis à un bandeau de photos d'illustration sans lien avec le produit (œil, montagne, ballon de football).
