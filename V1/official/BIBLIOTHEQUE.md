@@ -56,7 +56,7 @@ La chaîne canonique est une carte de responsabilités, non une séquence obliga
 
 Une surface peut hériter d’un niveau ou n’en sélectionner aucun si aucune décision structurelle ne change. Le **support** définit le champ spatial dans lequel vit la surface. La **grille** organise la circulation, les axes, le rythme, le foyer et la hiérarchie dans ce champ. La **scène** définit le scénario de lecture et de preuve entre promesse, contenu, média et action. L’**objet** rend une preuve, un état ou une action locale tangible. La **primitive** porte le geste accessible et la sémantique de base.
 
-Cette chaîne décrit une responsabilité, pas un ordre de lecture rigide. Une micro-interface peut être le point de départ d’une surface dense. Un modificateur intervient seulement après la structure lorsqu’il change un comportement réel.
+Sur une page de plusieurs sections, la **séquence** ordonne les scènes, leur rythme et leur fin (`BIBLIOTHEQUE/SEQUENCE`). Cette chaîne décrit une responsabilité, pas un ordre de lecture rigide. Une micro-interface peut être le point de départ d’une surface dense. Un modificateur intervient seulement après la structure lorsqu’il change un comportement réel.
 
 Une structure peut porter une scène naturelle, éditoriale, technique, tactile ou expressive ; elle ne se limite pas à un dashboard ou à une grille de cards. Lorsque la décision le justifie, l’objet visible peut être un composant authored : sa silhouette, son contenu, sa hiérarchie, sa matière et son comportement sont composés pour le produit. Cela ne rend pas les primitives critiques inhabituelles par obligation ; leur sémantique, leur accessibilité, leur feedback et leur comportement restent prioritaires.
 
@@ -535,9 +535,36 @@ La preuve de scène doit indiquer son type et sa limite. Une relation perceptuel
 
 ---
 
+## BIBLIOTHEQUE/SEQUENCE — comment la page s’enchaîne
+
+Une page de plusieurs sections est une séquence de scènes. La scène règle chaque moment ; la séquence règle leur ordre, leur rythme et leur fin. Une surface d’un seul écran n’en a pas besoin.
+
+**Question de séquence.** Que fait avancer chaque section : comprendre, croire, choisir ou agir ? Une section qui ne fait rien avancer se fond dans une autre ou disparaît.
+
+| Opération | Choisir lorsque | Éviter lorsque | Preuve |
+|---|---|---|---|
+| **Arc** : entrée, développement, moment fort, fin | la page porte une décision d’une section à l’autre | la surface sert une tâche unique et répétée (outil, tableau de bord) | la page entière réduite montre un foyer par section et un moment plus fort que les autres |
+| **Série** : constantes (repères, numérotation, bande basse, place du titre) et variables (position, échelle, côté de l’objet) | plusieurs sections de même nature se suivent | la variation ferait perdre un repère nécessaire à la comparaison | deux sections voisines diffèrent par une variable déclarée et partagent les constantes |
+| **Moment de champ** : une section en grand, portée par une seule opération | la thèse gagne à être vue en grand une fois dans la page | contexte critique ou tâche urgente | la section se résume en une phrase et n’a qu’un foyer |
+| **Transition** : le passage d’une section à la suivante a une forme | le bord vient d’une forme que le produit ou le domaine porte déjà | le bord est décoratif ou repris d’un gabarit | retirer la transition affaiblit la lecture, pas seulement l’ornement |
+| **Fil** : un motif ou un objet revient et relie l’entrée au reste | un objet du produit peut changer d’état d’une section à l’autre | le motif n’a aucun lien avec le produit | le motif change d’état ou de rôle entre ses apparitions |
+| **Fin** : une dernière scène (phrase de clôture, action), puis un colophon (marque, navigation, mentions) | la page a plusieurs sections | la surface est une vue d’application sans fin de lecture | la fin reprend la thèse de l’entrée ; le pied de page n’est pas qu’une liste de liens |
+
+**Trame sur toute la page.** Le test de trame de `BIBLIOTHEQUE/SELECT` s’applique au milieu et au bas de la page, pas seulement au premier écran : une page qui rompt la trame en haut puis empile des sections de même poids, des cartes, des tarifs et des questions y retombe. Écris la séquence en une ligne avant le build, puis vérifie-la sur la page entière réduite.
+
+**Cartes.** Une carte marque un objet séparable : à comparer, choisir ou collectionner. Pour des fonctionnalités ou des arguments, préfère une liste, un texte, un objet unique ou des onglets qui montrent une fonctionnalité à la fois avec sa vraie vue produit et ses états.
+
+### Structure mobile
+
+Sur petit écran, la séquence se recompose au lieu de se comprimer (`SAVOIR/CONTEXT`). Pour une interface, une décision par écran : un champ, un choix ou une action, l’action principale dans la zone du pouce ; une feuille posée sur le contexte garde l’objet visible au-dessus. Une relation entre plans (mot devant ou dans l’image, élément qui chevauche deux sections) se recompose aussi : vérifie sur capture mobile qu’elle ne coupe ni le texte ni l’objet.
+
+---
+
 ## BIBLIOTHEQUE/OBJECT — quelle preuve devient tangible
 
 Un objet donne une forme locale et réutilisable à une preuve, une sélection, une comparaison, une mémoire, un contrôle ou une action. Il possède un rôle informationnel, des slots, des contextes et des états. Il ne compose pas un écran complet.
+
+**Objet du métier.** Un document ou un instrument que le domaine utilise déjà (formulaire, ticket, carnet, relevé, cadran, règle graduée) peut donner sa forme à l’objet de preuve ou le gabarit d’une section. Choisis-le s’il rend le mécanisme plus clair ; écarte-le s’il n’est qu’un décor ou s’il imite un document officiel au point de tromper.
 
 ### Routes d’objet
 

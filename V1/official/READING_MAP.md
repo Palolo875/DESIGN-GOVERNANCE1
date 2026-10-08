@@ -48,7 +48,7 @@ Pour un sujet traité dans plusieurs routes, cette carte dérivée nomme la rout
 | contraste | `ACTION/GATE-A` | `SAVOIR/CRAFT/CFT-05`, `ACTION/POLICIES` |
 | typographie | `SAVOIR/TYPE` | `SAVOIR/CRAFT/CFT-05`, `ACTION/GATE-C` |
 | couleur | `SAVOIR/CRAFT/CFT-05` | `ACTION/GATE-A` |
-| mobile | `ACTION/UI-UX-REALITY` | `SAVOIR/STATE`, `SAVOIR/CONTEXT` |
+| mobile | `ACTION/UI-UX-REALITY` | `SAVOIR/STATE`, `SAVOIR/CONTEXT`, `BIBLIOTHEQUE/SEQUENCE` |
 | état | `SAVOIR/STATE` | `ACTION/UI-UX-REALITY` |
 | performance | `SAVOIR/TECH` | `SAVOIR/CONTEXT` |
 | accessibilité | `SAVOIR/CONTEXT` | `ACTION/GATE-A`, `ACTION/POLICIES` |
@@ -59,6 +59,9 @@ Pour un sujet traité dans plusieurs routes, cette carte dérivée nomme la rout
 | image | `SAVOIR/SOURCE` | `DIRECTION/VISUAL_TARGET`, `SAVOIR/DESIGN-ATLAS` |
 | convergence | `SAVOIR/TOOLS/CONVERGENCE` | `SAVOIR/CRAFT/CFT-05`, `BIBLIOTHEQUE/SELECT` |
 | structure | `BIBLIOTHEQUE/SELECT` | `BIBLIOTHEQUE/READ` |
+| séquence | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SCENE` |
+| pied de page | `BIBLIOTHEQUE/SEQUENCE` | — |
+| cartes | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SELECT` |
 
 ## Combinaisons par résultat recherché
 
