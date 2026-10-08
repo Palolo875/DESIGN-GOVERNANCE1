@@ -1,0 +1,1436 @@
+[
+ {
+  "besoin": "contraste du texte",
+  "terme": "contraste",
+  "lignes": 70,
+  "routes": 29,
+  "trouve": true,
+  "rang": 10,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CHARGE",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "contraste du texte",
+  "terme": "contrast",
+  "lignes": 71,
+  "routes": 29,
+  "trouve": true,
+  "rang": 10,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CHARGE",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "contraste du texte",
+  "terme": "lisibilité",
+  "lignes": 20,
+  "routes": 13,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/FIRST-OBJECT",
+   "ACTION/GATE-A",
+   "ACTION/POLICIES"
+  ]
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "texte sur image",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "texte sur photo",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "overlay",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "texte posé sur une photo",
+  "terme": "voile",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "typographie",
+  "lignes": 57,
+  "routes": 26,
+  "trouve": true,
+  "rang": 16,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT",
+   "DIRECTION/VISUAL_TARGET"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "police",
+  "lignes": 16,
+  "routes": 11,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/VISUAL_TARGET",
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "font",
+  "lignes": 6,
+  "routes": 4,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/TYPE",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "choisir une police",
+  "terme": "fonte",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "construire une palette",
+  "terme": "palette",
+  "lignes": 19,
+  "routes": 11,
+  "trouve": true,
+  "rang": 7,
+  "premieres": [
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/VISUAL_TARGET",
+   "DIRECTION/DIRECTION-ATELIER"
+  ]
+ },
+ {
+  "besoin": "construire une palette",
+  "terme": "couleur",
+  "lignes": 32,
+  "routes": 16,
+  "trouve": true,
+  "rang": 9,
+  "premieres": [
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/FIRST-OBJECT",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "construire une palette",
+  "terme": "color",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/FRAME",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "mode sombre",
+  "terme": "dark mode",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "mode sombre",
+  "terme": "mode sombre",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "mode sombre",
+  "terme": "thème sombre",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "adapter au mobile",
+  "terme": "mobile",
+  "lignes": 40,
+  "routes": 20,
+  "trouve": true,
+  "rang": 9,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT",
+   "DIRECTION/VISUAL_TARGET"
+  ]
+ },
+ {
+  "besoin": "adapter au mobile",
+  "terme": "responsive",
+  "lignes": 28,
+  "routes": 20,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/FIRST-RENDER",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "adapter au mobile",
+  "terme": "petit écran",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "état vide",
+  "terme": "état vide",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "état vide",
+  "terme": "empty",
+  "lignes": 8,
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/UI-UX-REALITY",
+   "ACTION/VISUAL_PROOF"
+  ]
+ },
+ {
+  "besoin": "état vide",
+  "terme": "vide",
+  "lignes": 48,
+  "routes": 24,
+  "trouve": true,
+  "rang": 15,
+  "premieres": [
+   "DIRECTION/DOMAIN-FRAME",
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "bouton désactivé",
+  "terme": "désactivé",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "bouton désactivé",
+  "terme": "disabled",
+  "lignes": 4,
+  "routes": 4,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/UI-UX-REALITY",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "BIBLIOTHEQUE/OBJECT"
+  ]
+ },
+ {
+  "besoin": "bouton désactivé",
+  "terme": "inactif",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "BIBLIOTHEQUE/MODIFIER"
+  ]
+ },
+ {
+  "besoin": "message d'erreur de formulaire",
+  "terme": "erreur",
+  "lignes": 37,
+  "routes": 22,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "DIRECTION/START",
+   "DIRECTION/DOMAIN-FRAME",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "message d'erreur de formulaire",
+  "terme": "formulaire",
+  "lignes": 12,
+  "routes": 9,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "message d'erreur de formulaire",
+  "terme": "validation",
+  "lignes": 18,
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/RUN_CARD",
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "focus clavier",
+  "terme": "focus",
+  "lignes": 34,
+  "routes": 18,
+  "trouve": true,
+  "rang": 7,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CHARGE",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "focus clavier",
+  "terme": "clavier",
+  "lignes": 21,
+  "routes": 12,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "ACTION/UI-UX-REALITY",
+   "ACTION/STATUS",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "focus clavier",
+  "terme": "keyboard",
+  "lignes": 1,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "taille des cibles tactiles",
+  "terme": "cible",
+  "lignes": 59,
+  "routes": 26,
+  "trouve": true,
+  "rang": 15,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CHARGE",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "taille des cibles tactiles",
+  "terme": "target size",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "taille des cibles tactiles",
+  "terme": "tactile",
+  "lignes": 11,
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/FRAME"
+  ]
+ },
+ {
+  "besoin": "lecteur d'écran",
+  "terme": "lecteur d'écran",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "lecteur d'écran",
+  "terme": "screen reader",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "lecteur d'écran",
+  "terme": "aria",
+  "lignes": 45,
+  "routes": 21,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/DOMAIN-FRAME",
+   "DIRECTION/DIRECTION-ATELIER",
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "animation et mouvement réduit",
+  "terme": "animation",
+  "lignes": 6,
+  "routes": 5,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/STATE",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "animation et mouvement réduit",
+  "terme": "motion",
+  "lignes": 73,
+  "routes": 24,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/STATUS",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "animation et mouvement réduit",
+  "terme": "mouvement",
+  "lignes": 16,
+  "routes": 10,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/STRUCTURED-PROOF",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "performance et poids",
+  "terme": "performance",
+  "lignes": 46,
+  "routes": 27,
+  "trouve": true,
+  "rang": 16,
+  "premieres": [
+   "DIRECTION/FIRST-OBJECT",
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "performance et poids",
+  "terme": "poids",
+  "lignes": 11,
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "ACTION/VISUAL_PROOF",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "performance et poids",
+  "terme": "chargement",
+  "lignes": 27,
+  "routes": 11,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/START",
+   "DIRECTION/CHARGE",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "multilingue",
+  "terme": "multilingue",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "multilingue",
+  "terme": "traduction",
+  "lignes": 12,
+  "routes": 9,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CHARGE",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "multilingue",
+  "terme": "localisation",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/FRAME",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "BIBLIOTHEQUE/OBJECT"
+  ]
+ },
+ {
+  "besoin": "faux témoignages",
+  "terme": "témoignage",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "faux témoignages",
+  "terme": "avis",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/VISUAL_PROOF",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "faux témoignages",
+  "terme": "testimonial",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "logos de clients",
+  "terme": "logos",
+  "lignes": 3,
+  "routes": 2,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "logos de clients",
+  "terme": "logo clients",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "logos de clients",
+  "terme": "preuve sociale",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "contenu d'exemple",
+  "terme": "exemple",
+  "lignes": 34,
+  "routes": 14,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT",
+   "DIRECTION/DIRECTION-ATELIER"
+  ]
+ },
+ {
+  "besoin": "contenu d'exemple",
+  "terme": "placeholder",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/RUN_CARD",
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "contenu d'exemple",
+  "terme": "lorem",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "photo ou image d'illustration",
+  "terme": "photo",
+  "lignes": 15,
+  "routes": 10,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/GATE-C"
+  ]
+ },
+ {
+  "besoin": "photo ou image d'illustration",
+  "terme": "image",
+  "lignes": 60,
+  "routes": 25,
+  "trouve": true,
+  "rang": 8,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "photo ou image d'illustration",
+  "terme": "banque d'images",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "illustration",
+  "terme": "illustration",
+  "lignes": 16,
+  "routes": 11,
+  "trouve": true,
+  "rang": 6,
+  "premieres": [
+   "DIRECTION/FIRST-OBJECT",
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "illustration",
+  "terme": "dessin",
+  "lignes": 6,
+  "routes": 6,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/GATE-A",
+   "SAVOIR/FRAME"
+  ]
+ },
+ {
+  "besoin": "icônes",
+  "terme": "icône",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/STATE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "icônes",
+  "terme": "icon",
+  "lignes": 5,
+  "routes": 4,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/STATE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "icônes",
+  "terme": "pictogramme",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "grain et texture",
+  "terme": "grain",
+  "lignes": 3,
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/DESIGN-ATLAS",
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/MODIFIER"
+  ]
+ },
+ {
+  "besoin": "grain et texture",
+  "terme": "texture",
+  "lignes": 13,
+  "routes": 8,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/CRAFT",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "grain et texture",
+  "terme": "bruit",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "grille de mise en page",
+  "terme": "grille",
+  "lignes": 43,
+  "routes": 17,
+  "trouve": true,
+  "rang": 12,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "ACTION/RUN-STANDARD",
+   "ACTION/GATE-C"
+  ]
+ },
+ {
+  "besoin": "grille de mise en page",
+  "terme": "grid",
+  "lignes": 29,
+  "routes": 6,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "BIBLIOTHEQUE/READ",
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "grille de mise en page",
+  "terme": "colonnes",
+  "lignes": 6,
+  "routes": 4,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STYLE",
+   "BIBLIOTHEQUE/CONTRACTS"
+  ]
+ },
+ {
+  "besoin": "rangée de cartes",
+  "terme": "cartes",
+  "lignes": 8,
+  "routes": 4,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "SAVOIR/TOOLS",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "rangée de cartes",
+  "terme": "cards",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/READ"
+  ]
+ },
+ {
+  "besoin": "rangée de cartes",
+  "terme": "trois cartes",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "premier écran",
+  "terme": "premier écran",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "premier écran",
+  "terme": "hero",
+  "lignes": 7,
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/TOOLS",
+   "BIBLIOTHEQUE/DERIVE"
+  ]
+ },
+ {
+  "besoin": "premier écran",
+  "terme": "above the fold",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "page de tarifs",
+  "terme": "tarif",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "page de tarifs",
+  "terme": "prix",
+  "lignes": 5,
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "page de tarifs",
+  "terme": "pricing",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "graphique de données",
+  "terme": "graphique",
+  "lignes": 22,
+  "routes": 13,
+  "trouve": true,
+  "rang": 8,
+  "premieres": [
+   "DIRECTION/FIRST-OBJECT",
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/RUN-ITER"
+  ]
+ },
+ {
+  "besoin": "graphique de données",
+  "terme": "chart",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "graphique de données",
+  "terme": "courbe",
+  "lignes": 2,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "chiffres alignés",
+  "terme": "chiffres",
+  "lignes": 8,
+  "routes": 6,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/TYPE"
+  ]
+ },
+ {
+  "besoin": "chiffres alignés",
+  "terme": "tabular",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "chiffres alignés",
+  "terme": "tabulaire",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "ombres et élévation",
+  "terme": "ombre",
+  "lignes": 18,
+  "routes": 11,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "ombres et élévation",
+  "terme": "shadow",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "ombres et élévation",
+  "terme": "élévation",
+  "lignes": 3,
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "ACTION/GATE-C",
+   "SAVOIR/CRAFT",
+   "SAVOIR/SYSTEM"
+  ]
+ },
+ {
+  "besoin": "coins arrondis",
+  "terme": "arrondi",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE",
+   "BIBLIOTHEQUE/CONTRACTS"
+  ]
+ },
+ {
+  "besoin": "coins arrondis",
+  "terme": "radius",
+  "lignes": 13,
+  "routes": 11,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CHARGE",
+   "ACTION/PRECONDITION"
+  ]
+ },
+ {
+  "besoin": "coins arrondis",
+  "terme": "coins",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "espacement",
+  "terme": "espacement",
+  "lignes": 8,
+  "routes": 7,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "ACTION/GATE-A",
+   "ACTION/GATE-C"
+  ]
+ },
+ {
+  "besoin": "espacement",
+  "terme": "spacing",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "espacement",
+  "terme": "marge",
+  "lignes": 4,
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "DIRECTION/DOMAIN-FRAME",
+   "SAVOIR/TECH",
+   "BIBLIOTHEQUE/CONTRACTS"
+  ]
+ },
+ {
+  "besoin": "densité d'information",
+  "terme": "densité",
+  "lignes": 39,
+  "routes": 19,
+  "trouve": true,
+  "rang": 7,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "DIRECTION/VISUAL_TARGET",
+   "DIRECTION/DIRECTION-ATELIER"
+  ]
+ },
+ {
+  "besoin": "densité d'information",
+  "terme": "dense",
+  "lignes": 16,
+  "routes": 13,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "ACTION/GATE-B",
+   "SAVOIR/FRAME",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "densité d'information",
+  "terme": "chargé",
+  "lignes": 92,
+  "routes": 26,
+  "trouve": true,
+  "rang": 18,
+  "premieres": [
+   "DIRECTION/START",
+   "DIRECTION/START/TREE",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "éviter le générique",
+  "terme": "slop",
+  "lignes": 20,
+  "routes": 8,
+  "trouve": true,
+  "rang": 5,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/FIRST-RENDER",
+   "ACTION/PRECONDITION"
+  ]
+ },
+ {
+  "besoin": "éviter le générique",
+  "terme": "générique",
+  "lignes": 27,
+  "routes": 13,
+  "trouve": true,
+  "rang": 9,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/VISUAL_TARGET",
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "éviter le générique",
+  "terme": "convergence",
+  "lignes": 15,
+  "routes": 7,
+  "trouve": true,
+  "rang": 3,
+  "premieres": [
+   "ACTION/RUN-DIRECTION",
+   "SAVOIR/FRAME",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "tendance du moment",
+  "terme": "tendance",
+  "lignes": 19,
+  "routes": 10,
+  "trouve": true,
+  "rang": 9,
+  "premieres": [
+   "DIRECTION/DIRECTION-ATELIER",
+   "ACTION/RUN-DIRECTION",
+   "ACTION/ANTI-SLOP"
+  ]
+ },
+ {
+  "besoin": "tendance du moment",
+  "terme": "trend",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "tendance du moment",
+  "terme": "vague",
+  "lignes": 11,
+  "routes": 8,
+  "trouve": true,
+  "rang": 7,
+  "premieres": [
+   "DIRECTION/START",
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "capture du rendu",
+  "terme": "capture",
+  "lignes": 84,
+  "routes": 32,
+  "trouve": true,
+  "rang": 12,
+  "premieres": [
+   "DIRECTION/DIRECTION-ATELIER",
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "capture du rendu",
+  "terme": "screenshot",
+  "lignes": 4,
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/EVOLUTION"
+  ]
+ },
+ {
+  "besoin": "capture du rendu",
+  "terme": "check_render",
+  "lignes": 7,
+  "routes": 4,
+  "trouve": true,
+  "rang": 2,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/VISUAL_PROOF",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "hiérarchie visuelle",
+  "terme": "hiérarchie",
+  "lignes": 86,
+  "routes": 32,
+  "trouve": true,
+  "rang": 19,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "hiérarchie visuelle",
+  "terme": "hierarchy",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/TYPE"
+  ]
+ },
+ {
+  "besoin": "hiérarchie visuelle",
+  "terme": "foyer",
+  "lignes": 39,
+  "routes": 20,
+  "trouve": true,
+  "rang": 8,
+  "premieres": [
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "données d'enfants",
+  "terme": "enfant",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "données d'enfants",
+  "terme": "mineur",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "données d'enfants",
+  "terme": "données personnelles",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "navigation du site",
+  "terme": "navigation",
+  "lignes": 15,
+  "routes": 10,
+  "trouve": true,
+  "rang": 10,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "ACTION/GATE-A",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "navigation du site",
+  "terme": "menu",
+  "lignes": 2,
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/DERIVE"
+  ]
+ },
+ {
+  "besoin": "navigation du site",
+  "terme": "nav",
+  "lignes": 32,
+  "routes": 16,
+  "trouve": true,
+  "rang": 14,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "ton et microcopie",
+  "terme": "microcopie",
+  "lignes": 16,
+  "routes": 10,
+  "trouve": true,
+  "rang": 4,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "ACTION/GATE-C",
+   "SAVOIR/FRAME"
+  ]
+ },
+ {
+  "besoin": "ton et microcopie",
+  "terme": "ton",
+  "lignes": 19,
+  "routes": 15,
+  "trouve": true,
+  "rang": 9,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "ACTION/HANDOFF",
+   "ACTION/AUTHORITY"
+  ]
+ },
+ {
+  "besoin": "ton et microcopie",
+  "terme": "rédaction",
+  "lignes": 0,
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "premieres": []
+ },
+ {
+  "besoin": "design system et tokens",
+  "terme": "token",
+  "lignes": 30,
+  "routes": 16,
+  "trouve": true,
+  "rang": 12,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "ACTION/FIRST-RENDER",
+   "ACTION/RUN-ITER"
+  ]
+ },
+ {
+  "besoin": "design system et tokens",
+  "terme": "design system",
+  "lignes": 1,
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "premieres": [
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "design system et tokens",
+  "terme": "composant",
+  "lignes": 65,
+  "routes": 31,
+  "trouve": true,
+  "rang": 23,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/CHARGE"
+  ]
+ }
+]

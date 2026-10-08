@@ -1,0 +1,2140 @@
+{
+ "routes": [
+  {
+   "loc": "DIRECTION/SERVICE-BOUNDARY",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 1129,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "DIRECTION/START",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 13881,
+   "sous_titres": 6,
+   "charge_dabord": [
+    "LITE",
+    "ITER"
+   ],
+   "charge_si": [
+    "LITE",
+    "ITER"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/GATE-B",
+    "ACTION/HANDOFF",
+    "ACTION/RUN-DIRECTION",
+    "ACTION/RUN-ITER",
+    "ACTION/RUN-LITE",
+    "ACTION/RUN-STANDARD",
+    "ACTION/RUN-SYSTEM",
+    "ACTION/RUN_CARD",
+    "ACTION/STATUS",
+    "BIBLIOTHEQUE/TENSION",
+    "DIRECTION/CHARGE",
+    "DIRECTION/CREATIVE-BOOT",
+    "DIRECTION/DOMAIN-FRAME",
+    "DIRECTION/DOUBLE-LOOP",
+    "DIRECTION/VISUAL_TARGET",
+    "SAVOIR/CRAFT",
+    "SAVOIR/TOOLS"
+   ],
+   "citations": 43,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/START",
+    "DIRECTION/START/TREE"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6",
+    "R7"
+   ]
+  },
+  {
+   "loc": "DIRECTION/CREATIVE-BOOT",
+   "file": "DIRECTION",
+   "level": 3,
+   "chars": 2794,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "BIBLIOTHEQUE/TENSION",
+    "DIRECTION/DOUBLE-LOOP",
+    "DIRECTION/VISUAL_TARGET",
+    "SAVOIR/CRAFT",
+    "SAVOIR/TOOLS"
+   ],
+   "citations": 4,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/CREATIVE-BOOT"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "DIRECTION/DOMAIN-FRAME",
+   "file": "DIRECTION",
+   "level": 3,
+   "chars": 2727,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [
+    "STANDARD",
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [],
+   "citations": 2,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/DOMAIN-FRAME"
+   ],
+   "runs": [
+    "N2",
+    "N4",
+    "N5",
+    "R2",
+    "R6"
+   ]
+  },
+  {
+   "loc": "DIRECTION/CHARGE",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 8387,
+   "sous_titres": 1,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/FAST-PATH",
+    "ACTION/FIRST-RENDER",
+    "ACTION/GATE-A",
+    "ACTION/GATE-B",
+    "ACTION/GATE-B/B2",
+    "ACTION/GATE-B/B6",
+    "ACTION/GATE-C",
+    "ACTION/HANDOFF",
+    "ACTION/PIPELINE-DIRECTION",
+    "ACTION/ROUTING",
+    "ACTION/RUN-DIRECTION",
+    "ACTION/RUN-ITER",
+    "ACTION/RUN-LITE",
+    "ACTION/RUN-STANDARD",
+    "ACTION/RUN-SYSTEM",
+    "ACTION/RUN_CARD",
+    "ACTION/UI-UX-REALITY",
+    "ACTION/VISUAL_PROOF",
+    "BIBLIOTHEQUE/COMPONENTS",
+    "BIBLIOTHEQUE/CONTRACTS",
+    "BIBLIOTHEQUE/SELECT",
+    "DIRECTION/CREATIVE-BOOT",
+    "DIRECTION/DIRECTION-ATELIER",
+    "DIRECTION/DOMAIN-FRAME",
+    "DIRECTION/DOUBLE-LOOP",
+    "DIRECTION/EXTERNAL-START",
+    "DIRECTION/FAST-PATH",
+    "DIRECTION/FIRST-OBJECT",
+    "DIRECTION/START",
+    "DIRECTION/START/TREE",
+    "DIRECTION/VISUAL_TARGET",
+    "SAVOIR/CRAFT",
+    "SAVOIR/CRAFT/CFT-00",
+    "SAVOIR/CRAFT/CFT-03",
+    "SAVOIR/DESIGN-ATLAS",
+    "SAVOIR/FRAME",
+    "SAVOIR/INTEGRITY",
+    "SAVOIR/SOURCE",
+    "SAVOIR/STATE",
+    "SAVOIR/STYLE",
+    "SAVOIR/SYSTEM",
+    "SAVOIR/TYPE"
+   ],
+   "citations": 13,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/CHARGE"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "DIRECTION/FAST-PATH",
+   "file": "DIRECTION",
+   "level": 3,
+   "chars": 952,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/FAST-PATH"
+   ],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "DIRECTION/EXTERNAL-START",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 4636,
+   "sous_titres": 1,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "DIRECTION/START"
+   ],
+   "citations": 3,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/EXTERNAL-START"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "DIRECTION/FIRST-OBJECT",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 7192,
+   "sous_titres": 3,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/STATUS",
+    "DIRECTION/DIRECTION-ATELIER",
+    "DIRECTION/VISUAL_TARGET",
+    "SAVOIR/CRAFT/CFT-04a"
+   ],
+   "citations": 3,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/FIRST-OBJECT"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "DIRECTION/VISUAL_TARGET",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 9209,
+   "sous_titres": 4,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/PIPELINE-DIRECTION",
+    "ACTION/STATUS",
+    "ACTION/VISUAL_PROOF",
+    "SAVOIR/TOOLS"
+   ],
+   "citations": 16,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "DIRECTION/DIRECTION-ATELIER",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 4857,
+   "sous_titres": 2,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/STATUS",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 4,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/DIRECTION-ATELIER"
+   ],
+   "runs": [
+    "N1",
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "DIRECTION/DOUBLE-LOOP",
+   "file": "DIRECTION",
+   "level": 2,
+   "chars": 8194,
+   "sous_titres": 6,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/GATE-B/B1b",
+    "DIRECTION/FIRST-OBJECT",
+    "DIRECTION/START",
+    "SAVOIR/CRAFT/CFT-00",
+    "SAVOIR/STATE",
+    "SAVOIR/STYLE"
+   ],
+   "citations": 8,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "DIRECTION/DOUBLE-LOOP"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "ACTION/HANDOFF",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 5046,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/GATE-A",
+    "ACTION/RUN_CARD",
+    "ACTION/STATUS",
+    "SAVOIR/CRAFT/CFT-00",
+    "SAVOIR/STATE"
+   ],
+   "citations": 19,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/HANDOFF"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "ACTION/AUTHORITY",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 993,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 1,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/FIRST-RENDER",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 4143,
+   "sous_titres": 1,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/STATUS",
+    "ACTION/UI-UX-REALITY",
+    "DIRECTION/START",
+    "SAVOIR/CONTEXT",
+    "SAVOIR/TECH"
+   ],
+   "citations": 1,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/FIRST-RENDER"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "ACTION/UI-UX-REALITY",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 2400,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "STANDARD",
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/STATUS",
+    "DIRECTION/START",
+    "SAVOIR/CONTEXT",
+    "SAVOIR/TECH"
+   ],
+   "citations": 3,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/UI-UX-REALITY"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "ACTION/STATUS",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 6596,
+   "sous_titres": 7,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/GATE-B/B1b"
+   ],
+   "citations": 15,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/PRECONDITION",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 4899,
+   "sous_titres": 3,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/STATUS",
+    "DIRECTION/EXTERNAL-START",
+    "DIRECTION/START"
+   ],
+   "citations": 3,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/FAST-PATH",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 1104,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "LITE"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "DIRECTION/START"
+   ],
+   "citations": 5,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/FAST-PATH"
+   ],
+   "runs": [
+    "R7"
+   ]
+  },
+  {
+   "loc": "ACTION/RUN_CARD",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 18178,
+   "sous_titres": 5,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/STATUS",
+    "DIRECTION/CREATIVE-BOOT",
+    "DIRECTION/FIRST-OBJECT",
+    "DIRECTION/START",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 8,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/RUN_CARD"
+   ],
+   "runs": [
+    "N5"
+   ]
+  },
+  {
+   "loc": "ACTION/RUN",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 5665,
+   "sous_titres": 5,
+   "charge_dabord": [
+    "LITE",
+    "ITER",
+    "STANDARD",
+    "DIRECTION",
+    "SYSTÈME"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/HANDOFF",
+    "ACTION/PIPELINE-DIRECTION",
+    "ACTION/STATUS",
+    "ACTION/VISUAL_PROOF",
+    "BIBLIOTHEQUE/SELECT",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/RUN-LITE",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 802,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "LITE"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/HANDOFF"
+   ],
+   "citations": 2,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/RUN-LITE"
+   ],
+   "runs": [
+    "R7"
+   ]
+  },
+  {
+   "loc": "ACTION/RUN-ITER",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 828,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "ITER"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/HANDOFF"
+   ],
+   "citations": 2,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/RUN-STANDARD",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 962,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "STANDARD"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/HANDOFF",
+    "BIBLIOTHEQUE/SELECT"
+   ],
+   "citations": 2,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/RUN-DIRECTION",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 2034,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/HANDOFF",
+    "ACTION/PIPELINE-DIRECTION",
+    "ACTION/STATUS",
+    "ACTION/VISUAL_PROOF",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 5,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/RUN-DIRECTION"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "ACTION/RUN-SYSTEM",
+   "file": "ACTION",
+   "level": 3,
+   "chars": 833,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "SYSTÈME"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE",
+    "ACTION/HANDOFF"
+   ],
+   "citations": 12,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/CLOSE-PACKAGE",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 6838,
+   "sous_titres": 4,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/HANDOFF",
+    "ACTION/OVERRIDE",
+    "ACTION/RUN_CARD"
+   ],
+   "citations": 16,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/CLOSE-PACKAGE"
+   ],
+   "runs": [
+    "N5"
+   ]
+  },
+  {
+   "loc": "ACTION/PIPELINE-DIRECTION",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 12213,
+   "sous_titres": 10,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/AUTHORITY",
+    "ACTION/GATE-B/B1b",
+    "ACTION/OVERRIDE",
+    "ACTION/RUN_CARD",
+    "DIRECTION/DOUBLE-LOOP",
+    "DIRECTION/VISUAL_TARGET",
+    "SAVOIR/CRAFT/CFT-00",
+    "SAVOIR/CRAFT/CFT-02",
+    "SAVOIR/STATE"
+   ],
+   "citations": 12,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/PIPELINE-DIRECTION"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "ACTION/STRUCTURED-PROOF",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 7031,
+   "sous_titres": 5,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/CLOSE-EXIT-CHECK",
+    "ACTION/UI-UX-REALITY",
+    "BIBLIOTHEQUE/COMPONENTS",
+    "DIRECTION/VISUAL_TARGET",
+    "SAVOIR/TYPE"
+   ],
+   "citations": 2,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/VISUAL_PROOF",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 2019,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 3,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/VISUAL_PROOF"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "ACTION/GATE-A",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 11935,
+   "sous_titres": 4,
+   "charge_dabord": [
+    "LITE",
+    "ITER",
+    "STANDARD",
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "SAVOIR/CRAFT/CFT-05"
+   ],
+   "citations": 12,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/GATE-A"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6",
+    "R7"
+   ]
+  },
+  {
+   "loc": "ACTION/GATE-B",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 10125,
+   "sous_titres": 8,
+   "charge_dabord": [
+    "LITE",
+    "ITER",
+    "STANDARD",
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [],
+   "citations": 30,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/GATE-B",
+    "ACTION/GATE-B/B2",
+    "ACTION/GATE-B/B6"
+   ],
+   "runs": [
+    "N4",
+    "N5",
+    "R7"
+   ]
+  },
+  {
+   "loc": "ACTION/GATE-C",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 3965,
+   "sous_titres": 0,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [
+    "ITER"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/GATE-B",
+    "BIBLIOTHEQUE/GATE",
+    "SAVOIR/STATE"
+   ],
+   "citations": 5,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/GATE-C"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "ACTION/ANTI-SLOP",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 678,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "SAVOIR/CRAFT",
+    "SAVOIR/CRAFT/CFT-01"
+   ],
+   "citations": 3,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/ANTI-SLOP"
+   ],
+   "runs": [
+    "N5"
+   ]
+  },
+  {
+   "loc": "ACTION/OVERRIDE",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 2044,
+   "sous_titres": 2,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/CLOSE-PACKAGE"
+   ],
+   "citations": 6,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/POLICIES",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 2084,
+   "sous_titres": 2,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "SAVOIR/TOOLS"
+   ],
+   "citations": 2,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/ROUTING",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 1614,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/RUN-SYSTEM",
+    "BIBLIOTHEQUE/COMPONENTS",
+    "BIBLIOTHEQUE/SELECT",
+    "DIRECTION/CHARGE",
+    "SAVOIR/CONTEXT",
+    "SAVOIR/CRAFT",
+    "SAVOIR/INTEGRITY",
+    "SAVOIR/SOURCE",
+    "SAVOIR/STATE",
+    "SAVOIR/STYLE",
+    "SAVOIR/SYSTEM",
+    "SAVOIR/TECH",
+    "SAVOIR/TOOLS",
+    "SAVOIR/TYPE"
+   ],
+   "citations": 1,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "ACTION/ROUTING"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "ACTION/MAINTENANCE",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 1702,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "ACTION/CLOSE-EXIT-CHECK",
+   "file": "ACTION",
+   "level": 2,
+   "chars": 1949,
+   "sous_titres": 1,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 4,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "SAVOIR/READ",
+   "file": "SAVOIR",
+   "level": 2,
+   "chars": 3268,
+   "sous_titres": 2,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/FAST-PATH",
+    "SAVOIR/JUGEMENT-COURT",
+    "SAVOIR/TOOLS"
+   ],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "SAVOIR/JUGEMENT-COURT",
+   "file": "SAVOIR",
+   "level": 3,
+   "chars": 382,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/FAST-PATH"
+   ],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "SAVOIR/ROUTING",
+   "file": "SAVOIR",
+   "level": 2,
+   "chars": 1297,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/GATE-A",
+    "ACTION/RUN-SYSTEM",
+    "SAVOIR/CONTEXT",
+    "SAVOIR/CRAFT",
+    "SAVOIR/FRAME",
+    "SAVOIR/INTEGRITY",
+    "SAVOIR/SOURCE",
+    "SAVOIR/STATE",
+    "SAVOIR/STYLE",
+    "SAVOIR/SYSTEM",
+    "SAVOIR/TECH",
+    "SAVOIR/TOOLS",
+    "SAVOIR/TYPE"
+   ],
+   "citations": 1,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/ROUTING"
+   ],
+   "runs": [
+    "N5"
+   ]
+  },
+  {
+   "loc": "SAVOIR/FRAME",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 11292,
+   "sous_titres": 8,
+   "charge_dabord": [],
+   "charge_si": [
+    "STANDARD",
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/ANTI-SLOP",
+    "ACTION/HANDOFF"
+   ],
+   "citations": 5,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/FRAME"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "SAVOIR/CRAFT",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 20943,
+   "sous_titres": 11,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/ANTI-SLOP",
+    "ACTION/PIPELINE-DIRECTION",
+    "DIRECTION/DOUBLE-LOOP",
+    "SAVOIR/STATE",
+    "SAVOIR/TOOLS"
+   ],
+   "citations": 58,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/CRAFT",
+    "SAVOIR/CRAFT/CFT-00",
+    "SAVOIR/CRAFT/CFT-02",
+    "SAVOIR/CRAFT/CFT-03",
+    "SAVOIR/CRAFT/CFT-04",
+    "SAVOIR/CRAFT/CFT-04a",
+    "SAVOIR/CRAFT/CFT-05"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N4",
+    "N5",
+    "R2"
+   ]
+  },
+  {
+   "loc": "SAVOIR/TYPE",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 3257,
+   "sous_titres": 1,
+   "charge_dabord": [
+    "DIRECTION"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/STRUCTURED-PROOF"
+   ],
+   "citations": 11,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/TYPE"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "SAVOIR/STATE",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 13178,
+   "sous_titres": 3,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/GATE-A",
+    "ACTION/GATE-C",
+    "BIBLIOTHEQUE/CONTRACTS",
+    "BIBLIOTHEQUE/SELECT",
+    "DIRECTION/CHARGE",
+    "SAVOIR/CONTEXT",
+    "SAVOIR/CRAFT/CFT-01",
+    "SAVOIR/CRAFT/CFT-03",
+    "SAVOIR/CRAFT/CFT-05",
+    "SAVOIR/SOURCE",
+    "SAVOIR/STYLE",
+    "SAVOIR/SYSTEM",
+    "SAVOIR/TYPE"
+   ],
+   "citations": 18,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/STATE"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "SAVOIR/SOURCE",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 7055,
+   "sous_titres": 3,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/GATE-B",
+    "ACTION/PIPELINE-DIRECTION",
+    "ACTION/STATUS",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 9,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/SOURCE"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "SAVOIR/DESIGN-ATLAS",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 7352,
+   "sous_titres": 4,
+   "charge_dabord": [],
+   "charge_si": [
+    "LITE",
+    "ITER"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/RUN-SYSTEM",
+    "BIBLIOTHEQUE/COMPONENTS",
+    "BIBLIOTHEQUE/SELECT",
+    "DIRECTION/START",
+    "DIRECTION/VISUAL_TARGET",
+    "SAVOIR/CONTEXT",
+    "SAVOIR/CRAFT",
+    "SAVOIR/SOURCE",
+    "SAVOIR/STYLE",
+    "SAVOIR/SYSTEM",
+    "SAVOIR/TECH",
+    "SAVOIR/TYPE"
+   ],
+   "citations": 3,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/DESIGN-ATLAS"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "SAVOIR/STYLE",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 15185,
+   "sous_titres": 8,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/RUN-",
+    "BIBLIOTHEQUE/SELECT",
+    "DIRECTION/START",
+    "SAVOIR/FRAME"
+   ],
+   "citations": 12,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/STYLE"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "SAVOIR/SYSTEM",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 1964,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [
+    "SYSTÈME"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/RUN-SYSTEM",
+    "BIBLIOTHEQUE/COMPONENTS",
+    "DIRECTION/START",
+    "DIRECTION/START/TREE"
+   ],
+   "citations": 9,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "SAVOIR/CONTEXT",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 3013,
+   "sous_titres": 3,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "DIRECTION/START"
+   ],
+   "citations": 11,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/CONTEXT"
+   ],
+   "runs": [
+    "N5"
+   ]
+  },
+  {
+   "loc": "SAVOIR/TECH",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 6581,
+   "sous_titres": 2,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/OVERRIDE",
+    "ACTION/POLICIES",
+    "SAVOIR/TOOLS"
+   ],
+   "citations": 6,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "SAVOIR/TOOLS",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 8486,
+   "sous_titres": 4,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "DIRECTION/CREATIVE-BOOT",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 15,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/TOOLS",
+    "SAVOIR/TOOLS/CONVERGENCE",
+    "SAVOIR/TOOLS/MOYENS"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "R2",
+    "R4",
+    "R6"
+   ]
+  },
+  {
+   "loc": "SAVOIR/INTEGRITY",
+   "file": "SAVOIR",
+   "level": 1,
+   "chars": 8293,
+   "sous_titres": 6,
+   "charge_dabord": [],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/GATE-B/B3",
+    "ACTION/PIPELINE-DIRECTION",
+    "ACTION/STATUS",
+    "DIRECTION/START",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 8,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "SAVOIR/INTEGRITY"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/READ",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 9742,
+   "sous_titres": 6,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "BIBLIOTHEQUE/GRID/HIERARCHICAL",
+    "BIBLIOTHEQUE/MICRO",
+    "BIBLIOTHEQUE/SIGNATURE",
+    "BIBLIOTHEQUE/TENSION"
+   ],
+   "citations": 1,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "BIBLIOTHEQUE/TENSION",
+   "file": "BIBLIOTHEQUE",
+   "level": 3,
+   "chars": 1556,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 1,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "BIBLIOTHEQUE/TENSION"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/SIGNATURE",
+   "file": "BIBLIOTHEQUE",
+   "level": 3,
+   "chars": 859,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "BIBLIOTHEQUE/SIGNATURE"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/SELECT",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 14560,
+   "sous_titres": 8,
+   "charge_dabord": [
+    "STANDARD"
+   ],
+   "charge_si": [
+    "DIRECTION"
+   ],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/FAST-PATH",
+    "ACTION/GATE-B/B1b",
+    "ACTION/PIPELINE-DIRECTION",
+    "BIBLIOTHEQUE/AVANT-SELECTION",
+    "BIBLIOTHEQUE/CONTRACTS",
+    "BIBLIOTHEQUE/DERIVE",
+    "BIBLIOTHEQUE/EVOLUTION",
+    "DIRECTION/DOUBLE-LOOP",
+    "DIRECTION/START",
+    "SAVOIR/CRAFT",
+    "SAVOIR/STYLE"
+   ],
+   "citations": 14,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "BIBLIOTHEQUE/SELECT"
+   ],
+   "runs": [
+    "N1",
+    "N2",
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/AVANT-SELECTION",
+   "file": "BIBLIOTHEQUE",
+   "level": 3,
+   "chars": 1065,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/FAST-PATH",
+    "ACTION/GATE-B/B1b"
+   ],
+   "citations": 0,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "BIBLIOTHEQUE/AVANT-SELECTION"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/DERIVE",
+   "file": "BIBLIOTHEQUE",
+   "level": 3,
+   "chars": 2435,
+   "sous_titres": 0,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "BIBLIOTHEQUE/CONTRACTS",
+    "BIBLIOTHEQUE/EVOLUTION"
+   ],
+   "citations": 2,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "BIBLIOTHEQUE/CONTRACTS",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 6755,
+   "sous_titres": 1,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "ACTION/STRUCTURED-PROOF",
+    "BIBLIOTHEQUE/DERIVE",
+    "SAVOIR/CRAFT/CFT-05",
+    "SAVOIR/STATE",
+    "SAVOIR/STYLE",
+    "SAVOIR/TYPE"
+   ],
+   "citations": 9,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "BIBLIOTHEQUE/CONTRACTS"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/SUPPORT",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 2753,
+   "sous_titres": 5,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "BIBLIOTHEQUE/GATE"
+   ],
+   "citations": 0,
+   "citations_prefixe": 12,
+   "lu_par": [
+    "BIBLIOTHEQUE/SUPPORT"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/GRID",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 3755,
+   "sous_titres": 7,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "SAVOIR/CONTEXT"
+   ],
+   "citations": 2,
+   "citations_prefixe": 41,
+   "lu_par": [
+    "BIBLIOTHEQUE/GRID"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/SCENE",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 3541,
+   "sous_titres": 7,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 1,
+   "citations_prefixe": 23,
+   "lu_par": [
+    "BIBLIOTHEQUE/SCENE"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/OBJECT",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 3471,
+   "sous_titres": 2,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [],
+   "citations": 0,
+   "citations_prefixe": 38,
+   "lu_par": [
+    "BIBLIOTHEQUE/OBJECT"
+   ],
+   "runs": [
+    "N4",
+    "N5"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/MICRO",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 3668,
+   "sous_titres": 1,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/GATE-B/B1b",
+    "BIBLIOTHEQUE/EVOLUTION"
+   ],
+   "citations": 1,
+   "citations_prefixe": 16,
+   "lu_par": [
+    "BIBLIOTHEQUE/MICRO"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/MODIFIER",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 1583,
+   "sous_titres": 3,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "BIBLIOTHEQUE/SELECT"
+   ],
+   "citations": 0,
+   "citations_prefixe": 4,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "BIBLIOTHEQUE/COMPONENTS",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 3219,
+   "sous_titres": 2,
+   "charge_dabord": [
+    "SYSTÈME"
+   ],
+   "charge_si": [],
+   "noyau": true,
+   "renvois_sortants": [
+    "DIRECTION/START",
+    "SAVOIR/SYSTEM"
+   ],
+   "citations": 7,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "BIBLIOTHEQUE/COMPAT",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 3521,
+   "sous_titres": 1,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "BIBLIOTHEQUE/CONTRACTS",
+    "BIBLIOTHEQUE/GATE"
+   ],
+   "citations": 1,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  },
+  {
+   "loc": "BIBLIOTHEQUE/GATE",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 4338,
+   "sous_titres": 1,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/GATE-A",
+    "ACTION/GATE-B",
+    "ACTION/GATE-C",
+    "DIRECTION/START",
+    "DIRECTION/VISUAL_TARGET"
+   ],
+   "citations": 5,
+   "citations_prefixe": 0,
+   "lu_par": [
+    "BIBLIOTHEQUE/GATE"
+   ],
+   "runs": [
+    "N4"
+   ]
+  },
+  {
+   "loc": "BIBLIOTHEQUE/EVOLUTION",
+   "file": "BIBLIOTHEQUE",
+   "level": 2,
+   "chars": 5281,
+   "sous_titres": 3,
+   "charge_dabord": [],
+   "charge_si": [],
+   "noyau": false,
+   "renvois_sortants": [
+    "ACTION/RUN-SYSTEM",
+    "BIBLIOTHEQUE/CONTRACTS",
+    "DIRECTION/START",
+    "SAVOIR/STYLE"
+   ],
+   "citations": 7,
+   "citations_prefixe": 0,
+   "lu_par": [],
+   "runs": []
+  }
+ ],
+ "usage": {
+  "DIRECTION/START": {
+   "R2": 1,
+   "R6": 1,
+   "N1": 1,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "DIRECTION/CREATIVE-BOOT": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "DIRECTION/FIRST-OBJECT": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "DIRECTION/VISUAL_TARGET": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "DIRECTION/EXTERNAL-START": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/FIRST-RENDER": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/UI-UX-REALITY": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/RUN-DIRECTION": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/GATE-A": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "R7": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/VISUAL_PROOF": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/GATE-C": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/PIPELINE-DIRECTION": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 2,
+   "N2": 1,
+   "N3": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/TOOLS/CONVERGENCE": {
+   "R2": 1,
+   "R4": 1,
+   "R6": 1,
+   "N1": 1,
+   "N2": 1,
+   "N3": 1,
+   "N5": 1
+  },
+  "DIRECTION/DOMAIN-FRAME": {
+   "R2": 1,
+   "R6": 1,
+   "N2": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/CRAFT/CFT-00": {
+   "R2": 1,
+   "N1": 2,
+   "N5": 1
+  },
+  "DIRECTION/START/TREE": {
+   "R4": 1,
+   "R7": 1
+  },
+  "SAVOIR/TOOLS/MOYENS": {
+   "R6": 1,
+   "N2": 1,
+   "N3": 1,
+   "N5": 1
+  },
+  "ACTION/RUN-LITE": {
+   "R7": 1
+  },
+  "ACTION/FAST-PATH": {
+   "R7": 1
+  },
+  "ACTION/GATE-B/B2": {
+   "R7": 1
+  },
+  "ACTION/GATE-B/B6": {
+   "R7": 1
+  },
+  "DIRECTION/DIRECTION-ATELIER": {
+   "N1": 2,
+   "N4": 1,
+   "N5": 1
+  },
+  "BIBLIOTHEQUE/SELECT": {
+   "N1": 2,
+   "N2": 1,
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/CRAFT/CFT-04a": {
+   "N1": 2
+  },
+  "SAVOIR/CRAFT/CFT-05": {
+   "N2": 1,
+   "N5": 1
+  },
+  "DIRECTION/CHARGE": {
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/GATE-B": {
+   "N4": 1,
+   "N5": 1
+  },
+  "ACTION/HANDOFF": {
+   "N4": 1,
+   "N5": 1
+  },
+  "DIRECTION/DOUBLE-LOOP": {
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/FRAME": {
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/CRAFT": {
+   "N4": 1
+  },
+  "SAVOIR/TYPE": {
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/SOURCE": {
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/STYLE": {
+   "N4": 1,
+   "N5": 1
+  },
+  "SAVOIR/TOOLS": {
+   "N4": 1
+  },
+  "SAVOIR/STATE": {
+   "N4": 1,
+   "N5": 1
+  },
+  "BIBLIOTHEQUE/CONTRACTS": {
+   "N4": 1,
+   "N5": 1
+  },
+  "BIBLIOTHEQUE/TENSION": {
+   "N4": 1,
+   "N5": 1
+  },
+  "BIBLIOTHEQUE/GATE": {
+   "N4": 1
+  },
+  "BIBLIOTHEQUE/SIGNATURE": {
+   "N4": 1,
+   "N5": 1
+  },
+  "BIBLIOTHEQUE/SUPPORT": {
+   "N4": 1
+  },
+  "BIBLIOTHEQUE/AVANT-SELECTION": {
+   "N4": 1
+  },
+  "BIBLIOTHEQUE/OBJECT": {
+   "N4": 1,
+   "N5": 1
+  },
+  "BIBLIOTHEQUE/SCENE": {
+   "N4": 1
+  },
+  "BIBLIOTHEQUE/MICRO": {
+   "N4": 1
+  },
+  "BIBLIOTHEQUE/GRID": {
+   "N4": 1
+  },
+  "SAVOIR/DESIGN-ATLAS": {
+   "N4": 1
+  },
+  "SAVOIR/INTEGRITY": {
+   "N4": 2,
+   "N5": 1
+  },
+  "ACTION/ROUTING": {
+   "N4": 1
+  },
+  "ACTION/RUN_CARD": {
+   "N5": 1
+  },
+  "ACTION/CLOSE-PACKAGE": {
+   "N5": 1
+  },
+  "SAVOIR/ROUTING": {
+   "N5": 1
+  },
+  "SAVOIR/CRAFT/CFT-04": {
+   "N5": 1
+  },
+  "SAVOIR/CRAFT/CFT-03": {
+   "N5": 1
+  },
+  "SAVOIR/CONTEXT": {
+   "N5": 1
+  },
+  "ACTION/ANTI-SLOP": {
+   "N5": 1
+  },
+  "SAVOIR/CRAFT/CFT-02": {
+   "N5": 1
+  }
+ },
+ "tronques": {
+  "SAVOIR/CRAFT/CFT-00": 1,
+  "DIRECTION/START/TREE": 2,
+  "ACTION/GATE-A": 1,
+  "ACTION/VISUAL_PROOF": 1,
+  "ACTION/PIPELINE-DIRECTION": 1,
+  "ACTION/GATE-C": 1,
+  "SAVOIR/TOOLS/CONVERGENCE": 1,
+  "DIRECTION/START": 3,
+  "SAVOIR/TOOLS/MOYENS": 1,
+  "BIBLIOTHEQUE/SELECT": 1,
+  "DIRECTION/DOMAIN-FRAME": 1,
+  "SAVOIR/CRAFT/CFT-05": 1,
+  "SAVOIR/INTEGRITY": 1,
+  "ACTION/ANTI-SLOP": 1
+ },
+ "recherches": {
+  "N1": [
+   "PRODUCT_NARRATIVE"
+  ],
+  "N2": [
+   "tabular"
+  ],
+  "N3": [
+   "cible"
+  ],
+  "N5": [
+   "enfant",
+   "mineur",
+   "fort enjeu",
+   "Direction divergente"
+  ]
+ }
+}
