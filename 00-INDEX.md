@@ -108,8 +108,8 @@ On peut les supprimer sans perte, puisque leurs résultats sont dans les livrabl
 | Constats | 60 : 32 de type A (lots L1 à L5, plus C09 en option), 5 de type D (lot L6), 16 de type M (U4 et U7), 5 de type S, et 2 déjà traités (C02 dans le plan, C20 par la décision D1). Décompte vérifié par script |
 | Plan | v2 accepté ; U2 en cours, ordre L3, L4, L5, L6 (D7, D8), L2, L1 |
 | Décisions prises | D1 à D6 (plan v2, §4.1) |
-| Décisions à prendre | D12 à D14 (plan v2, §4.2) ; D7 à D11 prises le 2026-10-07. Aucune ne bloque les lots L1 à L5 |
-| Prochaine action | U3 (mesure) après tes décisions D12 (modèle producteur), D13 (volume) et D14 (brief B3) |
+| Décisions à prendre | Aucune avant U3 : D7 à D11 prises le 2026-10-07, D12 à D14 le 2026-10-08. Aucune ne bloque les lots L1 à L5 |
+| Prochaine action | U3 (mesure), 7 runs Opus 5.5, sur ton feu vert |
 
 ## 4. Erreurs de mon côté, corrigées
 

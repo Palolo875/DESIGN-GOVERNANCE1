@@ -67,14 +67,14 @@ Inchangés par rapport à la version 1, §1.
 | D9 | Absolu 4 et piège de conformité : une ligne chacun dans le noyau, compensée en L2 (décision du 2026-10-07) |
 | D10 | Blocage externe gardé par défaut dans `check_render`, documenté (appliqué en L4) |
 | D11 | Navigateur ajouté à la CI (décision du 2026-10-07) |
+| D12 | Modèle producteur des rendus : Opus 5.5, dans les deux conditions ; juges Sonnet 5.5 (principal) et Haiku 5.5, puis le propriétaire (décision du 2026-10-08) |
+| D13 | Volume de U3 : 7 runs (décision du 2026-10-08) |
+| D14 | Brief B3 remplacé, domaine choisi hors des exemples et des signaux : « Il me faut un site pour mon école de natation pour enfants. » Rien d'autre (décision déléguée, 2026-10-08) |
 
 ### 4.2 À prendre (chacune bloque un lot précis, pas tout le plan)
 
 | # | Question | Recommandation | Constat | Lot bloqué |
 |---|---|---|---|---|
-| D12 | Modèle qui produit les rendus en U3 | Celui que tu utiliseras réellement avec le système ; s'il s'agit de Sonnet, le juge principal devient un autre modèle | — | U3 |
-| D13 | Volume de U3 | 7 runs (voir U3), ou 5 sans B3 | — | U3 |
-| D14 | B3 reprend mot pour mot la demande de l'exemple vélo (`examples.md`) : la condition « avec système » aurait déjà sous les yeux un déroulé sur ce même brief | Garder un brief flou de petit commerce réel, mais dans un domaine absent des exemples et des signaux de convergence (ni vélo, ni boulangerie, ni facturation, ni cartographie sonore, ni archive), choisi par toi | C34 | U3 |
 
 ## 5. Grille d'audit en quatre axes
 
@@ -128,14 +128,14 @@ Elle sert deux fois avec les mêmes rubriques : avant chaque lot (constats) et a
 
 ### U3 — Mesure de référence, sur la version corrigée
 
-**Entrée :** U2 terminée, D12 et D13 tranchées. Base figée : le commit de fin de U2.
+**Entrée :** U2 terminée (révision `R2026-10-08-CORRECTIONS`, commit `01be58d`), D12 à D14 tranchées. Base figée : ce commit.
 
 **Protocole frugal (règle 12) :**
 
 | Brief | Avec le système | Sans le système |
 |---|---|---|
 | B2 — landing d'un SaaS de facturation, peu de contenu | 2 runs | 2 runs |
-| B3 — « un site pour mon atelier de réparation de vélos » | 1 | 1 |
+| B3 — « Il me faut un site pour mon école de natation pour enfants. » (D14) | 1 | 1 |
 | B1 — retouche de contraste (page fournie) | 1 (mesure de proportion) | — |
 
 Cela fait **7 runs**, un à la fois. Les deux conditions ont les **mêmes outils**, la même consigne, le même réseau (polices externes autorisées pour les deux) ; seule la skill diffère.
