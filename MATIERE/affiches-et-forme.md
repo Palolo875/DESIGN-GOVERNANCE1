@@ -115,3 +115,38 @@ Ce qui reste bon à garder, déjà couvert par `FIRST-OBJECT` et `OBJECT` :
 - **L'artefact que l'utilisateur écrira** comme preuve : le code de Fabric se termine par sa conséquence (« ticket #4821 resolved »).
 
 Contre-exemple de forme de page : Meetary passe d'un premier écran situé à une section « About us » en deux colonnes de texte, puis à un bandeau de photos d'illustration sans lien avec le produit (œil, montagne, ballon de football).
+
+## Lecture transversale par dimension (les cinq séries, 24 images)
+
+Couverture vérifiée par `read_route.py --trouver` le 2026-10-08. « Couvert » = le système le dit déjà ; « manque » = rien de trouvé.
+
+### Structure
+- Couvert : support, grille, scène, objet, micro-unités, signaux de convergence, test de trame.
+- Manque : forme de page (arc, fin, série de sections, transitions, fil) ; structure mobile (une décision par écran, zone du pouce, feuille sur contexte) ; franchissement de cadre ; ancrage aux coins ; document ou instrument vernaculaire comme gabarit.
+
+### Savoir (jugement)
+- Couvert : premier objet, objet de preuve en situation, convergence, vérité des preuves.
+- Manque : mot et image dans le même plan (TXI-01 défensif seulement) ; idée par collision ou contresens ; graphique qui s'annote ; échelle extrême et champ calme majoritaire.
+
+### Système de design (cohérence des composants)
+- Couvert : rayons concentriques (`SAVOIR/STATE`), une seule logique de lumière, élévation ou planéité (`ACTION/GATE-C`), tokens et contrats (`BIBLIOTHEQUE/COMPONENTS`).
+- Vu dans les références : une famille de rayons tenue (widgets, Plan&go), une hiérarchie de boutons à trois niveaux (plein, teinté, lien : Plan&go), le mobilier de cadre constant d'une série (Matisse, termes solaires).
+- Manque : l'état désactivé comme information (« Continue » grisé tant que le champ est vide, Plan&go : aucune occurrence de « désactivé ») ; la série de cartes à forme constante et teinte propre.
+
+### Colorimétrie
+- Couvert : palette par rôles, contraste calculé, indice non chromatique, question de convergence de palette, dark mode recomposé, OKLCH (`SAVOIR/CRAFT/CFT-05`).
+- Vu dans les références : palettes de deux ou trois couleurs (rétro, BORING, main et curseur) ; couleur partagée entre l'image et le texte (le titre vert de rétro reprend les collines ; le ciel dans les lettres de warmth) ; accent prélevé dans l'asset (Originality) ; une teinte dominante par pièce d'une série (termes solaires, cartes de crédit) ; température d'ensemble (chaud délavé de Fieldtrip, chaud de Peloton).
+- Manque : la palette dérivée de l'asset ou du sujet ; la couleur qui relie image et texte ; la température et l'étalonnage d'ensemble (une seule occurrence d'« étalonnage », dans l'atlas ; aucune de « température ») ; la retenue du nombre de couleurs comme levier.
+
+### Qualité et finition des assets
+- Couvert : provenance et droits, route d'asset (code natif, fourni, généré dirigé), pas d'image de remplissage, traitement par recadrage, duotone, grain ou trame (`SAVOIR/DESIGN-ATLAS`, `SAVOIR/SOURCE`).
+- Vu dans les références : un même traitement sur tout un lot (tramage constant de Chainova, aquarelle d'Originality) ; contre-exemple, le bandeau de photos disparates de Meetary (œil, montagne, ballon) ; registre d'illustration professionnel ou enfantin ; étalonnage photo cohérent.
+- Manque : la cohérence d'un lot d'assets (aucune occurrence) ; le registre d'illustration ; le critère « l'asset dit-il quelque chose du produit » appliqué à chaque image d'un bandeau, pas seulement au premier écran.
+
+### Finition des composants et du détail
+- Couvert : figures tabulaires, alignements, coins concentriques, cibles, états, focus, contraste.
+- Vu dans les références : le chiffre comme typographie (zéro estompé du tuner) ; l'icône dans un champ de saisie ; le choix sélectionné marqué par une coche et pas seulement par la couleur (Plan&go) ; la bande basse d'information (termes solaires).
+- Manque : rien de structurel ; ce sont des gestes à verser dans les exemples de craft, sans en faire une liste.
+
+### Vérité (rappel)
+Logos de marques réelles en preuve sociale, chiffres « 50B+ », « Trusted by 500+ », e-mail d'apparence réelle, fausses métadonnées d'affiche : le système bloque déjà l'essentiel ; la distinction fiction assumée (affiche) / fausse preuve (page produit) reste à écrire.
