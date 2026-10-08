@@ -149,7 +149,7 @@ La typologie BIBLIOTHEQUE décrit **ce qui est prouvé**. Les méthodes ACTION �
 
 Après `DIRECTION/START` et, si un registre d’expression doit être choisi, après `SAVOIR/STYLE`, sélectionne zéro à plusieurs responsabilités selon la décision. Ne sélectionne aucune route si la structure existante suffit ; sinon choisis uniquement les niveaux qui peuvent modifier la prochaine décision : support, grille, scène, objet de preuve, objet de rythme, micro-interface si la tâche l’exige et modificateur si son comportement est réel.
 
-Une route est refusée lorsqu’elle ne change aucune décision d’espace, de hiérarchie, de comportement ou de preuve. Elle appartient alors au style dans `SAVOIR`, au projet local ou est retirée.
+Une route est refusée lorsqu’elle ne change aucune décision d’espace, de hiérarchie, de comportement ou de preuve. Elle appartient alors au style dans `SAVOIR`, au projet local ou est retirée. La chaîne de responsabilités (support, grille, scène, objet) est décrite dans `BIBLIOTHEQUE/READ` ; pour combiner deux routes avec une raison, `BIBLIOTHEQUE/COMPAT`.
 
 **Filtre avant catalogue.** Avant de lire une table de routes, réponds : quelle décision doit changer, quel niveau minimal peut la changer, quel premier objet rendra la relation observable et quelle preuve fera sortir la route ? Si ces réponses ne sont pas nommées, ne descends pas dans le catalogue ; reviens à `DIRECTION/START`, conserve l’existant ou pose une clarification ciblée.
 
