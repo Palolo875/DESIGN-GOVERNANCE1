@@ -61,6 +61,8 @@ Pour un sujet traité dans plusieurs routes, cette carte dérivée nomme la rout
 | structure | `BIBLIOTHEQUE/SELECT` | `BIBLIOTHEQUE/READ` |
 | séquence | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SCENE` |
 | texte sur image | `SAVOIR/CRAFT/CFT-03` | — |
+| graphique | `BIBLIOTHEQUE/MICRO` | — |
+| état vide | `ACTION/UI-UX-REALITY` | `SAVOIR/STATE` |
 | pied de page | `BIBLIOTHEQUE/SEQUENCE` | — |
 | cartes | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SELECT` |
 

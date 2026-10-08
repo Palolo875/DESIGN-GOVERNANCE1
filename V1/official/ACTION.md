@@ -111,7 +111,7 @@ Un rendu peut rester `EXPLORATORY` lorsqu’une preuve manque, mais ce statut ne
 
 ### ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble
 
-Pour une surface UI/UX nouvelle ou substantiellement modifiée, le premier objet doit rendre observables, dans la proportion du mode et du risque : hiérarchie de contenu, premier geste, feedback, états `loading`, `empty`, `error`, `unavailable`, `disabled` et succès partiel lorsque pertinents, contenu long ou multilingue, responsive recomposé, focus et récupération. Une capture de l’état nominal ne suffit pas lorsque l’état, la tâche ou la récupération fait partie de la décision.
+Pour une surface UI/UX nouvelle ou substantiellement modifiée, le premier objet doit rendre observables, dans la proportion du mode et du risque : hiérarchie de contenu, premier geste, feedback, états `loading`, `empty`, `error`, `unavailable`, `disabled` et succès partiel lorsque pertinents, contenu long ou multilingue, responsive recomposé, focus et récupération. Une capture de l’état nominal ne suffit pas lorsque l’état, la tâche ou la récupération fait partie de la décision. L’état qui ouvre la page est rempli, avec des valeurs marquées comme exemple si besoin ; l’état vide se conçoit pour l’usage réel, il n’accueille pas le visiteur.
 
 Le contrat de production relie :
 

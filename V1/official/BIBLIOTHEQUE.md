@@ -611,6 +611,8 @@ Les micro-interfaces suivent la lecture :
 
 Graphiques, couleurs, textures et icônes soutiennent cette lecture mais ne portent jamais seuls un état.
 
+Un graphique écrit sa conclusion au lieu de la laisser au lecteur, et montre son repère : objectif, seuil, plafond ou période de comparaison. La couleur d’une variation suit le sens de la mesure, pas son signe : une baisse peut être une bonne nouvelle, pour un délai ou un coût ; le statut est aussi écrit.
+
 Une micro-interface déclare au minimum rôle, contextes autorisés, slots requis/optionnels/interdits, variantes, états applicables, contenu/localisation/confidentialité, risques, `PROOF-TYPE`, `PROOF-LIMIT`, test, scope, owner et prochaine preuve. Elle devient partagée ou durable seulement avec contrat, consumers, compatibilité, maintenance, statut de cycle de vie et revue adaptés.
 
 | Micro-interface | Responsabilité | Vérification principale |

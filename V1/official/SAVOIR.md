@@ -558,6 +558,10 @@ Les galeries de composants, templates et bibliothèques sont utiles pour observe
 
 Les pièges sont : prompts qui convergent, image créée puis ignorée, image générée utilisée comme asset final sans décision de droits, rôle et fidélité, résultat de recherche choisi seulement parce qu’il est thématique, ou asset isolément séduisant qui détruit la lecture une fois intégré.
 
+**Lot d’assets.** Plusieurs images d’une même page forment un lot : elles partagent un traitement (recadrage, étalonnage, grain, bichromie ou trait) qui les fait tenir ensemble même quand leurs sources diffèrent. Chaque image du lot dit quelque chose du produit, de son usage ou de son public, pas seulement du thème ; une image qui échoue à ce test est retirée, pas compensée.
+
+**Registre d’illustration.** Le même outil peut paraître professionnel ou enfantin selon le trait, la palette et la finition. Choisis le registre pour la personne qui décide, souvent un adulte même quand le produit s’adresse à des enfants, et vérifie-le sur capture.
+
 ### Recherche orientée décision — chercher loin seulement quand cela change le résultat
 
 Lorsque le `DOMAIN-FRAME`, le risque ou l’ambition déclenche une recherche, ne collecte pas des liens pour décorer la trace. Recherche ce qui peut modifier une décision : conventions du domaine, modèles mentaux, terminologie, contraintes réglementaires ou d’accessibilité, références culturelles, comportements concurrents, systèmes existants, matériaux, images, données ou mécanismes de preuve.
