@@ -131,7 +131,8 @@ Couverture vérifiée par `read_route.py --trouver` le 2026-10-08. « Couvert »
 ### Système de design (cohérence des composants)
 - Couvert : rayons concentriques (`SAVOIR/STATE`), une seule logique de lumière, élévation ou planéité (`ACTION/GATE-C`), tokens et contrats (`BIBLIOTHEQUE/COMPONENTS`).
 - Vu dans les références : une famille de rayons tenue (widgets, Plan&go), une hiérarchie de boutons à trois niveaux (plein, teinté, lien : Plan&go), le mobilier de cadre constant d'une série (Matisse, termes solaires).
-- Manque : l'état désactivé comme information (« Continue » grisé tant que le champ est vide, Plan&go : aucune occurrence de « désactivé ») ; la série de cartes à forme constante et teinte propre.
+- Correction : l'état désactivé est couvert (`disabled` dans la liste d'états d'`ACTION/UI-UX-REALITY` ; la recherche en français l'avait manqué).
+- Manque : la série de cartes à forme constante et teinte propre.
 
 ### Colorimétrie
 - Couvert : palette par rôles, contraste calculé, indice non chromatique, question de convergence de palette, dark mode recomposé, OKLCH (`SAVOIR/CRAFT/CFT-05`).
@@ -150,3 +151,14 @@ Couverture vérifiée par `read_route.py --trouver` le 2026-10-08. « Couvert »
 
 ### Vérité (rappel)
 Logos de marques réelles en preuve sociale, chiffres « 50B+ », « Trusted by 500+ », e-mail d'apparence réelle, fausses métadonnées d'affiche : le système bloque déjà l'essentiel ; la distinction fiction assumée (affiche) / fausse preuve (page produit) reste à écrire.
+
+## ACTION/UI-UX-REALITY : rôle et constats
+
+Rôle : contrat de construction pour une surface UI/UX nouvelle ou très modifiée. Le premier objet doit rendre observables la hiérarchie de contenu, le premier geste et son retour, les états (chargement, vide, erreur, indisponible, désactivé, succès partiel), le contenu long, le responsive recomposé, le focus et la récupération. Neuf lignes (CONTENT-MODEL, PRIMARY-TASK, FIRST-GESTURE, CRITICAL-STATES, RESPONSIVE-RELATION, ACCESSIBILITY-BASIS, ROBUSTNESS-BASIS, EXPECTED-SCOPE, OBSERVED-SCOPE), chacune couverte par OBSERVED, NOT-VERIFIED ou N/A-JUSTIFIED. Pas de gate ni de verdict : ACTION les garde. Chargé d'office en STANDARD et DIRECTION (verrou UIX-01).
+
+Usage observé : les cinq runs U5 et les trois runs « avec » de U3 l'ont ouvert. Effets visibles : formulaires qui valident et confirment, états prévus. Ses lignes n'apparaissent pas nommément dans les traces plafond.
+
+Constats :
+1. **L'état vide devenu premier écran.** Les juges reprochent à plusieurs pages de natation un « panneau de résultat vide au premier écran » (J09, J10, J21, J22). L'état vide était prévu, comme le demande la route, mais rien ne dit quel état le visiteur voit d'abord. Les références font l'inverse : Numi et Plan&go ouvrent sur un état rempli (un exemple montré) et gardent l'état vide pour l'usage.
+2. **RESPONSIVE-RELATION pose la bonne question sans savoir derrière** : « ce qui est préservé, recomposé ou remplacé ». Le savoir de structure mobile (une décision par écran, zone du pouce, feuille sur contexte) manque pour y répondre.
+3. **C'est un contrat de couverture, pas un savoir d'interface** : il dit quoi rendre observable, pas comment le rendre bon. Plan&go est un bon exemple de ce que le contrat vise (état désactivé, retour « Tickets uploaded », une tâche par écran).
