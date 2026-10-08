@@ -265,6 +265,8 @@ Un principe générateur remplace un interdit sans devenir une recette. La struc
 
 Un principe récité sans conséquence visible est du théâtre procédural.
 
+**Idée par rapprochement.** Une forme peut naître du rapprochement de deux registres qui ne vont pas ensemble (deux époques, deux matières, deux usages) ou d’un contresens assumé entre le mot et l’image. Elle vaut si le rapprochement dit quelque chose du produit et se comprend en une seconde ; sinon, c’est un clin d’œil gratuit.
+
 ### Dérivation bornée d’une forme située
 
 [MÉTHODE] Les objets, matières et références du système sont des démonstrateurs de relation, jamais un catalogue à reproduire.
@@ -332,8 +334,14 @@ Une vue peut avoir une priorité dominante ou un groupe de priorités liées. Ne
 
 <!-- noyau:début COMP-TEXTE-IMAGE -->
 <!-- concept:TXI-01 -->
-**Texte sur image.** Quand un texte est posé sur une photo, une illustration ou une texture, place-le dans la zone calme de l’image ou recadre pour en créer une ; sinon, ajoute un voile ou un dégradé localisé, ou sors le texte de l’image. Mesure le contraste aux points les plus défavorables, à chaque largeur où le recadrage change. Une image sans zone calme demande un autre recadrage ou un autre placement.
+**Texte sur image.** Quand un texte est posé sur une photo, une illustration ou une texture, place-le dans la zone calme de l’image ou recadre pour en créer une ; sinon, ajoute un voile ou un dégradé localisé, ou sors le texte de l’image. Mesure le contraste aux points les plus défavorables, à chaque largeur où le recadrage change. Une image sans zone calme demande un autre recadrage ou un autre placement. Le mot peut aussi partager le plan de l’image (`SAVOIR/CRAFT/CFT-03`).
 <!-- noyau:fin COMP-TEXTE-IMAGE -->
+
+**Mot et image dans le même plan.** Le titre peut former un seul objet avec l’image : un sujet passe devant le mot, l’image remplit les lettres, ou le mot devient la ligne d’horizon de la scène. Choisis-le quand cette relation dit la thèse mieux que le mot et l’image séparés ; écarte-le pour un texte qu’il faut lire vite ou longtemps. Garde le mot reconnaissable en entier, mesure le contraste là où l’image traverse les lettres et recompose la relation sur mobile au lieu de la réduire.
+
+**Échelle et champ calme.** Une seule opération poussée loin, par exemple un objet très petit face à un titre très grand, se lit dans un champ calme qui occupe la plus grande part de la surface. Ce champ n’est pas un vide à remplir : retire ce qui dispute le foyer avant d’ajouter.
+
+**Franchissement et ancrage.** Un élément qui chevauche deux zones, comme le bord d’une image ou la limite entre deux sections, relie ce que les boîtes séparent ; de petits repères placés aux coins peuvent tenir un grand champ sans cadre ni carte. Ces gestes demandent un ordre de plans explicite, un contraste mesuré à l’endroit du chevauchement et une recomposition mobile qui ne coupe ni texte ni objet.
 
 ### Cohérence et harmonie
 
@@ -395,6 +403,8 @@ Formule le compromis : ce qui gagne entre compréhension immédiate et juste dis
 <!-- noyau:fin COMP-CONVERGENCE -->
 
 La palette est conditionnelle : elle est documentée lorsqu’elle peut changer la décision, le thème, le statut ou la direction. Si le système existant est conservé et qu’aucun choix de couleur ne change le run, note cette conservation et sa raison.
+
+**Couleur située.** Une palette peut naître du sujet ou de l’asset principal : prélève les teintes dans l’image ou la matière du produit, puis attribue-leur des rôles. Une couleur partagée entre l’image et le texte relie les deux plans. Le fond aussi est une décision : un blanc chaud, froid ou neutre donne le ton avant le reste ; nomme sa température et sa raison. Deux ou trois couleurs tenues valent souvent mieux qu’une palette complète : la retenue est un levier, pas un manque.
 
 OKLCH peut servir d’espace de conception perceptuel. HEX, HSL ou autre format restent des sorties techniques selon le projet. Le dark mode est recomposé — luminosité, saturation et élévation adaptées — et non inversé naïvement.
 

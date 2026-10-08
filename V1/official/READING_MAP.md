@@ -60,6 +60,7 @@ Pour un sujet traité dans plusieurs routes, cette carte dérivée nomme la rout
 | convergence | `SAVOIR/TOOLS/CONVERGENCE` | `SAVOIR/CRAFT/CFT-05`, `BIBLIOTHEQUE/SELECT` |
 | structure | `BIBLIOTHEQUE/SELECT` | `BIBLIOTHEQUE/READ` |
 | séquence | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SCENE` |
+| texte sur image | `SAVOIR/CRAFT/CFT-03` | — |
 | pied de page | `BIBLIOTHEQUE/SEQUENCE` | — |
 | cartes | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SELECT` |
 
