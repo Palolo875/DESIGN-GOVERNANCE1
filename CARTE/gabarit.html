@@ -41,7 +41,7 @@ code,.mono{font-family:var(--mono);font-size:.86em}
 .count{color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--muted)}
 .legend i{display:inline-block;width:22px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
-.lg-d{background:var(--muted)} .lg-s{border:1.5px dashed var(--muted)} .lg-n{background:var(--soft);border:1px solid var(--line)}
+.lg-d{background:var(--muted)} .lg-s{border:1.5px dashed var(--muted)} .lg-c{border:1.5px solid var(--muted);background:repeating-linear-gradient(135deg,transparent 0 4px,var(--line) 4px 8px)} .lg-n{background:var(--soft);border:1px solid var(--line)}
 main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;align-items:start}
 .lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .lane{display:grid;gap:8px;align-content:start;min-width:0}
@@ -52,6 +52,7 @@ main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;align-items
   background:var(--soft);color:var(--muted);border:1px solid var(--line);overflow-wrap:anywhere;position:relative}
 .chip.d{background:var(--c);color:var(--on);border-color:var(--c)}
 .chip.s{background:var(--surface);color:var(--fg);border:1.5px dashed var(--c)}
+.chip.c{background:repeating-linear-gradient(135deg,var(--surface) 0 5px,var(--soft) 5px 10px);color:var(--fg);border:1.5px solid var(--c)}
 .chip.sel{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--fg)}
 .chip.dim{opacity:.28}
 .chip .core{position:absolute;top:3px;right:4px;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.7}
@@ -99,7 +100,7 @@ footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padd
       <input id="q" type="search" placeholder="couleur, capture, B1b, mobile…" autocomplete="off"></label>
     <div class="count" id="count" aria-live="polite"></div>
   </div>
-  <div class="legend"><span><i class="lg-d"></i>chargée d’abord</span><span><i class="lg-s"></i>si elle change une décision</span><span><i class="lg-n"></i>hors ligne du mode</span><span>● citée dans le noyau</span><span>START et CHARGE ouvrent chaque run</span><span>largeur ≈ taille de la route</span></div>
+  <div class="legend"><span><i class="lg-d"></i>chargée d’abord</span><span><i class="lg-s"></i>si elle change une décision</span><span><i class="lg-c"></i>en trace complète seulement</span><span><i class="lg-n"></i>hors ligne du mode</span><span>● citée dans le noyau</span><span>START et CHARGE ouvrent chaque run</span><span>largeur ≈ taille de la route</span></div>
 
   <main>
     <div class="lanes" id="lanes"></div>
@@ -147,14 +148,14 @@ function matches(r) {
 function render() {
   modesEl.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.m === mode)));
   const lanes = document.getElementById("lanes"); lanes.replaceChildren();
-  let d = 0, s = 0, kd = 0, shown = 0;
+  let d = 0, s = 0, kd = 0, cc = 0, kc = 0, shown = 0;
   for (const l of LANES) {
     const rs = DATA.routes.filter(r => r.src === l.src);
     const k = rs.reduce((a, r) => a + r.k, 0);
     const chips = el("div", {class: "chips"});
     for (const r of rs) {
       const st = mode !== "Aucun" && ENTRY.includes(r.loc) ? "d" : (r.charge[mode] || "");
-      if (st === "d") { d++; kd += r.k; } else if (st === "s") s++;
+      if (st === "d") { d++; kd += r.k; } else if (st === "s") s++; else if (st === "c") { cc++; kc += r.k; }
       const hit = matches(r); if (hit) shown++;
       const w = Math.round(46 + Math.min(r.k, 21) * 9);
       const chip = el("button", {type: "button", class: `chip ${st} ${r.loc === selected ? "sel" : ""} ${hit ? "" : "dim"}`, style: `--c:${l.c};--w:${w}px`,
@@ -166,7 +167,7 @@ function render() {
       el("header", {}, el("h3", {}, l.src), el("span", {}, `${l.role} · ${rs.length} routes · ${Math.round(k)} k`)), chips));
   }
   const c = document.getElementById("count");
-  c.textContent = mode === "Aucun" ? `${shown} route(s) affichée(s)` : `${mode} : ${d} route(s) d’abord (${Math.round(kd)} k) · ${s} si décision · ${shown} affichée(s)`;
+  c.textContent = mode === "Aucun" ? `${shown} route(s) affichée(s)` : `${mode} : ${d} route(s) d’abord (${Math.round(kd)} k)` + (cc ? ` · ${cc} en trace complète (+${Math.round(kc)} k)` : "") + ` · ${s} si décision · ${shown} affichée(s)`;
   detail();
 }
 function detail() {
@@ -174,7 +175,7 @@ function detail() {
   const cmd = `python3 scripts/read_route.py ${r.loc}`;
   const copy = el("button", {type: "button", class: "copy", onclick: async e => { const b = e.currentTarget; try { await navigator.clipboard.writeText(cmd); b.textContent = "Copiée"; } catch (err) { const range = document.createRange(); range.selectNodeContents(code); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range); b.textContent = "Sélectionnée"; } setTimeout(() => b.textContent = "Copier", 1500); }}, "Copier");
   const code = el("code", {}, cmd);
-  const modesTags = DATA.modes.filter(m => r.charge[m]).map(m => el("span", {class: `tag ${r.charge[m]}`}, `${m} · ${r.charge[m] === "d" ? "d’abord" : "si décision"}`));
+  const modesTags = DATA.modes.filter(m => r.charge[m]).map(m => el("span", {class: `tag ${r.charge[m]}`}, `${m} · ${({d: "d’abord", s: "si décision", c: "trace complète"})[r.charge[m]]}`));
   const owns = DATA.topics.filter(t => t.proprio.startsWith(r.loc)).map(t => t.sujet);
   const also = DATA.topics.filter(t => t.aussi.some(x => x.startsWith(r.loc))).map(t => t.sujet);
   a.append(el("div", {class: "loc"}, r.loc),

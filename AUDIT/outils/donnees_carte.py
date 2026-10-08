@@ -22,7 +22,10 @@ for loc, name, size, subs, role in rr.summary_rows():
     pat = re.compile(r"`" + re.escape(loc) + r"(/[^`]*)?`")
     charge = {}
     for mode, (first, cond) in modes.items():
-        if pat.search(first):
+        cut = first.find("en trace complète")
+        if cut >= 0 and pat.search(first[cut:]) and not pat.search(first[:cut]):
+            charge[mode] = "c"
+        elif pat.search(first):
             charge[mode] = "d"
         elif pat.search(cond):
             charge[mode] = "s"

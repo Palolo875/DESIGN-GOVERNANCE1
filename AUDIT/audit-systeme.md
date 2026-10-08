@@ -104,3 +104,13 @@ Réserve : les alias ont été construits à partir des échecs de ce test ; le 
 - **Îlots (commit `32c71aa`)** : cinq renvois depuis les propriétaires naturels (START → SERVICE-BOUNDARY ; ACTION/RUN → PRECONDITION ; RUN-SYSTEM → MAINTENANCE ; SELECT → BIBLIOTHEQUE/READ et COMPAT ; noyau → SAVOIR/READ et SAVOIR/ROUTING). Résultat : 70 routes sur 70 atteignables depuis le noyau en trois renvois au plus (46, 19, 5) ; seule ACTION/RUN, conteneur des blocs RUN-*, reste sans renvoi entrant.
 - **Carte des sujets (commit `8d1c441`)** : section dérivée de READING_MAP, 16 sujets avec propriétaire et renvois ; affichée en tête de `--trouver` ; contrôle SUJ-01 (chaque route citée se résout et traite le sujet).
 - **Carte visuelle** : page générée depuis les sources (`AUDIT/outils/donnees_carte.py`, `construire_carte.py`, gabarit dans `CARTE/`), publiée en page privée. Reconstruire après un changement des sources : extraire les données, puis injecter dans le gabarit.
+
+## Suivi — étape 5 appliquée (commit `39ea7a6`)
+
+La mesure a changé le plan. L'« en bref » de trois lignes en tête des routes chargées d'office aurait ajouté environ 5 000 caractères de texte normatif à tenir fidèle, sans rien retirer : il n'est pas fait.
+
+- **Repli des blocs du noyau** à la lecture d'une route : chaque bloc déjà chargé avec la skill devient une ligne de renvoi qui nomme sa section ; `--complet` affiche tout ; `--trouver` marque ces passages « (noyau) ». Gain : mode DIRECTION, trace légère, 69 354 → 62 961 caractères (−9 %) ; trace complète −7 % ; les 70 routes −9 %.
+- **Noyau** : trois paragraphes réécrits en phrases plus courtes, contenu inchangé. Effet global faible (24,7 → 24,6 mots par phrase en moyenne).
+- **Carte visuelle** : distingue désormais les routes de trace complète (HANDOFF, GATE-B, RUN_CARD, CLOSE-PACKAGE). En DIRECTION : 14 routes d'abord (79 k, START et CHARGE compris), 4 en trace complète (+40 k), 11 si décision.
+
+Limite : la charge d'entrée reste élevée. La réduire vraiment demanderait de retirer ou de déplacer du texte normatif, ce que l'audit déconseille sans mesure de production : les runs plafond, qui lisaient trois fois plus, ont été préférés.
