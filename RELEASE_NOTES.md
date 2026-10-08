@@ -4,7 +4,17 @@
 **Date de V1.0.0 :** 2026-10-01\
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
-## Révision R2026-10-08-CORRECTIONS
+## Révision R2026-10-08-ACCES-MATIERE
+
+Après une mesure à l’aveugle (U5), le système active mieux ce qu’il sait. En mode `DIRECTION`, la typographie se charge d’office, chaque route facultative est tranchée explicitement, une route ouverte se lit en entier et un tour d’édition sur capture a lieu même en trace légère. Les paris P1 et P3, non concluants, sont retirés.
+
+Le lecteur `read_route.py` liste les routes (`--sommaire`), cherche par mots entiers avec synonymes et traductions, classe les routes, affiche le propriétaire d’un sujet (carte des sujets de READING_MAP) et replie les blocs déjà présents dans le noyau (`--complet` pour tout lire). Toutes les routes sont atteignables depuis le noyau.
+
+Nouvelle route `BIBLIOTHEQUE/SEQUENCE` pour la forme d’une page de plusieurs sections et la structure mobile. Compléments de craft, de sources, de données, de premier état et de vérité des exemples ; un marqueur de vague daté.
+
+Compatibilité : V1.0.0 ; aucun nouveau mode, gate, statut ni champ RUN_CARD. **Efficacité : `NOT-VERIFIED`** depuis la mesure U5 ; aucun effet sur la qualité des rendus n’est revendiqué.
+
+## Révision précédente R2026-10-08-CORRECTIONS
 
 Corrections faites sans run de mesure, à partir d’un audit complet du paquet, pour que la mesure comparative porte sur une version cohérente. La prise de brief construit dans le même tour ; `DIRECTION/CHARGE` est la seule liste de chargement, complète, et `LITE` se charge plus léger. Un seul bloc d’exécution courte (`ACTION/FAST-PATH`) et un seul jeu d’axes de position. Le noyau gagne l’absolu 4, le piège de conformité et la nuance du premier contact, perd ses répétitions de la boucle d’édition, suit l’ordre d’exécution et reste sous sa taille précédente (43 110 octets).
 
