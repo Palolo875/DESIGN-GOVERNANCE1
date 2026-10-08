@@ -101,7 +101,7 @@ Trois lois organisent l’ordre de jugement :
 
 ### Premium perçu comme heuristique de jugement
 
-[OPINION DE SYSTÈME] Pour une revue de surface, le caractère premium peut être examiné comme une relation entre **clarté, cohérence, précision, singularité maîtrisée et confiance**. Cette formule n’est ni une mesure scientifique, ni un score, ni un verdict. Elle sert uniquement à poser une question de critique : où la valeur perçue est-elle soutenue ou affaiblie par la structure, le système visuel, les détails, les états et le comportement ?
+[OPINION DE SYSTÈME] Pour une revue de surface, le caractère premium peut être examiné comme une relation entre **clarté, cohérence, précision, singularité maîtrisée, confiance et désirabilité**. Cette formule n’est ni une mesure scientifique, ni un score, ni un verdict. Elle sert uniquement à poser une question de critique : où la valeur perçue est-elle soutenue ou affaiblie par la structure, le système visuel, les détails, les états et le comportement ?
 
 Ne déduis jamais le premium d’un style minimaliste, d’une palette sombre, d’une grande typographie ou d’un espace généreux. Une direction peut être éditoriale, technique, chaleureuse, colorée, tactile ou ludique ; elle reste située si ses choix servent le JTBD, la compréhension, la confiance et la spécificité du produit. Si la clarté ou la confiance tombe, aucun polish expressif ne compense silencieusement cette perte.
 
@@ -230,7 +230,7 @@ Ces qualités ne constituent ni un score, ni un verdict automatique, ni une prom
 | **Résolution** | Les détails sont-ils au niveau de l’idée ? | États, responsive, microcopie, transitions, assets et composants tiennent la direction. |
 | **Retenue** | Le design sait-il s’arrêter ? | Les effets, variantes et détails faibles ont été retirés lorsqu’ils n’ajoutent rien. |
 
-Une **proposition premium** est une proposition dont la valeur perçue est soutenue par la relation entre clarté, cohérence, précision, singularité maîtrisée, confiance et désirabilité. Elle n’est pas définie par une palette sombre, une grande typographie, un espace vide, une matière riche ou un nom de style. Le premium doit survivre au contenu réel, aux états, au mobile, aux contraintes du produit et au geste principal.
+Une **proposition premium** se juge avec l’heuristique « Premium perçu » ci-dessus, sa seule définition ; elle n’est pas définie par une palette sombre, une grande typographie, un espace vide, une matière riche ou un nom de style, et doit survivre au contenu réel, aux états, au mobile, aux contraintes du produit et au geste principal.
 
 ### Creative Quality Review
 
@@ -305,7 +305,7 @@ Ces axes servent à produire une **alternative située**, jamais un menu de styl
 > **Alternative située :** position différente parce qu’elle répond à une contrainte, un public, un JTBD ou une opportunité distincte.
 
 <!-- noyau:début BOUCLE-AXE -->
-Pour produire du beau varié sans produire du bruit, faire varier **un axe situé à la fois** : public, JTBD, promesse, geste, structure, densité, matière ou ton. Pour chaque alternative, préciser en trace complète (en trace légère, la première proposition nomme l’alternative écartée) :
+Pour produire du beau varié sans produire du bruit, fais varier **un axe situé à la fois** : public, JTBD, promesse, geste, structure, densité, matière ou ton. Pour chaque alternative, précise en trace complète (en trace légère, la première proposition nomme l’alternative écartée) :
 
 - la décision qu’elle peut changer ;
 - le public, le contexte, le risque ou le JTBD qui la justifie ;
@@ -825,8 +825,6 @@ Associe chaque technique à une preuve adaptée :
 
 Le jugement commence par `P0` : direction visuelle, hiérarchie, composition, typographie, matière, états, contenu et action dominante. `P1` vérifie le plancher de compréhension, d’usage et d’accessibilité. `P2` vérifie que la décision est correctement traduite dans le runtime réel — web, Flutter, Swift, Kotlin ou autre stack. `P3` couvre performance, compatibilité, robustesse et maintien lorsque le risque le requiert. Si un risque critique d’usage, d’accessibilité, de sécurité, de confidentialité ou de permission est déclaré, sa protection passe avant l’optimisation visuelle, sans supprimer les autres contrôles. Une plateforme ne justifie ni une dégradation silencieuse du craft ni un `PASS` sans preuve.
 
-### Preuve par médium
-
 ### Traduire production et observation par médium
 
 Ces points de départ adaptent le contrat au support utile ; ils ne constituent ni catalogue obligatoire ni preuve que les moyens sont connectés. Rapproche ressource retrouvable, action de fabrication et observation dans la fiche ou la spec existante ; charge seulement la famille qui peut changer la décision.
@@ -908,7 +906,7 @@ Le sourcing de `DIRECTION` sépare trois rôles : **ancrage de direction** — p
 
 <!-- noyau:début COMP-VAGUES -->
 <!-- concept:ANT-01 -->
-[VEILLE 2026-10] **Marqueurs de vague**, pour nommer `MODAL` (`DIRECTION/CREATIVE-BOOT`), jamais pour interdire : un marqueur gardé par décision reste valide. Charge `SAVOIR/TOOLS/CONVERGENCE` si la convergence peut changer une décision ; les observations, sources et Signaux à confirmer y restent datés et limités. Retrouve les sources avant tout claim de fréquence, tendance ou provenance ; revue avant 2027-03.
+**Marqueurs de vague** : pour nommer `MODAL` (`DIRECTION/CREATIVE-BOOT`), jamais pour interdire ; un marqueur gardé par décision reste valide. Ils sont datés, avec leurs sources, limites et Signaux à confirmer, dans `SAVOIR/TOOLS/CONVERGENCE` : charge-la si la convergence peut changer une décision, et retrouve les sources avant tout claim de fréquence, tendance ou provenance.
 <!-- noyau:fin COMP-VAGUES -->
 
 ### CONVERGENCE — observations datées
@@ -918,7 +916,7 @@ Le sourcing de `DIRECTION` sépare trois rôles : **ancrage de direction** — p
 
 <!-- noyau:début MOY-CARTE -->
 <!-- concept:MOY-01 -->
-[VEILLE 2026-09] **Carte des moyens par couche** : des sources, jamais des styles. Si une ressource ou son intégration reste à choisir, charge `SAVOIR/TOOLS/MOYENS` pour chercher par rôle. Vérifie disponibilité, licence et conditions pour chaque ressource retenue au moment de l’intégrer ; le nom d’une plateforme ne vaut ni connexion ni autorisation. Revue avant 2027-03.
+**Carte des moyens par couche** (datée, dans `SAVOIR/TOOLS/MOYENS`) : des sources, jamais des styles. Si une ressource ou son intégration reste à choisir, charge-la pour chercher par rôle. Vérifie disponibilité, licence et conditions pour chaque ressource retenue au moment de l’intégrer ; le nom d’une plateforme ne vaut ni connexion ni autorisation.
 <!-- noyau:fin MOY-CARTE -->
 
 ### MOYENS — ressources par couche

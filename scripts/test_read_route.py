@@ -220,7 +220,8 @@ class ConnectionTests(unittest.TestCase):
             reader.connections(changed)
 
     def test_code_example_is_not_a_connection(self):
-        text = self.text.replace("### Illustrations de préparation", "```md\n### C98 — Exemple de code\n```\n\n### Illustrations de préparation")
+        text = self.text.replace("## Activation multi-perspective", "```md\n### C98 — Exemple de code\n```\n\n## Activation multi-perspective", 1)
+        self.assertIn("C98", text)
         _, entries = reader.connections(text)
         self.assertNotIn("C98", entries)
 

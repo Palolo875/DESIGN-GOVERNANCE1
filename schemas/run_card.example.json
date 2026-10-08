@@ -5,7 +5,7 @@
     "date_version": "2026-08-29 / V1",
     "mode": "DIRECTION",
     "decision": "Faire comprendre la relation entre le produit et son premier geste.",
-    "decision_intent": "Faire comprendre la relation entre le produit et son premier geste.",
+    "decision_intent": "Trancher si un objet directeur codé, plutôt qu’une composition générique, rend ce premier geste observable dès la première scène.",
     "risk": {
       "level": "important",
       "statement": "La première scène reste générique et ne rend pas observable la relation entre le produit et son premier geste.",
@@ -73,7 +73,7 @@
         {
           "capability": "navigateur/capture disponible",
           "kind": "tool_result",
-          "detail": "Captures du rendu dans les viewports déclarés."
+          "detail": "Captures pleine page produites par scripts/check_render.py --captures aux largeurs déclarées (valeurs d’exemple)."
         }
       ]
     },

@@ -46,7 +46,7 @@
     "expected_depth":"deep",
     "artifact":"route /incidents avec données de démonstration réalistes",
     "observations":["la gravité et l'âge sont identifiables en moins d'un regard", "le premier geste reste compréhensible"],
-    "task_results":["3 opérateurs sur 4 trouvent l'alerte critique", "2 opérateurs sur 4 comprennent l'action assignée"],
+    "task_results":["illustratif, non observé : 3 opérateurs sur 4 trouvent l'alerte critique", "illustratif, non observé : 2 opérateurs sur 4 comprennent l'action assignée"],
     "accessibility_results":["focus visible vérifié", "contraste vérifié", "test lecteur d'écran non exécuté"],
     "visual_review":["présence instrumentale", "signature par hiérarchie des alertes", "défaut dominant: historique trop discret"],
     "corrections":["renforcer le lien entre alerte et historique", "réobserver le scénario tablette"],

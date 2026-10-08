@@ -302,7 +302,7 @@ Une intention perceptuelle encore sans levier de construction active la traducti
 <!-- noyau:fin CHARGE-TABLE -->
 
 <!-- noyau:début CHARGE-FIN -->
-La clôture de chaque mode est `ACTION/CLOSE-PACKAGE`, en trace complète ; en trace légère, le run s’arrête à la proposition (`ACTION/HANDOFF`). Pour l’agent, les blocs « noyau » compilés dans la skill tiennent lieu de lecture de fabrication ; README, QUICKSTART et READING_MAP sont des lectures d’orientation pour les humains. Tags du noyau : `[REQUIS PAR LE MODULE — scope]`, obligation dans ce scope (sinon `NOT-VERIFIED`, ou `N/A-JUSTIFIED` motivé) ; `[VEILLE date]`, observation datée à vérifier avant de l’invoquer comme fait ; `[MÉTHODE]`, procédure à adapter.
+La clôture de chaque mode est `ACTION/CLOSE-PACKAGE`, en trace complète ; en trace légère, le run s’arrête à la proposition (`ACTION/HANDOFF`). Pour l’agent, les blocs « noyau » compilés dans la skill tiennent lieu de lecture de fabrication ; README, QUICKSTART et READING_MAP sont des lectures d’orientation pour les humains ; l’agent n’interroge READING_MAP que par `--connexions`. Tags du noyau : `[REQUIS PAR LE MODULE — scope]`, obligation dans ce scope (sinon `NOT-VERIFIED`, ou `N/A-JUSTIFIED` motivé) ; `[MÉTHODE]`, procédure à adapter.
 <!-- noyau:fin CHARGE-FIN -->
 
 **Déclenchement de l’atlas.** Si aucune famille ne peut être reliée à une décision modifiable, n’ouvre pas `SAVOIR/DESIGN-ATLAS` ; reste sur la route existante. Si le signal est ambigu, pose une seule clarification ciblée ou reviens à `DIRECTION/START` pour classer le mode et le risque. Si un risque critique apparaît, reclassifie avant de charger une famille. L’atlas ne sert jamais à résoudre par catalogue un JTBD, un mode ou une intention manquante.

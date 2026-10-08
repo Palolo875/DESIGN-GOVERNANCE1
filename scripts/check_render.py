@@ -561,7 +561,7 @@ def run(args: argparse.Namespace) -> int:
     print("Limites : seules les fautes objectivables sont contrôlées, à l'état et aux largeurs observés. "
           f"{raw['blocked']} requête(s) externe(s) bloquée(s) : les mesures utilisent alors les polices de repli. "
           "Les fonds en dégradé ou en image, les opacités de groupe, le texte SVG, le texte natif des contrôles et des pseudo-éléments ne sont pas évalués ; leur présence détectée conserve une réserve. "
-          "La couverture du contraste est bornée au DOM inspecté. L'objet de preuve mesure CSS et rectangle, sans vérifier les pixels ni l'occlusion. "
+          "La couverture du contraste est bornée au DOM inspecté ; le contraste non textuel (bordures, icônes, indicateur de focus) n'est pas mesuré et le ratio d'un texte qui passe n'est pas rapporté. L'objet de preuve mesure CSS et rectangle, sans vérifier les pixels ni l'occlusion. "
           "Les noms sont des candidats DOM, pas un calcul AccName ; leur présence conserve une réserve. "
           "Le clavier porte sur les candidats du périmètre actif et les arrêts observés ; une borne atteinte conserve une réserve. "
           "Les captures montrent l'état observé ; elles ne jugent rien. "

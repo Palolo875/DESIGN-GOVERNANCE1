@@ -211,10 +211,6 @@ Une condition établie peut appeler la contribution utile ; une relation déjà 
 
 **Observation et réexamen.** Préparer format et distance pour le print, séquence et interruption applicable pour le motion, contexte et runtime pour le spatial. Une image fixe ne prouve pas la fluidité ; une prévisualisation numérique ne prouve pas la fabrication physique. Réexaminer si support, diffusion, moyens ou contexte change.
 
-### Illustrations de préparation
-
-Ces briefs indépendants sont des hypothèses, sans assets fabriqués ni rendus observés : atelier de céramique (matière réelle, cadrage et rythme de collection), comparaison d’usage (valeur/unité/période et densité utile), affiche de festival (masse dominante et informations pratiques au format final), séquence explicative (repère commun et transformation réelle). Ils illustrent des leviers différents, sans quota, style universel ni promesse de résultat. Les moyens et plafonds restent à établir dans chaque projet.
-
 ## Activation multi-perspective
 
 Une perspective ne se charge que si son déclencheur peut modifier la décision. `N/A-JUSTIFIED` est une sortie valide lorsque la perspective est examinée et non applicable. Ne pas charger une lecture ne rend jamais `N/A` un contrôle applicable du propriétaire.
