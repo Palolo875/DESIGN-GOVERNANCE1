@@ -58,3 +58,25 @@ Leçon dominante : **la série**. Une page est une suite de sections ; ces image
 Contre-exemple dans la même image : « Stand out » réussit son premier écran et son fil, puis retombe au milieu dans la rangée générique « icône + titre + texte × 4 ». C'est exactement le schéma de nos runs U5 (premier écran situé, milieu gabarit).
 
 Mises en garde : deux présentations sont des modèles avec faux texte (« Far far away… ») : la structure est la leçon, pas le contenu. La page web date d'environ 2014 (icônes plates, rangée de services) : c'est la vague de son époque. Le séparateur en vague est un cliché sauf s'il vient du sujet.
+
+### Compléments de la deuxième série côté savoir, direction et esthétique
+
+- Savoir : texte vertical comme ancrage de bord ; calligraphie ou écriture manuscrite comme voix (déjà ouvert par la comparaison de voix de `SAVOIR/CRAFT`, à relier) ; bord peint ou déchiré comme matière.
+- Direction : l'objet-thèse composite (l'artiste fait de ses œuvres) ; le jeu sur son propre sens (« 180° » retourné), qui rejoint l'idée par contresens.
+- Esthétique : le **registre d'illustration**. Le même outil peut être professionnel (aquarelle d'Originality) ou enfantin ; c'est le reproche du propriétaire à P en U3 (« trop centré sur les enfants avec ce côté dessiné »). À relier à `SAVOIR/STYLE`.
+
+## Troisième série d'images (5) : écrans d'application mobile
+
+Images : Plan&go (partage de voyage, billet orange, tampons de passeport, avatars à bulles) ; Kidory (livres pour enfants, mode lecture brun) ; application de tennis de table (écran d'accueil illustré) ; Peloton (photo plein cadre, inscription) ; Numi (ciel et nuage, puis carte de patrimoine qui émerge du nuage).
+
+Déjà connu du système : trois de ces écrans (tennis de table, Peloton, Numi 1) correspondent exactement au marqueur de vague `[VEILLE 2026-10] Écran d'accueil d'app` de `SAVOIR/TOOLS/CONVERGENCE` (ambiance en haut, slogan court, boutons en bas, conditions en petit). Le contre-exemple qu'il recommande, montrer le produit en action, est ce que font Numi 2 et Plan&go.
+
+| Opération | Où on la voit | Couverture actuelle |
+|---|---|---|
+| Personnalité dans l'objet du domaine, conventions dans les contrôles : le billet et les tampons portent le voyage, les boutons et formulaires restent standards | Plan&go | Partielle (OBJECT, UI-UX-REALITY) ; le partage explicite n'est pas formulé |
+| Le mécanisme montré par la présence : des avatars dessinés et des bulles (« Tickets uploaded ») montrent la collaboration sans faux témoignage | Plan&go | Partielle (geste produit) |
+| Une décision par écran sur mobile : un champ, un choix, une action dans la zone du pouce ; feuille posée sur le contexte, l'objet reste visible au-dessus | Plan&go, Peloton | Absente (aucune occurrence de « pouce » ni de « une seule tâche ») ; nos pages mobiles sont des pages d'ordinateur empilées |
+| Le contenu d'abord : en mode lecture, l'interface se retire (réglages repliés, thème chaud) | Kidory | Partielle |
+| Franchissement de cadre en interface : la carte émerge du nuage, les avatars débordent du billet | Numi 2, Plan&go | Absente (voir la première série) |
+
+Vérité : Plan&go affiche une adresse e-mail réaliste (« 9760960795@gmail.com ») dans une maquette ; c'est la donnée personnelle d'apparence réelle que le système veut éviter. Peloton est une marque réelle : référence d'exécution, pas d'identité à reprendre.
