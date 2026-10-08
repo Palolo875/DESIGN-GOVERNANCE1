@@ -582,9 +582,10 @@ def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
     d = cells("DIRECTION")
     first = d[1] if len(d) > 1 else ""
     vt, fo = first.find("`DIRECTION/VISUAL_TARGET`"), first.find("`DIRECTION/FIRST-OBJECT`")
-    if "`ACTION/RUN-DIRECTION`" not in first or "`ACTION/FIRST-RENDER`" not in first or not (0 <= vt < fo):
-        errors.append("[CHG-07] chargement : la ligne DIRECTION de DIRECTION/CHARGE doit charger RUN-DIRECTION et FIRST-RENDER, "
-                      "et placer VISUAL_TARGET avant FIRST-OBJECT")
+    if "`ACTION/RUN-DIRECTION`" not in first or "`ACTION/FIRST-RENDER`" not in first or "`SAVOIR/TYPE`" not in first \
+            or not (0 <= vt < fo):
+        errors.append("[CHG-07] chargement : la ligne DIRECTION de DIRECTION/CHARGE doit charger RUN-DIRECTION, FIRST-RENDER "
+                      "et SAVOIR/TYPE (U5), et placer VISUAL_TARGET avant FIRST-OBJECT")
     gb, tc = first.find("`ACTION/GATE-B`"), first.find("trace complète")
     if gb >= 0 and not (0 <= tc < gb):
         errors.append("[CHG-08] chargement : en DIRECTION, Gate B n'est chargée qu'en trace complète (ACTION/HANDOFF)")
