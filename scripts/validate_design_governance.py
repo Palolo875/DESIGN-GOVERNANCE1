@@ -13,7 +13,7 @@ import unicodedata
 from pathlib import Path
 from urllib.parse import unquote
 
-from read_route import headings, non_code_lines as indexed_non_code_lines
+from read_route import headings, lieu, non_code_lines as indexed_non_code_lines
 
 ROOT = Path(__file__).resolve().parents[1]
 IS_LOCAL = (ROOT / "official").is_dir() and not (ROOT / "V1" / "official").is_dir()
@@ -72,6 +72,15 @@ def read(path: Path, errors: list[str]) -> str:
         return ""
 
 
+def read_source(name: str, errors: list[str]) -> str:
+    """Source historique lue à son lieu actuel (table LIEUX du lecteur) ; absente : citée, contrôles poursuivis."""
+    paths = [p for p in lieu(name) if p.is_file()]
+    if not paths:
+        fail(errors, f"source requise absente ou illisible : {name} (FileNotFoundError)")
+        return ""
+    return "\n".join(read(p, errors) for p in paths)
+
+
 def check_manifest(errors: list[str]) -> None:
     """Doublons du manifeste et source unique de version (CHANGELOG)."""
     for name, items in LISTS.items():
@@ -81,7 +90,7 @@ def check_manifest(errors: list[str]) -> None:
                 if item in seen:
                     fail(errors, f"manifeste {name} : entrée en doublon : {item}")
                 seen.add(item)
-    changelog = read(OFFICIAL / "CHANGELOG.md", errors)
+    changelog = read_source("CHANGELOG.md", errors)
     match = re.search(r"\*\*Version expérimentale :\*\* `V(\d+\.\d+\.\d+)`", changelog)
     if not isinstance(VERSION, str) or not VERSION:
         fail(errors, "version absente du manifeste (source : CHANGELOG)")
@@ -91,13 +100,15 @@ def check_manifest(errors: list[str]) -> None:
         return
     if VERSION != match.group(1):
         fail(errors, f"version du manifeste divergente : {VERSION} (CHANGELOG : {match.group(1)})")
-    titles = [ROOT / "README.md", OFFICIAL / "README.md", OFFICIAL / "QUICKSTART.md", ROOT / "RELEASE_NOTES.md"]
-    for path in titles:
+    titles = [("README.md", ROOT / "README.md"), ("README.md (sources)", None), ("QUICKSTART.md", None),
+              ("RELEASE_NOTES.md", ROOT / "RELEASE_NOTES.md")]
+    for label, path in titles:
         if path == ROOT / "RELEASE_NOTES.md" and not path.is_file():
             continue  # RELEASE_NOTES n’existe pas dans l’export Local
-        first = read(path, errors).splitlines()[:1]
+        text = read(path, errors) if path else read_source(label.split(" ")[0], errors)
+        first = text.splitlines()[:1]
         if first and f"V{match.group(1)}" not in first[0]:
-            fail(errors, f"version du titre divergente : {path.relative_to(ROOT).as_posix()} (attendu V{match.group(1)})")
+            fail(errors, f"version du titre divergente : {label} (attendu V{match.group(1)})")
 
 
 def check_expected_files(errors: list[str]) -> None:
@@ -202,10 +213,9 @@ def check_action_projection_source(errors: list[str]) -> None:
     ACTION.md may explain the transport contract, but it must not carry a second
     YAML/JSON projection that can drift from schemas/run_card.example.json.
     """
-    action = OFFICIAL / "ACTION.md"
-    if not action.is_file():
+    if not any(p.is_file() for p in lieu("ACTION.md")):
         return
-    text = action.read_text(encoding="utf-8")
+    text = read_source("ACTION.md", errors)
     if "schemas/run_card.example.json" not in text:
         fail(errors, "ACTION ne référence pas l’exemple RUN_CARD canonique")
     if re.search(r"(?im)^\s*(```|~~~)(?:yaml|yml|json)\s*$", text):  # insensible à la casse
@@ -240,8 +250,8 @@ def check_state_direction_separation(errors: list[str]) -> None:
 
 
 def check_canonicity_language(errors: list[str]) -> None:
-    readme = read(OFFICIAL / "README.md", errors)
-    changelog = read(OFFICIAL / "CHANGELOG.md", errors)
+    readme = read_source("README.md", errors)
+    changelog = read_source("CHANGELOG.md", errors)
     if readme and "Les cinq fichiers suivants sont les **seules sources normatives** de V1" not in readme:
         fail(errors, "la hiérarchie des sources normatives n’est pas formulée dans le README officiel")
     if "exactement sept fichiers canoniques" in changelog or "sept fichiers actifs" in changelog:
@@ -249,7 +259,7 @@ def check_canonicity_language(errors: list[str]) -> None:
 
 
 def check_lifecycle_contract(errors: list[str]) -> None:
-    changelog = read(OFFICIAL / "CHANGELOG.md", errors)
+    changelog = read_source("CHANGELOG.md", errors)
     if not changelog:
         return
     required_terms = ("SEED", "PILOT", "ADOPTED", "DEPRECATED", "ABANDONED", "routes présentes dans le seed", "Migration des anciens aliases")
@@ -260,13 +270,13 @@ def check_lifecycle_contract(errors: list[str]) -> None:
         if alias not in changelog:
             fail(errors, f"alias de migration absent du CHANGELOG : {alias}")
 
-    bibliography = read(OFFICIAL / "BIBLIOTHEQUE.md", errors)
+    bibliography = read_source("BIBLIOTHEQUE.md", errors)
     if bibliography and "section « Migration des anciens aliases » de `CHANGELOG.md`" not in bibliography:
         fail(errors, "BIBLIOTHEQUE ne pointe pas vers le propriétaire de sa migration")
 
 
 def check_reading_contract(errors: list[str]) -> None:
-    action = read(OFFICIAL / "ACTION.md", errors)
+    action = read_source("ACTION.md", errors)
     if not action:
         return
     for mode in ("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"):
@@ -278,35 +288,31 @@ def check_reading_contract(errors: list[str]) -> None:
     if "FAST-PATH" not in action or "sixième voie" not in action:
         fail(errors, "orientation ACTION absente : FAST-PATH doit être qualifié comme vue et non comme voie")
 
-    official_readme = read(OFFICIAL / "README.md", errors)
+    official_readme = read_source("README.md", errors)
     if official_readme and "la `RUN_CARD` rassemble" not in official_readme:
         fail(errors, "RUN_CARD insuffisamment introduite dans le README officiel")
 
 
 def check_experimental_position(errors: list[str]) -> None:
-    official_sources = [OFFICIAL / name for name in ("DIRECTION.md", "ACTION.md", "SAVOIR.md", "BIBLIOTHEQUE.md")]
-    public_entry_docs = [
-        ROOT / "README.md",
-        ROOT / "RELEASE_NOTES.md",
-        OFFICIAL / "README.md",
-        OFFICIAL / "QUICKSTART.md",
-        OFFICIAL / "CHANGELOG.md",
-    ]
+    # Chaque source historique porte le marqueur une fois, quel que soit le nombre de fichiers qui la portent.
+    historic = ("DIRECTION.md", "ACTION.md", "SAVOIR.md", "BIBLIOTHEQUE.md", "README.md", "QUICKSTART.md", "CHANGELOG.md")
+    public_entry_docs = [ROOT / "README.md", ROOT / "RELEASE_NOTES.md"]
     marker = "expérimentation maintenue"
     # Phrase normative qui NIE la maturité : elle contient « release publique » et reste permise.
     negation = re.compile(r"[^.\n]*n’est pas présentée comme une release publique[^.\n]*\.?", re.IGNORECASE)
     # Toute autre revendication de maturité publique est interdite (« version publique », « première version
     # publique », « release publique », « distribution publique »). Le texte et le contrôle ne doivent pas diverger.
     claim = re.compile(r"\b(?:première\s+)?(?:version|release|distribution)\s+publique\b", re.IGNORECASE)
-    for path in official_sources + [path for path in public_entry_docs if path.is_file() or path.parent == OFFICIAL]:
-        text = read(path, errors)
+    items = [(f"{OFFICIAL.relative_to(ROOT).as_posix()}/{n}", read_source(n, errors)) for n in historic]
+    items += [(p.relative_to(ROOT).as_posix(), read(p, errors)) for p in public_entry_docs if p.is_file()]
+    for label, text in items:
         if text and marker not in text.lower():
-            fail(errors, f"marqueur expérimental absent ou divergent : {path.relative_to(ROOT)}")
+            fail(errors, f"marqueur expérimental absent ou divergent : {label}")
         if text:
             leftover = negation.sub("", text)
             hit = claim.search(leftover)
             if hit:
-                fail(errors, f"revendication de maturité publique interdite ({hit.group(0)!r}) : {path.relative_to(ROOT)}")
+                fail(errors, f"revendication de maturité publique interdite ({hit.group(0)!r}) : {label}")
 
 
 def check_local_autonomy(errors: list[str]) -> None:

@@ -43,7 +43,7 @@ REQUIRED = (
     "N/A-JUSTIFIED",
     "NOT-VERIFIED",
 )
-OWNER_MAP = {f"{prefix}/*": OFFICIAL / f"{prefix}.md" for prefix in rr.PREFIXES}
+OWNER_MAP = {f"{prefix}/*": rr.lieu(f"{prefix}.md")[0] for prefix in rr.PREFIXES}
 CITED = re.compile(rf"`((?:{'|'.join(rr.PREFIXES)})/[A-Z0-9_\-]+(?:/[A-Z0-9_\-]+)?)`")
 
 
@@ -79,19 +79,18 @@ def check_map(text: str, errors: list[str]) -> None:
             errors.append(f"titre de locator introuvable : {locator} ({exc})")
     # unicité des titres porteurs d’un locator, dans tous les propriétaires
     carriers: dict[str, list[str]] = {}
-    for prefix in rr.PREFIXES:
-        path = OFFICIAL / f"{prefix}.md"
+    for path in rr.sources_normatives():
         lines = path.read_text(encoding="utf-8").splitlines()
         for index, _, heading in rr.headings(lines):
             own = rr.heading_locator(heading)
             if own:
-                carriers.setdefault(own, []).append(f"{path.name}:{index + 1}")
+                carriers.setdefault(own, []).append(f"{rr.nom(path)}:{index + 1}")
     for locator, places in sorted(carriers.items()):
         if len(places) > 1:
             errors.append(f"locator ambigu : {locator} porté par {', '.join(places)}")
     # couverture : tout locator cité dans les fichiers officiels et la skill est servi
     cited: set[str] = set()
-    sources = sorted(OFFICIAL.glob("*.md")) + [SKILL_DIR / "SKILL.md"]
+    sources = rr.fichiers_officiels() + [SKILL_DIR / "SKILL.md"]
     for source in sources:
         if source.is_file():
             cited.update(CITED.findall(source.read_text(encoding="utf-8")))
@@ -214,15 +213,22 @@ def plain(cell: str) -> str:
 
 
 def load_texts() -> dict[str, str]:
+    # Sources historiques lues à leur lieu actuel (table LIEUX du lecteur) ; les autres fichiers, à leur chemin.
+    historic = {"D": "DIRECTION.md", "A": "ACTION.md", "S": "SAVOIR.md", "B": "BIBLIOTHEQUE.md", "C": "CHANGELOG.md",
+                "G": "GLOSSAIRE.md", "Q": "QUICKSTART.md", "RM": "READING_MAP.md", "OM": "ORCHESTRATION_MAP.md"}
     files = {
-        "D": OFFICIAL / "DIRECTION.md", "A": OFFICIAL / "ACTION.md", "S": OFFICIAL / "SAVOIR.md",
-        "B": OFFICIAL / "BIBLIOTHEQUE.md", "C": OFFICIAL / "CHANGELOG.md", "G": OFFICIAL / "GLOSSAIRE.md",
-        "Q": OFFICIAL / "QUICKSTART.md", "RM": MAP, "OM": OFFICIAL / "ORCHESTRATION_MAP.md",
         "README": ROOT / "README.md", "NOTES": ROOT / "RELEASE_NOTES.md",
         "SK": SKILL_DIR / "SKILL.md", "EX": SKILL_DIR / "references" / "examples.md",
         "MP": SKILL_DIR / "references" / "machine_projection.md",
     }
-    return {key: path.read_text(encoding="utf-8") if path.is_file() else "" for key, path in files.items()}
+    out = {}
+    for key, name in historic.items():
+        try:
+            out[key] = rr.lieu_texte(name)
+        except FileNotFoundError:
+            out[key] = ""
+    out.update({key: path.read_text(encoding="utf-8") if path.is_file() else "" for key, path in files.items()})
+    return out
 
 
 def lcf_07(t: dict[str, str]) -> bool:

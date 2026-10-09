@@ -183,13 +183,13 @@ NEGATION = re.compile(r"\bjamais\b|\bne\b|\bn[’']", re.I)
 
 def check_universal(corpus: dict[Path, list[str]], errors: list[str]) -> None:
     for path, lines in corpus.items():
-        if path.name == "CHANGELOG.md":
+        if "CHANGELOG.md" in rr.origines(path):
             continue
         for para in paragraphs(lines):
             for sentence in re.split(r"(?<=[.!?])\s+", para):
                 if RETIRED_UNIVERSAL.search(sentence) or (UNIVERSAL.search(sentence) and ALWAYS.search(sentence)
                                                           and not NEGATION.search(sentence)):
-                    errors.append(f"[UNI-01] choix présenté comme universel ({path.name}) : « {sentence[:90]}… »")
+                    errors.append(f"[UNI-01] choix présenté comme universel ({rr.nom(path)}) : « {sentence[:90]}… »")
 
 
 # 10. Ordre de DIRECTION : rôle, posture et récapitulatif de protection avant les sections détaillées.
@@ -314,15 +314,15 @@ def check_entry(corpus: dict[Path, list[str]], errors: list[str]) -> None:
     if len(constitutions) != 1 or CONSTITUTION_SIGNATURE not in constitutions[0]:
         errors.append("[CST-01] constitution minimale absente, multiple ou inexacte dans README.md (bloc « constitution »)")
     for path, lines in corpus.items():
-        if path.resolve() == readme.resolve() or path.name == "CHANGELOG.md":
+        if path.resolve() == readme.resolve() or "CHANGELOG.md" in rr.origines(path):
             continue
         if any(CONSTITUTION_SIGNATURE in line for line in lines):
-            errors.append(f"[CST-01] copie de la constitution minimale hors du README : {path.name}")
+            errors.append(f"[CST-01] copie de la constitution minimale hors du README : {rr.nom(path)}")
 
 
 # 15. Préambule de BIBLIOTHEQUE : ni instrumentation de lecture ni contrat de promotion avant les routes.
 def check_preamble(errors: list[str]) -> None:
-    text = (OFFICIAL / "BIBLIOTHEQUE.md").read_text(encoding="utf-8")
+    text = rr.lieu_texte("BIBLIOTHEQUE.md")
     start, end = text.find("## Responsabilité"), text.find("## BIBLIOTHEQUE/READ")
     if start < 0 or end < 0:
         errors.append("[MNT-01] préambule de BIBLIOTHEQUE introuvable")
@@ -335,12 +335,12 @@ def check_preamble(errors: list[str]) -> None:
 
 # 14. Cartes réunies : les combinaisons par résultat vivent dans READING_MAP ; ORCHESTRATION_MAP n'est qu'un pointeur.
 def check_maps(errors: list[str]) -> None:
-    reading = (OFFICIAL / "READING_MAP.md").read_text(encoding="utf-8")
+    reading = rr.lieu_texte("READING_MAP.md")
     if reading.count("## Combinaisons par résultat recherché") != 1:
         errors.append("[MAP-01] READING_MAP doit porter une seule section « Combinaisons par résultat recherché »")
-    pointer = OFFICIAL / "ORCHESTRATION_MAP.md"
-    if pointer.is_file():
-        text = pointer.read_text(encoding="utf-8")
+    pointer = [p for p in rr.lieu("ORCHESTRATION_MAP.md") if p.is_file()]
+    if pointer:
+        text = rr.lieu_texte("ORCHESTRATION_MAP.md")
         if any(line.startswith("|") or line.startswith("## ") for line in text.splitlines()) or len(text.split()) > 80:
             errors.append("[MAP-01] ORCHESTRATION_MAP porte de nouveau un contenu propre (pointeur de compatibilité attendu)")
 
@@ -380,7 +380,7 @@ LOAD_POINTERS = [("QUICKSTART.md", "| Une direction visuelle ouverte |"),
 
 
 def texts() -> dict[Path, list[str]]:
-    files = sorted(OFFICIAL.glob("*.md")) + sorted(SKILL_DIR.rglob("*.md"))
+    files = rr.fichiers_officiels() + sorted(SKILL_DIR.rglob("*.md"))
     readme = ROOT / "README.md"
     if readme.is_file():
         files.append(readme)
@@ -417,12 +417,12 @@ def check_concepts(corpus: dict[Path, list[str]], errors: list[str]) -> None:
             errors.append(f"{cid} absent ({prop})")
             continue
         if len(places) > 1:
-            where = ", ".join(f"{p.name}:{i + 1}" for p, i in places)
+            where = ", ".join(f"{rr.nom(p)}:{i + 1}" for p, i in places)
             errors.append(f"{cid} défini {len(places)} fois : {where}")
             continue
         path, i = places[0]
-        if path.name != owner or path.parent != OFFICIAL:
-            errors.append(f"{cid} hors de son fichier propriétaire ({owner}) : {path.name}")
+        if owner not in rr.origines(path):
+            errors.append(f"{cid} hors de son fichier propriétaire ({owner}) : {rr.nom(path)}")
             continue
         block = []
         for line in corpus[path][i + 1:]:
@@ -463,11 +463,11 @@ def check_retired(corpus: dict[Path, list[str]], errors: list[str]) -> None:
     for pattern, repl, exempt in RETIRED:
         rx = re.compile(pattern, re.I)
         for path, lines in corpus.items():
-            if path.name in exempt:
+            if path.name in exempt or rr.origines(path) & exempt:
                 continue
             for i, line in enumerate(lines):
                 if rx.search(line):
-                    errors.append(f"vocabulaire retiré « {pattern} » ({repl}) : {path.name}:{i + 1}")
+                    errors.append(f"vocabulaire retiré « {pattern} » ({repl}) : {rr.nom(path)}:{i + 1}")
 
 
 def check_fidelity(corpus: dict[Path, list[str]], errors: list[str]) -> None:
@@ -476,7 +476,7 @@ def check_fidelity(corpus: dict[Path, list[str]], errors: list[str]) -> None:
         for path, lines in corpus.items():
             for para in paragraphs(lines):
                 if rx.search(para) and needle not in para:
-                    errors.append(f"résumé infidèle ({name}) : {path.name} « {para[:70]}… » sans « {needle} »")
+                    errors.append(f"résumé infidèle ({name}) : {rr.nom(path)} « {para[:70]}… » sans « {needle} »")
 
 
 def cell(text: str) -> str:
@@ -484,9 +484,8 @@ def cell(text: str) -> str:
 
 
 def check_glossary(errors: list[str]) -> None:
-    g = OFFICIAL / "GLOSSAIRE.md"
     heads = set()
-    for line in g.read_text(encoding="utf-8").splitlines():
+    for line in rr.lieu_lignes("GLOSSAIRE.md"):
         if line.lstrip().startswith("|"):
             parts = line.split("|")
             if len(parts) > 2:
@@ -506,14 +505,14 @@ def check_unique_rows(corpus: dict[Path, list[str]], errors: list[str]) -> None:
             if len(key.split()) < 8:
                 continue
             if key in seen:
-                errors.append(f"ligne de table en double : {path.name}:{seen[key] + 1} et {i + 1}")
+                errors.append(f"ligne de table en double : {rr.nom(path)}:{seen[key] + 1} et {i + 1}")
             else:
                 seen[key] = i
 
 
 def check_register(errors: list[str]) -> None:
     for name in REGISTER_FILES:
-        for i, line in enumerate((OFFICIAL / name).read_text(encoding="utf-8").splitlines()):
+        for i, line in enumerate(rr.lieu_lignes(name)):
             m = TUTOIEMENT.search(line)
             if m:
                 errors.append(f"registre : tutoiement « {m.group(0)} » dans {name}:{i + 1}")
@@ -527,23 +526,23 @@ def check_noyau(corpus: dict[Path, list[str]], errors: list[str]) -> None:
             m = NOYAU_MARK.match(line.strip())
             if not m:
                 continue
-            if path.name not in NORMATIVE or path.parent != OFFICIAL:
-                errors.append(f"noyau : balise hors source normative ({path.name}:{i + 1})")
+            if not rr.origines(path) & NORMATIVE:
+                errors.append(f"noyau : balise hors source normative ({rr.nom(path)}:{i + 1})")
                 continue
             kind, bid = m.groups()
             if kind == "début":
                 if open_id:
-                    errors.append(f"noyau : {bid} ouvert dans {open_id} ({path.name}:{i + 1})")
+                    errors.append(f"noyau : {bid} ouvert dans {open_id} ({rr.nom(path)}:{i + 1})")
                 if bid in seen:
-                    errors.append(f"noyau : bloc {bid} défini deux fois ({seen[bid]} et {path.name})")
-                seen[bid] = path.name
+                    errors.append(f"noyau : bloc {bid} défini deux fois ({seen[bid]} et {rr.nom(path)})")
+                seen[bid] = rr.nom(path)
                 open_id = bid
             else:
                 if bid != open_id:
-                    errors.append(f"noyau : fin {bid} sans début ({path.name}:{i + 1})")
+                    errors.append(f"noyau : fin {bid} sans début ({rr.nom(path)}:{i + 1})")
                 open_id = None
         if open_id:
-            errors.append(f"noyau : bloc {open_id} non fermé ({path.name})")
+            errors.append(f"noyau : bloc {open_id} non fermé ({rr.nom(path)})")
     try:
         raw = bc.SKILL.read_bytes()
         bc.check_budget(raw)
@@ -562,10 +561,10 @@ def load_row(lines: list[str], mode: str) -> str:
 def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
     for path, lines in corpus.items():
         for i, line in enumerate(lines):
-            if LOAD_HEADERS.match(line) and path.name not in LOAD_OWNERS:
-                errors.append(f"[CHG-05] chargement : table de chargement hors DIRECTION/CHARGE ({path.name}:{i + 1})")
+            if LOAD_HEADERS.match(line) and path.name not in LOAD_OWNERS and not rr.origines(path) & LOAD_OWNERS:
+                errors.append(f"[CHG-05] chargement : table de chargement hors DIRECTION/CHARGE ({rr.nom(path)}:{i + 1})")
     for name, prefix in LOAD_POINTERS:
-        rows = [l for l in (OFFICIAL / name).read_text(encoding="utf-8").splitlines() if l.startswith(prefix)]
+        rows = [l for l in rr.lieu_lignes(name) if l.startswith(prefix)]
         if rows and not all("`DIRECTION/CHARGE`" in r for r in rows):
             errors.append(f"[CHG-06] chargement : {name} redéfinit la liste « {prefix.strip('| *')} » au lieu de renvoyer à DIRECTION/CHARGE")
     try:
@@ -604,7 +603,7 @@ def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
 
 
 def check_order(errors: list[str]) -> None:
-    lines = (OFFICIAL / "DIRECTION.md").read_text(encoding="utf-8").splitlines()
+    lines = rr.lieu_lignes("DIRECTION.md")
     for first, then in ORDER:
         a = [i for i, l in enumerate(lines) if l.strip() == first or l.startswith(first + " —")]
         b = [i for i, l in enumerate(lines) if l.strip() == then or l.startswith(then + " —")]
@@ -699,7 +698,7 @@ UI_TRIGGER = "`ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substan
 
 
 def check_ui_trigger(errors: list[str]) -> None:
-    source = (OFFICIAL / "DIRECTION.md").read_text(encoding="utf-8")
+    source = rr.lieu_texte("DIRECTION.md")
     start = source.find("## DIRECTION/CHARGE")
     skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
     places = [("CHARGE", source[start:source.find("\n## ", start + 1)] if start >= 0 else ""),
@@ -733,8 +732,10 @@ COMMENCER = re.compile(r"\]\((?:\.\./)+README\.md#commencer\)")
 
 def check_facades(errors: list[str]) -> None:
     for name, prefix, needle, origin in ROW_NEEDLES:
-        path = OFFICIAL / name
-        rows = [line for line in path.read_text(encoding="utf-8").splitlines() if line.startswith(prefix)] if path.is_file() else []
+        try:
+            rows = [line for line in rr.lieu_lignes(name) if line.startswith(prefix)]
+        except FileNotFoundError:
+            rows = []
         if len(rows) != 1 or needle not in rows[0]:
             errors.append(f"[FAC-01] {name} : ligne « {prefix} » absente, multiple ou sans « {needle} » ({origin})")
     examples = SKILL_DIR / "references" / "examples.md"
@@ -746,8 +747,8 @@ def check_facades(errors: list[str]) -> None:
     if re.search(r"boulangerie", section, re.I):
         errors.append("[FAC-01] examples.md : exemple dans le domaine du brief de référence")
     for name in ("README.md", "QUICKSTART.md"):
-        path = OFFICIAL / name
-        if path.is_file() and not COMMENCER.search(path.read_text(encoding="utf-8")):
+        paths = [p for p in rr.lieu(name) if p.is_file()]
+        if paths and not COMMENCER.search(rr.lieu_texte(name)):
             errors.append(f"[FAC-01] {name} : la section « Commencer » du README du package n'est pas liée")
     readme = ROOT / "README.md"
     if readme.is_file() and "## Commencer" not in readme.read_text(encoding="utf-8"):

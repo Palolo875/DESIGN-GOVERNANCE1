@@ -125,11 +125,91 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
     return next((idx for idx, lvl, _ in heads if idx > start and lvl <= level), len(lines))
 
 
+# Lieux : nom historique d’une source (« SAVOIR.md ») → fichiers, relatifs à la racine, qui portent aujourd’hui
+# son contenu. Un nom absent de la table désigne le fichier du même nom dans OFFICIAL. Le rangement déplace le
+# texte puis met à jour cette table, et elle seule : lecteur, compilation du noyau et validateurs passent par elle.
+LIEUX: dict[str, tuple[str, ...]] = {}
+
+
+def lieu(name: str) -> list[Path]:
+    """Fichiers qui portent aujourd’hui le contenu de la source historique `name`, dans l’ordre de lecture."""
+    if name in LIEUX:
+        return [ROOT / p for p in LIEUX[name]]
+    return [OFFICIAL / name]
+
+
+def lieu_texte(name: str) -> str:
+    """Texte de la source historique `name` (ses fichiers mis bout à bout) ; échoue si aucun n’existe."""
+    paths = [p for p in lieu(name) if p.is_file()]
+    if not paths:
+        raise FileNotFoundError(name)
+    return "\n".join(p.read_text(encoding="utf-8") for p in paths)
+
+
+def lieu_lignes(name: str) -> list[str]:
+    return lieu_texte(name).splitlines()
+
+
+def origines(path: Path) -> set[str]:
+    """Sources historiques dont le fichier `path` porte du contenu."""
+    target = path.resolve()
+    names = {n for n, rels in LIEUX.items() if any((ROOT / r).resolve() == target for r in rels)}
+    if path.parent.resolve() == OFFICIAL.resolve() and path.name not in LIEUX:
+        names.add(path.name)
+    return names
+
+
+def nom(path: Path) -> str:
+    """Nom affiché : nom simple dans OFFICIAL, chemin relatif ailleurs."""
+    if path.parent.resolve() == OFFICIAL.resolve():
+        return path.name
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        return path.name
+
+
+def noms_officiels() -> list[str]:
+    """Noms historiques des fichiers officiels (présents dans OFFICIAL ou déclarés dans LIEUX)."""
+    return sorted({p.name for p in OFFICIAL.glob("*.md")} | set(LIEUX))
+
+
+def fichiers_officiels() -> list[Path]:
+    """Tous les fichiers qui portent aujourd’hui le contenu officiel, sans doublon, dans un ordre stable."""
+    seen, out = set(), []
+    for name in noms_officiels():
+        for path in lieu(name):
+            if path.is_file() and path.resolve() not in seen:
+                seen.add(path.resolve())
+                out.append(path)
+    return out
+
+
+def sources_normatives() -> list[Path]:
+    seen, out = set(), []
+    for prefix in PREFIXES:
+        for path in lieu(f"{prefix}.md"):
+            if path.resolve() not in seen:
+                seen.add(path.resolve())
+                out.append(path)
+    return out
+
+
+def porteur(name: str, root_locator: str) -> Path:
+    """Fichier de la source `name` qui porte le titre de `root_locator` ; le premier fichier si aucun ne le porte."""
+    paths = lieu(name)
+    carriers = [p for p in paths if p.is_file()
+                and any(heading_locator(t) == root_locator for _, _, t in headings(p.read_text(encoding="utf-8").splitlines()))]
+    if len(carriers) > 1:
+        raise RouteError(f"locator ambigu : {root_locator} porté par {', '.join(nom(p) for p in carriers)}")
+    return carriers[0] if carriers else paths[0]
+
+
 def owner_file(locator: str) -> Path:
     prefix = locator.split("/", 1)[0]
     if prefix not in PREFIXES:
         raise RouteError(f"locator inconnu : {locator}")
-    return OFFICIAL / f"{prefix}.md"
+    return porteur(f"{prefix}.md", "/".join(locator.split("/")[:2]))
 
 
 def _unique(candidates: list[int], lines: list[str], locator: str) -> int:
@@ -209,10 +289,11 @@ def connections(text: str | None = None) -> tuple[str, dict[str, dict[str, str]]
             raise RouteError("READING_MAP.md absent")
         text = MAP.read_text(encoding="utf-8")
     revision, entries = parse_connections(text)
-    changelog = OFFICIAL / "CHANGELOG.md"
-    if not changelog.is_file():
+    try:
+        changelog_text = lieu_texte("CHANGELOG.md")
+    except FileNotFoundError:
         raise RouteError("propriétaire absent : CHANGELOG.md")
-    versions = re.findall(r"^\*\*Révision :\*\*\s*`([^`]+)`", changelog.read_text(encoding="utf-8"), re.M)
+    versions = re.findall(r"^\*\*Révision :\*\*\s*`([^`]+)`", changelog_text, re.M)
     if len(versions) != 1 or revision != versions[0]:
         raise RouteError("révision des connexions différente du CHANGELOG ; réexaminer les sources")
     routes = parse_routes(text)
@@ -240,7 +321,7 @@ def resolve(locator: str, routes: dict[str, tuple[str, list[str]]] | None = None
             raise RouteError(f"propriétaire incohérent : {locator} → {owner_name}")
         if not chain or heading_locator(chain[0]) != root_locator:
             raise RouteError(f"destination ne correspond pas au locator : {locator} → {chain[0] if chain else '(vide)'}")
-        path = OFFICIAL / owner_name
+        path = porteur(owner_name, root_locator)
         if not path.is_file():
             raise RouteError(f"propriétaire absent : {owner_name}")
         lines = path.read_text(encoding="utf-8").splitlines()
@@ -258,7 +339,7 @@ def resolve(locator: str, routes: dict[str, tuple[str, list[str]]] | None = None
         return path, lines, index
     path = owner_file(locator)
     if not path.is_file():
-        raise RouteError(f"propriétaire absent : {path.name}")
+        raise RouteError(f"propriétaire absent : {nom(path)}")
     lines = path.read_text(encoding="utf-8").splitlines()
     heads = headings(lines)
     candidates = [idx for idx, _, text in heads if heading_locator(text) == locator]  # 2. préfixe
@@ -401,10 +482,9 @@ def _scan(match, include_guides: bool = False) -> list[tuple[str | None, str, in
     """Lignes dont la forme repliée satisfait match, avec la route la plus précise qui les sert."""
     routes = parse_routes(MAP.read_text(encoding="utf-8"))
     locators = set(routes)
-    for prefix in PREFIXES:
-        path = OFFICIAL / f"{prefix}.md"
+    for path in sources_normatives():
         if not path.is_file():
-            raise RouteError(f"propriétaire absent : {path.name}")
+            raise RouteError(f"propriétaire absent : {nom(path)}")
         for _, _, text in headings(path.read_text(encoding="utf-8").splitlines()):
             found = heading_locator(text)
             if found:
@@ -415,12 +495,12 @@ def _scan(match, include_guides: bool = False) -> list[tuple[str | None, str, in
         indices = {i for i, text in served_lines(lines, index) if text == lines[i]}
         blocks.append((path, indices, locator))
     results = []
-    sources = [OFFICIAL / f"{prefix}.md" for prefix in PREFIXES]
+    sources = sources_normatives()
     if include_guides:
-        sources += sorted(p for p in OFFICIAL.glob("*.md") if p not in sources)
+        sources += [p for p in fichiers_officiels() if p not in sources]
         sources += guide_extras()
     for path in sources:
-        name = path.name if path.parent == OFFICIAL else path.relative_to(ROOT).as_posix()
+        name = nom(path)
         for number, line in enumerate(path.read_text(encoding="utf-8").splitlines()):
             if not CONCEPT_MARKER.match(line) and match(_fold(line)):
                 around = [b for b in blocks if b[0] == path and number in b[1]]
@@ -560,8 +640,7 @@ def rank_routes(results: list[tuple[str | None, str, int, str]], terms: list[str
 def summary_rows() -> list[tuple[str, str, int, int, str]]:
     """(locator, fichier, taille servie, sous-sections, rôle) pour chaque route de premier niveau."""
     rows = []
-    for prefix in PREFIXES[:4]:
-        path = OFFICIAL / f"{prefix}.md"
+    for path in [p for prefix in PREFIXES[:4] for p in lieu(f"{prefix}.md")]:
         lines = path.read_text(encoding="utf-8").splitlines()
         heads = headings(lines)
         for index, _, text in heads:
@@ -571,7 +650,7 @@ def summary_rows() -> list[tuple[str, str, int, int, str]]:
             body = extract(lines, index)
             end = block_end(lines, heads, index)
             subs = sum(1 for i, _, _ in heads if index < i < end)
-            rows.append((locator, path.name, sum(len(l) + 1 for l in body), subs, _role(body[1:])))
+            rows.append((locator, nom(path), sum(len(l) + 1 for l in body), subs, _role(body[1:])))
     return rows
 
 
@@ -718,10 +797,10 @@ def main(argv: list[str] | None = None) -> int:
             print(f"AUCUNE OCCURRENCE — « {args.trouver} »" + (f" (alias : {', '.join(terms[1:])})" if len(terms) > 1 else "")
                   + " dans le périmètre recherché. Essayer une reformulation ; ce résultat ne prouve pas l’absence du savoir.")
             return 1
-        normative = [r for r in results if r[1] in {f"{p}.md" for p in PREFIXES}]
+        normative = [r for r in results if r[1] in {nom(p) for p in sources_normatives()}]
         guides = [r for r in results if r not in normative]
         ranked = rank_routes(normative, terms)
-        core_index = {f"{p}.md": core_blocks((OFFICIAL / f"{p}.md").read_text(encoding="utf-8").splitlines()) for p in PREFIXES}
+        core_index = {nom(p): core_blocks(p.read_text(encoding="utf-8").splitlines()) for p in sources_normatives()}
         outside = [r for r in normative if r[0] is None]
         shown = ranked if args.tout else ranked[:TOP_ROUTES]
         extra = f" ; alias : {', '.join(terms[1:])}" if len(terms) > 1 and mode != "mots séparés sur une même ligne" else ""

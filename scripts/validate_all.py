@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
 import shutil
 import subprocess
 import sys
@@ -68,7 +69,6 @@ def check_craft_regressions() -> None:
         if reading_map.lcf_46(case):
             raise SystemExit("CRAFT REGRESSION FAILED — marqueur de vague non daté accepté : " + line)
 
-    official_rel = reading_map.OFFICIAL.relative_to(ROOT)
     with tempfile.TemporaryDirectory(prefix="design-governance-craft-") as temp_dir:
         for name, change, expected in (
             (
@@ -92,10 +92,14 @@ def check_craft_regressions() -> None:
             case_root = Path(temp_dir) / name
             shutil.copytree(ROOT, case_root, ignore=shutil.ignore_patterns(
                 ".git", ".build", "dist", "__pycache__", "*.zip"))
-            source = case_root / official_rel / "SAVOIR.md"
-            before = source.read_text(encoding="utf-8")
-            after = change(before)
-            if before == after:
+            # Le texte visé est cherché dans les fichiers qui portent SAVOIR aujourd'hui (table LIEUX du lecteur).
+            for candidate in reading_map.rr.lieu("SAVOIR.md"):
+                source = case_root / candidate.relative_to(ROOT)
+                before = source.read_text(encoding="utf-8")
+                after = change(before)
+                if before != after:
+                    break
+            else:
                 raise SystemExit(f"CRAFT REGRESSION FAILED — mutation {name} non exercée")
             source.write_text(after, encoding="utf-8")
             subprocess.run([sys.executable, "scripts/build_core.py"], cwd=case_root,
@@ -106,6 +110,75 @@ def check_craft_regressions() -> None:
             if result.returncode == 0 or expected not in output or "Traceback" in output:
                 raise SystemExit(f"CRAFT REGRESSION FAILED — mutation {name} non détectée pour le motif attendu")
     print("CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés")
+
+def check_move_regression() -> None:
+    """Le rangement déplace du texte et met à jour la seule table LIEUX : lecteur, noyau et validateurs suivent.
+
+    Sur une copie, la route SAVOIR/TYPE (avec un bloc du noyau) part dans un nouveau fichier ; tout doit rester vert,
+    la skill compilée doit rester identique et la route doit être servie depuis son nouveau lieu.
+    Sans la mise à jour de LIEUX, le même déplacement doit échouer.
+    """
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import read_route as rr
+    savoir = rr.lieu("SAVOIR.md")
+    if len(savoir) != 1:
+        print("MOVE REGRESSION SKIPPED — SAVOIR déjà réparti sur plusieurs fichiers ; le rangement réel en tient lieu")
+        return
+    import build_core as bc
+    rel = savoir[0].relative_to(ROOT).as_posix()
+    skill_rel = bc.SKILL.relative_to(ROOT)
+    layout = "local" if rel.startswith("official/") else "github"  # export Local ou distribution GitHub
+    target = "design/savoir/typographie-essai.md"
+    with tempfile.TemporaryDirectory(prefix="design-governance-move-") as temp_dir:
+        for with_table, duplicate in ((True, False), (False, False), (True, True)):
+            case = Path(temp_dir) / ("avec-lieux" if with_table else "sans-lieux") / ("doublon" if duplicate else "simple")
+            case.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(ROOT, case, ignore=shutil.ignore_patterns(".git", ".build", "dist", "__pycache__", "*.zip"))
+            text = (case / rel).read_text(encoding="utf-8")
+            start, end = text.find("\n# SAVOIR/TYPE"), text.find("\n# SAVOIR/STATE")
+            if start < 0 or end < start:
+                raise SystemExit("MOVE REGRESSION FAILED — section SAVOIR/TYPE introuvable")
+            (case / target).parent.mkdir(parents=True)
+            (case / target).write_text(text[start + 1:end + 1], encoding="utf-8")
+            remaining = text[:start + 1] + text[end + 1:]
+            if duplicate:  # le même locator porté par deux fichiers de la source doit être refusé
+                remaining += "\n# SAVOIR/TYPE — doublon\n\nTexte.\n"
+            (case / rel).write_text(remaining, encoding="utf-8")
+            manifest = case / "scripts/package_manifest.json"
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            data[layout].append(target)
+            manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            if with_table:
+                reader = case / "scripts/read_route.py"
+                src = reader.read_text(encoding="utf-8")
+                line = "LIEUX: dict[str, tuple[str, ...]] = {}"
+                if src.count(line) != 1:
+                    raise SystemExit("MOVE REGRESSION FAILED — table LIEUX introuvable dans read_route.py")
+                reader.write_text(src.replace(line, f"LIEUX: dict[str, tuple[str, ...]] = {{'SAVOIR.md': ({rel!r}, {target!r})}}"),
+                                  encoding="utf-8")
+            skill_before = (ROOT / skill_rel).read_bytes()
+            steps = [[sys.executable, "scripts/build_core.py", "--check"],
+                     [sys.executable, "scripts/validate_structure.py"],
+                     [sys.executable, "scripts/validate_reading_map.py"],
+                     [sys.executable, "scripts/validate_design_governance.py"],
+                     [sys.executable, "scripts/read_route.py", "SAVOIR/TYPE"]]
+            results = [subprocess.run(s, cwd=case, capture_output=True, text=True) for s in steps]
+            failed = [" ".join(s[1:]) for s, r in zip(steps, results) if r.returncode != 0 or "Traceback" in r.stdout + r.stderr]
+            if duplicate:
+                if "scripts/validate_reading_map.py" not in failed:
+                    raise SystemExit("MOVE REGRESSION FAILED — un locator porté par deux fichiers de la même source n'est pas refusé")
+            elif with_table:
+                if failed:
+                    raise SystemExit(f"MOVE REGRESSION FAILED — après déplacement et mise à jour de LIEUX : {', '.join(failed)}")
+                if f"OWNER: {target}" not in results[-1].stdout:
+                    raise SystemExit("MOVE REGRESSION FAILED — SAVOIR/TYPE n'est pas servie depuis son nouveau lieu")
+                if (case / skill_rel).read_bytes() != skill_before:
+                    raise SystemExit("MOVE REGRESSION FAILED — la skill a changé")
+            elif not failed:
+                raise SystemExit("MOVE REGRESSION FAILED — un déplacement sans mise à jour de LIEUX passe inaperçu")
+    print("MOVE REGRESSION PASSED — route déplacée avec son bloc de noyau : lecteur, noyau et validateurs suivent la table LIEUX ; "
+          "sans elle, le déplacement est détecté ; un locator porté par deux fichiers est refusé")
+
 
 def build_outputs() -> dict[str, tuple[int, int]]:
     """Empreinte (date, taille) des sorties du build : dist/, .build/ et archives à la racine."""
@@ -128,6 +201,7 @@ def main() -> int:
     run([sys.executable, "scripts/validate_reading_map.py"])
     run([sys.executable, "scripts/validate_structure.py"])
     check_craft_regressions()
+    check_move_regression()
     run([sys.executable, "scripts/test_core_budget.py"])
     run([sys.executable, "scripts/test_read_route.py"])
     run([sys.executable, "scripts/test_audit_regressions.py"])

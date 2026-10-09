@@ -30,7 +30,8 @@ BLOCK = re.compile(r"^<!-- noyau:(début|fin) ([A-Z0-9\-]+) -->$")
 CONCEPT = re.compile(r"^\s*<!-- concept:[A-Z0-9\-]+ -->\s*$")
 CORE_BUDGET_BYTES = 46_000
 
-# Registre : (titre de section, [(identifiant de bloc, fichier propriétaire, colonnes gardées ou None)]).
+# Registre : (titre de section, [(identifiant de bloc, source historique propriétaire, colonnes gardées ou None)]).
+# Une source historique se lit à son lieu actuel (table LIEUX de read_route.py) : déplacer un bloc ne change pas ce registre.
 NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
     ("Rôle et posture", [("ROLE", "DIRECTION.md", None), ("POSTURE", "DIRECTION.md", None)]),
     ("Classer, puis charger", [("CHARGE-REGLE", "DIRECTION.md", None), ("CHARGE-TABLE", "DIRECTION.md", None),
@@ -111,6 +112,28 @@ def project(lines: list[str], cols: tuple[int, ...] | None) -> list[str]:
     return out
 
 
+def lieu(fname: str) -> list[Path]:
+    """Fichiers de la source historique `fname` (table LIEUX du lecteur ; sinon le fichier de OFFICIAL)."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import read_route  # import tardif : read_route n'importe pas ce module
+    if fname in read_route.LIEUX:
+        return [ROOT / rel for rel in read_route.LIEUX[fname]]
+    return [OFFICIAL / fname]
+
+
+def blocks_of_source(fname: str) -> dict[str, list[str]]:
+    """Blocs de tous les fichiers de la source ; un bloc défini dans deux fichiers est une erreur."""
+    found: dict[str, list[str]] = {}
+    for path in lieu(fname):
+        if not path.is_file():
+            continue
+        for bid, body in blocks_of(path).items():
+            if bid in found:
+                raise CoreError(f"{fname} : bloc {bid} défini dans deux fichiers")
+            found[bid] = body
+    return found
+
+
 def compile_core() -> str:
     cache: dict[str, dict[str, list[str]]] = {}
     parts = ["_Section générée par `scripts/build_core.py` depuis les blocs « noyau » des sources ; ne pas modifier à la main._", ""]
@@ -119,7 +142,7 @@ def compile_core() -> str:
         parts.append("")
         for bid, fname, cols in items:
             if fname not in cache:
-                cache[fname] = blocks_of(OFFICIAL / fname)
+                cache[fname] = blocks_of_source(fname)
             if bid not in cache[fname]:
                 raise CoreError(f"bloc {bid} absent de {fname}")
             body = project(cache[fname][bid], cols)
