@@ -1,0 +1,1095 @@
+[
+ {
+  "besoin": "Mon site fait générique, on dirait qu'une IA l'a fait",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "site qui fait générique",
+  "routes": 8,
+  "trouve": true,
+  "rang": 4,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/EVOLUTION",
+   "BIBLIOTHEQUE/MICRO",
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "Mon site fait générique, on dirait qu'une IA l'a fait",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "ça se voit que c'est fait par une IA",
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": []
+ },
+ {
+  "besoin": "Mon site fait générique, on dirait qu'une IA l'a fait",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "how to avoid AI slop",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/PRECONDITION"
+  ]
+ },
+ {
+  "besoin": "Choisir mes couleurs sans que ça fasse amateur",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "choisir une palette de couleurs",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Choisir mes couleurs sans que ça fasse amateur",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "quelles couleurs mettre",
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": []
+ },
+ {
+  "besoin": "Choisir mes couleurs sans que ça fasse amateur",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "color scheme for my app",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-A",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Mon site doit bien s'afficher sur téléphone",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "version mobile du site",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/MICRO",
+   "BIBLIOTHEQUE/EVOLUTION",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Mon site doit bien s'afficher sur téléphone",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "ça s'affiche mal sur smartphone",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/OVERRIDE",
+   "BIBLIOTHEQUE/EVOLUTION",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "Mon site doit bien s'afficher sur téléphone",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "make it responsive for phones",
+  "routes": 8,
+  "trouve": true,
+  "rang": 4,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/COMPONENTS",
+   "BIBLIOTHEQUE/READ",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "Mon site met trop de temps à charger",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "site lent",
+  "routes": 6,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/EVOLUTION",
+   "BIBLIOTHEQUE/MICRO",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Mon site met trop de temps à charger",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "page qui charge lentement",
+  "routes": 8,
+  "trouve": true,
+  "rang": 8,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "SAVOIR/STATE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Mon site met trop de temps à charger",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "slow loading page",
+  "routes": 3,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/VISUAL_PROOF",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "Savoir si mon travail est vraiment terminé",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "terme": "c'est fini quand",
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": []
+ },
+ {
+  "besoin": "Savoir si mon travail est vraiment terminé",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "terme": "comment savoir que j'ai terminé",
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/SOURCE",
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/GATE-C"
+  ]
+ },
+ {
+  "besoin": "Savoir si mon travail est vraiment terminé",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "terme": "definition of done",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Je n'ai ni vrais textes ni photos pour mon projet",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "pas de contenu ni de photos",
+  "routes": 8,
+  "trouve": true,
+  "rang": 7,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/CRAFT",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "Je n'ai ni vrais textes ni photos pour mon projet",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "faux texte lorem ipsum",
+  "routes": 6,
+  "trouve": true,
+  "rang": 5,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/INTEGRITY",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Je n'ai ni vrais textes ni photos pour mon projet",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "placeholder content no photos",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/INTEGRITY",
+   "ACTION/GATE-A",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Éviter le trio de cartes égales sous un titre centré",
+  "public": "designer",
+  "famille": "design",
+  "terme": "trois cards alignées déjà vu",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/CRAFT",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Éviter le trio de cartes égales sous un titre centré",
+  "public": "designer",
+  "famille": "design",
+  "terme": "template SaaS standard",
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "Éviter le trio de cartes égales sous un titre centré",
+  "public": "designer",
+  "famille": "design",
+  "terme": "generic hero section cliché",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SELECT",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "Comprendre les sigles du système (JTBD, modal, scope, craft)",
+  "public": "designer",
+  "famille": "méta",
+  "terme": "que veut dire JTBD",
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": []
+ },
+ {
+  "besoin": "Comprendre les sigles du système (JTBD, modal, scope, craft)",
+  "public": "designer",
+  "famille": "méta",
+  "terme": "lexique des termes",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "SAVOIR/STATE",
+   "BIBLIOTHEQUE/READ"
+  ]
+ },
+ {
+  "besoin": "Comprendre les sigles du système (JTBD, modal, scope, craft)",
+  "public": "designer",
+  "famille": "méta",
+  "terme": "glossary of terms used",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "SAVOIR/SOURCE",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Le client n'a que des photos moyennes prises au téléphone",
+  "public": "designer",
+  "famille": "design",
+  "terme": "photos de mauvaise qualité",
+  "routes": 8,
+  "trouve": true,
+  "rang": 6,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-B",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "Le client n'a que des photos moyennes prises au téléphone",
+  "public": "designer",
+  "famille": "design",
+  "terme": "images pas pro, comment les sauver",
+  "routes": 8,
+  "trouve": true,
+  "rang": 6,
+  "top3": false,
+  "premieres": [
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/STRUCTURED-PROOF",
+   "BIBLIOTHEQUE/EVOLUTION"
+  ]
+ },
+ {
+  "besoin": "Le client n'a que des photos moyennes prises au téléphone",
+  "public": "designer",
+  "famille": "design",
+  "terme": "low quality client photos fix",
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "SAVOIR/STYLE",
+   "SAVOIR/TECH"
+  ]
+ },
+ {
+  "besoin": "Coins arrondis imbriqués et icône pas centrée à l'œil",
+  "public": "designer",
+  "famille": "design",
+  "terme": "rayon des coins dans un cadre",
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Coins arrondis imbriqués et icône pas centrée à l'œil",
+  "public": "designer",
+  "famille": "design",
+  "terme": "bouton pas centré visuellement",
+  "routes": 6,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "ACTION/GATE-B",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Coins arrondis imbriqués et icône pas centrée à l'œil",
+  "public": "designer",
+  "famille": "design",
+  "terme": "nested border radius optical alignment",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/START/TREE",
+   "ACTION/GATE-B",
+   "ACTION/PRECONDITION"
+  ]
+ },
+ {
+  "besoin": "Donner du caractère au premier écran",
+  "public": "designer",
+  "famille": "design",
+  "terme": "premier écran qui marque",
+  "routes": 8,
+  "trouve": true,
+  "rang": 5,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SEQUENCE",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "Donner du caractère au premier écran",
+  "public": "designer",
+  "famille": "design",
+  "terme": "ma page n'a pas de personnalité",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STYLE",
+   "BIBLIOTHEQUE/SEQUENCE"
+  ]
+ },
+ {
+  "besoin": "Donner du caractère au premier écran",
+  "public": "designer",
+  "famille": "design",
+  "terme": "make the hero section memorable",
+  "routes": 7,
+  "trouve": true,
+  "rang": 4,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/OBJECT",
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SEQUENCE"
+  ]
+ },
+ {
+  "besoin": "Prévoir les écrans vide, chargement et erreur d'un composant",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "écran sans données",
+  "routes": 7,
+  "trouve": true,
+  "rang": 5,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STYLE",
+   "BIBLIOTHEQUE/OBJECT"
+  ]
+ },
+ {
+  "besoin": "Prévoir les écrans vide, chargement et erreur d'un composant",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "skeleton chargement",
+  "routes": 8,
+  "trouve": true,
+  "rang": 3,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/COMPONENTS",
+   "DIRECTION/CHARGE",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Prévoir les écrans vide, chargement et erreur d'un composant",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "empty state design",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STATE",
+   "SAVOIR/CRAFT",
+   "DIRECTION/DOMAIN-FRAME"
+  ]
+ },
+ {
+  "besoin": "Défendre un choix de design face à un client sceptique",
+  "public": "designer",
+  "famille": "gouvernance",
+  "terme": "argumenter mon choix",
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/SEQUENCE"
+  ]
+ },
+ {
+  "besoin": "Défendre un choix de design face à un client sceptique",
+  "public": "designer",
+  "famille": "gouvernance",
+  "terme": "justifier un compromis",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/FRAME",
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Défendre un choix de design face à un client sceptique",
+  "public": "designer",
+  "famille": "gouvernance",
+  "terme": "design trade-off rationale",
+  "routes": 4,
+  "trouve": true,
+  "rang": 4,
+  "top3": false,
+  "premieres": [
+   "ACTION/PRECONDITION",
+   "ACTION/GATE-A",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Passer un dossier à un collègue sans perdre le fil",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "passation de dossier",
+  "routes": 7,
+  "trouve": true,
+  "rang": 3,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/JUGEMENT-COURT",
+   "ACTION/GATE-A",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Passer un dossier à un collègue sans perdre le fil",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "qui est responsable de la décision",
+  "routes": 8,
+  "trouve": true,
+  "rang": 6,
+  "top3": false,
+  "premieres": [
+   "ACTION/CLOSE-PACKAGE",
+   "BIBLIOTHEQUE/READ",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "Passer un dossier à un collègue sans perdre le fil",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "handover to another designer",
+  "routes": 3,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "ACTION/STATUS",
+   "SAVOIR/FRAME"
+  ]
+ },
+ {
+  "besoin": "Garder la liste des problèmes restants après livraison",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "suivre les risques restants",
+  "routes": 8,
+  "trouve": true,
+  "rang": 5,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/START",
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Garder la liste des problèmes restants après livraison",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "liste des réserves",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Garder la liste des problèmes restants après livraison",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "residual risk log",
+  "routes": 5,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/FRAME",
+   "DIRECTION/FIRST-OBJECT",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "Faire relire une maquette par quelqu'un d'extérieur",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "relecture par un pair",
+  "routes": 7,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "ACTION/GATE-B",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Faire relire une maquette par quelqu'un d'extérieur",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "revue indépendante",
+  "routes": 4,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "ACTION/RUN_CARD",
+   "ACTION/GATE-B",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Faire relire une maquette par quelqu'un d'extérieur",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "blind design review",
+  "routes": 5,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-B",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Poser une bibliothèque de composants réutilisables",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "bibliothèque de composants",
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "SAVOIR/SOURCE"
+  ]
+ },
+ {
+  "besoin": "Poser une bibliothèque de composants réutilisables",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "règles d'un bouton partagé",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "BIBLIOTHEQUE/COMPONENTS",
+   "SAVOIR/INTEGRITY"
+  ]
+ },
+ {
+  "besoin": "Poser une bibliothèque de composants réutilisables",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "component library guidelines",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/COMPONENTS",
+   "ACTION/GATE-A",
+   "SAVOIR/TECH"
+  ]
+ },
+ {
+  "besoin": "Clarifier les utilisateurs et leur besoin avant de dessiner",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "définir le public cible",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/CRAFT",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Clarifier les utilisateurs et leur besoin avant de dessiner",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "persona et besoin principal",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/FRAME",
+   "SAVOIR/CRAFT",
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "Clarifier les utilisateurs et leur besoin avant de dessiner",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "user needs before design",
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/FRAME",
+   "ACTION/GATE-A",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "À quoi sert chaque document et où chercher une règle",
+  "public": "équipe",
+  "famille": "méta",
+  "terme": "quel fichier pour quelle question",
+  "routes": 5,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/TECH",
+   "ACTION/RUN_CARD",
+   "BIBLIOTHEQUE/CONTRACTS"
+  ]
+ },
+ {
+  "besoin": "À quoi sert chaque document et où chercher une règle",
+  "public": "équipe",
+  "famille": "méta",
+  "terme": "où trouver une règle",
+  "routes": 3,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/CHARGE",
+   "ACTION/RUN_CARD",
+   "SAVOIR/FRAME"
+  ]
+ },
+ {
+  "besoin": "À quoi sert chaque document et où chercher une règle",
+  "public": "équipe",
+  "famille": "méta",
+  "terme": "which document answers what",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/MAINTENANCE",
+   "BIBLIOTHEQUE/EVOLUTION",
+   "SAVOIR/TECH"
+  ]
+ },
+ {
+  "besoin": "Je n'ai pas de navigateur pour vérifier ce que j'ai produit",
+  "public": "agent",
+  "famille": "gouvernance",
+  "terme": "pas de capture possible",
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/VISUAL_PROOF",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Je n'ai pas de navigateur pour vérifier ce que j'ai produit",
+  "public": "agent",
+  "famille": "gouvernance",
+  "terme": "can't run the page what can I claim",
+  "routes": 8,
+  "trouve": true,
+  "rang": 7,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "DIRECTION/DOUBLE-LOOP",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "Je n'ai pas de navigateur pour vérifier ce que j'ai produit",
+  "public": "agent",
+  "famille": "gouvernance",
+  "terme": "preuve impossible à obtenir",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/TECH",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Brief flou : combien de questions poser avant de construire",
+  "public": "agent",
+  "famille": "design",
+  "terme": "demande floue combien de questions",
+  "routes": 8,
+  "trouve": true,
+  "rang": 7,
+  "top3": false,
+  "premieres": [
+   "ACTION/PIPELINE-DIRECTION",
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Brief flou : combien de questions poser avant de construire",
+  "public": "agent",
+  "famille": "design",
+  "terme": "clarifying questions limit",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/INTEGRITY",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Brief flou : combien de questions poser avant de construire",
+  "public": "agent",
+  "famille": "design",
+  "terme": "poser trois questions maximum",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/FRAME",
+   "DIRECTION/CREATIVE-BOOT",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "Que corriger en premier après le premier rendu",
+  "public": "agent",
+  "famille": "design",
+  "terme": "améliorer après le premier jet",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/DOUBLE-LOOP",
+   "BIBLIOTHEQUE/READ",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Que corriger en premier après le premier rendu",
+  "public": "agent",
+  "famille": "design",
+  "terme": "iterate on first render",
+  "routes": 4,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "ACTION/FIRST-RENDER",
+   "DIRECTION/DOUBLE-LOOP",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Que corriger en premier après le premier rendu",
+  "public": "agent",
+  "famille": "design",
+  "terme": "quel défaut traiter d'abord",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/PIPELINE-DIRECTION",
+   "SAVOIR/STATE",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Vérifier le contraste des couleurs texte et fond",
+  "public": "agent",
+  "famille": "produit",
+  "terme": "ratio de contraste",
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/GATE-A",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Vérifier le contraste des couleurs texte et fond",
+  "public": "agent",
+  "famille": "produit",
+  "terme": "contrast checker AA",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/GATE-A",
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "Vérifier le contraste des couleurs texte et fond",
+  "public": "agent",
+  "famille": "produit",
+  "terme": "valider les couleurs texte sur fond",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-A",
+   "SAVOIR/FRAME"
+  ]
+ },
+ {
+  "besoin": "Que signifient NOT-VERIFIED, RETURN et ACCEPTED",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "quel verdict donner",
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "Que signifient NOT-VERIFIED, RETURN et ACCEPTED",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "what does NOT-VERIFIED mean",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/VISUAL_PROOF",
+   "ACTION/CLOSE-PACKAGE"
+  ]
+ },
+ {
+  "besoin": "Que signifient NOT-VERIFIED, RETURN et ACCEPTED",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "statuts possibles d'un run",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/STATUS",
+   "BIBLIOTHEQUE/GATE",
+   "DIRECTION/START"
+  ]
+ },
+ {
+  "besoin": "Quelle grille de mise en page pour une page éditoriale ou un tableau de bord",
+  "public": "agent",
+  "famille": "design",
+  "terme": "colonnes ou modulaire",
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/GRID",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "Quelle grille de mise en page pour une page éditoriale ou un tableau de bord",
+  "public": "agent",
+  "famille": "design",
+  "terme": "layout grid for a dashboard",
+  "routes": 8,
+  "trouve": true,
+  "rang": 3,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "DIRECTION/VISUAL_TARGET",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "Quelle grille de mise en page pour une page éditoriale ou un tableau de bord",
+  "public": "agent",
+  "famille": "design",
+  "terme": "mise en page en colonnes",
+  "routes": 6,
+  "trouve": true,
+  "rang": 3,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "DIRECTION/VISUAL_TARGET",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ }
+]

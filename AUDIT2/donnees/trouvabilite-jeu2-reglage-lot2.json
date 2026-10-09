@@ -1,0 +1,1079 @@
+[
+ {
+  "besoin": "Je n'ai qu'une phrase de brief et je ne sais pas par où commencer",
+  "public": "débutant",
+  "famille": "méta",
+  "terme": "par où commencer mon projet",
+  "routes": 7,
+  "trouve": true,
+  "rang": 5,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-A",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "ACTION/STATUS"
+  ]
+ },
+ {
+  "besoin": "Je n'ai qu'une phrase de brief et je ne sais pas par où commencer",
+  "public": "débutant",
+  "famille": "méta",
+  "terme": "brief trop vague, que faire",
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Je n'ai qu'une phrase de brief et je ne sais pas par où commencer",
+  "public": "débutant",
+  "famille": "méta",
+  "terme": "getting started with a vague brief",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "Choisir la ou les polices de mon site",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "quelle police choisir",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/TYPE",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Choisir la ou les polices de mon site",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "associer deux polices",
+  "routes": 8,
+  "trouve": true,
+  "rang": 4,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/STATE",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Choisir la ou les polices de mon site",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "which font should I use",
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": []
+ },
+ {
+  "besoin": "Mon texte n'est pas lisible quand je le pose sur une photo",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "texte illisible sur l'image",
+  "routes": 8,
+  "trouve": true,
+  "rang": 5,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STATE",
+   "ACTION/STRUCTURED-PROOF",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Mon texte n'est pas lisible quand je le pose sur une photo",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "écrire sur une photo",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "Mon texte n'est pas lisible quand je le pose sur une photo",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "text over background image unreadable",
+  "routes": 5,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/PIPELINE-DIRECTION",
+   "SAVOIR/STATE",
+   "BIBLIOTHEQUE/GRID"
+  ]
+ },
+ {
+  "besoin": "Rendre mon site utilisable par des personnes handicapées",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "site accessible handicap",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/EVOLUTION",
+   "SAVOIR/CONTEXT",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Rendre mon site utilisable par des personnes handicapées",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "aveugles et malvoyants",
+  "routes": 3,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-B",
+   "ACTION/RUN_CARD",
+   "ACTION/POLICIES"
+  ]
+ },
+ {
+  "besoin": "Rendre mon site utilisable par des personnes handicapées",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "wcag checklist",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/FRAME"
+  ]
+ },
+ {
+  "besoin": "Quoi afficher quand l'utilisateur fait une erreur dans un formulaire",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "message d'erreur formulaire",
+  "routes": 7,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STATE",
+   "ACTION/GATE-A",
+   "ACTION/UI-UX-REALITY"
+  ]
+ },
+ {
+  "besoin": "Quoi afficher quand l'utilisateur fait une erreur dans un formulaire",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "que montrer quand ça plante",
+  "routes": 7,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STATE",
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/MICRO"
+  ]
+ },
+ {
+  "besoin": "Quoi afficher quand l'utilisateur fait une erreur dans un formulaire",
+  "public": "débutant",
+  "famille": "produit",
+  "terme": "error message best practice",
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Expliquer simplement au client ce que j'ai fait",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "terme": "résumer mon travail au client",
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/HANDOFF"
+  ]
+ },
+ {
+  "besoin": "Expliquer simplement au client ce que j'ai fait",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "terme": "présenter mon résultat sans jargon",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "ACTION/GATE-A",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Expliquer simplement au client ce que j'ai fait",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "terme": "how to report back to the client",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "Comment organiser la page d'accueil de mon appli",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "structure de ma page d'accueil",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "BIBLIOTHEQUE/SEQUENCE",
+   "BIBLIOTHEQUE/SCENE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Comment organiser la page d'accueil de mon appli",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "comment placer les blocs",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Comment organiser la page d'accueil de mon appli",
+  "public": "débutant",
+  "famille": "design",
+  "terme": "homepage layout ideas",
+  "routes": 5,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/FRAME",
+   "ACTION/PIPELINE-DIRECTION",
+   "BIBLIOTHEQUE/READ"
+  ]
+ },
+ {
+  "besoin": "Mon grand titre se coupe mal sur plusieurs lignes",
+  "public": "designer",
+  "famille": "design",
+  "terme": "retour à la ligne du titre",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/CRAFT",
+   "DIRECTION/CHARGE"
+  ]
+ },
+ {
+  "besoin": "Mon grand titre se coupe mal sur plusieurs lignes",
+  "public": "designer",
+  "famille": "design",
+  "terme": "mot orphelin dans un titre",
+  "routes": 6,
+  "trouve": true,
+  "rang": 6,
+  "top3": false,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/CRAFT",
+   "BIBLIOTHEQUE/CONTRACTS"
+  ]
+ },
+ {
+  "besoin": "Mon grand titre se coupe mal sur plusieurs lignes",
+  "public": "designer",
+  "famille": "design",
+  "terme": "headline line breaks balance",
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Utiliser une image générée par IA dans le rendu final",
+  "public": "designer",
+  "famille": "design",
+  "terme": "image générée droits d'usage",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/CLOSE-PACKAGE",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "Utiliser une image générée par IA dans le rendu final",
+  "public": "designer",
+  "famille": "design",
+  "terme": "mettre du midjourney dans mon design",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/DESIGN-ATLAS",
+   "ACTION/PRECONDITION"
+  ]
+ },
+ {
+  "besoin": "Utiliser une image générée par IA dans le rendu final",
+  "public": "designer",
+  "famille": "design",
+  "terme": "AI generated image copyright",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/PIPELINE-DIRECTION",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Choisir un style visuel (brutaliste, rétro, éditorial)",
+  "public": "designer",
+  "famille": "design",
+  "terme": "style brutaliste",
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "Choisir un style visuel (brutaliste, rétro, éditorial)",
+  "public": "designer",
+  "famille": "design",
+  "terme": "look rétro années 2000",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/STYLE",
+   "SAVOIR/TOOLS",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "Choisir un style visuel (brutaliste, rétro, éditorial)",
+  "public": "designer",
+  "famille": "design",
+  "terme": "choose a visual style",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/RUN_CARD",
+   "SAVOIR/DESIGN-ATLAS",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Proposer deux pistes différentes au client avant de trancher",
+  "public": "designer",
+  "famille": "design",
+  "terme": "deux propositions au client",
+  "routes": 8,
+  "trouve": true,
+  "rang": 6,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "DIRECTION/FIRST-OBJECT",
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "Proposer deux pistes différentes au client avant de trancher",
+  "public": "designer",
+  "famille": "design",
+  "terme": "variantes de direction artistique",
+  "routes": 8,
+  "trouve": true,
+  "rang": 4,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STATE",
+   "DIRECTION/VISUAL_TARGET",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Proposer deux pistes différentes au client avant de trancher",
+  "public": "designer",
+  "famille": "design",
+  "terme": "design options to compare",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "ACTION/RUN_CARD",
+   "ACTION/PIPELINE-DIRECTION",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Tableau de bord dense dont les chiffres sautent quand ils changent",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "chiffres qui bougent en largeur",
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "SAVOIR/STATE",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Tableau de bord dense dont les chiffres sautent quand ils changent",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "tableau de données lisible",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/TYPE",
+   "ACTION/RUN_CARD",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "Tableau de bord dense dont les chiffres sautent quand ils changent",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "tabular numbers in a dashboard",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Des animations qui ne gênent personne",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "animations qui dérangent",
+  "routes": 5,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/CONTEXT",
+   "SAVOIR/DESIGN-ATLAS"
+  ]
+ },
+ {
+  "besoin": "Des animations qui ne gênent personne",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "réduire les mouvements",
+  "routes": 6,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/CRAFT",
+   "SAVOIR/STATE"
+  ]
+ },
+ {
+  "besoin": "Des animations qui ne gênent personne",
+  "public": "designer",
+  "famille": "produit",
+  "terme": "prefers-reduced-motion",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "ACTION/STRUCTURED-PROOF",
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Changer la couleur principale dans tous nos produits",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "changer le bleu partout",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Changer la couleur principale dans tous nos produits",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "modifier une variable de design",
+  "routes": 8,
+  "trouve": true,
+  "rang": 5,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/DOMAIN-FRAME",
+   "SAVOIR/CRAFT",
+   "ACTION/PRECONDITION"
+  ]
+ },
+ {
+  "besoin": "Changer la couleur principale dans tous nos produits",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "update a design token across apps",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/DOMAIN-FRAME",
+   "SAVOIR/SYSTEM",
+   "BIBLIOTHEQUE/SELECT"
+  ]
+ },
+ {
+  "besoin": "Livrer à temps malgré un défaut connu",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "livrer malgré un bug connu",
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/OVERRIDE"
+  ]
+ },
+ {
+  "besoin": "Livrer à temps malgré un défaut connu",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "dérogation temporaire",
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/PIPELINE-DIRECTION",
+   "SAVOIR/TECH"
+  ]
+ },
+ {
+  "besoin": "Livrer à temps malgré un défaut connu",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "ship with a known issue",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-B"
+  ]
+ },
+ {
+  "besoin": "Quel niveau de process pour un petit correctif",
+  "public": "équipe",
+  "famille": "méta",
+  "terme": "petit fix sans lourdeur",
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/FAST-PATH",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Quel niveau de process pour un petit correctif",
+  "public": "équipe",
+  "famille": "méta",
+  "terme": "quel niveau de rigueur",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/READ",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Quel niveau de process pour un petit correctif",
+  "public": "équipe",
+  "famille": "méta",
+  "terme": "quick fix lightweight process",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Vérifier que les utilisateurs comprennent vraiment la page",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "test utilisateur",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/CRAFT",
+   "DIRECTION/DOUBLE-LOOP"
+  ]
+ },
+ {
+  "besoin": "Vérifier que les utilisateurs comprennent vraiment la page",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "est-ce que les gens comprennent",
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": []
+ },
+ {
+  "besoin": "Vérifier que les utilisateurs comprennent vraiment la page",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "usability testing",
+  "routes": 8,
+  "trouve": true,
+  "rang": 2,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "ACTION/GATE-A",
+   "BIBLIOTHEQUE/READ"
+  ]
+ },
+ {
+  "besoin": "Concevoir pour un contexte à risque (santé, paiement)",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "appli médicale",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/INTEGRITY",
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Concevoir pour un contexte à risque (santé, paiement)",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "paiement en ligne sécurisé",
+  "routes": 5,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/CONTEXT",
+   "ACTION/FAST-PATH",
+   "DIRECTION/START/TREE"
+  ]
+ },
+ {
+  "besoin": "Concevoir pour un contexte à risque (santé, paiement)",
+  "public": "équipe",
+  "famille": "produit",
+  "terme": "high-stakes healthcare UI",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/PIPELINE-DIRECTION"
+  ]
+ },
+ {
+  "besoin": "Une tendance design ou une source est-elle encore à jour",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "tendance dépassée",
+  "routes": 1,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Une tendance design ou une source est-elle encore à jour",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "source trop ancienne",
+  "routes": 4,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/ROUTING",
+   "BIBLIOTHEQUE/EVOLUTION",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "Une tendance design ou une source est-elle encore à jour",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "terme": "is this design trend still current",
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/TOOLS",
+   "SAVOIR/CRAFT",
+   "ACTION/ROUTING"
+  ]
+ },
+ {
+  "besoin": "Quels modules lire en premier selon le type de tâche",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "quoi charger au démarrage",
+  "routes": 2,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/PRECONDITION",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Quels modules lire en premier selon le type de tâche",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "ordre de lecture des fichiers",
+  "routes": 1,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START"
+  ]
+ },
+ {
+  "besoin": "Quels modules lire en premier selon le type de tâche",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "which files to load for a task",
+  "routes": 5,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/GATE",
+   "ACTION/UI-UX-REALITY",
+   "ACTION/STRUCTURED-PROOF"
+  ]
+ },
+ {
+  "besoin": "Forme de la réponse finale à donner à l'utilisateur",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "comment rédiger ma réponse finale",
+  "routes": 3,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/INTEGRITY",
+   "SAVOIR/SOURCE",
+   "ACTION/CLOSE-PACKAGE"
+  ]
+ },
+ {
+  "besoin": "Forme de la réponse finale à donner à l'utilisateur",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "format de sortie pour l'humain",
+  "routes": 8,
+  "trouve": true,
+  "rang": 3,
+  "top3": true,
+  "premieres": [
+   "ACTION/GATE-B",
+   "SAVOIR/STATE",
+   "ACTION/HANDOFF"
+  ]
+ },
+ {
+  "besoin": "Forme de la réponse finale à donner à l'utilisateur",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "final answer format",
+  "routes": 7,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-B",
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/TECH"
+  ]
+ },
+ {
+  "besoin": "Ne pas inventer de chiffres, témoignages ou logos",
+  "public": "agent",
+  "famille": "gouvernance",
+  "terme": "faux avis clients",
+  "routes": 3,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "ACTION/CLOSE-PACKAGE",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Ne pas inventer de chiffres, témoignages ou logos",
+  "public": "agent",
+  "famille": "gouvernance",
+  "terme": "fake testimonials placeholder",
+  "routes": 6,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT",
+   "ACTION/GATE-A"
+  ]
+ },
+ {
+  "besoin": "Ne pas inventer de chiffres, témoignages ou logos",
+  "public": "agent",
+  "famille": "gouvernance",
+  "terme": "chiffres inventés",
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/FIRST-OBJECT"
+  ]
+ },
+ {
+  "besoin": "Retoucher une page existante sans casser son style",
+  "public": "agent",
+  "famille": "design",
+  "terme": "modifier une page déjà faite",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/SOURCE",
+   "BIBLIOTHEQUE/SEQUENCE",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Retoucher une page existante sans casser son style",
+  "public": "agent",
+  "famille": "design",
+  "terme": "edit existing design keep its look",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "SAVOIR/CRAFT",
+   "SAVOIR/DESIGN-ATLAS",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "Retoucher une page existante sans casser son style",
+  "public": "agent",
+  "famille": "design",
+  "terme": "retouche sans tout refaire",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-C",
+   "ACTION/PIPELINE-DIRECTION",
+   "SAVOIR/CRAFT"
+  ]
+ },
+ {
+  "besoin": "Quelles captures d'écran produire pour prouver le rendu",
+  "public": "agent",
+  "famille": "produit",
+  "terme": "captures mobile et bureau",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-B",
+   "BIBLIOTHEQUE/SEQUENCE",
+   "SAVOIR/CONTEXT"
+  ]
+ },
+ {
+  "besoin": "Quelles captures d'écran produire pour prouver le rendu",
+  "public": "agent",
+  "famille": "produit",
+  "terme": "screenshot evidence widths",
+  "routes": 8,
+  "trouve": true,
+  "rang": 6,
+  "top3": false,
+  "premieres": [
+   "BIBLIOTHEQUE/MICRO",
+   "SAVOIR/STYLE",
+   "ACTION/RUN_CARD"
+  ]
+ },
+ {
+  "besoin": "Quelles captures d'écran produire pour prouver le rendu",
+  "public": "agent",
+  "famille": "produit",
+  "terme": "quelles tailles d'écran capturer",
+  "routes": 8,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": [
+   "ACTION/GATE-A",
+   "SAVOIR/CRAFT",
+   "SAVOIR/TOOLS"
+  ]
+ },
+ {
+  "besoin": "Vérifier que j'applique les règles pour de vrai et pas en façade",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "règles suivies sans effet",
+  "routes": 8,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/INTEGRITY",
+   "BIBLIOTHEQUE/CONTRACTS",
+   "SAVOIR/STYLE"
+  ]
+ },
+ {
+  "besoin": "Vérifier que j'applique les règles pour de vrai et pas en façade",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "box-ticking compliance",
+  "routes": 0,
+  "trouve": false,
+  "rang": null,
+  "top3": false,
+  "premieres": []
+ },
+ {
+  "besoin": "Vérifier que j'applique les règles pour de vrai et pas en façade",
+  "public": "agent",
+  "famille": "méta",
+  "terme": "récitation de procédure",
+  "routes": 2,
+  "trouve": true,
+  "rang": 1,
+  "top3": true,
+  "premieres": [
+   "SAVOIR/INTEGRITY",
+   "SAVOIR/ROUTING"
+  ]
+ }
+]
