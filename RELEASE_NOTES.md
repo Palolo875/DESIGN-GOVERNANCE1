@@ -4,7 +4,15 @@
 **Date de V1.0.0 :** 2026-10-01\
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
-## Révision R2026-10-08-ACCES-MATIERE
+## Révision R2026-10-09-REFONTE
+
+Refonte de la forme, sans nouvelle règle. Le système est rangé en parties lisibles : `guides/` (une porte par public : débutant, designer, équipe, glossaire), `design/` (direction, savoir, formes, qualité du produit), `agent/` (la skill, le chemin de l’agent et sa réponse), `gouvernance/` (module facultatif) et `maintenance/`. Le README, les guides et le glossaire sont réécrits en langue claire ; les sections se lisent par des adresses lisibles (`savoir/couleur`), les anciens codes restant acceptés.
+
+Ce que lit l’agent change peu, et volontairement : deux observations de tendance récentes et une liste d’exemples typographiques sont retirées (sources de convergence), et deux exemples recopiables de la skill passent au format à compléter. L’export Local a désormais la même arborescence que la distribution GitHub ; la copie Markdown de l’outil de préparation est retirée.
+
+Compatibilité : V1.0.0 ; aucun nouveau mode, contrôle, statut ni champ RUN_CARD. **Efficacité : `NOT-VERIFIED`** ; aucun effet sur la qualité des rendus n’est revendiqué.
+
+## Révision précédente R2026-10-08-ACCES-MATIERE
 
 Après une mesure à l’aveugle (U5), le système active mieux ce qu’il sait. En mode `DIRECTION`, la typographie se charge d’office, chaque route facultative est tranchée explicitement, une route ouverte se lit en entier et un tour d’édition sur capture a lieu même en trace légère. Les paris P1 et P3, non concluants, sont retirés.
 

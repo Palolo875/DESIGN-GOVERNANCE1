@@ -3,7 +3,7 @@
 **Version expérimentale :** `V1.0.0`  
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
 **Date de V1.0.0 :** 2026-10-01\
-**Révision :** `R2026-10-08-ACCES-MATIERE`
+**Révision :** `R2026-10-09-REFONTE`
 
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 

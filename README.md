@@ -71,7 +71,7 @@ Ajoutez `--guides` pour chercher aussi dans les guides. Une recherche sans résu
 
 ## Limites
 
-- **Version.** V1.0.0, révision `R2026-10-08-ACCES-MATIERE` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
+- **Version.** V1.0.0, révision `R2026-10-09-REFONTE` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
 - **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. L’exécution de la CI hébergée pour cette révision n’est pas vérifiée non plus.
 - **Une validation confirme seulement les contrôles exécutés.** Une capture prouve un rendu, pas un usage : à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle.
 - **Séduisant n’est pas prouvé, conforme n’est pas réussi.** Le système demande de rendre cet écart visible et de corriger le défaut principal, sans le compenser par une autre preuve. Une étape ou une référence qui ne change rien est retirée.
