@@ -1,0 +1,44 @@
+d96d1e774fad37af977b	RELEASE_NOTES.md:17	## Révision précédente R2026-10-08-CORRECTIONS
+8285ff166312582a8ef6	RELEASE_NOTES.md:19	Corrections faites sans run de mesure, à partir d’un audit complet du paquet, pour que la 
+0f4ced27529441d18491	RELEASE_NOTES.md:21	`check_render --captures` écrit une capture pleine page par largeur sans rien écraser ; se
+3ec8c4e40192222504e0	RELEASE_NOTES.md:23	Compatibilité : V1.0.0, 69 fichiers GitHub et 63 Local ; aucun nouveau mode, gate, statut 
+4ef4fa5d9d71259e42bf	RELEASE_NOTES.md:25	## Révision précédente R2026-10-04-AUDIT2-FIXES
+e9486f28658b34726ea3	RELEASE_NOTES.md:27	Les quatre constats F07–F10 du second audit sont corrigés. Le contraste expose sa couvertu
+fc156e08a58ead6d8ba2	RELEASE_NOTES.md:29	Le profil strict refuse les familles HTTP(S) `example.com`, `example.org`, `example.net` e
+d2e477d11b75e0c6bc20	RELEASE_NOTES.md:31	R01–R04 sont traités dans les supports existants : détails datés et carte des moyens sorti
+0a5881ffacbcfe859755	RELEASE_NOTES.md:33	Compatibilité : V1.0.0, 69 fichiers GitHub et 63 Local ; aucun nouveau mode, gate, statut,
+37786e43fbd8adb06890	RELEASE_NOTES.md:35	Les cas ajoutés sont vérifiés sans navigateur, sur mesures synthétiques, code JavaScript l
+a934a2d1caf31d6780a7	RELEASE_NOTES.md:37	## Révision précédente R2026-10-04-AUDIT-FIXES
+dc97dc47834f4973adb3	RELEASE_NOTES.md:39	Les six constats de l’audit interne du 4 octobre sont traités : contraste sous opacité de 
+d6a2b6ba06c4966da97c	RELEASE_NOTES.md:41	La recette conserve une réserve lorsque sa méthode ne peut pas conclure. La présence d’un 
+5dc7dc569e7efae0d116	RELEASE_NOTES.md:43	Les régressions ajoutées portent sur calculs et DOM simulés, cas Markdown valides et mutat
+2d28d58b5a2009787f6b	RELEASE_NOTES.md:45	Les capacités de mobilisation précédentes sont conservées :
+3aeff5850ba8c33137c0	RELEASE_NOTES.md:47	La carte dérivée contient neuf connexions situées : contexte, typographie, assets, récupér
+65fb012bff9047ff3507	RELEASE_NOTES.md:49	Un renvoi conditionnel court est compilé depuis DIRECTION. ACTION précise la composition d
+719775cba3bf1b7ff669	RELEASE_NOTES.md:51	Trois résumés sont alignés : héritage structurel distinct de non-applicabilité, RUN_CARD l
+e935452da52a52132e53	RELEASE_NOTES.md:53	BIBLIOTHEQUE rend plus explicite la traduction d’une intention visuelle en responsabilité 
+7a1d54942b48c97f38dc	RELEASE_NOTES.md:55	Cette révision ne crée aucun style, route canonique, mode, gate, statut ou champ machine. 
+447bbaf4a221312981d6	RELEASE_NOTES.md:57	Le lecteur accepte désormais les identifiants structurels documentés, seuls ou préfixés pa
+62851bd78eed79c9b652	RELEASE_NOTES.md:59	### Contrôles et capacités conservés
+b297915c8919418cd6bc	RELEASE_NOTES.md:61	Six parcours bornés ont été simulés : découverte, première composition de budget, interven
+5e82159156df11d8f985	RELEASE_NOTES.md:63	Deux corrections antérieures sont conservées : la validation des liens contrôle aussi les 
+8e360d3c72df2308d085	RELEASE_NOTES.md:65	**Compatibilité.** Version, formats et champs V1.0.0 conservés ; `RUN_CARD` inchangée. Le 
+7f8d7d69e424cedaffa7	RELEASE_NOTES.md:67	Les clarifications de présentation sont conservées : commande de construction, dépendances
+aab69acdd0b237392ef7	RELEASE_NOTES.md:69	La préparation conserve les options équivalentes `--log` et `--journal`. Le budget du fich
+1da40137050fe87f5f14	RELEASE_NOTES.md:71	`read_route.py --trouver` retrouve littéralement un terme dans les sources normatives et l
+97f1db198acb234c7082	RELEASE_NOTES.md:73	Elle conserve l’activation de la finesse : le paquet relie le défaut de finesse à un geste
+88e6c0e4afbabdd133e0	RELEASE_NOTES.md:75	Les gestes ne constituent pas un style obligatoire : palettes multicolores, vides expressi
+d011f190b5f3760035ea	RELEASE_NOTES.md:77	Vérification locale : compilation, intégrité, lecture des routes, renvois, contrats, régre
+91cd8b66b0c4da00c6d4	RELEASE_NOTES.md:100	| `V1/official/` | Sources normatives, guides d’entrée, glossaire et carte de lecture (`OR
+99837704785db59ad08f	V1/official/CHANGELOG.md:32	**Décision de la révision d’accès et de matière (2026-10-08).** À la demande du propriétai
+a8873433095e3387a79f	V1/official/CHANGELOG.md:34	**Décision de la révision de corrections (2026-10-08).** À la demande du propriétaire, cor
+a36de4aa1be03591621f	V1/official/CHANGELOG.md:36	**Décision du second audit (2026-10-04).** À la demande du propriétaire, corriger F07–F10 
+56c180b94e0aa578b461	V1/official/CHANGELOG.md:38	Périmètre et compatibilité : V1.0.0, schémas et inventaires conservés, protections F01–F06
+233673a68e7d90e6c7b1	V1/official/CHANGELOG.md:40	Maintenance et preuve : mainteneur du corpus ; tests de non-régression sans navigateur, DO
+014fc06a7451e8ad33dc	V1/official/CHANGELOG.md:42	**Décision de la révision d’audit interne (2026-10-04).** Les six constats F01–F06 sont tr
+b551a4497906a3429b42	V1/official/CHANGELOG.md:44	**Décision de la révision de mobilisation.** À la demande du propriétaire du corpus, intég
+8c2ab5878e3ed4352731	V1/official/CHANGELOG.md:46	Périmètre : relations ouvertes qui peuvent modifier une décision ; héritage déjà adapté co
+7212bc59ca18911929cb	V1/official/CHANGELOG.md:48	**Décision de la révision d’activation.** BIBLIOTHEQUE possède la traduction intention → r
+2c32e2eb563485b9fdef	V1/official/ORCHESTRATION_MAP.md:1	# ORCHESTRATION_MAP — combinaisons dérivées par résultat
+8ed301ef92b34dc52c90	V1/official/ORCHESTRATION_MAP.md:3	**Statut :** pointeur de compatibilité. Les combinaisons par résultat recherché, leurs gar
+dd834ae483976197e816	V1/official/README.md:19	`README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` sont des **guides d’entrée non normatifs**.

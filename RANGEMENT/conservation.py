@@ -124,7 +124,7 @@ def main(argv):
         print(f"BASE — {len(base['blocs'])} blocs, skill {base['skill_sha256'][:12]}, commit {base['commit']}")
         return 0
     free = "--skill-libre" in argv
-    args = [a for a in argv if a != "--skill-libre"]
+    args = [a for a in argv if a not in ("--skill-libre", "--pertes")]
     repo, base = Path(args[0]), json.loads(Path(args[1]).read_text(encoding="utf-8"))
     retraits = {}
     if len(args) > 2 and Path(args[2]).is_file():
@@ -137,6 +137,10 @@ def main(argv):
     lost = [(h, b) for h, b in base["blocs"].items() if h not in now and h not in retraits]
     stale = [h for h in retraits if h not in base["blocs"]]
     skill_ok = free or hashlib.sha256((repo / SKILL).read_bytes()).hexdigest() == base["skill_sha256"]
+    if "--pertes" in argv:  # liste brute pour préparer retraits.csv : empreinte, origine, début
+        for h, b in lost:
+            print(f"{h}\t{b['origine']}\t{b['debut']}")
+        return 0 if not lost else 1
     for h, b in lost[:40]:
         print(f"PERDU — {b['origine']} : {b['debut']}")
     if len(lost) > 40:
