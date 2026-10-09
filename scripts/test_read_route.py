@@ -77,13 +77,13 @@ class SearchTests(unittest.TestCase):
 
     def test_guides_include_root_readme_and_skill_references(self):
         (self.root / "README.md").write_text("Cohérence de rayon à l’entrée.\n", encoding="utf-8")
-        for refs in (self.root / "skills" / "practice" / "references", self.root / "skill" / "references"):
+        for refs in (self.root / "agent" / "skill" / "references", self.root / "skill" / "references"):
             refs.mkdir(parents=True)
             (refs / "examples.md").write_text("Cohérence de rayon en exemple.\n", encoding="utf-8")
         self.assertEqual(len(reader.find("cohérence de rayon")), 1)
         self.assertEqual([r[1] for r in reader.find("cohérence de rayon", True)],
                          ["SAVOIR.md", "QUICKSTART.md", "README.md",
-                          "skills/practice/references/examples.md", "skill/references/examples.md"])
+                          "agent/skill/references/examples.md", "skill/references/examples.md"])
 
     def test_no_semantic_match(self):
         self.assertEqual(reader.find("courbure concentrique"), [])

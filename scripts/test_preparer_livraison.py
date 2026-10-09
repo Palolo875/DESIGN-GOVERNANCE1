@@ -264,15 +264,16 @@ class PreparationTests(unittest.TestCase):
             for name in manifest["github"]:
                 path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes((prep.ROOT / name).read_bytes())
-            source = root / "V1/official/DIRECTION.md"
-            skill = root / "skills/design-governance-practice/SKILL.md"
+            # Le bloc CHARGE-REGLE est cherché là où il vit aujourd’hui (rangement : il a pu changer de fichier).
+            source = next(root / n for n in manifest["github"] if n.endswith(".md") and "<!-- noyau:fin CHARGE-REGLE -->" in (root / n).read_text())
+            skill = root / "agent/skill/SKILL.md"
             extra = 46_001 - skill.stat().st_size
             self.assertGreater(extra, 2)
             source.write_text(source.read_text().replace("<!-- noyau:fin CHARGE-REGLE -->", "x" * (extra - 2) + "\n\n<!-- noyau:fin CHARGE-REGLE -->", 1))
-            with patch.object(bc, "OFFICIAL", root / "V1/official"):
+            with patch.object(bc, "OFFICIAL", root / "V1/official"), patch.object(bc, "ROOT", root):
                 skill.write_bytes(bc.render(skill.read_text(), bc.compile_core()).encode())
             self.assertEqual(skill.stat().st_size, 46_001)
-            local = skill.read_text().replace("V1/official/", "official/").replace("skills/design-governance-practice/", "skill/").replace("](../../README.md", "](../README.md")
+            local = skill.read_text().replace("V1/official/", "official/").replace("agent/skill/", "skill/").replace("](../../README.md", "](../README.md")
             self.assertLessEqual(len(local.encode()), 46_000)
             for name in prep.ARCHIVES:
                 (root / name).write_bytes(b"archive precedente")

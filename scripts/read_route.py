@@ -135,13 +135,14 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
 LIEUX: dict[str, tuple[str, ...]] = {
     # Rangement, lot 4 : la gouvernance formelle part dans le module gouvernance/ (texte inchangé).
     # Rangement, lot 5 : le cœur du design part dans design/ (direction, savoir, formes, produit ; texte inchangé).
-    "DIRECTION.md": ("V1/official/DIRECTION.md", "gouvernance/principes.md", "gouvernance/cloture.md",
+    # Rangement, lot 6 : le chemin de l'agent (classer, quoi lire) et sa réponse partent dans agent/ (texte inchangé).
+    "DIRECTION.md": ("V1/official/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
                      "design/direction/cadrer.md", "design/direction/premier-objet.md", "design/direction/diriger.md",
                      "design/direction/boucle.md", "design/direction/standard.md", "design/produit/interface.md"),
-    "ACTION.md": ("V1/official/ACTION.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
+    "ACTION.md": ("V1/official/ACTION.md", "agent/chemins.md", "agent/repondre.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
                   "gouvernance/verification.md", "gouvernance/cloture.md", "design/produit/premier-rendu.md",
                   "design/produit/plancher.md", "design/produit/finition.md", "design/produit/preuve-visuelle.md"),
-    "SAVOIR.md": ("V1/official/SAVOIR.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
+    "SAVOIR.md": ("V1/official/SAVOIR.md", "agent/chemins.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
                   "design/savoir/typographie.md", "design/savoir/composition.md", "design/savoir/images-et-sources.md",
                   "design/savoir/styles.md", "design/savoir/systeme-de-design.md", "design/savoir/contexte.md",
                   "design/savoir/techniques.md", "design/savoir/gout-et-tendances.md"),
@@ -541,7 +542,7 @@ def core_blocks(lines: list[str]) -> dict[int, str]:
 
 def core_section(first_line: str) -> str | None:
     """Section de la skill compilée (« 7. Gestes de finition ») qui contient cette ligne de bloc."""
-    for skill in (ROOT / "skills" / "design-governance-practice" / "SKILL.md", ROOT / "skill" / "SKILL.md"):
+    for skill in (ROOT / "agent" / "skill" / "SKILL.md", ROOT / "skill" / "SKILL.md"):
         if skill.is_file():
             section = None
             for line in skill.read_text(encoding="utf-8").splitlines():
@@ -803,7 +804,7 @@ def topic_for(term: str) -> tuple[str, str, list[str]] | None:
 
 def rank_routes(results: list[tuple[str | None, str, int, str]], terms: list[str]) -> list[tuple[str, list[tuple[str | None, str, int, str]]]]:
     """Routes classées : terme dans le nom ou un titre de la route, puis citation dans le noyau, puis nombre de lignes."""
-    skill = ROOT / "skills" / "design-governance-practice" / "SKILL.md"
+    skill = ROOT / "agent" / "skill" / "SKILL.md"
     if not skill.is_file():
         skill = ROOT / "skill" / "SKILL.md"
     core = _fold(skill.read_text(encoding="utf-8")) if skill.is_file() else ""
@@ -884,7 +885,7 @@ def outline(locator: str) -> list[tuple[int, str, str | None, int]]:
 def guide_extras() -> list[Path]:
     """Guides hors du corpus : README racine et références de la skill (dispositions GitHub et Local)."""
     extras = [ROOT / "README.md"] if (ROOT / "README.md").is_file() else []
-    for pattern in ("skills/*/references/*.md", "skill/references/*.md"):
+    for pattern in ("agent/skill/references/*.md", "skill/references/*.md"):
         extras += sorted(ROOT.glob(pattern))
     return extras
 

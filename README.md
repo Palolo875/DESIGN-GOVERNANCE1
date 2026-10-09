@@ -19,7 +19,7 @@ Design Governance aide un agent à produire un design dirigé, construit et soig
 
 **4. Comment poursuivre ?** Validez pour continuer, réorientez ou arrêtez. Pour retenir cette direction pour votre vrai produit, dites-le : l’agent réunit alors les éléments réels et fait les vérifications nécessaires. Dites en une phrase ce qui ne va pas (« le titre écrase la photo », « trop froid pour une boulangerie ») : l’agent corrige le défaut principal, regarde de nouveau le résultat et vous dit ce qui a changé. Avant toute action irréversible ou coûteuse (publier, envoyer, payer, remplacer l’existant), il vous demande votre accord.
 
-Pour aller plus loin : le [guide opérateur](V1/official/QUICKSTART.md), la [skill](skills/design-governance-practice/SKILL.md) pour les agents, le [glossaire](V1/official/GLOSSAIRE.md) et les [sources normatives](V1/official/README.md).
+Pour aller plus loin : le [guide opérateur](V1/official/QUICKSTART.md), la [skill](agent/skill/SKILL.md) pour les agents, le [glossaire](V1/official/GLOSSAIRE.md) et les [sources normatives](V1/official/README.md).
 <!-- entree:fin -->
 
 ## Fiche de version
@@ -48,7 +48,7 @@ V1 vise une première proposition composée, spécifique et soignée, sans impos
 
 | Lecteur | Entrée | Ce qu’il y trouve |
 |---|---|---|
-| Agent | [`SKILL.md`](skills/design-governance-practice/SKILL.md) | Noyau de fabrication et liste de chargement unique (`DIRECTION/CHARGE`). |
+| Agent | [`SKILL.md`](agent/skill/SKILL.md) | Noyau de fabrication et liste de chargement unique (`DIRECTION/CHARGE`). |
 | Opérateur ou designer qui pilote un run | [Guide opérateur](V1/official/QUICKSTART.md) | Parcours commun, classement, chargement, handoff et exemple complet. |
 | Reviewer ou lead | [`READING_MAP.md`](V1/official/READING_MAP.md), puis [`ACTION.md`](V1/official/ACTION.md) | Preuve dans le scope, limites et décision de clôture. |
 | Mainteneur du package | Ce README, [`CHANGELOG.md`](V1/official/CHANGELOG.md) et les validateurs | Contrat cohérent, testable et reproductible. |
@@ -57,7 +57,7 @@ V1 vise une première proposition composée, spécifique et soignée, sans impos
 
 La skill ne contient que le noyau ; ses routes, ses scripts et ses schémas restent dans le paquet. Gardez donc le paquet entier, puis :
 
-1. **Rendre la skill visible.** Avec Claude Code, copiez le dossier `skills/design-governance-practice` dans `.claude/skills/` du projet ou dans `~/.claude/skills/`. Avec un autre agent, donnez-lui `SKILL.md` comme instructions.
+1. **Rendre la skill visible.** Avec Claude Code, copiez le dossier `agent/skill` sous le nom `design-governance-practice`, dans `.claude/skills/` du projet ou dans `~/.claude/skills/` (par exemple `cp -r agent/skill .claude/skills/design-governance-practice`). Avec un autre agent, donnez-lui `SKILL.md` comme instructions.
 2. **Donner accès au paquet.** Les commandes de la skill (`python3 scripts/read_route.py …`) s’exécutent depuis la racine du paquet : travaillez dans ce dossier, ou indiquez son chemin à l’agent (« Design Governance est dans /chemin/du/paquet ; lance ses scripts depuis ce dossier »). Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium.
 3. **Vérifier.** Depuis la racine du paquet, `python3 scripts/read_route.py DIRECTION/START` affiche la route.
 
@@ -102,7 +102,7 @@ La trace doit dire ce qui a changé, ce qui n’a pas été vérifié et ce qui 
 | Couche | Chemin | Responsabilité |
 |---|---|---|
 | **Sources et guides** | `V1/official/` | Corpus normatif et guides d’entrée de la V1. |
-| **Activation pratique** | `skills/design-governance-practice/` | Couche d’activation et références conditionnelles ; elle ne crée pas de règles concurrentes. |
+| **Activation pratique** | `agent/skill/` | Couche d’activation et références conditionnelles ; elle ne crée pas de règles concurrentes. |
 | **Projection machine** | `gouvernance/schemas/` | Schémas, exemples et fixtures de `RUN_CARD`, du cadre de domaine, du brief de recherche et des contrats de production. |
 | **Contrôles et distributions** | `scripts/` | Validation du package, validation des RUN_CARD et génération des exports. |
 

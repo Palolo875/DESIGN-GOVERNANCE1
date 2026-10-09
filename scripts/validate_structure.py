@@ -46,7 +46,7 @@ import read_route as rr  # noqa: E402
 import build_core as bc  # noqa: E402
 
 OFFICIAL = rr.OFFICIAL
-SKILL_DIR = ROOT / "skills" / "design-governance-practice" if (ROOT / "skills").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
 MARKER = re.compile(r"^\s*<!-- concept:([A-Z0-9][A-Z0-9\-]*) -->\s*$")
 LOCATOR = re.compile(r"`((?:DIRECTION|ACTION|SAVOIR|BIBLIOTHEQUE)/[A-Z0-9_\-]+(?:/[A-Z0-9_\-]+)?)`")
 MIN_WORDS = 12

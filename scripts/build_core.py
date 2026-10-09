@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OFFICIAL = ROOT / "V1" / "official" if (ROOT / "V1" / "official").is_dir() else ROOT / "official"
-SKILL_DIR = ROOT / "skills" / "design-governance-practice" if (ROOT / "skills").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
 SKILL = SKILL_DIR / "SKILL.md"
 BEGIN, END = "<!-- noyau:compilé début -->", "<!-- noyau:compilé fin -->"
 BLOCK = re.compile(r"^<!-- noyau:(début|fin) ([A-Z0-9\-]+) -->$")

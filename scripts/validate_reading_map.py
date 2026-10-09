@@ -25,7 +25,7 @@ import read_route as rr  # noqa: E402
 ROOT = rr.ROOT
 OFFICIAL = rr.OFFICIAL
 MAP = OFFICIAL / "READING_MAP.md"
-SKILL_DIR = ROOT / "skills" / "design-governance-practice" if (ROOT / "skills").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
 REQUIRED = (
     "Statut :** guide dérivé non normatif",
     "## Chemin canonique de démarrage",

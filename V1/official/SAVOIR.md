@@ -31,38 +31,6 @@ La sortie de SAVOIR n’est pas un verdict. Elle doit transmettre à ACTION la d
 
 **Condition d’arrêt de lecture :** arrêter lorsque la question de jugement, le levier choisi, la contre-indication, la limite et la prochaine observation sont explicites.
 
-## SAVOIR/READ — comment utiliser cette bibliothèque
-
-`DIRECTION` détermine **si** une route est requise. `ACTION` détermine **quelle preuve** et quelle sortie sont nécessaires. `SAVOIR` explique **comment juger** dans le domaine concerné.
-
-Ne charge jamais l’ensemble de SAVOIR par réflexe. Charge typiquement zéro à deux routes ; une route par question active (CRAFT, TYPE, SOURCE, CONTEXT…) ; zéro route est valide lorsqu’aucune responsabilité de jugement ne change. Ajoute une route seulement si elle peut modifier la prochaine décision ou le statut de preuve.
-
-**Chemin minimal.** Décide d’abord la décision et le risque ; charge ensuite la route SAVOIR principale, ou aucune si le changement reste local. Ajoute une route seulement si elle change une question, une preuve ou une limite ; `ACTION` reste propriétaire des preuves, des gates, des verdicts et de la clôture. Un tag `[REQUIS PAR LE MODULE — scope]` indique qu’une responsabilité devient applicable dans le périmètre déclaré ; il n’impose pas de charger toute la bibliothèque, mais d’exécuter ou de tracer honnêtement le contrôle concerné selon le contrat d’ACTION. Sur le chemin d’un run, le plancher de ces obligations est compilé dans le noyau de la skill (composition, typographie, couleur, états, vérité) ; leur détail s’applique lorsque la route est chargée.
-
-### SAVOIR/JUGEMENT-COURT — juger sans produire un dossier
-
-Pour un delta local, écris seulement les quatre réponses d’`ACTION/FAST-PATH` et le principe utile. Si le principe ne change aucune décision, ne le charge pas.
-
-Le fast path n’autorise pas à ignorer une preuve critique lorsque le risque dominant est élevé. Il réduit la formalité ; il ne réduit pas l’honnêteté du statut.
-
-### Niveaux d’autorité
-
-Les tags indiquent le statut de lecture. Ils ne transforment pas une heuristique en résultat scientifique.
-
-| Tag | Sens | Usage autorisé |
-|---|---|---|
-| `[DURABLE]` | Principe de jugement stable du système. | Guider une décision ; ne pas le présenter comme loi empirique universelle. |
-| `[MÉTHODE]` | Procédure de raisonnement interne. | Adapter au mode, au contenu et au contexte. |
-| `[REQUIS PAR LE MODULE — scope]` | Obligation spécialisée. | Exécuter dans le scope ; sinon déclarer `NOT-VERIFIED` (preuve manquante), ou `N/A-JUSTIFIED` avec sa raison si l’obligation ne s’applique pas. |
-| `[À ADAPTER]` | Point de départ ou valeur illustrative. | Ajuster avec une raison située, un public et une contre-indication. |
-| `[VEILLE]` | Observation datée, outil, tendance ou support. | Vérifier avant de l’invoquer comme fait. |
-| `[OPINION DE SYSTÈME]` | Heuristique éditoriale du corpus. | Utiliser comme hypothèse, jamais comme preuve externe. |
-| `[DÉPRÉCIÉ]` | Élément conservé pour migration. | Ne pas appliquer à un nouveau run. |
-
-Un principe `[DURABLE]` qui concerne perception, esthétique, émotion ou culture conserve son statut de principe de jugement mais doit être lu avec sa portée et sa contre-indication. Les claims externes, mesures, standards et outils suivent le contrat `SAVOIR/TOOLS`.
-
-Les routes stables suivantes sont les routes quotidiennes. Les anciens identifiants de section sont documentés dans la table de migration de `CHANGELOG.md` et ne doivent pas être utilisés comme instructions actives.
-
 ## SAVOIR/ROUTING — routes stables
 
 Une question possède une route principale. Les autres routes sont des renvois qui ne créent pas une seconde procédure.

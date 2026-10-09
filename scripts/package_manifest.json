@@ -64,11 +64,11 @@
     "scripts/test_check_render.py",
     "scripts/validate_structure.py",
     "scripts/build_core.py",
-    "skills/design-governance-practice/SKILL.md",
-    "skills/design-governance-practice/references/canonical_minimum.md",
-    "skills/design-governance-practice/references/examples.md",
-    "skills/design-governance-practice/references/flow.md",
-    "skills/design-governance-practice/references/machine_projection.md",
+    "agent/skill/SKILL.md",
+    "agent/skill/references/canonical_minimum.md",
+    "agent/skill/references/examples.md",
+    "agent/skill/references/flow.md",
+    "agent/skill/references/machine_projection.md",
     "gouvernance/README.md",
     "gouvernance/principes.md",
     "gouvernance/statuts.md",
@@ -101,7 +101,9 @@
     "design/savoir/styles.md",
     "design/savoir/systeme-de-design.md",
     "design/savoir/techniques.md",
-    "design/savoir/typographie.md"
+    "design/savoir/typographie.md",
+    "agent/chemins.md",
+    "agent/repondre.md"
   ],
   "local": [
     "README.md",
@@ -198,6 +200,8 @@
     "design/savoir/styles.md",
     "design/savoir/systeme-de-design.md",
     "design/savoir/techniques.md",
-    "design/savoir/typographie.md"
+    "design/savoir/typographie.md",
+    "agent/chemins.md",
+    "agent/repondre.md"
   ]
 }

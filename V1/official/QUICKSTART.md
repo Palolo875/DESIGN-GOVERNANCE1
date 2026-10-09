@@ -288,4 +288,4 @@ Si une étape, une variante, une référence ou un tag ne change aucune décisio
 | Support, grille, scène, objet et composants | [`BIBLIOTHEQUE.md`](./BIBLIOTHEQUE.md) |
 | État officiel du package et changements partagés | [`CHANGELOG.md`](./CHANGELOG.md) |
 
-Lisez une source détaillée uniquement si elle peut modifier une décision, un artefact, une preuve, une limite ou la prochaine action. Pour les exemples, le flux et la projection machine, consultez les références de la skill pratique lorsque le parcours le justifie : `skills/design-governance-practice/references/examples.md`, `skills/design-governance-practice/references/flow.md` et `skills/design-governance-practice/references/machine_projection.md`.
+Lisez une source détaillée uniquement si elle peut modifier une décision, un artefact, une preuve, une limite ou la prochaine action. Pour les exemples, le flux et la projection machine, consultez les références de la skill pratique lorsque le parcours le justifie : `agent/skill/references/examples.md`, `agent/skill/references/flow.md` et `agent/skill/references/machine_projection.md`.

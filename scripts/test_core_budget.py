@@ -40,7 +40,7 @@ class BudgetTests(unittest.TestCase):
 
     def test_structural_validation_refuses_both_layouts(self):
         with tempfile.TemporaryDirectory() as tmp:
-            for layout in ("skills/design-governance-practice/SKILL.md", "skill/SKILL.md"):
+            for layout in ("agent/skill/SKILL.md", "skill/SKILL.md"):
                 with self.subTest(layout=layout):
                     skill = Path(tmp) / layout
                     skill.parent.mkdir(parents=True, exist_ok=True)

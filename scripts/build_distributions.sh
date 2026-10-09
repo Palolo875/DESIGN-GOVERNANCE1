@@ -55,7 +55,7 @@ cp -a "$ROOT/.gitignore" "$STAGE/github/.gitignore"
 cp -a "$ROOT/V1" "$STAGE/github/V1"
 cp -a "$ROOT/gouvernance" "$STAGE/github/gouvernance"
 cp -a "$ROOT/design" "$STAGE/github/design"
-cp -a "$ROOT/skills" "$STAGE/github/skills"
+cp -a "$ROOT/agent" "$STAGE/github/agent"
 mkdir -p "$STAGE/github/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/github/scripts/validate_design_governance.py"
 cp -a "$ROOT/scripts/build_distributions.sh" "$STAGE/github/scripts/build_distributions.sh"
@@ -79,7 +79,9 @@ cp -a "$ROOT/.github/workflows/validate.yml" "$STAGE/github/.github/workflows/va
 cp -a "$ROOT/V1/official" "$STAGE/local/official"
 cp -a "$ROOT/gouvernance" "$STAGE/local/gouvernance"
 cp -a "$ROOT/design" "$STAGE/local/design"
-cp -a "$ROOT/skills/design-governance-practice" "$STAGE/local/skill"
+cp -a "$ROOT/agent/skill" "$STAGE/local/skill"
+mkdir -p "$STAGE/local/agent"
+cp -a "$ROOT/agent/chemins.md" "$ROOT/agent/repondre.md" "$STAGE/local/agent/"
 mkdir -p "$STAGE/local/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/local/scripts/validate_design_governance.py"
 cp -a "$ROOT/scripts/package_manifest.json" "$STAGE/local/scripts/package_manifest.json"
@@ -162,7 +164,7 @@ for name in ("entree", "constitution"):
     found = re.findall(rf"<!-- {name}:début -->.*?<!-- {name}:fin -->", source, re.S)
     if len(found) != 1:
         raise SystemExit(f"BUILD FAILED — README du package : bloc partagé « {name} » trouvé {len(found)} fois (attendu : 1)")
-    block = found[0].replace("V1/official/", "official/").replace("skills/design-governance-practice/", "skill/")
+    block = found[0].replace("V1/official/", "official/").replace("agent/skill/", "skill/")
     placeholder = f"<!-- partage:{name} -->"
     if text.count(placeholder) != 1:
         raise SystemExit(f"BUILD FAILED — README Local : emplacement « {placeholder} » absent ou multiple")
@@ -178,14 +180,14 @@ import sys
 root = Path(sys.argv[1])
 targets = sorted((root / "skill").rglob("*.md")) + [root / "official" / "QUICKSTART.md", root / "official" / "README.md"]
 targets += sorted((root / "gouvernance").glob("*.md")) + sorted((root / "official").glob("*.md"))
-targets += sorted((root / "design").rglob("*.md"))
+targets += sorted((root / "design").rglob("*.md")) + sorted((root / "agent").glob("*.md"))
 for path in dict.fromkeys(targets):
     text = path.read_text(encoding="utf-8")
-    rewritten = text.replace("V1/official/", "official/").replace("skills/design-governance-practice/", "skill/")
+    rewritten = text.replace("V1/official/", "official/").replace("agent/skill/", "skill/")
     # Le README du package est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
     rewritten = rewritten.replace("](../../README.md", "](../README.md")
     # Le module gouvernance/ est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
-    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/").replace("](../../design/", "](../design/")
+    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/").replace("](../../design/", "](../design/").replace("](../../agent/", "](../agent/")
     if rewritten != text:
         path.write_text(rewritten, encoding="utf-8")
 PY
