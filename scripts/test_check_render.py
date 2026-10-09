@@ -318,6 +318,8 @@ PAGES = {
     "opacite.html": '<div style="color:white;background:black;opacity:.5">Texte blanc normal</div>',
     "nommasque.html": '<button><span aria-hidden="true">×</span></button>',
     "nomreference.html": '<span id="label" hidden>Fermer</span><button aria-labelledby="label"></button>',
+    "dialogferme.html": '<dialog><label for="arrivee">Arrivée</label><input id="arrivee" type="date"><button>Continuer</button></dialog>',
+    "ancetremasque.html": '<div style="display:none"><button></button></div>',
     "inatteignable.html": '<button tabindex="-1">Valider</button>',
     "sanscontrole.html": '<p>Texte sans interaction</p>',
     "valeur.html": '<input aria-label="Nom" value="Texte" style="color:#aaa;background:white">',
@@ -392,6 +394,10 @@ def part_b(require: bool) -> str:
                                          ('nomreference.html','Nom accessible',RESERVE),('inatteignable.html','Parcours clavier',RESERVE),
                                          ('sanscontrole.html','Parcours clavier',PASS)]:
                 _,c=measure(str(d/filename));expect('B',filename,status(c,prefix),want)
+            for filename in ('dialogferme.html', 'ancetremasque.html'):
+                raw,c=measure(str(d/filename))
+                expect('B',filename+' aucun faux nom manquant',status(c,'Nom accessible'),PASS)
+                expect('B',filename+' aucun contrôle rendu',raw['per_width'][390]['audit']['nameControls'],0)
             _,c=measure(str(d/'propre.html'),'--tab-stops','1')
             expect('B','limite atteinte même avec un bouton observé',status(c,'Parcours clavier'),RESERVE)
             for filename in ('valeur.html', 'placeholder.html'):

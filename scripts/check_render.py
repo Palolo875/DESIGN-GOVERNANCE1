@@ -180,6 +180,13 @@ AUDIT_JS = r"""
   for (const el of document.querySelectorAll(FOC)) {
     if (el.disabled || el.closest('[aria-hidden="true"],[hidden]')) continue;
     const cs = getComputedStyle(el); if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+    // Un descendant d'un conteneur display:none (dont un dialog fermé) n'est pas rendu.
+    // Son propre display peut pourtant être « block » : ne pas le déclarer sans nom.
+    let notRendered = false;
+    for (let ancestor = el.parentElement; ancestor; ancestor = ancestor.parentElement) {
+      if (getComputedStyle(ancestor).display === 'none') { notRendered = true; break; }
+    }
+    if (notRendered) continue;
     res.nameControls++;
     const n = name(el);
     if (n.candidate) res.nameCandidates.push({sel: sel(el), candidate: n.candidate});

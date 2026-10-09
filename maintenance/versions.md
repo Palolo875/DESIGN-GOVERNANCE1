@@ -7,6 +7,10 @@
 
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
+## Correctif de recette — 2026-10-09
+
+La mise en pratique sur Maison Lisière a révélé un faux retour de la recette de rendu : les contrôles placés dans un dialogue fermé ou un conteneur `display:none` étaient inspectés comme rendus, puis déclarés sans nom. Le contrôle des candidats DOM exclut désormais les descendants d’un ancêtre non rendu. Deux pages de régression couvrent ces cas ; les contrôles effectivement rendus restent inspectés. Cette correction de mesure ne modifie aucune règle de design et ne constitue pas une preuve d’efficacité du système.
+
 ## V1.0.0 — Version initiale expérimentale (2026-10-01)
 
 Design Governance V1.0.0 est un cadre de direction, de création, de jugement et de vérification du design pour agents. Il transforme un brief en proposition composée et spécifique, puis en travail vérifiable, avec une trace proportionnée au risque.
