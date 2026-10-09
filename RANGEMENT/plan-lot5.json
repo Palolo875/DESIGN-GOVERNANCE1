@@ -1,0 +1,187 @@
+[
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/FRAME — fondations et cadrage",
+  "destination": "design/savoir/fondements.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/CRAFT — anti-slop, composition et expression",
+  "destination": "design/savoir/qualite-creative.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/TYPE — typographie et données",
+  "destination": "design/savoir/typographie.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/STATE — craft, composants et états",
+  "destination": "design/savoir/composition.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/SOURCE — ancre et sourcing visuel",
+  "destination": "design/savoir/images-et-sources.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/DESIGN-ATLAS — familles et responsabilités",
+  "destination": "design/savoir/images-et-sources.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/STYLE — profils contrôlés et dials",
+  "destination": "design/savoir/styles.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/SYSTEM — tokens et composants",
+  "destination": "design/savoir/systeme-de-design.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/CONTEXT — accessibilité, contexte et robustesse",
+  "destination": "design/savoir/contexte.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/TECH — techniques, tests et stack",
+  "destination": "design/savoir/techniques.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "# SAVOIR/TOOLS — claims, tendances et calibration",
+  "destination": "design/savoir/gout-et-tendances.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/EXTERNAL-START — activation portable sur brief vague",
+  "destination": "design/direction/cadrer.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/FIRST-OBJECT — compiler le brief et produire le premier objet",
+  "destination": "design/direction/premier-objet.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/VISUAL_TARGET — rendre la direction pilotable",
+  "destination": "design/direction/diriger.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/DIRECTION-ATELIER — module officiel de direction située",
+  "destination": "design/direction/diriger.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## 1. Direction divergente — déclenchement `DIRECTION`",
+  "destination": "design/direction/diriger.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/DOUBLE-LOOP — créer puis apprendre",
+  "destination": "design/direction/boucle.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## LES CINQ RÈGLES ABSOLUES",
+  "destination": "design/direction/standard.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## 3. Invariants de jugement",
+  "destination": "design/direction/standard.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## Cadrage de médium et de capacité",
+  "destination": "design/produit/interface.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/FIRST-RENDER — qualité initiale attendue",
+  "destination": "design/produit/premier-rendu.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/GATE-A — plancher objectivable",
+  "destination": "design/produit/plancher.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/POLICIES — contraste et inspection",
+  "destination": "design/produit/plancher.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/GATE-C — craft sur rendu réel",
+  "destination": "design/produit/finition.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/ANTI-SLOP — conséquence de gate",
+  "destination": "design/produit/finition.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/VISUAL_PROOF — rendre la direction vérifiable",
+  "destination": "design/produit/preuve-visuelle.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/READ — responsabilités et convention de route",
+  "destination": "design/formes/choisir.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/SELECT — choisir avant de composer",
+  "destination": "design/formes/choisir.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/SUPPORT — où la surface vit",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/GRID — comment le regard circule",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/SCENE — comment la promesse devient une surface",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/SEQUENCE — comment la page s’enchaîne",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/OBJECT — quelle preuve devient tangible",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/MICRO — unités denses",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/MODIFIER — comportements transversaux",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/COMPONENTS — couches et dépendances",
+  "destination": "design/formes/catalogue.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/COMPAT — combiner avec une raison",
+  "destination": "design/formes/catalogue.md"
+ }
+]
