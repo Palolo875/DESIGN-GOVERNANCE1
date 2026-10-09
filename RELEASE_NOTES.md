@@ -50,7 +50,7 @@ Le détail est dans [`maintenance/versions.md`](maintenance/versions.md).
 
 ## Parcours
 
-**Pour une personne qui fait une demande :** la section « Commencer » du README du package. Elle n’a pas de mode à choisir.
+**Pour une personne qui fait une demande :** le [guide pour commencer](guides/commencer.md). Elle n’a pas de mode à choisir.
 
 **Pour un agent :**
 

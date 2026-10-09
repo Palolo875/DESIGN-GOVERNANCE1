@@ -21,7 +21,7 @@ Pour composer plusieurs capacités selon un résultat recherché — direction, 
 
 ## Constitution minimale
 
-Les cinq absolus de `DIRECTION` protègent chaque run : résumé dans la section « Les cinq règles essentielles » du README du package, formulation canonique dans [`DIRECTION.md`](../../design/direction/standard.md#les-cinq-règles-absolues).
+Les cinq absolus de `DIRECTION` protègent chaque run : résumé dans la section « Les cinq règles essentielles » du README du package, formulation canonique dans [`direction/standard`](../../design/direction/standard.md#les-cinq-règles-absolues).
 
 ## Routage minimal par décision
 

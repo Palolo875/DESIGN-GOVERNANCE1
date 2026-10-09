@@ -22,7 +22,7 @@ Pour aller plus loin : le [guide opérateur](equipe.md), la [skill](../agent/ski
 <!-- origine:GLOSSAIRE.md -->
 ## Pour commencer sans vocabulaire préalable
 
-Cette suite s’adresse à l’opérateur ou à l’agent ; une personne qui fait une demande n’a pas de mode à choisir (section « Commencer » du README du package).
+Cette suite s’adresse à l’opérateur ou à l’agent ; une personne qui fait une demande n’a pas de mode à choisir (section « Commencer » ci-dessus).
 
 1. Classez la demande avec `DIRECTION/START` : mode et risque dominant ; notez la décision à changer, la prochaine preuve et l’owner.
 2. Chargez la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement le propriétaire normatif utile.
