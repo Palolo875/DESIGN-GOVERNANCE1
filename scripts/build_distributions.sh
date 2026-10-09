@@ -57,6 +57,7 @@ cp -a "$ROOT/gouvernance" "$STAGE/github/gouvernance"
 cp -a "$ROOT/design" "$STAGE/github/design"
 cp -a "$ROOT/agent" "$STAGE/github/agent"
 cp -a "$ROOT/maintenance" "$STAGE/github/maintenance"
+cp -a "$ROOT/guides" "$STAGE/github/guides"
 mkdir -p "$STAGE/github/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/github/scripts/validate_design_governance.py"
 cp -a "$ROOT/scripts/build_distributions.sh" "$STAGE/github/scripts/build_distributions.sh"
@@ -84,6 +85,7 @@ cp -a "$ROOT/agent/skill" "$STAGE/local/skill"
 mkdir -p "$STAGE/local/agent"
 cp -a "$ROOT/agent/chemins.md" "$ROOT/agent/repondre.md" "$STAGE/local/agent/"
 cp -a "$ROOT/maintenance" "$STAGE/local/maintenance"
+cp -a "$ROOT/guides" "$STAGE/local/guides"
 mkdir -p "$STAGE/local/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/local/scripts/validate_design_governance.py"
 cp -a "$ROOT/scripts/package_manifest.json" "$STAGE/local/scripts/package_manifest.json"
@@ -106,7 +108,7 @@ Design Governance V1.0.0 est une expérimentation maintenue qui aide à transfor
 
 ## Pour les agents et les opérateurs
 
-Un agent entre par [`skill/SKILL.md`](skill/SKILL.md) : noyau de fabrication et liste de chargement unique (`DIRECTION/CHARGE`). Pour piloter un run, lisez le guide opérateur [`official/QUICKSTART.md`](official/QUICKSTART.md) ; le vocabulaire est dans [`official/GLOSSAIRE.md`](official/GLOSSAIRE.md). Le mode d’un run est choisi par l’agent avec `DIRECTION/START` ; il n’est jamais demandé à la personne qui fait la demande.
+Un agent entre par [`skill/SKILL.md`](skill/SKILL.md) : noyau de fabrication et liste de chargement unique (`DIRECTION/CHARGE`). Pour piloter un run, lisez le guide opérateur [`guides/equipe.md`](guides/equipe.md) ; le vocabulaire est dans [`guides/glossaire.md`](guides/glossaire.md). Le mode d’un run est choisi par l’agent avec `DIRECTION/START` ; il n’est jamais demandé à la personne qui fait la demande.
 
 Pour installer la skill : gardez l’export entier ; avec Claude Code, copiez le dossier `skill` dans `.claude/skills/design-governance-practice/` du projet ou de `~/.claude/` ; avec un autre agent, donnez-lui `skill/SKILL.md` comme instructions. Les commandes de la skill s’exécutent depuis la racine de l’export : travaillez dans ce dossier ou indiquez son chemin à l’agent. Vérifiez avec `python3 scripts/read_route.py DIRECTION/START`. Sans accès à l’export, l’agent n’a que le noyau ; après une mise à jour, recopiez la skill.
 
@@ -180,17 +182,17 @@ from pathlib import Path
 import sys
 
 root = Path(sys.argv[1])
-targets = sorted((root / "skill").rglob("*.md")) + [root / "official" / "QUICKSTART.md", root / "official" / "README.md"]
+targets = sorted((root / "skill").rglob("*.md")) + [root / "official" / "README.md"]
 targets += sorted((root / "gouvernance").glob("*.md")) + sorted((root / "official").glob("*.md"))
 targets += sorted((root / "design").rglob("*.md")) + sorted((root / "agent").glob("*.md"))
-targets += sorted((root / "maintenance").glob("*.md"))
+targets += sorted((root / "maintenance").glob("*.md")) + sorted((root / "guides").glob("*.md"))
 for path in dict.fromkeys(targets):
     text = path.read_text(encoding="utf-8")
     rewritten = text.replace("V1/official/", "official/").replace("agent/skill/", "skill/")
     # Le README du package est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
     rewritten = rewritten.replace("](../../README.md", "](../README.md")
     # Le module gouvernance/ est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
-    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/").replace("](../../design/", "](../design/").replace("](../../agent/", "](../agent/").replace("](../../maintenance/", "](../maintenance/")
+    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/").replace("](../../design/", "](../design/").replace("](../../agent/", "](../agent/").replace("](../../maintenance/", "](../maintenance/").replace("](../../guides/", "](../guides/")
     if rewritten != text:
         path.write_text(rewritten, encoding="utf-8")
 PY

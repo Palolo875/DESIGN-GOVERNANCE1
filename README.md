@@ -19,7 +19,7 @@ Design Governance aide un agent à produire un design dirigé, construit et soig
 
 **4. Comment poursuivre ?** Validez pour continuer, réorientez ou arrêtez. Pour retenir cette direction pour votre vrai produit, dites-le : l’agent réunit alors les éléments réels et fait les vérifications nécessaires. Dites en une phrase ce qui ne va pas (« le titre écrase la photo », « trop froid pour une boulangerie ») : l’agent corrige le défaut principal, regarde de nouveau le résultat et vous dit ce qui a changé. Avant toute action irréversible ou coûteuse (publier, envoyer, payer, remplacer l’existant), il vous demande votre accord.
 
-Pour aller plus loin : le [guide opérateur](V1/official/QUICKSTART.md), la [skill](agent/skill/SKILL.md) pour les agents, le [glossaire](V1/official/GLOSSAIRE.md) et les [sources normatives](V1/official/README.md).
+Pour aller plus loin : le [guide opérateur](guides/equipe.md), la [skill](agent/skill/SKILL.md) pour les agents, le [glossaire](guides/glossaire.md) et les [sources normatives](V1/official/README.md).
 <!-- entree:fin -->
 
 ## Fiche de version
@@ -49,7 +49,7 @@ V1 vise une première proposition composée, spécifique et soignée, sans impos
 | Lecteur | Entrée | Ce qu’il y trouve |
 |---|---|---|
 | Agent | [`SKILL.md`](agent/skill/SKILL.md) | Noyau de fabrication et liste de chargement unique (`DIRECTION/CHARGE`). |
-| Opérateur ou designer qui pilote un run | [Guide opérateur](V1/official/QUICKSTART.md) | Parcours commun, classement, chargement, handoff et exemple complet. |
+| Opérateur ou designer qui pilote un run | [Guide opérateur](guides/equipe.md) | Parcours commun, classement, chargement, handoff et exemple complet. |
 | Reviewer ou lead | [`READING_MAP.md`](V1/official/READING_MAP.md), puis [`ACTION.md`](V1/official/ACTION.md) | Preuve dans le scope, limites et décision de clôture. |
 | Mainteneur du package | Ce README, [`CHANGELOG.md`](maintenance/versions.md) et les validateurs | Contrat cohérent, testable et reproductible. |
 

@@ -24,7 +24,6 @@ import read_route as rr  # noqa: E402
 
 ROOT = rr.ROOT
 OFFICIAL = rr.OFFICIAL
-MAP = OFFICIAL / "READING_MAP.md"
 SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
 REQUIRED = (
     "Statut :** guide dérivé non normatif",
@@ -717,9 +716,10 @@ def main() -> int:
     bad = rr.non_utf8(rr.ROOT)  # encodage nommé avant toute lecture
     if bad:
         fail(f"Markdown non UTF-8 : {', '.join(bad)}")
-    if not MAP.is_file():
+    try:
+        text = rr.carte()
+    except rr.RouteError:
         fail("READING_MAP.md absent")
-    text = MAP.read_text(encoding="utf-8")
     for item in REQUIRED:
         if item not in text:
             fail(f"élément obligatoire absent : {item}")
@@ -728,12 +728,13 @@ def main() -> int:
             fail(f"propriétaire de route absent : {route}")
         if not owner.is_file():
             fail(f"fichier propriétaire absent : {owner}")
-    for target in re.findall(r"\]\(([^)]+)\)", text):
-        target = target.split("#", 1)[0]
-        if not target or target.startswith(("http://", "https://", "mailto:")):
-            continue
-        if not (MAP.parent / target).exists():
-            fail(f"lien relatif non résolu : {target}")
+    for path in (p for p in rr.lieu("READING_MAP.md") if p.is_file()):  # chaque lien depuis le fichier qui le porte
+        for target in re.findall(r"\]\(([^)]+)\)", rr.part_de(path, "READING_MAP.md")):
+            target = target.split("#", 1)[0]
+            if not target or target.startswith(("http://", "https://", "mailto:")):
+                continue
+            if not (path.parent / target).exists():
+                fail(f"lien relatif non résolu : {target}")
     # The map must remain derived and cannot introduce a competing classifier.
     if "source" not in text or "normative" not in text or "ne reclassifie pas" not in text:
         fail("frontière de non-autorité ou de non-reclassification absente")

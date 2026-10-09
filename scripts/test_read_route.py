@@ -60,7 +60,7 @@ class SearchTests(unittest.TestCase):
             "# Savoir\n## SAVOIR/STATE\nCohérence de rayon : signal utile.\n"
             "### SAVOIR/CHILD\nUn signal enfant précis.\n<!-- concept:TEST-MARKER -->\n", encoding="utf-8")
         (self.official / "QUICKSTART.md").write_text("Cohérence de rayon dans le guide.\n", encoding="utf-8")
-        self.override = patch.multiple(reader, ROOT=self.root, OFFICIAL=self.official, MAP=self.official / "READING_MAP.md", LIEUX={})
+        self.override = patch.multiple(reader, ROOT=self.root, OFFICIAL=self.official, LIEUX={})
         self.override.start()
 
     def tearDown(self):
@@ -175,7 +175,7 @@ class StructureIdentifierTests(unittest.TestCase):
 
 class ConnectionTests(unittest.TestCase):
     def setUp(self):
-        self.text = reader.MAP.read_text(encoding="utf-8")
+        self.text = reader.carte()
 
     def test_every_connection_has_resolved_sources(self):
         revision, entries = reader.connections(self.text)
@@ -234,14 +234,14 @@ class CliTests(unittest.TestCase):
         r = self.cli("--trouver", "COHERENCE DE RAYON")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("SAVOIR/STATE", r.stdout)
-        self.assertNotIn("QUICKSTART.md:", r.stdout)
+        self.assertNotIn("guides/equipe.md:", r.stdout)
         self.assertIn("0 ligne(s) de guide", r.stdout)
 
     def test_guides_separated_from_normative_results(self):
         r = self.cli("--trouver", "cohérence de rayon", "--guides")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("GUIDES — orientation, sans autorité normative", r.stdout)
-        self.assertIn("QUICKSTART.md:", r.stdout)
+        self.assertIn("guides/equipe.md:", r.stdout)
 
     def test_missing_term_reports_search_limit(self):
         r = self.cli("--trouver", "zztermeabsentpourtestzz")
@@ -418,7 +418,7 @@ class SearchAndSummaryTests(unittest.TestCase):
 
     def test_topic_map_owner_must_treat_topic(self):
         import validate_reading_map as rmap
-        text = reader.MAP.read_text(encoding="utf-8")
+        text = reader.carte()
         errors = []; rmap.check_topics(text, errors)
         self.assertEqual(errors, [])
         broken = text.replace("| couleur | `SAVOIR/CRAFT/CFT-05` |", "| couleur | `ACTION/HANDOFF` |")

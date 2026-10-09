@@ -4,7 +4,7 @@
 
 > **Rôle de ce guide :** fournir une interface d’activation rapide. Il oriente la lecture et l’action, mais n’ajoute aucune règle, route, gate, axe, statut, verdict ou autorité. Les cinq sources normatives font foi.
 
-> **Pour qui :** ce guide sert à piloter un run (opérateur, designer ou agent). Pour faire simplement une demande, la section [« Commencer »](../../README.md#commencer) du README du package suffit : vous n’avez pas à choisir de mode.
+> **Pour qui :** ce guide sert à piloter un run (opérateur, designer ou agent). Pour faire simplement une demande, la section [« Commencer »](../README.md#commencer) du README du package suffit : vous n’avez pas à choisir de mode.
 
 V1 aide à transformer une demande en **décision située, artefact réel, observation pertinente et trace honnête**. Elle ne promet ni beauté automatique, ni réussite universelle, ni validation d’usage sans preuve adaptée. Elle vise néanmoins un niveau positif : lorsque la décision visuelle est ouverte et que les capacités sont disponibles, le premier rendu doit déjà être composé, spécifique, crédible, présentable et suffisamment résolu pour être jugé comme un objet réel.
 
@@ -30,7 +30,7 @@ Produisez la ligne de run, faites l’action la moins coûteuse qui peut changer
 
 ## Carte de résolution rapide
 
-Si la demande est déjà identifiable, consultez [`READING_MAP.md`](./READING_MAP.md) pour le premier chemin, la perspective conditionnelle et la sortie attendue. Cette carte est dérivée et non normative. Si le brief est vague, commencez directement par `DIRECTION/START`.
+Si la demande est déjà identifiable, consultez [`READING_MAP.md`](../V1/official/READING_MAP.md) pour le premier chemin, la perspective conditionnelle et la sortie attendue. Cette carte est dérivée et non normative. Si le brief est vague, commencez directement par `DIRECTION/START`.
 
 Une sortie de run a deux formes : la **réponse visible**, par défaut, et le **handoff**, pour une reprise ou un run persistant (voir `ACTION/HANDOFF`). Le niveau de trace ne dépend pas du mode : sans persistance, partage, audit ni acceptation demandée, la **trace légère** suffit (six lignes au plus, à côté de l’artefact ou sous « Trace » après la réponse) ; dans les autres cas, la **trace complète** s’impose. Utilisez `N/A-JUSTIFIED` lorsqu’un champ ou une perspective ne s’applique pas.
 
@@ -50,7 +50,7 @@ Si le domaine, le public, la confiance, la culture, la convention ou l’ambitio
 
 ### Constitution et entrées par besoin
 
-Les cinq absolus de `DIRECTION` protègent chaque run : leur résumé est dans la section « Constitution minimale » du README du package, leur formulation canonique dans [`DIRECTION.md`](../../design/direction/standard.md#les-cinq-règles-absolues).
+Les cinq absolus de `DIRECTION` protègent chaque run : leur résumé est dans la section « Constitution minimale » du README du package, leur formulation canonique dans [`DIRECTION.md`](../design/direction/standard.md#les-cinq-règles-absolues).
 
 | Pour… | Faites d’abord… | Puis approfondissez avec… |
 |---|---|---|
@@ -282,10 +282,10 @@ Si une étape, une variante, une référence ou un tag ne change aucune décisio
 
 | Besoin | Source |
 |---|---|
-| Classification, absolus et direction | [`DIRECTION.md`](./DIRECTION.md) |
-| Trace, preuve, gates, verdict et clôture | [`ACTION.md`](./ACTION.md) |
-| Craft, contenu, contexte, sources et intégrité | [`SAVOIR.md`](./SAVOIR.md) |
-| Support, grille, scène, objet et composants | [`BIBLIOTHEQUE.md`](./BIBLIOTHEQUE.md) |
-| État officiel du package et changements partagés | [`CHANGELOG.md`](../../maintenance/versions.md) |
+| Classification, absolus et direction | [`DIRECTION.md`](../V1/official/DIRECTION.md) |
+| Trace, preuve, gates, verdict et clôture | [`ACTION.md`](../V1/official/ACTION.md) |
+| Craft, contenu, contexte, sources et intégrité | [`SAVOIR.md`](../V1/official/SAVOIR.md) |
+| Support, grille, scène, objet et composants | [`BIBLIOTHEQUE.md`](../V1/official/BIBLIOTHEQUE.md) |
+| État officiel du package et changements partagés | [`CHANGELOG.md`](../maintenance/versions.md) |
 
 Lisez une source détaillée uniquement si elle peut modifier une décision, un artefact, une preuve, une limite ou la prochaine action. Pour les exemples, le flux et la projection machine, consultez les références de la skill pratique lorsque le parcours le justifie : `agent/skill/references/examples.md`, `agent/skill/references/flow.md` et `agent/skill/references/machine_projection.md`.

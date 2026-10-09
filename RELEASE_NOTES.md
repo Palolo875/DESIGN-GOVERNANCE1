@@ -60,7 +60,7 @@ lire la skill (noyau de fabrication) → classer avec DIRECTION/START
 → boucle d’édition → réponse visible et trace légère (trace complète si le run est persistant, partagé, audité ou à accepter)
 ```
 
-**Pour un opérateur :** le guide [`V1/official/QUICKSTART.md`](V1/official/QUICKSTART.md).
+**Pour un opérateur :** le guide [`guides/equipe.md`](guides/equipe.md).
 
 ## Contrôles inclus
 

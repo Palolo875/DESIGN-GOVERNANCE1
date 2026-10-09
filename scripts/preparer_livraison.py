@@ -33,7 +33,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVES = ("Design_Governance_V1_GITHUB.zip", "Design_Governance_V1_LOCAL.zip")
 LANG = {"json": "json", "py": "python", "sh": "bash", "yml": "yaml"}
-FIRST = ["README.md", "RELEASE_NOTES.md", "V1/official/README.md", "V1/official/QUICKSTART.md", "V1/official/READING_MAP.md",
+FIRST = ["README.md", "RELEASE_NOTES.md", "V1/official/README.md", "guides/equipe.md", "V1/official/READING_MAP.md",
          "V1/official/DIRECTION.md", "V1/official/ACTION.md", "V1/official/SAVOIR.md", "V1/official/BIBLIOTHEQUE.md",
          "maintenance/versions.md"]
 # Script de restauration embarqué dans la copie complète. Le motif est découpé pour ne jamais contenir le marqueur littéral.

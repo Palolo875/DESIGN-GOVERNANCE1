@@ -14,5 +14,6 @@ Le savoir de design, par sujet. Chaque fichier se lit seul ; le lecteur sert aus
 | [`contexte.md`](contexte.md) | Accessibilité, contextes à fort enjeu, responsive, mouvement |
 | [`techniques.md`](techniques.md) | Techniques, tests et production par médium |
 | [`gout-et-tendances.md`](gout-et-tendances.md) | Goût, références, tendances datées, ressources |
+| [`connexions.md`](connexions.md) | Quand plusieurs domaines se croisent |
 
 Les fondements de lecture du savoir, les règles d’or et l’intégrité restent pour l’instant dans `V1/official/SAVOIR.md`.

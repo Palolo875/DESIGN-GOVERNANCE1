@@ -38,7 +38,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OFFICIAL = ROOT / "V1" / "official" if (ROOT / "V1" / "official").is_dir() else ROOT / "official"
-MAP = OFFICIAL / "READING_MAP.md"
 PREFIXES = ("DIRECTION", "ACTION", "SAVOIR", "BIBLIOTHEQUE", "CHANGELOG")
 STRUCTURE_KINDS = ("SUPPORT", "GRID", "SCENE", "OBJECT", "MICRO", "MODIFIER", "LAYER")
 STRUCTURE_PARENTS = {kind: ("COMPONENTS" if kind == "LAYER" else kind) for kind in STRUCTURE_KINDS}
@@ -151,6 +150,11 @@ LIEUX: dict[str, tuple[str, ...]] = {
     "BIBLIOTHEQUE.md": ("V1/official/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
                         "design/formes/catalogue.md", "maintenance/evolution.md"),
     "CHANGELOG.md": ("maintenance/versions.md", "maintenance/evolution.md"),
+    # Rangement, lot 7b : guides par public (équipe, designer, glossaire) et connexions du savoir (texte inchangé).
+    "QUICKSTART.md": ("guides/equipe.md",),
+    "GLOSSAIRE.md": ("guides/glossaire.md",),
+    "READING_MAP.md": ("V1/official/READING_MAP.md", "guides/designer.md", "design/savoir/connexions.md",
+                       "maintenance/README.md"),
 }
 
 
@@ -249,6 +253,14 @@ def lieu_texte(name: str) -> str:
     if not paths:
         raise FileNotFoundError(name)
     return "\n".join(part_de(p, name) for p in paths)
+
+
+def carte() -> str:
+    """Texte de la carte de lecture (READING_MAP), à ses lieux actuels : table des routes, sujets, connexions."""
+    try:
+        return lieu_texte("READING_MAP.md")
+    except FileNotFoundError:
+        raise RouteError("READING_MAP.md absent")
 
 
 def lieu_lignes(name: str) -> list[str]:
@@ -394,9 +406,7 @@ def connection_sources(entry: dict[str, str], routes: dict[str, tuple[str, list[
 def connections(text: str | None = None) -> tuple[str, dict[str, dict[str, str]]]:
     """Refuse un index périmé ou non résolu avant de l’exposer."""
     if text is None:
-        if not MAP.is_file():
-            raise RouteError("READING_MAP.md absent")
-        text = MAP.read_text(encoding="utf-8")
+        text = carte()
     revision, entries = parse_connections(text)
     try:
         changelog_text = lieu_texte("CHANGELOG.md")
@@ -420,9 +430,7 @@ def resolve(locator: str, routes: dict[str, tuple[str, list[str]]] | None = None
     elif len(parts) == 3 and parts[0] == "BIBLIOTHEQUE" and parts[1] in STRUCTURE_PARENTS:
         locator = f"BIBLIOTHEQUE/{STRUCTURE_PARENTS[parts[1]]}/{parts[2]}"
     if routes is None:
-        if not MAP.is_file():
-            raise RouteError("READING_MAP.md absent")
-        routes = parse_routes(MAP.read_text(encoding="utf-8"))
+        routes = parse_routes(carte())
     if locator in routes:  # 1. table
         owner_name, chain = routes[locator]
         root_locator = "/".join(locator.split("/")[:2])
@@ -590,7 +598,7 @@ def find(term: str, include_guides: bool = False) -> list[tuple[str | None, str,
 
 def _scan(match, include_guides: bool = False) -> list[tuple[str | None, str, int, str]]:
     """Lignes dont la forme repliée satisfait match, avec la route la plus précise qui les sert."""
-    routes = parse_routes(MAP.read_text(encoding="utf-8"))
+    routes = parse_routes(carte())
     locators = set(routes)
     for path in sources_normatives():
         if not path.is_file():
@@ -785,7 +793,7 @@ def rank_phrase(results: list[tuple[str | None, str, int, str]], term: str) -> l
 
 def topics(text: str | None = None) -> dict[str, tuple[str, str, list[str]]]:
     """Carte des sujets de READING_MAP : sujet replié → (sujet, propriétaire, voir aussi)."""
-    text = MAP.read_text(encoding="utf-8") if text is None else text
+    text = carte() if text is None else text
     if "## Carte des sujets" not in text:
         return {}
     section = text.split("## Carte des sujets", 1)[1].split("\n## ", 1)[0]

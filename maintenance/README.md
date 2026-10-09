@@ -88,3 +88,19 @@ python3 scripts/validate_all.py
 Ces contrôles vérifient la forme du package, de ses projections et de ses distributions, ainsi que la liste close des conditions de façade ; une divergence hors de cette liste n’est pas détectée. Ils ne remplacent ni l’observation d’un rendu, ni un test utilisateur, ni une vérification d’accessibilité exécutée, ni une mesure de performance, ni une preuve d’adoption. Une projection `RUN_CARD` valide reste une trace structurée ; elle ne transforme pas une cible de conformité, une capture ou une validation CLI en preuve de résultat.
 
 Une `RUN_CARD` validée atteste la forme de la projection et les invariants de la liste close ; elle n’atteste ni la réalité des observations, ni la justesse des jugements, ni la qualité perceptuelle. La liste exacte vit en un seul lieu : la frontière de validation d’`ACTION/RUN_CARD`.
+
+<!-- origine:READING_MAP.md -->
+## Résolution des routes
+
+Les noms de route sont des locators documentaires. Pour les résoudre, utiliser le fichier propriétaire, puis son titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
+
+| Préfixe | Propriétaire |
+|---|---|
+| `DIRECTION/*` | `DIRECTION.md` |
+| `ACTION/*` | `ACTION.md` |
+| `SAVOIR/*` | `SAVOIR.md` |
+| `BIBLIOTHEQUE/*` | `BIBLIOTHEQUE.md` |
+| `CHANGELOG/*` | `CHANGELOG.md` |
+| `RUN_CARD` | `gouvernance/schemas/run_card.schema.json`, exemple et validateur |
+
+`RUN_CARD` est un **adaptateur machine**, pas un locator Markdown résolvable par `scripts/read_route.py`. Pour l’inspecter ou le valider, utiliser le schéma, l’exemple et `gouvernance/outils/validate_run_card.py`; ne pas l’invoquer comme une route documentaire.
