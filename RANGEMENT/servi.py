@@ -27,6 +27,9 @@ def snapshot(repo: Path) -> dict[str, str]:
         path, lines, index = rr.resolve(loc)
         text = "\n".join(rr.extract(lines, index))
         text = re.sub(r"\]\([^)]*\)", "]()", text)
+        rn = Path(__file__).with_name("renommages.csv")  # chemins renommés par un lot, ramenés à l'ancien
+        for row in (csv.DictReader(open(rn, encoding="utf-8")) if rn.is_file() else []):
+            text = text.replace(row["nouveau"], row["ancien"])
         out[loc] = hashlib.sha256(re.sub(r"\s+", " ", text).strip().encode("utf-8")).hexdigest()[:20]
     return out
 

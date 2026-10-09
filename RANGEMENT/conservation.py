@@ -81,8 +81,16 @@ def blocks(text: str):
         yield start, "\n".join(cur)
 
 
+RENOMMAGES: list[tuple[str, str]] = []  # (nouveau, ancien) : chemins renommés par un lot, ramenés à l'ancien avant comparaison
+_rn = Path(__file__).with_name("renommages.csv")
+if _rn.is_file():
+    RENOMMAGES = [(r["nouveau"], r["ancien"]) for r in csv.DictReader(open(_rn, encoding="utf-8"))]
+
+
 def norm(block: str) -> str:
     b = re.sub(r"\]\([^)]*\)", "]()", block)
+    for nouveau, ancien in RENOMMAGES:
+        b = b.replace(nouveau, ancien)
     return re.sub(r"\s+", " ", b).strip()
 
 
