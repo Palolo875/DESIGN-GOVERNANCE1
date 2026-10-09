@@ -54,6 +54,7 @@ cp -a "$ROOT/RELEASE_NOTES.md" "$STAGE/github/RELEASE_NOTES.md"
 cp -a "$ROOT/.gitignore" "$STAGE/github/.gitignore"
 cp -a "$ROOT/V1" "$STAGE/github/V1"
 cp -a "$ROOT/gouvernance" "$STAGE/github/gouvernance"
+cp -a "$ROOT/design" "$STAGE/github/design"
 cp -a "$ROOT/skills" "$STAGE/github/skills"
 mkdir -p "$STAGE/github/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/github/scripts/validate_design_governance.py"
@@ -77,6 +78,7 @@ cp -a "$ROOT/.github/workflows/validate.yml" "$STAGE/github/.github/workflows/va
 # Local : export compact dérivé, avec les chemins directs d’activation.
 cp -a "$ROOT/V1/official" "$STAGE/local/official"
 cp -a "$ROOT/gouvernance" "$STAGE/local/gouvernance"
+cp -a "$ROOT/design" "$STAGE/local/design"
 cp -a "$ROOT/skills/design-governance-practice" "$STAGE/local/skill"
 mkdir -p "$STAGE/local/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/local/scripts/validate_design_governance.py"
@@ -176,13 +178,14 @@ import sys
 root = Path(sys.argv[1])
 targets = sorted((root / "skill").rglob("*.md")) + [root / "official" / "QUICKSTART.md", root / "official" / "README.md"]
 targets += sorted((root / "gouvernance").glob("*.md")) + sorted((root / "official").glob("*.md"))
+targets += sorted((root / "design").rglob("*.md"))
 for path in dict.fromkeys(targets):
     text = path.read_text(encoding="utf-8")
     rewritten = text.replace("V1/official/", "official/").replace("skills/design-governance-practice/", "skill/")
     # Le README du package est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
     rewritten = rewritten.replace("](../../README.md", "](../README.md")
     # Le module gouvernance/ est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
-    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/")
+    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/").replace("](../../design/", "](../design/")
     if rewritten != text:
         path.write_text(rewritten, encoding="utf-8")
 PY
@@ -216,7 +219,8 @@ for path in root.rglob("*.md"):
         if not (path.parent / target).exists():
             raise SystemExit(f"Broken Local link: {path} -> {target}")
     # E1 O-1 : chemins `.md` cités entre accents graves (avec un dossier), depuis la racine ou le fichier.
-    for target in re.findall(r"`([^`\s]+/[^`\s]*\.md)(?:#[^`]*)?`", text):
+    # Un chemin entre accents graves ; pas la suite « ](… » d'un lien Markdown placé après un nom entre accents graves.
+    for target in re.findall(r"`([^`\s\[\]()]+/[^`\s()]*\.md)(?:#[^`\s]*)?`", text):
         if not ((root / target).exists() or (path.parent / target).exists()):
             raise SystemExit(f"Broken Local path: {path} -> {target}")
 print(f"LOCAL EXPORT PASSED — {len(expected)} fichiers attendus et liens contrôlés")

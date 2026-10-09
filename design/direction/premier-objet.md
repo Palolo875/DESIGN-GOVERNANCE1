@@ -1,0 +1,68 @@
+# Direction — premier objet
+
+Construire un premier objet complet, crédible et jugeable.
+
+<!-- origine:DIRECTION.md -->
+## DIRECTION/FIRST-OBJECT — compiler le brief et produire le premier objet
+
+<!-- noyau:début PREMIER-OBJET -->
+Lorsque la priorité du run, la cible visuelle (`DIRECTION/VISUAL_TARGET`) ou l’atelier (`DIRECTION/DIRECTION-ATELIER`) peuvent modifier la première scène, rends retrouvables seulement **situation**, **tension**, **geste produit**, **objet de preuve**, **marquage de vérité**, **position/exclusion** et **contre-choix situé**. Sur une surface `DIRECTION`, convertis ensuite le brief vague avec la chaîne **promesse → objet de preuve → geste**. L’objet passe avant les listes de bénéfices et rend le mécanisme plus clair que le texte seul. Au premier regard, l’objet ou le geste peut ouvrir, selon le contexte (`SAVOIR/CRAFT/CFT-04a`). Il est de préférence **codé** (composant, donnée, état ou interaction du produit) ; une illustration ne le porte que si elle est fournie, curatée ou générée dirigée. Toute démonstration générée ou hypothétique porte près de l’objet le marquage local `TRUTH/ILLUSTRATIVE`, cumulé avec `TRUTH/MECHANISM` lorsqu’elle matérialise un mécanisme (`DIRECTION/DIRECTION-ATELIER`) ; un exemple ne devient jamais une preuve de client, de performance, de disponibilité, d’intégration, de sécurité ou de résultat réel.
+
+<!-- concept:EXD-01 -->
+Les données d’exemple restent cohérentes entre elles : totaux, pourcentages, unités, dates et prix se recoupent. Un chiffre sans référence (« +32 % ») se situe (par rapport à quoi, sur quelle période) ou se retire.
+<!-- noyau:fin PREMIER-OBJET -->
+
+Un CTA doit soit déclencher un comportement local réellement implémenté, soit mener à une action réellement disponible, soit déclarer sa limite. Un lien vide, une inscription fictive ou une démo qui simule une conséquence externe ne peut pas être présenté comme une action disponible. Une action principale dont la valeur manque (numéro, adresse, lien) reste présente avec une valeur d’exemple marquée (`CNT-01`) : c’est une limite déclarée, pas un retrait.
+
+### Contrat positif du premier objet
+
+Le premier objet est suffisant lorsqu’il permet de juger la direction comme une proposition réelle, et non comme une intention décorative. Pour chaque dimension, conserve l’observation ; sinon les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsque la dimension ne peut pas changer la décision, `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée :
+
+| Dimension | Suffisant quand… | Retour si… | Dimension CFT-00 |
+|---|---|---|---|
+| **Présence** | La scène possède une entrée, une masse et une hiérarchie perceptibles dès le premier regard. | La proposition est plate, interchangeable ou sans foyer. | Présence |
+| **Foyer** | L’œil comprend ce qui compte maintenant et pourquoi. | Le texte, l’asset, le CTA et la preuve se concurrencent. | Composition |
+| **Signature** | Une décision de composition, de matière, de type ou de rythme rend la proposition située. | Le produit pourrait être remplacé sans modifier la scène. | Point de vue, Spécificité |
+| **Intégration** | L’asset, le composant ou l’absence d’asset sert la promesse, le geste et le support réel, et rend le mécanisme plus clair que le texte seul. | L’élément est décoratif, mal cadré, hors récit ou simplement disponible. | Spécificité, Retenue |
+| **Résolution** | Le contenu, les états, la typographie et les détails critiques sont assez aboutis pour juger l’objet. | Le rendu reporte la décision à une future passe de polish. | Résolution |
+| **Désirabilité située** | La beauté ou l’attrait provient d’une relation au produit, au contexte et au public, pas d’un adjectif. | « Premium », « moderne » ou « beau » remplace une décision observable. | Désirabilité |
+| **Vérité de scène** | Les claims, comportements, données et démonstrations sont observés ou marqués comme illustratifs. | Une hypothèse ressemble à une preuve de résultat, de client ou de disponibilité. | DIRECTION |
+| **Résilience visible** | La direction tient dans les transformations pertinentes pour le risque : mobile, contenu long, état critique, fallback ou réduction d’effet. | Un changement de contenu, viewport, asset ou état détruit le foyer ou la compréhension. | Résolution |
+
+Un retour déclenché par cette table renvoie à la décision responsable — cible, structure, asset, contenu, type, état ou build — et non à un score esthétique. La table complète le contrôle de premier objet d’ACTION ; elle ne crée ni gate, ni verdict, ni quota.
+
+La vérité de scène relève de DIRECTION (marquage `TRUTH`, `DIRECTION/DIRECTION-ATELIER`). **Perte déclarée :** « Culture visuelle » n’a pas de seuil au premier objet ; elle est jugée par la revue créative (ce qui est culturellement transformé), et vaut `N/A-JUSTIFIED` sans référence.
+
+### Grounding contestable
+
+Charge `GROUNDING-DECISION` seulement si un fait, claim, asset, terme métier, contrainte, droit ou capacité réelle peut modifier la scène, la preuve, l’action ou la limite.
+
+```text
+GROUNDING-DECISION
+NEEDED — YES / NO
+SCOPE / QUESTION / DECISION-AT-RISK — ce qui peut réellement changer
+SI YES — INPUT / EFFECT / LIMIT
+SI NO — COUNTER-HYPOTHESIS / EFFECT-IF-TRUE / REJECTION-BASIS /
+        RESIDUAL-UNKNOWN / REFUSAL-BASIS: SELF-ASSESSED
+```
+
+Un `NO` sans contre-hypothèse concrète ni effet sur l’artefact est invalide. Ce contrôle ne remplace pas les sources, statuts ni preuves d’ACTION ; il rend seulement le refus de grounding visible et contestable.
+
+### Réutilisation située
+
+Charge `REUSE-CHALLENGE` lorsqu’un ancien projet, une référence interne, une préférence, un profil ou style, un asset, un composant ou une structure disponible peut orienter le nouveau brief — notamment après « un autre », « plus original » ou « différent ».
+
+```text
+REUSE-CHALLENGE
+ANTECEDENT / REUSE-REQUEST / DECISION-AT-RISK
+KEEP-IF — conséquence située sur moment, geste, preuve, lisibilité ou continuité demandée
+CHANGE-BECAUSE — ce que le brief courant rend différent
+NON-REUSE — ce qui ne devient pas un défaut de direction
+LIMIT — ce que la comparaison ne prouve pas
+```
+
+`KEEP-IF` ne peut pas se réduire à « premium », « moderne », « beau », « cohérent » ou à la disponibilité d’un élément. Cette vue n’impose pas de changer à chaque run : elle interdit seulement de présenter une répétition de confort comme une décision située.
+
+**Où lire l’antécédent.** `ANTECEDENT` se lit dans ce que les runs précédents ont laissé : la session, la ligne de thèse et la ligne « modal, trame et parti » de leur trace légère (en-tête du fichier livré ou fichier de trace voisin), la ligne « plafond » qui nomme la typographie et la couleur, leur `RUN_CARD`, ou le manifeste de projet. Relève quatre champs : la **teinte dominante**, la **paire typographique**, l’**ossature** (l’ordre des sections ou l’objet qui organise la page) et l’**objet de preuve**. Un champ que les traces ne nomment pas est noté inconnu ; il n’est jamais complété de mémoire. Chaque champ repris à l’identique dit son `KEEP-IF` ; un champ qui diffère ou reste inconnu n’a rien à justifier. Si aucune trace n’est retrouvable, ne reconstitue pas l’antécédent de mémoire : inscris-le dans `LIMIT`. Cette lecture ne crée ni registre, ni champ de `RUN_CARD`, ni quota de nouveauté.
+
+---

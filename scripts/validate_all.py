@@ -120,14 +120,12 @@ def check_move_regression() -> None:
     """
     sys.path.insert(0, str(ROOT / "scripts"))
     import read_route as rr
-    savoir = rr.lieu("SAVOIR.md")
-    if len(savoir) != 1:
-        print("MOVE REGRESSION SKIPPED — SAVOIR déjà réparti sur plusieurs fichiers ; le rangement réel en tient lieu")
-        return
     import build_core as bc
-    rel = savoir[0].relative_to(ROOT).as_posix()
+    current = rr.owner_file("SAVOIR/TYPE")  # le fichier qui porte aujourd'hui la route, où qu'il soit
+    rel = current.relative_to(ROOT).as_posix()
+    known = tuple(p.relative_to(ROOT).as_posix() for p in rr.lieu("SAVOIR.md"))
     skill_rel = bc.SKILL.relative_to(ROOT)
-    layout = "local" if rel.startswith("official/") else "github"  # export Local ou distribution GitHub
+    layout = "local" if rr.OFFICIAL.relative_to(ROOT).as_posix() == "official" else "github"  # export Local ou GitHub
     target = "design/savoir/typographie-essai.md"
     with tempfile.TemporaryDirectory(prefix="design-governance-move-") as temp_dir:
         for with_table, duplicate in ((True, False), (False, False), (True, True)):
@@ -135,15 +133,18 @@ def check_move_regression() -> None:
             case.parent.mkdir(parents=True, exist_ok=True)
             shutil.copytree(ROOT, case, ignore=shutil.ignore_patterns(".git", ".build", "dist", "__pycache__", "*.zip"))
             text = (case / rel).read_text(encoding="utf-8")
-            start, end = text.find("\n# SAVOIR/TYPE"), text.find("\n# SAVOIR/STATE")
-            if start < 0 or end < start:
+            text = "\n" + text if not text.startswith("\n") else text
+            start = text.find("\n# SAVOIR/TYPE")
+            following = text.find("\n# ", start + 1)
+            end = following if following >= 0 else len(text) - 1
+            if start < 0:
                 raise SystemExit("MOVE REGRESSION FAILED — section SAVOIR/TYPE introuvable")
-            (case / target).parent.mkdir(parents=True)
+            (case / target).parent.mkdir(parents=True, exist_ok=True)
             (case / target).write_text(text[start + 1:end + 1], encoding="utf-8")
             remaining = text[:start + 1] + text[end + 1:]
             if duplicate:  # le même locator porté par deux fichiers de la source doit être refusé
                 remaining += "\n# SAVOIR/TYPE — doublon\n\nTexte.\n"
-            (case / rel).write_text(remaining, encoding="utf-8")
+            (case / rel).write_text(remaining.lstrip("\n"), encoding="utf-8")
             manifest = case / "scripts/package_manifest.json"
             data = json.loads(manifest.read_text(encoding="utf-8"))
             data[layout].append(target)
@@ -154,7 +155,7 @@ def check_move_regression() -> None:
                 anchor = "\ndef chemin_lieu("
                 if src.count(anchor) != 1:
                     raise SystemExit("MOVE REGRESSION FAILED — table LIEUX introuvable dans read_route.py")
-                reader.write_text(src.replace(anchor, f"\nLIEUX['SAVOIR.md'] = ({rel!r}, {target!r})\n{anchor}"),
+                reader.write_text(src.replace(anchor, f"\nLIEUX['SAVOIR.md'] = {known + (target,)!r}\n{anchor}"),
                                   encoding="utf-8")
             skill_before = (ROOT / skill_rel).read_bytes()
             steps = [[sys.executable, "scripts/build_core.py", "--check"],
@@ -169,7 +170,9 @@ def check_move_regression() -> None:
                     raise SystemExit("MOVE REGRESSION FAILED — un locator porté par deux fichiers de la même source n'est pas refusé")
             elif with_table:
                 if failed:
-                    raise SystemExit(f"MOVE REGRESSION FAILED — après déplacement et mise à jour de LIEUX : {', '.join(failed)}")
+                    detail = " | ".join((r.stdout + r.stderr).strip().splitlines()[-1][:200] for s, r in zip(steps, results)
+                                        if " ".join(s[1:]) in failed)
+                    raise SystemExit(f"MOVE REGRESSION FAILED — après déplacement et mise à jour de LIEUX : {', '.join(failed)} ({detail})")
                 if f"OWNER: {target}" not in results[-1].stdout:
                     raise SystemExit("MOVE REGRESSION FAILED — SAVOIR/TYPE n'est pas servie depuis son nouveau lieu")
                 if (case / skill_rel).read_bytes() != skill_before:

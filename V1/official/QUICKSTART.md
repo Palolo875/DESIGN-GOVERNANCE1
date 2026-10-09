@@ -50,7 +50,7 @@ Si le domaine, le public, la confiance, la culture, la convention ou l’ambitio
 
 ### Constitution et entrées par besoin
 
-Les cinq absolus de `DIRECTION` protègent chaque run : leur résumé est dans la section « Constitution minimale » du README du package, leur formulation canonique dans [`DIRECTION.md`](DIRECTION.md#les-cinq-règles-absolues).
+Les cinq absolus de `DIRECTION` protègent chaque run : leur résumé est dans la section « Constitution minimale » du README du package, leur formulation canonique dans [`DIRECTION.md`](../../design/direction/standard.md#les-cinq-règles-absolues).
 
 | Pour… | Faites d’abord… | Puis approfondissez avec… |
 |---|---|---|

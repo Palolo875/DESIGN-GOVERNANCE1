@@ -447,7 +447,7 @@ class SearchAndSummaryTests(unittest.TestCase):
 
     def test_search_marks_core_passages(self):
         out = self.cli("--trouver", "cohérence de rayon").stdout
-        self.assertRegex(out, r"SAVOIR\.md:\d+\s+\(noyau\) \| Cohérence de rayon")
+        self.assertRegex(out, r"\S+\.md:\d+\s+\(noyau\) \| Cohérence de rayon")  # le fichier peut avoir changé (rangement)
         self.assertEqual(self.cli("--complet").returncode, 2)
 
     def test_new_options_refused_in_bad_combinations(self):

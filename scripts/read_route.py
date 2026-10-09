@@ -134,10 +134,19 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
 # texte puis met à jour cette table, et elle seule : lecteur, compilation du noyau et validateurs passent par elle.
 LIEUX: dict[str, tuple[str, ...]] = {
     # Rangement, lot 4 : la gouvernance formelle part dans le module gouvernance/ (texte inchangé).
-    "DIRECTION.md": ("V1/official/DIRECTION.md", "gouvernance/principes.md", "gouvernance/cloture.md"),
+    # Rangement, lot 5 : le cœur du design part dans design/ (direction, savoir, formes, produit ; texte inchangé).
+    "DIRECTION.md": ("V1/official/DIRECTION.md", "gouvernance/principes.md", "gouvernance/cloture.md",
+                     "design/direction/cadrer.md", "design/direction/premier-objet.md", "design/direction/diriger.md",
+                     "design/direction/boucle.md", "design/direction/standard.md", "design/produit/interface.md"),
     "ACTION.md": ("V1/official/ACTION.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
-                  "gouvernance/verification.md", "gouvernance/cloture.md"),
-    "BIBLIOTHEQUE.md": ("V1/official/BIBLIOTHEQUE.md", "gouvernance/structure.md"),
+                  "gouvernance/verification.md", "gouvernance/cloture.md", "design/produit/premier-rendu.md",
+                  "design/produit/plancher.md", "design/produit/finition.md", "design/produit/preuve-visuelle.md"),
+    "SAVOIR.md": ("V1/official/SAVOIR.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
+                  "design/savoir/typographie.md", "design/savoir/composition.md", "design/savoir/images-et-sources.md",
+                  "design/savoir/styles.md", "design/savoir/systeme-de-design.md", "design/savoir/contexte.md",
+                  "design/savoir/techniques.md", "design/savoir/gout-et-tendances.md"),
+    "BIBLIOTHEQUE.md": ("V1/official/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
+                        "design/formes/catalogue.md"),
 }
 
 

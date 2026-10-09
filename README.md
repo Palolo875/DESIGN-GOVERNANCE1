@@ -72,7 +72,7 @@ Le README oriente la navigation. Il ne crée aucune règle concurrente. Les sour
 
 Les cinq absolus transversaux de `DIRECTION` forment le noyau de protection de V1 : une surface identitaire doit avoir une direction perceptible ; une direction identitaire n’est acceptée qu’avec une ancre, observée ou fournie pour un produit réel (l’exploration peut commencer sans ancre, avec sa limite déclarée) ; aucune livraison ne contourne les preuves applicables ; le mode, la décision dominante, le risque principal, la preuve minimale et la condition d’arrêt sont déclarés avant l’exécution ; le réel et le beau sont cadrés ensemble.
 
-Ces absolus ne remplacent pas les procédures propriétaires d’`ACTION`, de `SAVOIR` ou de `BIBLIOTHEQUE`. Ils rappellent la priorité de gouvernance et renvoient à [DIRECTION.md](V1/official/DIRECTION.md#les-cinq-règles-absolues), qui reste la source normative. Le piège de conformité est explicite : une conformité de surface ne vaut ni direction perceptible, ni preuve d’usage, ni qualité réelle.
+Ces absolus ne remplacent pas les procédures propriétaires d’`ACTION`, de `SAVOIR` ou de `BIBLIOTHEQUE`. Ils rappellent la priorité de gouvernance et renvoient à [DIRECTION.md](design/direction/standard.md#les-cinq-règles-absolues), qui reste la source normative. Le piège de conformité est explicite : une conformité de surface ne vaut ni direction perceptible, ni preuve d’usage, ni qualité réelle.
 <!-- constitution:fin -->
 
 ## Le modèle à double boucle
