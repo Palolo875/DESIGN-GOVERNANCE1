@@ -205,7 +205,7 @@ Formule le compromis : ce qui gagne entre compréhension immédiate et juste dis
 <!-- noyau:fin COMP-COULEUR -->
 
 <!-- noyau:début COMP-CONVERGENCE -->
-**Question de convergence.** Cette palette et cette police de titre sont-elles celles que le modèle produirait sans brief (palette : neutres et un seul accent, sombre et doré, dégradé froid ; police : la grotesque large ou la serif de caractère prise par réflexe) ? Si oui, nomme ce qui, dans le produit, les justifie ; si rien ne les justifie, reconsidère-les. Pour la police de titre, compare au moins deux voix typographiques distinctes (par exemple grotesque, serif, mécane, manuscrite ou vernaculaire du lieu) sur le vrai titre avant de choisir. La question ne prescrit aucun écart : un choix convergent justifié reste valide.
+**Question de convergence.** Cette palette et cette police de titre sont-elles celles que le modèle produirait sans brief (palette : neutres et un seul accent, sombre et doré, dégradé froid ; police : la grotesque large ou la serif de caractère prise par réflexe) ? Si oui, nomme ce qui, dans le produit, les justifie ; si rien ne les justifie, reconsidère-les. Pour la police de titre, compare au moins deux voix typographiques distinctes sur le vrai titre avant de choisir. La question ne prescrit aucun écart : un choix convergent justifié reste valide.
 <!-- noyau:fin COMP-CONVERGENCE -->
 
 La palette est conditionnelle : elle est documentée lorsqu’elle peut changer la décision, le thème, le statut ou la direction. Si le système existant est conservé et qu’aucun choix de couleur ne change le run, note cette conservation et sa raison.
