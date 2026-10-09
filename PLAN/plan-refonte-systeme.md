@@ -1,7 +1,7 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après le lot 4 du rangement. Aucun run n’est prévu sans ton accord explicite.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `4077ae3`.
+**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après le lot 5 du rangement. Aucun run n’est prévu sans ton accord explicite.
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `8e2b23d`.
 
 ---
 
@@ -12,7 +12,7 @@
 | 0 — Charte et grilles | **faite** | Charte en 10 principes, grilles fichier, système et résultat (`PLAN/charte.md`, `PLAN/grilles.md`) |
 | 1 — Audit | **faite** | 8 fiches, mesures, second jeu de recherche, synthèse et dispositions (`AUDIT2/`) |
 | 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
-| 3 — Rangement | **en cours : lots 0 à 4 faits** | Voir le détail ci-dessous |
+| 3 — Rangement | **en cours : lots 0 à 5 faits** | Voir le détail ci-dessous |
 | 4 à 8 | à venir | |
 
 **Rangement, lot par lot :**
@@ -24,8 +24,8 @@
 | 2 — Outils | fait | `02b56d5` | Recherche par phrases (témoin : 26/75 dans les 3 premiers, contre 1 ou 2) ; 74 adresses lisibles ; installation corrigée |
 | 3 — Vestiges et historique | fait | `8653161` | Journal de décisions et historique des versions hors produit ; fichier-renvoi retiré ; 44 retraits justifiés, conservés sur `refonte` |
 | 4 — Gouvernance en module | fait | `4077ae3` | 15 sections (~80 000 caractères) dans `gouvernance/` ; texte servi identique pour les 110 routes |
-| 4b — Schémas et outils de gouvernance | à faire | | `schemas/`, validation des fiches et des contrats dans `gouvernance/` |
-| 5 — Cœur du design | à faire | | Direction, savoir, formes et produit dans `design/` |
+| 4b — Schémas et outils de gouvernance | fait | `a92a47c` | `gouvernance/schemas/` et `gouvernance/outils/` ; seuls les chemins changent dans la documentation (23 lignes), renommages déclarés |
+| 5 — Cœur du design | fait | `8e2b23d` | 37 sections dans `design/` (direction, savoir, formes, produit), un README par dossier ; texte servi identique pour les 110 routes |
 | 6 — Agent | à faire | | Chemins et réponse dans `agent/` ; la skill dans `agent/skill/` |
 | 7 — Portes et maintenance | à faire | | README court, guides par public, glossaire, `maintenance/` |
 
