@@ -1,0 +1,567 @@
+{
+ "README.md": [
+  {
+   "lignes": "1-8",
+   "debut": "# Design Governance V1.0.0",
+   "echecs": [
+    {
+     "controle": "validate_design_governance.py",
+     "messages": [
+      "- version du titre divergente : README.md (attendu V1.0.0)",
+      "- marqueur expérimental absent ou divergent : README.md"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "9-19",
+   "debut": "## Par où entrer",
+   "echecs": []
+  },
+  {
+   "lignes": "20-33",
+   "debut": "## Fiche de version",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-21 : condition de façade non tenue — DIRECTION, README, RELEASE_NOTES, CHANGELOG (propriétaire : CHANGELOG (efficacité NOT-VERIFIED))"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "34-41",
+   "debut": "## Mission",
+   "echecs": []
+  },
+  {
+   "lignes": "42-50",
+   "debut": "## Pour les agents et les opérateurs",
+   "echecs": []
+  },
+  {
+   "lignes": "51-65",
+   "debut": "### Installer la skill dans un agent",
+   "echecs": [
+    {
+     "controle": "validate_structure.py",
+     "messages": [
+      "STRUCTURE VALIDATION FAILED — gardes de propriété",
+      "- [CST-01] constitution minimale absente, multiple ou inexacte dans README.md (bloc « constitution »)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "66-72",
+   "debut": "## Constitution minimale",
+   "echecs": [
+    {
+     "controle": "validate_structure.py",
+     "messages": [
+      "STRUCTURE VALIDATION FAILED — gardes de propriété",
+      "- [CST-01] constitution minimale absente, multiple ou inexacte dans README.md (bloc « constitution »)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "73-94",
+   "debut": "## Le modèle à double boucle",
+   "echecs": []
+  },
+  {
+   "lignes": "95-120",
+   "debut": "## Structure du dépôt",
+   "echecs": []
+  },
+  {
+   "lignes": "121-128",
+   "debut": "## Limites et discipline d’usage",
+   "echecs": []
+  }
+ ],
+ "guides/commencer.md": [
+  {
+   "lignes": "1-5",
+   "debut": "# Guide pour commencer",
+   "echecs": []
+  },
+  {
+   "lignes": "6-22",
+   "debut": "## Commencer",
+   "echecs": [
+    {
+     "controle": "validate_design_governance.py",
+     "messages": [
+      "- fragment Markdown introuvable : guides/equipe.md -> commencer.md#commencer",
+      "- fragment Markdown introuvable : V1/official/README.md -> ../../guides/commencer.md#commencer"
+     ]
+    },
+    {
+     "controle": "validate_structure.py",
+     "messages": [
+      "STRUCTURE VALIDATION FAILED — gardes de propriété",
+      "- [ENT-01] entrée humaine balisée 0 fois dans guides/commencer.md (attendu : 1)",
+      "- [FAC-01] guide pour commencer : titre « Commencer » absent, cible des liens"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "23-35",
+   "debut": "## Pour commencer sans vocabulaire préalable",
+   "echecs": []
+  }
+ ],
+ "design/README.md": [
+  {
+   "lignes": "1-13",
+   "debut": "# Design — le cœur du système",
+   "echecs": []
+  }
+ ],
+ "design/savoir/README.md": [
+  {
+   "lignes": "1-20",
+   "debut": "# Savoir — le livre de référence",
+   "echecs": []
+  }
+ ],
+ "guides/equipe.md": [
+  {
+   "lignes": "1-10",
+   "debut": "# Design Governance V1.0.0 — Quickstart (guide opérateur)",
+   "echecs": [
+    {
+     "controle": "validate_design_governance.py",
+     "messages": [
+      "- version du titre divergente : QUICKSTART.md (attendu V1.0.0)",
+      "- marqueur expérimental absent ou divergent : V1/official/QUICKSTART.md"
+     ]
+    },
+    {
+     "controle": "validate_structure.py",
+     "messages": [
+      "STRUCTURE VALIDATION FAILED — gardes de propriété",
+      "- [FAC-01] QUICKSTART.md : la section « Commencer » du guide pour commencer n'est pas liée"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "11-30",
+   "debut": "## Parcours commun",
+   "echecs": []
+  },
+  {
+   "lignes": "31-36",
+   "debut": "## Carte de résolution rapide",
+   "echecs": []
+  },
+  {
+   "lignes": "37-40",
+   "debut": "## 1. Choisir la profondeur de lecture",
+   "echecs": []
+  },
+  {
+   "lignes": "41-50",
+   "debut": "### Façade d’activation : ce que chaque source apporte",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-43 : condition de façade non tenue — DIRECTION (entrée, boot, route de production), ACTION, QUICKSTART, skill : bilan de fabrication (propriétaire : DIRECTION/CREATIVE-BOOT (FABRICATION))",
+      "- LCF-44 : condition de façade non tenue — EXTERNAL-START, QUICKSTART, skill : prise de brief, même ordre (propriétaire : DIRECTION/EXTERNAL-START (prise de brief))",
+      "- LCF-45 : condition de façade non tenue — boot, QUICKSTART, skill, exemples : MODAL / PARTI (propriétaire : DIRECTION/CREATIVE-BOOT (MODAL, PARTI))"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "51-60",
+   "debut": "### Constitution et entrées par besoin",
+   "echecs": []
+  },
+  {
+   "lignes": "61-74",
+   "debut": "## 2. La ligne de run",
+   "echecs": []
+  },
+  {
+   "lignes": "75-91",
+   "debut": "## 3. Le parcours complet",
+   "echecs": []
+  },
+  {
+   "lignes": "92-112",
+   "debut": "### Charger une route et renforcer une RUN_CARD",
+   "echecs": [
+    {
+     "controle": "test_read_route.py",
+     "messages": [
+      "FAIL: test_guides_separated_from_normative_results (__main__.CliTests.test_guides_separated_from_normative_results)",
+      "AssertionError: 'GUIDES — orientation, sans autorité normative' not found in 'TROUVER (mots entiers) : « cohérence de rayon » — 2 ligne(s) normative(s), 2 route(s) ; 0 ligne(s) de guide\\nSOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)\\nSAVOIR/STATE                       1 ligne(s)  · savoir/composition#jugement-visuel\\n    design/savoir/composition.md:51    (noyau) | Cohérence de rayon | Un cadre et son contenu emboîté paraissent non concentriques. | Pour deux rectangles arrondis à i…\\nACTION/GATE-B                      1 ligne(s)  · gouvernance/verification\\n    gouvernance/verification.md:117   …se, vide, silhouette, lumière, densité, cohérence de rayon, définition d’état, crop, vocabulaire, preuve, couleur ou act…\\nLire une route : python3 scripts/read_route.py LOCATOR ; ses sous-sections : --sommaire LOCATOR ; (noyau) : passage déjà chargé avec la skill\\n'",
+      "FAILED (failures=1)",
+      "READ_ROUTE TESTS FAILED — 69 cas"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "113-137",
+   "debut": "## 4. Choisir le mode sans le deviner",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-04 : condition de façade non tenue — QUICKSTART, ligne DIRECTION ; aucune table de mode dans le README (propriétaire : DIRECTION/START (direction visuelle autonome))",
+      "- LCF-05 : condition de façade non tenue — QUICKSTART, ITER dans l'ordre canonique ; aucune ligne ITER dans le README (propriétaire : DIRECTION/START (ITER : direction existante et retrouvable))",
+      "- LCF-10 : condition de façade non tenue — QUICKSTART, table de mode ; README sans table de mode (propriétaire : D-FAC-1 (classement : voir DIRECTION/START))",
+      "- LCF-55 : condition de façade non tenue — START et QUICKSTART : frontière LITE / ITER (propriétaire : DIRECTION/START (fix conservé ou direction réévaluée))"
+     ]
+    },
+    {
+     "controle": "test_audit_regressions.py",
+     "messages": [
+      "FAIL: test_quickstart_must_keep_iter_discriminant (__main__.MobilisationFacadeTests.test_quickstart_must_keep_iter_discriminant)",
+      "AssertionError: 'au-delà d’un fix local qui la conserve' not found in '# Design Governance V1.0.0 — Quickstart (guide opérateur)\\n\\n**Package Design Governance V1.0.0.** Expérimentation maintenue pour diriger, construire et vérifier un travail de design avec une trace proportionnée au risque. Il est destiné à un usage supervisé et ne constitue pas une preuve d’efficacité en production.\\n\\n> **Rôle de ce guide :** fournir une interface d’activation rapide. Il oriente la lecture et l’action, mais n’ajoute aucune règle, route, gate, axe, statut, verdict ou autorité. Les cinq sources normatives font foi.\\n\\n> **Pour qui :** ce guide sert à piloter un run (opérateur, designer ou agent). Pour faire simplement une demande, la section [« Commencer »](commencer.md#commencer) du README du package suffit : vous n’avez pas à choisir de mode.\\n\\nV1 aide à transformer une demande en **décision située, artefact réel, observation pertinente et trace honnête**. Elle ne promet ni beauté automatique, ni réussite universelle, ni validation d’usage sans preuve adaptée. Elle vise néanmoins un niveau positif : lorsque la décision visuelle est ouverte et que les capacités sont disponibles, le premier rendu doit déjà être composé, spécifique, crédible, présentable et suffisamment résolu pour être jugé comme un objet réel.\\n\\n## Parcours commun\\n\\nPour piloter un run, commencez ici ; les sections suivantes n’approfondissent que si le risque, le périmètre ou la décision le justifie. Une fois la demande classée par `DIRECTION/START` (par l’opérateur ou l’agent, jamais par la personne qui demande), notez :\\n\\n```text\\nMODE — DECISION — RISK — NEXT-PROOF — OWNER\\n```\\n\\nRépondez ensuite à ces cinq questions :\\n\\n| Question | Réponse minimale |\\n|---|---|\\n| Quelle décision doit changer ? | Le choix concret à trancher, confirmer ou abandonner. |\\n| Quel risque domine ? | Identité, usage, accessibilité, technique, système ou autre risque déclaré. |\\n| Quelle preuve peut distinguer les options ? | Mesure, capture, test, comparaison, inspection ou observation adaptée. |\\n| Qu’est-ce qui est réellement disponible ? | Artefact, navigateur, DOM/CSS, contraste, clavier/AT, participant, runtime, donnée ou source. |\\n| Qui porte la décision et la prochaine action ? | Owner explicite, avec confirmation ou escalade si nécessaire. |\\n\\nProduisez la ligne de run, faites l’action la moins coûteuse qui peut changer la décision, puis choisissez une seule suite : **corriger**, **approfondir la preuve**, **rouvrir**, **reclassifier**, **proposer** ou **fermer**. Par défaut, le run s’arrête à la proposition, en trace légère : la première proposition vaut checkpoint, sauf action irréversible ou coûteuse ; **fermer** suppose la trace complète (run persistant, partagé, audité ou acceptation demandée). Passez aux sections suivantes seulement si le risque, le périmètre ou la décision le justifie.\\n\\n## Carte de résolution rapide\\n\\nSi la demande est déjà identifiable, consultez [`READING_MAP.md`](../V1/official/READING_MAP.md) pour le premier chemin, la perspective conditionnelle et la sortie attendue. Cette carte est dérivée et non normative. Si le brief est vague, commencez directement par `DIRECTION/START`.\\n\\nUne sortie de run a deux formes : la **réponse visible**, par défaut, et le **handoff**, pour une reprise ou un run persistant (voir `ACTION/HANDOFF`). Le niveau de trace ne dépend pas du mode : sans persistance, partage, audit ni acceptation demandée, la **trace légère** suffit (six lignes au plus, à côté de l’artefact ou sous « Trace » après la réponse) ; dans les autres cas, la **trace complète** s’impose. Utilisez `N/A-JUSTIFIED` lorsqu’un champ ou une perspective ne s’applique pas.\\n\\n## 1. Choisir la profondeur de lecture\\n\\nLe guide se lit par couches. Ne chargez pas tout le corpus par réflexe ; chargez uniquement ce qui peut modifier la prochaine décision.\\n\\n### Façade d’activation : ce que chaque source apporte\\n\\nLa ligne du parcours commun est la façade d’activation. `DIRECTION/START` classe la demande ; `DIRECTION` intervient si la cible ou la direction change ; `ACTION` intervient dès qu’un artefact, une preuve, un état ou une clôture est concerné ; `SAVOIR` intervient si le jugement, le craft, la source ou le contexte peut changer la décision ; `BIBLIOTHEQUE` intervient si la structure, le composant ou la micro-interface peut changer la décision. Cette façade ne crée ni mode, ni gate, ni statut, ni propriétaire supplémentaire.\\n\\n**Bénéfice attendu.** Chargez `DIRECTION` pour obtenir une position située et un premier objet plus fort ; `SAVOIR` pour transformer une impression en jugement et en choix de craft ; `BIBLIOTHEQUE` pour rendre la structure habitable, compatible et maintenable ; `ACTION` pour transformer la décision en livraison observable, corrigible et prouvable. Si aucun de ces gains ne peut modifier la prochaine décision, restez sur le chemin court ; si un risque critique est actif, ne confondez pas chemin court et profondeur insuffisante.\\n\\nPour une décision visuelle ouverte, utilisez le **Creative Boot** de `DIRECTION` avant le premier pixel : promesse, objet de preuve, geste, tension et signature structurelles (nombre d’axes : `BIBLIOTHEQUE/TENSION`), jusqu’à trois cibles créatives `SAVOIR/CRAFT`, `MODAL`/`PARTI`, bilan de fabrication (`FABRICATION`), le premier objet et le défaut dominant. Le boot est une vue de cadrage, pas un nouveau formulaire ou une obligation pour les deltas locaux ; il doit modifier la construction ou rester omis. Sur brief vague, la prise de brief de `DIRECTION/EXTERNAL-START` demande au plus trois intrants, en un seul échange, par gain de plafond : contenu réel, marque, asset principal ou route autorisée, destination si elle est incertaine ; ces demandes accompagnent la première proposition, construite dans le même tour avec des hypothèses nommées ; la réponse n’est attendue avant le build que si la personne l’a demandé ou si l’action est irréversible ou coûteuse ; le rendu est construit dans tous les cas.\\n\\nSi le domaine, le public, la confiance, la culture, la convention ou l’ambition peuvent changer le résultat, activez `DIRECTION/DOMAIN-FRAME`, puis `SAVOIR/SOURCE` pour une recherche orientée décision. Augmentez la profondeur seulement lorsqu’un déclencheur est nommé ; la recherche doit revenir dans le contenu, la structure, le geste ou la preuve. Pour une UI/UX nouvelle, ajoutez le contrat de réalité d’ACTION : tâche, contenu, états, responsive, accessibilité, robustesse et scope de preuve.\\n\\n### Constitution et entrées par besoin\\n\\nLes cinq absolus de `DIRECTION` protègent chaque run : leur résumé est dans la section « Constitution minimale » du README du package, leur formulation canonique dans [`DIRECTION.md`](../design/direction/standard.md#les-cinq-règles-absolues).\\n\\n| Pour… | Faites d’abord… | Puis approfondissez avec… |\\n|---|---|---|\\n| Un agent à activer | Objectif, périmètre, autonomie, confirmation et format de sortie. | Skill pratique, `RUN_CARD` et références conditionnelles. |\\n| Une direction visuelle ouverte | Creative Boot : promesse, objet, geste, modal et parti, tension, signature, cibles CFT, fabrication et premier objet. | `DIRECTION/CHARGE` (mode `DIRECTION`). |\\n| Un run à persister | Scope, artefact, preuve, limite, owner et forme de clôture. | `ACTION/HANDOFF`, `ACTION/CLOSE-PACKAGE`, puis schéma `RUN_CARD` et validateur si projection structurée. |\\n\\n## 2. La ligne de run\\n\\nAvant de construire ou de modifier, répondez aux cinq questions du parcours commun.\\n\\nProduisez ensuite la ligne minimale ; elle reprend la ligne du parcours commun avec un identifiant et l’état du run (`ACTION/STATUS`), l’owner restant nommé dans l’entrée minimale de `DIRECTION/START` :\\n\\n```text\\nID — MODE — DECISION — RISK — NEXT-PROOF — STATE\\n```\\n\\nAjoutez `DECISION-INTENT` au lancement. Ne produisez `DECISION-CHANGE` qu’après une observation ayant réellement confirmé, modifié ou abandonné une décision. Ne prétendez jamais avoir construit, observé ou vérifié ce qui n’était pas disponible. Une capacité manquante limite le claim correspondant ; elle ne réduit pas silencieusement le niveau de protection.\\n\\nSi le package V1 ou une source canonique est indisponible, signalez-le. Une proposition créative peut rester explicitement hypothétique, mais elle ne doit pas être présentée comme un run V1 conforme.\\n\\n## 3. Le parcours complet\\n\\nLe parcours complet est le suivant ; chaque mode n’en garde que les étapes de sa route (`ACTION/RUN-<MODE>`) :\\n\\n> **Classer → diriger → construire → observer → corriger, résoudre, rouvrir ou décider → persister.**\\n\\nIl comporte deux boucles liées :\\n\\n| Boucle | Fonction | Sortie attendue |\\n|---|---|---|\\n| **Boucle 1 — création** | Comprendre le produit et le public, classer le risque, formuler une direction située, choisir une structure, composer et construire un premier objet complet. | Un artefact réel, dirigé, spécifique, crédible et suffisamment résolu pour être observé. |\\n| **Boucle 2 — amélioration** | Observer dans le scope déclaré, interpréter avec une limite, isoler le défaut dominant, modifier réellement, réobserver et décider de la suite. | Correction visible, direction rouverte, réserve explicite, décision ou prochaine preuve persistée. |\\n\\nAprès observation, choisissez la suite selon la table de diagnostic de `DIRECTION/DOUBLE-LOOP` (boucle d’édition).\\n\\nUne rationale seule ne constitue pas une correction. Lorsque la perception, l’usage, l’accessibilité ou la robustesse font partie de la décision, la boucle doit normalement conduire à une modification réelle de l’artefact, puis à une nouvelle observation. Si l’observation invalide l’hypothèse, le JTBD ou la cible, consignez dans la trace existante l’observation, son impact sur l’hypothèse, la décision touchée, le recadrage et la prochaine preuve ; cette note ne crée ni statut, ni gate, ni troisième boucle.\\n\\n### Charger une route et renforcer une RUN_CARD\\n\\nPour charger seulement un bloc documenté, utilisez le lecteur de route :\\n\\n```bash\\npython3 scripts/read_route.py DIRECTION/START\\npython3 scripts/read_route.py ACTION/RUN-LITE\\npython3 scripts/read_route.py --trouver \"cohérence de rayon\"\\n```\\n\\n`--trouver` cherche le terme en mots entiers dans les cinq sources normatives, en ignorant la casse et les accents, avec quelques synonymes et traductions courants ; à défaut, une correspondance partielle, puis tous les mots sur une même ligne. Il regroupe les passages par route, classe les routes et montre les premières (`--tout` pour toutes). Il ne comprend pas le sens : sans résultat, essayer une reformulation ciblée ; l’absence d’occurrence ne prouve pas l’absence du savoir. `--sommaire` liste les routes avec leur rôle ; `--sommaire LOCATOR` donne la table des matières d’une route et ses sous-locators. À la lecture d’une route, les blocs déjà compilés dans le noyau de la skill sont remplacés par un renvoi à leur section ; `--complet` les affiche, et `--trouver` marque ces passages « (noyau) ». L’activation pour l’agent appartient à `DIRECTION/CHARGE` et figure dans le noyau compilé. `--guides`, utilisable avec `--trouver`, ajoute les documents d’orientation (guides du corpus, README racine et références de la skill), explicitement séparés des résultats normatifs. Les marqueurs de compilation et de concept ne sont pas des passages de lecture.\\n\\nLe lecteur résout le locator selon `READING_MAP.md` (raccourci, titre propriétaire, puis sous-locator) et n’affiche que le bloc demandé. Pour une carte concrète, le mode strict rejette les placeholders et vérifie l’existence des locators locaux : artefact, trace et captures avant/après de la paire B1b. Remplacez les chemins d’exemple ci-dessous par ceux de vos fichiers :\\n\\n```bash\\npython3 gouvernance/outils/validate_run_card.py --strict chemin/vers/run_card.json\\npython3 gouvernance/outils/validate_contracts.py --type production_contracts chemin/vers/contrat.json\\n```\\n\\nLe mode strict complète la validation structurelle ; il ne transforme pas une preuve documentaire en preuve d’usage. Pour les locators HTTP(S) d’artefact, de trace et de captures, il refuse les familles `example.com`, `example.org`, `example.net` et `.invalid`, y compris leurs sous-domaines, après normalisation de casse et du point final. Une URL admise n’est pas vérifiée sur le réseau. Pour une préparation interrompue, voir la procédure de diagnostic et de reprise dans le README du paquet.\\n\\n## 5. Charger seulement ce qui peut changer la décision\\n\\nLa liste de chargement par mode est unique : `DIRECTION/CHARGE`. La skill en porte une copie générée.\\n\\n« Non chargé par défaut » signifie qu’un module n’est pas lu sans raison ; ce n’est jamais une interdiction d’activer une source nécessaire. La charge documentaire ne diminue ni le mode, ni le niveau de preuve, ni la protection d’un risque.\\n\\n## 6. Produire une qualité positive dès le premier rendu\\n\\nCette section projette le contrat positif du premier objet (voir `DIRECTION/FIRST-OBJECT`), dans le même ordre et sous les mêmes noms : elle impose un niveau d’intention et de résolution, jamais un style, une palette, un score ou un verdict esthétique.\\n\\nLorsque la décision visuelle est ouverte, le premier rendu n’est pas un échafaudage volontairement générique. Il doit rendre jugeables, dans la mesure du scope disponible :\\n\\n| Dimension | Ce que le premier rendu doit rendre visible | Retour si… |\\n|---|---|---|\\n| Présence | Une position perceptible plutôt qu’un assemblage de composants neutres. | La proposition est plate, interchangeable ou sans foyer. |\\n| Foyer | Masse, rythme, hiérarchie et point d’entrée discernables. | Le texte, l’asset, le CTA et la preuve se concurrencent. |\\n| Signature | Un détail ou une relation non interchangeable, avec une raison située. | Le produit pourrait être remplacé sans modifier la scène. |\\n| Intégration | Une scène, un geste ou une relation qui rend la promesse tangible dès l’entrée ; la direction appartient à ce produit, ce public et ce contenu ; aucun effet, asset ou composant n’existe sans conséquence identifiable. | L’élément est décoratif, mal cadré, hors récit ou simplement disponible. |\\n| Résolution | Typographie, matière, action, responsive et états critiques assez construits pour révéler les défauts réels ; contenu suffisamment crédible pour juger la composition. | Le rendu reporte la décision à une future passe de polish. |\\n| Désirabilité située | L’attrait vient d’une relation au produit, au contexte et au public, pas d’un adjectif. | « Premium », « moderne » ou « beau » remplace une décision observable. |\\n| Vérité de scène | Texte, données, états et libellés crédibles ; tout exemple non observé est marqué comme illustratif. | Une hypothèse ressemble à une preuve de résultat, de client ou de disponibilité. |\\n| Résilience visible | La direction tient dans les transformations pertinentes pour le risque : mobile, contenu long, état critique ou fallback. | Un changement de contenu, viewport, asset ou état détruit le foyer ou la compréhension. |\\n\\nUn « Retour si… » observé renvoie à la décision responsable (`DIRECTION/FIRST-OBJECT`) ; il ne crée ni gate, ni verdict, ni quota.\\n\\nCette barre ne constitue ni un score, ni un verdict, ni un style obligatoire. Un rendu peut être dense, joyeux, vernaculaire, maximaliste, étrange, populaire ou minimaliste si cette expression sert le contexte, le public et la décision. `SAVOIR/CRAFT` aide à juger ; `ACTION` possède la preuve et la clôture.\\n\\n## 7. One-shot : compression, jamais dispense\\n\\nUn run peut être traité en one-shot lorsque le périmètre est stable, que la direction est suffisamment déterminée, que les capacités critiques sont disponibles, que le premier objet peut être observé dans son scope et qu’aucun risque critique ne reste non protégé.\\n\\nLe one-shot réduit le nombre de cycles ; il ne supprime pas :\\n\\n1. la classification et la déclaration du risque ;\\n2. la construction d’un artefact réel ;\\n3. l’observation du premier rendu ou comportement ;\\n4. la revue créative lorsque la décision est visuelle ;\\n5. la vérification du risque dominant ;\\n6. la trace des preuves, limites et décisions, à son niveau (légère par défaut, complète si le run est persistant, partagé ou audité).\\n\\nEn trace légère, la sortie one-shot est la proposition. En trace complète, la sortie one-shot peut être une décision directement clôturée si l’observation confirme que le défaut dominant est absent ou corrigé et qu’aucune nouvelle itération ne promet un changement visible ou utile. Sinon, le run retourne à la branche appropriée : correction, réouverture, reclassification ou prochaine preuve.\\n\\n## 8. Handoff agentique\\n\\nPour qu’un agent exécute V1, fournissez :\\n\\n```text\\nOBJECTIVE — résultat recherché.\\nSCOPE — surface, état, public, médium et version.\\nAUTONOMY — actions autorisées sans confirmation.\\nCONFIRMATION — actions qui exigent un accord préalable.\\nCONSTRAINTS — contraintes de produit, technique, contenu, droits et délai.\\nOUTPUT — artefact, trace, preuve, limite et prochaine action attendus.\\n```\\n\\nL’agent localise le package réellement fourni, lit le noyau de la skill, classe la demande avec `DIRECTION/START`, charge la ligne de son mode dans `DIRECTION/CHARGE` et seulement les propriétaires utiles, produit l’artefact, vérifie le risque dominant et restitue par défaut la réponse visible en langage produit : ce qui a été fait, pourquoi, ce qui manque pour la vraie version, la suite (voir `ACTION/HANDOFF`), avec la trace légère par défaut.\\n\\nIl demande confirmation avant toute action externe, irréversible, publique, destructive, financière ou persistante hors du périmètre autorisé. Il ne choisit pas un mode plus léger parce qu’une capacité manque. Il déclare la capacité indisponible, requalifie la protection nécessaire ou conserve explicitement la limite.\\n\\n## 9. Exemple complet minimal\\n\\nExemple d’une nouvelle page d’accueil dont la direction visuelle est ouverte :\\n\\n```text\\nID: home-042\\nMODE: DIRECTION\\nDECISION: rendre la promesse principale mémorable sans ralentir la compréhension\\nRISK: identity + usage\\nSCOPE: desktop 1440, mobile 390, état initial, contenu réel de la page d’accueil\\nNEXT-PROOF: capture des deux viewports + revue créative + test de compréhension ciblé\\nOWNER: design-lead\\nSTATE: CHECKING\\n\\nDECISION-INTENT:\\nLa page doit donner une présence éditoriale forte tout en faisant comprendre\\nle bénéfice principal avant le premier geste.\\n\\nDIRECTION:\\nThèse : la preuve du produit porte la première scène ; la promesse se lit\\navant le premier geste.\\nModal : titre centré, sous-titre, deux boutons, trois cartes de bénéfices.\\nParti : s’écarter pour la première scène seulement, où la preuve remplace le titre ;\\ngarder la structure attendue pour le reste de la page.\\nFirst object : titre, objet visuel propriétaire et CTA principal dans la première scène.\\n\\nARTIFACT:\\nPage construite avec contenu crédible, objet visuel authored, responsive et état focus.\\n\\nOBSERVATION:\\nLa présence et la signature sont visibles. Sur mobile, le CTA secondaire concurrence\\nle premier geste et l’objet visuel perd sa relation avec le titre.\\n\\nDOMINANT-DEFECT:\\nLa hiérarchie mobile sépare l’objet de la promesse et dilue le premier geste.\\n\\nCORRECTION:\\nRapprocher l’objet et le titre, réduire la saillance du CTA secondaire et réviser le crop.\\n\\nDECISION-CHANGE:\\nABANDONED — la composition mobile du premier rendu est abandonnée : l’objet s’y sépare de la promesse et le CTA secondaire concurrence le premier geste (observation : capture mobile 390). La recomposition est décrite dans `CORRECTION` et reste à réobserver.\\n\\nLIMIT:\\nAucun test de lecteur d’écran ni test de performance exécuté dans ce run.\\n\\nNEXT-ACTION:\\nRéobserver le mobile puis exécuter la preuve d’accessibilité appropriée avant clôture.\\n```\\n\\nPour une `RUN_CARD` persistante, cet exemple doit être sérialisé selon le schéma réel. En mode `DIRECTION`, documentez notamment les `sources`, l’objet `direction`, les `anchors`, l’`artifact`, le `trace_locator`, la `proof`, la `next_proof`, le `capability_profile` et la `closure`. Pour une `DIRECTION` décidée ou clôturée, la `closure` porte aussi `direction_status` ; pour une `DIRECTION` clôturée, `creative_close` est obligatoire avec ses cinq champs, même si la revue créative reste réservée ou signale une limite. La projection machine transporte le contrat ; elle ne constitue pas une preuve par elle-même. Une validation JSON, CLI ou package confirme la structure contrôlée, mais ne prouve ni l’implémentation runtime, ni l’usage, ni l’accessibilité exécutée, ni la performance, ni la qualité visuelle.\\n\\n## 10. Observer, interpréter et améliorer\\n\\nInspectez l’artefact ou le comportement réel dans le scope déclaré. Une méthode de preuve doit toujours pouvoir répondre à quatre questions :\\n\\n| Question | Réponse attendue |\\n|---|---|\\n| Qu’a-t-on réellement observé ? | Artefact, état, viewport, tâche, participant, mesure, version et date. |\\n| Que peut-on en déduire ? | Interprétation limitée au scope et à la méthode. |\\n| Que ne peut-on pas en déduire ? | Limite explicite : usage, accessibilité, robustesse, droits, préférence ou performance. |\\n| Quelle décision change maintenant ? | Correction, résolution, réouverture, reclassification, réserve ou clôture. |\\n\\nUne capture prouve un rendu dans son scope ; elle ne prouve pas à elle seule une tâche utilisateur, un lecteur d’écran, une sécurité, une performance ou une intégration réelle. Une mesure d’accessibilité bornée ne certifie pas toute l’expérience. Une revue experte de craft ne remplace pas un test d’usage.\\n\\nPour une décision créative, appliquez les six questions de revue de `DIRECTION/DOUBLE-LOOP` (boucle d’édition).\\n\\nLe polish est la résolution cohérente de la structure, du contenu, de la typographie, de la matière, de l’action et des états. Ce n’est pas une couche automatique de gradients, d’ombres, de flou ou de gros rayons.\\n\\n## 11. Persister et fermer honnêtement\\n\\nPour un run persistant, suivez `ACTION/HANDOFF` et conservez un `TRACE-LOCATOR` : la forme courte LITE sans RUN_CARD est admise selon `ACTION/CLOSE-PACKAGE` ; les autres projections structurées utilisent la RUN_CARD et son validateur. Les projections machine-readable transportent les contrats existants ; elles ne remplacent ni les sources normatives, ni l’observation, ni le jugement humain.\\n\\nAvant de fermer, vérifiez que :\\n\\n1. le défaut dominant est corrigé, absent ou explicitement réservé ;\\n2. la preuve attendue est obtenue ou déclarée `NOT-VERIFIED` ; une conséquence attendue non observée est `NOT-OBSERVED` ; `N/A-JUSTIFIED`, avec sa raison, ne vaut que si la preuve ne s’applique pas ;\\n3. une correction technique ou de conformité n’a pas effacé la direction spécifique ;\\n4. la trace, les artefacts, les limites et l’owner sont retrouvables ;\\n5. une nouvelle itération ne promet plus de changement visible ou utile, ou bien la prochaine action est nommée.\\n\\n`STATE: CLOSED` signifie que la trace et les artefacts sont persistés. Cela ne signifie pas que le run a réussi, que l’usage est validé ou que toutes les limites ont disparu. Un run peut être fermé sans acceptation ; les conditions dépendent de l’issue (voir `ACTION/CLOSE-PACKAGE` et `ACTION/OVERRIDE`) : archive simple pour `BLOCKED`, `RETURNED` ou `EXPLORATORY` (owner, limite et prochaine preuve) ; structure de réserve pour une acceptation avec réserve ; exception pour `FAIL-ASSUMED` (voir `ACTION/OVERRIDE`). Archiver un blocage n’exige aucune approbation.\\n\\nSi une étape, une variante, une référence ou un tag ne change aucune décision, observation, preuve, limite ou prochaine action, retirez-le ou justifiez `N/A-JUSTIFIED`. Une trace complète sans conséquence est du slop procédural.\\n\\n## 12. Sources propriétaires\\n\\n| Besoin | Source |\\n|---|---|\\n| Classification, absolus et direction | [`DIRECTION.md`](../V1/official/DIRECTION.md) |\\n| Trace, preuve, gates, verdict et clôture | [`ACTION.md`](../V1/official/ACTION.md) |\\n| Craft, contenu, contexte, sources et intégrité | [`SAVOIR.md`](../V1/official/SAVOIR.md) |\\n| Support, grille, scène, objet et composants | [`BIBLIOTHEQUE.md`](../V1/official/BIBLIOTHEQUE.md) |\\n| État officiel du package et changements partagés | [`CHANGELOG.md`](../maintenance/versions.md) |\\n\\nLisez une source détaillée uniquement si elle peut modifier une décision, un artefact, une preuve, une limite ou la prochaine action. Pour les exemples, le flux et la projection machine, consultez les références de la skill pratique lorsque le parcours le justifie : `agent/skill/references/examples.md`, `agent/skill/references/flow.md` et `agent/skill/references/machine_projection.md`.\\n'",
+      "FAILED (failures=1)",
+      "AUDIT REGRESSIONS FAILED — 30 cas"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "138-143",
+   "debut": "## 5. Charger seulement ce qui peut changer la décision",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-39 : condition de façade non tenue — QUICKSTART §5, chargement LITE et ITER (propriétaire : ACTION/PRECONDITION (Gate B du risque))"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "144-164",
+   "debut": "## 6. Produire une qualité positive dès le premier rendu",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-15 : condition de façade non tenue — QUICKSTART §6 (propriétaire : DIRECTION/FIRST-OBJECT (dimensions))",
+      "- LCF-30 : condition de façade non tenue — QUICKSTART §6, colonne « Retour si… » (propriétaire : DIRECTION/FIRST-OBJECT)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "165-179",
+   "debut": "## 7. One-shot : compression, jamais dispense",
+   "echecs": []
+  },
+  {
+   "lignes": "180-196",
+   "debut": "## 8. Handoff agentique",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-C2 : condition de façade non tenue — QUICKSTART et skill, réponse visible (propriétaire : ACTION/HANDOFF)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "197-247",
+   "debut": "## 9. Exemple complet minimal",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-42 : condition de façade non tenue — QUICKSTART §9 : DECISION-CHANGE selon la triade (propriétaire : ACTION/STATUS ; ACTION/HANDOFF)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "248-264",
+   "debut": "## 10. Observer, interpréter et améliorer",
+   "echecs": []
+  },
+  {
+   "lignes": "265-280",
+   "debut": "## 11. Persister et fermer honnêtement",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-56 : condition de façade non tenue — HANDOFF, guides et noyau : exception de trace complète LITE (propriétaire : ACTION/HANDOFF ; ACTION/CLOSE-PACKAGE)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "281-292",
+   "debut": "## 12. Sources propriétaires",
+   "echecs": []
+  }
+ ],
+ "guides/designer.md": [
+  {
+   "lignes": "1-5",
+   "debut": "# Guide du designer",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- [SUJ-01] carte des sujets absente ou vide"
+     ]
+    },
+    {
+     "controle": "test_read_route.py",
+     "messages": [
+      "FAIL: test_topic_map_heads_search (__main__.SearchAndSummaryTests.test_topic_map_heads_search)",
+      "AssertionError: 'SUJET « couleur » (carte dérivée, READING_MAP) — propriétaire : SAVOIR/CRAFT/CFT-05' not found in 'TROUVER (mots entiers ; alias : couleurs, color, colour) : « couleur » — 35 ligne(s) normative(s), 16 route(s) ; 0 ligne(s) de guide\\nSOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)\\nSAVOIR/CRAFT                       8 ligne(s)  · savoir/qualite-creative\\n    design/savoir/qualite-creative.md:20    …concerne la matière, la typographie, la couleur, l’image, la silhouette, le rythme et la singularité située. Le polish d…\\n    design/savoir/qualite-creative.md:131   …’action et le contenu lisibles avant la couleur. Choisis grille, échelle, densité et hiérarchie selon le contenu ; une v…\\nACTION/GATE-A                      5 ligne(s)  · produit/plancher\\n    design/produit/plancher.md:57    …ue absent, implicite ou dépendant de la couleur seule. |\\n    design/produit/plancher.md:62    …rmation essentielle ne dépend pas de la couleur seule. | Statut ou action incompréhensible sans couleur. |\\nACTION/ROUTING                     1 ligne(s)  · agent/chemins#prerequis\\n    agent/chemins.md:315   | Couleur, contraste ou theming | `SAVOIR/CRAFT`, `SAVOIR/SYSTEM` et politique de contraste ACTION. |\\nACTION/GATE-B                      2 ligne(s)  · gouvernance/verification\\n    gouvernance/verification.md:117   …tion d’état, crop, vocabulaire, preuve, couleur ou action.\\n    gouvernance/verification.md:147   | Système et robustesse | Couleur, accessibilité, responsive, dark, performance et motion. | Tokens, inspection, tests, …\\nSAVOIR/DESIGN-ATLAS                2 ligne(s)  · savoir/images-et-sources#familles\\n    design/savoir/images-et-sources.md:94    …ographie, illustration, texture, trame, couleur, lumière, matériau code-native | Identitaire, atmosphérique, spatial |\\n    design/savoir/images-et-sources.md:98    …connaissance | Typographie, microcopie, couleur sémantique, marque, motif, langage | Identitaire, informationnel, narrat…\\nSAVOIR/STYLE                       2 ligne(s)  · savoir/styles\\n    design/savoir/styles.md:55    …le et mémorable. | Contrastes de masse, couleurs ou matières coordonnées, rythme dense, superposition maîtrisée, contenu…\\n    design/savoir/styles.md:64    > **Test de style.** Masque les couleurs de marque, l’image et le logo. Si hiérarchie, type, densité et matière ne tradu…\\nACTION/PIPELINE-DIRECTION          1 ligne(s)  · gouvernance/travail#deroule\\n    ACTION.md:63    …ontre-indications et palette lorsque la couleur porte une décision.\\nBIBLIOTHEQUE/COMPONENTS            1 ligne(s)  · formes/catalogue#composants\\n    design/formes/catalogue.md:370   …ENS` | Valeurs et relations durables. | Couleurs sémantiques, type, espacements, bordures, z-index, motion. |\\n… 8 autre(s) route(s) : ajouter --tout\\n(hors route)                       design/direction/standard.md:86    …tion essentielle ne dépend jamais de la couleur seule.\\n(hors route)                       design/savoir/qualite-creative.md:3     …omposition, émotion, premier contact et couleur.\\n(hors route)                       maintenance/versions.md:15    …ure, de composition, de typographie, de couleur, de contenu et de boucle d’édition sont balisés dans leurs sources et co…\\nLire une route : python3 scripts/read_route.py LOCATOR ; ses sous-sections : --sommaire LOCATOR ; (noyau) : passage déjà chargé avec la skill\\n'",
+      "FAIL: test_topic_map_owner_must_treat_topic (__main__.SearchAndSummaryTests.test_topic_map_owner_must_treat_topic)",
+      "AssertionError: Lists differ: ['[SUJ-01] carte des sujets absente ou vide'] != []",
+      "- ['[SUJ-01] carte des sujets absente ou vide']",
+      "FAILED (failures=2)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "6-35",
+   "debut": "## Carte des sujets",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- [SUJ-01] carte des sujets absente ou vide"
+     ]
+    },
+    {
+     "controle": "test_read_route.py",
+     "messages": [
+      "FAIL: test_topic_map_heads_search (__main__.SearchAndSummaryTests.test_topic_map_heads_search)",
+      "AssertionError: 'SUJET « couleur » (carte dérivée, READING_MAP) — propriétaire : SAVOIR/CRAFT/CFT-05' not found in 'TROUVER (mots entiers ; alias : couleurs, color, colour) : « couleur » — 35 ligne(s) normative(s), 16 route(s) ; 0 ligne(s) de guide\\nSOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)\\nSAVOIR/CRAFT                       8 ligne(s)  · savoir/qualite-creative\\n    design/savoir/qualite-creative.md:20    …concerne la matière, la typographie, la couleur, l’image, la silhouette, le rythme et la singularité située. Le polish d…\\n    design/savoir/qualite-creative.md:131   …’action et le contenu lisibles avant la couleur. Choisis grille, échelle, densité et hiérarchie selon le contenu ; une v…\\nACTION/GATE-A                      5 ligne(s)  · produit/plancher\\n    design/produit/plancher.md:57    …ue absent, implicite ou dépendant de la couleur seule. |\\n    design/produit/plancher.md:62    …rmation essentielle ne dépend pas de la couleur seule. | Statut ou action incompréhensible sans couleur. |\\nACTION/ROUTING                     1 ligne(s)  · agent/chemins#prerequis\\n    agent/chemins.md:315   | Couleur, contraste ou theming | `SAVOIR/CRAFT`, `SAVOIR/SYSTEM` et politique de contraste ACTION. |\\nACTION/GATE-B                      2 ligne(s)  · gouvernance/verification\\n    gouvernance/verification.md:117   …tion d’état, crop, vocabulaire, preuve, couleur ou action.\\n    gouvernance/verification.md:147   | Système et robustesse | Couleur, accessibilité, responsive, dark, performance et motion. | Tokens, inspection, tests, …\\nSAVOIR/DESIGN-ATLAS                2 ligne(s)  · savoir/images-et-sources#familles\\n    design/savoir/images-et-sources.md:94    …ographie, illustration, texture, trame, couleur, lumière, matériau code-native | Identitaire, atmosphérique, spatial |\\n    design/savoir/images-et-sources.md:98    …connaissance | Typographie, microcopie, couleur sémantique, marque, motif, langage | Identitaire, informationnel, narrat…\\nSAVOIR/STYLE                       2 ligne(s)  · savoir/styles\\n    design/savoir/styles.md:55    …le et mémorable. | Contrastes de masse, couleurs ou matières coordonnées, rythme dense, superposition maîtrisée, contenu…\\n    design/savoir/styles.md:64    > **Test de style.** Masque les couleurs de marque, l’image et le logo. Si hiérarchie, type, densité et matière ne tradu…\\nACTION/PIPELINE-DIRECTION          1 ligne(s)  · gouvernance/travail#deroule\\n    ACTION.md:63    …ontre-indications et palette lorsque la couleur porte une décision.\\nBIBLIOTHEQUE/COMPONENTS            1 ligne(s)  · formes/catalogue#composants\\n    design/formes/catalogue.md:370   …ENS` | Valeurs et relations durables. | Couleurs sémantiques, type, espacements, bordures, z-index, motion. |\\n… 8 autre(s) route(s) : ajouter --tout\\n(hors route)                       design/direction/standard.md:86    …tion essentielle ne dépend jamais de la couleur seule.\\n(hors route)                       design/savoir/qualite-creative.md:3     …omposition, émotion, premier contact et couleur.\\n(hors route)                       maintenance/versions.md:15    …ure, de composition, de typographie, de couleur, de contenu et de boucle d’édition sont balisés dans leurs sources et co…\\nLire une route : python3 scripts/read_route.py LOCATOR ; ses sous-sections : --sommaire LOCATOR ; (noyau) : passage déjà chargé avec la skill\\n'",
+      "FAIL: test_topic_map_owner_must_treat_topic (__main__.SearchAndSummaryTests.test_topic_map_owner_must_treat_topic)",
+      "AssertionError: Lists differ: ['[SUJ-01] carte des sujets absente ou vide'] != []",
+      "- ['[SUJ-01] carte des sujets absente ou vide']",
+      "FAILED (failures=2)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "36-57",
+   "debut": "## Combinaisons par résultat recherché",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-03 : condition de façade non tenue — READING_MAP (combinaisons), noyau UI/UX, preuve, système (propriétaire : ACTION/GATE-A ; gate du risque ; paquet SYSTÈME (B3))",
+      "- LCF-07 : condition de façade non tenue — DIRECTION 72, RUN-PRIORITY, READING_MAP (routage et combinaisons), skill (propriétaire : DIRECTION 55 (cible avant premier objet))"
+     ]
+    },
+    {
+     "controle": "validate_structure.py",
+     "messages": [
+      "STRUCTURE VALIDATION FAILED — gardes de propriété",
+      "- [MAP-01] READING_MAP doit porter une seule section « Combinaisons par résultat recherché »",
+      "- [FAC-01] READING_MAP.md : ligne « | **Agent contrôlé** | » absente, multiple ou sans « trace complète » (C04)"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "58-63",
+   "debut": "### Variation créative",
+   "echecs": []
+  },
+  {
+   "lignes": "64-74",
+   "debut": "### Garde-fous de la combinaison",
+   "echecs": []
+  },
+  {
+   "lignes": "75-93",
+   "debut": "## Activation multi-perspective",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "READING MAP VALIDATION FAILED — élément obligatoire absent : ## Activation multi-perspective"
+     ]
+    },
+    {
+     "controle": "test_read_route.py",
+     "messages": [
+      "FAIL: test_code_example_is_not_a_connection (__main__.ConnectionTests.test_code_example_is_not_a_connection)",
+      "AssertionError: 'C98' not found in '# READING_MAP — carte dérivée de lecture et d’activation\\n\\n**Statut :** guide dérivé non normatif. Les cinq sources normatives, le schéma `RUN_CARD` et les validateurs propriétaires font foi en cas de divergence.\\n\\n## Utilisation\\n\\nCette carte réduit la recomposition mentale du lecteur. Elle ne crée ni mode, ni gate, ni axe, ni statut, ni verdict, ni owner de décision supplémentaire. Elle indique seulement où commencer, quoi charger, ce qui doit sortir et quand transmettre.\\n\\nPour composer plusieurs capacités selon un résultat recherché — direction, beauté située, créativité, usage, preuve, vitesse ou système — voir la section « Combinaisons par résultat recherché » ci-dessous : elle aide à ajuster la combinaison et l’intensité sans remplacer les propriétaires normatifs.\\n\\n## Chemin canonique de démarrage\\n\\n1. Localiser la version V1 réellement fournie.\\n2. Lire `QUICKSTART.md` ou cette carte si le besoin est déjà identifiable.\\n3. Ouvrir `DIRECTION/START` pour classer le mode et le risque dominant.\\n4. Charger la ligne du mode dans `DIRECTION/CHARGE`, puis approfondir seulement le propriétaire capable de modifier la prochaine décision.\\n5. Ouvrir `ACTION` dès qu’un artefact, une observation, une preuve, un état ou une clôture est concerné.\\n6. Persister la sortie selon `ACTION/HANDOFF` et `ACTION/CLOSE-PACKAGE` lorsque le run doit être repris, comparé ou fermé ; la forme courte LITE peut être complète sans RUN_CARD, la projection structurée suit `ACTION/RUN_CARD`.\\n\\n`DIRECTION/START` reste la seule classification. Cette carte ne reclassifie pas.\\n\\n## Constitution minimale\\n\\nLes cinq absolus de `DIRECTION` protègent chaque run : résumé dans la section « Constitution minimale » du README du package, formulation canonique dans [`DIRECTION.md`](../../design/direction/standard.md#les-cinq-règles-absolues).\\n\\n## Routage minimal par décision\\n\\n| Décision dominante | Première lecture | Ajouter seulement si nécessaire |\\n|---|---|---|\\n| Brief vague ou risque inconnu | `DIRECTION/START` | `DIRECTION/EXTERNAL-START` |\\n| Correction locale | `DIRECTION/START` → `ACTION/RUN-LITE` ou `RUN-ITER` | `SAVOIR` ou `BIBLIOTHEQUE` si la décision change |\\n| Nouvelle surface opérationnelle | `DIRECTION/START` → `ACTION/RUN-STANDARD` | `BIBLIOTHEQUE/SELECT`, `SAVOIR/CONTEXT` |\\n| Direction identitaire | `DIRECTION/START` → `DIRECTION/CHARGE` (mode `DIRECTION`) | `SAVOIR/CRAFT`, `DIRECTION/DIRECTION-ATELIER` |\\n| Structure ou composant partagé | `DIRECTION/START` → `ACTION/RUN-SYSTEM` | `BIBLIOTHEQUE/COMPONENTS`, `SAVOIR/SYSTEM`, `CHANGELOG` |\\n| Preuve, vérification ou clôture | `ACTION` | Gate et route correspondant au risque |\\n| Règle ou route durable | `CHANGELOG` et source propriétaire | `ACTION` pour preuve et `BIBLIOTHEQUE/EVOLUTION` si structure |\\n\\nSortie : réponse visible et trace légère par défaut ; handoff et clôture (`ACTION/CLOSE-PACKAGE`) en trace complète (`ACTION/HANDOFF`).\\n\\n## Handoff minimal commun\\n\\nCe bloc est une copie du handoff canonique (voir `ACTION/HANDOFF`) ; il ne remplace pas `ACTION` ni le schéma `RUN_CARD`.\\n\\n```text\\nMODE:\\nDECISION:\\nRISK:\\nSCOPE:\\nARTIFACT:\\nOBSERVATION / METHOD:\\nPROOF / TRACE-LOCATOR:\\nLIMIT / NOT-VERIFIED:\\nDECISION-CHANGE:\\nNEXT-ACTION:\\nOWNER:\\nNEXT-PROOF:\\nEXIT-CONDITION:\\n```\\n\\nLes champs non applicables doivent être marqués `N/A-JUSTIFIED` ; ils ne doivent pas être inventés. Si un run est persistant, la projection `RUN_CARD` et son validateur restent obligatoires selon le mode et le risque, sauf la forme courte LITE sans RUN_CARD définie par `ACTION/HANDOFF` et `ACTION/CLOSE-PACKAGE`. Une demande de projection structurée conserve le schéma et le validateur.\\n\\n## Locators principaux\\n\\nLes identifiants structurels documentés, tels que `GRID/HIERARCHICAL` ou `MICRO/USAGE_LEDGER`, sont aussi acceptés par le lecteur, seuls ou préfixés par `BIBLIOTHEQUE/`. Il sert le titre exact, ou la section porteuse lorsque l’identifiant est une ligne de table. Ce raccourci n’ajoute pas de route canonique ; un identifiant absent, ambigu ou situé seulement dans un exemple de code est refusé.\\n\\nCette table liste des **raccourcis et sous-locators** ; elle n’est pas un inventaire. `scripts/read_route.py` résout un locator en trois étapes : (1) la table ci-dessous, y compris les sous-locators écrits `titre › titre` ; (2) le préfixe propriétaire et le titre unique qui commence par le locator ; (3) le sous-locator `X/Y/Z`, cherché sous le titre `X/Y`. Un locator porté par deux titres est refusé comme ambigu. Un sous-bloc qui porte son propre locator est exclu du bloc parent et servi séparément. Une route qui ne résout pas ne doit pas être devinée.\\n\\n| Locator | Destination exacte |\\n|---|---|\\n| `DIRECTION/START` | `DIRECTION.md` — `## DIRECTION/START — classer avant d’agir` |\\n| `DIRECTION/START/TREE` | `DIRECTION.md` — `## DIRECTION/START — classer avant d’agir` › `### Arbre de classification` |\\n| `DIRECTION/FIRST-OBJECT` | `DIRECTION.md` — `## DIRECTION/FIRST-OBJECT — compiler le brief et produire le premier objet` |\\n| `DIRECTION/VISUAL_TARGET` | `DIRECTION.md` — `## DIRECTION/VISUAL_TARGET — rendre la direction pilotable` |\\n| `DIRECTION/DOUBLE-LOOP` | `DIRECTION.md` — `## DIRECTION/DOUBLE-LOOP — créer puis apprendre` |\\n| `DIRECTION/FAST-PATH` | `DIRECTION.md` — `### DIRECTION/FAST-PATH — renvoi vers l’exécution courte` |\\n| `ACTION/RUN-LITE` | `ACTION.md` — `### \\\\`ACTION/RUN-LITE\\\\`` |\\n| `ACTION/RUN-ITER` | `ACTION.md` — `### \\\\`ACTION/RUN-ITER\\\\`` |\\n| `ACTION/RUN-STANDARD` | `ACTION.md` — `### \\\\`ACTION/RUN-STANDARD\\\\`` |\\n| `ACTION/RUN-DIRECTION` | `ACTION.md` — `### \\\\`ACTION/RUN-DIRECTION\\\\`` |\\n| `ACTION/RUN-SYSTEM` | `ACTION.md` — `### \\\\`ACTION/RUN-SYSTEM\\\\`` |\\n| `ACTION/FIRST-RENDER` | `ACTION.md` — `## ACTION/FIRST-RENDER — qualité initiale attendue` |\\n| `ACTION/FAST-PATH` | `ACTION.md` — `## ACTION/FAST-PATH — preuve minimale sans rituel` |\\n| `ACTION/UI-UX-REALITY` | `ACTION.md` — `### ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble` |\\n| `ACTION/CLOSE-PACKAGE` | `ACTION.md` — `## ACTION/CLOSE-PACKAGE — paquet de clôture` |\\n| `ACTION/GATE-A` | `ACTION.md` — `## ACTION/GATE-A — plancher objectivable` |\\n| `ACTION/ROUTING` | `ACTION.md` — `## ACTION/ROUTING — prérequis de jugement et de structure` |\\n| `ACTION/CLOSE-EXIT-CHECK` | `ACTION.md` — `## ACTION/CLOSE-EXIT-CHECK — test de sortie canonique` |\\n| `SAVOIR/READ` | `SAVOIR.md` — `## SAVOIR/READ — comment utiliser cette bibliothèque` |\\n| `SAVOIR/ROUTING` | `SAVOIR.md` — `## SAVOIR/ROUTING — routes stables` |\\n| `SAVOIR/CRAFT` | `SAVOIR.md` — `# SAVOIR/CRAFT — anti-slop, composition et expression` |\\n| `BIBLIOTHEQUE/READ` | `BIBLIOTHEQUE.md` — `## BIBLIOTHEQUE/READ — responsabilités et convention de route` |\\n| `BIBLIOTHEQUE/SELECT` | `BIBLIOTHEQUE.md` — `## BIBLIOTHEQUE/SELECT — choisir avant de composer` |\\n| `BIBLIOTHEQUE/COMPONENTS` | `BIBLIOTHEQUE.md` — `## BIBLIOTHEQUE/COMPONENTS — couches et dépendances` |\\n| `BIBLIOTHEQUE/EVOLUTION` | `BIBLIOTHEQUE.md` — `## BIBLIOTHEQUE/EVOLUTION — promotion et dépréciation` |\\n\\n## Carte des sujets\\n\\nPour un sujet traité dans plusieurs routes, cette carte dérivée nomme la route propriétaire puis les renvois utiles. Elle ne crée ni route, ni chargement, ni autorité : la source propriétaire reste normative. `python3 scripts/read_route.py --trouver` l’affiche en tête lorsque la requête nomme un sujet ou l’un de ses alias. Le validateur vérifie que chaque route citée se résout et traite le sujet en toutes lettres.\\n\\n| Sujet | Propriétaire | Voir aussi |\\n|---|---|---|\\n| capture | `ACTION/VISUAL_PROOF` | `ACTION/GATE-B/B1b`, `ACTION/GATE-A` |\\n| hiérarchie | `SAVOIR/CRAFT/CFT-03` | `SAVOIR/CRAFT/CFT-00`, `SAVOIR/TYPE` |\\n| contraste | `ACTION/GATE-A` | `SAVOIR/CRAFT/CFT-05`, `ACTION/POLICIES` |\\n| typographie | `SAVOIR/TYPE` | `SAVOIR/CRAFT/CFT-05`, `ACTION/GATE-C` |\\n| couleur | `SAVOIR/CRAFT/CFT-05` | `ACTION/GATE-A` |\\n| mobile | `ACTION/UI-UX-REALITY` | `SAVOIR/STATE`, `SAVOIR/CONTEXT`, `BIBLIOTHEQUE/SEQUENCE` |\\n| état | `SAVOIR/STATE` | `ACTION/UI-UX-REALITY` |\\n| performance | `SAVOIR/TECH` | `SAVOIR/CONTEXT` |\\n| accessibilité | `SAVOIR/CONTEXT` | `ACTION/GATE-A`, `ACTION/POLICIES` |\\n| densité | `SAVOIR/CRAFT/CFT-03` | `ACTION/GATE-C` |\\n| grille | `BIBLIOTHEQUE/GRID` | `BIBLIOTHEQUE/SELECT` |\\n| composant | `BIBLIOTHEQUE/COMPONENTS` | `SAVOIR/SYSTEM`, `ACTION/RUN-SYSTEM` |\\n| exemple | `DIRECTION/EXTERNAL-START` | `DIRECTION/FIRST-OBJECT` |\\n| image | `SAVOIR/SOURCE` | `DIRECTION/VISUAL_TARGET`, `SAVOIR/DESIGN-ATLAS` |\\n| convergence | `SAVOIR/TOOLS/CONVERGENCE` | `SAVOIR/CRAFT/CFT-05`, `BIBLIOTHEQUE/SELECT` |\\n| structure | `BIBLIOTHEQUE/SELECT` | `BIBLIOTHEQUE/READ` |\\n| séquence | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SCENE` |\\n| texte sur image | `SAVOIR/CRAFT/CFT-03` | — |\\n| graphique | `BIBLIOTHEQUE/MICRO` | — |\\n| état vide | `ACTION/UI-UX-REALITY` | `SAVOIR/STATE` |\\n| pied de page | `BIBLIOTHEQUE/SEQUENCE` | — |\\n| cartes | `BIBLIOTHEQUE/SEQUENCE` | `BIBLIOTHEQUE/SELECT` |\\n\\n## Combinaisons par résultat recherché\\n\\nCette section aide à combiner plusieurs capacités lorsque chacune peut **modifier la même décision** ou **protéger un risque déclaré**. Elle ne crée ni mode, ni route, ni gate, ni statut, ni verdict, ni champ machine. Le mode est d’abord classé par `DIRECTION/START` ; la combinaison est ensuite choisie selon le résultat recherché et le scope réel.\\n\\n> **Principe :** ne pas charger le maximum de routes ; composer le maximum de contribution pertinente. Toute capacité activée doit avoir une contribution nommable et être retirée si elle ne change ni la décision, ni l’artefact, ni la preuve, ni la limite, ni la prochaine action.\\n\\nLa combinaison choisie reste dans la trace existante du run, seulement si elle peut modifier la décision. Ne crée pas une trace par capacité et ne transforme pas une table d’orientation en preuve.\\n\\n| Résultat recherché | Noyau possible | Renforcement seulement si nécessaire | Preuve à privilégier |\\n|---|---|---|---|\\n| **Direction forte et spécifique** | `DIRECTION/CHARGE` (mode `DIRECTION`) | `DIRECTION/CREATIVE-BOOT`, `DIRECTION/DOMAIN-FRAME`, `SAVOIR/CRAFT`, `SAVOIR/SOURCE`, `SAVOIR/STYLE`, `BIBLIOTHEQUE/SELECT` | Premier objet réel, revue créative, observation du défaut dominant et correction réellement observée. |\\n| **Beauté, goût et craft situés** | `DIRECTION/FIRST-OBJECT` + `SAVOIR/CRAFT` + `ACTION/FIRST-RENDER` | Traduction de `BIBLIOTHEQUE/SELECT` si l’intention reste sans levier ; calibration de `BIBLIOTHEQUE/CONTRACTS` si la fabrication reste ouverte ; gestes conditionnels de `SAVOIR/STATE` (dans le noyau), puis `SAVOIR/STYLE`, contenu, matière, typographie ou ancre seulement selon la décision, par `DIRECTION/CHARGE` | Relation et effet attendu nommés avant build ; effet réinspecté dans le même scope ; jugement créatif séparé des preuves d’usage, d’accessibilité et de robustesse. |\\n| **Créativité variée mais utile** | `DIRECTION/CREATIVE-BOOT` + `DIRECTION/VISUAL_TARGET` + une alternative située | `DIRECTION/DOMAIN-FRAME`, `SAVOIR/SOURCE` ou atelier seulement si l’axe de divergence change une décision | Comparaison dans le même scope par public, JTBD, promesse, geste, structure ou expression. |\\n| **UI/UX habitable** | `ACTION/UI-UX-REALITY` + `BIBLIOTHEQUE/SELECT` + `ACTION/GATE-A` (contrôles applicables) + contenu et états réels | Responsive, focus, récupération, runtime ou `SAVOIR/CONTEXT` selon le risque | Tâche, états, viewports, contenu extrême, clavier ou méthode adaptée au claim. |\\n| **Preuve et décision fiables** | `ACTION/STRUCTURED-PROOF` + artefact réel + gate correspondant au risque + `ACTION/CLOSE-EXIT-CHECK` | Preuve croisée ou `RUN_CARD` stricte si la persistance l’exige | Claim, méthode, scope, date, artefact, limite et `TRACE-LOCATOR` retrouvables. |\\n| **Vitesse sans appauvrissement** | `DIRECTION/START` + `ACTION/FAST-PATH` + `LITE` ou `ITER` correctement classé | Ajouter une seule capacité si elle peut changer la décision ; reclassifier si le risque ou le périmètre augmente | Artefact réel, observation ciblée, preuve minimale applicable et prochaine action. |\\n| **Système maintenable** | `ACTION/RUN-SYSTEM` + `BIBLIOTHEQUE/COMPONENTS` si un composant change + migration, rollback et `CHANGELOG` (paquet SYSTÈME) | `BIBLIOTHEQUE/EVOLUTION` ou `SAVOIR/SYSTEM` selon la décision partagée | Consumers, compatibilité, non-régression, owner, migration et condition de reprise. |\\n| **Domaine sensible ou incertain** | `DIRECTION/DOMAIN-FRAME` + `SAVOIR/SOURCE` + `ACTION/STRUCTURED-PROOF` | Contexte culturel, conventions, confiance ou recherche seulement si un déclencheur peut changer la décision | Source ou observation reliée à la décision, transformation, rejet et limite. |\\n| **Agent contrôlé** | `DIRECTION/START` + `ACTION/AUTHORITY` + `SKILL.md` + owner | Cette carte seulement si plusieurs capacités sont réellement nécessaires ; `RUN_CARD` en trace complète (run persistant, partagé, audité ou acceptation demandée), quel que soit le nombre de capacités ; exception de forme courte LITE sans RUN_CARD selon `ACTION/HANDOFF` | Artefact livré, autonomie exercée, décision, preuve, limite, escalade et prochaine action. |\\n\\nCes combinaisons ne sont pas des parcours obligatoires. Elles indiquent des capacités compatibles ; les sources propriétaires définissent le contenu exact des routes.\\n\\n### Variation créative\\n\\nPour produire du beau varié sans bruit : `SAVOIR/CRAFT/CFT-02` (un axe situé à la fois).\\n\\nUne alternative est utile si elle peut modifier le choix. Une référence, une ancre, une rationale ou une variante ne constitue pas une preuve indépendante.\\n\\n### Garde-fous de la combinaison\\n\\n- `ITER` demande de rappeler et réévaluer une direction retrouvable dans son périmètre ; un fix local qui la conserve reste `LITE` (`DIRECTION/START`).\\n- Un chemin court ne réduit jamais la protection d’un risque critique.\\n- Une capacité indisponible limite le claim correspondant ; elle ne justifie pas une baisse silencieuse du mode.\\n- Ne pas remplir toutes les routes d’une combinaison si une route principale suffit.\\n- Ne pas ajouter de trace, de variante ou de preuve qui ne peut changer la décision, l’artefact, la limite ou l’action suivante.\\n\\nArrêter l’orchestration lorsque la décision, le risque, le scope, l’owner, l’artefact, la preuve, la limite et la prochaine action sont suffisamment explicites. La richesse de lecture n’est pas un résultat ; **l’effet positif observable dans le périmètre déclaré** est le résultat recherché.\\n\\n## Condition d’arrêt\\n\\nArrêter la lecture lorsque la décision, le risque, le propriétaire, la sortie, la prochaine preuve et la limite sont suffisamment explicites pour le prochain propriétaire. Continuer uniquement si une section supplémentaire peut modifier l’un de ces éléments. Une décision visuelle peut rester `EXPLORATORY` ; une validation documentaire ne devient pas une preuve d’usage, d’accessibilité, de performance ou de qualité réelle.\\n\\n## Connexions situées\\n\\n**Base de sources :** `R2026-10-08-ACCES-MATIERE`.\\n\\nCet index dérivé rapproche des contributions des propriétaires ; chaque liaison est une hypothèse d’orientation à confronter au contexte. Il ne classe pas le mode, ne remplace pas CHARGE et ne déclare ni applicabilité ni résultat par reconnaissance d’un mot. Les sources ci-dessous appartiennent à la révision indiquée ; une différence de version impose leur réexamen. Les protections applicables restent dues même lorsqu’une suggestion facultative est écartée.\\n\\nPour une décision ouverte, consulter le sommaire avec `python3 scripts/read_route.py --connexions`, puis une entrée avec `python3 scripts/read_route.py --connexions C03`. Le lecteur expose condition, contributions, limites et locators résolus ; il ne compose pas automatiquement une snapshot et ne choisit pas les connexions applicables. La vue courte et sa fraîcheur restent définies par `ACTION/RUN_CARD`, section « Vue d’exécution dérivée ».\\n\\nUne condition établie peut appeler la contribution utile ; une relation déjà résolue conserve sa source sans exploration supplémentaire. Une condition fausse écarte seulement la suggestion facultative. Une condition inconnue appelle une recherche, une clarification nécessaire ou une hypothèse explicite proportionnée selon le coût d’erreur. Avant construction, l’effet est attendu ; après observation seulement, il peut être déclaré observé. Aucun quota de connexions ou score de qualité n’est créé.\\n\\n### C01 — Contexte incertain\\n\\n**Condition et décision.** Une inconnue de public, tâche, culture, confiance ou contrainte peut changer structure, expression ou preuve.\\n\\n**Sources.** `DIRECTION/DOMAIN-FRAME` ; `SAVOIR/FRAME/FND-03` ; `SAVOIR/SOURCE` si une recherche peut réduire l’incertitude.\\n\\n**Intervention et effet attendu.** Nommer la question et sa conséquence ; approfondir le point susceptible de modifier l’artefact.\\n\\n**Contre-indication et alternative.** Éviter la recherche de tout un secteur ou l’esthétique déduite du seul domaine ; conserver une hypothèse explicite lorsque le scope l’autorise.\\n\\n**Moyens et limites.** Distinguer faits fournis, source retrouvée et hypothèse ; la disponibilité d’une recherche ne démontre pas la connaissance du public.\\n\\n**Observation et réexamen.** Prévoir source, retour ou observation capable de corriger le cadrage ; réexaminer si tâche, public, culture, risque ou contrainte change.\\n\\n### C02 — Typographie déterminante\\n\\n**Condition et décision.** Voix, langue, chiffres, hiérarchie ou rendu typographique peuvent changer la décision.\\n\\n**Sources.** `SAVOIR/TYPE` ; `SAVOIR/CRAFT/CFT-03` ; `DIRECTION/CREATIVE-BOOT` ; `ACTION/STRUCTURED-PROOF`.\\n\\n**Intervention et effet attendu.** Partir de la police disponible et du vrai texte ; régler rôle, échelle, mesure, poids, interligne ou composition du titre pour la relation recherchée.\\n\\n**Contre-indication et alternative.** Un overflow local n’appelle pas une nouvelle voix ; garder la famille adaptée et corriger le paramètre concerné.\\n\\n**Moyens et limites.** Vérifier la famille livrée et ses axes disponibles ; une impression de marque ne démontre pas une meilleure compréhension.\\n\\n**Observation et réexamen.** Préparer petit format, contenu long, glyphes, repli et hiérarchie ; réexaminer après changement de police, langue, contenu, format ou rôle.\\n\\n### C03 — Asset déterminant\\n\\n**Condition et décision.** Un asset porte une relation importante : choix, qualité, intégration, série ou usage restent ouverts, même si un fichier existe déjà.\\n\\n**Sources.** `DIRECTION/VISUAL_TARGET` ; `SAVOIR/SOURCE` ; `SAVOIR/DESIGN-ATLAS` ; `SAVOIR/TOOLS` ; `BIBLIOTHEQUE/CONTRACTS` ; `ACTION/STRUCTURED-PROOF`.\\n\\n**Intervention et effet attendu.** Nommer son rôle ; choisir une route disponible et régler sujet, cadrage, occupation, voisinage du texte et traitement utile. Relier qualité propre de la représentation, intégration et cohérence de série.\\n\\n**Contre-indication et alternative.** Éviter l’image de remplissage et la confusion entre ancre et fichier de production. Un crop ou un traitement ne corrige pas un sujet inadéquat ; changer de ressource ou déclarer le plafond.\\n\\n**Moyens et limites.** Fourniture, curation, génération dirigée, hybride, code natif ou absence d’asset restent conditionnels. Dans la fiche d’asset existante, rapprocher locator/version, constat de disponibilité, rôle, modification d’intégration, fallback et observation qui changerait le choix. Provenance, droits et limites sont conservés ; un contenu illustratif ne devient pas preuve d’un produit réel.\\n\\n**Observation et réexamen.** Inspecter sujet, détail pertinent, crop, contraste, raccord, série et formats requis dans la scène ; réexaminer si asset, destination, droits, format, texte voisin ou moyen change.\\n\\n### C04 — Récupération après erreur\\n\\n**Condition et décision.** Une erreur peut interrompre une tâche ou faire perdre une saisie.\\n\\n**Sources.** `SAVOIR/STATE` ; `ACTION/UI-UX-REALITY` ; `ACTION/GATE-A` pour les contrôles applicables.\\n\\n**Intervention et effet attendu.** Préserver la saisie, expliquer l’erreur près de l’élément et rendre la reprise explicite. Après soumission bloquée, diriger le focus vers l’erreur ou le résumé si adapté.\\n\\n**Contre-indication et alternative.** Éviter le déplacement de focus à chaque frappe ; annoncer l’erreur de façon accessible sans interrompre inutilement la saisie.\\n\\n**Moyens et limites.** Une capture du message ne démontre ni conservation des données ni reprise ; la preuve demande le comportement pertinent dans le runtime réel.\\n\\n**Observation et réexamen.** Parcourir erreur, correction puis succès ou issue claire ; réexaminer si validation, ordre, texte, focus, permissions ou réseau change.\\n\\n### C05 — Réemploi situé\\n\\n**Condition et décision.** Un ancien projet, une préférence, un composant, un profil ou une structure oriente le nouveau travail.\\n\\n**Sources.** `DIRECTION/FIRST-OBJECT` ; `BIBLIOTHEQUE/CONTRACTS` ; `SAVOIR/STYLE` ; `SAVOIR/SYSTEM` selon le choix repris.\\n\\n**Intervention et effet attendu.** Retrouver l’antécédent ; comparer teinte, paire typographique, ossature et objet de preuve lorsque la direction est concernée. Justifier la continuité située et calibrer la relation encore ouverte.\\n\\n**Contre-indication et alternative.** Beauté et disponibilité seules ne justifient pas la reprise ; une conservation pertinente reste valide et n’impose pas de nouveauté.\\n\\n**Moyens et limites.** Les champs absents restent inconnus ; l’antécédent n’est pas reconstruit de mémoire. Les valeurs adaptées et retrouvables restent réemployées.\\n\\n**Observation et réexamen.** Comparer avec l’antécédent retrouvé et examiner les relations touchées ; réexaminer après changement de contexte, tâche, source de l’héritage ou artefact.\\n\\n### C06 — Changement partagé\\n\\n**Condition et décision.** Une modification touche une règle, un composant partagé ou plusieurs usages réels.\\n\\n**Sources.** `DIRECTION/START` ; `ACTION/RUN-SYSTEM` ; `BIBLIOTHEQUE/COMPONENTS` ; `BIBLIOTHEQUE/EVOLUTION` ; `SAVOIR/SYSTEM` ; `CHANGELOG` pour la décision durable.\\n\\n**Intervention et effet attendu.** Identifier usages, responsabilités, compatibilité, migration, owner et retour ; protéger les consommateurs concernés.\\n\\n**Contre-indication et alternative.** Une correction locale ne devient pas une règle générale par sa beauté ou son nombre de réemplois ; maintenir la calibration locale si son périmètre suffit.\\n\\n**Moyens et limites.** Baseline et liste des consommateurs demandent des sources retrouvables ; le gain observé et l’autorité de promotion restent distincts.\\n\\n**Observation et réexamen.** Préparer non-régression sur les usages et états concernés ; réexaminer après changement de contrat, token, primitive, usage ou règle.\\n\\n### C07 — Ambition vers construction\\n\\n**Condition et décision.** Une relation visuelle reste ouverte : présence, caractère ou crédibilité doivent être construits. Aucun défaut observé n’est requis pour préparer cette relation.\\n\\n**Sources.** `DIRECTION/CREATIVE-BOOT` ; `DIRECTION/VISUAL_TARGET` ; `SAVOIR/CRAFT/CFT-00` ; `SAVOIR/STYLE` ; `BIBLIOTHEQUE/SELECT` ; `BIBLIOTHEQUE/CONTRACTS`.\\n\\n**Intervention et effet attendu.** Relier promesse et objet de preuve à une masse, un rythme, une voix, une matière, un contenu ou un comportement concret ; préparer le premier objet complet avec les qualités prioritaires utiles.\\n\\n**Contre-indication et alternative.** Un adjectif ou nom de style ne spécifie pas l’intervention ; une relation déjà résolue ou un delta strictement local peut conserver sa préparation existante.\\n\\n**Moyens et limites.** Le bilan FABRICATION conserve moyens réels et plafonds par couche. Une photographie absente n’est pas remplacée par une image présentée comme celle d’un produit réel.\\n\\n**Observation et réexamen.** Prévoir présence, spécificité et résolution dans l’objet entier ; l’effet reste attendu avant observation. Réexaminer après changement de promesse, contenu, direction ou moyens.\\n\\n### C08 — Élément vers ensemble\\n\\n**Condition et décision.** Asset, primitive ou objet sont retenus, mais intégration, états ou déclinaisons laissent une relation importante ouverte.\\n\\n**Sources.** `BIBLIOTHEQUE/COMPONENTS` ; `BIBLIOTHEQUE/CONTRACTS` ; `SAVOIR/CRAFT/CFT-00` ; `SAVOIR/SYSTEM` ; `SAVOIR/STATE` ; `ACTION/STRUCTURED-PROOF`.\\n\\n**Intervention et effet attendu.** Régler les raccords image/texte, valeur/unité, objet/action, silhouette/grille et état/espace réservé. Composer une anatomie propre au produit en conservant les comportements et la sémantique fiables des primitives.\\n\\n**Contre-indication et alternative.** Des effets supplémentaires ne résolvent pas une structure qui contredit le geste ; rouvrir la relation responsable. Conserver la calibration déjà adaptée.\\n\\n**Moyens et limites.** Paramètres dans la spec, les tokens ou les composants existants du projet ; qualité intrinsèque et contribution à la scène restent distinctes. Une capture nominale isolée ne couvre pas les états ni la série.\\n\\n**Observation et réexamen.** Préparer contenu long, états, formats et cohérence d’ensemble pertinents ; réexaminer après changement d’asset, anatomie, donnée, comportement, scène ou série.\\n\\n### C09 — Intention vers médium\\n\\n**Condition et décision.** Un support ou une déclinaison change les conditions de lecture, d’interaction ou de fabrication.\\n\\n**Sources.** `SAVOIR/DESIGN-ATLAS` ; `SAVOIR/TECH` ; `DIRECTION/CREATIVE-BOOT` ; `ACTION/RUN_CARD` ; `ACTION/AUTHORITY`.\\n\\n**Intervention et effet attendu.** Conserver la relation porteuse, puis adapter ordre, échelle, cadrage ou geste. Distinguer jugement transférable, moyens spécialisés et observation propre au support.\\n\\n**Contre-indication et alternative.** Une réduction mécanique ne remplace pas une recomposition. Les routes d’interface apportent des responsabilités à traduire ; elles ne prescrivent pas universellement une affiche, une vidéo ou un espace.\\n\\n**Moyens et limites.** Nommer production disponible, rendu observable, référentiel, budget pertinent et limite de preuve ; la traduction par médium de `SAVOIR/TECH` aide à les rapprocher. La couverture documentaire et l’outillage spécialisé diffèrent selon les médiums ; leur mention ne démontre pas leur maîtrise. La recette HTML ne couvre pas les autres supports.\\n\\n**Observation et réexamen.** Préparer format et distance pour le print, séquence et interruption applicable pour le motion, contexte et runtime pour le spatial. Une image fixe ne prouve pas la fluidité ; une prévisualisation numérique ne prouve pas la fabrication physique. Réexaminer si support, diffusion, moyens ou contexte change.\\n\\n## Résolution des routes\\n\\nLes noms de route sont des locators documentaires. Pour les résoudre, utiliser le fichier propriétaire, puis son titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.\\n\\n| Préfixe | Propriétaire |\\n|---|---|\\n| `DIRECTION/*` | `DIRECTION.md` |\\n| `ACTION/*` | `ACTION.md` |\\n| `SAVOIR/*` | `SAVOIR.md` |\\n| `BIBLIOTHEQUE/*` | `BIBLIOTHEQUE.md` |\\n| `CHANGELOG/*` | `CHANGELOG.md` |\\n| `RUN_CARD` | `gouvernance/schemas/run_card.schema.json`, exemple et validateur |\\n\\n`RUN_CARD` est un **adaptateur machine**, pas un locator Markdown résolvable par `scripts/read_route.py`. Pour l’inspecter ou le valider, utiliser le schéma, l’exemple et `gouvernance/outils/validate_run_card.py`; ne pas l’invoquer comme une route documentaire.\\n'",
+      "FAILED (failures=1)",
+      "READ_ROUTE TESTS FAILED — 69 cas"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "94-97",
+   "debut": "## Condition d’arrêt",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "READING MAP VALIDATION FAILED — élément obligatoire absent : ## Condition d’arrêt"
+     ]
+    },
+    {
+     "controle": "validate_structure.py",
+     "messages": [
+      "STRUCTURE VALIDATION FAILED — gardes de propriété",
+      "- renvoi DIRECTION/CREATIVE-BOOT → ANT-01 : route introuvable (destination mal formée pour `DIRECTION/*`)",
+      "- renvoi DIRECTION/VISUAL_TARGET → MOY-01 : route introuvable (destination mal formée pour `DIRECTION/*`)",
+      "- renvoi ACTION/GATE-C → PRC-01 : route introuvable (destination mal formée pour `DIRECTION/*`)",
+      "- renvoi ACTION/GATE-C → RCV-01 : route introuvable (destination mal formée pour `DIRECTION/*`)",
+      "- renvoi SAVOIR/CRAFT/CFT-00 → FIN-01 : route introuvable (destination mal formée pour `DIRECTION/*`)"
+     ]
+    },
+    {
+     "controle": "test_read_route.py",
+     "messages": [
+      "FAIL: test_connection_detail_keeps_sources_and_limits (__main__.CliTests.test_connection_detail_keeps_sources_and_limits)",
+      "AssertionError: 1 != 0 : ROUTE READ FAILED — destination mal formée pour `DIRECTION/*`",
+      "FAIL: test_connection_summary_does_not_load_all_details (__main__.CliTests.test_connection_summary_does_not_load_all_details)",
+      "AssertionError: 1 != 0 : ROUTE READ FAILED — destination mal formée pour `DIRECTION/*`",
+      "FAIL: test_guides_separated_from_normative_results (__main__.CliTests.test_guides_separated_from_normative_results)",
+      "AssertionError: 1 != 0 : ROUTE READ FAILED — destination mal formée pour `DIRECTION/*`"
+     ]
+    },
+    {
+     "controle": "test_audit_regressions.py",
+     "messages": [
+      "FAILED (errors=2)",
+      "AUDIT REGRESSIONS FAILED — 30 cas"
+     ]
+    }
+   ]
+  }
+ ],
+ "guides/glossaire.md": [
+  {
+   "lignes": "1-68",
+   "debut": "# Glossaire — Design Governance V1",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-52 : condition de façade non tenue — GLOSSAIRE, RUN_CARD (propriétaire : ACTION/HANDOFF ; ACTION/RUN_CARD (niveau de trace et mode))",
+      "- LCF-56 : condition de façade non tenue — HANDOFF, guides et noyau : exception de trace complète LITE (propriétaire : ACTION/HANDOFF ; ACTION/CLOSE-PACKAGE)"
+     ]
+    },
+    {
+     "controle": "validate_structure.py",
+     "messages": [
+      "STRUCTURE VALIDATION FAILED — gardes de propriété",
+      "- glossaire : terme absent « Thèse »",
+      "- glossaire : terme absent « Ancre »",
+      "- glossaire : terme absent « Creative Boot »",
+      "- glossaire : terme absent « MODAL »",
+      "- glossaire : terme absent « PARTI »"
+     ]
+    },
+    {
+     "controle": "test_audit_regressions.py",
+     "messages": [
+      "FAIL: test_glossary_cannot_make_complete_trace_always_structured (__main__.MobilisationFacadeTests.test_glossary_cannot_make_complete_trace_always_structured)",
+      "AssertionError: 'La forme courte LITE définie par `ACTION/HANDOFF` est complète sans RUN_CARD' not found in '## Exemples express\\n\\nCes exemples illustrent l’usage des termes ; ils ne créent pas de règle supplémentaire.\\n\\n| Terme | Exemple concret |\\n|---|---|\\n| **Décision** | « Garder la structure du formulaire, mais rendre le premier geste compréhensible sur mobile. » |\\n| **Preuve** | « Comparer le rendu avant/après à 390 px, puis vérifier le focus clavier dans le scope déclaré. » |\\n| **NOT-VERIFIED** | « Le contraste a été inspecté ; aucun test avec lecteur d’écran n’a été exécuté. » |\\n| **DECISION-CHANGE** | « `CHANGED` — après observation à 390 px, la décision « deux CTA de même poids » est remplacée par un CTA principal unique (observation : capture avant/après). » |\\n| **N/A-JUSTIFIED** | « Aucun test de préférence n’est applicable : la décision porte ici uniquement sur la robustesse du composant. » |\\n| **CLOSED** | « La trace et les artefacts sont persistés. `CLOSED` ne dit rien du verdict : un run peut être clos en `RETURN`. Clos en `ACCEPTED-WITH-RESERVATION`, il porte une réserve complète (owner, portée, date ou version, impact, prochaine preuve, date de revue, condition de sortie). Une protection critique restée `NOT-VERIFIED` exclut `ACCEPTED`, pas la réserve ; une protection en échec (`FAIL`) exclut tout verdict accepté. » |\\n\\n## Pour commencer sans vocabulaire préalable\\n\\nCette suite s’adresse à l’opérateur ou à l’agent ; une personne qui fait une demande n’a pas de mode à choisir (section « Commencer » du README du package).\\n\\n1. Classez la demande avec `DIRECTION/START` : mode et risque dominant ; notez la décision à changer, la prochaine preuve et l’owner.\\n2. Chargez la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement le propriétaire normatif utile.\\n3. Produisez ou modifiez l’artefact, puis observez-le dans le scope déclaré.\\n4. Isolez le défaut dominant, corrigez l’artefact lorsque c’est nécessaire, observez à nouveau et séparez ce qui a été observé de ce qui reste non vérifié.\\n\\nLa direction est la position globale ; la direction artistique en est l’expression visuelle située. Le craft décrit la qualité de fabrication, le polish sa résolution cohérente, et la spécificité le lien non interchangeable avec le produit et le contexte.\\n\\nSi deux lecteurs raisonnables choisissent des modes très différents, il faut clarifier le périmètre ou le risque au lieu de masquer le désaccord derrière le vocabulaire.\\n'",
+      "FAIL: test_run_card_cannot_be_required_by_mode_alone (__main__.MobilisationFacadeTests.test_run_card_cannot_be_required_by_mode_alone)",
+      "AssertionError: 'Son exigence dépend du niveau de trace et du mode ; une proposition en trace légère ne produit pas de RUN_CARD.' not found in '## Exemples express\\n\\nCes exemples illustrent l’usage des termes ; ils ne créent pas de règle supplémentaire.\\n\\n| Terme | Exemple concret |\\n|---|---|\\n| **Décision** | « Garder la structure du formulaire, mais rendre le premier geste compréhensible sur mobile. » |\\n| **Preuve** | « Comparer le rendu avant/après à 390 px, puis vérifier le focus clavier dans le scope déclaré. » |\\n| **NOT-VERIFIED** | « Le contraste a été inspecté ; aucun test avec lecteur d’écran n’a été exécuté. » |\\n| **DECISION-CHANGE** | « `CHANGED` — après observation à 390 px, la décision « deux CTA de même poids » est remplacée par un CTA principal unique (observation : capture avant/après). » |\\n| **N/A-JUSTIFIED** | « Aucun test de préférence n’est applicable : la décision porte ici uniquement sur la robustesse du composant. » |\\n| **CLOSED** | « La trace et les artefacts sont persistés. `CLOSED` ne dit rien du verdict : un run peut être clos en `RETURN`. Clos en `ACCEPTED-WITH-RESERVATION`, il porte une réserve complète (owner, portée, date ou version, impact, prochaine preuve, date de revue, condition de sortie). Une protection critique restée `NOT-VERIFIED` exclut `ACCEPTED`, pas la réserve ; une protection en échec (`FAIL`) exclut tout verdict accepté. » |\\n\\n## Pour commencer sans vocabulaire préalable\\n\\nCette suite s’adresse à l’opérateur ou à l’agent ; une personne qui fait une demande n’a pas de mode à choisir (section « Commencer » du README du package).\\n\\n1. Classez la demande avec `DIRECTION/START` : mode et risque dominant ; notez la décision à changer, la prochaine preuve et l’owner.\\n2. Chargez la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement le propriétaire normatif utile.\\n3. Produisez ou modifiez l’artefact, puis observez-le dans le scope déclaré.\\n4. Isolez le défaut dominant, corrigez l’artefact lorsque c’est nécessaire, observez à nouveau et séparez ce qui a été observé de ce qui reste non vérifié.\\n\\nLa direction est la position globale ; la direction artistique en est l’expression visuelle située. Le craft décrit la qualité de fabrication, le polish sa résolution cohérente, et la spécificité le lien non interchangeable avec le produit et le contexte.\\n\\nSi deux lecteurs raisonnables choisissent des modes très différents, il faut clarifier le périmètre ou le risque au lieu de masquer le désaccord derrière le vocabulaire.\\n'",
+      "FAILED (failures=2)",
+      "AUDIT REGRESSIONS FAILED — 30 cas"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "69-81",
+   "debut": "## Exemples express",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "- LCF-11 : condition de façade non tenue — exemples de la skill et GLOSSAIRE, DECISION-CHANGE (propriétaire : ACTION/STATUS (triade) ; INV-C1-1)",
+      "- LCF-35 : condition de façade non tenue — GLOSSAIRE, exemple CLOSED (propriétaire : ACTION (protection critique) ; B1)",
+      "- LCF-40 : condition de façade non tenue — GLOSSAIRE, exemple CLOSED : réserve à sept attributs (propriétaire : ACTION (réserve) ; RESERVATION_FIELDS)"
+     ]
+    }
+   ]
+  }
+ ],
+ "design/formes/README.md": [
+  {
+   "lignes": "1-9",
+   "debut": "# Formes — les structures",
+   "echecs": []
+  }
+ ],
+ "design/produit/README.md": [
+  {
+   "lignes": "1-12",
+   "debut": "# Produit — ce qui fait un vrai produit",
+   "echecs": []
+  }
+ ],
+ "gouvernance/README.md": [
+  {
+   "lignes": "1-17",
+   "debut": "# Gouvernance — module facultatif",
+   "echecs": []
+  }
+ ],
+ "maintenance/README.md": [
+  {
+   "lignes": "1-10",
+   "debut": "# Maintenance",
+   "echecs": []
+  },
+  {
+   "lignes": "11-35",
+   "debut": "## Source de vérité et distributions",
+   "echecs": []
+  },
+  {
+   "lignes": "36-59",
+   "debut": "### Reprendre une préparation interrompue",
+   "echecs": []
+  },
+  {
+   "lignes": "60-92",
+   "debut": "## Validation",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "READING MAP VALIDATION FAILED — élément obligatoire absent : ## Résolution des routes"
+     ]
+    }
+   ]
+  },
+  {
+   "lignes": "93-107",
+   "debut": "## Résolution des routes",
+   "echecs": [
+    {
+     "controle": "validate_reading_map.py",
+     "messages": [
+      "READING MAP VALIDATION FAILED — élément obligatoire absent : ## Résolution des routes"
+     ]
+    }
+   ]
+  }
+ ]
+}
