@@ -107,10 +107,18 @@ def check_craft_regressions() -> None:
                 raise SystemExit(f"CRAFT REGRESSION FAILED — mutation {name} non détectée pour le motif attendu")
     print("CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés")
 
+def build_outputs() -> dict[str, tuple[int, int]]:
+    """Empreinte (date, taille) des sorties du build : dist/, .build/ et archives à la racine."""
+    paths = [p for d in ("dist", ".build") for p in (ROOT / d).rglob("*") if p.is_file()]
+    paths += sorted(ROOT.glob("Design_Governance_V1_*.zip"))
+    return {p.relative_to(ROOT).as_posix(): (p.stat().st_mtime_ns, p.stat().st_size) for p in paths}
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Contrôler le package et ses distributions ; les tests navigateur restent explicitement non vérifiés s’ils sont indisponibles.")
     parser.add_argument("--require-browser", action="store_true", help="exiger l’exécution des tests navigateur, sinon échouer")
+    parser.add_argument("--lecture-seule", action="store_true", help="tout contrôler sans construire : ni dist/ ni archives ne sont écrits ; build et reproductibilité restent non vérifiés")
     args = parser.parse_args()
+    before = build_outputs() if args.lecture_seule else None
     scripts = sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / "scripts").glob("*.py"))
     run([sys.executable, "-m", "py_compile", *scripts])
     run([sys.executable, "scripts/build_core.py", "--check"])
@@ -179,6 +187,11 @@ def main() -> int:
             "fichier absent",
             "lecture JSON impossible",
         )
+    if args.lecture_seule:
+        if build_outputs() != before:
+            raise SystemExit("READ-ONLY FAILED — un contrôle a écrit dans dist/, .build/ ou les archives")
+        print("READ-ONLY VALIDATION PASSED — contrôles exécutés sans écrire ; build et reproductibilité NOT-VERIFIED (relancer sans --lecture-seule)")
+        return 0
     build_script = ROOT / "scripts/build_distributions.sh"
     if not build_script.is_file():
         print("LOCAL VALIDATION PASSED — contrôles documentaires, RUN_CARD et CLI ; build et reproductibilité hors périmètre de l’export Local")
