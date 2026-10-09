@@ -1,27 +1,27 @@
 # Design — le cœur du système
 
-Tout ce qui sert à décider, savoir, construire et finir un design de qualité pro. Le module de gouvernance (`../gouvernance/`) peut s’y ajouter ; il n’est jamais requis.
+Tout ce qui sert à décider, savoir, construire et finir un design de qualité professionnelle. Le module de gouvernance (`../gouvernance/`) peut s’y ajouter quand un travail doit être tracé ou livré ; il n’est jamais requis.
 
 | Dossier | Ce qu’on y trouve |
 |---|---|
-| [`direction/`](direction/diriger.md) | Décider ce que la page doit être : cadrer, diriger, premier objet, boucle, standard |
+| `direction/` | Décider ce que la page doit être : [cadrer](direction/cadrer.md), [diriger](direction/diriger.md), [premier objet](direction/premier-objet.md), [la boucle](direction/boucle.md), [le standard](direction/standard.md) |
 | [`savoir/`](savoir/README.md) | Le savoir de référence : fondements, qualité créative, typographie, composition, images, styles, contexte, techniques, goût |
 | [`formes/`](formes/README.md) | Les structures : choisir une structure, catalogue des formes |
 | [`produit/`](produit/README.md) | Ce qui fait un vrai produit : premier rendu, plancher, finition, preuve visuelle, interface |
 
-Le rangement est en cours : ces fichiers reprennent mot pour mot des sections de `DIRECTION.md`, `SAVOIR.md`, `BIBLIOTHEQUE.md` et `ACTION.md` ; leurs anciennes adresses restent valables.
+Ces fichiers reprennent des sections des anciennes sources (`DIRECTION.md`, `SAVOIR.md`, `BIBLIOTHEQUE.md`, `ACTION.md`) ; leurs anciennes adresses restent valables.
 
 ## Créer puis apprendre
 
 Le système fait travailler deux boucles qui se répondent : l’une crée, l’autre observe et corrige.
 
-| Boucle de création | Boucle de gouvernance et d’amélioration |
+| Créer | Observer et corriger |
 |---|---|
-| Cadrer le produit et le public. | Classer le risque et le mode. |
-| Cultiver des références et un territoire lorsque cela peut changer la décision. | Définir le scope et la preuve nécessaire. |
-| Ouvrir puis sélectionner une direction située. | Protéger les contraintes critiques. |
-| Composer et construire une scène complète, avec les assets et composants utiles. | Observer le rendu réel et ses limites. |
-| Polir la proposition sans confondre finition et décoration. | Isoler le défaut dominant, corriger l’artefact, observer à nouveau et décider. |
+| Comprendre le produit et son public. | Mesurer ce qui est en jeu et choisir le chemin de travail. |
+| Chercher des références quand elles peuvent changer la décision. | Dire ce qui est concerné et ce qu’il faudra vérifier. |
+| Ouvrir plusieurs pistes, puis choisir une direction adaptée au projet. | Protéger les contraintes qui ne se négocient pas. |
+| Composer et construire un ensemble complet, avec les images, ressources et composants utiles. | Regarder le rendu réel et ses limites. |
+| Polir sans confondre finition et décoration. | Nommer le défaut principal, corriger, regarder de nouveau, décider. |
 
 La seconde boucle ne se résume pas à une critique écrite. Quand une décision créative est en jeu, elle suit la boucle d’édition : observer le rendu, nommer le défaut principal, modifier l’artefact, comparer, décider (voir [la boucle](direction/boucle.md)).
 

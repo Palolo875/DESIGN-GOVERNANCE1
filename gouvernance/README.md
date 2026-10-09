@@ -2,7 +2,7 @@
 
 Ce module sert quand un travail doit être tracé, vérifié formellement ou livré : livraison à un client, audit, travail en équipe. Le chemin de design (direction, savoir, formes, qualité du produit) n’en dépend pas.
 
-Le rangement du système est en cours : les sections de ce module viennent d’`ACTION.md`, de `DIRECTION.md` et de `BIBLIOTHEQUE.md`, déplacées sans changer leur texte ; leurs anciennes adresses restent valables.
+Les sections de ce module viennent d’`ACTION.md`, de `DIRECTION.md` et de `BIBLIOTHEQUE.md` ; leurs anciennes adresses restent valables.
 
 | Fichier | Contenu |
 |---|---|
