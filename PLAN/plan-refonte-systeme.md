@@ -1,7 +1,42 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** proposition à discuter, le 9 octobre 2026. Rien n’est appliqué. Aucun run n’est prévu sans ton accord explicite.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`).
+**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après le lot 4 du rangement. Aucun run n’est prévu sans ton accord explicite.
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `4077ae3`.
+
+---
+
+## 0. État d’avancement
+
+| Phase | État | Ce qui est fait |
+|---|---|---|
+| 0 — Charte et grilles | **faite** | Charte en 10 principes, grilles fichier, système et résultat (`PLAN/charte.md`, `PLAN/grilles.md`) |
+| 1 — Audit | **faite** | 8 fiches, mesures, second jeu de recherche, synthèse et dispositions (`AUDIT2/`) |
+| 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
+| 3 — Rangement | **en cours : lots 0 à 4 faits** | Voir le détail ci-dessous |
+| 4 à 8 | à venir | |
+
+**Rangement, lot par lot :**
+
+| Lot | État | Commit | Résultat |
+|---|---|---|---|
+| 0 — Outils de sécurité | fait | `950f664` | Validation en lecture seule ; contrôle « rien de perdu » (2 720 blocs relevés) |
+| 1 — Indépendance d’emplacement | fait | `daf1db2` | Une seule table (`LIEUX`) dit où vit le contenu ; test de déplacement simulé ; registre des 270 phrases verrouillées |
+| 2 — Outils | fait | `02b56d5` | Recherche par phrases (témoin : 26/75 dans les 3 premiers, contre 1 ou 2) ; 74 adresses lisibles ; installation corrigée |
+| 3 — Vestiges et historique | fait | `8653161` | Journal de décisions et historique des versions hors produit ; fichier-renvoi retiré ; 44 retraits justifiés, conservés sur `refonte` |
+| 4 — Gouvernance en module | fait | `4077ae3` | 15 sections (~80 000 caractères) dans `gouvernance/` ; texte servi identique pour les 110 routes |
+| 4b — Schémas et outils de gouvernance | à faire | | `schemas/`, validation des fiches et des contrats dans `gouvernance/` |
+| 5 — Cœur du design | à faire | | Direction, savoir, formes et produit dans `design/` |
+| 6 — Agent | à faire | | Chemins et réponse dans `agent/` ; la skill dans `agent/skill/` |
+| 7 — Portes et maintenance | à faire | | README court, guides par public, glossaire, `maintenance/` |
+
+**Garanties vérifiées à chaque lot :** rien de perdu (chaque bloc retrouvé ou retiré avec sa raison) ; texte servi identique pour chaque route ; skill identique à l’octet près ; validation complète verte, archives comprises ; un commit annulable avec sa fiche.
+
+**Ce qui a changé au plan en cours de route, et pourquoi :**
+1. **Lot 1.** Les phrases exigées mot pour mot par les contrôles ne gênent que la réécriture, pas le déplacement. Elles seront converties en règles protégées **fichier par fichier en phase 4**, texte en main, plutôt que toutes d’un coup.
+2. **Lot 4.** Le rangement ne déplace que des **sections entières** dont le déplacement ne change pas ce que lit l’agent. Les sections qui mêlent design, produit et gouvernance doivent être **découpées**, ce qui change ce que lit l’agent : ce découpage passe **en phase 5**, avec la skill et la table de lecture.
+3. **Lot 4.** Un fichier qui reçoit des sections de plusieurs sources marque l’origine de chacune, de façon invisible à la lecture, pour que les contrôles retrouvent la part de chaque source.
+4. **Lot 4b ajouté.** Déplacer les schémas et leurs outils touche de nombreux chemins (scripts, CI, documentation) : c’est un lot à part.
+5. **Phase 5.** Les mesures de l’audit y ajoutent deux priorités : la convergence des résultats (même police, même concept d’un run à l’autre) et l’effet possible de mon ajout récent « signaux de page ».
 
 ---
 
@@ -134,13 +169,17 @@ Chaque phase indique son but, son contenu, ce qu’elle produit, la condition po
 ### Phase 3 — Rangement par lots (forme et place, pas le fond)
 
 - **But :** passer à l’architecture cible sans rien perdre.
-- **Lots, dans cet ordre :**
-  1. **Vestiges et historique.** On retire les fichiers-renvois et on sort l’historique de travail du produit, en gardant un journal des versions court.
-  2. **Gouvernance en module.** On regroupe ce qui relève de la fiche de run, des traces, de la clôture et des schémas. Le chemin de design ne dépend plus de ce module.
-  3. **Fichiers de design.** On regroupe ou on découpe SAVOIR, BIBLIOTHEQUE et la partie direction de DIRECTION selon l’architecture, et on applique le modèle de section.
-  4. **Portes d’entrée et guides.** README, démarrage par public, guide d’équipe ; le QUICKSTART devient un vrai démarrage rapide.
-  5. **Outils et contrôles.** Adapter le lecteur et la construction de la skill, retirer les contrôles prévus, garder la vérification du rendu.
-- **Pour chaque lot :** table de correspondance à jour, contrôle « rien ne manque », contrôles verts, commit annulable.
+- **Lots, dans cet ordre** (détail et état au §0) :
+  0. **Outils de sécurité** : validation en lecture seule, contrôle « rien de perdu ». *Fait.*
+  1. **Indépendance d’emplacement** : table `LIEUX`, registre des verrous. *Fait.*
+  2. **Outils** : recherche par phrases, adresses lisibles, installation. *Fait.*
+  3. **Vestiges et historique** hors produit. *Fait.*
+  4. **Gouvernance en module** : sections entières de gouvernance formelle. *Fait.* 4b : schémas et outils de gouvernance.
+  5. **Cœur du design** : sections entières de direction, savoir, formes et produit vers `design/` ; ouverture de chaque fichier (rôle, public).
+  6. **Agent** : chemins et réponse ; la skill sous `agent/skill/`.
+  7. **Portes et maintenance** : README court, guides par public, glossaire, `maintenance/`.
+- **Règle des déplacements :** seulement des sections entières, et seulement si chaque route sert ensuite exactement le même texte. Le découpage des sections mêlées attend la phase 5.
+- **Pour chaque lot :** rien de perdu, texte servi identique, skill identique, contrôles verts, commit annulable.
 - **Fin :** architecture en place, table complète, contrôles verts.
 - **Risque :** casser les renvois internes. Parade : la carte des dépendances de la phase 1, et un contrôle des liens à chaque lot.
 
@@ -152,7 +191,8 @@ Chaque phase indique son but, son contenu, ce qu’elle produit, la condition po
   - des phrases courtes, un exemple de mécanisme quand il éclaire, jamais un exemple qui fige ;
   - les limites (`NOT-VERIFIED`) dites une fois au bon endroit ;
   - un glossaire réduit aux vrais termes du métier.
-- **Contrôle du sens :** on garde un échantillon avant/après par fichier, que tu relis, et la table de correspondance vérifie qu’aucune règle n’a disparu.
+- **Verrous :** les phrases exigées mot pour mot par les contrôles qui touchent le fichier réécrit sont converties en règles protégées (présence de la règle et de quelques termes clés), avec une mutation rouge chacune ; le registre `RANGEMENT/verrous.csv` sert de liste de travail.
+- **Contrôle du sens :** on garde un échantillon avant/après par fichier, que tu relis, et la table de correspondance vérifie qu’aucune règle n’a disparu. Les blocs du noyau attendent la phase 5 (skill identique jusque-là).
 - **Fin :** tous les fichiers passent la grille de la phase 0 sur la langue.
 - **Risque :** perdre une nuance en simplifiant. Parade : la relecture d’échantillons, et les règles à forte conséquence relues une à une.
 
@@ -162,6 +202,8 @@ C’est la seule phase qui change le comportement de l’agent.
 
 - **But :** produire des résultats plus variés et plus pro, pour moins cher.
 - **Contenu :**
+  - **découper les sections mêlées** (design, produit, gouvernance) relevées par la table de correspondance (« scinder »), pour que le chemin de design ne lise plus la gouvernance ; mettre à jour la table de lecture en conséquence ;
+  - **traiter la convergence des résultats** en premier : usage de la liste des tendances (effet de liste noire), mots et valeurs d’exemple recopiés, exemples recopiables ; examiner d’abord l’effet de mon ajout « signaux de page » ;
   - réécrire la skill : plus courte, organisée par chemin d’effort, avec la consigne « réponds dans la langue de la demande » ;
   - rendre systématiques et légères les étapes qui changent le résultat : direction, typographie, style, palette, retouche sur capture ;
   - ajouter les **mécanismes de variété** : envisager plusieurs directions distinctes avant de choisir, repérer ses propres choix par défaut, et remonter à ce que la demande a de propre ;
