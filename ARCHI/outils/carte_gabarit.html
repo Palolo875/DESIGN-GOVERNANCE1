@@ -1,0 +1,142 @@
+<title>Architecture de Design Governance</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout : une colonne de lecture. Le design forme un cadre central à quatre colonnes ; les guides au-dessus ; agent, gouvernance (en pointillé, facultative) et maintenance en dessous. Puis deux graphiques à l'échelle. */
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --fg:#151920; --muted:#586070; --line:#d8dde5; --soft:#eef1f5;
+  --dir:#2f58c9; --sav:#7f47b5; --bib:#9a5600; --pro:#0d7466; --gov:#6b7484; --ink:#3a4250; --ink2:#8a93a3; --mnt:#b7bfcc; --out:#d9dee6;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1217; --surface:#171b22; --fg:#e5e8ee; --muted:#9aa3b2; --line:#2b313b; --soft:#1e232c;
+  --dir:#86a6ff; --sav:#c69df0; --bib:#e7a85a; --pro:#56c5b2; --gov:#8e97a8; --ink:#c3c9d4; --ink2:#7d8696; --mnt:#4c5462; --out:#2c323c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1217; --surface:#171b22; --fg:#e5e8ee; --muted:#9aa3b2; --line:#2b313b; --soft:#1e232c;
+  --dir:#86a6ff; --sav:#c69df0; --bib:#e7a85a; --pro:#56c5b2; --gov:#8e97a8; --ink:#c3c9d4; --ink2:#7d8696; --mnt:#4c5462; --out:#2c323c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--body);padding-inline:16px;padding-block:28px 56px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
+h1{font-size:clamp(1.7rem,3.4vw,2.4rem)} h2{font-size:1.3rem} h3{font-size:1.05rem}
+p{margin:0;max-width:68ch}
+code{font-family:var(--mono);font-size:.86em}
+.lede{color:var(--muted)}
+.intro{display:grid;gap:10px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.92rem;color:var(--muted)}
+.facts b{color:var(--fg);font-weight:600}
+.block{display:grid;gap:14px}
+.part{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:6px;padding:12px 14px;display:grid;gap:6px;align-content:start;min-width:0}
+.part.opt{border-style:dashed;border-top-style:solid;background:transparent}
+.part header{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.part h3{color:var(--fg)}
+.pk{margin-left:auto;font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tag{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gov);border:1px dashed var(--gov);border-radius:4px;padding:0 6px}
+.role{color:var(--muted);font-size:.9rem}
+.files{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.files li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:baseline;font-size:.86rem}
+.fn{font-family:var(--mono);font-size:.82rem;min-width:0}
+.fr{color:var(--muted);font-family:var(--body);font-size:.84rem}
+.fb{grid-column:1 / -1;height:6px;background:var(--soft);border-radius:2px;overflow:hidden}
+.fb i{display:block;height:100%;background:var(--c)}
+.fk{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.core{border:2px solid var(--fg);border-radius:10px;padding:14px;display:grid;gap:12px;background:var(--soft)}
+.core > header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.core > header h2{font-size:1.45rem}
+.core > header span{color:var(--muted)}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.guides .files{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));column-gap:20px}
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.door{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px;display:grid;gap:4px}
+.door b{font-family:var(--display);font-size:1.05rem}
+.door code{color:var(--dir)}
+.door span{color:var(--muted);font-size:.9rem}
+.chart{display:grid;gap:10px;overflow-x:auto}
+.prow,.frow{display:grid;grid-template-columns:200px minmax(0,1fr);gap:12px;align-items:center;min-width:520px}
+.frow{grid-template-columns:150px minmax(0,1fr) 46px}
+.pname{display:grid;font-size:.9rem}
+.pname span{color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
+.ptrack,.ftrack{position:relative;height:22px;display:flex;background:var(--soft);border-radius:3px}
+.ftrack{height:16px}
+.ptrack i,.ftrack i{display:block;height:100%}
+.ptrack i + i,.ftrack i + i{box-shadow:inset 1px 0 0 var(--bg)}
+.target{position:absolute;top:-5px;bottom:-5px;width:0;border-left:2px dashed var(--fg)}
+.axis{position:relative;height:18px;margin-left:212px;min-width:308px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.axis span{position:absolute;transform:translateX(-50%)}
+.axis span.end{transform:translateX(-100%)}
+.fname{font-family:var(--mono);font-size:.8rem;overflow-wrap:anywhere}
+.s-skill{background:var(--ink)} .s-dir{background:var(--dir)} .s-pro{background:var(--pro)} .s-gov{background:var(--gov);opacity:.55}
+.g-dir{background:var(--dir)} .g-sav{background:var(--sav)} .g-bib{background:var(--bib)} .g-pro{background:var(--pro)}
+.g-ink{background:var(--ink)} .g-ink2{background:var(--ink2)} .g-gov{background:var(--gov);opacity:.55} .g-mnt{background:var(--mnt)}
+.g-out{background:repeating-linear-gradient(45deg,var(--out) 0 4px,transparent 4px 8px);outline:1px solid var(--line);outline-offset:-1px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:18px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.note{color:var(--muted);font-size:.86rem}
+.guard{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.guard div{border-left:3px solid var(--pro);background:var(--surface);padding:10px 12px;border-radius:0 6px 6px 0;display:grid;gap:2px}
+.guard b{font-family:var(--display)}
+.guard span{color:var(--muted);font-size:.9rem}
+footer{color:var(--muted);font-size:.84rem;display:grid;gap:4px;border-top:1px solid var(--line);padding-top:14px}
+
+</style>
+<main class="wrap">
+  <section class="intro">
+    <h1>Architecture de Design Governance</h1>
+    <p class="lede">L’organisation cible du système, validée le 9 octobre 2026. Le design est au cœur ; la gouvernance devient un module qu’on active quand il sert. Rien n’a encore été déplacé : cette carte montre où chaque partie ira, d’après la table de correspondance.</p>
+    <p class="facts"><span><b>{{N_SECTIONS}}</b> sections placées</span><span><b>~50</b> fichiers d’un seul rôle, au lieu de 4 gros fichiers</span><span><b>{{DESIGN_K}}</b> caractères dans le cœur</span></p>
+  </section>
+
+  <section class="block" aria-labelledby="t-parties">
+    <h2 id="t-parties">Les parties et leurs fichiers</h2>
+    <div class="guides">{{GUIDES}}</div>
+    <div class="core">
+      <header><h2>Design</h2><span>le cœur du système : direction, savoir, formes et qualité du produit · {{DESIGN_K}}</span></header>
+      <div class="grid4">{{DESIGN}}</div>
+    </div>
+    <div class="grid3">{{REST}}</div>
+    <p class="note">Les barres sont à la même échelle sur toute la carte. Les tailles sont des ordres de grandeur : une section scindée est répartie à parts égales entre ses destinations, et le partage exact se fera au rangement. La phase de langue réduira ensuite les redites.</p>
+  </section>
+
+  <section class="block" aria-labelledby="t-portes">
+    <h2 id="t-portes">Quatre portes d’entrée</h2>
+    <div class="doors">
+      <div class="door"><b>Débutant</b><code>guides/commencer</code><span>Quoi demander, quoi fournir, ce qu’on reçoit, comment poursuivre. Une page, sans jargon.</span></div>
+      <div class="door"><b>Designer</b><code>guides/designer</code><span>Le savoir par sujet, en noms clairs ; combiner selon le résultat cherché.</span></div>
+      <div class="door"><b>Équipe</b><code>guides/equipe</code><span>Quand activer la gouvernance, qui décide, ce qui est tracé, comment livrer.</span></div>
+      <div class="door"><b>Agent</b><code>agent/skill</code><span>Le noyau, puis quoi lire selon l’effort demandé.</span></div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="t-chemins">
+    <h2 id="t-chemins">Ce que lit l’agent avant de produire</h2>
+    <p class="lede">Aujourd’hui, mesuré sur les sources, skill comprise. Le trait pointillé marque la cible provisoire, qui sera vérifiée en phase 5.</p>
+    <div class="chart">
+      {{PATHS}}
+      <div class="axis" aria-hidden="true">{{TICKS}}</div>
+    </div>
+    <div class="legend"><span><i class="s-skill"></i>skill (noyau)</span><span><i class="s-dir"></i>design</span><span><i class="s-pro"></i>produit</span><span><i class="s-gov"></i>gouvernance</span></div>
+  </section>
+
+  <section class="block" aria-labelledby="t-flux">
+    <h2 id="t-flux">Où va chaque fichier actuel</h2>
+    <p class="lede">Chaque barre est un fichier d’aujourd’hui, découpé selon la partie qui recevra ses sections.</p>
+    <div class="chart">{{FLOWS}}</div>
+    <div class="legend">{{LEGEND}}</div>
+  </section>
+
+  <section class="block" aria-labelledby="t-garde">
+    <h2 id="t-garde">Ce qui protège le rangement</h2>
+    <div class="guard">
+      <div><b>Rien ne se perd</b><span>Chaque paragraphe actuel doit se retrouver dans le nouvel arbre, ou être listé comme retiré avec sa raison. Un contrôle le vérifie à chaque lot.</span></div>
+      <div><b>L’agent ne change pas</b><span>Pendant le rangement et la réécriture en clair, la skill compilée reste identique à l’octet près. Elle ne change qu’en phase 5.</span></div>
+      <div><b>Les anciennes adresses marchent</b><span>Le lecteur accepte les anciennes adresses pendant toute la V1 et indique la nouvelle.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Sources : <code>ARCHI/correspondance.csv</code> et <code>AUDIT2/donnees/chemins.json</code> sur la branche <code>refonte</code> ; carte générée par <code>ARCHI/outils/carte_architecture.py</code>.</span>
+    <span>Les cibles de lecture sont provisoires. Les volumes sont des ordres de grandeur.</span>
+  </footer>
+</main>
