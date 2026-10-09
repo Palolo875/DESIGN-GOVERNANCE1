@@ -306,8 +306,9 @@ def check_inline_references(errors: list[str]) -> None:
         for value, distribution in values:
             if value.startswith("exemple:"):
                 continue
-            if value in retired_names:
-                fail(errors, f"ancienne référence opérationnelle : {relative} -> {value} ; utiliser {retired_names[value]}")
+            bare_name = value.partition("#")[0]
+            if bare_name in retired_names:
+                fail(errors, f"ancienne référence opérationnelle : {relative} -> {value} ; utiliser {retired_names[bare_name]}")
             elif file_pattern.fullmatch(value) or value.partition("#")[0] in EXPECTED or value in by_name:
                 file_reference(doc, value, distribution)
             elif re.match(r"(?:python(?:3(?:\.\d+)?)?|bash|sh)\s", value):

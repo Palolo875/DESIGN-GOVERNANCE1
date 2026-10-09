@@ -58,7 +58,7 @@ Les modifications doivent être apportées aux sources du dépôt, puis vérifi�
 <!-- origine:README.md -->
 ## Validation
 
-Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machine utilisent la bibliothèque standard Python. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus **Playwright et son navigateur Chromium** ; sans eux, ces tests restent `NOT-VERIFIED`. La construction des archives nécessite Bash, `zip` et les outils Unix utilisés par `scripts/build_distributions.sh` ; elle a été contrôlée sous Linux.
+Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machine utilisent la bibliothèque standard Python. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus **Playwright et son navigateur Chromium** ; sans eux, ces tests restent `NOT-VERIFIED`. La construction des archives de la distribution GitHub nécessite Bash, `zip` et les outils Unix utilisés par `scripts/build_distributions.sh` ; elle a été contrôlée sous Linux. <!-- références:github -->
 
 Un Chromium déjà installé peut être choisi explicitement avec `--browser-executable CHEMIN` dans la recette, ou `DG_BROWSER_EXECUTABLE` pour la recette et ses tests. Sa version et son exécutable sont conservés dans la provenance ; ce choix ne remplace pas silencieusement le navigateur Playwright. Si la politique du navigateur interdit les fichiers locaux, `--serve-local` (ou `DG_RENDER_SERVE_LOCAL=1`) sert temporairement le dossier du fichier sur 127.0.0.1, puis ferme le serveur. Les autres origines restent bloquées par défaut.
 

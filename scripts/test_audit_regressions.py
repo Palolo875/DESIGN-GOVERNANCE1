@@ -137,6 +137,7 @@ class OperationalReferenceTests(unittest.TestCase):
         for name in ("QUICKSTART", "GLOSSAIRE", "ORCHESTRATION_MAP"):
             with self.subTest(name=name):
                 self.assertTrue(any(name in e for e in self.check(f"Lire `{name}`.")))
+                self.assertTrue(any(name in e for e in self.check(f"Lire `{name}#section`.")))
 
     def test_supported_changelog_alias_and_symbolic_names_are_admitted(self):
         self.assertEqual(self.check("`CHANGELOG` ; `ACTION` ; `DIRECTION` ; `PASS` ; `CI`."), [])
@@ -183,6 +184,14 @@ class OperationalReferenceTests(unittest.TestCase):
         with patch.multiple(package, IS_LOCAL=True, LISTS={"github": ["scripts/github.sh"], "local": []}):
             self.assertEqual(self.check("`bash scripts/github.sh` <!-- références:github -->"), [])
             self.assertTrue(self.check("`bash scripts/absent.sh` <!-- références:github -->"))
+
+    def test_yaml_and_shell_file_scopes_remain_checked_in_local_export(self):
+        for name in (".github/workflows/validate.yml", "scripts/build_distributions.sh"):
+            with self.subTest(name=name), patch.multiple(package, IS_LOCAL=True, LISTS={"github": [name], "local": []}):
+                self.assertEqual(self.check(f"GitHub : `{name}` <!-- références:github -->"), [])
+                self.assertTrue(self.check(f"Lire `{name}`."))
+                missing = str(Path(name).with_name("absent" + Path(name).suffix))
+                self.assertTrue(self.check(f"`{missing}` <!-- références:github -->"))
 
     def test_moved_document_is_resolved_at_current_path(self):
         self.assertEqual(self.check("Lire `maintenance/versions.md`.", {"maintenance/versions.md": "# Versions"}), [])
