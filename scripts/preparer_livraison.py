@@ -110,7 +110,7 @@ def markdown_copy(archive: Path, only_docs: bool) -> str:
     names = sorted((n for n in z.namelist() if not n.endswith("/") and (n.endswith(".md") or not only_docs)), key=order)
     changelog = (ROOT / "maintenance" / "versions.md").read_text(encoding="utf-8")
     version = (re.search(r"`(V\d+\.\d+\.\d+)`", changelog) or [None, "V1"])[1]
-    revision = re.search(r"Révision[^`\n]*`([^`]+)`", (ROOT / "README.md").read_text(encoding="utf-8"))
+    revision = re.search(r"Révision[^`\n]*`([^`]+)`", changelog)
     title = f"Design Governance {version} — " + ("documents en Markdown" if only_docs else "copie complète en Markdown")
     head = [f"# {title}\n",
             f"<!-- DG-COPY files={len(names)} -->\n",

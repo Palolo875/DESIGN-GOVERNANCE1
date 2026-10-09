@@ -111,6 +111,7 @@ Design Governance V1.0.0 est une expérimentation maintenue qui aide à transfor
 | Débutant : vous voulez un résultat, sans apprendre le système | [`guides/commencer.md`](guides/commencer.md) | Quoi demander, quoi fournir, ce que vous recevrez, comment poursuivre |
 | Designer | [`guides/designer.md`](guides/designer.md) | Où se trouve chaque sujet, comment combiner les capacités, quand s’arrêter |
 | Équipe ou opérateur | [`guides/equipe.md`](guides/equipe.md) | Piloter un travail, le tracer et le livrer |
+| Relecteur ou responsable | [`gouvernance/README.md`](gouvernance/README.md) | Ce qui a été prouvé, les limites, la clôture |
 | Agent | [`skill/SKILL.md`](skill/SKILL.md) | Le noyau, puis quoi lire selon le chemin |
 
 Le vocabulaire est expliqué dans [`guides/glossaire.md`](guides/glossaire.md).
