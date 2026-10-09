@@ -220,7 +220,7 @@ class ConnectionTests(unittest.TestCase):
             reader.connections(changed)
 
     def test_code_example_is_not_a_connection(self):
-        text = self.text.replace("## Activation multi-perspective", "```md\n### C98 — Exemple de code\n```\n\n## Activation multi-perspective", 1)
+        text = self.text.replace("## Les angles à examiner", "```md\n### C98 — Exemple de code\n```\n\n## Les angles à examiner", 1)
         self.assertIn("C98", text)
         _, entries = reader.connections(text)
         self.assertNotIn("C98", entries)
@@ -413,7 +413,7 @@ class SearchAndSummaryTests(unittest.TestCase):
     def test_topic_map_heads_search(self):
         for query in ("couleur", "color"):
             out = self.cli("--trouver", query).stdout
-            self.assertIn("SUJET « couleur » (carte dérivée, READING_MAP) — propriétaire : SAVOIR/CRAFT/CFT-05", out)
+            self.assertIn("SUJET « couleur » (carte dérivée, READING_MAP) — propriétaire : savoir/couleur", out)
         self.assertNotIn("SUJET", self.cli("--trouver", "cohérence de rayon").stdout)
 
     def test_topic_map_owner_must_treat_topic(self):
@@ -421,10 +421,13 @@ class SearchAndSummaryTests(unittest.TestCase):
         text = reader.carte()
         errors = []; rmap.check_topics(text, errors)
         self.assertEqual(errors, [])
-        broken = text.replace("| couleur | `SAVOIR/CRAFT/CFT-05` |", "| couleur | `ACTION/HANDOFF` |")
+        broken = text.replace("| couleur | `savoir/couleur` |", "| couleur | `agent/repondre` |")
+        self.assertNotEqual(broken, text)  # la mutation porte bien sur la carte
         errors = []; rmap.check_topics(broken, errors)
         self.assertTrue(any("ne traite pas « couleur »" in e for e in errors), errors)
-        errors = []; rmap.check_topics(text.replace("`BIBLIOTHEQUE/READ` |", "`BIBLIOTHEQUE/NOPE` |"), errors)
+        unknown = text.replace("`formes/choisir#lire` |", "`formes/choisir#nope` |")
+        self.assertNotEqual(unknown, text)
+        errors = []; rmap.check_topics(unknown, errors)
         self.assertTrue(any("ne se résout pas" in e for e in errors), errors)
 
     def test_core_blocks_folded_with_section_pointer(self):

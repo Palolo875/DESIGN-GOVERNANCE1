@@ -60,9 +60,8 @@ def parse_route_rows(text: str) -> list[tuple[str, str, list[str]]]:
     """Lignes de la table : (locator, fichier propriétaire, chaîne de titres). Les doublons sont conservés."""
     if "## Locators principaux" not in text:
         raise RouteError("section des locators principaux absente")
-    section = text.split("## Locators principaux", 1)[1]
-    if "## Condition d’arrêt" in section:
-        section = section.split("## Condition d’arrêt", 1)[0]
+    # La table s’arrête au titre suivant : la carte est lue à tous ses lieux, d’autres sections la suivent.
+    section = re.split(r"\n#{1,2} ", text.split("## Locators principaux", 1)[1], maxsplit=1)[0]
     rows: list[tuple[str, str, list[str]]] = []
     for line in section.splitlines():
         if not line.startswith("| `") or " | `" not in line or not line.endswith(" |"):
@@ -200,6 +199,7 @@ ADRESSES: dict[str, str] = {
     "gouvernance/travail#deroule": "ACTION/PIPELINE-DIRECTION", "gouvernance/cloture": "ACTION/CLOSE-PACKAGE",
     "gouvernance/cloture#test-de-sortie": "ACTION/CLOSE-EXIT-CHECK", "gouvernance/verification": "ACTION/GATE-B",
     "gouvernance/verification#contrats": "ACTION/STRUCTURED-PROOF", "gouvernance/verification#derogation": "ACTION/OVERRIDE",
+    "gouvernance/verification#comparaison-sur-capture": "ACTION/GATE-B/B1b",
     "gouvernance/structure": "BIBLIOTHEQUE/CONTRACTS", "gouvernance/structure#avant-selection": "BIBLIOTHEQUE/AVANT-SELECTION",
     "gouvernance/structure#controle": "BIBLIOTHEQUE/GATE", "gouvernance/integrite": "SAVOIR/INTEGRITY",
     "maintenance/evolution": "ACTION/MAINTENANCE", "maintenance/evolution#routes": "BIBLIOTHEQUE/EVOLUTION",
@@ -208,6 +208,16 @@ ADRESSES: dict[str, str] = {
 # Renvois sans contenu propre : pas d'adresse lisible, l'ancien locator reste servi.
 SANS_ADRESSE = {"DIRECTION/FAST-PATH"}
 ADRESSE_DE = {old: new for new, old in ADRESSES.items()}
+
+
+# Adresse entre accents graves, avec ou sans préfixe design/ (`savoir/couleur`, `design/savoir/couleur`).
+ADRESSE_CITEE = re.compile(r"`(?:design/)?([a-z][a-z0-9\-]*/[a-z0-9\-]+(?:#[a-z0-9\-]+)?)`")
+
+
+def en_codes(text: str) -> str:
+    """Texte où chaque adresse lisible citée est remplacée par son locator : les contrôles lisent les mêmes codes,
+    que le texte humain cite l'adresse ou l'ancien locator."""
+    return ADRESSE_CITEE.sub(lambda m: f"`{ADRESSES[m.group(1)]}`" if m.group(1) in ADRESSES else m.group(0), text)
 
 
 def adresse(locator: str) -> str:

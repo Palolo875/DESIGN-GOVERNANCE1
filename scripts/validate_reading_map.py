@@ -29,7 +29,7 @@ REQUIRED = (
     "Statut :** guide dérivé non normatif",
     "## Chemin canonique de démarrage",
     "## Routage minimal par décision",
-    "## Activation multi-perspective",
+    "## Les angles à examiner",
     "## Handoff minimal commun",
     "## Résolution des routes",
     "## Locators principaux",
@@ -38,7 +38,7 @@ REQUIRED = (
     "ACTION/CLOSE-EXIT-CHECK",
     "SAVOIR/ROUTING",
     "BIBLIOTHEQUE/SELECT",
-    "## Condition d’arrêt",
+    "## Quand s’arrêter de lire",
     "N/A-JUSTIFIED",
     "NOT-VERIFIED",
 )
@@ -223,10 +223,10 @@ def load_texts() -> dict[str, str]:
     out = {}
     for key, name in historic.items():
         try:
-            out[key] = rr.lieu_texte(name)
+            out[key] = rr.en_codes(rr.lieu_texte(name))
         except FileNotFoundError:
             out[key] = ""
-    out.update({key: path.read_text(encoding="utf-8") if path.is_file() else "" for key, path in files.items()})
+    out.update({key: rr.en_codes(path.read_text(encoding="utf-8")) if path.is_file() else "" for key, path in files.items()})
     return out
 
 
@@ -717,7 +717,7 @@ def main() -> int:
     if bad:
         fail(f"Markdown non UTF-8 : {', '.join(bad)}")
     try:
-        text = rr.carte()
+        text = rr.en_codes(rr.carte())
     except rr.RouteError:
         fail("READING_MAP.md absent")
     for item in REQUIRED:

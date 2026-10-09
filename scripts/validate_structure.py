@@ -325,7 +325,7 @@ def check_entry(corpus: dict[Path, list[str]], errors: list[str]) -> None:
 def check_preamble(errors: list[str]) -> None:
     # Le préambule va de « Responsabilité » à la première route de BIBLIOTHEQUE qui suit, dans le même texte :
     # les routes peuvent avoir changé de fichier (rangement), le préambule lu en premier reste celui-ci.
-    text = rr.lieu_texte("BIBLIOTHEQUE.md")
+    text = texte("BIBLIOTHEQUE.md")
     start = text.find("## Responsabilité")
     end = text.find("\n## BIBLIOTHEQUE/", start) if start >= 0 else -1
     if start < 0 or end < 0:
@@ -339,7 +339,7 @@ def check_preamble(errors: list[str]) -> None:
 
 # 14. Cartes réunies : les combinaisons par résultat vivent dans READING_MAP (l'ancien pointeur ORCHESTRATION_MAP est retiré).
 def check_maps(errors: list[str]) -> None:
-    reading = rr.lieu_texte("READING_MAP.md")
+    reading = texte("READING_MAP.md")
     if reading.count("## Combinaisons par résultat recherché") != 1:
         errors.append("[MAP-01] READING_MAP doit porter une seule section « Combinaisons par résultat recherché »")
 
@@ -378,12 +378,22 @@ LOAD_POINTERS = [("QUICKSTART.md", "| Une direction visuelle ouverte |"),
                  ("READING_MAP.md", "| **Direction forte et spécifique** |")]
 
 
+def texte(name: str) -> str:
+    """Texte d'une source à ses lieux, adresses lisibles converties en locators (rr.en_codes) : les contrôles
+    lisent les mêmes codes, que le texte humain cite l'adresse ou l'ancien locator."""
+    return rr.en_codes(rr.lieu_texte(name))
+
+
+def lignes(name: str) -> list[str]:
+    return texte(name).splitlines()
+
+
 def texts() -> dict[Path, list[str]]:
     files = rr.fichiers_officiels() + sorted(SKILL_DIR.rglob("*.md"))
     readme = ROOT / "README.md"
     if readme.is_file():
         files.append(readme)
-    return {p: p.read_text(encoding="utf-8").splitlines() for p in files}
+    return {p: rr.en_codes(p.read_text(encoding="utf-8")).splitlines() for p in files}
 
 
 def paragraphs(lines: list[str]) -> list[str]:
@@ -484,7 +494,7 @@ def cell(text: str) -> str:
 
 def check_glossary(errors: list[str]) -> None:
     heads = set()
-    for line in rr.lieu_lignes("GLOSSAIRE.md"):
+    for line in lignes("GLOSSAIRE.md"):
         if line.lstrip().startswith("|"):
             parts = line.split("|")
             if len(parts) > 2:
@@ -511,7 +521,7 @@ def check_unique_rows(corpus: dict[Path, list[str]], errors: list[str]) -> None:
 
 def check_register(errors: list[str]) -> None:
     for name in REGISTER_FILES:
-        for i, line in enumerate(rr.lieu_lignes(name)):
+        for i, line in enumerate(lignes(name)):
             m = TUTOIEMENT.search(line)
             if m:
                 errors.append(f"registre : tutoiement « {m.group(0)} » dans {name}:{i + 1}")
@@ -563,7 +573,7 @@ def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
             if LOAD_HEADERS.match(line) and path.name not in LOAD_OWNERS and not rr.origines(path) & LOAD_OWNERS:
                 errors.append(f"[CHG-05] chargement : table de chargement hors DIRECTION/CHARGE ({rr.nom(path)}:{i + 1})")
     for name, prefix in LOAD_POINTERS:
-        rows = [l for l in rr.lieu_lignes(name) if l.startswith(prefix)]
+        rows = [l for l in lignes(name) if l.startswith(prefix)]
         if rows and not all("`DIRECTION/CHARGE`" in r for r in rows):
             errors.append(f"[CHG-06] chargement : {name} redéfinit la liste « {prefix.strip('| *')} » au lieu de renvoyer à DIRECTION/CHARGE")
     try:
@@ -602,7 +612,7 @@ def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
 
 
 def check_order(errors: list[str]) -> None:
-    lines = rr.lieu_lignes("DIRECTION.md")
+    lines = lignes("DIRECTION.md")
     for first, then in ORDER:
         a = [i for i, l in enumerate(lines) if l.strip() == first or l.startswith(first + " —")]
         b = [i for i, l in enumerate(lines) if l.strip() == then or l.startswith(then + " —")]
@@ -697,7 +707,7 @@ UI_TRIGGER = "`ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substan
 
 
 def check_ui_trigger(errors: list[str]) -> None:
-    source = rr.lieu_texte("DIRECTION.md")
+    source = texte("DIRECTION.md")
     start = source.find("## DIRECTION/CHARGE")
     skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
     places = [("CHARGE", source[start:source.find("\n## ", start + 1)] if start >= 0 else ""),
@@ -732,7 +742,7 @@ COMMENCER = re.compile(r"\]\((?:\.\./)*(?:guides/)?commencer\.md#commencer\)")
 def check_facades(errors: list[str]) -> None:
     for name, prefix, needle, origin in ROW_NEEDLES:
         try:
-            rows = [line for line in rr.lieu_lignes(name) if line.startswith(prefix)]
+            rows = [line for line in lignes(name) if line.startswith(prefix)]
         except FileNotFoundError:
             rows = []
         if len(rows) != 1 or needle not in rows[0]:
@@ -747,7 +757,7 @@ def check_facades(errors: list[str]) -> None:
         errors.append("[FAC-01] examples.md : exemple dans le domaine du brief de référence")
     for name in ("README.md", "QUICKSTART.md"):
         paths = [p for p in rr.lieu(name) if p.is_file()]
-        if paths and not COMMENCER.search(rr.lieu_texte(name)):
+        if paths and not COMMENCER.search(texte(name)):
             errors.append(f"[FAC-01] {name} : la section « Commencer » du guide pour commencer n'est pas liée")
     guide = ROOT / "guides" / "commencer.md"
     if not guide.is_file() or "## Commencer" not in guide.read_text(encoding="utf-8"):
