@@ -140,12 +140,6 @@ Les valeurs chiffrées sont des points de départ. **La vérification exigée ne
 
 ---
 
-## DIRECTION/SERVICE-BOUNDARY — ne pas confondre relation et contrat
-
-V1 est la couche de contrat de décision, de production et de preuve ; elle n’est pas le script de chaque échange avec une personne. Avant un build, une modification d’artefact, une vérification, une action externe ou une décision persistante, l’agent peut formuler une **proposition de cadrage** complète pour rendre une hypothèse discutable sans ouvrir un run de production.
-
-Cette proposition nomme toute hypothèse qui change sa direction. Elle ne peut jamais être annoncée comme artefact construit, résultat observé, conformité vérifiée ou action effectuée. Dès qu’un de ces effets est prétendu ou engagé, ouvre la ligne de run et applique la route `START` puis les preuves pertinentes. Pour une action externe, V1 peut préparer l’intention, le périmètre et la preuve attendue, mais ne peut ni autoriser, ni exécuter, ni valider l’effet : seul le système qui détient la permission peut le faire et en retourner l’observation. Cette frontière accélère le premier contact sans créer de voie de contournement des absolus, des gates ou de la vérité de preuve.
-
 ## DIRECTION/START — classer avant d’agir
 
 `START` est le point d’entrée quotidien d’un humain, d’une IA ou d’un pipeline. Il choisit le mode et la prochaine route ; il ne remplace ni les cinq absolus, ni les procédures, ni le jugement. Avant d’ouvrir un run, une proposition de cadrage reste possible (`DIRECTION/SERVICE-BOUNDARY`).
@@ -821,24 +815,3 @@ De même, une capture, une lecture perceptuelle, une conformité WCAG ou un avis
 Références, designers, matières, outils et registres sont des amorces de jugement. Une liste appliquée mécaniquement recrée la convergence qu’elle cherchait à empêcher.
 
 ---
-
-## Clôture de direction
-
-`ACTION/CLOSE-EXIT-CHECK` est l’unique test de sortie canonique. Avant de l’appeler, `DIRECTION` vérifie que la thèse, la conséquence observable, l’ancre utile, l’opération visuelle dominante, la preuve attendue et, lorsque nécessaire, la route d’asset restent reliées à des observations du rendu ; une non-applicabilité réelle est `N/A-JUSTIFIED`, et une preuve nécessaire non vérifiable reste `NOT-VERIFIED` ou l’issue ACTION appropriée. Pour une `RUN_CARD DIRECTION` décidée ou clôturée, ACTION conserve séparément `closure.state`, `closure.issue`, `closure.direction_status`, `closure.verdict`, `closure.limitations` et `creative_close` selon `ACTION/CLOSE-PACKAGE`.
-
-Les gates, verdicts, exceptions, preuves exécutables et statuts restent canoniques dans `ACTION.md`. Les principes de craft, styles, contextes et intégrité restent canoniques dans `SAVOIR.md`. Les structures restent canoniques dans `BIBLIOTHEQUE.md`. Les migrations, pilotes et décisions partagées restent canoniques dans `CHANGELOG.md`.
-
-`DIRECTION` ne ferme pas un run à la place d’`ACTION`. Il vérifie seulement que la direction déclarée est encore identifiable, que sa preuve attendue est nommée et que les limites de preuve ne sont pas dissimulées.
-
-### Lecture instrumentée et règle de passage
-
-Pour éviter de présenter une hypothèse de proportion comme un gain démontré, dans un run instrumenté ou audité, distingue dans la trace :
-
-- `STARTUP-NOMINAL` — modules recommandés avant la première décision ;
-- `CONDITIONAL-READ` — modules ouverts parce qu’une condition du brief ou du risque peut changer la décision ;
-- `AUDIT-READ` — fichiers ouverts pour contrôler le corpus ou le protocole, sans être nécessaires au run ;
-- `ACTUAL-READ` — fichiers effectivement lus dans un run instrumenté.
-
-La chaîne de lecture est définie une seule fois : « Chaîne de lecture interne », dans la constitution du document. Dans un run instrumenté ou audité, déclare dans la trace la catégorie de lecture applicable (en trace légère, cette déclaration n’est pas demandée) ; ne compte jamais un `AUDIT-READ` comme une lecture nécessaire au run. La règle de lecture proportionnelle décrit un chemin nominal : elle ne constitue pas une mesure de temps, de volume, de charge cognitive ou de qualité. Toute affirmation de réduction doit préciser la méthode, le périmètre et la limite.
-
-Le passage entre propriétaires reste celui de la règle de passage de `DIRECTION/CHARGE`. Pour une route partagée ou candidate à la promotion, l’ordre de décision est `DIRECTION/START` → `ACTION/RUN-SYSTEM` → `BIBLIOTHEQUE/EVOLUTION` si la route est structurelle, sinon la source normative propriétaire (`SAVOIR` pour une heuristique de jugement, `ACTION` pour un gate ou un champ de `RUN_CARD`) → `CHANGELOG`. Cet ordre ne constitue ni une promotion, ni un nouveau gate, ni une nouvelle source d’autorité.

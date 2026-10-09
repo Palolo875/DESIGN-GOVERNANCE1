@@ -132,7 +132,13 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
 # Lieux : nom historique d’une source (« SAVOIR.md ») → fichiers, relatifs à la racine, qui portent aujourd’hui
 # son contenu. Un nom absent de la table désigne le fichier du même nom dans OFFICIAL. Le rangement déplace le
 # texte puis met à jour cette table, et elle seule : lecteur, compilation du noyau et validateurs passent par elle.
-LIEUX: dict[str, tuple[str, ...]] = {}
+LIEUX: dict[str, tuple[str, ...]] = {
+    # Rangement, lot 4 : la gouvernance formelle part dans le module gouvernance/ (texte inchangé).
+    "DIRECTION.md": ("V1/official/DIRECTION.md", "gouvernance/principes.md", "gouvernance/cloture.md"),
+    "ACTION.md": ("V1/official/ACTION.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
+                  "gouvernance/verification.md", "gouvernance/cloture.md"),
+    "BIBLIOTHEQUE.md": ("V1/official/BIBLIOTHEQUE.md", "gouvernance/structure.md"),
+}
 
 
 # Adresses lisibles (architecture cible, branche refonte : ARCHI/architecture.md §6) → locator actuel.
@@ -193,19 +199,43 @@ def adresse(locator: str) -> str:
     return ADRESSES.get(key, locator)
 
 
+def chemin_lieu(rel: str) -> Path:
+    """Chemin d’une entrée de LIEUX ; « V1/official/ » désigne le dossier des sources (OFFICIAL), quelle que soit la disposition."""
+    return OFFICIAL / rel[len("V1/official/"):] if rel.startswith("V1/official/") else ROOT / rel
+
+
 def lieu(name: str) -> list[Path]:
     """Fichiers qui portent aujourd’hui le contenu de la source historique `name`, dans l’ordre de lecture."""
     if name in LIEUX:
-        return [ROOT / p for p in LIEUX[name]]
+        return [chemin_lieu(p) for p in LIEUX[name]]
     return [OFFICIAL / name]
 
 
+ORIGINE = re.compile(r"^<!-- origine:([A-Za-z_]+\.md) -->$")
+
+
+def part_de(path: Path, name: str) -> str:
+    """Texte d’un fichier qui vient de la source `name`. Un fichier qui reçoit plusieurs sources marque l’origine
+    de chaque section (`<!-- origine:NOM.md -->`) ; sans marque, tout le fichier vient de sa source."""
+    lines = path.read_text(encoding="utf-8").split("\n")
+    if not any(ORIGINE.match(l) for l in lines):
+        return "\n".join(lines)
+    kept, current = [], None
+    for line in lines:
+        m = ORIGINE.match(line)
+        if m:
+            current = m.group(1)
+        elif current == name:
+            kept.append(line)
+    return "\n".join(kept)
+
+
 def lieu_texte(name: str) -> str:
-    """Texte de la source historique `name` (ses fichiers mis bout à bout) ; échoue si aucun n’existe."""
+    """Texte de la source historique `name` (ses parts, fichier par fichier) ; échoue si aucun fichier n’existe."""
     paths = [p for p in lieu(name) if p.is_file()]
     if not paths:
         raise FileNotFoundError(name)
-    return "\n".join(p.read_text(encoding="utf-8") for p in paths)
+    return "\n".join(part_de(p, name) for p in paths)
 
 
 def lieu_lignes(name: str) -> list[str]:
@@ -215,7 +245,11 @@ def lieu_lignes(name: str) -> list[str]:
 def origines(path: Path) -> set[str]:
     """Sources historiques dont le fichier `path` porte du contenu."""
     target = path.resolve()
-    names = {n for n, rels in LIEUX.items() if any((ROOT / r).resolve() == target for r in rels)}
+    names = {n for n, rels in LIEUX.items() if any(chemin_lieu(r).resolve() == target for r in rels)}
+    if path.is_file():
+        marked = {m.group(1) for m in map(ORIGINE.match, path.read_text(encoding="utf-8").split("\n")) if m}
+        if marked:
+            return marked
     if path.parent.resolve() == OFFICIAL.resolve() and path.name not in LIEUX:
         names.add(path.name)
     return names
@@ -449,7 +483,7 @@ def non_utf8(root: Path) -> list[str]:
     return bad
 
 
-CONCEPT_MARKER = re.compile(r"^\s*<!-- (?:concept:[A-Z0-9\-]+|noyau:(?:début|fin) [A-Z0-9\-]+) -->\s*$")
+CONCEPT_MARKER = re.compile(r"^\s*<!-- (?:concept:[A-Z0-9\-]+|noyau:(?:début|fin) [A-Z0-9\-]+|origine:[A-Za-z_]+\.md) -->\s*$")
 
 
 def served_lines(lines: list[str], index: int) -> list[tuple[int, str]]:

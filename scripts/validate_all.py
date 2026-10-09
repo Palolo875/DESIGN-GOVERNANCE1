@@ -151,10 +151,10 @@ def check_move_regression() -> None:
             if with_table:
                 reader = case / "scripts/read_route.py"
                 src = reader.read_text(encoding="utf-8")
-                line = "LIEUX: dict[str, tuple[str, ...]] = {}"
-                if src.count(line) != 1:
+                anchor = "\ndef chemin_lieu("
+                if src.count(anchor) != 1:
                     raise SystemExit("MOVE REGRESSION FAILED — table LIEUX introuvable dans read_route.py")
-                reader.write_text(src.replace(line, f"LIEUX: dict[str, tuple[str, ...]] = {{'SAVOIR.md': ({rel!r}, {target!r})}}"),
+                reader.write_text(src.replace(anchor, f"\nLIEUX['SAVOIR.md'] = ({rel!r}, {target!r})\n{anchor}"),
                                   encoding="utf-8")
             skill_before = (ROOT / skill_rel).read_bytes()
             steps = [[sys.executable, "scripts/build_core.py", "--check"],

@@ -116,8 +116,9 @@ def lieu(fname: str) -> list[Path]:
     """Fichiers de la source historique `fname` (table LIEUX du lecteur ; sinon le fichier de OFFICIAL)."""
     sys.path.insert(0, str(ROOT / "scripts"))
     import read_route  # import tardif : read_route n'importe pas ce module
-    if fname in read_route.LIEUX:
-        return [ROOT / rel for rel in read_route.LIEUX[fname]]
+    if fname in read_route.LIEUX:  # « V1/official/ » désigne le dossier des sources de cette disposition
+        return [OFFICIAL / rel[len("V1/official/"):] if rel.startswith("V1/official/") else ROOT / rel
+                for rel in read_route.LIEUX[fname]]
     return [OFFICIAL / fname]
 
 

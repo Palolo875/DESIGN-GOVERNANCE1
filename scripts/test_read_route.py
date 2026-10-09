@@ -43,7 +43,7 @@ class CodeFenceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)/'BIBLIOTHEQUE.md'
             p.write_text('# B\n## BIBLIOTHEQUE/OBJECT\n````md\n```\n| `OBJECT/PROOF` | faux |\n```\n````\n')
-            with patch.object(reader,'OFFICIAL',Path(tmp)):
+            with patch.multiple(reader,OFFICIAL=Path(tmp),LIEUX={}):
                 with self.assertRaises(reader.RouteError):reader.resolve('OBJECT/PROOF')
 
 
@@ -60,7 +60,7 @@ class SearchTests(unittest.TestCase):
             "# Savoir\n## SAVOIR/STATE\nCohérence de rayon : signal utile.\n"
             "### SAVOIR/CHILD\nUn signal enfant précis.\n<!-- concept:TEST-MARKER -->\n", encoding="utf-8")
         (self.official / "QUICKSTART.md").write_text("Cohérence de rayon dans le guide.\n", encoding="utf-8")
-        self.override = patch.multiple(reader, ROOT=self.root, OFFICIAL=self.official, MAP=self.official / "READING_MAP.md")
+        self.override = patch.multiple(reader, ROOT=self.root, OFFICIAL=self.official, MAP=self.official / "READING_MAP.md", LIEUX={})
         self.override.start()
 
     def tearDown(self):
@@ -129,7 +129,7 @@ class StructureIdentifierTests(unittest.TestCase):
             "### `GRID/COLUMN`\nComparaison.\n"
             "## BIBLIOTHEQUE/MICRO\n| Nom | Rôle |\n|---|---|\n"
             "| `MICRO/USAGE_LEDGER` | Mesure. |\n", encoding="utf-8")
-        self.override = patch.object(reader, "OFFICIAL", self.official)
+        self.override = patch.multiple(reader, OFFICIAL=self.official, LIEUX={})
         self.override.start()
 
     def tearDown(self):
@@ -362,6 +362,21 @@ class SearchAndSummaryTests(unittest.TestCase):
                 locator = reader.heading_locator(text)
                 if locator:
                     self.assertIn(f"\n{locator} ", out)
+
+    def test_shared_file_split_by_origin(self):
+        # Rangement, lot 4 : un fichier qui reçoit plusieurs sources marque l'origine de chaque section.
+        with tempfile.TemporaryDirectory() as tmp:
+            shared = Path(tmp) / "partage.md"
+            shared.write_text("# Titre\n\nRôle.\n\n<!-- origine:ACTION.md -->\n## A\n\nTexte A.\n\n"
+                              "<!-- origine:DIRECTION.md -->\n## D\n\nTexte D.\n", encoding="utf-8")
+            plain = Path(tmp) / "seul.md"
+            plain.write_text("## S\n\nTexte S.\n", encoding="utf-8")
+            self.assertIn("Texte A.", reader.part_de(shared, "ACTION.md"))
+            self.assertNotIn("Texte D.", reader.part_de(shared, "ACTION.md"))
+            self.assertNotIn("Rôle.", reader.part_de(shared, "DIRECTION.md"))
+            self.assertEqual(reader.origines(shared), {"ACTION.md", "DIRECTION.md"})
+            self.assertEqual(reader.part_de(plain, "SAVOIR.md"), "## S\n\nTexte S.\n")
+            self.assertTrue(reader.CONCEPT_MARKER.match("<!-- origine:ACTION.md -->"))
 
     def test_every_route_has_a_readable_address(self):
         # Rangement, lot 2 : chaque route a une adresse lisible qui la sert ; les anciennes restent servies.

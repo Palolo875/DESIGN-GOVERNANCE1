@@ -53,6 +53,7 @@ cp -a "$ROOT/README.md" "$STAGE/github/README.md"
 cp -a "$ROOT/RELEASE_NOTES.md" "$STAGE/github/RELEASE_NOTES.md"
 cp -a "$ROOT/.gitignore" "$STAGE/github/.gitignore"
 cp -a "$ROOT/V1" "$STAGE/github/V1"
+cp -a "$ROOT/gouvernance" "$STAGE/github/gouvernance"
 cp -a "$ROOT/skills" "$STAGE/github/skills"
 cp -a "$ROOT/schemas" "$STAGE/github/schemas"
 mkdir -p "$STAGE/github/scripts"
@@ -78,6 +79,7 @@ cp -a "$ROOT/.github/workflows/validate.yml" "$STAGE/github/.github/workflows/va
 
 # Local : export compact dérivé, avec les chemins directs d’activation.
 cp -a "$ROOT/V1/official" "$STAGE/local/official"
+cp -a "$ROOT/gouvernance" "$STAGE/local/gouvernance"
 cp -a "$ROOT/skills/design-governance-practice" "$STAGE/local/skill"
 cp -a "$ROOT/schemas" "$STAGE/local/schemas"
 mkdir -p "$STAGE/local/scripts"
@@ -179,11 +181,14 @@ import sys
 
 root = Path(sys.argv[1])
 targets = sorted((root / "skill").rglob("*.md")) + [root / "official" / "QUICKSTART.md", root / "official" / "README.md"]
-for path in targets:
+targets += sorted((root / "gouvernance").glob("*.md")) + sorted((root / "official").glob("*.md"))
+for path in dict.fromkeys(targets):
     text = path.read_text(encoding="utf-8")
     rewritten = text.replace("V1/official/", "official/").replace("skills/design-governance-practice/", "skill/")
     # Le README du package est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
     rewritten = rewritten.replace("](../../README.md", "](../README.md")
+    # Le module gouvernance/ est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
+    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/")
     if rewritten != text:
         path.write_text(rewritten, encoding="utf-8")
 PY

@@ -68,7 +68,14 @@
     "skills/design-governance-practice/references/canonical_minimum.md",
     "skills/design-governance-practice/references/examples.md",
     "skills/design-governance-practice/references/flow.md",
-    "skills/design-governance-practice/references/machine_projection.md"
+    "skills/design-governance-practice/references/machine_projection.md",
+    "gouvernance/README.md",
+    "gouvernance/principes.md",
+    "gouvernance/statuts.md",
+    "gouvernance/travail.md",
+    "gouvernance/verification.md",
+    "gouvernance/cloture.md",
+    "gouvernance/structure.md"
   ],
   "local": [
     "README.md",
@@ -132,6 +139,13 @@
     "skill/references/canonical_minimum.md",
     "skill/references/examples.md",
     "skill/references/flow.md",
-    "skill/references/machine_projection.md"
+    "skill/references/machine_projection.md",
+    "gouvernance/README.md",
+    "gouvernance/principes.md",
+    "gouvernance/statuts.md",
+    "gouvernance/travail.md",
+    "gouvernance/verification.md",
+    "gouvernance/cloture.md",
+    "gouvernance/structure.md"
   ]
 }
