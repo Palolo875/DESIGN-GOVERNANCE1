@@ -1,0 +1,280 @@
+{
+ "skill": 42978,
+ "chemins": {
+  "LITE (petite correction)": {
+   "routes": [
+    [
+     "ACTION/RUN-LITE",
+     890,
+     "gouvernance"
+    ],
+    [
+     "ACTION/FAST-PATH",
+     1221,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-A",
+     12016,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-B/B2",
+     1271,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-B/B6",
+     475,
+     "gouvernance"
+    ]
+   ],
+   "par_famille": {
+    "design": 0,
+    "produit": 0,
+    "gouvernance": 15873
+   },
+   "routes_total": 15873,
+   "avec_skill": 58851,
+   "introuvables": []
+  },
+  "ITER (itération sur l'existant)": {
+   "routes": [
+    [
+     "ACTION/RUN-ITER",
+     916,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-A",
+     12016,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-B",
+     9140,
+     "gouvernance"
+    ]
+   ],
+   "par_famille": {
+    "design": 0,
+    "produit": 0,
+    "gouvernance": 22072
+   },
+   "routes_total": 22072,
+   "avec_skill": 65050,
+   "introuvables": []
+  },
+  "STANDARD (écran ou page cadrés)": {
+   "routes": [
+    [
+     "ACTION/RUN-STANDARD",
+     1058,
+     "gouvernance"
+    ],
+    [
+     "ACTION/UI-UX-REALITY",
+     2705,
+     "produit"
+    ],
+    [
+     "BIBLIOTHEQUE/SELECT",
+     8871,
+     "design"
+    ],
+    [
+     "ACTION/GATE-A",
+     12016,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-B",
+     9140,
+     "gouvernance"
+    ]
+   ],
+   "par_famille": {
+    "design": 8871,
+    "produit": 2705,
+    "gouvernance": 22214
+   },
+   "routes_total": 33790,
+   "avec_skill": 76768,
+   "introuvables": []
+  },
+  "DIRECTION, trace légère (page nouvelle)": {
+   "routes": [
+    [
+     "DIRECTION/EXTERNAL-START",
+     3324,
+     "design"
+    ],
+    [
+     "DIRECTION/CREATIVE-BOOT",
+     2532,
+     "design"
+    ],
+    [
+     "DIRECTION/VISUAL_TARGET",
+     9345,
+     "design"
+    ],
+    [
+     "DIRECTION/FIRST-OBJECT",
+     6108,
+     "design"
+    ],
+    [
+     "SAVOIR/TYPE",
+     2515,
+     "design"
+    ],
+    [
+     "ACTION/FIRST-RENDER",
+     1907,
+     "produit"
+    ],
+    [
+     "ACTION/UI-UX-REALITY",
+     2705,
+     "produit"
+    ],
+    [
+     "ACTION/RUN-DIRECTION",
+     2132,
+     "gouvernance"
+    ],
+    [
+     "ACTION/PIPELINE-DIRECTION",
+     11589,
+     "gouvernance"
+    ],
+    [
+     "ACTION/VISUAL_PROOF",
+     2121,
+     "produit"
+    ],
+    [
+     "ACTION/GATE-A",
+     12016,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-C",
+     4069,
+     "produit"
+    ]
+   ],
+   "par_famille": {
+    "design": 23824,
+    "produit": 10802,
+    "gouvernance": 25737
+   },
+   "routes_total": 60363,
+   "avec_skill": 103341,
+   "introuvables": []
+  },
+  "DIRECTION, trace complète (produit livré)": {
+   "routes": [
+    [
+     "DIRECTION/EXTERNAL-START",
+     3324,
+     "design"
+    ],
+    [
+     "DIRECTION/CREATIVE-BOOT",
+     2532,
+     "design"
+    ],
+    [
+     "DIRECTION/VISUAL_TARGET",
+     9345,
+     "design"
+    ],
+    [
+     "DIRECTION/FIRST-OBJECT",
+     6108,
+     "design"
+    ],
+    [
+     "SAVOIR/TYPE",
+     2515,
+     "design"
+    ],
+    [
+     "ACTION/FIRST-RENDER",
+     1907,
+     "produit"
+    ],
+    [
+     "ACTION/UI-UX-REALITY",
+     2705,
+     "produit"
+    ],
+    [
+     "ACTION/RUN-DIRECTION",
+     2132,
+     "gouvernance"
+    ],
+    [
+     "ACTION/PIPELINE-DIRECTION",
+     11589,
+     "gouvernance"
+    ],
+    [
+     "ACTION/VISUAL_PROOF",
+     2121,
+     "produit"
+    ],
+    [
+     "ACTION/GATE-A",
+     12016,
+     "gouvernance"
+    ],
+    [
+     "ACTION/GATE-C",
+     4069,
+     "produit"
+    ],
+    [
+     "ACTION/GATE-B",
+     9140,
+     "gouvernance"
+    ],
+    [
+     "ACTION/RUN_CARD",
+     18215,
+     "gouvernance"
+    ],
+    [
+     "ACTION/CLOSE-PACKAGE",
+     6953,
+     "gouvernance"
+    ]
+   ],
+   "par_famille": {
+    "design": 23824,
+    "produit": 10802,
+    "gouvernance": 60045
+   },
+   "routes_total": 94671,
+   "avec_skill": 137649,
+   "introuvables": []
+  }
+ },
+ "conditionnelles_direction": {
+  "DIRECTION/DOUBLE-LOOP": 6646,
+  "ACTION/ROUTING": 1737,
+  "SAVOIR/CRAFT/CFT-00": 4617,
+  "DIRECTION/DIRECTION-ATELIER": 4575,
+  "SAVOIR/FRAME": 10337,
+  "SAVOIR/CRAFT": 20164,
+  "SAVOIR/SOURCE": 7527,
+  "BIBLIOTHEQUE/SELECT": 8871,
+  "BIBLIOTHEQUE/SEQUENCE": 3370,
+  "DIRECTION/DOMAIN-FRAME": 2861,
+  "SAVOIR/STYLE": 15292,
+  "SAVOIR/STATE": 5483,
+  "SAVOIR/INTEGRITY": 7931
+ }
+}

@@ -1,0 +1,156 @@
+# Fiche — V1/official/BIBLIOTHEQUE.md
+
+Les numéros de ligne renvoient à `/home/user/DESIGN-GOVERNANCE1/V1/official/BIBLIOTHEQUE.md` (commit `9681d4e`), sauf indication contraire. Les mesures viennent de `AUDIT2/donnees/mesures.md` et `mesures.json`. Les preuves de convergence viennent de `U5/` (même dossier racine `wt-refonte/`).
+
+## Identité
+
+**Rôle actuel.** Catalogue de 41 routes de structure d'interface (4 supports, 6 grilles, 6 scènes, 9 objets, 7 micro-interfaces, 3 modificateurs, 6 couches), précédé de la méthode de choix (chaîne, tension, signature, premier objet) et suivi des contrats, du contrôle structurel et de la promotion des routes. Il porte aussi 5 blocs « noyau » recopiés dans la skill.
+
+**Public réel.** L'agent, et le mainteneur du système. Le texte tutoie l'agent (« réponds », « charge », « lis ») et suppose de connaître `ACTION` (statuts, gates, `RUN_CARD`). **Public visé par la charte.** Le designer d'abord (« savoir parcourable par sujet, qui explique le pourquoi »), puis l'agent. Aucune ligne ne dit pour qui le fichier est écrit.
+
+**Mesures.** 78 068 caractères, 10 702 mots, 890 lignes. Titres : 1 / 16 / 50 (3 niveaux au plus). Codes : 599, soit 56 pour 1 000 mots, le plus élevé des quatre sources normatives (SAVOIR 30, ACTION 51, DIRECTION 49). Plus grosse section : `BIBLIOTHEQUE/SELECT`, 14 726 caractères. Phrases : moyenne 17,3 mots, p90 30, 2 % au-dessus de 40. « Non vérifié » : 4. Vestiges mesurés : 0. Répétitions inter-fichiers : 18 fenêtres identiques sur la ligne 3 avec ACTION, DIRECTION et SAVOIR ; 3 fenêtres internes (l.27 ↔ l.43).
+
+Densité de codes par section (`mesures.json`) : Contrat de composant partagé 241, COMPAT 193, Sélection par mode 170, COMPONENTS 147, Contrat de grille 103, Préfixes canoniques 101, TENSION 88, DERIVE 86. Les plus lisibles : SEQUENCE 6, Signaux de convergence 3, Lecture expressive 0, Test de scène 0.
+
+## Verdicts de la grille
+
+| Critère | Verdict | Preuve |
+|---|---|---|
+| F1 Rôle | à corriger | La ligne 3 empile une bannière d'état (« expérimentation maintenue »), puis une phrase d'objet. La ligne 7 donne le vrai rôle. Le fichier a trois rôles : catalogue de formes (l.51-270, 324-675), contrats et gate (l.274-320, 677-818), promotion et cycle de vie (l.820-874). |
+| F2 Public | à corriger | Non déclaré. Tutoiement d'agent partout. Contrats rédigés en champs de trace (`PROOF-SCOPE`, `TRACE-LOCATOR`, `NEXT-PROOF`). Un designer n'a aucune porte d'entrée : le catalogue ne commence qu'à la ligne 324, après 320 lignes de méthode et de contrats. |
+| F3 Structure | à corriger | 3 niveaux : conforme. Mais les titres de niveau 3 des routes sont des codes (`### \`GRID/RADIAL\``, l.396) : ils ne disent pas leur contenu à un humain. Cinq gabarits différents selon la famille : SUPPORT « Choisir / Éviter / Preuve » (l.328-366), GRID « Choisir / Preuve » sans « Éviter » (l.380-426), SCENE « Choisir / Éviter » sans « Preuve » plus une phrase de distinction (l.468-526), OBJECT et MICRO en tables, MODIFIER « Test ». `BIBLIOTHEQUE/CONTRACTS` (l.274) vient avant les routes qu'il encadre ; `DERIVE` est enterré dans `SELECT` (l.221). |
+| F4 Une seule fois | à corriger | La règle « zéro route / héritage / `N/A-JUSTIFIED` réservé à ACTION » est redite aux l.11, 27, 39, 43, 87-89, 177, 179, 193, 810, 830 (`N/A-JUSTIFIED` : 13 occurrences). Le « contrat réduit » est défini l.223, 276 et 830 et les trois se renvoient la balle (« C'est la seule définition », l.276). Les types de preuve sont redéfinis l.131-144, 286, 596, 616, 792-803. Le test de trame est dit l.267 et redit l.553. « Premier objet habitable » : 13 occurrences (l.28, 104-112, 790…). Le « Test de sortie » (l.876-890) reprend CONTRACTS, GATE et EVOLUTION. |
+| F5 Langue | bloquant | 599 codes, 56 pour 1 000 mots. Les codes ne sont définis nulle part pour un humain : `OBJECT/CONVERSION_CONTEXT_FIELD`, `MOBILE-COVERAGE-LIMIT`, `TRACE-LOCATOR`, `PILOT`, `B1b` (l.179, « voir `ACTION/GATE-B/B1b` »). Mélange non défini de français et d'anglais de métier : `fallback`, `slots`, `owner`, `scope`, `consumers`, `blast radius`, `one-shot`, `authored`, `hero`, `split`. Bloquant pour le designer, acceptable seulement si le fichier est déclaré « fichier d'agent ». |
+| F8 Longueur | à corriger | 78 068 caractères. `SELECT` fait 14 726 caractères et mélange sept sujets (méthode, table d'intentions, questions, modes, one-shot, dérivation, signaux). Les entrées de route sont courtes (265 à 775 caractères) et se lisent seules : c'est le bon format. En revanche aucune section de méthode ne se comprend ouverte seule : elle renvoie à `ACTION/...` ou `DIRECTION/...`. |
+| F9 Limites | conforme | 4 « non vérifié » seulement (mesures). Les limites sont dites au bon endroit (`PROOF-LIMIT`, l.288, 598). Point mineur : « limite » est exigée dans chaque contrat, ce qui la répète 8 fois (`PROOF-LIMIT`). |
+| F10 Exemples | à corriger | Voir « Ce qui fige ». Pas de couleur, police ni code type. Mais : ordre modal de sections écrit en toutes lettres (l.267), rapports `3:2` et `1:1` (l.318), « 12 colonnes » et « baseline 8 » (l.448), noms de scènes-tendances `BENTO`, `GLASS_HERO`, `EDITORIAL_PREMIUM` (l.249), 10 lignes de compatibilité favorables (l.764-773). |
+| F11 Vestiges | à corriger | L'outil en compte 0 ; la lecture en trouve : bannière « expérimentation maintenue » (l.3), 5 alias `REFERENCES/*` dépréciés listés (l.874, mapping dans CHANGELOG), « Cette entrée est un résumé de protection, pas une nouvelle route… » (l.33, cicatrice d'une révision), « son nom historique » (l.219), phrases de déduplication « C'est la seule définition… » (l.276, 690). |
+
+## Sections
+
+Famille : D = design, P = produit, G = gouvernance, M = méta. Public : A = agent, H = designer humain, É = équipe.
+
+| Section (ligne) | Ce qu'elle apporte | Famille | Public | Observation principale | Disposition proposée |
+|---|---|---|---|---|---|
+| Intro (1-3) | Bannière d'état et phrase d'objet. | M | A, H | La bannière est copiée mot pour mot dans 4 fichiers (18 fenêtres). | Retirer la bannière du fichier ; garder une phrase de rôle et de public. |
+| Responsabilité (5-20) | Dit ce que BIBLIOTHEQUE fait et ne fait pas, avec la table des 4 autres documents. | M | A, H | Bon cadrage (l.7-9), mais la table l.15-20 est une carte de propriétaires, redite dans DIRECTION. Verrou MNT-01 : le texte entre `## Responsabilité` et `## BIBLIOTHEQUE/READ` ne doit pas contenir `STARTUP-NOMINAL`, `AUDIT-READ`, `### Contrat minimal par périmètre` (`validate_structure.py:326-333`). | Réécrire (forme) : 2 paragraphes lisibles ; table des propriétaires déplacée vers la carte de lecture. |
+| Entrée prioritaire (22-33) | Six décisions de protection à lire avant le catalogue. | G (surtout), D | A | Redit l.11, 39, 43, 177-179. La ligne 27 est verrouillée par LCF-51. Elle est lue avant tout le design. | Fusionner avec Orientation (35-43) ; déplacer au module de gouvernance ; garder au plus la phrase « zéro route est valide » en tête du design. |
+| Orientation interne (35-43) | Ordre de lecture interne et champs à transmettre. | G | A | 9 champs de handoff en capitales (l.39). Redit l.43 (fenêtres communes avec l.27). | Fusionner avec Entrée prioritaire ; déplacer vers ACTION (handoff). |
+| Bloc STRUCT-OU (45-47) | Citation d'ouverture : où vit l'interface, comment le regard circule, quelle preuve, comment la personne agit. | D | A, H | 256 caractères, copiés dans la skill. | Garder (placer en tête du fichier de design). |
+| READ — chaîne et convention (51-129) | Chaîne support → grille → scène → objet → primitive ; lecture expressive ; tension ; signature ; thèse et premier objet ; préfixes. | D (51-61, 63-89), G (91-129) | A, H | Deux sujets : le savoir (chaîne, expressif, tension) et le mécanisme de trace (signature, préfixes, lecture de route par script). La phrase « chaîne = responsabilités, non ordre » est dite deux fois (l.37, 53-59). | Scinder : chaîne, expressif, tension, thèse → design ; signature, préfixes, `read_route` (l.129) → méta / gouvernance. |
+| Bloc STRUCT-EXPRESSION (65-67) | Six paires de caractère perceptuel (calme/tension…). | D | A, H | Liste fermée de six couples, copiée dans la skill. | Garder. |
+| Bloc STRUCT-TENSION (73-85) | Sept axes de tension à choisir (un ou deux). | D | A, H | Liste fermée ; deux runs indépendants ont choisi le même couple (voir Convergence). 88 codes pour 1 000 mots. | Garder le savoir ; réécrire (forme) en français lisible ; voir proposition de variété. |
+| Types de preuve (131-144) | Quatre types de preuve et leur correspondance avec les méthodes ACTION. | G (preuve) | A, É | Redit l.286, 596, 616. | Déplacer vers ACTION (ou garder une seule table) ; renvoyer d'ici. |
+| SELECT — méthode (148-155) | Filtre avant catalogue : décision, niveau minimal, premier objet, preuve. | D | A, H | Bon principe d'économie. | Garder. |
+| Traduire une intention (156-173) + bloc STRUCT-ACTIVATION (158-160) | Table de 6 relations recherchées → route → levier → observation. | D | A, H | La seule aide à la construction. Mais 6 lignes seulement, trois d'entre elles visent des cas SaaS/mesure (l.166, 168, 170). Voir Convergence. | Garder ; réécrire (forme) ; étendre par des relations d'autres métiers seulement après décision. |
+| AVANT-SELECTION (175-179) | Quatre questions pour un delta local ; mise en garde sur `N/A-JUSTIFIED`. | G | A | `N/A-JUSTIFIED` redit 4 fois dans 5 lignes. | Fusionner avec Entrée prioritaire, puis déplacer à ACTION. |
+| Question de sélection, Objet de rythme (181-193) | Une question par niveau ; définition d'« objet de rythme ». | D | A, H | Court et clair. | Garder. |
+| Sélection par mode (195-205) | Quelle sélection selon LITE/ITER/STANDARD/DIRECTION/SYSTÈME. | G | A | 170 codes pour 1 000 mots ; redit DIRECTION/CHARGE. Dernier alinéa : liste de 12 champs de `RUN_CARD`. | Déplacer vers DIRECTION/CHARGE ; supprimer le doublon. |
+| One-shot et boucle (207-211) | Condition de clôture d'une sélection one-shot ; boucle structurelle. | G | A | Renvoie à ACTION et DIRECTION. | Fusionner avec DIRECTION/DOUBLE-LOOP, ou retirer après vérification que tout est ailleurs. |
+| Garde-fou de dérivation (213-219) | Dériver une forme locale avant de créer une route ; test de retrait. | D | A, H | Savoir clé contre le catalogue figé. | Garder (et lier à DERIVE). |
+| DERIVE (221-249) | Contrat réduit en 8 lignes et lignes conditionnelles. | G | A | Bloc de champs en anglais capitalisé ; la dernière phrase (l.249) donne la règle « pas de route nommée d'après une tendance ». | Scinder : la règle et son pourquoi (l.247-249) → design ; les champs → gouvernance. |
+| Signaux de convergence + test de trame, bloc STRUCT-SIGNAUX (251-270) | 7 compositions-signaux et le test de trame modale. | D | A, H | Meilleur passage pour la variété ; en même temps il écrit la trame à éviter (l.267). 3 codes pour 1 000 mots. | Garder ; voir Convergence pour la formulation. Marqueurs `concept:TRM-01` (l.266) à conserver. |
+| CONTRACTS (274-320) | Contrat commun de route (17 champs) et calibration locale. | G (274-302), D (304-320) | A, É | La table à 17 champs (l.280-298) est un schéma de trace. La calibration (l.304-320) est du savoir de fabrication. | Scinder : calibration locale → design (fabrication) ; contrat → gouvernance. |
+| SUPPORT (324-372) | 4 supports et le test de support. | D | A, H | Gabarit complet (choisir, éviter, preuve) : à généraliser. | Garder ; réécrire (forme) les titres. |
+| GRID (376-458) | 6 grilles, contrat de grille, mobile. | D (376-426, 450), G (428-448, 452-458) | A, H | Pas d'« Éviter lorsque ». Le contrat de grille (l.428-446) liste 7 familles `MOBILE-*` en capitales. | Garder les 6 grilles et la phrase mobile (l.450) ; scinder le contrat de grille. |
+| SCENE (462-534) | 6 scènes et le test de scène. | D | A, H | Pas de « Preuve » par scène. Descriptions orientées produit numérique : « plateforme B2B » (l.502), « fenêtre applicative » (l.520). | Garder ; compléter le gabarit (forme). |
+| SEQUENCE (538-559) | 6 opérations de page (arc, série, moment de champ, transition, fil, fin), cartes, structure mobile. | D | A, H | La plus lisible (6 codes/1 000 mots) et la plus utile contre la trame par défaut. N'est chargée que par DIRECTION et seulement « si la page compte plusieurs sections » (`SKILL.md:38`). Absente des routes lues par les runs plafond N4 et N5 (voir Convergence). | Garder ; monter en priorité dans la lecture ; à vérifier si elle existait pendant U5. |
+| OBJECT (563-602) | 9 objets, objet du métier, contrat d'objet. | D (563-581), G (583-602) | A, H | Objets décrits en une ligne chacun, sans « Choisir / Éviter ». « Objet du métier » (l.567) est une idée forte pour la variété. | Garder ; scinder le contrat d'objet. |
+| MICRO (606-647) | 7 micro-interfaces, lecture de graphiques, before-after. | D (606-626), G (628-647) | A, H | Les 7 routes sont toutes des produits numériques à données (santé de requête, quotas, flotte). | Garder les routes ; déplacer Before-after vers ACTION (`GATE-B/B1b`). |
+| MODIFIER (651-673) | 3 modificateurs. | D | A, H | `PRINT_FIELD` : explication dense (l.671-673). | Garder. |
+| COMPONENTS (677-743) | 6 couches, contrat de composant partagé, graphe de dépendance. | D (couches), G (contrats) | A, É | 147 codes/1 000 mots ; contrat à 13 lignes en capitales ; deuxième contrat BRAND_GRAMMAR à 15 champs. | Scinder : couches et graphe → design ; contrats → gouvernance. |
+| COMPAT (747-779) | Matrice de 10 combinaisons favorables + contrat de compatibilité. | D / G | A | 193 codes/1 000 mots. Annonce « jamais une recette par défaut » (l.760) mais c'est une table de recettes. Voir Convergence. | Réécrire (forme) ; sous réserve de la décision sur la matrice. |
+| GATE (783-816) | 11 tests structurels (non-généricité, silhouette, grille, preuve, asset, clarté, états, mobile, accessibilité, contexte, `DECISION-CHANGE`). | P (tests), G (statuts) | A, É | Les tests de silhouette et de non-généricité sont du savoir de rendu. Le reste redit ACTION (l.785-787, 806, 810-816). Marqueur `concept:PRC-01` (l.789). | Scinder : tests → produit/vérification ; statuts → ACTION. Conserver `PRC-01`. |
+| EVOLUTION (820-874) | Promotion, dépréciation, contrat de gain réel, contribution, alias dépréciés. | G, M | É | 5 281 caractères de cycle de vie, sans rapport avec le choix d'une forme. Verrou LCF-20 sur les lignes l.835 et l.862 (ensemble de statuts identique à CHANGELOG). Verrou sur la phrase l.874. | Déplacer vers CHANGELOG ou le module de gouvernance. Retirer la liste des alias (l.874) après adaptation du contrôle. |
+| Test de sortie (876-890) | 9 questions de clôture. | G | A | Redit CONTRACTS, GATE, EVOLUTION ; redit `CLOSE-EXIT-CHECK`. | Fusionner avec GATE puis déplacer ; ou retirer (doublon) après vérification. |
+
+## Défauts
+
+| N° | Type | Gravité | Preuve | Proposition |
+|---|---|---|---|---|
+| 1 | langue | bloquant | 599 codes pour 10 702 mots ; les codes ne sont définis nulle part ; titres de route sous forme de codes (l.328-668) | Séparer en deux textes : savoir de design sans code (noms humains, code entre parenthèses une fois) et module de contrats avec codes. |
+| 2 | structure | bloquant | Trois rôles dans un fichier : choisir une forme (l.51-270, 324-675), contractualiser (l.274-320, 677-816), faire vivre les routes (l.820-890). Estimation à partir des tailles de `mesures.json` : de l'ordre de 40 000 caractères de design contre 30 000 à 35 000 de gouvernance (à vérifier lors du découpage). | Scinder selon la colonne « Famille » du tableau ci-dessus. |
+| 3 | convergence | important | Les deux runs plafond (facturation N4, natation N5) choisissent le même couple de tension `PROOF-POSITION=intégrée` + `TEMPORALITY=séquencée` (`U5/journaux/N4-trace.md:16`, `U5/journaux/N5-TRACE.md:77` et `:92`) et appliquent la même formule de rupture de trame (promesse et preuve au premier écran) | Voir « Ce qui fige » ; aucune règle nouvelle sans diagnostic ; piste : reformuler le test de trame (l.267) pour qu'il demande un ordre propre à la demande sans nommer l'ordre modal. |
+| 4 | convergence | important | Le catalogue est tourné vers le numérique à données : 7 micro sur 7 sont des interfaces de compte, de suivi ou de logistique numérique (l.620-626) ; `SCENE/INSTRUMENT`, `OPERATING_GRID`, `PRODUCT_NARRATIVE` (3 scènes sur 6) ; `OBJECT/CONTROL_VALUE_TILE`, `SYSTEM_DATA_MODULE` ; aucun objet ni micro pour réservation, horaire, tarif comparé, formulaire ou contenu de lecture | Ne pas ajouter de routes ; documenter que le catalogue est un point de départ et renforcer le chemin de dérivation (l.213-249), qui est la bonne réponse. |
+| 5 | convergence | important | Table d'intentions (l.164-171) : « Précision d'une valeur ou comparaison » → `OBJECT/CONTROL_VALUE_TILE`, `MICRO/USAGE_LEDGER`, `GRID/BASELINE` ; c'est exactement l'ensemble qu'un agent applique à une page de facturation (quotas, crédits, valeurs). `MICRO/USAGE_LEDGER` : « Crédits, quotas, consommation ou budget » (l.626) | Réécrire en décrivant la relation (comparer des valeurs) avant de nommer les routes ; garder l'avertissement l.162. |
+| 6 | convergence | mineur | Matrice COMPAT (l.764-773) : `GRID/BASELINE` figure dans 8 lignes sur 10, `GRID/COLUMN` et `GRID/MODULAR` dans 7, `OBJECT/PROOF_PRODUCT_STAGE` dans 5. L'avertissement l.760 (« jamais une recette par défaut ») contredit la forme de la table | Retirer la matrice ou la remplacer par la phrase de principe (voir « Ce qui fige »). Décision à prendre avec le propriétaire. |
+| 7 | coût de lecture | important | Préambule de 320 lignes (méthode, trace, mode) avant la première route (l.324) ; `SELECT` à lui seul 14 726 caractères | Mettre les routes en premier ; la méthode en une page ; le reste dans le module de gouvernance. |
+| 8 | répétition | important | `N/A-JUSTIFIED` 13×, « premier objet » 13×, `PROOF-LIMIT` 8×, `OWNER` 29×, scope 27× ; la règle « zéro route » aux l.11, 27, 39, 43, 177, 179 | Dire chaque règle une fois (propriétaire : ACTION) et renvoyer. Attention au verrou LCF-51 (l.27 et l.830). |
+| 9 | structure | important | Cinq gabarits de route (voir F3) | Un modèle commun : nom humain, ce que c'est, choisir lorsque, éviter lorsque, ce qu'on observe. |
+| 10 | langue | important | Anglais de métier non défini : `fallback`, `slots`, `owner`, `scope`, `consumers`, `blast radius`, `one-shot`, `authored`, `hero`, `split`, `before-after` | Définir à la première apparition ou franciser (charte, principe 5). |
+| 11 | obsolète | mineur | Alias `REFERENCES/*` (l.874) ; bannière « expérimentation maintenue » (l.3) ; « résumé de protection, pas une nouvelle route » (l.33) | Retirer les cicatrices après adaptation des deux contrôles qui les verrouillent (`validate_design_governance.py:263-265`). |
+| 12 | risque | important | Cinq blocs `noyau` copiés dans la skill ; `SKILL.md` pèse 44 559 octets pour un plafond de 46 000 (`build_core.py --check`, marge de 1 441) | Tout déplacement de ces blocs passe par `build_core.py` (registre `NOYAU`, section « Structure ») ; ne pas allonger les blocs. |
+| 13 | visuel | mineur | Aucun schéma : la chaîne support → grille → scène → objet → primitive (l.55) et la séquence (l.544-551) n'ont que du texte | Un schéma n'est admis que s'il explique mieux (charte, principe 8) : la chaîne en est un cas plausible ; avec équivalent écrit. |
+| 14 | structure | mineur | `LAYER/TEMPLATES` (l.686) mentionne une route `TEMPLATE/*` inexistante dans le catalogue | À vérifier : si aucune route `TEMPLATE/*` n'existe, supprimer la mention ou la marquer comme réservée. |
+
+## Savoir à protéger
+
+- Chaîne de responsabilités support → grille → scène → objet → primitive, « carte, non séquence » : l.53-61, 372, 466.
+- Une structure peut être naturelle, éditoriale, technique, tactile ou expressive ; pas seulement dashboard ou cartes ; objet authored : l.61.
+- « Zéro route est valide » ; héritage ou cas documentaire avant `N/A-JUSTIFIED` : l.11, 27, 39, 43, 177-179 (verrou LCF-51).
+- Premier objet habitable ; thèse structurelle ; signature et limite antérieure : l.28, 91-112.
+- Lecture expressive (calme/tension, intimité/monumentalité, précision/spontanéité, continuité/rupture, collection/instrument, retenue/intensité), à traduire en relations observables : l.65-69 (bloc STRUCT-EXPRESSION).
+- Sept axes de tension, pôle retenu et conséquence ; la route suit la tension : l.73-89 (bloc STRUCT-TENSION).
+- Types de preuve (perceptuelle, experte, technique, utilisateur/tâche) et leur limite : l.131-144.
+- Filtre avant catalogue ; question de sélection par niveau ; objet de rythme : l.150-154, 181-193.
+- Traduction intention → niveau → levier → effet observé, avec condition de reprise : l.158-173 (bloc STRUCT-ACTIVATION pour la phrase de méthode, table l.164-171).
+- Garde-fou de dérivation, matière « survit au test de retrait » ; pas de route nommée d'après une tendance : l.213-219, 247-249.
+- Signaux de convergence (7 compositions) ; test de trame modale ; reformuler la tension plutôt qu'ajouter une scène ; diversité vient du contenu, de la preuve, du geste, de la contrainte : l.253-270 (bloc STRUCT-SIGNAUX, concept TRM-01).
+- Contrat commun de route (17 champs) : l.278-298, et ses limites (une preuve de structure n'est pas une preuve de tâche) : l.302.
+- Calibration locale par dimension (support, objet, typographie, image/matière, comportement) et exemples « à adapter » : l.304-320.
+- 4 supports (FREE_FIELD, ARCHITECTED_FRAME, OPERATIONAL_CANVAS, COLLECTION_PLINTH) avec choisir / éviter / preuve ; test de support : l.324-372.
+- 6 grilles ; contrat de grille ; mobile « préserve priorité, voisinage, cadence, foyer, action » : l.376-458.
+- 6 scènes et leurs distinctions avec les supports et objets proches ; test de scène : l.462-534.
+- 6 opérations de séquence ; trame sur toute la page ; cartes seulement pour objets séparables ; structure mobile : l.538-559.
+- Objet du métier (document ou instrument du domaine), 9 objets, contrat d'objet : l.563-602.
+- Micro : ordre identité → état → mesure → conséquence → action ; graphique avec conclusion et repère ; couleur de variation selon le sens ; 7 micro-interfaces : l.606-626.
+- Before-after valide une hypothèse, l'original peut gagner : l.628-647.
+- 3 modificateurs ; matière jamais seule porteuse de sens : l.651-673.
+- 6 couches ; graphe de dépendance à sens unique ; BRAND_GRAMMAR gouverné : l.677-743.
+- Matrice de compatibilité (10 lignes) et contrat de compatibilité : l.747-779.
+- Contrôle structurel (11 tests, dont non-généricité et silhouette) ; il n'est pas un 4e gate : l.783-816 (concept PRC-01 à l.789).
+- Promotion d'une route (usages contrastés, gain réel, non-homogénéisation, maintenance) ; statuts `SEED` à `ABANDONED` ; alias dépréciés : l.820-874.
+- Test de sortie en 9 questions : l.876-890.
+
+## Ce qui fige ou pousse à la convergence
+
+**Preuves observées (U5, un run par condition, à lire avec prudence).**
+- Couple de tension identique dans les deux runs plafond : `PROOF-POSITION=intégrée` et `TEMPORALITY=séquencée` (`U5/journaux/N4-trace.md:16` pour la facturation, `N5-TRACE.md:77` et `:92` pour la natation). Cause probable : liste fermée de sept axes (l.77-83), avec « un ou deux » à choisir ; ce sont les axes qui se laissent justifier le plus vite. À vérifier sur plus de runs.
+- Même geste de rupture de trame dans les deux traces : la trame modale est citée presque mot pour mot (« promesse, logos, 3 bénéfices… », `N4-trace.md:32`) puis rompue par « preuve au premier écran » (`N4-trace.md:32`, `N5-TRACE.md:90`). La phrase de la ligne 267 (« promesse, logos, trois bénéfices, tarifs, FAQ ») est donc recopiée par les agents ; elle fixe la trame à éviter et, par symétrie, la façon de la rompre.
+- Les routes retenues par la facturation (N4) viennent du catalogue numérique : `SUPPORT/ARCHITECTED_FRAME`, `GRID/AXIAL`, `SCENE/INSTRUMENT`, objet dérivé de `MICRO/ITINERARY_SEGMENTS` (`N4-trace.md:32-34`). La natation (N5) retient des formes locales (coupe du bassin, fiche de palier dérivée de `OBJECT/CONTROL_VALUE_TILE`, `N5-TRACE.md:91`). La convergence de concept entre les deux natations (coupe du bassin) vient donc surtout de la direction, pas du catalogue : à vérifier (`U5/resultats.md`, note de convergence dans `U5/releves.md:11`).
+- La section de variété de page, `SEQUENCE`, ne figure pas dans les routes lues par N4 ni par N5 (`U5/releves.md:6` et `:9`). À vérifier : elle existait peut-être déjà ; sinon l'écart s'explique.
+
+**Valeurs et gabarits présents dans le fichier.**
+- Ordre de sections modal en toutes lettres, copié dans la skill : l.267 (`SKILL.md:103`).
+- Table de 6 relations → routes précises : l.166-171. Le premier choix de l'agent est la ligne qui ressemble à sa demande.
+- Matrice COMPAT : 10 lignes qui nomment des grilles et objets favorables : l.764-773. `GRID/BASELINE` y apparaît 8 fois sur 10.
+- Sept axes de tension fermés : l.77-83 (copiés dans la skill).
+- Rapports `3:2` et `1:1`, « 12 colonnes », « baseline 8 » : l.318, 448 (déjà qualifiés de points de départ).
+- Noms de scènes interdits `SCENE/BENTO`, `SCENE/GLASS_HERO`, `SCENE/EDITORIAL_PREMIUM` : l.249 (usage négatif ; à vérifier au regard du contrôle des mots de tendance).
+- Les sept signaux de convergence (l.258-264) sont des anti-modèles écrits ; ils font de bonnes questions, mais un agent peut les prendre pour une liste d'éléments à éviter plutôt que pour un diagnostic.
+
+**Réponse à la question « variété ou structures par défaut ».** La bibliothèque contient les bons mécanismes de variété : filtre avant catalogue (l.154), dérivation avant promotion (l.213-249), signaux et test de trame (l.253-270), séquence (l.538-559), objet du métier (l.567). Elle contient aussi trois fixations : une liste fermée d'axes de tension, un catalogue de routes tourné vers le numérique à données, et un ordre modal écrit en toutes lettres. La part du catalogue dans la convergence des runs n'est pas prouvée ; la convergence du couple de tension l'est (2 runs sur 2).
+
+**Piste (proposition, non décision).** Ne pas ajouter de règle. Reformuler en place : le test de trame sans l'ordre modal ; la table d'intentions par relation à rendre visible avant le nom de route ; la matrice COMPAT en une phrase de principe. Cela réduit la fixation sans toucher au fond.
+
+## Dépendances et risques de déplacement
+
+- **Blocs `noyau` (copiés dans la skill).** 5 blocs, 4 116 caractères au total : `STRUCT-OU` (l.45-47, 256 car.), `STRUCT-EXPRESSION` (l.65-67, 555), `STRUCT-TENSION` (l.73-85, 534), `STRUCT-ACTIVATION` (l.158-160, 880), `STRUCT-SIGNAUX` (l.253-270, 1 891). Ils sont compilés dans `SKILL.md` section « 5. Structure » (lignes 70 à 105 environ) par `scripts/build_core.py` (registre `NOYAU`, entrée « Structure »). `validate_structure.py` compare la skill à sa compilation ; `build_core.py --check` passe aujourd'hui. Les marqueurs `concept:` à l'intérieur sont retirés à la copie. Toute modification du texte d'un bloc exige de relancer `build_core.py` ; tout déplacement exige de changer le fichier propriétaire dans le registre. Les copies `dist/github/` et `dist/local/` sont générées. Plafond de la skill : 46 000 octets, actuel 44 559.
+- **Contrôles qui verrouillent ce fichier** (`mesures.json`, 14 phrases) : `validate_structure.py` (7) ; `validate_design_governance.py` (3) ; `validate_reading_map.py` (2) ; `test_audit_regressions.py` (1) ; `test_read_route.py` (1). Détail relevé :
+  - MNT-01 (`validate_structure.py:323-333`) : le texte de `## Responsabilité` à `## BIBLIOTHEQUE/READ` ne doit pas contenir `STARTUP-NOMINAL`, `AUDIT-READ`, `### Contrat minimal par périmètre`.
+  - Concepts `TRM-01` (l.266) et `PRC-01` (l.789) dans `validate_structure.py:70` et `:73` : le marqueur doit rester dans le bloc servi par la route qui le cite.
+  - `validate_design_governance.py:263-265` : la phrase « section « Migration des anciens aliases » de `CHANGELOG.md` » doit rester dans ce fichier (l.874).
+  - LCF-20 (`validate_reading_map.py:287-290`) : au moins 2 lignes contenant `PILOT` et `DEPRECATED`, avec le même ensemble de statuts que CHANGELOG (aujourd'hui l.835 et l.862).
+  - LCF-51 (`validate_reading_map.py:571-577`) : la ligne qui commence par « 2. **Zéro route » doit contenir « héritage », « source », « justification », « non-applicabilité réelle » ; la ligne `Local` du tableau l.830 doit contenir « héritage » et « réellement non applicable ».
+  - `validate_reading_map.py:41` liste `BIBLIOTHEQUE/SELECT` ; LCF-09, LCF-17, LCF-24, LCF-51 le citent ; `validate_structure.py:216` et `:598-599` exigent `BIBLIOTHEQUE/COMPONENTS` dans la table de chargement ; `NUMERIC_LOCATOR` et `LOCATOR` (l.51, 349) vérifient les renvois `BIBLIOTHEQUE/...`.
+  - `test_read_route.py:369` : `SUPPORT/FREE_FIELD` doit apparaître dans le plan de `BIBLIOTHEQUE/SUPPORT` ; `read_route.py` résout les titres `## BIBLIOTHEQUE/X` et `### \`ROUTE\`` (l.129) : renommer ces titres en noms humains casse la lecture des routes.
+- **Qui cite ce fichier.** `DIRECTION.md` (renvois de routes aux l.206, 290, 299-301, 776, 788, 844), `ACTION.md` (12 mentions), `SAVOIR.md` (10), `CHANGELOG.md` (10), `READING_MAP.md` (28), `QUICKSTART.md` (4, dont le lien l.288), `README.md` (3), `SKILL.md` (lignes 35-39, 89, 144 et section 5). `package_manifest.json:9` et `:77`, `preparer_livraison.py:37`, `build_distributions.sh` l'emballent.
+- **Ce qu'il cite.** `DIRECTION/START`, `DIRECTION/DOUBLE-LOOP`, `DIRECTION/VISUAL_TARGET`, `ACTION/GATE-A/B/C`, `ACTION/GATE-B/B1b`, `ACTION/FAST-PATH`, `ACTION/HANDOFF`, `ACTION/STRUCTURED-PROOF`, `ACTION/RUN-SYSTEM`, `ACTION/CLOSE-EXIT-CHECK`, `SAVOIR/STYLE`, `SAVOIR/CRAFT`, `SAVOIR/TYPE`, `SAVOIR/STATE`, `SAVOIR/CONTEXT`, `SAVOIR/SYSTEM`, `CHANGELOG`. Toute scission doit conserver ces renvois ou les reporter.
+- **Risque principal.** Scinder en deux fichiers déplace des titres que lisent `read_route.py`, `validate_reading_map.py` et `READING_MAP.md` ; il faut traiter les trois ensemble, et ne rien changer à la skill avant la phase 5 (charte, section 5).
+
+## Synthèse
+
+- Le fichier est un bon catalogue de formes enfoui sous un module de contrats et de promotion : environ 40 000 caractères de design contre 30 000 à 35 000 de gouvernance, avec 56 codes pour 1 000 mots et aucune porte pour un designer. Il faut le scinder (savoir de formes lisible d'un côté, contrats, gate et cycle de vie de l'autre), sans perdre une ligne : la liste « Savoir à protéger » est le point de départ.
+- Variété : les mécanismes anti-défaut sont présents (dérivation, signaux, séquence, objet du métier), mais deux runs indépendants (facturation, natation) ont choisi le même couple de tension, et l'ordre modal de la ligne 267 est recopié. La part du catalogue dans la convergence de concept n'est pas démontrée.
+- Fixations à traiter par reformulation, sans règle nouvelle : liste fermée de sept axes (l.77-83), table d'intentions (l.164-171), matrice COMPAT (l.764-773), ordre modal en toutes lettres (l.267) ; catalogue tourné vers le numérique à données.
+- Cinq blocs noyau (4 116 caractères) sont compilés dans la skill (marge de 1 441 octets sous le plafond) ; cinq scripts de contrôle verrouillent 14 phrases du fichier (MNT-01, TRM-01, PRC-01, LCF-20, LCF-51, alias l.874) ; les titres de route servent à `read_route.py`.

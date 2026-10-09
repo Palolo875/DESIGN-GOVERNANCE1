@@ -1,0 +1,6111 @@
+{
+ "commit": "9681d4e",
+ "documents": [
+  {
+   "fichier": "README.md",
+   "caracteres": 21970,
+   "mots": 3141,
+   "lignes": 208,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 10,
+    "3": 2
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "Source de vérité et distributions",
+    3870
+   ],
+   "ouverture": "**Révision : `R2026-10-08-ACCES-MATIERE` — activation, accès au savoir et matière.** Typographie chargée d’office et routes facultatives tranchées en mode `DIRECTION`, lecteur avec sommaire, synonymes, classement et carte des sujets, nouvelle route de séquence de page, compléments de craft, de sources et de vérité. Les",
+   "codes": {
+    "route": 6,
+    "numéro": 1,
+    "composé": 28,
+    "sous-gate": 1,
+    "capitales": 29
+   },
+   "codes_total": 65,
+   "codes_pour_1000_mots": 21,
+   "non_verifie": 5,
+   "vestiges": [
+    "R2026-10-08-ACCES-MATIERE",
+    "désormais",
+    "révisions précédentes"
+   ],
+   "phrases": {
+    "nombre": 123,
+    "mots_moyenne": 19.0,
+    "mots_p90": 32,
+    "part_plus_de_40_mots": 0.02
+   },
+   "liens_relatifs": [
+    "RELEASE_NOTES.md",
+    "V1/official/ACTION.md",
+    "V1/official/CHANGELOG.md",
+    "V1/official/DIRECTION.md",
+    "V1/official/GLOSSAIRE.md",
+    "V1/official/QUICKSTART.md",
+    "V1/official/READING_MAP.md",
+    "V1/official/README.md",
+    "skills/design-governance-practice/SKILL.md"
+   ],
+   "fichiers_cites": [
+    "/official/ACTION.md",
+    "/official/CHANGELOG.md",
+    "/official/DIRECTION.md",
+    "/official/GLOSSAIRE.md",
+    "/official/QUICKSTART.md",
+    "/official/READING_MAP.md",
+    "/official/README.md",
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "GLOSSAIRE.md",
+    "QUICKSTART.md",
+    "READING_MAP.md",
+    "README.md",
+    "RELEASE_NOTES.md",
+    "SAVOIR.md",
+    "SKILL.md",
+    "scripts/build_distributions.sh",
+    "scripts/preparer_livraison.py",
+    "scripts/read_route.py",
+    "scripts/test_audit_regressions.py",
+    "scripts/test_check_render.py",
+    "scripts/validate_all.py",
+    "scripts/validate_contracts.py",
+    "scripts/validate_design_governance.py",
+    "scripts/validate_reading_map.py",
+    "scripts/validate_run_card.py",
+    "skills/design-governance-practice/SKILL.md"
+   ]
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "caracteres": 18111,
+   "mots": 2606,
+   "lignes": 158,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 11,
+    "3": 1
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "Révision précédente R2026-10-04-AUDIT-FIXES",
+    8034
+   ],
+   "ouverture": "**Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue. **Date de V1.0.0 :** 2026-10-01\\ **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque Après une mesure à l’aveugle (U5), le système active mieux ce qu’il sait. En mode `DIRECTION`, la typographie se ",
+   "codes": {
+    "route": 11,
+    "numéro": 4,
+    "composé": 30,
+    "sous-gate": 2,
+    "capitales": 20
+   },
+   "codes_total": 67,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 8,
+   "vestiges": [
+    "R2026-10-04-AUDIT",
+    "R2026-10-04-AUDIT-FIXES",
+    "R2026-10-08-ACCES-MATIERE",
+    "R2026-10-08-CORRECTIONS",
+    "Révision précédente",
+    "U5",
+    "désormais"
+   ],
+   "phrases": {
+    "nombre": 139,
+    "mots_moyenne": 17.4,
+    "mots_p90": 27,
+    "part_plus_de_40_mots": 0.04
+   },
+   "liens_relatifs": [
+    ".github/workflows/validate.yml",
+    "V1/official/CHANGELOG.md",
+    "V1/official/QUICKSTART.md"
+   ],
+   "fichiers_cites": [
+    ".github/workflows/validate.yml",
+    "/official/CHANGELOG.md",
+    "/official/QUICKSTART.md",
+    "ORCHESTRATION_MAP.md",
+    "SKILL.md",
+    "preparer_livraison.py",
+    "read_route.py",
+    "scripts/validate_all.py",
+    "validate_all.py"
+   ]
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "caracteres": 116983,
+   "mots": 16238,
+   "lignes": 1078,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 20,
+    "3": 61,
+    "4": 1
+   },
+   "profondeur_max": 4,
+   "plus_grosse_section": [
+    "ACTION/RUN_CARD — carte de run minimale",
+    18178
+   ],
+   "ouverture": "**Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. ACTION transforme une direction ou une décision produit en trace de run, artefacts observa",
+   "codes": {
+    "route": 142,
+    "numéro": 0,
+    "composé": 283,
+    "sous-gate": 18,
+    "capitales": 387
+   },
+   "codes_total": 830,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 29,
+   "vestiges": [
+    "ne porte plus"
+   ],
+   "phrases": {
+    "nombre": 659,
+    "mots_moyenne": 18.0,
+    "mots_p90": 30,
+    "part_plus_de_40_mots": 0.04
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": [
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "READING_MAP.md",
+    "SAVOIR.md",
+    "schemas/production_contracts.schema.json",
+    "schemas/run_card.example.json",
+    "scripts/check_render.py",
+    "scripts/test_check_render.py",
+    "scripts/validate_run_card.py"
+   ]
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "caracteres": 78068,
+   "mots": 10702,
+   "lignes": 890,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 16,
+    "3": 50
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "BIBLIOTHEQUE/SELECT — choisir avant de composer",
+    14726
+   ],
+   "ouverture": "**Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. BIBLIOTHEQUE sélectionne les responsabilités structurelles — support, grille, scène, objet",
+   "codes": {
+    "route": 84,
+    "numéro": 0,
+    "composé": 263,
+    "sous-gate": 1,
+    "capitales": 251
+   },
+   "codes_total": 599,
+   "codes_pour_1000_mots": 56,
+   "non_verifie": 4,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 404,
+    "mots_moyenne": 17.3,
+    "mots_p90": 30,
+    "part_plus_de_40_mots": 0.02
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": [
+    "ACTION.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "READING_MAP.md",
+    "SAVOIR.md",
+    "scripts/read_route.py"
+   ]
+  },
+  {
+   "fichier": "V1/official/CHANGELOG.md",
+   "caracteres": 20277,
+   "mots": 2859,
+   "lignes": 90,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 5
+   },
+   "profondeur_max": 2,
+   "plus_grosse_section": [
+    "Autorité et maintenance",
+    11948
+   ],
+   "ouverture": "**Version expérimentale :** `V1.0.0` **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue. **Date de V1.0.0 :** 2026-10-01\\ **Révision :** `R2026-10-08-ACCES-MATIERE` **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque",
+   "codes": {
+    "route": 30,
+    "numéro": 5,
+    "composé": 36,
+    "sous-gate": 2,
+    "capitales": 55
+   },
+   "codes_total": 128,
+   "codes_pour_1000_mots": 45,
+   "non_verifie": 4,
+   "vestiges": [
+    "R2026-10-04-AUDIT",
+    "R2026-10-08-ACCES-MATIERE",
+    "R2026-10-08-CORRECTIONS",
+    "U5",
+    "révision précédente"
+   ],
+   "phrases": {
+    "nombre": 141,
+    "mots_moyenne": 18.2,
+    "mots_p90": 30,
+    "part_plus_de_40_mots": 0.04
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "DIRECTION.md",
+    "QUICKSTART.md",
+    "SAVOIR.md",
+    "SKILL.md",
+    "scripts/build_core.py",
+    "scripts/check_render.py",
+    "scripts/preparer_livraison.py",
+    "scripts/test_check_render.py",
+    "scripts/validate_all.py",
+    "validate_all.py",
+    "validate_reading_map.py"
+   ]
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "caracteres": 102309,
+   "mots": 14618,
+   "lignes": 844,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 18,
+    "3": 43
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "Constitution du document",
+    15994
+   ],
+   "ouverture": "**Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. DIRECTION est le point d’entrée de la gouvernance : il cadre le rôle, les absolus, le mode",
+   "codes": {
+    "route": 182,
+    "numéro": 2,
+    "composé": 149,
+    "sous-gate": 2,
+    "capitales": 377
+   },
+   "codes_total": 712,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 9,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 564,
+    "mots_moyenne": 18.7,
+    "mots_p90": 32,
+    "part_plus_de_40_mots": 0.02
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "READING_MAP.md",
+    "SAVOIR.md",
+    "schemas/domain_frame.schema.json",
+    "scripts/check_render.py",
+    "scripts/read_route.py"
+   ]
+  },
+  {
+   "fichier": "V1/official/GLOSSAIRE.md",
+   "caracteres": 13447,
+   "mots": 1895,
+   "lignes": 93,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 2
+   },
+   "profondeur_max": 2,
+   "plus_grosse_section": [
+    "Exemples express",
+    1247
+   ],
+   "ouverture": "Ce glossaire explique les mots nécessaires pour commencer. Il n’ajoute aucune règle et ne remplace pas les cinq sources normatives. Ces exemples illustrent l’usage des termes ; ils ne créent pas de règle supplémentaire. Cette suite s’adresse à l’opérateur ou à l’agent ; une personne qui fait une demande n’a pas de mode",
+   "codes": {
+    "route": 11,
+    "numéro": 0,
+    "composé": 28,
+    "sous-gate": 1,
+    "capitales": 42
+   },
+   "codes_total": 82,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 5,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 11,
+    "mots_moyenne": 17.8,
+    "mots_p90": 26,
+    "part_plus_de_40_mots": 0.0
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": []
+  },
+  {
+   "fichier": "V1/official/ORCHESTRATION_MAP.md",
+   "caracteres": 367,
+   "mots": 41,
+   "lignes": 3,
+   "titres_par_niveau": {
+    "1": 1
+   },
+   "profondeur_max": 1,
+   "plus_grosse_section": [
+    "",
+    0
+   ],
+   "ouverture": "**Statut :** pointeur de compatibilité. Les combinaisons par résultat recherché, leurs garde-fous et leur condition d’arrêt sont désormais dans [`READING_MAP.md`](READING_MAP.md#combinaisons-par-résultat-recherché), section « Combinaisons par résultat recherché ». Ce fichier ne porte plus de contenu propre.",
+   "codes": {
+    "route": 0,
+    "numéro": 0,
+    "composé": 3,
+    "sous-gate": 0
+   },
+   "codes_total": 3,
+   "codes_pour_1000_mots": 73,
+   "non_verifie": 0,
+   "vestiges": [
+    "désormais",
+    "ne porte plus",
+    "pointeur de compatibilité"
+   ],
+   "phrases": {
+    "nombre": 3,
+    "mots_moyenne": 11.7,
+    "mots_p90": 8,
+    "part_plus_de_40_mots": 0.0
+   },
+   "liens_relatifs": [
+    "READING_MAP.md"
+   ],
+   "fichiers_cites": [
+    "READING_MAP.md"
+   ]
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "caracteres": 26035,
+   "mots": 3707,
+   "lignes": 291,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 14,
+    "3": 3
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "3. Le parcours complet",
+    4019
+   ],
+   "ouverture": "**Package Design Governance V1.0.0.** Expérimentation maintenue pour diriger, construire et vérifier un travail de design avec une trace proportionnée au risque. Il est destiné à un usage supervisé et ne constitue pas une preuve d’efficacité en production. > **Rôle de ce guide :** fournir une interface d’activation rap",
+   "codes": {
+    "route": 34,
+    "numéro": 0,
+    "composé": 25,
+    "sous-gate": 1,
+    "capitales": 76
+   },
+   "codes_total": 136,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 1,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 138,
+    "mots_moyenne": 18.4,
+    "mots_p90": 31,
+    "part_plus_de_40_mots": 0.05
+   },
+   "liens_relatifs": [
+    "../../README.md",
+    "./ACTION.md",
+    "./BIBLIOTHEQUE.md",
+    "./CHANGELOG.md",
+    "./DIRECTION.md",
+    "./READING_MAP.md",
+    "./SAVOIR.md",
+    "DIRECTION.md"
+   ],
+   "fichiers_cites": [
+    "../../README.md",
+    "./ACTION.md",
+    "./BIBLIOTHEQUE.md",
+    "./CHANGELOG.md",
+    "./DIRECTION.md",
+    "./READING_MAP.md",
+    "./SAVOIR.md",
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "READING_MAP.md",
+    "SAVOIR.md",
+    "scripts/read_route.py",
+    "scripts/validate_contracts.py",
+    "scripts/validate_run_card.py",
+    "skills/design-governance-practice/references/examples.md",
+    "skills/design-governance-practice/references/flow.md",
+    "skills/design-governance-practice/references/machine_projection.md"
+   ]
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "caracteres": 29625,
+   "mots": 3763,
+   "lignes": 334,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 12,
+    "3": 11
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "Connexions situées",
+    11579
+   ],
+   "ouverture": "**Statut :** guide dérivé non normatif. Les cinq sources normatives, le schéma `RUN_CARD` et les validateurs propriétaires font foi en cas de divergence. Cette carte réduit la recomposition mentale du lecteur. Elle ne crée ni mode, ni gate, ni axe, ni statut, ni verdict, ni owner de décision supplémentaire. Elle indiqu",
+   "codes": {
+    "route": 222,
+    "numéro": 10,
+    "composé": 25,
+    "sous-gate": 0,
+    "capitales": 79
+   },
+   "codes_total": 336,
+   "codes_pour_1000_mots": 89,
+   "non_verifie": 2,
+   "vestiges": [
+    "R2026-10-08-ACCES-MATIERE"
+   ],
+   "phrases": {
+    "nombre": 148,
+    "mots_moyenne": 16.1,
+    "mots_p90": 24,
+    "part_plus_de_40_mots": 0.0
+   },
+   "liens_relatifs": [
+    "DIRECTION.md"
+   ],
+   "fichiers_cites": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "QUICKSTART.md",
+    "SAVOIR.md",
+    "SKILL.md",
+    "schemas/run_card.schema.json",
+    "scripts/read_route.py",
+    "scripts/validate_run_card.py"
+   ]
+  },
+  {
+   "fichier": "V1/official/README.md",
+   "caracteres": 2054,
+   "mots": 282,
+   "lignes": 21,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 1
+   },
+   "profondeur_max": 2,
+   "plus_grosse_section": [
+    "Sources normatives",
+    1484
+   ],
+   "ouverture": "Ce dossier contient les sources officielles de **Design Governance V1.0.0**, une expérimentation maintenue : un cadre de direction, de création, de jugement et de vérification du design. Pour commencer, lisez la section [« Commencer »](../../README.md#commencer) du README à la racine du package : vous n’avez pas à choi",
+   "codes": {
+    "route": 0,
+    "numéro": 0,
+    "composé": 6,
+    "sous-gate": 0,
+    "capitales": 17
+   },
+   "codes_total": 23,
+   "codes_pour_1000_mots": 82,
+   "non_verifie": 0,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 12,
+    "mots_moyenne": 17.3,
+    "mots_p90": 28,
+    "part_plus_de_40_mots": 0.0
+   },
+   "liens_relatifs": [
+    "../../README.md",
+    "./ACTION.md",
+    "./BIBLIOTHEQUE.md",
+    "./CHANGELOG.md",
+    "./DIRECTION.md",
+    "./GLOSSAIRE.md",
+    "./QUICKSTART.md",
+    "./READING_MAP.md",
+    "./SAVOIR.md"
+   ],
+   "fichiers_cites": [
+    "../../README.md",
+    "./ACTION.md",
+    "./BIBLIOTHEQUE.md",
+    "./CHANGELOG.md",
+    "./DIRECTION.md",
+    "./GLOSSAIRE.md",
+    "./QUICKSTART.md",
+    "./READING_MAP.md",
+    "./SAVOIR.md",
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "GLOSSAIRE.md",
+    "ORCHESTRATION_MAP.md",
+    "QUICKSTART.md",
+    "READING_MAP.md",
+    "README.md",
+    "SAVOIR.md"
+   ]
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "caracteres": 118404,
+   "mots": 16760,
+   "lignes": 1071,
+   "titres_par_niveau": {
+    "1": 13,
+    "2": 19,
+    "3": 40
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "Vocabulaire perceptuel",
+    8447
+   ],
+   "ouverture": "**Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. SAVOIR porte le jugement de design : craft, style, contenu, contexte, technique, sources, ",
+   "codes": {
+    "route": 127,
+    "numéro": 11,
+    "composé": 98,
+    "sous-gate": 0,
+    "capitales": 259
+   },
+   "codes_total": 495,
+   "codes_pour_1000_mots": 30,
+   "non_verifie": 11,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 616,
+    "mots_moyenne": 19.3,
+    "mots_p90": 33,
+    "part_plus_de_40_mots": 0.05
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "READING_MAP.md",
+    "SAVOIR.md",
+    "schemas/research_brief.schema.json",
+    "scripts/check_render.py",
+    "scripts/validate_contracts.py"
+   ]
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "caracteres": 42978,
+   "mots": 6296,
+   "lignes": 224,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 2,
+    "3": 10
+   },
+   "profondeur_max": 3,
+   "plus_grosse_section": [
+    "Noyau de fabrication",
+    41062
+   ],
+   "ouverture": "--- name: design-governance-practice description: \"Produire avec Design Governance V1 un travail de design de niveau designer senior (projet, interface, application, identité ou scène), beau, vrai et situé, même à partir d’un brief flou : gestes de fabrication, prise de brief minimale, plafond déclaré et trace proporti",
+   "codes": {
+    "route": 108,
+    "numéro": 0,
+    "composé": 22,
+    "sous-gate": 2,
+    "capitales": 70
+   },
+   "codes_total": 202,
+   "codes_pour_1000_mots": 32,
+   "non_verifie": 2,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 201,
+    "mots_moyenne": 21.1,
+    "mots_p90": 35,
+    "part_plus_de_40_mots": 0.08
+   },
+   "liens_relatifs": [
+    "references/canonical_minimum.md",
+    "references/examples.md",
+    "references/flow.md",
+    "references/machine_projection.md"
+   ],
+   "fichiers_cites": [
+    "QUICKSTART.md",
+    "READING_MAP.md",
+    "README.md",
+    "references/canonical_minimum.md",
+    "references/examples.md",
+    "references/flow.md",
+    "references/machine_projection.md",
+    "scripts/build_core.py",
+    "scripts/check_render.py",
+    "scripts/read_route.py"
+   ]
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/canonical_minimum.md",
+   "caracteres": 1732,
+   "mots": 251,
+   "lignes": 25,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 3
+   },
+   "profondeur_max": 2,
+   "plus_grosse_section": [
+    "Séparations indispensables",
+    971
+   ],
+   "ouverture": "Cet aide-mémoire ne remplace pas les fichiers V1. Il rappelle uniquement les séparations qui ne doivent jamais être inventées ou fusionnées lorsque les sources canoniques ne sont pas disponibles. Si le paquet V1 n’est pas fourni ou localisable, le signaler. Ne pas inventer les définitions détaillées des gates, des stat",
+   "codes": {
+    "route": 0,
+    "numéro": 0,
+    "composé": 4,
+    "sous-gate": 0,
+    "capitales": 8
+   },
+   "codes_total": 12,
+   "codes_pour_1000_mots": 48,
+   "non_verifie": 1,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 17,
+    "mots_moyenne": 13.4,
+    "mots_p90": 21,
+    "part_plus_de_40_mots": 0.0
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": []
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/examples.md",
+   "caracteres": 9706,
+   "mots": 1352,
+   "lignes": 121,
+   "titres_par_niveau": {
+    "1": 1,
+    "2": 5
+   },
+   "profondeur_max": 2,
+   "plus_grosse_section": [
+    "DIRECTION — première scène identitaire",
+    2423
+   ],
+   "ouverture": "> Ces exemples sont des aides non canoniques. Reprendre la séquence, pas le style, les valeurs, les composants ou les décisions visuelles. Les cas sont `ILLUSTRATIVE` et `SIMULATED` sauf mention contraire. Les champs affichés varient volontairement selon le mode : une omission dans une condensation n’est pas une suppre",
+   "codes": {
+    "route": 4,
+    "numéro": 0,
+    "composé": 30,
+    "sous-gate": 0,
+    "capitales": 70
+   },
+   "codes_total": 104,
+   "codes_pour_1000_mots": 77,
+   "non_verifie": 5,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 37,
+    "mots_moyenne": 19.8,
+    "mots_p90": 32,
+    "part_plus_de_40_mots": 0.08
+   },
+   "liens_relatifs": [
+    "machine_projection.md"
+   ],
+   "fichiers_cites": [
+    "machine_projection.md",
+    "schemas/run_card.example.json",
+    "scripts/validate_run_card.py"
+   ]
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/flow.md",
+   "caracteres": 2086,
+   "mots": 317,
+   "lignes": 26,
+   "titres_par_niveau": {
+    "1": 1
+   },
+   "profondeur_max": 1,
+   "plus_grosse_section": [
+    "",
+    0
+   ],
+   "ouverture": "Le flux suivant est une vue de lecture, pas une route supplémentaire : En texte : **classer et protéger le run, cultiver et diriger la décision, composer et construire l’artefact, polir et observer le rendu, vérifier et corriger ce qui est observable, puis présenter la proposition (trace légère ; la première propositio",
+   "codes": {
+    "route": 1,
+    "numéro": 0,
+    "composé": 3,
+    "sous-gate": 0,
+    "capitales": 2
+   },
+   "codes_total": 6,
+   "codes_pour_1000_mots": 19,
+   "non_verifie": 2,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 11,
+    "mots_moyenne": 21.4,
+    "mots_p90": 37,
+    "part_plus_de_40_mots": 0.09
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": [
+    "READING_MAP.md",
+    "scripts/read_route.py"
+   ]
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/machine_projection.md",
+   "caracteres": 7262,
+   "mots": 862,
+   "lignes": 129,
+   "titres_par_niveau": {
+    "1": 1
+   },
+   "profondeur_max": 1,
+   "plus_grosse_section": [
+    "",
+    0
+   ],
+   "ouverture": "Cette projection sert au transport entre agents, scripts ou handoffs. Elle ne crée pas de contrat concurrent : `ACTION.md` reste la source d’autorité. La forme courte LITE sans RUN_CARD reste une trace complète selon `ACTION/HANDOFF` et `ACTION/CLOSE-PACKAGE` ; elle est hors de cette projection. Une demande de projecti",
+   "codes": {
+    "route": 8,
+    "numéro": 0,
+    "composé": 18,
+    "sous-gate": 0,
+    "capitales": 25
+   },
+   "codes_total": 51,
+   "codes_pour_1000_mots": 59,
+   "non_verifie": 5,
+   "vestiges": [],
+   "phrases": {
+    "nombre": 31,
+    "mots_moyenne": 15.4,
+    "mots_p90": 32,
+    "part_plus_de_40_mots": 0.03
+   },
+   "liens_relatifs": [],
+   "fichiers_cites": [
+    "ACTION.md",
+    "schemas/run_card.example.json",
+    "schemas/run_card.schema.json",
+    "scripts/validate_run_card.py"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "fichier": "README.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Design Governance V1.0.0",
+   "caracteres": 21969,
+   "mots": 3141,
+   "codes": 65,
+   "codes_pour_1000_mots": 21,
+   "non_verifie": 5
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 10,
+   "niveau": 2,
+   "titre": "Commencer",
+   "caracteres": 2281,
+   "mots": 346,
+   "codes": 2,
+   "codes_pour_1000_mots": 6,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 25,
+   "niveau": 2,
+   "titre": "Fiche de version",
+   "caracteres": 1133,
+   "mots": 148,
+   "codes": 5,
+   "codes_pour_1000_mots": 34,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 39,
+   "niveau": 2,
+   "titre": "Mission",
+   "caracteres": 1142,
+   "mots": 160,
+   "codes": 7,
+   "codes_pour_1000_mots": 44,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 47,
+   "niveau": 2,
+   "titre": "Pour les agents et les opérateurs",
+   "caracteres": 2323,
+   "mots": 346,
+   "codes": 10,
+   "codes_pour_1000_mots": 29,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 56,
+   "niveau": 3,
+   "titre": "Installer la skill dans un agent",
+   "caracteres": 1606,
+   "mots": 249,
+   "codes": 2,
+   "codes_pour_1000_mots": 8,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 71,
+   "niveau": 2,
+   "titre": "Constitution minimale",
+   "caracteres": 994,
+   "mots": 142,
+   "codes": 6,
+   "codes_pour_1000_mots": 42,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 78,
+   "niveau": 2,
+   "titre": "Le modèle à double boucle",
+   "caracteres": 2165,
+   "mots": 323,
+   "codes": 4,
+   "codes_pour_1000_mots": 12,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 100,
+   "niveau": 2,
+   "titre": "Structure du dépôt",
+   "caracteres": 2354,
+   "mots": 309,
+   "codes": 11,
+   "codes_pour_1000_mots": 36,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 123,
+   "niveau": 2,
+   "titre": "Source de vérité et distributions",
+   "caracteres": 3870,
+   "mots": 566,
+   "codes": 6,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 148,
+   "niveau": 3,
+   "titre": "Reprendre une préparation interrompue",
+   "caracteres": 2155,
+   "mots": 319,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 171,
+   "niveau": 2,
+   "titre": "Validation",
+   "caracteres": 3511,
+   "mots": 481,
+   "codes": 10,
+   "codes_pour_1000_mots": 21,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "README.md",
+   "ligne": 202,
+   "niveau": 2,
+   "titre": "Limites et discipline d’usage",
+   "caracteres": 1098,
+   "mots": 166,
+   "codes": 1,
+   "codes_pour_1000_mots": 6,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Release notes — Design Governance V1.0.0",
+   "caracteres": 18110,
+   "mots": 2606,
+   "codes": 67,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 8
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 7,
+   "niveau": 2,
+   "titre": "Révision R2026-10-08-ACCES-MATIERE",
+   "caracteres": 1121,
+   "mots": 170,
+   "codes": 6,
+   "codes_pour_1000_mots": 35,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 17,
+   "niveau": 2,
+   "titre": "Révision précédente R2026-10-08-CORRECTIONS",
+   "caracteres": 1484,
+   "mots": 225,
+   "codes": 12,
+   "codes_pour_1000_mots": 53,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 25,
+   "niveau": 2,
+   "titre": "Révision précédente R2026-10-04-AUDIT2-FIXES",
+   "caracteres": 2576,
+   "mots": 368,
+   "codes": 5,
+   "codes_pour_1000_mots": 14,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 37,
+   "niveau": 2,
+   "titre": "Révision précédente R2026-10-04-AUDIT-FIXES",
+   "caracteres": 8034,
+   "mots": 1143,
+   "codes": 25,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 3
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 59,
+   "niveau": 3,
+   "titre": "Contrôles et capacités conservés",
+   "caracteres": 3484,
+   "mots": 502,
+   "codes": 4,
+   "codes_pour_1000_mots": 8,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 79,
+   "niveau": 2,
+   "titre": "Présentation",
+   "caracteres": 536,
+   "mots": 81,
+   "codes": 1,
+   "codes_pour_1000_mots": 12,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 85,
+   "niveau": 2,
+   "titre": "Points clés",
+   "caracteres": 1037,
+   "mots": 143,
+   "codes": 8,
+   "codes_pour_1000_mots": 56,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 96,
+   "niveau": 2,
+   "titre": "Contenu",
+   "caracteres": 477,
+   "mots": 52,
+   "codes": 1,
+   "codes_pour_1000_mots": 19,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 105,
+   "niveau": 2,
+   "titre": "Parcours",
+   "caracteres": 547,
+   "mots": 81,
+   "codes": 4,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 119,
+   "niveau": 2,
+   "titre": "Contrôles inclus",
+   "caracteres": 963,
+   "mots": 139,
+   "codes": 1,
+   "codes_pour_1000_mots": 7,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 139,
+   "niveau": 2,
+   "titre": "Ce que le validateur atteste",
+   "caracteres": 341,
+   "mots": 56,
+   "codes": 2,
+   "codes_pour_1000_mots": 36,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "RELEASE_NOTES.md",
+   "ligne": 152,
+   "niveau": 2,
+   "titre": "Limites déclarées",
+   "caracteres": 730,
+   "mots": 113,
+   "codes": 2,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "ACTION — Pipeline de livraison & preuves",
+   "caracteres": 116982,
+   "mots": 16238,
+   "codes": 830,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 29
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 5,
+   "niveau": 2,
+   "titre": "Responsabilité",
+   "caracteres": 11397,
+   "mots": 1685,
+   "codes": 83,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 11,
+   "niveau": 3,
+   "titre": "Carte de lecture par mode",
+   "caracteres": 876,
+   "mots": 132,
+   "codes": 11,
+   "codes_pour_1000_mots": 83,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 21,
+   "niveau": 3,
+   "titre": "ACTION/HANDOFF — sortie minimale commune",
+   "caracteres": 5046,
+   "mots": 759,
+   "codes": 42,
+   "codes_pour_1000_mots": 55,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 62,
+   "niveau": 3,
+   "titre": "Les quatre registres à ne pas mélanger",
+   "caracteres": 2998,
+   "mots": 413,
+   "codes": 13,
+   "codes_pour_1000_mots": 31,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 88,
+   "niveau": 3,
+   "titre": "ACTION/AUTHORITY — portée d’action et reprise",
+   "caracteres": 993,
+   "mots": 152,
+   "codes": 3,
+   "codes_pour_1000_mots": 20,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 94,
+   "niveau": 3,
+   "titre": "Parcours minimal",
+   "caracteres": 401,
+   "mots": 60,
+   "codes": 4,
+   "codes_pour_1000_mots": 67,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 98,
+   "niveau": 2,
+   "titre": "ACTION/FIRST-RENDER — qualité initiale attendue",
+   "caracteres": 4306,
+   "mots": 602,
+   "codes": 31,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 112,
+   "niveau": 3,
+   "titre": "ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble",
+   "caracteres": 2563,
+   "mots": 348,
+   "codes": 24,
+   "codes_pour_1000_mots": 69,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 138,
+   "niveau": 2,
+   "titre": "ACTION/STATUS — états, issues et verdicts",
+   "caracteres": 6596,
+   "mots": 917,
+   "codes": 66,
+   "codes_pour_1000_mots": 72,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 142,
+   "niveau": 3,
+   "titre": "États du run",
+   "caracteres": 1376,
+   "mots": 191,
+   "codes": 18,
+   "codes_pour_1000_mots": 94,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 158,
+   "niveau": 3,
+   "titre": "Issues et exceptions",
+   "caracteres": 1562,
+   "mots": 196,
+   "codes": 23,
+   "codes_pour_1000_mots": 117,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 173,
+   "niveau": 3,
+   "titre": "Règle de lecture des statuts",
+   "caracteres": 800,
+   "mots": 132,
+   "codes": 3,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 183,
+   "niveau": 3,
+   "titre": "Chemin minimal",
+   "caracteres": 323,
+   "mots": 54,
+   "codes": 2,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 187,
+   "niveau": 3,
+   "titre": "Principe positif de qualité",
+   "caracteres": 682,
+   "mots": 108,
+   "codes": 2,
+   "codes_pour_1000_mots": 19,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 192,
+   "niveau": 3,
+   "titre": "Verdicts V/U/A/T",
+   "caracteres": 1080,
+   "mots": 130,
+   "codes": 11,
+   "codes_pour_1000_mots": 85,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 205,
+   "niveau": 3,
+   "titre": "Statut de direction",
+   "caracteres": 558,
+   "mots": 78,
+   "codes": 5,
+   "codes_pour_1000_mots": 64,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 218,
+   "niveau": 2,
+   "titre": "ACTION/PRECONDITION — mode, capacité et preuve",
+   "caracteres": 4899,
+   "mots": 682,
+   "codes": 48,
+   "codes_pour_1000_mots": 70,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 233,
+   "niveau": 3,
+   "titre": "Contrat de décision et de preuve",
+   "caracteres": 983,
+   "mots": 134,
+   "codes": 11,
+   "codes_pour_1000_mots": 82,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 249,
+   "niveau": 3,
+   "titre": "Trace post-build de `DIRECTION/EXTERNAL-START`",
+   "caracteres": 756,
+   "mots": 104,
+   "codes": 8,
+   "codes_pour_1000_mots": 77,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 261,
+   "niveau": 3,
+   "titre": "Raccord de trace pour la section `DESIGN-ATLAS` de `SAVOIR.md`",
+   "caracteres": 1796,
+   "mots": 252,
+   "codes": 16,
+   "codes_pour_1000_mots": 63,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 271,
+   "niveau": 2,
+   "titre": "ACTION/FAST-PATH — preuve minimale sans rituel",
+   "caracteres": 1104,
+   "mots": 164,
+   "codes": 7,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 281,
+   "niveau": 2,
+   "titre": "ACTION/RUN_CARD — carte de run minimale",
+   "caracteres": 18178,
+   "mots": 2383,
+   "codes": 173,
+   "codes_pour_1000_mots": 73,
+   "non_verifie": 8
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 342,
+   "niveau": 3,
+   "titre": "Profil de capacités",
+   "caracteres": 1776,
+   "mots": 243,
+   "codes": 9,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 352,
+   "niveau": 3,
+   "titre": "Mode agent seul et preuve dégradée",
+   "caracteres": 1822,
+   "mots": 256,
+   "codes": 8,
+   "codes_pour_1000_mots": 31,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 366,
+   "niveau": 3,
+   "titre": "Vue d’exécution dérivée",
+   "caracteres": 2896,
+   "mots": 401,
+   "codes": 20,
+   "codes_pour_1000_mots": 50,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 393,
+   "niveau": 3,
+   "titre": "Projection machine-readable optionnelle",
+   "caracteres": 1570,
+   "mots": 215,
+   "codes": 15,
+   "codes_pour_1000_mots": 70,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 401,
+   "niveau": 3,
+   "titre": "Frontière de validation et de preuve",
+   "caracteres": 2736,
+   "mots": 409,
+   "codes": 10,
+   "codes_pour_1000_mots": 24,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 415,
+   "niveau": 2,
+   "titre": "ACTION/RUN — routes d’exécution",
+   "caracteres": 5851,
+   "mots": 797,
+   "codes": 64,
+   "codes_pour_1000_mots": 80,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 419,
+   "niveau": 3,
+   "titre": "`ACTION/RUN-LITE`",
+   "caracteres": 802,
+   "mots": 111,
+   "codes": 11,
+   "codes_pour_1000_mots": 99,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 429,
+   "niveau": 3,
+   "titre": "`ACTION/RUN-ITER`",
+   "caracteres": 828,
+   "mots": 111,
+   "codes": 11,
+   "codes_pour_1000_mots": 99,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 439,
+   "niveau": 3,
+   "titre": "`ACTION/RUN-STANDARD`",
+   "caracteres": 962,
+   "mots": 131,
+   "codes": 11,
+   "codes_pour_1000_mots": 84,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 449,
+   "niveau": 3,
+   "titre": "`ACTION/RUN-DIRECTION`",
+   "caracteres": 2034,
+   "mots": 284,
+   "codes": 16,
+   "codes_pour_1000_mots": 56,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 459,
+   "niveau": 3,
+   "titre": "`ACTION/RUN-SYSTEM`",
+   "caracteres": 946,
+   "mots": 120,
+   "codes": 12,
+   "codes_pour_1000_mots": 100,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 471,
+   "niveau": 2,
+   "titre": "ACTION/CLOSE-PACKAGE — paquet de clôture",
+   "caracteres": 6838,
+   "mots": 930,
+   "codes": 64,
+   "codes_pour_1000_mots": 69,
+   "non_verifie": 3
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 489,
+   "niveau": 3,
+   "titre": "Fraîcheur de la preuve",
+   "caracteres": 912,
+   "mots": 136,
+   "codes": 3,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 495,
+   "niveau": 3,
+   "titre": "Cycle de vie des réserves",
+   "caracteres": 631,
+   "mots": 69,
+   "codes": 16,
+   "codes_pour_1000_mots": 232,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 511,
+   "niveau": 3,
+   "titre": "Responsabilité, droits et confidentialité",
+   "caracteres": 1398,
+   "mots": 204,
+   "codes": 4,
+   "codes_pour_1000_mots": 20,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 519,
+   "niveau": 3,
+   "titre": "Condition d’arrêt du polish",
+   "caracteres": 665,
+   "mots": 95,
+   "codes": 1,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 525,
+   "niveau": 2,
+   "titre": "ACTION/PIPELINE-DIRECTION — direction vérifiable",
+   "caracteres": 12213,
+   "mots": 1719,
+   "codes": 57,
+   "codes_pour_1000_mots": 33,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 531,
+   "niveau": 3,
+   "titre": "Boucle de qualité et branche one-shot",
+   "caracteres": 1053,
+   "mots": 160,
+   "codes": 6,
+   "codes_pour_1000_mots": 38,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 537,
+   "niveau": 3,
+   "titre": "1. Situer les positions",
+   "caracteres": 956,
+   "mots": 130,
+   "codes": 1,
+   "codes_pour_1000_mots": 8,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 545,
+   "niveau": 3,
+   "titre": "2. Traduire l’émotion",
+   "caracteres": 348,
+   "mots": 44,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 551,
+   "niveau": 3,
+   "titre": "3. Développer une alternative située",
+   "caracteres": 836,
+   "mots": 120,
+   "codes": 3,
+   "codes_pour_1000_mots": 25,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 557,
+   "niveau": 3,
+   "titre": "4. Produire la spec visuelle",
+   "caracteres": 2015,
+   "mots": 263,
+   "codes": 15,
+   "codes_pour_1000_mots": 57,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 571,
+   "niveau": 3,
+   "titre": "5. Sourcer et tracer",
+   "caracteres": 976,
+   "mots": 136,
+   "codes": 11,
+   "codes_pour_1000_mots": 81,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 579,
+   "niveau": 3,
+   "titre": "6. Sélectionner contre la facilité",
+   "caracteres": 342,
+   "mots": 50,
+   "codes": 1,
+   "codes_pour_1000_mots": 20,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 585,
+   "niveau": 3,
+   "titre": "7. Écrire la direction et demander une décision si nécessaire",
+   "caracteres": 1523,
+   "mots": 221,
+   "codes": 3,
+   "codes_pour_1000_mots": 14,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 596,
+   "niveau": 3,
+   "titre": "8. Vérifier le rendu réel",
+   "caracteres": 798,
+   "mots": 109,
+   "codes": 8,
+   "codes_pour_1000_mots": 73,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 600,
+   "niveau": 3,
+   "titre": "Passe créative et polish",
+   "caracteres": 2752,
+   "mots": 406,
+   "codes": 4,
+   "codes_pour_1000_mots": 10,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 616,
+   "niveau": 2,
+   "titre": "ACTION/STRUCTURED-PROOF — contrats de décision et leur preuve",
+   "caracteres": 7031,
+   "mots": 920,
+   "codes": 42,
+   "codes_pour_1000_mots": 46,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 634,
+   "niveau": 3,
+   "titre": "Carte de hiérarchie",
+   "caracteres": 778,
+   "mots": 102,
+   "codes": 10,
+   "codes_pour_1000_mots": 98,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 661,
+   "niveau": 3,
+   "titre": "Partition typographique",
+   "caracteres": 976,
+   "mots": 110,
+   "codes": 1,
+   "codes_pour_1000_mots": 9,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 675,
+   "niveau": 3,
+   "titre": "Fiche d’asset directeur",
+   "caracteres": 2343,
+   "mots": 323,
+   "codes": 14,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 692,
+   "niveau": 3,
+   "titre": "Contrat de composant et baseline",
+   "caracteres": 937,
+   "mots": 135,
+   "codes": 3,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 702,
+   "niveau": 3,
+   "titre": "Contrat de motion ou scène spatiale",
+   "caracteres": 460,
+   "mots": 61,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 710,
+   "niveau": 2,
+   "titre": "ACTION/VISUAL_PROOF — rendre la direction vérifiable",
+   "caracteres": 2019,
+   "mots": 294,
+   "codes": 13,
+   "codes_pour_1000_mots": 44,
+   "non_verifie": 3
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 732,
+   "niveau": 2,
+   "titre": "ACTION/GATE-A — plancher objectivable",
+   "caracteres": 11935,
+   "mots": 1659,
+   "codes": 40,
+   "codes_pour_1000_mots": 24,
+   "non_verifie": 4
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 736,
+   "niveau": 3,
+   "titre": "Contrat de portée",
+   "caracteres": 1438,
+   "mots": 195,
+   "codes": 14,
+   "codes_pour_1000_mots": 72,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 753,
+   "niveau": 3,
+   "titre": "Familles de méthodes",
+   "caracteres": 1488,
+   "mots": 210,
+   "codes": 10,
+   "codes_pour_1000_mots": 48,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 766,
+   "niveau": 3,
+   "titre": "Adéquation des preuves",
+   "caracteres": 735,
+   "mots": 93,
+   "codes": 1,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 776,
+   "niveau": 3,
+   "titre": "Contrôles applicables",
+   "caracteres": 8087,
+   "mots": 1137,
+   "codes": 14,
+   "codes_pour_1000_mots": 12,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 815,
+   "niveau": 2,
+   "titre": "ACTION/GATE-B — jugement contextualisé et risques",
+   "caracteres": 10125,
+   "mots": 1437,
+   "codes": 65,
+   "codes_pour_1000_mots": 45,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 819,
+   "niveau": 3,
+   "titre": "B1 — Comparaison relationnelle",
+   "caracteres": 655,
+   "mots": 90,
+   "codes": 2,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 827,
+   "niveau": 3,
+   "titre": "B1b — Discrimination sur capture, requise dans son scope",
+   "caracteres": 4750,
+   "mots": 686,
+   "codes": 32,
+   "codes_pour_1000_mots": 47,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 853,
+   "niveau": 3,
+   "titre": "B2 — Familles de preuve",
+   "caracteres": 1176,
+   "mots": 162,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 866,
+   "niveau": 3,
+   "titre": "B3 — Regard externe",
+   "caracteres": 1908,
+   "mots": 249,
+   "codes": 25,
+   "codes_pour_1000_mots": 100,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 891,
+   "niveau": 3,
+   "titre": "B4 — Corrections ancrées",
+   "caracteres": 501,
+   "mots": 77,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 897,
+   "niveau": 3,
+   "titre": "B5 — Trace d’assets et statut de direction",
+   "caracteres": 600,
+   "mots": 90,
+   "codes": 1,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 903,
+   "niveau": 3,
+   "titre": "B6 — Format de sortie compact",
+   "caracteres": 374,
+   "mots": 61,
+   "codes": 4,
+   "codes_pour_1000_mots": 66,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 911,
+   "niveau": 2,
+   "titre": "ACTION/GATE-C — craft sur rendu réel",
+   "caracteres": 3965,
+   "mots": 579,
+   "codes": 13,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 936,
+   "niveau": 2,
+   "titre": "ACTION/ANTI-SLOP — conséquence de gate",
+   "caracteres": 678,
+   "mots": 98,
+   "codes": 5,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 944,
+   "niveau": 2,
+   "titre": "ACTION/OVERRIDE — FAIL-ASSUMED et péremption",
+   "caracteres": 2044,
+   "mots": 277,
+   "codes": 21,
+   "codes_pour_1000_mots": 76,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 946,
+   "niveau": 3,
+   "titre": "FAIL-ASSUMED",
+   "caracteres": 1460,
+   "mots": 192,
+   "codes": 19,
+   "codes_pour_1000_mots": 99,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 970,
+   "niveau": 3,
+   "titre": "Péremption",
+   "caracteres": 534,
+   "mots": 80,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 980,
+   "niveau": 2,
+   "titre": "ACTION/POLICIES — contraste et inspection",
+   "caracteres": 2084,
+   "mots": 299,
+   "codes": 5,
+   "codes_pour_1000_mots": 17,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 982,
+   "niveau": 3,
+   "titre": "Politique de contraste",
+   "caracteres": 676,
+   "mots": 103,
+   "codes": 4,
+   "codes_pour_1000_mots": 39,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 990,
+   "niveau": 3,
+   "titre": "Inspection et ressources techniques",
+   "caracteres": 1361,
+   "mots": 191,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 1014,
+   "niveau": 2,
+   "titre": "ACTION/ROUTING — prérequis de jugement et de structure",
+   "caracteres": 1614,
+   "mots": 213,
+   "codes": 27,
+   "codes_pour_1000_mots": 127,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 1035,
+   "niveau": 2,
+   "titre": "ACTION/MAINTENANCE — recette documentaire",
+   "caracteres": 1702,
+   "mots": 231,
+   "codes": 2,
+   "codes_pour_1000_mots": 9,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 1059,
+   "niveau": 2,
+   "titre": "ACTION/CLOSE-EXIT-CHECK — test de sortie canonique",
+   "caracteres": 1949,
+   "mots": 295,
+   "codes": 2,
+   "codes_pour_1000_mots": 7,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/ACTION.md",
+   "ligne": 1076,
+   "niveau": 3,
+   "titre": "Mesure expérimentale de la méthode",
+   "caracteres": 559,
+   "mots": 83,
+   "codes": 1,
+   "codes_pour_1000_mots": 12,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "BIBLIOTHEQUE — Structures d’interface situées",
+   "caracteres": 78067,
+   "mots": 10702,
+   "codes": 599,
+   "codes_pour_1000_mots": 56,
+   "non_verifie": 4
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 5,
+   "niveau": 2,
+   "titre": "Responsabilité",
+   "caracteres": 5749,
+   "mots": 816,
+   "codes": 35,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 22,
+   "niveau": 3,
+   "titre": "Entrée prioritaire — à lire avant le catalogue",
+   "caracteres": 1794,
+   "mots": 258,
+   "codes": 7,
+   "codes_pour_1000_mots": 27,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 35,
+   "niveau": 3,
+   "titre": "Orientation interne et sortie de sélection",
+   "caracteres": 2070,
+   "mots": 290,
+   "codes": 18,
+   "codes_pour_1000_mots": 62,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 51,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/READ — responsabilités et convention de route",
+   "caracteres": 9865,
+   "mots": 1378,
+   "codes": 67,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 63,
+   "niveau": 3,
+   "titre": "Lecture expressive de la structure",
+   "caracteres": 1254,
+   "mots": 184,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 71,
+   "niveau": 3,
+   "titre": "BIBLIOTHEQUE/TENSION — diverger avant de sélectionner",
+   "caracteres": 1556,
+   "mots": 217,
+   "codes": 19,
+   "codes_pour_1000_mots": 88,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 91,
+   "niveau": 3,
+   "titre": "BIBLIOTHEQUE/SIGNATURE — rendre l’écart vérifiable",
+   "caracteres": 859,
+   "mots": 117,
+   "codes": 6,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 104,
+   "niveau": 3,
+   "titre": "Thèse structurelle et premier objet habitable",
+   "caracteres": 1658,
+   "mots": 233,
+   "codes": 5,
+   "codes_pour_1000_mots": 21,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 114,
+   "niveau": 3,
+   "titre": "Préfixes canoniques",
+   "caracteres": 1408,
+   "mots": 189,
+   "codes": 19,
+   "codes_pour_1000_mots": 101,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 131,
+   "niveau": 3,
+   "titre": "Types de preuve",
+   "caracteres": 1537,
+   "mots": 204,
+   "codes": 16,
+   "codes_pour_1000_mots": 78,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 148,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/SELECT — choisir avant de composer",
+   "caracteres": 14726,
+   "mots": 2067,
+   "codes": 105,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 156,
+   "niveau": 3,
+   "titre": "Traduire une intention en construction",
+   "caracteres": 4038,
+   "mots": 567,
+   "codes": 17,
+   "codes_pour_1000_mots": 30,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 175,
+   "niveau": 3,
+   "titre": "BIBLIOTHEQUE/AVANT-SELECTION — vérifier avant de sélectionner",
+   "caracteres": 1065,
+   "mots": 153,
+   "codes": 9,
+   "codes_pour_1000_mots": 59,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 181,
+   "niveau": 3,
+   "titre": "Question de sélection",
+   "caracteres": 1008,
+   "mots": 136,
+   "codes": 5,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 195,
+   "niveau": 3,
+   "titre": "Sélection par mode",
+   "caracteres": 1532,
+   "mots": 206,
+   "codes": 35,
+   "codes_pour_1000_mots": 170,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 207,
+   "niveau": 3,
+   "titre": "One-shot et boucle structurelle",
+   "caracteres": 645,
+   "mots": 91,
+   "codes": 2,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 213,
+   "niveau": 3,
+   "titre": "Garde-fou de dérivation",
+   "caracteres": 745,
+   "mots": 121,
+   "codes": 2,
+   "codes_pour_1000_mots": 17,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 221,
+   "niveau": 3,
+   "titre": "BIBLIOTHEQUE/DERIVE — inventer sans fabriquer un menu",
+   "caracteres": 2435,
+   "mots": 314,
+   "codes": 27,
+   "codes_pour_1000_mots": 86,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 251,
+   "niveau": 3,
+   "titre": "Signaux de convergence structurelle",
+   "caracteres": 2007,
+   "mots": 299,
+   "codes": 1,
+   "codes_pour_1000_mots": 3,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 274,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/CONTRACTS — contrat commun de route",
+   "caracteres": 6755,
+   "mots": 943,
+   "codes": 25,
+   "codes_pour_1000_mots": 27,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 304,
+   "niveau": 3,
+   "titre": "Calibration locale de la relation retenue",
+   "caracteres": 3398,
+   "mots": 504,
+   "codes": 8,
+   "codes_pour_1000_mots": 16,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 324,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/SUPPORT — où la surface vit",
+   "caracteres": 2753,
+   "mots": 384,
+   "codes": 12,
+   "codes_pour_1000_mots": 31,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 328,
+   "niveau": 3,
+   "titre": "`SUPPORT/FREE_FIELD`",
+   "caracteres": 523,
+   "mots": 68,
+   "codes": 3,
+   "codes_pour_1000_mots": 44,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 338,
+   "niveau": 3,
+   "titre": "`SUPPORT/ARCHITECTED_FRAME`",
+   "caracteres": 469,
+   "mots": 63,
+   "codes": 2,
+   "codes_pour_1000_mots": 32,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 348,
+   "niveau": 3,
+   "titre": "`SUPPORT/OPERATIONAL_CANVAS`",
+   "caracteres": 480,
+   "mots": 58,
+   "codes": 2,
+   "codes_pour_1000_mots": 34,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 358,
+   "niveau": 3,
+   "titre": "`SUPPORT/COLLECTION_PLINTH`",
+   "caracteres": 430,
+   "mots": 56,
+   "codes": 1,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 368,
+   "niveau": 3,
+   "titre": "Test de support",
+   "caracteres": 627,
+   "mots": 105,
+   "codes": 3,
+   "codes_pour_1000_mots": 29,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 376,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/GRID — comment le regard circule",
+   "caracteres": 3755,
+   "mots": 502,
+   "codes": 31,
+   "codes_pour_1000_mots": 62,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 380,
+   "niveau": 3,
+   "titre": "`GRID/MODULAR`",
+   "caracteres": 345,
+   "mots": 45,
+   "codes": 1,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 388,
+   "niveau": 3,
+   "titre": "`GRID/COLUMN`",
+   "caracteres": 275,
+   "mots": 33,
+   "codes": 1,
+   "codes_pour_1000_mots": 30,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 396,
+   "niveau": 3,
+   "titre": "`GRID/RADIAL`",
+   "caracteres": 267,
+   "mots": 36,
+   "codes": 1,
+   "codes_pour_1000_mots": 28,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 404,
+   "niveau": 3,
+   "titre": "`GRID/HIERARCHICAL`",
+   "caracteres": 307,
+   "mots": 38,
+   "codes": 1,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 412,
+   "niveau": 3,
+   "titre": "`GRID/BASELINE`",
+   "caracteres": 265,
+   "mots": 32,
+   "codes": 1,
+   "codes_pour_1000_mots": 31,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 420,
+   "niveau": 3,
+   "titre": "`GRID/AXIAL`",
+   "caracteres": 319,
+   "mots": 44,
+   "codes": 1,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 428,
+   "niveau": 3,
+   "titre": "Contrat de grille",
+   "caracteres": 1702,
+   "mots": 232,
+   "codes": 24,
+   "codes_pour_1000_mots": 103,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 462,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/SCENE — comment la promesse devient une surface",
+   "caracteres": 3541,
+   "mots": 465,
+   "codes": 20,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 468,
+   "niveau": 3,
+   "titre": "`SCENE/INSTRUMENT`",
+   "caracteres": 438,
+   "mots": 59,
+   "codes": 4,
+   "codes_pour_1000_mots": 68,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 478,
+   "niveau": 3,
+   "titre": "`SCENE/EDITORIAL_FIELD`",
+   "caracteres": 527,
+   "mots": 64,
+   "codes": 3,
+   "codes_pour_1000_mots": 47,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 488,
+   "niveau": 3,
+   "titre": "`SCENE/FRAMED_PRODUCT`",
+   "caracteres": 437,
+   "mots": 54,
+   "codes": 3,
+   "codes_pour_1000_mots": 56,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 498,
+   "niveau": 3,
+   "titre": "`SCENE/OPERATING_GRID`",
+   "caracteres": 455,
+   "mots": 55,
+   "codes": 3,
+   "codes_pour_1000_mots": 55,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 508,
+   "niveau": 3,
+   "titre": "`SCENE/SPLIT_PROOF`",
+   "caracteres": 426,
+   "mots": 59,
+   "codes": 3,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 518,
+   "niveau": 3,
+   "titre": "`SCENE/PRODUCT_NARRATIVE`",
+   "caracteres": 425,
+   "mots": 50,
+   "codes": 3,
+   "codes_pour_1000_mots": 60,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 528,
+   "niveau": 3,
+   "titre": "Test de scène",
+   "caracteres": 476,
+   "mots": 71,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 538,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/SEQUENCE — comment la page s’enchaîne",
+   "caracteres": 3238,
+   "mots": 522,
+   "codes": 3,
+   "codes_pour_1000_mots": 6,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 557,
+   "niveau": 3,
+   "titre": "Structure mobile",
+   "caracteres": 483,
+   "mots": 77,
+   "codes": 1,
+   "codes_pour_1000_mots": 13,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 563,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/OBJECT — quelle preuve devient tangible",
+   "caracteres": 3816,
+   "mots": 489,
+   "codes": 24,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 569,
+   "niveau": 3,
+   "titre": "Routes d’objet",
+   "caracteres": 1451,
+   "mots": 174,
+   "codes": 9,
+   "codes_pour_1000_mots": 52,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 583,
+   "niveau": 3,
+   "titre": "Contrat d’objet",
+   "caracteres": 1717,
+   "mots": 213,
+   "codes": 14,
+   "codes_pour_1000_mots": 66,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 606,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/MICRO — unités denses",
+   "caracteres": 3976,
+   "mots": 523,
+   "codes": 26,
+   "codes_pour_1000_mots": 50,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 628,
+   "niveau": 3,
+   "titre": "Before-after",
+   "caracteres": 1351,
+   "mots": 192,
+   "codes": 16,
+   "codes_pour_1000_mots": 83,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 651,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/MODIFIER — comportements transversaux",
+   "caracteres": 1583,
+   "mots": 219,
+   "codes": 5,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 655,
+   "niveau": 3,
+   "titre": "`MODIFIER/FIELD_SWITCH`",
+   "caracteres": 285,
+   "mots": 40,
+   "codes": 1,
+   "codes_pour_1000_mots": 25,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 661,
+   "niveau": 3,
+   "titre": "`MODIFIER/NAVIGATION_SHELL`",
+   "caracteres": 278,
+   "mots": 39,
+   "codes": 1,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 667,
+   "niveau": 3,
+   "titre": "`MODIFIER/PRINT_FIELD`",
+   "caracteres": 775,
+   "mots": 109,
+   "codes": 2,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 677,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/COMPONENTS — couches et dépendances",
+   "caracteres": 3219,
+   "mots": 401,
+   "codes": 59,
+   "codes_pour_1000_mots": 147,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 688,
+   "niveau": 3,
+   "titre": "Contrat de composant partagé",
+   "caracteres": 812,
+   "mots": 112,
+   "codes": 27,
+   "codes_pour_1000_mots": 241,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 708,
+   "niveau": 3,
+   "titre": "Échelle de responsabilité",
+   "caracteres": 1331,
+   "mots": 165,
+   "codes": 19,
+   "codes_pour_1000_mots": 115,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 747,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/COMPAT — combiner avec une raison",
+   "caracteres": 3521,
+   "mots": 405,
+   "codes": 78,
+   "codes_pour_1000_mots": 193,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 775,
+   "niveau": 3,
+   "titre": "Contrat de compatibilité",
+   "caracteres": 583,
+   "mots": 80,
+   "codes": 4,
+   "codes_pour_1000_mots": 50,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 783,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/GATE — contrôle de module structurel complémentaire",
+   "caracteres": 4338,
+   "mots": 592,
+   "codes": 49,
+   "codes_pour_1000_mots": 83,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 808,
+   "niveau": 3,
+   "titre": "Statut ACTION du contrôle structurel",
+   "caracteres": 969,
+   "mots": 142,
+   "codes": 11,
+   "codes_pour_1000_mots": 77,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 820,
+   "niveau": 2,
+   "titre": "BIBLIOTHEQUE/EVOLUTION — promotion et dépréciation",
+   "caracteres": 5281,
+   "mots": 740,
+   "codes": 46,
+   "codes_pour_1000_mots": 62,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 826,
+   "niveau": 3,
+   "titre": "Contrat minimal par périmètre de contribution et statut de route",
+   "caracteres": 1276,
+   "mots": 164,
+   "codes": 14,
+   "codes_pour_1000_mots": 85,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 837,
+   "niveau": 3,
+   "titre": "Contrat de gain réel",
+   "caracteres": 1120,
+   "mots": 156,
+   "codes": 15,
+   "codes_pour_1000_mots": 96,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 864,
+   "niveau": 3,
+   "titre": "Contribution et retour d’usage",
+   "caracteres": 2057,
+   "mots": 305,
+   "codes": 14,
+   "codes_pour_1000_mots": 46,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/BIBLIOTHEQUE.md",
+   "ligne": 876,
+   "niveau": 2,
+   "titre": "Test de sortie BIBLIOTHEQUE",
+   "caracteres": 1413,
+   "mots": 196,
+   "codes": 10,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/CHANGELOG.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Changelog — Design Governance V1.0.0",
+   "caracteres": 20276,
+   "mots": 2859,
+   "codes": 128,
+   "codes_pour_1000_mots": 45,
+   "non_verifie": 4
+  },
+  {
+   "fichier": "V1/official/CHANGELOG.md",
+   "ligne": 10,
+   "niveau": 2,
+   "titre": "V1.0.0 — Version initiale expérimentale (2026-10-01)",
+   "caracteres": 5097,
+   "mots": 736,
+   "codes": 27,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 3
+  },
+  {
+   "fichier": "V1/official/CHANGELOG.md",
+   "ligne": 30,
+   "niveau": 2,
+   "titre": "Autorité et maintenance",
+   "caracteres": 11948,
+   "mots": 1680,
+   "codes": 65,
+   "codes_pour_1000_mots": 39,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/CHANGELOG.md",
+   "ligne": 58,
+   "niveau": 2,
+   "titre": "Cycle de vie des routes",
+   "caracteres": 1479,
+   "mots": 208,
+   "codes": 21,
+   "codes_pour_1000_mots": 101,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/CHANGELOG.md",
+   "ligne": 72,
+   "niveau": 2,
+   "titre": "Migration des anciens aliases",
+   "caracteres": 978,
+   "mots": 129,
+   "codes": 13,
+   "codes_pour_1000_mots": 101,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/CHANGELOG.md",
+   "ligne": 86,
+   "niveau": 2,
+   "titre": "Limites de la version",
+   "caracteres": 437,
+   "mots": 65,
+   "codes": 1,
+   "codes_pour_1000_mots": 15,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "DIRECTION — Cadre de décision et de design situé",
+   "caracteres": 102308,
+   "mots": 14618,
+   "codes": 712,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 9
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 5,
+   "niveau": 2,
+   "titre": "Rôle",
+   "caracteres": 1235,
+   "mots": 191,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 18,
+   "niveau": 2,
+   "titre": "Posture — à lire avant toute action",
+   "caracteres": 993,
+   "mots": 150,
+   "codes": 1,
+   "codes_pour_1000_mots": 7,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 30,
+   "niveau": 2,
+   "titre": "Constitution du document",
+   "caracteres": 15994,
+   "mots": 2261,
+   "codes": 129,
+   "codes_pour_1000_mots": 57,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 44,
+   "niveau": 3,
+   "titre": "Récapitulatif de protection",
+   "caracteres": 1664,
+   "mots": 230,
+   "codes": 14,
+   "codes_pour_1000_mots": 61,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 56,
+   "niveau": 3,
+   "titre": "Frontière de responsabilité",
+   "caracteres": 539,
+   "mots": 80,
+   "codes": 7,
+   "codes_pour_1000_mots": 88,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 60,
+   "niveau": 3,
+   "titre": "Orientation interne et sortie",
+   "caracteres": 1159,
+   "mots": 159,
+   "codes": 17,
+   "codes_pour_1000_mots": 107,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 68,
+   "niveau": 3,
+   "titre": "Trois contrats à ne pas mélanger",
+   "caracteres": 824,
+   "mots": 108,
+   "codes": 9,
+   "codes_pour_1000_mots": 83,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 78,
+   "niveau": 3,
+   "titre": "Architecture d’activation",
+   "caracteres": 1645,
+   "mots": 208,
+   "codes": 17,
+   "codes_pour_1000_mots": 82,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 94,
+   "niveau": 3,
+   "titre": "Carte de lecture canonique et chemin en trente secondes",
+   "caracteres": 6882,
+   "mots": 1010,
+   "codes": 34,
+   "codes_pour_1000_mots": 34,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 120,
+   "niveau": 3,
+   "titre": "Comment lire les taxonomies",
+   "caracteres": 505,
+   "mots": 82,
+   "codes": 1,
+   "codes_pour_1000_mots": 12,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 124,
+   "niveau": 3,
+   "titre": "Légende",
+   "caracteres": 1708,
+   "mots": 240,
+   "codes": 21,
+   "codes_pour_1000_mots": 88,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 143,
+   "niveau": 2,
+   "titre": "DIRECTION/SERVICE-BOUNDARY — ne pas confondre relation et contrat",
+   "caracteres": 1129,
+   "mots": 174,
+   "codes": 2,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 149,
+   "niveau": 2,
+   "titre": "DIRECTION/START — classer avant d’agir",
+   "caracteres": 13978,
+   "mots": 1992,
+   "codes": 111,
+   "codes_pour_1000_mots": 56,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 157,
+   "niveau": 3,
+   "titre": "Arbre de classification",
+   "caracteres": 3280,
+   "mots": 493,
+   "codes": 16,
+   "codes_pour_1000_mots": 32,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 178,
+   "niveau": 3,
+   "titre": "Entrée minimale",
+   "caracteres": 887,
+   "mots": 129,
+   "codes": 10,
+   "codes_pour_1000_mots": 78,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 193,
+   "niveau": 3,
+   "titre": "DIRECTION/CREATIVE-BOOT — activer la boucle avant le premier pixel",
+   "caracteres": 2794,
+   "mots": 397,
+   "codes": 29,
+   "codes_pour_1000_mots": 73,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 223,
+   "niveau": 3,
+   "titre": "DIRECTION/DOMAIN-FRAME — adapter le design au domaine",
+   "caracteres": 2727,
+   "mots": 357,
+   "codes": 5,
+   "codes_pour_1000_mots": 14,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 252,
+   "niveau": 3,
+   "titre": "Sortie immédiate",
+   "caracteres": 1115,
+   "mots": 151,
+   "codes": 5,
+   "codes_pour_1000_mots": 33,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 270,
+   "niveau": 3,
+   "titre": "Mémoire de lancement et renvoi de `RUN_CARD`",
+   "caracteres": 1657,
+   "mots": 233,
+   "codes": 30,
+   "codes_pour_1000_mots": 129,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 280,
+   "niveau": 2,
+   "titre": "DIRECTION/CHARGE — classer, puis charger",
+   "caracteres": 9061,
+   "mots": 1299,
+   "codes": 116,
+   "codes_pour_1000_mots": 89,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 312,
+   "niveau": 3,
+   "titre": "DIRECTION/FAST-PATH — renvoi vers l’exécution courte",
+   "caracteres": 952,
+   "mots": 141,
+   "codes": 8,
+   "codes_pour_1000_mots": 57,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 320,
+   "niveau": 2,
+   "titre": "DIRECTION/EXTERNAL-START — activation portable sur brief vague",
+   "caracteres": 4908,
+   "mots": 702,
+   "codes": 26,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 351,
+   "niveau": 3,
+   "titre": "Traduction humaine minimale de DIRECTION/START",
+   "caracteres": 1049,
+   "mots": 136,
+   "codes": 12,
+   "codes_pour_1000_mots": 88,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 366,
+   "niveau": 2,
+   "titre": "DIRECTION/FIRST-OBJECT — compiler le brief et produire le premier objet",
+   "caracteres": 7201,
+   "mots": 1018,
+   "codes": 50,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 377,
+   "niveau": 3,
+   "titre": "Contrat positif du premier objet",
+   "caracteres": 2750,
+   "mots": 387,
+   "codes": 10,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 396,
+   "niveau": 3,
+   "titre": "Grounding contestable",
+   "caracteres": 684,
+   "mots": 85,
+   "codes": 16,
+   "codes_pour_1000_mots": 188,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 411,
+   "niveau": 3,
+   "titre": "Réutilisation située",
+   "caracteres": 1781,
+   "mots": 265,
+   "codes": 15,
+   "codes_pour_1000_mots": 57,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 430,
+   "niveau": 2,
+   "titre": "DIRECTION/VISUAL_TARGET — rendre la direction pilotable",
+   "caracteres": 9209,
+   "mots": 1337,
+   "codes": 39,
+   "codes_pour_1000_mots": 29,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 450,
+   "niveau": 3,
+   "titre": "Compilation de la première proposition",
+   "caracteres": 2133,
+   "mots": 319,
+   "codes": 3,
+   "codes_pour_1000_mots": 9,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 462,
+   "niveau": 3,
+   "titre": "Test d’utilité de l’ancre",
+   "caracteres": 620,
+   "mots": 94,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 472,
+   "niveau": 3,
+   "titre": "Décider la route de production",
+   "caracteres": 2776,
+   "mots": 421,
+   "codes": 13,
+   "codes_pour_1000_mots": 31,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 491,
+   "niveau": 3,
+   "titre": "Réserve `ANCHOR-GENERATED` en enjeu identitaire élevé",
+   "caracteres": 1386,
+   "mots": 185,
+   "codes": 17,
+   "codes_pour_1000_mots": 92,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 501,
+   "niveau": 2,
+   "titre": "DIRECTION/DIRECTION-ATELIER — module officiel de direction située",
+   "caracteres": 4857,
+   "mots": 704,
+   "codes": 23,
+   "codes_pour_1000_mots": 33,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 507,
+   "niveau": 3,
+   "titre": "Noyau du contrat",
+   "caracteres": 1627,
+   "mots": 226,
+   "codes": 1,
+   "codes_pour_1000_mots": 4,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 520,
+   "niveau": 3,
+   "titre": "Vérité de la scène et clôture de craft",
+   "caracteres": 2248,
+   "mots": 329,
+   "codes": 14,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 541,
+   "niveau": 2,
+   "titre": "DIRECTION/DOUBLE-LOOP — créer puis apprendre",
+   "caracteres": 8210,
+   "mots": 1167,
+   "codes": 27,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 545,
+   "niveau": 3,
+   "titre": "Contrôle du premier objet — qualité intrinsèque sans nouveau gate",
+   "caracteres": 1179,
+   "mots": 177,
+   "codes": 2,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 553,
+   "niveau": 3,
+   "titre": "One-shot et boucle d’amélioration",
+   "caracteres": 1751,
+   "mots": 248,
+   "codes": 6,
+   "codes_pour_1000_mots": 24,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 561,
+   "niveau": 3,
+   "titre": "Boucle d’édition — du diagnostic au geste",
+   "caracteres": 1436,
+   "mots": 198,
+   "codes": 3,
+   "codes_pour_1000_mots": 15,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 580,
+   "niveau": 3,
+   "titre": "Signaux de réouverture",
+   "caracteres": 1650,
+   "mots": 242,
+   "codes": 12,
+   "codes_pour_1000_mots": 50,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 599,
+   "niveau": 3,
+   "titre": "Test de résilience visuelle",
+   "caracteres": 1172,
+   "mots": 155,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 613,
+   "niveau": 3,
+   "titre": "Signaux d’apprentissage expérimental",
+   "caracteres": 392,
+   "mots": 60,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 617,
+   "niveau": 2,
+   "titre": "LES CINQ RÈGLES ABSOLUES",
+   "caracteres": 11217,
+   "mots": 1591,
+   "codes": 63,
+   "codes_pour_1000_mots": 40,
+   "non_verifie": 4
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 623,
+   "niveau": 3,
+   "titre": "[ABSOLU 1 — STANDARD VISUEL] Une surface identitaire conforme mais sans direction percepti",
+   "caracteres": 1890,
+   "mots": 267,
+   "codes": 5,
+   "codes_pour_1000_mots": 19,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 641,
+   "niveau": 3,
+   "titre": "[ABSOLU 2 — ANCRAGE OBSERVABLE] Ne fais jamais accepter une direction identitaire calibrée",
+   "caracteres": 3370,
+   "mots": 466,
+   "codes": 20,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 662,
+   "niveau": 3,
+   "titre": "[ABSOLU 3 — GATE] Aucune livraison sans les preuves applicables au mode.",
+   "caracteres": 1225,
+   "mots": 177,
+   "codes": 13,
+   "codes_pour_1000_mots": 73,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 674,
+   "niveau": 3,
+   "titre": "[ABSOLU 4 — MODE, PREUVE ET BUDGET] Déclare la route et la prochaine preuve avant d’exécut",
+   "caracteres": 1701,
+   "mots": 239,
+   "codes": 11,
+   "codes_pour_1000_mots": 46,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 689,
+   "niveau": 3,
+   "titre": "[ABSOLU 5 — RÉEL ET BEAU ENSEMBLE] Cadre le produit, le JTBD, les preuves et les contraint",
+   "caracteres": 2547,
+   "mots": 367,
+   "codes": 9,
+   "codes_pour_1000_mots": 25,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 707,
+   "niveau": 2,
+   "titre": "0. Classification du mode, preuve et capacité",
+   "caracteres": 1721,
+   "mots": 258,
+   "codes": 19,
+   "codes_pour_1000_mots": 74,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 717,
+   "niveau": 3,
+   "titre": "ITER se souvient",
+   "caracteres": 539,
+   "mots": 84,
+   "codes": 8,
+   "codes_pour_1000_mots": 95,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 723,
+   "niveau": 2,
+   "titre": "Cadrage de médium et de capacité",
+   "caracteres": 2401,
+   "mots": 340,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 746,
+   "niveau": 2,
+   "titre": "1. Direction divergente — déclenchement `DIRECTION`",
+   "caracteres": 1886,
+   "mots": 276,
+   "codes": 11,
+   "codes_pour_1000_mots": 40,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 763,
+   "niveau": 2,
+   "titre": "2. Routage — quoi charger et quand",
+   "caracteres": 3672,
+   "mots": 488,
+   "codes": 65,
+   "codes_pour_1000_mots": 133,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 767,
+   "niveau": 3,
+   "titre": "Déclencheurs critiques",
+   "caracteres": 2018,
+   "mots": 258,
+   "codes": 41,
+   "codes_pour_1000_mots": 159,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 784,
+   "niveau": 3,
+   "titre": "Index à la demande",
+   "caracteres": 1350,
+   "mots": 182,
+   "codes": 21,
+   "codes_pour_1000_mots": 115,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 805,
+   "niveau": 2,
+   "titre": "3. Invariants de jugement",
+   "caracteres": 1282,
+   "mots": 191,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 807,
+   "niveau": 3,
+   "titre": "Convergence de genre ≠ slop",
+   "caracteres": 526,
+   "mots": 77,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 813,
+   "niveau": 3,
+   "titre": "PASS technique ≠ direction tenue",
+   "caracteres": 513,
+   "mots": 80,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 819,
+   "niveau": 3,
+   "titre": "Les listes ne sont pas un canon",
+   "caracteres": 211,
+   "mots": 30,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 825,
+   "niveau": 2,
+   "titre": "Clôture de direction",
+   "caracteres": 2874,
+   "mots": 409,
+   "codes": 28,
+   "codes_pour_1000_mots": 68,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/DIRECTION.md",
+   "ligne": 833,
+   "niveau": 3,
+   "titre": "Lecture instrumentée et règle de passage",
+   "caracteres": 1622,
+   "mots": 242,
+   "codes": 13,
+   "codes_pour_1000_mots": 54,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/GLOSSAIRE.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Glossaire — Design Governance V1",
+   "caracteres": 13446,
+   "mots": 1895,
+   "codes": 82,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 5
+  },
+  {
+   "fichier": "V1/official/GLOSSAIRE.md",
+   "ligne": 69,
+   "niveau": 2,
+   "titre": "Exemples express",
+   "caracteres": 1247,
+   "mots": 171,
+   "codes": 10,
+   "codes_pour_1000_mots": 58,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/GLOSSAIRE.md",
+   "ligne": 82,
+   "niveau": 2,
+   "titre": "Pour commencer sans vocabulaire préalable",
+   "caracteres": 1101,
+   "mots": 170,
+   "codes": 2,
+   "codes_pour_1000_mots": 12,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/ORCHESTRATION_MAP.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "ORCHESTRATION_MAP — combinaisons dérivées par résultat",
+   "caracteres": 366,
+   "mots": 41,
+   "codes": 3,
+   "codes_pour_1000_mots": 73,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Design Governance V1.0.0 — Quickstart (guide opérateur)",
+   "caracteres": 26034,
+   "mots": 3707,
+   "codes": 136,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 11,
+   "niveau": 2,
+   "titre": "Parcours commun",
+   "caracteres": 1555,
+   "mots": 207,
+   "codes": 6,
+   "codes_pour_1000_mots": 29,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 31,
+   "niveau": 2,
+   "titre": "Carte de résolution rapide",
+   "caracteres": 795,
+   "mots": 121,
+   "codes": 5,
+   "codes_pour_1000_mots": 41,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 37,
+   "niveau": 2,
+   "titre": "1. Choisir la profondeur de lecture",
+   "caracteres": 3681,
+   "mots": 526,
+   "codes": 29,
+   "codes_pour_1000_mots": 55,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 41,
+   "niveau": 3,
+   "titre": "Façade d’activation : ce que chaque source apporte",
+   "caracteres": 2629,
+   "mots": 387,
+   "codes": 20,
+   "codes_pour_1000_mots": 52,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 51,
+   "niveau": 3,
+   "titre": "Constitution et entrées par besoin",
+   "caracteres": 874,
+   "mots": 110,
+   "codes": 9,
+   "codes_pour_1000_mots": 82,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 61,
+   "niveau": 2,
+   "titre": "2. La ligne de run",
+   "caracteres": 935,
+   "mots": 132,
+   "codes": 8,
+   "codes_pour_1000_mots": 61,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 75,
+   "niveau": 2,
+   "titre": "3. Le parcours complet",
+   "caracteres": 4019,
+   "mots": 576,
+   "codes": 10,
+   "codes_pour_1000_mots": 17,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 92,
+   "niveau": 3,
+   "titre": "Charger une route et renforcer une RUN_CARD",
+   "caracteres": 2501,
+   "mots": 367,
+   "codes": 7,
+   "codes_pour_1000_mots": 19,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 113,
+   "niveau": 2,
+   "titre": "4. Choisir le mode sans le deviner",
+   "caracteres": 1669,
+   "mots": 232,
+   "codes": 12,
+   "codes_pour_1000_mots": 52,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 138,
+   "niveau": 2,
+   "titre": "5. Charger seulement ce qui peut changer la décision",
+   "caracteres": 401,
+   "mots": 65,
+   "codes": 1,
+   "codes_pour_1000_mots": 15,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 144,
+   "niveau": 2,
+   "titre": "6. Produire une qualité positive dès le premier rendu",
+   "caracteres": 2622,
+   "mots": 379,
+   "codes": 4,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 165,
+   "niveau": 2,
+   "titre": "7. One-shot : compression, jamais dispense",
+   "caracteres": 1146,
+   "mots": 174,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 180,
+   "niveau": 2,
+   "titre": "8. Handoff agentique",
+   "caracteres": 1184,
+   "mots": 165,
+   "codes": 9,
+   "codes_pour_1000_mots": 55,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 197,
+   "niveau": 2,
+   "titre": "9. Exemple complet minimal",
+   "caracteres": 2751,
+   "mots": 390,
+   "codes": 23,
+   "codes_pour_1000_mots": 59,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 248,
+   "niveau": 2,
+   "titre": "10. Observer, interpréter et améliorer",
+   "caracteres": 1295,
+   "mots": 182,
+   "codes": 1,
+   "codes_pour_1000_mots": 5,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 265,
+   "niveau": 2,
+   "titre": "11. Persister et fermer honnêtement",
+   "caracteres": 1802,
+   "mots": 260,
+   "codes": 18,
+   "codes_pour_1000_mots": 69,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/QUICKSTART.md",
+   "ligne": 281,
+   "niveau": 2,
+   "titre": "12. Sources propriétaires",
+   "caracteres": 922,
+   "mots": 114,
+   "codes": 10,
+   "codes_pour_1000_mots": 88,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "READING_MAP — carte dérivée de lecture et d’activation",
+   "caracteres": 29624,
+   "mots": 3763,
+   "codes": 336,
+   "codes_pour_1000_mots": 89,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 5,
+   "niveau": 2,
+   "titre": "Utilisation",
+   "caracteres": 565,
+   "mots": 79,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 11,
+   "niveau": 2,
+   "titre": "Chemin canonique de démarrage",
+   "caracteres": 782,
+   "mots": 118,
+   "codes": 9,
+   "codes_pour_1000_mots": 76,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 22,
+   "niveau": 2,
+   "titre": "Constitution minimale",
+   "caracteres": 236,
+   "mots": 28,
+   "codes": 3,
+   "codes_pour_1000_mots": 107,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 26,
+   "niveau": 2,
+   "titre": "Routage minimal par décision",
+   "caracteres": 1076,
+   "mots": 120,
+   "codes": 27,
+   "codes_pour_1000_mots": 225,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 40,
+   "niveau": 2,
+   "titre": "Carte des sujets",
+   "caracteres": 1925,
+   "mots": 216,
+   "codes": 51,
+   "codes_pour_1000_mots": 236,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 69,
+   "niveau": 2,
+   "titre": "Combinaisons par résultat recherché",
+   "caracteres": 5485,
+   "mots": 731,
+   "codes": 51,
+   "codes_pour_1000_mots": 70,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 91,
+   "niveau": 3,
+   "titre": "Variation créative",
+   "caracteres": 270,
+   "mots": 43,
+   "codes": 1,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 97,
+   "niveau": 3,
+   "titre": "Garde-fous de la combinaison",
+   "caracteres": 877,
+   "mots": 134,
+   "codes": 2,
+   "codes_pour_1000_mots": 15,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 107,
+   "niveau": 2,
+   "titre": "Connexions situées",
+   "caracteres": 11579,
+   "mots": 1497,
+   "codes": 58,
+   "codes_pour_1000_mots": 39,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 117,
+   "niveau": 3,
+   "titre": "C01 — Contexte incertain",
+   "caracteres": 934,
+   "mots": 119,
+   "codes": 4,
+   "codes_pour_1000_mots": 34,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 131,
+   "niveau": 3,
+   "titre": "C02 — Typographie déterminante",
+   "caracteres": 915,
+   "mots": 117,
+   "codes": 5,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 145,
+   "niveau": 3,
+   "titre": "C03 — Asset déterminant",
+   "caracteres": 1434,
+   "mots": 186,
+   "codes": 7,
+   "codes_pour_1000_mots": 38,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 159,
+   "niveau": 3,
+   "titre": "C04 — Récupération après erreur",
+   "caracteres": 939,
+   "mots": 126,
+   "codes": 4,
+   "codes_pour_1000_mots": 32,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 173,
+   "niveau": 3,
+   "titre": "C05 — Réemploi situé",
+   "caracteres": 1038,
+   "mots": 131,
+   "codes": 5,
+   "codes_pour_1000_mots": 38,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 187,
+   "niveau": 3,
+   "titre": "C06 — Changement partagé",
+   "caracteres": 979,
+   "mots": 120,
+   "codes": 7,
+   "codes_pour_1000_mots": 58,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 201,
+   "niveau": 3,
+   "titre": "C07 — Ambition vers construction",
+   "caracteres": 1215,
+   "mots": 157,
+   "codes": 8,
+   "codes_pour_1000_mots": 51,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 215,
+   "niveau": 3,
+   "titre": "C08 — Élément vers ensemble",
+   "caracteres": 1205,
+   "mots": 154,
+   "codes": 7,
+   "codes_pour_1000_mots": 45,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 229,
+   "niveau": 3,
+   "titre": "C09 — Intention vers médium",
+   "caracteres": 1426,
+   "mots": 188,
+   "codes": 7,
+   "codes_pour_1000_mots": 37,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 243,
+   "niveau": 2,
+   "titre": "Activation multi-perspective",
+   "caracteres": 2384,
+   "mots": 286,
+   "codes": 20,
+   "codes_pour_1000_mots": 70,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 261,
+   "niveau": 2,
+   "titre": "Handoff minimal commun",
+   "caracteres": 722,
+   "mots": 99,
+   "codes": 23,
+   "codes_pour_1000_mots": 232,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 283,
+   "niveau": 2,
+   "titre": "Résolution des routes",
+   "caracteres": 844,
+   "mots": 108,
+   "codes": 13,
+   "codes_pour_1000_mots": 120,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 298,
+   "niveau": 2,
+   "titre": "Locators principaux",
+   "caracteres": 3355,
+   "mots": 391,
+   "codes": 78,
+   "codes_pour_1000_mots": 199,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/READING_MAP.md",
+   "ligne": 332,
+   "niveau": 2,
+   "titre": "Condition d’arrêt",
+   "caracteres": 447,
+   "mots": 61,
+   "codes": 1,
+   "codes_pour_1000_mots": 16,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/README.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Design Governance V1.0.0",
+   "caracteres": 2053,
+   "mots": 282,
+   "codes": 23,
+   "codes_pour_1000_mots": 82,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/README.md",
+   "ligne": 7,
+   "niveau": 2,
+   "titre": "Sources normatives",
+   "caracteres": 1484,
+   "mots": 198,
+   "codes": 19,
+   "codes_pour_1000_mots": 96,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "SAVOIR — Bibliothèque de jugement, craft et production",
+   "caracteres": 8057,
+   "mots": 1124,
+   "codes": 96,
+   "codes_pour_1000_mots": 85,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 5,
+   "niveau": 2,
+   "titre": "Responsabilité",
+   "caracteres": 3061,
+   "mots": 439,
+   "codes": 33,
+   "codes_pour_1000_mots": 75,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 26,
+   "niveau": 3,
+   "titre": "Orientation interne et sortie vers ACTION",
+   "caracteres": 1110,
+   "mots": 162,
+   "codes": 10,
+   "codes_pour_1000_mots": 62,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 34,
+   "niveau": 2,
+   "titre": "SAVOIR/READ — comment utiliser cette bibliothèque",
+   "caracteres": 3268,
+   "mots": 468,
+   "codes": 30,
+   "codes_pour_1000_mots": 64,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 42,
+   "niveau": 3,
+   "titre": "SAVOIR/JUGEMENT-COURT — juger sans produire un dossier",
+   "caracteres": 382,
+   "mots": 61,
+   "codes": 2,
+   "codes_pour_1000_mots": 33,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 48,
+   "niveau": 3,
+   "titre": "Niveaux d’autorité",
+   "caracteres": 1552,
+   "mots": 211,
+   "codes": 14,
+   "codes_pour_1000_mots": 66,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 66,
+   "niveau": 2,
+   "titre": "SAVOIR/ROUTING — routes stables",
+   "caracteres": 1297,
+   "mots": 158,
+   "codes": 31,
+   "codes_pour_1000_mots": 196,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 86,
+   "niveau": 1,
+   "titre": "SAVOIR/FRAME — fondations et cadrage",
+   "caracteres": 11292,
+   "mots": 1591,
+   "codes": 36,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 88,
+   "niveau": 2,
+   "titre": "FND-01 — principe fondateur",
+   "caracteres": 7427,
+   "mots": 1056,
+   "codes": 11,
+   "codes_pour_1000_mots": 10,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 102,
+   "niveau": 3,
+   "titre": "Premium perçu comme heuristique de jugement",
+   "caracteres": 933,
+   "mots": 137,
+   "codes": 3,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 108,
+   "niveau": 3,
+   "titre": "Comprendre, ouvrir, converger, prouver",
+   "caracteres": 947,
+   "mots": 135,
+   "codes": 2,
+   "codes_pour_1000_mots": 15,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 114,
+   "niveau": 3,
+   "titre": "Singularité sans rejet des conventions",
+   "caracteres": 1238,
+   "mots": 178,
+   "codes": 2,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 128,
+   "niveau": 3,
+   "titre": "Grammaire positive de composition",
+   "caracteres": 1373,
+   "mots": 184,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 146,
+   "niveau": 3,
+   "titre": "Pluralité esthétique et goût situé",
+   "caracteres": 1778,
+   "mots": 253,
+   "codes": 1,
+   "codes_pour_1000_mots": 4,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 156,
+   "niveau": 2,
+   "titre": "FND-02 — compromis",
+   "caracteres": 742,
+   "mots": 111,
+   "codes": 3,
+   "codes_pour_1000_mots": 27,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 169,
+   "niveau": 2,
+   "titre": "FND-03 — cadrage et preuve de contexte",
+   "caracteres": 3081,
+   "mots": 419,
+   "codes": 21,
+   "codes_pour_1000_mots": 50,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 200,
+   "niveau": 1,
+   "titre": "SAVOIR/CRAFT — anti-slop, composition et expression",
+   "caracteres": 23014,
+   "mots": 3356,
+   "codes": 42,
+   "codes_pour_1000_mots": 13,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 204,
+   "niveau": 3,
+   "titre": "Qualité du premier rendu, one-shot et preuve",
+   "caracteres": 1623,
+   "mots": 235,
+   "codes": 3,
+   "codes_pour_1000_mots": 13,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 216,
+   "niveau": 2,
+   "titre": "CFT-00 — qualité créative et niveau d’ambition",
+   "caracteres": 5307,
+   "mots": 767,
+   "codes": 10,
+   "codes_pour_1000_mots": 13,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 235,
+   "niveau": 3,
+   "titre": "Creative Quality Review",
+   "caracteres": 2609,
+   "mots": 396,
+   "codes": 8,
+   "codes_pour_1000_mots": 20,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 249,
+   "niveau": 2,
+   "titre": "CFT-01 — motivation, construction et forme située",
+   "caracteres": 3111,
+   "mots": 435,
+   "codes": 8,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 270,
+   "niveau": 3,
+   "titre": "Dérivation bornée d’une forme située",
+   "caracteres": 1648,
+   "mots": 224,
+   "codes": 4,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 292,
+   "niveau": 2,
+   "titre": "CFT-02 — registres et alternative située",
+   "caracteres": 2065,
+   "mots": 286,
+   "codes": 6,
+   "codes_pour_1000_mots": 21,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 323,
+   "niveau": 2,
+   "titre": "CFT-03 — composition, densité et harmonie",
+   "caracteres": 3859,
+   "mots": 593,
+   "codes": 4,
+   "codes_pour_1000_mots": 7,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 346,
+   "niveau": 3,
+   "titre": "Cohérence et harmonie",
+   "caracteres": 1008,
+   "mots": 143,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 356,
+   "niveau": 2,
+   "titre": "CFT-04 — design émotionnel",
+   "caracteres": 3937,
+   "mots": 563,
+   "codes": 5,
+   "codes_pour_1000_mots": 9,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 380,
+   "niveau": 3,
+   "titre": "CFT-04a — premier contact, preuve et rapport de personne",
+   "caracteres": 2252,
+   "mots": 346,
+   "codes": 3,
+   "codes_pour_1000_mots": 9,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 395,
+   "niveau": 2,
+   "titre": "CFT-05 — couleur et contraste",
+   "caracteres": 2918,
+   "mots": 452,
+   "codes": 5,
+   "codes_pour_1000_mots": 11,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 419,
+   "niveau": 1,
+   "titre": "SAVOIR/TYPE — typographie et données",
+   "caracteres": 3324,
+   "mots": 484,
+   "codes": 12,
+   "codes_pour_1000_mots": 25,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 440,
+   "niveau": 3,
+   "titre": "Preuve typographique",
+   "caracteres": 1069,
+   "mots": 136,
+   "codes": 8,
+   "codes_pour_1000_mots": 59,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 464,
+   "niveau": 1,
+   "titre": "SAVOIR/STATE — craft, composants et états",
+   "caracteres": 13178,
+   "mots": 1936,
+   "codes": 34,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 468,
+   "niveau": 3,
+   "titre": "Jugement visuel situé",
+   "caracteres": 2976,
+   "mots": 422,
+   "codes": 2,
+   "codes_pour_1000_mots": 5,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 499,
+   "niveau": 3,
+   "titre": "Vocabulaire perceptuel",
+   "caracteres": 8447,
+   "mots": 1260,
+   "codes": 26,
+   "codes_pour_1000_mots": 21,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 528,
+   "niveau": 3,
+   "titre": "États pertinents",
+   "caracteres": 1424,
+   "mots": 207,
+   "codes": 2,
+   "codes_pour_1000_mots": 10,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 539,
+   "niveau": 1,
+   "titre": "SAVOIR/SOURCE — ancre et sourcing visuel",
+   "caracteres": 7702,
+   "mots": 1086,
+   "codes": 41,
+   "codes_pour_1000_mots": 38,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 547,
+   "niveau": 3,
+   "titre": "Test d’utilité de l’ancre",
+   "caracteres": 1685,
+   "mots": 251,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 565,
+   "niveau": 3,
+   "titre": "Recherche orientée décision — chercher loin seulement quand cela change le résultat",
+   "caracteres": 2781,
+   "mots": 383,
+   "codes": 23,
+   "codes_pour_1000_mots": 60,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 592,
+   "niveau": 3,
+   "titre": "Curer, produire et intégrer",
+   "caracteres": 1415,
+   "mots": 200,
+   "codes": 2,
+   "codes_pour_1000_mots": 10,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 606,
+   "niveau": 1,
+   "titre": "SAVOIR/DESIGN-ATLAS — familles et responsabilités",
+   "caracteres": 7352,
+   "mots": 1001,
+   "codes": 48,
+   "codes_pour_1000_mots": 48,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 619,
+   "niveau": 3,
+   "titre": "Cartographie non exhaustive",
+   "caracteres": 2009,
+   "mots": 256,
+   "codes": 2,
+   "codes_pour_1000_mots": 8,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 638,
+   "niveau": 3,
+   "titre": "Rôles d’asset",
+   "caracteres": 537,
+   "mots": 70,
+   "codes": 3,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 642,
+   "niveau": 3,
+   "titre": "Portée par médium",
+   "caracteres": 679,
+   "mots": 99,
+   "codes": 2,
+   "codes_pour_1000_mots": 20,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 646,
+   "niveau": 3,
+   "titre": "Test de sélection et de non-recyclage",
+   "caracteres": 1659,
+   "mots": 231,
+   "codes": 15,
+   "codes_pour_1000_mots": 65,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 654,
+   "niveau": 1,
+   "titre": "SAVOIR/STYLE — profils contrôlés et dials",
+   "caracteres": 15185,
+   "mots": 2047,
+   "codes": 52,
+   "codes_pour_1000_mots": 25,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 660,
+   "niveau": 3,
+   "titre": "Règle de sélection",
+   "caracteres": 2590,
+   "mots": 379,
+   "codes": 23,
+   "codes_pour_1000_mots": 61,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 681,
+   "niveau": 3,
+   "titre": "Taxonomie transversale",
+   "caracteres": 4206,
+   "mots": 520,
+   "codes": 12,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 708,
+   "niveau": 3,
+   "titre": "Usage et test",
+   "caracteres": 536,
+   "mots": 81,
+   "codes": 1,
+   "codes_pour_1000_mots": 12,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 714,
+   "niveau": 3,
+   "titre": "Dials",
+   "caracteres": 2534,
+   "mots": 330,
+   "codes": 5,
+   "codes_pour_1000_mots": 15,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 732,
+   "niveau": 3,
+   "titre": "Styles visuels, culturels et multi-médias",
+   "caracteres": 925,
+   "mots": 138,
+   "codes": 3,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 738,
+   "niveau": 3,
+   "titre": "Ponctuation située : le tiret cadratin n’est pas une signature",
+   "caracteres": 1245,
+   "mots": 178,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 744,
+   "niveau": 3,
+   "titre": "Test anti-slop procédural",
+   "caracteres": 984,
+   "mots": 145,
+   "codes": 1,
+   "codes_pour_1000_mots": 7,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 752,
+   "niveau": 3,
+   "titre": "Vocabulaire à rendre observable",
+   "caracteres": 1620,
+   "mots": 196,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 770,
+   "niveau": 1,
+   "titre": "SAVOIR/SYSTEM — tokens et composants",
+   "caracteres": 1964,
+   "mots": 264,
+   "codes": 13,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 788,
+   "niveau": 1,
+   "titre": "SAVOIR/CONTEXT — accessibilité, contexte et robustesse",
+   "caracteres": 3013,
+   "mots": 405,
+   "codes": 9,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 794,
+   "niveau": 3,
+   "titre": "Contextes à fort enjeu",
+   "caracteres": 1042,
+   "mots": 135,
+   "codes": 2,
+   "codes_pour_1000_mots": 15,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 808,
+   "niveau": 3,
+   "titre": "Responsive et performance",
+   "caracteres": 451,
+   "mots": 58,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 814,
+   "niveau": 3,
+   "titre": "Motion et espace",
+   "caracteres": 987,
+   "mots": 140,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 824,
+   "niveau": 1,
+   "titre": "SAVOIR/TECH — techniques, tests et stack",
+   "caracteres": 6581,
+   "mots": 900,
+   "codes": 23,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 5
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 838,
+   "niveau": 3,
+   "titre": "Hiérarchie de jugement pour les interfaces",
+   "caracteres": 761,
+   "mots": 103,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 842,
+   "niveau": 3,
+   "titre": "Traduire production et observation par médium",
+   "caracteres": 5116,
+   "mots": 707,
+   "codes": 21,
+   "codes_pour_1000_mots": 30,
+   "non_verifie": 5
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 877,
+   "niveau": 1,
+   "titre": "SAVOIR/TOOLS — claims, tendances et calibration",
+   "caracteres": 9436,
+   "mots": 1355,
+   "codes": 43,
+   "codes_pour_1000_mots": 32,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 879,
+   "niveau": 2,
+   "titre": "Claims externes et péremption",
+   "caracteres": 1183,
+   "mots": 176,
+   "codes": 14,
+   "codes_pour_1000_mots": 80,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 909,
+   "niveau": 2,
+   "titre": "Goût, références et tendances",
+   "caracteres": 8201,
+   "mots": 1173,
+   "codes": 28,
+   "codes_pour_1000_mots": 24,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 926,
+   "niveau": 3,
+   "titre": "CONVERGENCE — observations datées",
+   "caracteres": 3173,
+   "mots": 456,
+   "codes": 12,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 938,
+   "niveau": 3,
+   "titre": "MOYENS — ressources par couche",
+   "caracteres": 2838,
+   "mots": 401,
+   "codes": 9,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 969,
+   "niveau": 1,
+   "titre": "SAVOIR/INTEGRITY — limites, délégation et critique",
+   "caracteres": 8293,
+   "mots": 1211,
+   "codes": 46,
+   "codes_pour_1000_mots": 38,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 971,
+   "niveau": 3,
+   "titre": "Test de non-récitation",
+   "caracteres": 380,
+   "mots": 56,
+   "codes": 1,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 975,
+   "niveau": 2,
+   "titre": "Modes d’échec d’application",
+   "caracteres": 2094,
+   "mots": 301,
+   "codes": 7,
+   "codes_pour_1000_mots": 23,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 1006,
+   "niveau": 2,
+   "titre": "Contrôle d’intégrité",
+   "caracteres": 902,
+   "mots": 144,
+   "codes": 7,
+   "codes_pour_1000_mots": 49,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 1014,
+   "niveau": 2,
+   "titre": "Limites, délégation et critique",
+   "caracteres": 2074,
+   "mots": 303,
+   "codes": 6,
+   "codes_pour_1000_mots": 20,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 1035,
+   "niveau": 2,
+   "titre": "Règles d’or — lecture rapide",
+   "caracteres": 1351,
+   "mots": 190,
+   "codes": 14,
+   "codes_pour_1000_mots": 74,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "V1/official/SAVOIR.md",
+   "ligne": 1050,
+   "niveau": 2,
+   "titre": "Méthodologie studio",
+   "caracteres": 1433,
+   "mots": 211,
+   "codes": 10,
+   "codes_pour_1000_mots": 47,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 6,
+   "niveau": 1,
+   "titre": "Design Governance V1 — pratique",
+   "caracteres": 42490,
+   "mots": 6228,
+   "codes": 202,
+   "codes_pour_1000_mots": 32,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 10,
+   "niveau": 2,
+   "titre": "Noyau de fabrication",
+   "caracteres": 41062,
+   "mots": 6036,
+   "codes": 193,
+   "codes_pour_1000_mots": 32,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 15,
+   "niveau": 3,
+   "titre": "1. Rôle et posture",
+   "caracteres": 1259,
+   "mots": 194,
+   "codes": 1,
+   "codes_pour_1000_mots": 5,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 25,
+   "niveau": 3,
+   "titre": "2. Classer, puis charger",
+   "caracteres": 6608,
+   "mots": 932,
+   "codes": 93,
+   "codes_pour_1000_mots": 100,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 43,
+   "niveau": 3,
+   "titre": "3. Prendre le brief et viser le premier objet",
+   "caracteres": 3413,
+   "mots": 499,
+   "codes": 9,
+   "codes_pour_1000_mots": 18,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 53,
+   "niveau": 3,
+   "titre": "4. Moyens et vérité",
+   "caracteres": 3890,
+   "mots": 551,
+   "codes": 18,
+   "codes_pour_1000_mots": 33,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 71,
+   "niveau": 3,
+   "titre": "5. Structure",
+   "caracteres": 4114,
+   "mots": 594,
+   "codes": 10,
+   "codes_pour_1000_mots": 17,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 107,
+   "niveau": 3,
+   "titre": "6. Composition",
+   "caracteres": 3543,
+   "mots": 537,
+   "codes": 3,
+   "codes_pour_1000_mots": 6,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 135,
+   "niveau": 3,
+   "titre": "7. Gestes de finition",
+   "caracteres": 7887,
+   "mots": 1181,
+   "codes": 22,
+   "codes_pour_1000_mots": 19,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 157,
+   "niveau": 3,
+   "titre": "8. Couleur et convergence",
+   "caracteres": 1557,
+   "mots": 231,
+   "codes": 5,
+   "codes_pour_1000_mots": 22,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 165,
+   "niveau": 3,
+   "titre": "9. Boucle d’édition",
+   "caracteres": 5066,
+   "mots": 749,
+   "codes": 18,
+   "codes_pour_1000_mots": 24,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 200,
+   "niveau": 3,
+   "titre": "10. Proposition, sortie et trace",
+   "caracteres": 3547,
+   "mots": 541,
+   "codes": 14,
+   "codes_pour_1000_mots": 26,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/SKILL.md",
+   "ligne": 218,
+   "niveau": 2,
+   "titre": "Références conditionnelles",
+   "caracteres": 775,
+   "mots": 98,
+   "codes": 6,
+   "codes_pour_1000_mots": 61,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/canonical_minimum.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Aide-mémoire canonique minimal",
+   "caracteres": 1731,
+   "mots": 251,
+   "codes": 12,
+   "codes_pour_1000_mots": 48,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/canonical_minimum.md",
+   "ligne": 5,
+   "niveau": 2,
+   "titre": "Source et limites",
+   "caracteres": 303,
+   "mots": 49,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/canonical_minimum.md",
+   "ligne": 9,
+   "niveau": 2,
+   "titre": "Séparations indispensables",
+   "caracteres": 971,
+   "mots": 137,
+   "codes": 12,
+   "codes_pour_1000_mots": 88,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/canonical_minimum.md",
+   "ligne": 22,
+   "niveau": 2,
+   "titre": "Priorité",
+   "caracteres": 224,
+   "mots": 33,
+   "codes": 0,
+   "codes_pour_1000_mots": 0,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/examples.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Exemples de runs",
+   "caracteres": 9705,
+   "mots": 1352,
+   "codes": 104,
+   "codes_pour_1000_mots": 77,
+   "non_verifie": 5
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/examples.md",
+   "ligne": 9,
+   "niveau": 2,
+   "titre": "LITE — correctif local",
+   "caracteres": 1250,
+   "mots": 176,
+   "codes": 20,
+   "codes_pour_1000_mots": 114,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/examples.md",
+   "ligne": 30,
+   "niveau": 2,
+   "titre": "DIRECTION — fabrication depuis un brief flou",
+   "caracteres": 2330,
+   "mots": 349,
+   "codes": 15,
+   "codes_pour_1000_mots": 43,
+   "non_verifie": 0
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/examples.md",
+   "ligne": 51,
+   "niveau": 2,
+   "titre": "DIRECTION — première scène identitaire",
+   "caracteres": 2423,
+   "mots": 324,
+   "codes": 25,
+   "codes_pour_1000_mots": 77,
+   "non_verifie": 3
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/examples.md",
+   "ligne": 80,
+   "niveau": 2,
+   "titre": "DIRECTION + STYLE — profil d’expression situé",
+   "caracteres": 1489,
+   "mots": 198,
+   "codes": 17,
+   "codes_pour_1000_mots": 86,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/examples.md",
+   "ligne": 101,
+   "niveau": 2,
+   "titre": "SYSTÈME — composant partagé",
+   "caracteres": 1024,
+   "mots": 135,
+   "codes": 16,
+   "codes_pour_1000_mots": 119,
+   "non_verifie": 1
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/flow.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Flux de décision V1",
+   "caracteres": 2085,
+   "mots": 317,
+   "codes": 6,
+   "codes_pour_1000_mots": 19,
+   "non_verifie": 2
+  },
+  {
+   "fichier": "skills/design-governance-practice/references/machine_projection.md",
+   "ligne": 1,
+   "niveau": 1,
+   "titre": "Projection machine-readable",
+   "caracteres": 7261,
+   "mots": 862,
+   "codes": 51,
+   "codes_pour_1000_mots": 59,
+   "non_verifie": 5
+  }
+ ],
+ "repetitions": [
+  {
+   "fichiers": [
+    "README.md",
+    "skills/design-governance-practice/references/machine_projection.md"
+   ],
+   "fenetres_de_14_mots": 29,
+   "exemple": [
+    [
+     "README.md",
+     200
+    ],
+    [
+     "skills/design-governance-practice/references/machine_projection.md",
+     128
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "README.md",
+    "V1/official/QUICKSTART.md"
+   ],
+   "fenetres_de_14_mots": 27,
+   "exemple": [
+    [
+     "README.md",
+     204
+    ],
+    [
+     "V1/official/QUICKSTART.md",
+     259
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/ACTION.md",
+    "V1/official/DIRECTION.md"
+   ],
+   "fenetres_de_14_mots": 22,
+   "exemple": [
+    [
+     "V1/official/ACTION.md",
+     75
+    ],
+    [
+     "V1/official/ACTION.md",
+     277
+    ],
+    [
+     "V1/official/DIRECTION.md",
+     108
+    ],
+    [
+     "V1/official/DIRECTION.md",
+     172
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/ACTION.md",
+    "V1/official/BIBLIOTHEQUE.md",
+    "V1/official/DIRECTION.md",
+    "V1/official/SAVOIR.md"
+   ],
+   "fenetres_de_14_mots": 18,
+   "exemple": [
+    [
+     "V1/official/ACTION.md",
+     3
+    ],
+    [
+     "V1/official/BIBLIOTHEQUE.md",
+     3
+    ],
+    [
+     "V1/official/DIRECTION.md",
+     3
+    ],
+    [
+     "V1/official/SAVOIR.md",
+     3
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/SAVOIR.md",
+    "V1/official/SAVOIR.md"
+   ],
+   "fenetres_de_14_mots": 18,
+   "exemple": [
+    [
+     "V1/official/SAVOIR.md",
+     923
+    ],
+    [
+     "V1/official/SAVOIR.md",
+     928
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "RELEASE_NOTES.md",
+    "V1/official/CHANGELOG.md"
+   ],
+   "fenetres_de_14_mots": 14,
+   "exemple": [
+    [
+     "RELEASE_NOTES.md",
+     23
+    ],
+    [
+     "RELEASE_NOTES.md",
+     33
+    ],
+    [
+     "V1/official/CHANGELOG.md",
+     34
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "README.md",
+    "V1/official/CHANGELOG.md"
+   ],
+   "fenetres_de_14_mots": 10,
+   "exemple": [
+    [
+     "README.md",
+     5
+    ],
+    [
+     "V1/official/CHANGELOG.md",
+     12
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "README.md",
+    "V1/official/README.md"
+   ],
+   "fenetres_de_14_mots": 9,
+   "exemple": [
+    [
+     "README.md",
+     45
+    ],
+    [
+     "V1/official/README.md",
+     21
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "README.md",
+    "V1/official/DIRECTION.md"
+   ],
+   "fenetres_de_14_mots": 8,
+   "exemple": [
+    [
+     "README.md",
+     73
+    ],
+    [
+     "V1/official/DIRECTION.md",
+     49
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/ACTION.md",
+    "V1/official/DIRECTION.md",
+    "V1/official/SAVOIR.md"
+   ],
+   "fenetres_de_14_mots": 8,
+   "exemple": [
+    [
+     "V1/official/ACTION.md",
+     561
+    ],
+    [
+     "V1/official/DIRECTION.md",
+     656
+    ],
+    [
+     "V1/official/SAVOIR.md",
+     545
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/DIRECTION.md",
+    "V1/official/DIRECTION.md"
+   ],
+   "fenetres_de_14_mots": 7,
+   "exemple": [
+    [
+     "V1/official/DIRECTION.md",
+     276
+    ],
+    [
+     "V1/official/DIRECTION.md",
+     719
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "README.md",
+    "RELEASE_NOTES.md",
+    "V1/official/CHANGELOG.md"
+   ],
+   "fenetres_de_14_mots": 6,
+   "exemple": [
+    [
+     "README.md",
+     198
+    ],
+    [
+     "RELEASE_NOTES.md",
+     129
+    ],
+    [
+     "V1/official/CHANGELOG.md",
+     88
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/DIRECTION.md",
+    "V1/official/QUICKSTART.md"
+   ],
+   "fenetres_de_14_mots": 6,
+   "exemple": [
+    [
+     "V1/official/DIRECTION.md",
+     343
+    ],
+    [
+     "V1/official/QUICKSTART.md",
+     47
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/ACTION.md",
+    "V1/official/ACTION.md"
+   ],
+   "fenetres_de_14_mots": 4,
+   "exemple": [
+    [
+     "V1/official/ACTION.md",
+     612
+    ],
+    [
+     "V1/official/ACTION.md",
+     893
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/READING_MAP.md",
+    "skills/design-governance-practice/references/flow.md"
+   ],
+   "fenetres_de_14_mots": 4,
+   "exemple": [
+    [
+     "V1/official/READING_MAP.md",
+     9
+    ],
+    [
+     "skills/design-governance-practice/references/flow.md",
+     24
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/BIBLIOTHEQUE.md",
+    "V1/official/BIBLIOTHEQUE.md"
+   ],
+   "fenetres_de_14_mots": 3,
+   "exemple": [
+    [
+     "V1/official/BIBLIOTHEQUE.md",
+     27
+    ],
+    [
+     "V1/official/BIBLIOTHEQUE.md",
+     43
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/DIRECTION.md",
+    "V1/official/SAVOIR.md"
+   ],
+   "fenetres_de_14_mots": 3,
+   "exemple": [
+    [
+     "V1/official/DIRECTION.md",
+     268
+    ],
+    [
+     "V1/official/SAVOIR.md",
+     30
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "README.md",
+    "RELEASE_NOTES.md",
+    "skills/design-governance-practice/references/machine_projection.md"
+   ],
+   "fenetres_de_14_mots": 2,
+   "exemple": [
+    [
+     "README.md",
+     200
+    ],
+    [
+     "RELEASE_NOTES.md",
+     141
+    ],
+    [
+     "skills/design-governance-practice/references/machine_projection.md",
+     128
+    ]
+   ]
+  },
+  {
+   "fichiers": [
+    "V1/official/CHANGELOG.md",
+    "V1/official/QUICKSTART.md"
+   ],
+   "fenetres_de_14_mots": 1,
+   "exemple": [
+    [
+     "V1/official/CHANGELOG.md",
+     17
+    ],
+    [
+     "V1/official/QUICKSTART.md",
+     29
+    ]
+   ]
+  }
+ ],
+ "controles": [
+  {
+   "fichier": ".github/workflows/validate.yml",
+   "lignes": 30
+  },
+  {
+   "fichier": "scripts/build_core.py",
+   "lignes": 171,
+   "fonctions": 6,
+   "tests": 0,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {
+    "skills/design-governance-practice/SKILL.md": 6,
+    "README.md": 1,
+    "RELEASE_NOTES.md": 1,
+    "V1/official/CHANGELOG.md": 1,
+    "V1/official/QUICKSTART.md": 1,
+    "V1/official/README.md": 1
+   },
+   "phrases_verrouillees_total": 11,
+   "fichiers_ouverts": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "DIRECTION.md",
+    "SAVOIR.md",
+    "SKILL.md"
+   ]
+  },
+  {
+   "fichier": "scripts/build_distributions.sh",
+   "lignes": 319
+  },
+  {
+   "fichier": "scripts/check_render.py",
+   "lignes": 608,
+   "fonctions": 9,
+   "tests": 0,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {},
+   "phrases_verrouillees_total": 0,
+   "fichiers_ouverts": []
+  },
+  {
+   "fichier": "scripts/package_manifest.json",
+   "lignes": 140
+  },
+  {
+   "fichier": "scripts/preparer_livraison.py",
+   "lignes": 213,
+   "fonctions": 6,
+   "tests": 0,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {
+    "README.md": 8,
+    "RELEASE_NOTES.md": 2
+   },
+   "phrases_verrouillees_total": 10,
+   "fichiers_ouverts": [
+    "CHANGELOG.md",
+    "README.md",
+    "RELEASE_NOTES.md",
+    "restaurer.py",
+    "scripts/build_core.py",
+    "scripts/build_distributions.sh",
+    "scripts/validate_all.py"
+   ]
+  },
+  {
+   "fichier": "scripts/read_route.py",
+   "lignes": 771,
+   "fonctions": 36,
+   "tests": 0,
+   "identifiants_de_controle": 1,
+   "identifiants_exemples": [
+    "CFT-01"
+   ],
+   "phrases_verrouillees_par_fichier": {
+    "skills/design-governance-practice/SKILL.md": 5,
+    "V1/official/DIRECTION.md": 3,
+    "V1/official/QUICKSTART.md": 3,
+    "V1/official/READING_MAP.md": 2,
+    "README.md": 2,
+    "RELEASE_NOTES.md": 2,
+    "V1/official/CHANGELOG.md": 2,
+    "V1/official/README.md": 2,
+    "V1/official/ACTION.md": 1
+   },
+   "phrases_verrouillees_total": 22,
+   "fichiers_ouverts": [
+    "CHANGELOG.md",
+    "READING_MAP.md",
+    "README.md",
+    "SKILL.md"
+   ]
+  },
+  {
+   "fichier": "scripts/test_audit_regressions.py",
+   "lignes": 214,
+   "fonctions": 35,
+   "tests": 30,
+   "identifiants_de_controle": 6,
+   "identifiants_exemples": [
+    "LCF-51",
+    "LCF-52",
+    "LCF-53",
+    "LCF-54",
+    "LCF-55",
+    "LCF-56"
+   ],
+   "phrases_verrouillees_par_fichier": {
+    "V1/official/READING_MAP.md": 6,
+    "skills/design-governance-practice/SKILL.md": 4,
+    "V1/official/DIRECTION.md": 3,
+    "V1/official/ACTION.md": 3,
+    "skills/design-governance-practice/references/machine_projection.md": 3,
+    "V1/official/GLOSSAIRE.md": 2,
+    "V1/official/SAVOIR.md": 2,
+    "V1/official/BIBLIOTHEQUE.md": 1,
+    "README.md": 1,
+    "skills/design-governance-practice/references/flow.md": 1,
+    "V1/official/QUICKSTART.md": 1,
+    "skills/design-governance-practice/references/examples.md": 1
+   },
+   "phrases_verrouillees_total": 28,
+   "fichiers_ouverts": [
+    "README.md",
+    "SKILL.md",
+    "guide.md",
+    "schemas/fixtures/valid_direction_exploratory_untransformed.json",
+    "schemas/run_card.example.json",
+    "schemas/run_card.schema.json"
+   ]
+  },
+  {
+   "fichier": "scripts/test_check_render.py",
+   "lignes": 408,
+   "fonctions": 11,
+   "tests": 0,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {},
+   "phrases_verrouillees_total": 0,
+   "fichiers_ouverts": [
+    "check_render.py",
+    "r.json",
+    "recipe.json"
+   ]
+  },
+  {
+   "fichier": "scripts/test_core_budget.py",
+   "lignes": 91,
+   "fonctions": 10,
+   "tests": 10,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {
+    "README.md": 1
+   },
+   "phrases_verrouillees_total": 1,
+   "fichiers_ouverts": [
+    "SKILL.md",
+    "absent.md",
+    "build_core.py",
+    "skill/SKILL.md",
+    "skills/design-governance-practice/SKILL.md"
+   ]
+  },
+  {
+   "fichier": "scripts/test_preparer_livraison.py",
+   "lignes": 283,
+   "fonctions": 24,
+   "tests": 21,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {
+    "README.md": 8,
+    "V1/official/DIRECTION.md": 2,
+    "RELEASE_NOTES.md": 1,
+    "V1/official/QUICKSTART.md": 1
+   },
+   "phrases_verrouillees_total": 12,
+   "fichiers_ouverts": [
+    "../outside.json",
+    "./README.md",
+    "/absolute.json",
+    "README.md",
+    "build_distributions.sh",
+    "copy.md",
+    "empty.json",
+    "outside.json",
+    "preparer_livraison.py",
+    "restore.py",
+    "scripts/../README.md",
+    "scripts/build_distributions.sh",
+    "scripts/package_manifest.json",
+    "skills/design-governance-practice/SKILL.md",
+    "validate_all.py",
+    "verify.md"
+   ]
+  },
+  {
+   "fichier": "scripts/test_read_route.py",
+   "lignes": 445,
+   "fonctions": 73,
+   "tests": 66,
+   "identifiants_de_controle": 1,
+   "identifiants_exemples": [
+    "CFT-05"
+   ],
+   "phrases_verrouillees_par_fichier": {
+    "V1/official/READING_MAP.md": 10,
+    "V1/official/DIRECTION.md": 3,
+    "skills/design-governance-practice/SKILL.md": 3,
+    "V1/official/QUICKSTART.md": 2,
+    "V1/official/BIBLIOTHEQUE.md": 1,
+    "README.md": 1
+   },
+   "phrases_verrouillees_total": 20,
+   "fichiers_ouverts": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "QUICKSTART.md",
+    "READING_MAP.md",
+    "README.md",
+    "SAVOIR.md",
+    "SKILL.md",
+    "examples.md",
+    "scripts/read_route.py",
+    "skill/references/examples.md",
+    "skills/practice/references/examples.md"
+   ]
+  },
+  {
+   "fichier": "scripts/validate_all.py",
+   "lignes": 199,
+   "fonctions": 5,
+   "tests": 0,
+   "identifiants_de_controle": 3,
+   "identifiants_exemples": [
+    "CFT-00",
+    "FIN-01",
+    "LCF-46"
+   ],
+   "phrases_verrouillees_par_fichier": {
+    "README.md": 19,
+    "V1/official/ACTION.md": 14,
+    "skills/design-governance-practice/references/examples.md": 13,
+    "skills/design-governance-practice/references/machine_projection.md": 13,
+    "V1/official/QUICKSTART.md": 10,
+    "V1/official/READING_MAP.md": 8,
+    "V1/official/SAVOIR.md": 4,
+    "skills/design-governance-practice/SKILL.md": 2,
+    "V1/official/CHANGELOG.md": 1
+   },
+   "phrases_verrouillees_total": 84,
+   "fichiers_ouverts": [
+    "SAVOIR.md",
+    "invalid_accepted_lost_in_build.json",
+    "invalid_capability_profile_missing_basis.json",
+    "invalid_critical_placeholder_protection.json",
+    "invalid_critical_without_protection.json",
+    "malformed.json",
+    "missing.json",
+    "schemas/examples/domain_frame.example.json",
+    "schemas/run_card.example.json",
+    "scripts/build_core.py",
+    "scripts/build_distributions.sh",
+    "scripts/read_route.py",
+    "scripts/test_audit_regressions.py",
+    "scripts/test_check_render.py",
+    "scripts/test_core_budget.py",
+    "scripts/test_preparer_livraison.py",
+    "scripts/test_read_route.py",
+    "scripts/validate_contracts.py",
+    "scripts/validate_design_governance.py",
+    "scripts/validate_reading_map.py",
+    "scripts/validate_run_card.py",
+    "scripts/validate_structure.py",
+    "strict_card.json"
+   ]
+  },
+  {
+   "fichier": "scripts/validate_contracts.py",
+   "lignes": 487,
+   "fonctions": 21,
+   "tests": 0,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {
+    "V1/official/DIRECTION.md": 1,
+    "V1/official/SAVOIR.md": 1,
+    "V1/official/ACTION.md": 1
+   },
+   "phrases_verrouillees_total": 3,
+   "fichiers_ouverts": [
+    "schemas/domain_frame.schema.json",
+    "schemas/examples/domain_frame.example.json",
+    "schemas/examples/production_contracts.example.json",
+    "schemas/examples/research_brief.example.json",
+    "schemas/production_contracts.schema.json",
+    "schemas/research_brief.schema.json"
+   ]
+  },
+  {
+   "fichier": "scripts/validate_design_governance.py",
+   "lignes": 354,
+   "fonctions": 17,
+   "tests": 0,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {
+    "V1/official/ACTION.md": 5,
+    "README.md": 3,
+    "V1/official/BIBLIOTHEQUE.md": 3,
+    "V1/official/CHANGELOG.md": 3,
+    "V1/official/GLOSSAIRE.md": 2,
+    "V1/official/SAVOIR.md": 2,
+    "skills/design-governance-practice/references/examples.md": 2,
+    "skills/design-governance-practice/references/machine_projection.md": 2,
+    "V1/official/README.md": 2,
+    "RELEASE_NOTES.md": 1,
+    "V1/official/DIRECTION.md": 1
+   },
+   "phrases_verrouillees_total": 26,
+   "fichiers_ouverts": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "QUICKSTART.md",
+    "README.md",
+    "RELEASE_NOTES.md",
+    "SAVOIR.md",
+    "package_manifest.json",
+    "schemas/run_card.example.json"
+   ]
+  },
+  {
+   "fichier": "scripts/validate_reading_map.py",
+   "lignes": 751,
+   "fonctions": 65,
+   "tests": 0,
+   "identifiants_de_controle": 57,
+   "identifiants_exemples": [
+    "CFT-00",
+    "CFT-01",
+    "LCF-01",
+    "LCF-02",
+    "LCF-03",
+    "LCF-04",
+    "LCF-05",
+    "LCF-06",
+    "LCF-07",
+    "LCF-08",
+    "LCF-09",
+    "LCF-10"
+   ],
+   "phrases_verrouillees_par_fichier": {
+    "V1/official/DIRECTION.md": 26,
+    "V1/official/ACTION.md": 18,
+    "V1/official/READING_MAP.md": 14,
+    "V1/official/SAVOIR.md": 9,
+    "skills/design-governance-practice/SKILL.md": 7,
+    "V1/official/QUICKSTART.md": 7,
+    "skills/design-governance-practice/references/machine_projection.md": 7,
+    "V1/official/GLOSSAIRE.md": 5,
+    "skills/design-governance-practice/references/examples.md": 4,
+    "V1/official/CHANGELOG.md": 4,
+    "README.md": 3,
+    "V1/official/BIBLIOTHEQUE.md": 2,
+    "RELEASE_NOTES.md": 1,
+    "V1/official/README.md": 1,
+    "skills/design-governance-practice/references/flow.md": 1
+   },
+   "phrases_verrouillees_total": 109,
+   "fichiers_ouverts": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "GLOSSAIRE.md",
+    "ORCHESTRATION_MAP.md",
+    "QUICKSTART.md",
+    "READING_MAP.md",
+    "README.md",
+    "RELEASE_NOTES.md",
+    "SAVOIR.md",
+    "SKILL.md",
+    "examples.md",
+    "machine_projection.md",
+    "run_card.schema.json",
+    "schemas/run_card.example.json",
+    "validate_run_card.py"
+   ]
+  },
+  {
+   "fichier": "scripts/validate_run_card.py",
+   "lignes": 1085,
+   "fonctions": 36,
+   "tests": 0,
+   "identifiants_de_controle": 0,
+   "identifiants_exemples": [],
+   "phrases_verrouillees_par_fichier": {
+    "V1/official/ACTION.md": 5,
+    "V1/official/GLOSSAIRE.md": 4,
+    "V1/official/SAVOIR.md": 3,
+    "skills/design-governance-practice/references/examples.md": 3,
+    "skills/design-governance-practice/references/machine_projection.md": 3
+   },
+   "phrases_verrouillees_total": 18,
+   "fichiers_ouverts": [
+    "./run_card.example.json",
+    "invalid_accepted_before_decision.json",
+    "invalid_accepted_lost_in_build.json",
+    "invalid_accepted_without_limitations.json",
+    "invalid_accepted_without_observed.json",
+    "invalid_accepted_without_provenance.json",
+    "invalid_capability_available_without_basis.json",
+    "invalid_capability_profile_missing_basis.json",
+    "invalid_creative_close_missing_field.json",
+    "invalid_critical_placeholder_protection.json",
+    "invalid_critical_without_protection.json",
+    "invalid_direction_missing_creative_close.json",
+    "invalid_direction_missing_object.json",
+    "invalid_direction_missing_status.json",
+    "invalid_direction_missing_trace_locator.json",
+    "invalid_direction_untransformed_anchor.json",
+    "invalid_empty_proof.json",
+    "invalid_fail_assumed_accepted.json",
+    "invalid_global_axis_verdict.json",
+    "invalid_lite_missing_minimum.json",
+    "invalid_missing_proof.json",
+    "invalid_profile_decision_missing_evidence.json",
+    "invalid_state_held.json",
+    "run_card.example.json",
+    "run_card.schema.json",
+    "trace-absente.md",
+    "valid_closed_return.json",
+    "valid_direction_exploratory_untransformed.json",
+    "valid_direction_with_profile_decision.json"
+   ]
+  },
+  {
+   "fichier": "scripts/validate_structure.py",
+   "lignes": 812,
+   "fonctions": 28,
+   "tests": 0,
+   "identifiants_de_controle": 48,
+   "identifiants_exemples": [
+    "ALT-01",
+    "ANC-01",
+    "ANT-01",
+    "CFT-00",
+    "CFT-05",
+    "CHG-01",
+    "CHG-02",
+    "CHG-03",
+    "CHG-04",
+    "CHG-05",
+    "CHG-06",
+    "CHG-07"
+   ],
+   "phrases_verrouillees_par_fichier": {
+    "skills/design-governance-practice/SKILL.md": 30,
+    "V1/official/DIRECTION.md": 25,
+    "V1/official/ACTION.md": 23,
+    "V1/official/QUICKSTART.md": 14,
+    "V1/official/SAVOIR.md": 14,
+    "README.md": 9,
+    "V1/official/READING_MAP.md": 8,
+    "V1/official/CHANGELOG.md": 7,
+    "V1/official/BIBLIOTHEQUE.md": 7,
+    "RELEASE_NOTES.md": 6,
+    "skills/design-governance-practice/references/examples.md": 4,
+    "V1/official/GLOSSAIRE.md": 3,
+    "V1/official/README.md": 2,
+    "skills/design-governance-practice/references/flow.md": 2,
+    "skills/design-governance-practice/references/machine_projection.md": 1
+   },
+   "phrases_verrouillees_total": 155,
+   "fichiers_ouverts": [
+    "ACTION.md",
+    "BIBLIOTHEQUE.md",
+    "CHANGELOG.md",
+    "DIRECTION.md",
+    "GLOSSAIRE.md",
+    "ORCHESTRATION_MAP.md",
+    "QUICKSTART.md",
+    "READING_MAP.md",
+    "README.md",
+    "RELEASE_NOTES.md",
+    "SAVOIR.md",
+    "SKILL.md",
+    "examples.md",
+    "validate_run_card.py"
+   ]
+  }
+ ],
+ "donnees": [
+  {
+   "fichier": "schemas/domain_frame.schema.json",
+   "caracteres": 2724
+  },
+  {
+   "fichier": "schemas/examples/domain_frame.example.json",
+   "caracteres": 3026
+  },
+  {
+   "fichier": "schemas/examples/production_contracts.example.json",
+   "caracteres": 5647
+  },
+  {
+   "fichier": "schemas/examples/research_brief.example.json",
+   "caracteres": 1819
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_accepted_before_decision.json",
+   "caracteres": 4054
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_accepted_lost_in_build.json",
+   "caracteres": 4101
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_accepted_without_limitations.json",
+   "caracteres": 1105
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_accepted_without_observed.json",
+   "caracteres": 847
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_accepted_without_provenance.json",
+   "caracteres": 4052
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_capability_available_without_basis.json",
+   "caracteres": 3914
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_capability_profile_missing_basis.json",
+   "caracteres": 3628
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_creative_close_missing_field.json",
+   "caracteres": 3916
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_critical_placeholder_protection.json",
+   "caracteres": 4338
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_critical_without_protection.json",
+   "caracteres": 4144
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_direction_missing_creative_close.json",
+   "caracteres": 3413
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_direction_missing_object.json",
+   "caracteres": 972
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_direction_missing_status.json",
+   "caracteres": 4018
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_direction_missing_trace_locator.json",
+   "caracteres": 1274
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_direction_untransformed_anchor.json",
+   "caracteres": 2138
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_empty_proof.json",
+   "caracteres": 969
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_fail_assumed_accepted.json",
+   "caracteres": 1546
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_global_axis_verdict.json",
+   "caracteres": 1121
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_lite_missing_minimum.json",
+   "caracteres": 775
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_missing_proof.json",
+   "caracteres": 827
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_profile_decision_missing_evidence.json",
+   "caracteres": 4444
+  },
+  {
+   "fichier": "schemas/fixtures/invalid_state_held.json",
+   "caracteres": 950
+  },
+  {
+   "fichier": "schemas/fixtures/valid_closed_return.json",
+   "caracteres": 1766
+  },
+  {
+   "fichier": "schemas/fixtures/valid_direction_exploratory_untransformed.json",
+   "caracteres": 2052
+  },
+  {
+   "fichier": "schemas/fixtures/valid_direction_with_profile_decision.json",
+   "caracteres": 5806
+  },
+  {
+   "fichier": "schemas/production_contracts.schema.json",
+   "caracteres": 3359
+  },
+  {
+   "fichier": "schemas/research_brief.schema.json",
+   "caracteres": 2178
+  },
+  {
+   "fichier": "schemas/run_card.example.json",
+   "caracteres": 5457
+  },
+  {
+   "fichier": "schemas/run_card.schema.json",
+   "caracteres": 15460
+  }
+ ]
+}

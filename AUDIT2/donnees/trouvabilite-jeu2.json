@@ -1,0 +1,741 @@
+[
+ {
+  "besoin": "Je n'ai qu'une phrase de brief et je ne sais pas par où commencer",
+  "public": "débutant",
+  "famille": "méta",
+  "routes": [
+   "DIRECTION/START",
+   "DIRECTION/EXTERNAL-START"
+  ],
+  "termes": [
+   "par où commencer mon projet",
+   "brief trop vague, que faire",
+   "getting started with a vague brief"
+  ],
+  "preuve": "DIRECTION.md:149"
+ },
+ {
+  "besoin": "Mon site fait générique, on dirait qu'une IA l'a fait",
+  "public": "débutant",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/CRAFT",
+   "DIRECTION/START"
+  ],
+  "termes": [
+   "site qui fait générique",
+   "ça se voit que c'est fait par une IA",
+   "how to avoid AI slop"
+  ],
+  "preuve": "SAVOIR.md:249"
+ },
+ {
+  "besoin": "Choisir la ou les polices de mon site",
+  "public": "débutant",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/TYPE"
+  ],
+  "termes": [
+   "quelle police choisir",
+   "associer deux polices",
+   "which font should I use"
+  ],
+  "preuve": "SAVOIR.md:422"
+ },
+ {
+  "besoin": "Choisir mes couleurs sans que ça fasse amateur",
+  "public": "débutant",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/CRAFT"
+  ],
+  "termes": [
+   "choisir une palette de couleurs",
+   "quelles couleurs mettre",
+   "color scheme for my app"
+  ],
+  "preuve": "SAVOIR.md:398"
+ },
+ {
+  "besoin": "Mon texte n'est pas lisible quand je le pose sur une photo",
+  "public": "débutant",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/CRAFT",
+   "ACTION/POLICIES"
+  ],
+  "termes": [
+   "texte illisible sur l'image",
+   "écrire sur une photo",
+   "text over background image unreadable"
+  ],
+  "preuve": "SAVOIR.md:337"
+ },
+ {
+  "besoin": "Mon site doit bien s'afficher sur téléphone",
+  "public": "débutant",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/CONTEXT",
+   "BIBLIOTHEQUE/SEQUENCE"
+  ],
+  "termes": [
+   "version mobile du site",
+   "ça s'affiche mal sur smartphone",
+   "make it responsive for phones"
+  ],
+  "preuve": "SAVOIR.md:808"
+ },
+ {
+  "besoin": "Rendre mon site utilisable par des personnes handicapées",
+  "public": "débutant",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/CONTEXT",
+   "ACTION/GATE-A"
+  ],
+  "termes": [
+   "site accessible handicap",
+   "aveugles et malvoyants",
+   "wcag checklist"
+  ],
+  "preuve": "ACTION.md:776"
+ },
+ {
+  "besoin": "Mon site met trop de temps à charger",
+  "public": "débutant",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/CONTEXT",
+   "SAVOIR/TECH"
+  ],
+  "termes": [
+   "site lent",
+   "page qui charge lentement",
+   "slow loading page"
+  ],
+  "preuve": "SAVOIR.md:808"
+ },
+ {
+  "besoin": "Quoi afficher quand l'utilisateur fait une erreur dans un formulaire",
+  "public": "débutant",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/STATE"
+  ],
+  "termes": [
+   "message d'erreur formulaire",
+   "que montrer quand ça plante",
+   "error message best practice"
+  ],
+  "preuve": "SAVOIR.md:535"
+ },
+ {
+  "besoin": "Savoir si mon travail est vraiment terminé",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "routes": [
+   "ACTION/CLOSE-EXIT-CHECK",
+   "ACTION/CLOSE-PACKAGE"
+  ],
+  "termes": [
+   "c'est fini quand",
+   "comment savoir que j'ai terminé",
+   "definition of done"
+  ],
+  "preuve": "ACTION.md:1059"
+ },
+ {
+  "besoin": "Expliquer simplement au client ce que j'ai fait",
+  "public": "débutant",
+  "famille": "gouvernance",
+  "routes": [
+   "ACTION/HANDOFF"
+  ],
+  "termes": [
+   "résumer mon travail au client",
+   "présenter mon résultat sans jargon",
+   "how to report back to the client"
+  ],
+  "preuve": "ACTION.md:37"
+ },
+ {
+  "besoin": "Je n'ai ni vrais textes ni photos pour mon projet",
+  "public": "débutant",
+  "famille": "design",
+  "routes": [
+   "DIRECTION/EXTERNAL-START",
+   "SAVOIR/SOURCE"
+  ],
+  "termes": [
+   "pas de contenu ni de photos",
+   "faux texte lorem ipsum",
+   "placeholder content no photos"
+  ],
+  "preuve": "DIRECTION.md:348"
+ },
+ {
+  "besoin": "Comment organiser la page d'accueil de mon appli",
+  "public": "débutant",
+  "famille": "design",
+  "routes": [
+   "BIBLIOTHEQUE/SELECT",
+   "BIBLIOTHEQUE/SCENE"
+  ],
+  "termes": [
+   "structure de ma page d'accueil",
+   "comment placer les blocs",
+   "homepage layout ideas"
+  ],
+  "preuve": "BIBLIOTHEQUE.md:148"
+ },
+ {
+  "besoin": "Éviter le trio de cartes égales sous un titre centré",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "BIBLIOTHEQUE/SELECT",
+   "SAVOIR/CRAFT"
+  ],
+  "termes": [
+   "trois cards alignées déjà vu",
+   "template SaaS standard",
+   "generic hero section cliché"
+  ],
+  "preuve": "BIBLIOTHEQUE.md:251"
+ },
+ {
+  "besoin": "Mon grand titre se coupe mal sur plusieurs lignes",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/TYPE"
+  ],
+  "termes": [
+   "retour à la ligne du titre",
+   "mot orphelin dans un titre",
+   "headline line breaks balance"
+  ],
+  "preuve": "SAVOIR.md:437"
+ },
+ {
+  "besoin": "Comprendre les sigles du système (JTBD, modal, scope, craft)",
+  "public": "designer",
+  "famille": "méta",
+  "routes": [
+   "DIRECTION/START",
+   "SAVOIR/READ"
+  ],
+  "termes": [
+   "que veut dire JTBD",
+   "lexique des termes",
+   "glossary of terms used"
+  ],
+  "preuve": "DIRECTION.md:139"
+ },
+ {
+  "besoin": "Utiliser une image générée par IA dans le rendu final",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "DIRECTION/VISUAL_TARGET",
+   "SAVOIR/SOURCE",
+   "SAVOIR/INTEGRITY"
+  ],
+  "termes": [
+   "image générée droits d'usage",
+   "mettre du midjourney dans mon design",
+   "AI generated image copyright"
+  ],
+  "preuve": "DIRECTION.md:472"
+ },
+ {
+  "besoin": "Le client n'a que des photos moyennes prises au téléphone",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/DESIGN-ATLAS",
+   "SAVOIR/SOURCE"
+  ],
+  "termes": [
+   "photos de mauvaise qualité",
+   "images pas pro, comment les sauver",
+   "low quality client photos fix"
+  ],
+  "preuve": "SAVOIR.md:635"
+ },
+ {
+  "besoin": "Choisir un style visuel (brutaliste, rétro, éditorial)",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/STYLE"
+  ],
+  "termes": [
+   "style brutaliste",
+   "look rétro années 2000",
+   "choose a visual style"
+  ],
+  "preuve": "SAVOIR.md:654"
+ },
+ {
+  "besoin": "Coins arrondis imbriqués et icône pas centrée à l'œil",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/STATE"
+  ],
+  "termes": [
+   "rayon des coins dans un cadre",
+   "bouton pas centré visuellement",
+   "nested border radius optical alignment"
+  ],
+  "preuve": "SAVOIR.md:499"
+ },
+ {
+  "besoin": "Proposer deux pistes différentes au client avant de trancher",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "SAVOIR/CRAFT",
+   "ACTION/PIPELINE-DIRECTION"
+  ],
+  "termes": [
+   "deux propositions au client",
+   "variantes de direction artistique",
+   "design options to compare"
+  ],
+  "preuve": "SAVOIR.md:292"
+ },
+ {
+  "besoin": "Donner du caractère au premier écran",
+  "public": "designer",
+  "famille": "design",
+  "routes": [
+   "DIRECTION/CREATIVE-BOOT",
+   "DIRECTION/FIRST-OBJECT"
+  ],
+  "termes": [
+   "premier écran qui marque",
+   "ma page n'a pas de personnalité",
+   "make the hero section memorable"
+  ],
+  "preuve": "DIRECTION.md:193"
+ },
+ {
+  "besoin": "Tableau de bord dense dont les chiffres sautent quand ils changent",
+  "public": "designer",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/TYPE",
+   "BIBLIOTHEQUE/MICRO"
+  ],
+  "termes": [
+   "chiffres qui bougent en largeur",
+   "tableau de données lisible",
+   "tabular numbers in a dashboard"
+  ],
+  "preuve": "SAVOIR.md:429"
+ },
+ {
+  "besoin": "Prévoir les écrans vide, chargement et erreur d'un composant",
+  "public": "designer",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/STATE",
+   "ACTION/GATE-A"
+  ],
+  "termes": [
+   "écran sans données",
+   "skeleton chargement",
+   "empty state design"
+  ],
+  "preuve": "SAVOIR.md:528"
+ },
+ {
+  "besoin": "Des animations qui ne gênent personne",
+  "public": "designer",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/CONTEXT",
+   "ACTION/GATE-A"
+  ],
+  "termes": [
+   "animations qui dérangent",
+   "réduire les mouvements",
+   "prefers-reduced-motion"
+  ],
+  "preuve": "SAVOIR.md:814"
+ },
+ {
+  "besoin": "Défendre un choix de design face à un client sceptique",
+  "public": "designer",
+  "famille": "gouvernance",
+  "routes": [
+   "SAVOIR/FRAME",
+   "ACTION/GATE-B"
+  ],
+  "termes": [
+   "argumenter mon choix",
+   "justifier un compromis",
+   "design trade-off rationale"
+  ],
+  "preuve": "SAVOIR.md:156"
+ },
+ {
+  "besoin": "Changer la couleur principale dans tous nos produits",
+  "public": "équipe",
+  "famille": "produit",
+  "routes": [
+   "ACTION/RUN-SYSTEM",
+   "SAVOIR/SYSTEM",
+   "DIRECTION/START"
+  ],
+  "termes": [
+   "changer le bleu partout",
+   "modifier une variable de design",
+   "update a design token across apps"
+  ],
+  "preuve": "ACTION.md:459"
+ },
+ {
+  "besoin": "Passer un dossier à un collègue sans perdre le fil",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "routes": [
+   "ACTION/RUN_CARD",
+   "ACTION/HANDOFF",
+   "ACTION/AUTHORITY"
+  ],
+  "termes": [
+   "passation de dossier",
+   "qui est responsable de la décision",
+   "handover to another designer"
+  ],
+  "preuve": "ACTION.md:281"
+ },
+ {
+  "besoin": "Livrer à temps malgré un défaut connu",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "routes": [
+   "ACTION/OVERRIDE"
+  ],
+  "termes": [
+   "livrer malgré un bug connu",
+   "dérogation temporaire",
+   "ship with a known issue"
+  ],
+  "preuve": "ACTION.md:946"
+ },
+ {
+  "besoin": "Garder la liste des problèmes restants après livraison",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "routes": [
+   "ACTION/CLOSE-PACKAGE"
+  ],
+  "termes": [
+   "suivre les risques restants",
+   "liste des réserves",
+   "residual risk log"
+  ],
+  "preuve": "ACTION.md:495"
+ },
+ {
+  "besoin": "Quel niveau de process pour un petit correctif",
+  "public": "équipe",
+  "famille": "méta",
+  "routes": [
+   "DIRECTION/START",
+   "DIRECTION/CHARGE",
+   "ACTION/FAST-PATH"
+  ],
+  "termes": [
+   "petit fix sans lourdeur",
+   "quel niveau de rigueur",
+   "quick fix lightweight process"
+  ],
+  "preuve": "DIRECTION.md:157"
+ },
+ {
+  "besoin": "Faire relire une maquette par quelqu'un d'extérieur",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "routes": [
+   "ACTION/GATE-B"
+  ],
+  "termes": [
+   "relecture par un pair",
+   "revue indépendante",
+   "blind design review"
+  ],
+  "preuve": "ACTION.md:866"
+ },
+ {
+  "besoin": "Vérifier que les utilisateurs comprennent vraiment la page",
+  "public": "équipe",
+  "famille": "produit",
+  "routes": [
+   "ACTION/GATE-A",
+   "ACTION/STRUCTURED-PROOF",
+   "SAVOIR/FRAME"
+  ],
+  "termes": [
+   "test utilisateur",
+   "est-ce que les gens comprennent",
+   "usability testing"
+  ],
+  "preuve": "ACTION.md:770"
+ },
+ {
+  "besoin": "Poser une bibliothèque de composants réutilisables",
+  "public": "équipe",
+  "famille": "produit",
+  "routes": [
+   "BIBLIOTHEQUE/COMPONENTS",
+   "SAVOIR/SYSTEM"
+  ],
+  "termes": [
+   "bibliothèque de composants",
+   "règles d'un bouton partagé",
+   "component library guidelines"
+  ],
+  "preuve": "BIBLIOTHEQUE.md:688"
+ },
+ {
+  "besoin": "Concevoir pour un contexte à risque (santé, paiement)",
+  "public": "équipe",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/CONTEXT",
+   "DIRECTION/START"
+  ],
+  "termes": [
+   "appli médicale",
+   "paiement en ligne sécurisé",
+   "high-stakes healthcare UI"
+  ],
+  "preuve": "SAVOIR.md:794"
+ },
+ {
+  "besoin": "Clarifier les utilisateurs et leur besoin avant de dessiner",
+  "public": "équipe",
+  "famille": "produit",
+  "routes": [
+   "SAVOIR/FRAME",
+   "DIRECTION/DOMAIN-FRAME"
+  ],
+  "termes": [
+   "définir le public cible",
+   "persona et besoin principal",
+   "user needs before design"
+  ],
+  "preuve": "SAVOIR.md:169"
+ },
+ {
+  "besoin": "Une tendance design ou une source est-elle encore à jour",
+  "public": "équipe",
+  "famille": "gouvernance",
+  "routes": [
+   "SAVOIR/TOOLS"
+  ],
+  "termes": [
+   "tendance dépassée",
+   "source trop ancienne",
+   "is this design trend still current"
+  ],
+  "preuve": "SAVOIR.md:879"
+ },
+ {
+  "besoin": "À quoi sert chaque document et où chercher une règle",
+  "public": "équipe",
+  "famille": "méta",
+  "routes": [
+   "SAVOIR/READ",
+   "SAVOIR/ROUTING",
+   "ACTION/ROUTING"
+  ],
+  "termes": [
+   "quel fichier pour quelle question",
+   "où trouver une règle",
+   "which document answers what"
+  ],
+  "preuve": "DIRECTION.md:36"
+ },
+ {
+  "besoin": "Quels modules lire en premier selon le type de tâche",
+  "public": "agent",
+  "famille": "méta",
+  "routes": [
+   "DIRECTION/CHARGE",
+   "DIRECTION/START"
+  ],
+  "termes": [
+   "quoi charger au démarrage",
+   "ordre de lecture des fichiers",
+   "which files to load for a task"
+  ],
+  "preuve": "DIRECTION.md:297"
+ },
+ {
+  "besoin": "Je n'ai pas de navigateur pour vérifier ce que j'ai produit",
+  "public": "agent",
+  "famille": "gouvernance",
+  "routes": [
+   "ACTION/RUN_CARD",
+   "SAVOIR/INTEGRITY"
+  ],
+  "termes": [
+   "pas de capture possible",
+   "can't run the page what can I claim",
+   "preuve impossible à obtenir"
+  ],
+  "preuve": "ACTION.md:352"
+ },
+ {
+  "besoin": "Forme de la réponse finale à donner à l'utilisateur",
+  "public": "agent",
+  "famille": "méta",
+  "routes": [
+   "ACTION/HANDOFF"
+  ],
+  "termes": [
+   "comment rédiger ma réponse finale",
+   "format de sortie pour l'humain",
+   "final answer format"
+  ],
+  "preuve": "ACTION.md:37"
+ },
+ {
+  "besoin": "Brief flou : combien de questions poser avant de construire",
+  "public": "agent",
+  "famille": "design",
+  "routes": [
+   "DIRECTION/EXTERNAL-START"
+  ],
+  "termes": [
+   "demande floue combien de questions",
+   "clarifying questions limit",
+   "poser trois questions maximum"
+  ],
+  "preuve": "DIRECTION.md:343"
+ },
+ {
+  "besoin": "Ne pas inventer de chiffres, témoignages ou logos",
+  "public": "agent",
+  "famille": "gouvernance",
+  "routes": [
+   "DIRECTION/EXTERNAL-START",
+   "DIRECTION/DIRECTION-ATELIER"
+  ],
+  "termes": [
+   "faux avis clients",
+   "fake testimonials placeholder",
+   "chiffres inventés"
+  ],
+  "preuve": "DIRECTION.md:328"
+ },
+ {
+  "besoin": "Que corriger en premier après le premier rendu",
+  "public": "agent",
+  "famille": "design",
+  "routes": [
+   "DIRECTION/DOUBLE-LOOP"
+  ],
+  "termes": [
+   "améliorer après le premier jet",
+   "iterate on first render",
+   "quel défaut traiter d'abord"
+  ],
+  "preuve": "DIRECTION.md:561"
+ },
+ {
+  "besoin": "Retoucher une page existante sans casser son style",
+  "public": "agent",
+  "famille": "design",
+  "routes": [
+   "ACTION/RUN-ITER",
+   "DIRECTION/START"
+  ],
+  "termes": [
+   "modifier une page déjà faite",
+   "edit existing design keep its look",
+   "retouche sans tout refaire"
+  ],
+  "preuve": "ACTION.md:429"
+ },
+ {
+  "besoin": "Vérifier le contraste des couleurs texte et fond",
+  "public": "agent",
+  "famille": "produit",
+  "routes": [
+   "ACTION/POLICIES",
+   "ACTION/GATE-A"
+  ],
+  "termes": [
+   "ratio de contraste",
+   "contrast checker AA",
+   "valider les couleurs texte sur fond"
+  ],
+  "preuve": "ACTION.md:982"
+ },
+ {
+  "besoin": "Quelles captures d'écran produire pour prouver le rendu",
+  "public": "agent",
+  "famille": "produit",
+  "routes": [
+   "ACTION/VISUAL_PROOF"
+  ],
+  "termes": [
+   "captures mobile et bureau",
+   "screenshot evidence widths",
+   "quelles tailles d'écran capturer"
+  ],
+  "preuve": "ACTION.md:710"
+ },
+ {
+  "besoin": "Que signifient NOT-VERIFIED, RETURN et ACCEPTED",
+  "public": "agent",
+  "famille": "méta",
+  "routes": [
+   "ACTION/STATUS"
+  ],
+  "termes": [
+   "quel verdict donner",
+   "what does NOT-VERIFIED mean",
+   "statuts possibles d'un run"
+  ],
+  "preuve": "ACTION.md:192"
+ },
+ {
+  "besoin": "Vérifier que j'applique les règles pour de vrai et pas en façade",
+  "public": "agent",
+  "famille": "méta",
+  "routes": [
+   "SAVOIR/INTEGRITY"
+  ],
+  "termes": [
+   "règles suivies sans effet",
+   "box-ticking compliance",
+   "récitation de procédure"
+  ],
+  "preuve": "SAVOIR.md:971"
+ },
+ {
+  "besoin": "Quelle grille de mise en page pour une page éditoriale ou un tableau de bord",
+  "public": "agent",
+  "famille": "design",
+  "routes": [
+   "BIBLIOTHEQUE/GRID",
+   "BIBLIOTHEQUE/SUPPORT"
+  ],
+  "termes": [
+   "colonnes ou modulaire",
+   "layout grid for a dashboard",
+   "mise en page en colonnes"
+  ],
+  "preuve": "BIBLIOTHEQUE.md:376"
+ }
+]
