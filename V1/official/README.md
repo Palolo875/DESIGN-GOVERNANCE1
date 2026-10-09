@@ -16,6 +16,6 @@ Les cinq fichiers suivants sont les **seules sources normatives** de V1 :
 | [`BIBLIOTHEQUE.md`](./BIBLIOTHEQUE.md) | Support, grille, scène, objet, micro-interface, contrat et compatibilité. |
 | [`CHANGELOG.md`](./CHANGELOG.md) | État du corpus, changements, compatibilités et maintenance. |
 
-`README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative ; `ORCHESTRATION_MAP.md` n’est plus qu’un pointeur vers elle.
+`README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
 
 Lorsqu’une décision exige une trace structurée, la `RUN_CARD` rassemble le mode, le risque, la décision, l’artefact, la preuve, la limite et la clôture ; son schéma et son validateur sont dans `schemas/` et `scripts/`. Une validation de package ou de `RUN_CARD` confirme uniquement les contrôles exécutés ; elle ne prouve ni l’usage, ni l’accessibilité exécutée, ni la performance, ni la qualité visuelle du produit.

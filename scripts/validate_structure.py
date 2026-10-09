@@ -333,16 +333,11 @@ def check_preamble(errors: list[str]) -> None:
             errors.append(f"[MNT-01] maintenance dans le préambule de BIBLIOTHEQUE (lu en premier) : « {marker} »")
 
 
-# 14. Cartes réunies : les combinaisons par résultat vivent dans READING_MAP ; ORCHESTRATION_MAP n'est qu'un pointeur.
+# 14. Cartes réunies : les combinaisons par résultat vivent dans READING_MAP (l'ancien pointeur ORCHESTRATION_MAP est retiré).
 def check_maps(errors: list[str]) -> None:
     reading = rr.lieu_texte("READING_MAP.md")
     if reading.count("## Combinaisons par résultat recherché") != 1:
         errors.append("[MAP-01] READING_MAP doit porter une seule section « Combinaisons par résultat recherché »")
-    pointer = [p for p in rr.lieu("ORCHESTRATION_MAP.md") if p.is_file()]
-    if pointer:
-        text = rr.lieu_texte("ORCHESTRATION_MAP.md")
-        if any(line.startswith("|") or line.startswith("## ") for line in text.splitlines()) or len(text.split()) > 80:
-            errors.append("[MAP-01] ORCHESTRATION_MAP porte de nouveau un contenu propre (pointeur de compatibilité attendu)")
 
 
 # 12. Locators numériques : un message du validateur cite un lieu nommé, jamais un numéro de ligne.

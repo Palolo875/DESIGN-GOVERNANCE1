@@ -215,7 +215,7 @@ def plain(cell: str) -> str:
 def load_texts() -> dict[str, str]:
     # Sources historiques lues à leur lieu actuel (table LIEUX du lecteur) ; les autres fichiers, à leur chemin.
     historic = {"D": "DIRECTION.md", "A": "ACTION.md", "S": "SAVOIR.md", "B": "BIBLIOTHEQUE.md", "C": "CHANGELOG.md",
-                "G": "GLOSSAIRE.md", "Q": "QUICKSTART.md", "RM": "READING_MAP.md", "OM": "ORCHESTRATION_MAP.md"}
+                "G": "GLOSSAIRE.md", "Q": "QUICKSTART.md", "RM": "READING_MAP.md"}
     files = {
         "README": ROOT / "README.md", "NOTES": ROOT / "RELEASE_NOTES.md",
         "SK": SKILL_DIR / "SKILL.md", "EX": SKILL_DIR / "references" / "examples.md",
@@ -541,7 +541,7 @@ def wave_hit(line: str) -> bool:
 
 
 def lcf_46(t: dict[str, str]) -> bool:
-    keys = ("D", "A", "S", "B", "G", "Q", "RM", "OM", "README", "SK", "EX")
+    keys = ("D", "A", "S", "B", "G", "Q", "RM", "README", "SK", "EX")
     stray = [l for k in keys for l in t[k].splitlines() if wave_hit(l) and not l.startswith("[VEILLE 20")]
     dated = [l for l in t["S"].splitlines() if l.startswith("[VEILLE 20") and wave_hit(l)]
     return not stray and bool(dated)

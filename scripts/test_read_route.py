@@ -331,10 +331,11 @@ class SearchAndSummaryTests(unittest.TestCase):
             self.assertTrue(reader.search(group[0])[2], f"groupe d'alias sans occurrence : {group}")
 
     def test_whole_words_before_partial_match(self):
-        mode, _, results = reader.search("age")
+        # « ton » est aussi dans « bouton » ; seuls les mots entiers doivent revenir.
+        mode, _, results = reader.search("ton")
         self.assertEqual(mode, "mots entiers")
         for _, _, _, line in results:
-            self.assertRegex(reader._fold(line), r"(?<![a-z0-9])age")
+            self.assertRegex(reader._fold(line), r"(?<![a-z0-9])tons?(?![a-z0-9])")
 
     def test_separate_words_fallback(self):
         mode, words, results = reader.search("image texte")
