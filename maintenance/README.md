@@ -22,7 +22,6 @@ Cette commande compile le noyau, exécute les contrôles du package et construit
 
 | Option | Résultat |
 |---|---|
-| `--markdown DOSSIER` | Produit une copie complète restaurable et une copie des documents seuls ; leur restauration est vérifiée à l’octet près. Le restaurateur n’écrit que dans un dossier vide ou absent, sans lien symbolique : il n’écrase ni ne mélange rien. |
 | `--empreintes` | Affiche les empreintes SHA256 des archives. |
 | `--log CHEMIN` ou `--journal CHEMIN` | Conserve la sortie détaillée des contrôles dans un fichier `.log` ; les deux options sont équivalentes. Par défaut : `.logs/preparer_livraison.log`. |
 | `--require-browser` | Exige l’exécution des tests de pages et fait échouer la préparation si le navigateur est indisponible. |
