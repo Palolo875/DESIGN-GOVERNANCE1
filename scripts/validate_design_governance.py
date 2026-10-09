@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import os
 import re
+import shlex
 import sys
 import html
 import unicodedata
@@ -14,6 +15,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 from read_route import headings, lieu, non_code_lines as indexed_non_code_lines
+import read_route as routes
 
 ROOT = Path(__file__).resolve().parents[1]
 IS_LOCAL = not (ROOT / "scripts" / "build_distributions.sh").is_file()  # export Local : même arborescence, sans les outils de préparation
@@ -217,6 +219,111 @@ def check_links(errors: list[str]) -> None:
                     fail(errors, f"fragment Markdown introuvable : {path.relative_to(ROOT)} -> {raw_target}")
 
 
+def check_source_locations(errors: list[str]) -> None:
+    """Un déplacement ne peut pas laisser une source absente ou une provenance hors registre."""
+    for prefix in routes.PREFIXES:
+        if f"{prefix}.md" not in routes.LIEUX:
+            fail(errors, f"responsabilité sans emplacements déclarés : {prefix}")
+    for name, relatives in routes.LIEUX.items():
+        if not relatives or len(relatives) != len(set(relatives)):
+            fail(errors, f"registre des sources vide ou répété : {name}")
+        for path in lieu(name):
+            if not path.resolve().is_relative_to(ROOT.resolve()) or not path.is_file():
+                fail(errors, f"emplacement déclaré absent ou hors package : {name} -> {path}")
+    for relative in EXPECTED:
+        path = ROOT / relative
+        if path.suffix != ".md" or not path.is_file():
+            continue
+        for _, line in indexed_non_code_lines(path.read_text(encoding="utf-8").splitlines()):
+            origin = routes.ORIGINE.match(line)
+            if origin and origin[1] not in set(routes.LIEUX) | {"README.md"}:
+                fail(errors, f"provenance inconnue : {relative} -> {origin[1]}")
+            if origin and origin[1].removesuffix(".md") in routes.PREFIXES:
+                if path.resolve() not in {p.resolve() for p in lieu(origin[1])}:
+                    fail(errors, f"provenance sans emplacement déclaré : {relative} -> {origin[1]}")
+
+
+def check_inline_references(errors: list[str]) -> None:
+    """Contrôle les fichiers, scripts et routes entre accents graves, hors exemples explicites.
+
+    Un nom simple se résout depuis le document, la racine, puis un fichier unique
+    du manifeste. Un chemin d'exemple se marque `exemple: chemin/fiche.md` ou
+    reste dans un bloc de code ; il n'est pas traité comme une dépendance livrée.
+    Les arguments utilisateur d'une commande ne sont jamais exécutés.
+    """
+    by_name: dict[str, list[Path]] = {}
+    for relative in EXPECTED:
+        by_name.setdefault(Path(relative).name, []).append(ROOT / relative)
+    resolved_routes: dict[str, str | None] = {}
+
+    def file_reference(doc: Path, value: str, distribution: str | None = None) -> None:
+        name, _, fragment = value.partition("#")
+        if distribution and distribution != ("local" if IS_LOCAL else "github"):
+            declared = LISTS.get(distribution)
+            if not isinstance(declared, list):
+                fail(errors, f"manifeste de la portée de référence invalide : {distribution}")
+                return
+            if name in declared and not fragment:
+                return  # référence explicitement destinée à l'autre distribution, déclarée dans son manifeste
+        candidates = [doc.parent / name, ROOT / name]
+        if "/" not in name:
+            matches = by_name.get(name, [])
+            if len(matches) == 1:
+                candidates.extend(matches)
+        target = next((p for p in candidates if p.is_file() and p.resolve().is_relative_to(ROOT.resolve())), None)
+        if target is None:
+            fail(errors, f"référence opérationnelle absente : {doc.relative_to(ROOT)} -> {value}")
+        elif fragment and target.suffix == ".md" and fragment not in markdown_anchors(target.read_text(encoding="utf-8")):
+            fail(errors, f"fragment opérationnel introuvable : {doc.relative_to(ROOT)} -> {value}")
+
+    def route_reference(doc: Path, value: str) -> None:
+        if value not in resolved_routes:
+            try:
+                routes.resolve(value)
+                resolved_routes[value] = None
+            except (routes.RouteError, OSError) as exc:
+                resolved_routes[value] = str(exc)
+        if resolved_routes[value]:
+            fail(errors, f"route opérationnelle non résolue : {doc.relative_to(ROOT)} -> {value} ({resolved_routes[value]})")
+
+    for relative in EXPECTED:
+        doc = ROOT / relative
+        if doc.suffix != ".md" or not doc.is_file():
+            continue
+        raw_lines = non_code_lines(doc.read_text(encoding="utf-8"))
+        text = re.sub(r"<!--.*?-->", lambda m: "\n" * m[0].count("\n"), "\n".join(raw_lines), flags=re.S)
+        values = []
+        for raw, line in zip(raw_lines, text.split("\n")):
+            scope = re.search(r"<!-- références:([^>]+) -->", raw)
+            distribution = scope[1].strip() if scope else None
+            if distribution and distribution not in {"github", "local"}:
+                fail(errors, f"portée de référence inconnue : {relative} -> {distribution}")
+                distribution = None
+            values.extend((value, distribution) for value in re.findall(r"(?<!`)`([^`\n]+)`(?!`)", line))
+        for value, distribution in values:
+            if value.startswith("exemple:"):
+                continue
+            if re.fullmatch(r"[\w./-]+\.(?:md|py|json)(?:#[\w-]+)?", value):
+                file_reference(doc, value, distribution)
+            elif value.startswith("python3 "):
+                try:
+                    words = shlex.split(value)
+                except ValueError:
+                    fail(errors, f"commande mal formée : {relative} -> {value}")
+                    continue
+                if len(words) > 1 and words[1].endswith(".py"):
+                    file_reference(doc, words[1], distribution)
+                    if words[1] == "scripts/read_route.py" and len(words) > 2:
+                        arg = words[2]
+                        if not arg.startswith("-") and arg not in {"LOCATOR", "ADRESSE", "…"}:
+                            route_reference(doc, arg)
+            elif re.fullmatch(r"(?:DIRECTION|ACTION|SAVOIR|BIBLIOTHEQUE|CHANGELOG)/[A-Z0-9_-]+(?:/[A-Z0-9_-]+)?", value):
+                route_reference(doc, value)
+            elif value in routes.ADRESSES or re.fullmatch(r"(?:design/)?[a-z][a-z0-9-]*/[a-z0-9-]+(?:#[a-z0-9-]+)?", value):
+                if not (ROOT / value).is_dir():
+                    route_reference(doc, value)
+
+
 def check_action_projection_source(errors: list[str]) -> None:
     """Keep the structured RUN_CARD example canonical and machine-validatable.
 
@@ -262,10 +369,19 @@ def check_state_direction_separation(errors: list[str]) -> None:
 def check_canonicity_language(errors: list[str]) -> None:
     readme = read_source("README.md", errors)
     changelog = read_source("CHANGELOG.md", errors)
-    if readme and "Les cinq fichiers suivants sont les **seules sources normatives** de V1" not in readme:
+    if readme and not all(term in readme for term in ("section propriétaire", "emplacement actuel", "responsabilités normatives")):
         fail(errors, "la hiérarchie des sources normatives n’est pas formulée dans le README officiel")
+    if "Les cinq fichiers suivants sont les **seules sources normatives**" in readme:
+        fail(errors, "l’autorité est encore limitée à cinq fichiers physiques")
     if "exactement sept fichiers canoniques" in changelog or "sept fichiers actifs" in changelog:
         fail(errors, "ancienne formulation contradictoire sur les fichiers canoniques")
+    for relative in ("README.md", "design/README.md", "gouvernance/README.md"):
+        path = ROOT / relative
+        if path.is_file():
+            text = "\n".join(non_code_lines(path.read_text(encoding="utf-8")))
+            if re.search(r"(?:gouvernance|ce module|le module)[^.\n]*n[’']est jamais requis|"
+                         r"\bgouvernance\s+(?:est|reste|devient)\s+(?:toujours|systématiquement)\s+obligatoire\b", text, re.I):
+                fail(errors, f"gouvernance présentée sans adaptation au contexte : {relative}")
 
 
 def check_lifecycle_contract(errors: list[str]) -> None:
@@ -281,7 +397,7 @@ def check_lifecycle_contract(errors: list[str]) -> None:
             fail(errors, f"alias de migration absent du CHANGELOG : {alias}")
 
     bibliography = read_source("BIBLIOTHEQUE.md", errors)
-    if bibliography and "section « Migration des anciens aliases » de `CHANGELOG.md`" not in bibliography:
+    if bibliography and "section « Migration des anciens aliases » de `maintenance/evolution.md`" not in bibliography:
         fail(errors, "BIBLIOTHEQUE ne pointe pas vers le propriétaire de sa migration")
 
 
@@ -345,6 +461,8 @@ def main() -> int:
     check_manifest(errors)
     check_expected_files(errors)
     check_links(errors)
+    check_source_locations(errors)
+    check_inline_references(errors)
     check_action_projection_source(errors)
     check_structured_values(errors)
     check_state_direction_separation(errors)
@@ -361,7 +479,7 @@ def main() -> int:
         return 1
 
     kind = "Local" if IS_LOCAL else "GitHub"
-    print(f"VALIDATION PASSED — {kind}, {len(EXPECTED)} fichiers attendus, liens, vocabulaire et convention contrôlés")
+    print(f"VALIDATION PASSED — {kind}, {len(EXPECTED)} fichiers attendus, liens, références opérationnelles, sources, vocabulaire et convention contrôlés")
     return 0
 
 

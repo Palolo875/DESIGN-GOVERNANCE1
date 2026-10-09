@@ -53,7 +53,7 @@ flowchart TD
   G --> D["design/ : direction, savoir, formes, produit"]
   R --> AG["agent/ : la skill et son chemin"]
   AG --> D
-  D -. "si le travail est tracé ou livré" .-> GV["gouvernance/ : facultatif"]
+  D -. "selon le risque, la décision et la reprise" .-> GV["gouvernance/ : adaptée et utile"]
   R --> M["maintenance/ : faire évoluer le système"]
 ```
 
@@ -62,12 +62,14 @@ flowchart TD
 | **Guides** | `guides/` | Les portes : commencer, designer, équipe, glossaire. |
 | **Design** | `design/` | Le cœur : direction, savoir, formes, qualité du produit. |
 | **Agent** | `agent/` | La skill (`agent/skill/`), le chemin de l’agent et sa réponse. |
-| **Gouvernance** (facultative) | `gouvernance/` | Trace, vérification formelle et livraison ; schémas et outils de validation. |
+| **Gouvernance** (selon le besoin) | `gouvernance/` | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
 | **Maintenance** | `maintenance/` | Faire évoluer le système : distributions, validation, versions. |
-| **Sources en cours de rangement** | `V1/official/` | Sections pas encore rangées ; toutes les adresses restent valables. |
+| **Sections conservées** | `V1/official/` | Sections conservées et carte dérivée ; les sections déplacées gardent la même autorité. |
 | **Outils** | `scripts/` | Lecteur, contrôles et construction des distributions. |
 
-Les guides orientent ; ils ne créent aucune règle. Les règles qui font foi sont décrites dans le [sommaire des sources](V1/official/README.md).
+La gouvernance s'adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
+
+Les guides orientent ; ils ne créent aucune règle. Une règle fait foi dans sa section propriétaire, à son emplacement actuel, décrit dans le [sommaire des sources](V1/official/README.md). Les codes historiques et les adresses lisibles désignent les mêmes sections.
 
 Pour lire une seule partie du système :
 
@@ -81,7 +83,7 @@ Ajoutez `--guides` pour chercher aussi dans les guides. Une recherche sans résu
 
 ## Limites
 
-- **Version.** V1.0.0, révision `R2026-10-09-REFONTE` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
+- **Version.** V1.0.0, révision `R2026-10-09-COHERENCE` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
 - **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. L’exécution de la CI hébergée pour cette révision n’est pas vérifiée non plus.
 - **Une validation confirme seulement les contrôles exécutés.** Une capture prouve un rendu, pas un usage : à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle.
 - **Séduisant n’est pas prouvé, conforme n’est pas réussi.** Le système demande de rendre cet écart visible et de corriger le défaut principal, sans le compenser par une autre preuve. Une étape ou une référence qui ne change rien est retirée.

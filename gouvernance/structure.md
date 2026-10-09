@@ -12,14 +12,14 @@ Avant de parcourir les routes détaillées, retiens ces décisions de protection
 3. **Premier objet :** toute sélection ouverte doit relier une thèse structurelle, une tension et, lorsque l’écart est ouvert, une signature à un premier objet habitable, avec contenu crédible, hiérarchie, action, états et résolution proportionnée.
 4. **Preuve :** distingue ce que la structure rend perceptible, ce qu’un regard expert interprète, ce qu’un contrôle technique mesure et ce qu’une personne accomplit dans une tâche. Une chaîne de routes ne constitue jamais une preuve à elle seule.
 5. **Proportion :** commence par le niveau minimal qui peut changer la décision ; ajoute support, grille, scène, objet, micro, modificateur ou couche seulement lorsque leur responsabilité est active.
-6. **Promotion :** une route partagée ou candidate à la durée suit `DIRECTION/START` → `ACTION/RUN-SYSTEM` → `BIBLIOTHEQUE/EVOLUTION` → `CHANGELOG`. Cette chaîne organise la décision et la preuve ; elle n’accorde aucune promotion.
+6. **Promotion :** une route partagée ou candidate à la durée suit `DIRECTION/START` → `ACTION/RUN-SYSTEM` → `BIBLIOTHEQUE/EVOLUTION` → `maintenance/versions.md`. Cette chaîne organise la décision et la preuve ; elle n’accorde aucune promotion.
 
 Cette entrée est un **résumé de protection**, pas une nouvelle route, un nouveau gate, un nouveau statut ou un second contrat machine. Les sections détaillées et les propriétaires existants prévalent en cas de différence.
 
 <!-- origine:BIBLIOTHEQUE.md -->
 ## BIBLIOTHEQUE/CONTRACTS — contrat commun de route
 
-Une route locale commence par un contrat réduit : décision initiale, responsabilité, contre-indication, preuve attendue et limite. C’est la seule définition du contrat réduit ; la ligne `Local` du contrat minimal par périmètre et les lignes « avant build » de `BIBLIOTHEQUE/DERIVE` y renvoient. Lorsqu’elle est suivie comme candidate, elle peut porter le statut de cycle de vie `PILOT`, distinct du niveau de contrat et des statuts de run. Après observation, renseigne `DECISION-CHANGE` ou l’issue ACTION appropriée. Le contrat complet est nécessaire, mais non suffisant, pour `ADOPTED` : la promotion exige aussi usages contrastés, gain observé ou mesuré, maintenance, compatibilité, owner, prochaine revue et décision persistée dans `CHANGELOG`.
+Une route locale commence par un contrat réduit : décision initiale, responsabilité, contre-indication, preuve attendue et limite. C’est la seule définition du contrat réduit ; la ligne `Local` du contrat minimal par périmètre et les lignes « avant build » de `BIBLIOTHEQUE/DERIVE` y renvoient. Lorsqu’elle est suivie comme candidate, elle peut porter le statut de cycle de vie `PILOT`, distinct du niveau de contrat et des statuts de run. Après observation, renseigne `DECISION-CHANGE` ou l’issue ACTION appropriée. Le contrat complet est nécessaire, mais non suffisant, pour `ADOPTED` : la promotion exige aussi usages contrastés, gain observé ou mesuré, maintenance, compatibilité, owner, prochaine revue et décision persistée dans `maintenance/versions.md`.
 
 Toute route durable déclare :
 
@@ -37,7 +37,7 @@ Toute route durable déclare :
 | Accessibilité | Quels risques de sémantique, nom, clavier, focus, contraste, cibles, motion et information non chromatique sont couverts, par quelle méthode et dans quel scope ? |
 | Confidentialité et permissions | Quelles données, autorisations, expositions et voies de récupération sont couvertes ? |
 | Compatibilité | Quels consumers, scènes, grilles, objets, plateformes ou runtimes peuvent l’accompagner, avec quel fallback, migration et rollback ? |
-| Owner | Qui décide pour le run, qui reçoit l’action suivante et qui maintient la route ? La promotion/dépréciation reste une décision `CHANGELOG`. |
+| Owner | Qui décide pour le run, qui reçoit l’action suivante et qui maintient la route ? La promotion/dépréciation reste une décision `maintenance/versions.md`. |
 | Revue | Quels usages contrastés, baseline, observation ou mesure ont été réalisés, avec quelle limite et quand la route sera-t-elle revue ? |
 | `DECISION-CHANGE` | Quelle décision a changé, été confirmée ou abandonnée grâce à la route ? |
 | Contribution expressive | Quelle présence, quel rythme, quelle atmosphère ou quelle signature la route rend-elle possible dans son contexte ? |

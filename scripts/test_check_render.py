@@ -16,16 +16,19 @@ import argparse
 import contextlib
 import functools
 import http.server
+import http.client
 import importlib.util
 import io
 import json
 import os
 import shutil
+import socket
 import subprocess
 import sys
 import tempfile
 import threading
 from pathlib import Path
+from urllib.parse import urlsplit
 from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
@@ -66,6 +69,30 @@ def raw_case(audit=None, proof=None, stops=None, missing=None, running=None, ove
 
 
 def part_a() -> None:
+    with patch.dict(os.environ, {"DG_BROWSER_EXECUTABLE": "/browser/configure"}):
+        expect("A", "navigateur explicitement configuré", cr.parser().parse_args(["page.html"]).browser_executable, "/browser/configure")
+        expect("A", "option navigateur prioritaire sur la configuration", cr.parser().parse_args(["page.html", "--browser-executable", "/browser/choisi"]).browser_executable, "/browser/choisi")
+    with tempfile.TemporaryDirectory() as tmp:
+        page = Path(tmp) / 'page été #1.html'
+        page.write_text('<h1>Local</h1>', encoding='utf-8')
+        args = cr.parser().parse_args([str(page), '--serve-local'])
+        with cr.page_url(args) as url:
+            parsed = urlsplit(url)
+            client = http.client.HTTPConnection(parsed.hostname, parsed.port, timeout=2)
+            client.request('GET', parsed.path)
+            response = client.getresponse()
+            expect('A', 'serveur local : nom encodé et contenu servi', [parsed.hostname, response.status, response.read()],
+                   ['127.0.0.1', 200, b'<h1>Local</h1>'])
+            client.close()
+        try:
+            with cr.page_url(args) as url:
+                port = urlsplit(url).port
+                raise RuntimeError('mesure interrompue')
+        except RuntimeError:
+            pass
+        with socket.socket() as listener:
+            listener.bind(('127.0.0.1', port))
+            expect('A', 'serveur fermé après interruption de la mesure', listener.getsockname(), ('127.0.0.1', port))
     print("Partie A — interprétation (sans navigateur)")
     clean = cr.interpret(raw_case())
     expect("A", "page propre : aucun RETURN", any(s == RETURN for _, s, _ in clean), False)
@@ -136,10 +163,12 @@ def part_a() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         shots = Path(tmp) / 'v1'
         args = cr.parser().parse_args([str(Path(__file__).resolve()), '--widths', '390', '--captures', str(shots), '--json', str(Path(tmp) / 'r.json')])
-        sample = {**raw_case(), 'captures': [str(shots / 'capture-390px.png')]}
+        sample = {**raw_case(), 'captures': [str(shots / 'capture-390px.png')],
+                  'browser': {'engine': 'chromium', 'version': 'version-test', 'executable': '/browser/choisi'}}
         with patch.object(cr, 'measure', return_value=sample), contextlib.redirect_stdout(io.StringIO()):
             cr.run(args)
         expect('A', 'captures listées dans la provenance', json.loads((Path(tmp) / 'r.json').read_text())['provenance']['captures'], sample['captures'])
+        expect('A', 'navigateur observé conservé dans la provenance', json.loads((Path(tmp) / 'r.json').read_text())['provenance']['browser'], sample['browser'])
         shots.mkdir(); (shots / 'capture-390px.png').write_bytes(b'avant')
         with patch.object(cr, 'measure', side_effect=AssertionError('mesure lancée')), contextlib.redirect_stderr(io.StringIO()):
             code = cr.run(args)
@@ -335,6 +364,12 @@ def part_b(require: bool) -> str:
                     failures.append("B navigateur requis")
                 return msg
             expect("B", "couleur oklch presque blanche", status(c, "Contraste"), RETURN)
+            try:
+                measure(str(d / "oklch.html"), "--browser-executable", str(d / "navigateur-absent"))
+                rejected = False
+            except cr.BrowserUnavailable:
+                rejected = True
+            expect("B", "navigateur choisi absent : aucun repli silencieux", rejected, True)
             raw, c = measure(str(d / "ombre.html"))
             expect("B", "ombre permanente sans focus visible", status(c, "Parcours clavier"), RESERVE)
             expect("B", "deux boutons sans id = deux arrêts", len(raw["per_width"][390]["stops"]), 2)

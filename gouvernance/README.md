@@ -1,6 +1,15 @@
-# Gouvernance — module facultatif
+# Gouvernance — adaptée au travail, utile selon le besoin
 
-Ce module sert quand un travail doit être tracé, vérifié formellement ou livré : livraison à un client, audit, travail en équipe. Le chemin de design (direction, savoir, formes, qualité du produit) n’en dépend pas.
+Ce module aide à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Ses contrôles et sa trace s’adaptent au contexte ; ils ne sont pas un formulaire à remplir systématiquement. L’agent réutilise les éléments déjà présents et n’ajoute que ceux qui servent la décision.
+
+| Situation | Gouvernance utile |
+|---|---|
+| Proposition exploratoire | Trace légère, limites visibles et vérifications applicables ; pas de RUN_CARD ni d’acceptation implicite. |
+| Correction locale | Preuve ciblée sur le changement et ses effets ; la forme courte LITE suffit si ses conditions sont remplies. |
+| Travail persistant, partagé, audité ou soumis à acceptation | Trace complète, preuves et clôture adaptées ; RUN_CARD selon `ACTION/HANDOFF` et `ACTION/CLOSE-PACKAGE`. |
+| Risque critique ou affirmation non vérifiée | Protection et preuve adaptées au risque ; capacité absente déclarée, jamais remplacée par une formalité ou une validation documentaire. |
+
+Le niveau de trace suit [la règle propriétaire](../agent/repondre.md). Alléger la formalité ne supprime aucune preuve applicable. Montrer une proposition ne vaut pas accepter un produit.
 
 Les sections de ce module viennent d’`ACTION.md`, de `DIRECTION.md` et de `BIBLIOTHEQUE.md` ; leurs anciennes adresses restent valables.
 

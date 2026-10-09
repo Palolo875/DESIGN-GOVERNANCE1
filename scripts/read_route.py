@@ -161,6 +161,7 @@ LIEUX: dict[str, tuple[str, ...]] = {
 # On peut les donner au lecteur dès maintenant ; l'ancien locator reste accepté pendant toute la V1.
 # Le préfixe « design/ » est facultatif. Quand une route change de titre (phase de langue), seule cette table change.
 ADRESSES: dict[str, str] = {
+    "maintenance/versions": "CHANGELOG",
     "direction/cadrer#demande-vague": "DIRECTION/EXTERNAL-START", "direction/cadrer#domaine": "DIRECTION/DOMAIN-FRAME",
     "direction/diriger#lancement": "DIRECTION/CREATIVE-BOOT", "direction/diriger#cible-visuelle": "DIRECTION/VISUAL_TARGET",
     "direction/diriger#atelier": "DIRECTION/DIRECTION-ATELIER", "direction/premier-objet": "DIRECTION/FIRST-OBJECT",
@@ -258,10 +259,11 @@ def part_de(path: Path, name: str) -> str:
 
 
 def lieu_texte(name: str) -> str:
-    """Texte de la source historique `name` (ses parts, fichier par fichier) ; échoue si aucun fichier n’existe."""
-    paths = [p for p in lieu(name) if p.is_file()]
-    if not paths:
-        raise FileNotFoundError(name)
+    """Texte de la source historique ; aucune section déclarée absente n'est omise en silence."""
+    paths = lieu(name)
+    for path in paths:
+        if not path.is_file():
+            raise FileNotFoundError(f"source déclarée absente : {path}")
     return "\n".join(part_de(p, name) for p in paths)
 
 
@@ -386,9 +388,10 @@ def parse_connections(text: str) -> tuple[str, dict[str, dict[str, str]]]:
         if missing:
             raise RouteError(f"connexion {key} incomplète : {', '.join(missing)}")
         locators = re.findall(r"`([^`]+)`", fields["Sources"])
-        if not locators or any(not SOURCE_LOCATOR.fullmatch(value) for value in locators):
+        canonical = [adresse(value) for value in locators]
+        if not locators or any(not SOURCE_LOCATOR.fullmatch(value) for value in canonical):
             raise RouteError(f"sources de connexion absentes ou non propriétaires : {key}")
-        if len(locators) != len(set(locators)):
+        if len(canonical) != len(set(canonical)):
             raise RouteError(f"source répétée dans {key}")
         entries[key] = {"title": title, "body": body, **fields}
     if not entries:
@@ -400,8 +403,9 @@ def connection_sources(entry: dict[str, str], routes: dict[str, tuple[str, list[
     """Retourne les propriétaires retrouvables ; aucune lecture sémantique automatique."""
     sources = []
     for locator in re.findall(r"`([^`]+)`", entry["Sources"]):
-        if locator in PREFIXES:
-            path = owner_file(locator)
+        canonical = adresse(locator)
+        if canonical in PREFIXES:
+            path = owner_file(canonical)
             if not path.is_file():
                 raise RouteError(f"propriétaire absent : {path.name}")
             lines, index = path.read_text(encoding="utf-8").splitlines(), 0
@@ -434,6 +438,13 @@ def connections(text: str | None = None) -> tuple[str, dict[str, dict[str, str]]
 def resolve(locator: str, routes: dict[str, tuple[str, list[str]]] | None = None) -> tuple[Path, list[str], int]:
     """Renvoie (fichier, lignes, index du titre servi). Accepte aussi une adresse lisible (table ADRESSES)."""
     locator = adresse(locator)
+    if locator == "CHANGELOG":
+        path = ROOT / "maintenance" / "versions.md"
+        if not path.is_file():
+            raise RouteError("journal absent : maintenance/versions.md")
+        lines = path.read_text(encoding="utf-8").splitlines()
+        titles = [i for i, level, _ in headings(lines) if level == 1]
+        return path, lines, _unique(titles, lines, locator)
     parts = locator.split("/")
     if len(parts) == 2 and parts[0] in STRUCTURE_PARENTS:
         locator = f"BIBLIOTHEQUE/{STRUCTURE_PARENTS[parts[0]]}/{parts[1]}"

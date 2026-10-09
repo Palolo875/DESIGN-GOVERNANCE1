@@ -17,11 +17,11 @@ Elle ne décrit pas un goût à reproduire, ne choisit pas le mode et ne ferme p
 | `DIRECTION.md` | Mode, risque, classification, absolus, cible, capacité et routage général. |
 | `ACTION.md` | Runs, méthodes, preuves exécutables, états, issues, gates, verdicts et clôture. |
 | `SAVOIR.md` | Jugement, craft, styles, contexte, états spécialisés et intégrité. |
-| `CHANGELOG.md` | Cycle de vie des routes, migrations, promotions, dépréciations et décisions de gouvernance. |
+| `maintenance/evolution.md` et `maintenance/versions.md` | Cycle de vie des routes, migrations, promotions, dépréciations et décisions de gouvernance. |
 
 ### Orientation interne et sortie de sélection
 
-Après `DIRECTION/START`, et après `SAVOIR/STYLE` seulement si le registre d’expression peut modifier la structure, commencez par `BIBLIOTHEQUE/READ`, puis `SELECT` si une décision structurelle est ouverte. Cette instruction est interne à BIBLIOTHEQUE et ne remplace jamais le démarrage DIRECTION. La chaîne `support → grille → scène → objet → primitive` décrit des responsabilités, pas un ordre obligatoire de chargement. `READING_MAP.md` est une vue dérivée pour le déclencheur et le non-chargement.
+Après `DIRECTION/START`, et après `SAVOIR/STYLE` seulement si le registre d’expression peut modifier la structure, commencez par `BIBLIOTHEQUE/READ`, puis `SELECT` si une décision structurelle est ouverte. Cette instruction est interne à BIBLIOTHEQUE et ne remplace jamais le démarrage DIRECTION. La chaîne `support → grille → scène → objet → primitive` décrit des responsabilités, pas un ordre obligatoire de chargement. `V1/official/READING_MAP.md` est une vue dérivée pour le déclencheur et le non-chargement.
 
 Toute sélection ou non-sélection doit transmettre : `DECISION`, niveau ou héritage, `STRUCTURAL-SIGNATURE` si applicable, contre-indication, premier objet attendu, preuve, limite, owner et condition de sortie. Ces champs sont une projection structurelle locale vers le handoff canonique ACTION ; ils ne le remplacent pas. Le reste de la transmission suit le handoff canonique (`ACTION/HANDOFF`). Si la structure existante suffit, utilisez l’héritage ou le cas documentaire ; `N/A-JUSTIFIED` est réservé à une non-applicabilité justifiée selon ACTION. La clôture et le verdict restent chez ACTION.
 

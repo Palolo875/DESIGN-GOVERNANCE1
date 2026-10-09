@@ -116,6 +116,140 @@ class NavigationTests(unittest.TestCase):
         self.assertTrue(any("lien relatif cassé" in e for e in self.check("# Entrée\n[aide](absent.md#aide)\n")))
 
 
+class OperationalReferenceTests(unittest.TestCase):
+    def check(self, text, extra=None):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            files = {"README.md": text, **(extra or {})}
+            for name, content in files.items():
+                target = root / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(content, encoding="utf-8")
+            errors = []
+            with patch.multiple(package, ROOT=root, EXPECTED=list(files)):
+                package.check_inline_references(errors)
+            return errors
+
+    def test_deleted_changelog_reference_is_rejected(self):
+        self.assertTrue(any("CHANGELOG.md" in e for e in self.check("Lire `CHANGELOG.md`.")))
+
+    def test_moved_document_is_resolved_at_current_path(self):
+        self.assertEqual(self.check("Lire `maintenance/versions.md`.", {"maintenance/versions.md": "# Versions"}), [])
+
+    def test_relative_reference_and_unique_basename_are_supported(self):
+        self.assertEqual(self.check("Lire `guides/equipe.md` et `equipe.md`.", {"guides/equipe.md": "# Équipe"}), [])
+
+    def test_ambiguous_basename_is_rejected(self):
+        self.assertTrue(self.check("Lire `aide.md`.", {"guides/aide.md": "# A", "design/aide.md": "# B"}))
+
+    def test_nonexistent_fragment_is_rejected(self):
+        self.assertTrue(any("fragment opérationnel" in e for e in self.check("Lire `README.md#absent`.")))
+
+    def test_existing_fragment_is_accepted(self):
+        self.assertEqual(self.check("# Entrée\nLire `README.md#entrée`."), [])
+
+    def test_operational_command_checks_its_script(self):
+        self.assertTrue(any("scripts/absent.py" in e for e in self.check("Lancer `python3 scripts/absent.py chemin/run.json`.")))
+
+    def test_user_argument_is_not_a_package_dependency(self):
+        self.assertEqual(self.check("Lancer `python3 scripts/test.py chemin/run.json`.", {"scripts/test.py": ""}), [])
+
+    def test_bad_readable_address_is_rejected(self):
+        self.assertTrue(any("route opérationnelle" in e for e in self.check("Lire `savoir/section-absente`.")))
+
+    def test_bad_route_in_command_is_rejected(self):
+        self.assertTrue(any("DIRECTION/ABSENT" in e for e in self.check("Lancer `python3 scripts/read_route.py DIRECTION/ABSENT`.",
+                                                                         {"scripts/read_route.py": ""})))
+
+    def test_explicit_examples_fences_and_provenance_are_not_dependencies(self):
+        self.assertEqual(self.check("`exemple: chemin/fiche.md`\n<!-- origine:CHANGELOG.md -->\n"
+                                    "````md\n```\n`absent.md`\n```\n````\n"), [])
+
+    def test_existing_directory_is_not_a_route(self):
+        self.assertEqual(self.check("Les fichiers sont dans `gouvernance/schemas`.",
+                                    {"gouvernance/schemas/a.json": "{}"}), [])
+
+    def test_explicit_other_distribution_uses_its_manifest(self):
+        with patch.multiple(package, IS_LOCAL=True, LISTS={"github": ["scripts/github.py"], "local": []}):
+            self.assertEqual(self.check("Dans GitHub : `python3 scripts/github.py`. <!-- références:github -->"), [])
+
+    def test_scope_cannot_hide_an_undeclared_reference(self):
+        with patch.multiple(package, IS_LOCAL=True, LISTS={"github": [], "local": []}):
+            self.assertTrue(self.check("`scripts/absent.py` <!-- références:github -->"))
+
+    def test_unscoped_github_instruction_is_rejected_in_local_export(self):
+        with patch.multiple(package, IS_LOCAL=True, LISTS={"github": ["scripts/github.py"], "local": []}):
+            self.assertTrue(self.check("Lancer `python3 scripts/github.py`."))
+
+    def test_missing_scope_manifest_is_rejected_without_exception(self):
+        with patch.multiple(package, IS_LOCAL=True, LISTS={"local": []}):
+            self.assertTrue(any("manifeste de la portée" in e for e in self.check("`scripts/github.py` <!-- références:github -->")))
+
+    def test_reference_outside_package_is_rejected(self):
+        self.assertTrue(self.check("Lire `../README.md`."))
+
+
+class SourceLocationTests(unittest.TestCase):
+    def check(self, missing=False, unregistered=False, unknown=False):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            document = root / "source.md"
+            document.write_text("<!-- origine:" + ("INCONNU.md" if unknown else "SAVOIR.md") + " -->\n# Savoir\n", encoding="utf-8")
+            mapping = {f"{p}.md": ("source.md",) for p in routes.PREFIXES}
+            if missing:
+                mapping["SAVOIR.md"] += ("section-perdue.md",)
+            if unregistered:
+                other = root / "autre.md"
+                other.write_text("# Autre\n")
+                mapping["SAVOIR.md"] = ("autre.md",)
+            errors = []
+            with patch.multiple(package, ROOT=root, EXPECTED=["source.md"]), patch.multiple(routes, ROOT=root, LIEUX=mapping):
+                package.check_source_locations(errors)
+            return errors
+
+    def test_missing_source_section_is_rejected(self):
+        self.assertTrue(any("section-perdue.md" in e for e in self.check(missing=True)))
+
+    def test_unregistered_provenance_is_rejected(self):
+        self.assertTrue(any("provenance sans emplacement" in e for e in self.check(unregistered=True)))
+
+    def test_registered_source_is_accepted(self):
+        self.assertEqual(self.check(), [])
+
+    def test_unknown_provenance_is_rejected(self):
+        self.assertTrue(any("provenance inconnue" in e for e in self.check(unknown=True)))
+
+
+class GovernancePresentationTests(unittest.TestCase):
+    def test_contextual_governance_is_allowed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "README.md").write_text("La gouvernance n’est pas toujours obligatoire ; elle s’adapte au contexte.")
+            errors = []
+            with patch.object(package, "ROOT", root):
+                package.check_canonicity_language(errors)
+            self.assertEqual(errors, [])
+
+    def test_unconditional_exemption_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "design").mkdir()
+            (root / "design/README.md").write_text("Le module de gouvernance peut s’ajouter ; il n’est jamais requis.")
+            errors = []
+            with patch.object(package, "ROOT", root):
+                package.check_canonicity_language(errors)
+            self.assertTrue(any("sans adaptation au contexte" in e for e in errors), errors)
+
+    def test_unconditional_obligation_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "README.md").write_text("La gouvernance est toujours obligatoire.")
+            errors = []
+            with patch.object(package, "ROOT", root):
+                package.check_canonicity_language(errors)
+            self.assertTrue(any("sans adaptation au contexte" in e for e in errors), errors)
+
+
 class CapabilityTests(unittest.TestCase):
     def setUp(self):
         self.document = cards.load_json(ROOT / "gouvernance/schemas/fixtures/valid_direction_exploratory_untransformed.json")

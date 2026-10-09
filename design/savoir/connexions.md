@@ -5,7 +5,7 @@ Quand plusieurs domaines se croisent dans une même décision : ce que chaque do
 <!-- origine:READING_MAP.md -->
 ## Connexions situées
 
-**Base de sources :** `R2026-10-09-REFONTE`.
+**Base de sources :** `R2026-10-09-COHERENCE`.
 
 Cet index dérivé rapproche des contributions des propriétaires ; chaque liaison est une hypothèse d’orientation à confronter au contexte. Il ne classe pas le mode, ne remplace pas CHARGE et ne déclare ni applicabilité ni résultat par reconnaissance d’un mot. Les sources ci-dessous appartiennent à la révision indiquée ; une différence de version impose leur réexamen. Les protections applicables restent dues même lorsqu’une suggestion facultative est écartée.
 
@@ -87,7 +87,7 @@ Une condition établie peut appeler la contribution utile ; une relation déjà 
 
 **Condition et décision.** Une modification touche une règle, un composant partagé ou plusieurs usages réels.
 
-**Sources.** `DIRECTION/START` ; `ACTION/RUN-SYSTEM` ; `BIBLIOTHEQUE/COMPONENTS` ; `BIBLIOTHEQUE/EVOLUTION` ; `SAVOIR/SYSTEM` ; `CHANGELOG` pour la décision durable.
+**Sources.** `DIRECTION/START` ; `ACTION/RUN-SYSTEM` ; `BIBLIOTHEQUE/COMPONENTS` ; `BIBLIOTHEQUE/EVOLUTION` ; `SAVOIR/SYSTEM` ; `maintenance/versions` pour la décision durable.
 
 **Intervention et effet attendu.** Identifier usages, responsabilités, compatibilité, migration, owner et retour ; protéger les consommateurs concernés.
 

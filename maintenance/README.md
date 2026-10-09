@@ -1,6 +1,6 @@
 # Maintenance
 
-Pour qui fait évoluer le système : d’où vient chaque distribution, comment la préparer et la valider. Rien ici n’est nécessaire pour utiliser le système.
+Pour qui fait évoluer le système : d’où vient chaque distribution, comment la préparer et la valider. Ce module se charge quand une règle ou une route doit évoluer, être promue ou dépréciée ; il ne fait pas partie du chargement ordinaire d’une proposition.
 
 | Fichier | Contenu |
 |---|---|
@@ -38,7 +38,7 @@ Un verrou `.distribution.lock` bloque un second build. `owner.txt`, lorsqu’il 
 
 Avant toute reprise, conservez à part les archives, `dist`, `.dist.previous`, `.archives.previous` et le journal s’ils existent. Si `.archives.previous` existe, ou si `dist` et `.dist.previous` coexistent, le script s’arrête : comparez les inventaires et empreintes, identifiez la dernière livraison complète à l’aide du journal, puis conservez cette livraison et les autres exemplaires dans des dossiers distincts. Ne promouvez pas un mélange de versions et ne supprimez pas une sauvegarde pour forcer le build. Une sauvegarde `.dist.previous` seule est restaurée par le script ; elle ne prouve pas à elle seule l’état des archives.
 
-Lorsque le build est confirmé inactif et les sauvegardes identifiées, retirez uniquement `owner.txt` puis le dossier de verrou vide (`rmdir` refuse un contenu inattendu). Relancez `python3 scripts/preparer_livraison.py` ; le succès exige les contrôles et les exports complets. Si la situation reste ambiguë, conservez les fichiers et le diagnostic pour le mainteneur. Aucun verrou ni backup n’est effacé automatiquement selon son âge.
+Dans la distribution GitHub, lorsque le build est confirmé inactif et les sauvegardes identifiées, retirez uniquement `owner.txt` puis le dossier de verrou vide (`rmdir` refuse un contenu inattendu). Relancez `python3 scripts/preparer_livraison.py` ; le succès exige les contrôles et les exports complets. Si la situation reste ambiguë, conservez les fichiers et le diagnostic pour le mainteneur. Aucun verrou ni backup n’est effacé automatiquement selon son âge. <!-- références:github -->
 
 Pour produire seulement les deux archives, exécutez :
 
@@ -60,6 +60,16 @@ Les modifications doivent être apportées aux sources du dépôt, puis vérifi�
 
 Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machine utilisent la bibliothèque standard Python. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus **Playwright et son navigateur Chromium** ; sans eux, ces tests restent `NOT-VERIFIED`. La construction des archives nécessite Bash, `zip` et les outils Unix utilisés par `scripts/build_distributions.sh` ; elle a été contrôlée sous Linux.
 
+Un Chromium déjà installé peut être choisi explicitement avec `--browser-executable CHEMIN` dans la recette, ou `DG_BROWSER_EXECUTABLE` pour la recette et ses tests. Sa version et son exécutable sont conservés dans la provenance ; ce choix ne remplace pas silencieusement le navigateur Playwright. Si la politique du navigateur interdit les fichiers locaux, `--serve-local` (ou `DG_RENDER_SERVE_LOCAL=1`) sert temporairement le dossier du fichier sur 127.0.0.1, puis ferme le serveur. Les autres origines restent bloquées par défaut.
+
+Exemple pour un environnement où Chromium est déjà installé à cet emplacement :
+
+```bash
+DG_BROWSER_EXECUTABLE=/usr/bin/chromium DG_RENDER_SERVE_LOCAL=1 python3 scripts/validate_all.py --require-browser
+```
+
+Les chemins d’exemple entre accents graves portent le préfixe `exemple:` ; les chemins opérationnels doivent se résoudre vers un fichier livré ou une route. Une référence destinée à une seule distribution se marque sur sa ligne par le commentaire HTML « références:github » ou « références:local » : son chemin doit être déclaré dans le manifeste de cette distribution. Les contrôles ignorent les blocs d’exemple, mais vérifient les liens Markdown.
+
 Les tests JavaScript sur DOM simulés utilisent un runtime Node déjà disponible ; son absence laisse cette partie `NOT-VERIFIED`. `python3 scripts/test_check_render.py --skip-browser` exécute seulement les tests synthétiques et les DOM simulés, sans ouvrir de page ni installer de dépendance.
 
 La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`, `RESEARCH_BRIEF` et les contrats de direction créative, de réalité UI/UX et d’évaluation. Ils sont illustrés dans `gouvernance/schemas/examples/` et contrôlés par `gouvernance/outils/validate_contracts.py`.
@@ -76,7 +86,7 @@ La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`
 | `python3 scripts/validate_all.py` | Exécute les contrôles documentaires, machine, CLI, fixtures négatives, compilation et reproductibilité des distributions. |
 | `python3 scripts/validate_all.py --lecture-seule` | Exécute les mêmes contrôles sans construire ni écrire : `dist/` et les archives ne sont pas touchés ; build et reproductibilité restent `NOT-VERIFIED`. |
 
-Les chemins `chemin/run.json` et `chemin/contrat.json` sont des exemples à remplacer par ceux de vos fichiers. Pour exécuter les contrôles intégrés du package :
+Les chemins `exemple: chemin/run.json` et `exemple: chemin/contrat.json` sont des exemples à remplacer par ceux de vos fichiers. Pour exécuter les contrôles intégrés du package :
 
 ```bash
 python3 scripts/validate_design_governance.py
@@ -91,15 +101,15 @@ Une `RUN_CARD` validée atteste la forme de la projection et les invariants de l
 <!-- origine:READING_MAP.md -->
 ## Résolution des routes
 
-Les noms de route sont des locators documentaires. Pour les résoudre, utiliser le fichier propriétaire, puis son titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
+Les noms de route sont des locators documentaires. Les résoudre avec `python3 scripts/read_route.py LOCATOR` : le lecteur retrouve la section propriétaire à son emplacement actuel via le registre `LIEUX`. En lecture manuelle, suivre le [sommaire des sources](../V1/official/README.md), puis le titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
 
-| Préfixe | Propriétaire |
+| Code ou adresse | Propriétaire actuel |
 |---|---|
-| `DIRECTION/*` | `DIRECTION.md` |
-| `ACTION/*` | `ACTION.md` |
-| `SAVOIR/*` | `SAVOIR.md` |
-| `BIBLIOTHEQUE/*` | `BIBLIOTHEQUE.md` |
-| `CHANGELOG/*` | `CHANGELOG.md` |
+| `DIRECTION/*` | Section DIRECTION retrouvée par le lecteur, dans l’un des emplacements déclarés. |
+| `ACTION/*` | Section ACTION retrouvée par le lecteur, dans l’un des emplacements déclarés. |
+| `SAVOIR/*` | Section SAVOIR retrouvée par le lecteur, dans l’un des emplacements déclarés. |
+| `BIBLIOTHEQUE/*` | Section BIBLIOTHEQUE retrouvée par le lecteur, dans l’un des emplacements déclarés. |
+| `maintenance/versions` ou `CHANGELOG` | Journal `maintenance/versions.md` ; les règles de cycle de vie sont dans `maintenance/evolution.md`. |
 | `RUN_CARD` | `gouvernance/schemas/run_card.schema.json`, exemple et validateur |
 
 `RUN_CARD` est un **adaptateur machine**, pas un locator Markdown résolvable par `scripts/read_route.py`. Pour l’inspecter ou le valider, utiliser le schéma, l’exemple et `gouvernance/outils/validate_run_card.py`; ne pas l’invoquer comme une route documentaire.

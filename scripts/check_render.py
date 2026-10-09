@@ -26,13 +26,18 @@ Usage :
 from __future__ import annotations
 
 import argparse
+import functools
 import hashlib
+import http.server
 import json
+import os
 import re
 import sys
+import threading
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 
 PASS, RESERVE, RETURN, NOTVER = "PASS", "PASS-WITH-RESERVATION", "RETURN", "NOT-VERIFIED"
 FOC = 'a[href],button,input:not([type=hidden]),select,textarea,summary,[role=button],[role=link],[tabindex]:not([tabindex="-1"])'
@@ -277,24 +282,56 @@ def sha12(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 
 
+@contextmanager
+def page_url(args: argparse.Namespace):
+    """Serveur local explicitement choisi pour les navigateurs qui refusent file://."""
+    if re.match(r"^https?://", args.page):
+        yield args.page
+    elif not args.serve_local:
+        yield Path(args.page).resolve().as_uri()
+    else:
+        target = Path(args.page).resolve()
+
+        class QuietHandler(http.server.SimpleHTTPRequestHandler):
+            def log_message(self, *_args):
+                pass
+
+        handler = functools.partial(QuietHandler, directory=str(target.parent))
+        server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+        thread = threading.Thread(target=server.serve_forever, kwargs={"poll_interval": 0.05}, daemon=True)
+        thread.start()
+        try:
+            yield f"http://127.0.0.1:{server.server_port}/{quote(target.name)}"
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join()
+
+
 def measure(args: argparse.Namespace) -> dict:
+    with page_url(args) as url:
+        return measure_url(args, url)
+
+
+def measure_url(args: argparse.Namespace, url: str) -> dict:
     """Ouvre la page dans Chromium et retourne les mesures brutes. Lève ImportError si Playwright manque."""
     from playwright.sync_api import Error as PlaywrightError, sync_playwright  # import optionnel
-    target = args.page
-    is_url = re.match(r"^https?://", target) is not None
-    url = target if is_url else Path(target).resolve().as_uri()
+    is_url = re.match(r"^https?://", url) is not None
     origin = None
     if is_url:
-        sp = urlsplit(target)
+        sp = urlsplit(url)
         origin = f"{sp.scheme}://{sp.netloc}"
     widths = [int(w) for w in args.widths.split(",") if w.strip()]
     state = {"blocked": 0}
-    raw: dict = {"widths": widths, "per_width": {}, "running": [], "captures": []}
+    raw: dict = {"widths": widths, "per_width": {}, "running": [], "captures": [],
+                 "local_server": args.serve_local and not re.match(r"^https?://", args.page)}
     with sync_playwright() as pw:
         try:
-            browser = pw.chromium.launch()
+            browser = pw.chromium.launch(**({"executable_path": args.browser_executable} if args.browser_executable else {}))
         except PlaywrightError as exc:
             raise BrowserUnavailable(str(exc).splitlines()[0][:160]) from exc
+        raw["browser"] = {"engine": "chromium", "version": browser.version,
+                          "executable": args.browser_executable or "playwright-managed"}
 
         def open_page(width: int, reduced: bool = False):
             ctx = browser.new_context(viewport={"width": width, "height": 844 if width < 700 else 900},
@@ -562,6 +599,10 @@ def run(args: argparse.Namespace) -> int:
             "external_requests_blocked": raw["blocked"]}
     if raw.get("captures"):
         prov["captures"] = raw["captures"]
+    if raw.get("browser"):
+        prov["browser"] = raw["browser"]
+    if raw.get("local_server"):
+        prov["local_server"] = "127.0.0.1, temporaire"
     print(f"Recette AUTOMATED (GATE-A) — {target}\n")
     for title, status, detail in checks:
         print(f"[{status:<21}] {title} : {detail}")
@@ -596,6 +637,10 @@ def parser() -> argparse.ArgumentParser:
     ap.add_argument("--json", default="", help="écrit les résultats et la provenance dans ce fichier")
     ap.add_argument("--captures", default="", metavar="DOSSIER",
                     help="écrit une capture pleine page par largeur (capture-<largeur>px.png), à l'état observé ; n'écrase rien")
+    ap.add_argument("--browser-executable", default=os.environ.get("DG_BROWSER_EXECUTABLE", ""), metavar="CHEMIN",
+                    help="Chromium installé à utiliser explicitement (ou DG_BROWSER_EXECUTABLE) ; sinon navigateur Playwright")
+    ap.add_argument("--serve-local", action="store_true", default=os.environ.get("DG_RENDER_SERVE_LOCAL") == "1",
+                    help="servir le fichier et ses ressources sur 127.0.0.1 pour cette mesure (ou DG_RENDER_SERVE_LOCAL=1)")
     return ap
 
 

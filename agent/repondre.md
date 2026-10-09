@@ -35,6 +35,8 @@ L’agent active le système en silence : la personne donne l’objectif, le pé
 
 <!-- noyau:début TRACE -->
 <!-- concept:TRA-01 -->
+**Gouvernance adaptée et utile.** Ajuste contrôles et trace au risque et à la décision. Ajoute seulement ce qui vérifie une affirmation, protège un risque, permet une reprise ou prépare une acceptation ; réutilise la trace existante. Les preuves applicables restent dues.
+
 **Trace légère par défaut.** Hors run persistant, partagé ou audité, la trace tient en six lignes au plus : mode ; thèse (promesse → objet de preuve → geste) ; modal, trame et parti ; plafond atteint et contenus marqués ; défaut dominant restant ; prochaine preuve. Lorsque la qualité perceptuelle est une décision du run, la ligne du défaut dominant résume la revue de `SAVOIR/CRAFT/CFT-00` : ce qui retient, ce qui reste générique, puis le geste de `SAVOIR/STATE` appliqué et réinspecté, ou seulement envisagé, ou la raison de conserver. Elle s’écrit à côté de l’artefact quand l’agent écrit des fichiers (fichier de trace ou en-tête du fichier livré) ; sinon, après la réponse visible, sous « Trace ». Les planchers s’appliquent pendant la fabrication (vérité, `ACTION/GATE-A` selon le profil de surface, boucle d’édition) ; seule leur écriture s’allège. Le run livre une **proposition** `EXPLORATORY` : ni verdict, ni acceptation, ni clôture, ni `RUN_CARD`. **Trace complète** (handoff, paquet de clôture, gates écrits et projection selon `ACTION/CLOSE-PACKAGE`, `B1b` dans son scope) si le run est persistant, partagé, audité, ou si une acceptation ou une clôture est demandée. La forme courte LITE conserve une trace complète sans RUN_CARD (`ACTION/HANDOFF`).
 <!-- noyau:fin TRACE -->
 

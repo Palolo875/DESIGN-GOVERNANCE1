@@ -43,7 +43,7 @@ BIBLIOTHEQUE est stable dans ses responsabilités, mais pilotée dans ses routes
 | Partagé | Contrat complet, consumers, owner, compatibilité, états, mobile, accessibilité, migration et rollback selon le risque. | Promotion silencieuse. |
 | Durable | Usages contrastés, baseline, observation ou mesure de gain, maintenance, owner et prochaine revue. | Validation par beauté, fréquence ou screenshot unique. |
 
-`SEED`, `PILOT`, `ADOPTED`, `DEPRECATED` et `ABANDONED` sont des statuts de cycle de vie `CHANGELOG`, jamais des modes, niveaux de structure, états, issues ou verdicts `ACTION`. `OWNER` désigne le responsable de la décision et de sa prochaine preuve ; `NEXT-OWNER` désigne le destinataire de l’action suivante ; l’owner de maintenance d’une route partagée reste distinct et se conserve dans le contrat d’évolution.
+`SEED`, `PILOT`, `ADOPTED`, `DEPRECATED` et `ABANDONED` sont des statuts de cycle de vie définis dans `maintenance/evolution.md`, jamais des modes, niveaux de structure, états, issues ou verdicts `ACTION`. `OWNER` désigne le responsable de la décision et de sa prochaine preuve ; `NEXT-OWNER` désigne le destinataire de l’action suivante ; l’owner de maintenance d’une route partagée reste distinct et se conserve dans le contrat d’évolution.
 
 ### Contrat de gain réel
 
@@ -70,19 +70,19 @@ Il peut s’agir d’une réduction d’erreur, d’une décision plus directe, 
 | Non-homogénéisation | Les rendus restent situés malgré la route commune. |
 | Maintenance | Owner et prochaine revue nommés. |
 
-Une route peut être `SEED`, `PILOT`, `ADOPTED`, `DEPRECATED` ou `ABANDONED` dans la gouvernance du `CHANGELOG`. Ces statuts ne sont pas des verdicts d’écran, des issues de run ou des statuts de gate.
+Une route peut être `SEED`, `PILOT`, `ADOPTED`, `DEPRECATED` ou `ABANDONED` selon le cycle de vie de `maintenance/evolution.md`. Ces statuts ne sont pas des verdicts d’écran, des issues de run ou des statuts de gate.
 
 ### Contribution et retour d’usage
 
 Une proposition de route commence par ce qui existe déjà : vérifier les routes compatibles, les discussions ou les usages documentés, puis expliquer la décision que la nouvelle combinaison permet de mieux prendre. Une contribution n’est promue que si ses usages, sa contre-indication, sa preuve, son owner, son coût de maintenance et sa prochaine revue sont lisibles. Les retours d’équipe, d’usagers ou de production peuvent corriger le contrat ; ils ne remplacent pas l’observation du run ni ne créent un gate supplémentaire.
 
-Le niveau de contribution reste proportionné au risque : un run local peut conserver une trace courte ; une route partagée exige un contrat et une preuve de gain ; une promotion ou une dépréciation relève de `CHANGELOG`. Ne pas transformer la recherche de feedback, la revue communautaire ou le nombre de réutilisations en quota ou en verdict automatique.
+Le niveau de contribution reste proportionné au risque : un run local peut conserver une trace courte ; une route partagée exige un contrat et une preuve de gain ; une promotion ou une dépréciation suit `maintenance/evolution.md` et sa décision est conservée dans `maintenance/versions.md`. Ne pas transformer la recherche de feedback, la revue communautaire ou le nombre de réutilisations en quota ou en verdict automatique.
 
-**Chaîne de promotion et de gouvernance.** Lorsqu’une route devient partagée ou candidate à une durée canonique, `DIRECTION/START` classe le risque et le blast radius ; `ACTION/RUN-SYSTEM` prépare l’impact, les consumers, l’owner, la preuve, la compatibilité, la migration et le rollback ; `BIBLIOTHEQUE/EVOLUTION` examine les usages contrastés, le gain réel, la non-homogénéisation et la maintenance ; `CHANGELOG` persiste uniquement la décision de cycle de vie autorisée. Une route locale ou exploratoire ne doit pas ouvrir cette chaîne complète sans raison.
+**Chaîne de promotion et de gouvernance.** Lorsqu’une route devient partagée ou candidate à une durée canonique, `DIRECTION/START` classe le risque et le blast radius ; `ACTION/RUN-SYSTEM` prépare l’impact, les consumers, l’owner, la preuve, la compatibilité, la migration et le rollback ; `BIBLIOTHEQUE/EVOLUTION` examine les usages contrastés, le gain réel, la non-homogénéisation et la maintenance ; `maintenance/versions.md` persiste uniquement la décision de cycle de vie autorisée. Une route locale ou exploratoire ne doit pas ouvrir cette chaîne complète sans raison.
 
 Un style reste dans `SAVOIR/STYLE`. Une image, un site, une capture ou un asset reste local à la `RUN_CARD` ou à l’artefact de projet déjà disponible. Une route locale ne devient pas canonique simplement parce qu’elle est jolie ou fréquemment demandée.
 
-Les anciens aliases `REFERENCES/QUERY`, `REFERENCES/SOURCE`, `REFERENCES/ASSET`, `REFERENCES/MEMORY` et `REFERENCES/CORPUS` sont `DEPRECATED` et ne doivent pas apparaître dans un nouveau run. Leur mapping est défini dans la section « Migration des anciens aliases » de `CHANGELOG.md`, pas dans les instructions actives.
+Les anciens aliases `REFERENCES/QUERY`, `REFERENCES/SOURCE`, `REFERENCES/ASSET`, `REFERENCES/MEMORY` et `REFERENCES/CORPUS` sont `DEPRECATED` et ne doivent pas apparaître dans un nouveau run. Leur mapping est défini dans la section « Migration des anciens aliases » de `maintenance/evolution.md`, pas dans les instructions actives.
 
 <!-- origine:CHANGELOG.md -->
 ## Cycle de vie des routes
@@ -110,6 +110,6 @@ Les aliases suivants, issus des brouillons antérieurs à V1, ne sont pas des ro
 | `REFERENCES/SOURCE` | `SAVOIR/SOURCE` pour une ancre ou une référence observée. |
 | `REFERENCES/ASSET` | `DIRECTION/VISUAL_TARGET` pour la route et le rôle de production ; `SAVOIR/SOURCE` pour provenance et limite. |
 | `REFERENCES/MEMORY` | `TRACE-LOCATOR` et artefact local ; une mémoire ne devient pas une source normative. |
-| `REFERENCES/CORPUS` | Le propriétaire normatif réellement concerné ; `CHANGELOG` seulement si le contenu modifie le package. |
+| `REFERENCES/CORPUS` | Le propriétaire normatif réellement concerné ; `maintenance/versions.md` seulement si le contenu modifie le package. |
 
 Une reclassification ambiguë reste `NOT-VERIFIED` ou `EXPLORATORY` jusqu’à ce que son propriétaire et sa portée soient établis.

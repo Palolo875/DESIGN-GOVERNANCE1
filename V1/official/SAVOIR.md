@@ -17,7 +17,7 @@ SAVOIR ne remplace pas :
 | `DIRECTION.md` | Rôle, cinq absolus, classification, routage général et capacité. |
 | `ACTION.md` | Routes de run, preuves, gates, verdicts et maintenance. |
 | `BIBLIOTHEQUE.md` | Structures, supports, grilles, scènes, objets, micro-interfaces et composants. |
-| `CHANGELOG.md` | État de release, changements futurs, pilotes optionnels et décisions de gouvernance. |
+| `maintenance/versions.md` | État de release, changements futurs, pilotes optionnels et décisions de gouvernance. |
 
 > Un principe SAVOIR guide une décision ; une méthode décrit comment formuler la raison ; une preuve ACTION établit ce qui a été observé ou mesuré. Aucun principe, ancre, profil ou texte de justification ne produit seul un `PASS` d’usage, d’accessibilité ou de qualité.
 
@@ -25,7 +25,7 @@ SAVOIR ne remplace pas :
 
 ### Orientation interne et sortie vers ACTION
 
-`SAVOIR/ROUTING` est la carte de décision principale de ce fichier. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
+`SAVOIR/ROUTING` est la carte de décision principale de ce fichier. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `V1/official/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
 
 La sortie de SAVOIR n’est pas un verdict. Elle doit transmettre à ACTION la décision jugée, le principe ou la méthode utilisés, la conséquence observable, la preuve attendue, la limite, le propriétaire et la prochaine preuve. Si aucune décision ne peut changer, ne chargez pas une route supplémentaire. À la clôture, si aucune décision n’est changée, confirmée ou abandonnée, les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsqu’aucune conséquence n’était applicable, `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée.
 
@@ -46,7 +46,7 @@ Une question possède une route principale. Les autres routes sont des renvois q
 | Token, consumer, composant partagé | `SAVOIR/SYSTEM` | `ACTION/RUN-SYSTEM`. |
 | Accessibilité, responsive, performance, motion, risque critique | `SAVOIR/CONTEXT` | `TECH` ; `ACTION/GATE-A` pour le contrôle objectivable et l’axe `T` dans la portée de preuve d’ACTION. |
 | Technique, compatibilité, mesure | `SAVOIR/TECH` | `TOOLS` si claim daté. |
-| Source, tendance, outil, claim | `SAVOIR/TOOLS` | `CHANGELOG` si promotion. |
+| Source, tendance, outil, claim | `SAVOIR/TOOLS` | `maintenance/versions.md` si promotion. |
 | Récitation, limite, délégation | `SAVOIR/INTEGRITY` | `ACTION` pour issue et verdict. |
 
 ---

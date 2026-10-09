@@ -20,12 +20,12 @@ Pour naviguer dans ACTION : la **route** dit quoi faire ; puis quatre registres,
 
 ACTION ne remplace pas :
 
-| Document | Responsabilité |
+| Responsabilité historique | Rôle des sections propriétaires |
 |---|---|
-| `DIRECTION.md` | Rôle, cinq absolus, classification, routage général et cadrage de capacité. |
-| `SAVOIR.md` | Principes de jugement, craft, styles, contexte, outils et intégrité. |
-| `BIBLIOTHEQUE.md` | Supports, grilles, scènes, objets, micro-interfaces et composants. |
-| `CHANGELOG.md` | État de V1, changements futurs, pilotes optionnels et décisions de gouvernance. |
+| `DIRECTION` | Rôle, cinq absolus, classification, routage général et cadrage de capacité. |
+| `SAVOIR` | Principes de jugement, craft, styles, contexte, outils et intégrité. |
+| `BIBLIOTHEQUE` | Supports, grilles, scènes, objets, micro-interfaces et composants. |
+| `CHANGELOG` | État et décisions dans `maintenance/versions.md` ; cycle de vie et migrations dans `maintenance/evolution.md`. |
 
 **Chargement.** Dès qu’un build, une vérification ou un changement d’état est engagé, charge ACTION au niveau requis par le mode. Le contrat court suffit en `LITE` et `ITER`. Le pipeline et les gates complets sont chargés lorsque le périmètre les déclenche. Les recettes de code, prompts, packages et intégrations de stack sont des ressources techniques ; ils ne constituent jamais une preuve à eux seuls.
 

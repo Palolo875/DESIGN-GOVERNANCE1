@@ -331,7 +331,7 @@ La comparaison est valide si elle isole la décision et observe le critère déc
 
 Lorsque le scope le requiert, rattache l’avant/après à `ACTION/GATE-B/B1b` : capture initiale et capture après une seule décision éditée, tâche ou lecture déclarée, variable observable, états critiques, `DECISION-CHANGE`, méthode, scope, owner, `PROOF-LIMIT` et prochaine preuve. Si aucun résultat n’est observé, utilise le statut ACTION approprié, jamais un `PASS` implicite.
 
-Une micro-route devient durable seulement lorsqu’elle possède plusieurs usages contrastés, un contrat réutilisable, un owner de maintenance, une preuve de gain avec baseline et limite, une compatibilité, une prochaine revue et un statut de cycle de vie ; la promotion passe par `BIBLIOTHEQUE/EVOLUTION` puis `CHANGELOG`.
+Une micro-route devient durable seulement lorsqu’elle possède plusieurs usages contrastés, un contrat réutilisable, un owner de maintenance, une preuve de gain avec baseline et limite, une compatibilité, une prochaine revue et un statut de cycle de vie ; la promotion passe par `BIBLIOTHEQUE/EVOLUTION` puis `maintenance/versions.md`.
 
 ---
 

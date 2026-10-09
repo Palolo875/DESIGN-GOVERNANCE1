@@ -42,7 +42,9 @@ REQUIRED = (
     "N/A-JUSTIFIED",
     "NOT-VERIFIED",
 )
-OWNER_MAP = {f"{prefix}/*": rr.lieu(f"{prefix}.md")[0] for prefix in rr.PREFIXES}
+# CHANGELOG est le journal entier, pas une famille de sous-locators.
+OWNER_MAP = {("CHANGELOG" if prefix == "CHANGELOG" else f"{prefix}/*"): rr.lieu(f"{prefix}.md")[0]
+             for prefix in rr.PREFIXES}
 CITED = re.compile(rf"`((?:{'|'.join(rr.PREFIXES)})/[A-Z0-9_\-]+(?:/[A-Z0-9_\-]+)?)`")
 
 
@@ -242,7 +244,7 @@ def lcf_07(t: dict[str, str]) -> bool:
 
 def lcf_03(t: dict[str, str]) -> bool:
     ui, proof, system = row(t["RM"], "UI/UX habitable"), row(t["RM"], "Preuve et décision fiables"), row(t["RM"], "Système maintenable")
-    keys = ("migration", "rollback", "CHANGELOG")
+    keys = ("migration", "rollback", "maintenance/versions.md")
     return (bool(ui) and "ACTION/GATE-A" in ui[1] and "ACTION/GATE-A" not in ui[2]
             and bool(proof) and re.search(r"(?i)gate", proof[1]) is not None and re.search(r"(?i)gate", proof[2]) is None
             and bool(system) and all(k in system[1] for k in keys) and not any(k in system[2] for k in keys))

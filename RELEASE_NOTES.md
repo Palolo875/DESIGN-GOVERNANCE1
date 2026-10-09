@@ -4,7 +4,15 @@
 **Date de V1.0.0 :** 2026-10-01\
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
-## Révision R2026-10-09-REFONTE
+## Révision R2026-10-09-COHERENCE
+
+Correction des renvois après la refonte. Les sections propriétaires font foi à leur emplacement actuel ; les identités historiques servent à la provenance et les anciens codes restent compatibles. La gouvernance est adaptée au travail : chaque contrôle et chaque élément de trace doit aider une décision, une preuve ou une reprise, sans supprimer les protections applicables.
+
+Le paquet contrôle désormais aussi les références opérationnelles entre accents graves et les emplacements déclarés dans le registre des sources. Le lecteur accepte le journal `maintenance/versions` et son alias historique `CHANGELOG`. La recette de rendu permet de sélectionner explicitement un Chromium installé, sans téléchargement ni substitution silencieuse.
+
+Compatibilité : V1.0.0 ; aucun nouveau mode, statut ou champ RUN_CARD. Efficacité sur les rendus et CI hébergée : `NOT-VERIFIED`.
+
+## Révision précédente R2026-10-09-REFONTE
 
 Refonte de la forme, sans nouvelle règle. Le système est rangé en parties lisibles : `guides/` (une porte par public : débutant, designer, équipe, glossaire), `design/` (direction, savoir, formes, qualité du produit), `agent/` (la skill, le chemin de l’agent et sa réponse), `gouvernance/` (module facultatif) et `maintenance/`. Le README, les guides et le glossaire sont réécrits en langue claire ; les sections se lisent par des adresses lisibles (`savoir/couleur`), les anciens codes restant acceptés.
 
@@ -51,7 +59,12 @@ Le détail est dans [`maintenance/versions.md`](maintenance/versions.md).
 
 | Élément | Fonction |
 |---|---|
-| `V1/official/` | Sources normatives, guides d’entrée, glossaire et carte de lecture |
+| `guides/` | Entrées par public et glossaire |
+| `design/` | Direction, savoir, formes et qualité du produit |
+| `agent/` | Chemins, réponse et skill |
+| `gouvernance/` | Trace et preuve adaptées au besoin |
+| `maintenance/` | Versions, évolution et distributions |
+| `V1/official/` | Sections conservées et carte dérivée ; même autorité que les sections déplacées |
 | `agent/skill/` | Couche d’activation : noyau de fabrication compilé, références conditionnelles |
 | `gouvernance/schemas/` | Projections machine, exemples et fixtures de contrôle |
 | `scripts/` | Validateurs, compilation du noyau, runner global et construction des distributions |

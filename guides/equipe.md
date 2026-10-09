@@ -52,7 +52,7 @@ Si le domaine, le public, la confiance, la culture, les conventions ou l’ambit
 
 ### Règles et entrées selon le besoin
 
-Les cinq règles essentielles protègent chaque run : leur résumé est dans la section « Les cinq règles essentielles » du README du package, leur formulation qui fait foi dans [`direction/standard`](../design/direction/standard.md#les-cinq-règles-absolues).
+Les cinq règles essentielles protègent chaque run : leur résumé est dans la section « Les cinq règles essentielles » du README du package, leur formulation qui fait foi dans [standard de qualité](../design/direction/standard.md#les-cinq-règles-absolues).
 
 | Pour… | Faites d’abord… | Puis approfondissez avec… |
 |---|---|---|

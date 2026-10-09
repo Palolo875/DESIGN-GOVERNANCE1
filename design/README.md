@@ -1,6 +1,6 @@
 # Design — le cœur du système
 
-Tout ce qui sert à décider, savoir, construire et finir un design de qualité professionnelle. Le module de gouvernance (`../gouvernance/`) peut s’y ajouter quand un travail doit être tracé ou livré ; il n’est jamais requis.
+Tout ce qui sert à décider, savoir, construire et finir un design de qualité professionnelle. La [gouvernance](../gouvernance/README.md) s’adapte au risque, à la décision et aux besoins de reprise : trace légère pour explorer, formalisation nécessaire pour un travail persistant, partagé, audité ou soumis à acceptation. Chaque élément ajouté doit être utile ; les preuves applicables restent dues.
 
 | Dossier | Ce qu’on y trouve |
 |---|---|

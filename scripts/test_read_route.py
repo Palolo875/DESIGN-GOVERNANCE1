@@ -204,6 +204,16 @@ class ConnectionTests(unittest.TestCase):
         with self.assertRaisesRegex(reader.RouteError, "non propriétaires"):
             reader.parse_connections(self.text.replace("`DIRECTION/DOMAIN-FRAME` ;", "`EXTERNAL/DOMAIN-FRAME` ;", 1))
 
+    def test_readable_source_resolves_to_its_owner(self):
+        _, entries = reader.connections(self.text)
+        sources = reader.connection_sources(entries["C06"])
+        self.assertTrue(any(name == "maintenance/versions" and path == ROOT / "maintenance/versions.md"
+                            for name, path, _, _ in sources))
+
+    def test_alias_cannot_duplicate_the_same_source(self):
+        with self.assertRaisesRegex(reader.RouteError, "source répétée"):
+            reader.parse_connections(self.text.replace("`maintenance/versions` pour", "`maintenance/versions` ; `CHANGELOG` pour", 1))
+
     def test_unknown_route_refused(self):
         with self.assertRaisesRegex(reader.RouteError, "locator inconnu"):
             reader.connections(self.text.replace("`DIRECTION/DOMAIN-FRAME` ;", "`DIRECTION/ABSENT` ;", 1))
@@ -229,6 +239,22 @@ class ConnectionTests(unittest.TestCase):
 class CliTests(unittest.TestCase):
     def cli(self, *args):
         return subprocess.run([sys.executable, str(ROOT / "scripts/read_route.py"), *args], capture_output=True, text=True)
+
+    def test_versions_and_historical_alias_resolve_same_document(self):
+        for locator in ("CHANGELOG", "maintenance/versions"):
+            with self.subTest(locator=locator):
+                result = self.cli(locator)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertIn("OWNER: maintenance/versions.md", result.stdout)
+                self.assertIn("**Révision :**", result.stdout)
+
+    def test_missing_declared_source_is_not_silently_omitted(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "partie.md").write_text("# Partie disponible")
+            with patch.multiple(reader, ROOT=root, LIEUX={"SAVOIR.md": ("partie.md", "absente.md")}):
+                with self.assertRaisesRegex(FileNotFoundError, "source déclarée absente"):
+                    reader.lieu_texte("SAVOIR.md")
 
     def test_normative_results_not_inflated_by_guides(self):
         r = self.cli("--trouver", "COHERENCE DE RAYON")

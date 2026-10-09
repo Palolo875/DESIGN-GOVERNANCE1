@@ -29,23 +29,23 @@ Une solution senior rend la tâche prioritaire plus claire, la direction visuell
 
 ## Constitution du document
 
-`DIRECTION` est le **seul document canonique de cadrage** ; au démarrage d’un run, l’agent en lit le noyau (compilé dans la skill) et les routes de `DIRECTION/CHARGE`. Il fixe le rôle, les cinq absolus, la classification, le niveau de preuve à protéger, le routage et le cadrage de capacité. `ACTION` définit ensuite les preuves exécutables, les gates, les statuts et les verdicts. Les artefacts de run et les modules nécessaires sont chargés selon le mode et le risque.
+`DIRECTION` est la **responsabilité canonique de cadrage**, répartie dans ses sections propriétaires ; au démarrage d’un run, l’agent en lit le noyau (compilé dans la skill) et les routes de `DIRECTION/CHARGE`. Il fixe le rôle, les cinq absolus, la classification, le niveau de preuve à protéger, le routage et le cadrage de capacité. `ACTION` définit ensuite les preuves exécutables, les gates, les statuts et les verdicts. Les artefacts de run et les modules nécessaires sont chargés selon le mode et le risque.
 
 Les responsabilités sont séparées :
 
-| Document | Responsabilité exclusive |
+| Responsabilité historique | Responsabilité exclusive |
 |---|---|
-| `DIRECTION.md` | Mode, absolus, classification, cible, capacité et module optionnel `DIRECTION-ATELIER`. |
-| `ACTION.md` | Procédures, gates, preuves exécutables, statuts et verdicts de livraison. |
-| `SAVOIR.md` | Principes de jugement, craft, styles, contexte et intégrité. |
-| `BIBLIOTHEQUE.md` | Supports, grilles, scènes, objets, micro-interfaces et composants. |
-| `CHANGELOG.md` | État de V1, changements futurs, pilotes optionnels et décisions de gouvernance. |
+| `DIRECTION` | Mode, absolus, classification, cible, capacité et module optionnel `DIRECTION-ATELIER`. |
+| `ACTION` | Procédures, gates, preuves exécutables, statuts et verdicts de livraison. |
+| `SAVOIR` | Principes de jugement, craft, styles, contexte et intégrité. |
+| `BIBLIOTHEQUE` | Supports, grilles, scènes, objets, micro-interfaces et composants. |
+| `CHANGELOG` | État et décisions dans `maintenance/versions.md` ; cycle de vie et migrations dans `maintenance/evolution.md`. |
 
 ### Récapitulatif de protection
 
 Avant de parcourir les sections détaillées, retiens ces décisions de protection :
 
-1. **Rôle :** DIRECTION cadre, hiérarchise et rend une première direction située pilotable ; `ACTION` porte la preuve et la clôture, `SAVOIR` le jugement, `BIBLIOTHEQUE` la structure et `CHANGELOG` le cycle de vie.
+1. **Rôle :** DIRECTION cadre, hiérarchise et rend une première direction située pilotable ; `ACTION` porte la preuve et la clôture, `SAVOIR` le jugement, `BIBLIOTHEQUE` la structure et `maintenance/evolution.md` le cycle de vie.
 2. **Absolus :** une surface identitaire doit avoir une direction perceptible ; son ancrage est déclaré comme limite en exploration et observable avant l’acceptation (absolu 2) ; aucune livraison ne se clôt sans les preuves applicables ; le mode, la décision dominante, le risque principal, la preuve minimale et la condition d’arrêt sont déclarés avant l’action (absolu 4) ; le réel et le beau restent liés.
 3. **Routage :** décision partagée → `SYSTÈME` ; identité ou premier contact → `DIRECTION` ; surface existante à direction retrouvable → `ITER` ; delta local sans risque critique → `LITE` ; écran ou flow nouveau sans charge identitaire → `STANDARD` ; sinon, une clarification ciblée.
 4. **Premier objet :** formule `PROMESSE → OBJET DE PREUVE → GESTE` avant les éléments génériques ou décoratifs (bénéfices, navigation, polish), sauf si la navigation est l’objet de preuve.
@@ -59,7 +59,7 @@ Les sections détaillées ci-dessous restent intégralement actives. Lorsque ce 
 
 ### Orientation interne et sortie
 
-Pour une personne, `READING_MAP.md` est la vue dérivée lorsque le besoin est déjà identifiable ; l’agent charge par `DIRECTION/CHARGE`. `START` reste la source normative de classification ; les autres vues (`CHARGE`, `FAST-PATH`, `EXTERNAL-START`) sont des vues dérivées ou conditionnelles.
+Pour une personne, `V1/official/READING_MAP.md` est la vue dérivée lorsque le besoin est déjà identifiable ; l’agent charge par `DIRECTION/CHARGE`. `START` reste la source normative de classification ; les autres vues (`CHARGE`, `FAST-PATH`, `EXTERNAL-START`) sont des vues dérivées ou conditionnelles.
 
 La sortie de DIRECTION vers ACTION réutilise `ACTION/HANDOFF` ; la phase de chaque champ (avant build, après observation, clôture) est celle de la table de correspondance d’`ACTION/RUN_CARD`. Pour `MODE=DIRECTION`, transmettre aussi la cible/ancre et, lors d’une clôture, les éléments de `creative_close`; ACTION renseigne `closure.direction_status`, `issue`, `verdict` et l’état selon son schéma. Si un champ ne s’applique pas, marquez `N/A-JUSTIFIED` selon ACTION ; ne créez ni statut ni verdict dans DIRECTION.
 
@@ -97,11 +97,11 @@ Classer : `DIRECTION/START`. Charger : `DIRECTION/CHARGE`, seule liste de charge
 
 En trente secondes, nomme : **la décision à changer, le risque dominant, le mode, la capacité minimale et le premier objet que la preuve devra inspecter**. Cette vue accélère l’entrée ; elle ne remplace ni `START`, ni les contrats d’ACTION, ni le jugement situé.
 
-Cette carte est la vue de lecture interne canonique de DIRECTION. `CHARGE`, `FAST-PATH`, `EXTERNAL-START`, la section 0 et le récapitulatif de protection sont des vues dérivées de `START` : elles ne classent pas, ne créent ni nouveau mode, ni nouveau contrat, ni nouvelle condition de sortie et ne peuvent pas contredire `START`. `READING_MAP.md` reste le guide dérivé inter-document. En cas de différence, `START`, les propriétaires de responsabilité et les contrats d’ACTION prévalent.
+Cette carte est la vue de lecture interne canonique de DIRECTION. `CHARGE`, `FAST-PATH`, `EXTERNAL-START`, la section 0 et le récapitulatif de protection sont des vues dérivées de `START` : elles ne classent pas, ne créent ni nouveau mode, ni nouveau contrat, ni nouvelle condition de sortie et ne peuvent pas contredire `START`. `V1/official/READING_MAP.md` reste le guide dérivé inter-document. En cas de différence, `START`, les propriétaires de responsabilité et les contrats d’ACTION prévalent.
 
 **Chaîne de lecture interne.** Utilise le document selon la décision à faire évoluer, dans l’ordre de l’architecture d’activation : `START` classe ; `CREATIVE-BOOT` ouvre la décision ; `VISUAL_TARGET` rend la position pilotable ; `DIRECTION-ATELIER` approfondit la direction située lorsque cette profondeur peut changer la décision ; `FIRST-OBJECT` matérialise la cible et rend la promesse jugeable ; `DOUBLE-LOOP` organise l’observation et la correction ; le `HANDOFF` remet à `ACTION` une cible, un artefact, une preuve et une limite explicites. Chaque module doit être chargé pour son gain attendu : meilleure orientation, meilleur premier objet, meilleur jugement, meilleure structure ou meilleure preuve — jamais pour augmenter la procédure.
 
-**Périmètre.** Le système vise à aider une personne, un agent ou une équipe à produire des interfaces et frontends de haute qualité visuelle, sur le web comme sur des plateformes natives telles que Flutter, Swift, Kotlin ou équivalentes. Il vise un premier rendu spécifique, composé, crédible et résolu plutôt qu’un résultat générique ou décoratif. Il vise à augmenter la probabilité d’un travail de niveau expert en rendant explicites des décisions que les meilleures équipes prennent souvent implicitement ; cette efficacité reste `NOT-VERIFIED` (`CHANGELOG`) et s’éprouve par les pilotes. Il ne remplace ni la compétence, ni le jugement situé, ni la revue humaine, et ne garantit ni l’excellence universelle, ni la réussite d’une tâche, ni l’adéquation à tous les publics. Ces propriétés dépendent du contenu réel, du contexte, de la preuve et du jugement situé. Les exemples et runtimes de référence sont souvent web, mais les décisions de hiérarchie, composition, typographie, matière, états et interaction sont portables. L’implémentation traduit ces décisions dans les idiomes réels de la plateforme ; elle ne copie pas mécaniquement des conventions web.
+**Périmètre.** Le système vise à aider une personne, un agent ou une équipe à produire des interfaces et frontends de haute qualité visuelle, sur le web comme sur des plateformes natives telles que Flutter, Swift, Kotlin ou équivalentes. Il vise un premier rendu spécifique, composé, crédible et résolu plutôt qu’un résultat générique ou décoratif. Il vise à augmenter la probabilité d’un travail de niveau expert en rendant explicites des décisions que les meilleures équipes prennent souvent implicitement ; cette efficacité reste `NOT-VERIFIED` (`maintenance/versions.md`) et s’éprouve par les pilotes. Il ne remplace ni la compétence, ni le jugement situé, ni la revue humaine, et ne garantit ni l’excellence universelle, ni la réussite d’une tâche, ni l’adéquation à tous les publics. Ces propriétés dépendent du contenu réel, du contexte, de la preuve et du jugement situé. Les exemples et runtimes de référence sont souvent web, mais les décisions de hiérarchie, composition, typographie, matière, états et interaction sont portables. L’implémentation traduit ces décisions dans les idiomes réels de la plateforme ; elle ne copie pas mécaniquement des conventions web.
 
 **Capacité positive de DIRECTION.** DIRECTION ne sert pas seulement à éviter une proposition générique : elle vise à augmenter la qualité du cadrage, de la position, de la première scène et de la boucle créative. Elle transforme un brief en relation perceptible entre produit, public, contenu, geste, matière et contrainte ; elle peut requalifier une demande lorsque cela améliore la décision, sans se substituer aux owners de preuve, de structure ou de clôture.
 
@@ -115,7 +115,7 @@ Ce défaut élève l’ambition de la première proposition ; il ne crée ni sco
 
 `CREATIVE-BOOT`, `VISUAL_TARGET` et `DIRECTION-ATELIER` ne demandent pas trois descriptions concurrentes. Lorsque la même information apparaît sous plusieurs noms, conserve-la dans la vue qui la rend décisionnelle et renvoie les autres vues à cette sortie : la promesse devient la thèse si elle est transformée en position, le parti devient une exclusion s’il gouverne la scène, et l’ancre devient une preuve de calibration si elle modifie la composition. Les champs non transformés ne sont pas recopiés.
 
-**Statut de gouvernance.** Une source, un claim daté, un retour externe ou un asset reste local au run tant qu’il ne modifie pas durablement une règle partagée. Seule cette promotion justifie une décision dans `CHANGELOG.md`.
+**Statut de gouvernance.** Une source, un claim daté, un retour externe ou un asset reste local au run tant qu’il ne modifie pas durablement une règle partagée. Seule cette promotion justifie une décision dans `maintenance/versions.md`.
 
 ### Comment lire les taxonomies
 
