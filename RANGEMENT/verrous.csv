@@ -1,0 +1,271 @@
+script,ligne,controle,chaine,documents
+build_core.py,28,,<!-- noyau:compilé début -->,skills/design-governance-practice/SKILL.md
+build_core.py,28,,<!-- noyau:compilé fin -->,skills/design-governance-practice/SKILL.md
+build_core.py,26,SKILL_DIR,design-governance-practice,README.md ; RELEASE_NOTES.md ; V1/official/CHANGELOG.md ; V1/official/QUICKSTART.md ; V1/official/README.md ; skills/design-governance-practice/SKILL.md
+build_core.py,39,NOYAU,Prendre le brief et viser le premier objet,skills/design-governance-practice/SKILL.md
+build_core.py,58,NOYAU,"Proposition, sortie et trace",skills/design-governance-practice/SKILL.md
+build_core.py,139,compile_core,_Section générée par `scripts/build_core.py` depuis les blocs « noyau » des sources ; ne pas modifier à la main._,skills/design-governance-practice/SKILL.md
+preparer_livraison.py,34,ARCHIVES,Design_Governance_V1_GITHUB.zip,README.md
+preparer_livraison.py,34,ARCHIVES,Design_Governance_V1_LOCAL.zip,README.md
+preparer_livraison.py,36,FIRST,V1/official/QUICKSTART.md,README.md ; RELEASE_NOTES.md
+preparer_livraison.py,36,FIRST,V1/official/READING_MAP.md,README.md
+preparer_livraison.py,37,FIRST,V1/official/DIRECTION.md,README.md
+preparer_livraison.py,38,FIRST,V1/official/CHANGELOG.md,README.md ; RELEASE_NOTES.md
+preparer_livraison.py,168,main,.logs/preparer_livraison.log,README.md
+preparer_livraison.py,171,main,scripts/build_distributions.sh,README.md
+read_route.py,42,CONNECTION_FIELDS,Intervention et effet attendu,V1/official/READING_MAP.md
+read_route.py,43,CONNECTION_FIELDS,Contre-indication et alternative,V1/official/READING_MAP.md
+read_route.py,518,ALIAS_GROUPS,technologies d’assistance,V1/official/ACTION.md
+read_route.py,587,search,correspondance partielle,V1/official/DIRECTION.md ; V1/official/QUICKSTART.md ; skills/design-governance-practice/SKILL.md
+read_route.py,621,rank_routes,design-governance-practice,README.md ; RELEASE_NOTES.md ; V1/official/CHANGELOG.md ; V1/official/QUICKSTART.md ; V1/official/README.md ; skills/design-governance-practice/SKILL.md
+read_route.py,438,core_section,design-governance-practice,README.md ; RELEASE_NOTES.md ; V1/official/CHANGELOG.md ; V1/official/QUICKSTART.md ; V1/official/README.md ; skills/design-governance-practice/SKILL.md
+read_route.py,593,search,mots séparés sur une même ligne,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+read_route.py,806,main,mots séparés sur une même ligne,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+test_audit_regressions.py,38,MobilisationFacadeTests,"conserve-la par héritage ou comme cas documentaire, avec sa source et sa justification.",V1/official/BIBLIOTHEQUE.md
+test_audit_regressions.py,42,MobilisationFacadeTests,Son exigence dépend du niveau de trace et du mode ; une proposition en trace légère ne produit pas de RUN_CARD.,V1/official/GLOSSAIRE.md
+test_audit_regressions.py,46,MobilisationFacadeTests,"`required_controls`, `risk_coverage`, `depth_rules`",V1/official/DIRECTION.md
+test_audit_regressions.py,49,MobilisationFacadeTests,python3 scripts/read_route.py --connexions,README.md ; V1/official/DIRECTION.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/SKILL.md ; skills/design-governance-practice/references/flow.md
+test_audit_regressions.py,52,MobilisationFacadeTests,au-delà d’un fix ou delta local qui la conserve,V1/official/DIRECTION.md
+test_audit_regressions.py,55,MobilisationFacadeTests,au-delà d’un fix local qui la conserve,V1/official/QUICKSTART.md
+test_audit_regressions.py,58,MobilisationFacadeTests,sauf la forme courte LITE définie ci-dessus,V1/official/ACTION.md
+test_audit_regressions.py,61,MobilisationFacadeTests,La forme courte LITE définie par `ACTION/HANDOFF` est complète sans RUN_CARD,V1/official/GLOSSAIRE.md
+test_audit_regressions.py,64,MobilisationFacadeTests,sauf la forme courte LITE sans RUN_CARD définie,V1/official/READING_MAP.md
+test_audit_regressions.py,67,MobilisationFacadeTests,La forme courte LITE conserve une trace complète sans RUN_CARD,V1/official/ACTION.md ; skills/design-governance-practice/SKILL.md
+test_audit_regressions.py,194,CoreResourceActivationTests,SAVOIR/TOOLS/CONVERGENCE,V1/official/READING_MAP.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+test_audit_regressions.py,121,CapabilityTests,schemas/run_card.schema.json,V1/official/READING_MAP.md ; skills/design-governance-practice/references/machine_projection.md
+test_audit_regressions.py,160,StrictHostTests,schemas/run_card.schema.json,V1/official/READING_MAP.md ; skills/design-governance-practice/references/machine_projection.md
+test_audit_regressions.py,161,StrictHostTests,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+test_audit_regressions.py,204,CoreResourceActivationTests,SAVOIR/TOOLS/CONVERGENCE,V1/official/READING_MAP.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+test_core_budget.py,43,BudgetTests,skills/design-governance-practice/SKILL.md,README.md
+test_preparer_livraison.py,171,PreparationTests,Reprendre une préparation interrompue,README.md
+test_preparer_livraison.py,253,PreparationTests,V1/official/DIRECTION.md,README.md
+test_preparer_livraison.py,254,PreparationTests,skills/design-governance-practice/SKILL.md,README.md
+test_preparer_livraison.py,164,PreparationTests,scripts/build_distributions.sh,README.md
+test_preparer_livraison.py,257,PreparationTests,<!-- noyau:fin CHARGE-REGLE -->,V1/official/DIRECTION.md
+test_preparer_livraison.py,267,PreparationTests,scripts/build_distributions.sh,README.md
+test_preparer_livraison.py,218,PreparationTests,scripts/build_distributions.sh,README.md
+test_preparer_livraison.py,230,PreparationTests,scripts/build_distributions.sh,README.md
+test_preparer_livraison.py,257,PreparationTests,<!-- noyau:fin CHARGE-REGLE -->,V1/official/DIRECTION.md
+test_preparer_livraison.py,261,PreparationTests,skills/design-governance-practice/,README.md ; RELEASE_NOTES.md ; V1/official/QUICKSTART.md
+test_read_route.py,223,ConnectionTests,## Activation multi-perspective,V1/official/READING_MAP.md
+test_read_route.py,249,CliTests,ne prouve pas l’absence du savoir,V1/official/QUICKSTART.md
+test_read_route.py,275,CliTests,C07 — Ambition vers construction,V1/official/READING_MAP.md
+test_read_route.py,282,CliTests,**Contre-indication et alternative.**,V1/official/READING_MAP.md
+test_read_route.py,341,SearchAndSummaryTests,mots séparés sur une même ligne,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+test_read_route.py,384,SearchAndSummaryTests,| couleur | `SAVOIR/CRAFT/CFT-05` |,V1/official/READING_MAP.md
+test_read_route.py,145,StructureIdentifierTests,BIBLIOTHEQUE/GRID/HIERARCHICAL,V1/official/BIBLIOTHEQUE.md
+test_read_route.py,196,ConnectionTests,Contre-indication et alternative,V1/official/READING_MAP.md
+test_read_route.py,193,ConnectionTests,**Condition et décision.**,V1/official/READING_MAP.md
+test_read_route.py,197,ConnectionTests,**Contre-indication et alternative.**,V1/official/READING_MAP.md
+test_read_route.py,205,ConnectionTests,`DIRECTION/DOMAIN-FRAME` ;,V1/official/READING_MAP.md
+test_read_route.py,209,ConnectionTests,`DIRECTION/DOMAIN-FRAME` ;,V1/official/READING_MAP.md
+test_read_route.py,426,ActivationTests,python3 scripts/read_route.py --trouver,README.md ; V1/official/DIRECTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/SKILL.md
+test_read_route.py,435,ActivationTests,sans conclure à l’absence du savoir,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_all.py,269,main,scripts/build_distributions.sh,README.md
+validate_all.py,274,main,Design_Governance_V1_GITHUB.zip,README.md
+validate_all.py,275,main,Design_Governance_V1_LOCAL.zip,README.md
+validate_all.py,198,main,scripts/validate_design_governance.py,README.md
+validate_all.py,199,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,200,main,scripts/validate_contracts.py,README.md ; V1/official/QUICKSTART.md ; V1/official/SAVOIR.md
+validate_all.py,201,main,scripts/validate_reading_map.py,README.md
+validate_all.py,207,main,scripts/test_audit_regressions.py,README.md
+validate_all.py,210,main,scripts/test_check_render.py,README.md ; V1/official/ACTION.md ; V1/official/CHANGELOG.md
+validate_all.py,221,main,scripts/validate_contracts.py,README.md ; V1/official/QUICKSTART.md ; V1/official/SAVOIR.md
+validate_all.py,222,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,222,main,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,273,main,scripts/build_distributions.sh,README.md
+validate_all.py,277,main,scripts/build_distributions.sh,README.md
+validate_all.py,230,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,241,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,246,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,248,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,248,main,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,255,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,260,main,scripts/validate_run_card.py,README.md ; V1/official/ACTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,162,check_move_regression,scripts/validate_reading_map.py,README.md
+validate_all.py,163,check_move_regression,scripts/validate_design_governance.py,README.md
+validate_all.py,168,check_move_regression,scripts/validate_reading_map.py,README.md
+validate_all.py,76,check_craft_regressions,vocabulaire perceptuel de `SAVOIR/STATE`,V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_all.py,82,check_craft_regressions,"Les gestes proposés sont des points de départ, pas une liste fermée",V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_all.py,237,main,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,237,main,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_all.py,237,main,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_contracts.py,21,CONTRACTS,schemas/domain_frame.schema.json,V1/official/DIRECTION.md
+validate_contracts.py,22,CONTRACTS,schemas/research_brief.schema.json,V1/official/SAVOIR.md
+validate_contracts.py,23,CONTRACTS,schemas/production_contracts.schema.json,V1/official/ACTION.md
+validate_design_governance.py,53,VERDICT_VALUES,ACCEPTED-WITH-RESERVATION,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_design_governance.py,59,DIRECTION_VALUES,HELD-WITH-ACCEPTED-DIFFERENCE,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md
+validate_design_governance.py,300,check_experimental_position,expérimentation maintenue,README.md ; RELEASE_NOTES.md ; V1/official/ACTION.md ; V1/official/BIBLIOTHEQUE.md ; V1/official/CHANGELOG.md ; V1/official/DIRECTION.md ; V1/official/README.md ; V1/official/SAVOIR.md
+validate_design_governance.py,123,check_expected_files,Design_Governance_V1_GITHUB.zip,README.md
+validate_design_governance.py,124,check_expected_files,Design_Governance_V1_LOCAL.zip,README.md
+validate_design_governance.py,219,check_action_projection_source,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_design_governance.py,265,check_lifecycle_contract,routes présentes dans le seed,V1/official/CHANGELOG.md
+validate_design_governance.py,265,check_lifecycle_contract,Migration des anciens aliases,V1/official/BIBLIOTHEQUE.md ; V1/official/CHANGELOG.md
+validate_design_governance.py,285,check_reading_contract,Carte de lecture par mode,V1/official/ACTION.md
+validate_design_governance.py,255,check_canonicity_language,Les cinq fichiers suivants sont les **seules sources normatives** de V1,V1/official/README.md
+validate_design_governance.py,274,check_lifecycle_contract,section « Migration des anciens aliases » de `CHANGELOG.md`,V1/official/BIBLIOTHEQUE.md
+validate_reading_map.py,30,REQUIRED,Statut :** guide dérivé non normatif,V1/official/READING_MAP.md
+validate_reading_map.py,31,REQUIRED,## Chemin canonique de démarrage,V1/official/READING_MAP.md
+validate_reading_map.py,32,REQUIRED,## Routage minimal par décision,V1/official/READING_MAP.md
+validate_reading_map.py,33,REQUIRED,## Activation multi-perspective,V1/official/READING_MAP.md
+validate_reading_map.py,34,REQUIRED,## Handoff minimal commun,V1/official/READING_MAP.md
+validate_reading_map.py,35,REQUIRED,## Résolution des routes,V1/official/READING_MAP.md
+validate_reading_map.py,165,VISIBLE_RUBRIQUES,Ce qui manque pour la vraie version :,V1/official/ACTION.md ; skills/design-governance-practice/SKILL.md ; skills/design-governance-practice/references/examples.md
+validate_reading_map.py,616,lcf_56,sauf la forme courte LITE sans RUN_CARD définie,V1/official/READING_MAP.md
+validate_reading_map.py,28,SKILL_DIR,design-governance-practice,README.md ; RELEASE_NOTES.md ; V1/official/CHANGELOG.md ; V1/official/QUICKSTART.md ; V1/official/README.md ; skills/design-governance-practice/SKILL.md
+validate_reading_map.py,235,lcf_07,**Chaîne de lecture interne.**,V1/official/DIRECTION.md
+validate_reading_map.py,278,lcf_15_16_17,### Contrat positif du premier objet,V1/official/DIRECTION.md
+validate_reading_map.py,391,lcf_30,### Contrat positif du premier objet,V1/official/DIRECTION.md
+validate_reading_map.py,599,lcf_54,### Vue d’exécution dérivée,V1/official/ACTION.md
+validate_reading_map.py,606,lcf_55,### Arbre de classification,V1/official/DIRECTION.md ; V1/official/READING_MAP.md
+validate_reading_map.py,628,check_facades,Nouvelle structure d’écran,V1/official/DIRECTION.md
+validate_reading_map.py,629,check_facades,Ce gabarit est une vue d’activation,V1/official/DIRECTION.md
+validate_reading_map.py,237,lcf_07,Direction forte et spécifique,V1/official/READING_MAP.md
+validate_reading_map.py,245,lcf_03,Preuve et décision fiables,V1/official/READING_MAP.md
+validate_reading_map.py,287,lcf_15_16_17,Motif possiblement générique,V1/official/DIRECTION.md
+validate_reading_map.py,357,lcf_27,liste close des conditions de façade,README.md ; V1/official/CHANGELOG.md
+validate_reading_map.py,402,lcf_32,`ACCEPTED-WITH-RESERVATION`,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/machine_projection.md
+validate_reading_map.py,434,lcf_36,que pour une `RUN_CARD` `DIRECTION`,V1/official/ACTION.md
+validate_reading_map.py,483,lcf_41,champ facultatif sans valeur est omis,V1/official/ACTION.md ; skills/design-governance-practice/references/machine_projection.md
+validate_reading_map.py,484,lcf_41,champ facultatif sans valeur est omis,V1/official/ACTION.md ; skills/design-governance-practice/references/machine_projection.md
+validate_reading_map.py,569,lcf_49,**Traitement des assets moyens.**,V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_reading_map.py,569,lcf_49,jamais un dessin de remplacement,V1/official/DIRECTION.md
+validate_reading_map.py,583,lcf_51,réellement non applicable,V1/official/BIBLIOTHEQUE.md ; V1/official/SAVOIR.md
+validate_reading_map.py,617,lcf_56,sauf la forme courte LITE définie ci-dessus,V1/official/ACTION.md
+validate_reading_map.py,618,lcf_56,une demande de projection structurée requiert la `RUN_CARD` validée,V1/official/ACTION.md
+validate_reading_map.py,619,lcf_56,est complète sans RUN_CARD,V1/official/GLOSSAIRE.md
+validate_reading_map.py,620,lcf_56,forme courte LITE sans RUN_CARD est admise,V1/official/QUICKSTART.md
+validate_reading_map.py,621,lcf_56,La forme courte LITE conserve une trace complète sans RUN_CARD,V1/official/ACTION.md ; skills/design-governance-practice/SKILL.md
+validate_reading_map.py,260,lcf_12,ACCEPTED-WITH-RESERVATION,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_reading_map.py,280,lcf_15_16_17,## 6. Produire une qualité positive,V1/official/QUICKSTART.md
+validate_reading_map.py,281,lcf_15_16_17,### Creative Quality Review,V1/official/SAVOIR.md
+validate_reading_map.py,285,lcf_15_16_17,### Déclencheurs critiques,V1/official/DIRECTION.md
+validate_reading_map.py,294,lcf_20,## Cycle de vie des routes,V1/official/CHANGELOG.md
+validate_reading_map.py,294,lcf_20,## Migration des anciens aliases,V1/official/CHANGELOG.md
+validate_reading_map.py,330,lcf_25,### Carte de lecture par mode,V1/official/ACTION.md
+validate_reading_map.py,361,lcf_28,## DIRECTION/VISUAL_TARGET,V1/official/DIRECTION.md ; V1/official/READING_MAP.md
+validate_reading_map.py,361,lcf_28,### Compilation de la première proposition,V1/official/DIRECTION.md
+validate_reading_map.py,392,lcf_30,## 6. Produire une qualité positive,V1/official/QUICKSTART.md
+validate_reading_map.py,488,lcf_42,## 9. Exemple complet minimal,V1/official/QUICKSTART.md
+validate_reading_map.py,503,boot_block,Le boot tient au maximum les décisions suivantes,V1/official/DIRECTION.md
+validate_reading_map.py,509,lcf_43,### Décider la route de production,V1/official/DIRECTION.md
+validate_reading_map.py,509,lcf_43,### Réserve `ANCHOR-GENERATED`,V1/official/DIRECTION.md
+validate_reading_map.py,517,lcf_44,## DIRECTION/EXTERNAL-START,V1/official/DIRECTION.md
+validate_reading_map.py,517,lcf_44,### Traduction humaine minimale,V1/official/DIRECTION.md
+validate_reading_map.py,556,lcf_47,## DIRECTION/FIRST-OBJECT,V1/official/DIRECTION.md ; V1/official/READING_MAP.md
+validate_reading_map.py,556,lcf_47,### Contrat positif du premier objet,V1/official/DIRECTION.md
+validate_reading_map.py,561,lcf_48,### Décider la route de production,V1/official/DIRECTION.md
+validate_reading_map.py,561,lcf_48,### Réserve `ANCHOR-GENERATED`,V1/official/DIRECTION.md
+validate_reading_map.py,568,lcf_49,### Décider la route de production,V1/official/DIRECTION.md
+validate_reading_map.py,568,lcf_49,### Réserve `ANCHOR-GENERATED`,V1/official/DIRECTION.md
+validate_reading_map.py,261,lcf_12,ACCEPTED-WITH-RESERVATION,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_reading_map.py,321,lcf_23,`ACCEPTED-WITH-RESERVATION`,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/machine_projection.md
+validate_reading_map.py,397,lcf_31,schemas/run_card.example.json,V1/official/ACTION.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_reading_map.py,406,lcf_33,Toute ressource de stack,V1/official/SAVOIR.md
+validate_reading_map.py,562,lcf_48,Carte des moyens par couche,V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_reading_map.py,600,lcf_54,python3 scripts/read_route.py --connexions,README.md ; V1/official/DIRECTION.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/SKILL.md ; skills/design-governance-practice/references/flow.md
+validate_reading_map.py,630,check_facades,Pour `LITE` et les petits `ITER`,V1/official/ACTION.md
+validate_reading_map.py,664,check_facades,réponse visible en langage produit,V1/official/QUICKSTART.md
+validate_reading_map.py,580,lcf_51,non-applicabilité réelle,V1/official/BIBLIOTHEQUE.md ; V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_reading_map.py,601,lcf_54,source pertinente change,V1/official/ACTION.md
+validate_reading_map.py,602,lcf_54,capacités d’observation attestées,V1/official/ACTION.md
+validate_reading_map.py,609,lcf_55,au-delà d’un fix ou delta local qui la conserve,V1/official/DIRECTION.md
+validate_reading_map.py,610,lcf_55,au-delà d’un fix local qui la conserve,V1/official/QUICKSTART.md
+validate_reading_map.py,407,lcf_33,Toute ressource technique maintenue indique,V1/official/ACTION.md
+validate_reading_map.py,659,check_facades,## Handoff minimal commun,V1/official/READING_MAP.md
+validate_reading_map.py,282,lcf_15_16_17,### Contrat positif du premier objet,V1/official/DIRECTION.md
+validate_run_card.py,201,ACCEPTED,ACCEPTED-WITH-RESERVATION,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_run_card.py,330,check_accepted,ACCEPTED-WITH-RESERVATION,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_run_card.py,780,UNIT_CASES,issue non nulle interdit un verdict accepté,V1/official/ACTION.md
+validate_run_card.py,775,UNIT_CASES,ACCEPTED-WITH-RESERVATION,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_run_card.py,457,check_direction,HELD-WITH-ACCEPTED-DIFFERENCE,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md
+validate_structure.py,288,CONSTITUTION_SIGNATURE,le réel et le beau sont cadrés ensemble,README.md
+validate_structure.py,697,UI_TRIGGER,`ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substantiellement modifiée,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,729,EXAMPLE_SECTION,## DIRECTION — fabrication depuis un brief flou,skills/design-governance-practice/references/examples.md
+validate_structure.py,286,QUESTIONS,**4. Comment poursuivre ?**,README.md
+validate_structure.py,49,SKILL_DIR,design-governance-practice,README.md ; RELEASE_NOTES.md ; V1/official/CHANGELOG.md ; V1/official/QUICKSTART.md ; V1/official/README.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,68,CONCEPTS,"la première proposition vaut checkpoint, sauf action irréversible ou coûteuse",V1/official/CHANGELOG.md ; V1/official/QUICKSTART.md
+validate_structure.py,102,RETIRED,"si rien ne les justifie, reconsidère-les",V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,103,RETIRED,"cinq responsabilités de preuve, regroupables",V1/official/SAVOIR.md
+validate_structure.py,197,ORDER,## Posture — à lire avant toute action,V1/official/DIRECTION.md
+validate_structure.py,198,ORDER,### Récapitulatif de protection,V1/official/DIRECTION.md
+validate_structure.py,202,FIDELITY,destination si elle est incertaine,README.md ; V1/official/CHANGELOG.md ; V1/official/DIRECTION.md ; V1/official/QUICKSTART.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,203,FIDELITY,irréversible ou coûteuse,README.md ; RELEASE_NOTES.md ; V1/official/ACTION.md ; V1/official/CHANGELOG.md ; V1/official/DIRECTION.md ; V1/official/GLOSSAIRE.md ; V1/official/QUICKSTART.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,205,FIDELITY,chaque ressource retenue,V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,206,FIDELITY,la correction a affaibli,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,210,FIDELITY,Ce qu’elle n’atteste pas,V1/official/ACTION.md
+validate_structure.py,213,FIDELITY,Un risque critique que le changement touche,V1/official/ACTION.md
+validate_structure.py,214,FIDELITY,distinct d’`artifact.scope`,V1/official/ACTION.md
+validate_structure.py,215,FIDELITY,"`confirmed`, `modified` ou `abandoned`",V1/official/ACTION.md
+validate_structure.py,218,FIDELITY,jamais glissé dans un champ voisin,V1/official/ACTION.md
+validate_structure.py,218,FIDELITY,non prévu par cette table,V1/official/ACTION.md
+validate_structure.py,220,FIDELITY,distingue dans la trace :,V1/official/DIRECTION.md
+validate_structure.py,220,FIDELITY,run instrumenté ou audité,V1/official/DIRECTION.md
+validate_structure.py,221,FIDELITY,déclare dans la trace la catégorie de lecture,V1/official/DIRECTION.md
+validate_structure.py,221,FIDELITY,run instrumenté ou audité,V1/official/DIRECTION.md
+validate_structure.py,222,FIDELITY,la raison de son niveau de matérialisation,V1/official/ACTION.md
+validate_structure.py,223,FIDELITY,Trois cartes égales sous un titre centré,V1/official/BIBLIOTHEQUE.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,225,FIDELITY,"la personne valide, réoriente ou arrête",V1/official/ACTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,228,FIDELITY,Trace légère : la proposition,V1/official/ACTION.md
+validate_structure.py,235,FIDELITY,Sans ancre utile et spec exploitable,V1/official/ACTION.md
+validate_structure.py,236,FIDELITY,"Si une preuve est indisponible, le mode ne baisse pas",V1/official/DIRECTION.md
+validate_structure.py,241,FIDELITY,Les champs affichés respectent les contrats d’ACTION,skills/design-governance-practice/references/examples.md
+validate_structure.py,242,FIDELITY,Un CTA doit soit déclencher,V1/official/DIRECTION.md
+validate_structure.py,243,FIDELITY,la section « Combinaisons par résultat recherché » de `READING_MAP,skills/design-governance-practice/references/flow.md
+validate_structure.py,243,FIDELITY,si une personne le demande,skills/design-governance-practice/SKILL.md ; skills/design-governance-practice/references/flow.md
+validate_structure.py,247,FIDELITY,"est le propriétaire des preuves exécutables, des gates, des statuts de run",V1/official/ACTION.md
+validate_structure.py,249,FIDELITY,DIRECTION déclenche la classification générale,V1/official/ACTION.md
+validate_structure.py,256,FIDELITY,puis `CLOSED` lorsque l’artefact et la trace sont persistés,V1/official/ACTION.md
+validate_structure.py,257,FIDELITY,Pour `LITE` et les petits `ITER`,V1/official/ACTION.md
+validate_structure.py,257,FIDELITY,paquet `ITER` pour un `ITER`,V1/official/ACTION.md
+validate_structure.py,259,FIDELITY,Une recherche de domaine et une recherche de calibration visuelle,V1/official/SAVOIR.md
+validate_structure.py,260,FIDELITY,Quelle décision concrète a changé grâce à ce module,V1/official/SAVOIR.md
+validate_structure.py,261,FIDELITY,la preuve attendue est obtenue ou déclarée,V1/official/QUICKSTART.md
+validate_structure.py,261,FIDELITY,ne vaut que si la preuve ne s’applique pas,V1/official/QUICKSTART.md
+validate_structure.py,262,FIDELITY,ne compense jamais un axe bloquant par une moyenne,V1/official/SAVOIR.md
+validate_structure.py,262,FIDELITY,ACCEPTED-WITH-RESERVATION,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/references/examples.md ; skills/design-governance-practice/references/machine_projection.md
+validate_structure.py,263,FIDELITY,"fonctions, intégrations et conformités affirmées",V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,265,FIDELITY,choisissez une seule suite,V1/official/QUICKSTART.md
+validate_structure.py,267,FIDELITY,la sortie one-shot peut être une décision directement clôturée,V1/official/QUICKSTART.md
+validate_structure.py,268,FIDELITY,L’agent localise le package réellement fourni,V1/official/QUICKSTART.md
+validate_structure.py,269,FIDELITY,"Pour piloter un run, commencez ici",V1/official/QUICKSTART.md
+validate_structure.py,271,FIDELITY,Le parcours complet d’un run est,README.md
+validate_structure.py,273,FIDELITY,distincte de la trace légère,V1/official/ACTION.md
+validate_structure.py,274,FIDELITY,montre la sortie par défaut,skills/design-governance-practice/references/examples.md
+validate_structure.py,276,FIDELITY,Le parcours est : `DIRECTION/START → SAVOIR/FRAME,V1/official/SAVOIR.md
+validate_structure.py,276,FIDELITY,si le cadrage est à éclaircir,V1/official/SAVOIR.md
+validate_structure.py,277,FIDELITY,"S’applique à un pattern réutilisable, à un composant critique ou à un composant partagé",V1/official/BIBLIOTHEQUE.md
+validate_structure.py,278,FIDELITY,La comparaison est valide si elle isole la décision,V1/official/BIBLIOTHEQUE.md
+validate_structure.py,279,FIDELITY,"Si texte, données et images sont masqués",V1/official/BIBLIOTHEQUE.md
+validate_structure.py,279,FIDELITY,dépendance est recevable,V1/official/BIBLIOTHEQUE.md
+validate_structure.py,331,check_preamble,### Contrat minimal par périmètre,V1/official/BIBLIOTHEQUE.md
+validate_structure.py,377,LOAD_POINTERS,| Une direction visuelle ouverte |,V1/official/QUICKSTART.md
+validate_structure.py,378,LOAD_POINTERS,| Direction identitaire |,V1/official/READING_MAP.md
+validate_structure.py,379,LOAD_POINTERS,| **Direction forte et spécifique** |,V1/official/READING_MAP.md
+validate_structure.py,616,CORE_FLOOR,`SAVOIR/TOOLS/CONVERGENCE`,V1/official/READING_MAP.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,618,CORE_FLOOR,python3 scripts/read_route.py --trouver,README.md ; V1/official/DIRECTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,619,CORE_FLOOR,sans conclure à l’absence du savoir,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,620,CORE_FLOOR,Conçois une palette par rôles,V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,621,CORE_FLOOR,Choisis une typographie pour ses langues,V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,623,CORE_FLOOR,`ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substantiellement modifiée,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,625,CORE_FLOOR,"fonctions, intégrations et conformités affirmées",V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,626,CORE_FLOOR,`DIRECTION/DOMAIN-FRAME` si la demande est nouvelle,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,627,CORE_FLOOR,sauf avec `--allow-external`,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,720,ROW_NEEDLES,plafond atteint et contenus marqués,V1/official/ACTION.md ; V1/official/GLOSSAIRE.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,723,ROW_NEEDLES,| Décision suffisamment établie |,V1/official/DIRECTION.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,726,ROW_NEEDLES,| Détail final susceptible,V1/official/DIRECTION.md
+validate_structure.py,726,ROW_NEEDLES,selon la question ouverte,V1/official/DIRECTION.md
+validate_structure.py,727,ROW_NEEDLES,"| Token, composant ou blast radius |",V1/official/ACTION.md
+validate_structure.py,339,check_maps,## Combinaisons par résultat recherché,V1/official/READING_MAP.md
+validate_structure.py,583,check_load,`DIRECTION/VISUAL_TARGET`,V1/official/ACTION.md ; V1/official/BIBLIOTHEQUE.md ; V1/official/CHANGELOG.md ; V1/official/DIRECTION.md ; V1/official/READING_MAP.md ; V1/official/SAVOIR.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,583,check_load,`DIRECTION/FIRST-OBJECT`,V1/official/ACTION.md ; V1/official/DIRECTION.md ; V1/official/QUICKSTART.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,597,check_load,`BIBLIOTHEQUE/COMPONENTS` si un composant change,V1/official/ACTION.md ; V1/official/DIRECTION.md ; V1/official/READING_MAP.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,690,check_skill_header,design-governance-practice,README.md ; RELEASE_NOTES.md ; V1/official/CHANGELOG.md ; V1/official/QUICKSTART.md ; V1/official/README.md ; skills/design-governance-practice/SKILL.md
+validate_structure.py,763,check_facades,**Efficacité : `NOT-VERIFIED`.**,RELEASE_NOTES.md
+validate_structure.py,763,check_facades,Aucune mesure comparative,RELEASE_NOTES.md ; V1/official/CHANGELOG.md
+validate_structure.py,763,check_facades,## Ce que le validateur atteste,RELEASE_NOTES.md
+validate_structure.py,311,check_entry,retenir cette direction pour,README.md
+validate_structure.py,632,check_core_floor,<!-- noyau:compilé début -->,skills/design-governance-practice/SKILL.md
+validate_structure.py,632,check_core_floor,<!-- noyau:compilé fin -->,skills/design-governance-practice/SKILL.md
+validate_structure.py,705,check_ui_trigger,<!-- noyau:compilé début -->,skills/design-governance-practice/SKILL.md
+validate_structure.py,705,check_ui_trigger,<!-- noyau:compilé fin -->,skills/design-governance-practice/SKILL.md

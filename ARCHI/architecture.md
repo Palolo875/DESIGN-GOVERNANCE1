@@ -198,7 +198,7 @@ Chaque lot est un commit annulable.
 | Lot | Contenu | Garde-fou |
 |---|---|---|
 | 0 | **Outils de sécurité.** Contrôle « rien de perdu » au niveau du paragraphe (empreinte de chaque paragraphe actuel, retrouvée dans le nouvel arbre ou listée comme retirée avec sa raison) ; contrôle d’identité de la skill ; mode de validation en lecture seule | mutation rouge de chaque nouveau contrôle |
-| 1 | **Conversion des verrous en règles protégées**, sans changer une lettre du texte | tous les contrôles verts ; nombre de verrous en baisse |
+| 1 | **Indépendance d’emplacement et registre des verrous.** Une seule table (`LIEUX`, dans le lecteur) dit quels fichiers portent aujourd’hui le contenu de chaque ancien fichier ; lecteur, compilation du noyau et validateurs passent par elle. Registre des ~270 chaînes verrouillées (`RANGEMENT/verrous.csv`). La conversion des verrous de formulation en règles protégées se fait fichier par fichier en phase 4, texte en main, car c’est la réécriture, pas le déplacement, qui les casse *(précisé le 9 octobre, au lot 1)* | test de déplacement simulé ; tous les contrôles verts ; skill identique |
 | 2 | **Outils.** Adresses et alias dans le lecteur, recherche par phrases, une seule liste de fichiers, correction de l’installation | tests du lecteur ; second jeu de recherche (3 sur 150 aujourd’hui) |
 | 3 | **Vestiges et historique.** On retire le fichier-pointeur, on sort le journal de décisions du produit, on réduit les notes de version | rien de perdu ; liens |
 | 4 | **Gouvernance vers le module** | skill identique à l’octet près ; séparation |
