@@ -237,7 +237,7 @@ evidence_plan: méthode, scope, artefact, limite et prochaine preuve
 policy_profile: `risk_triggers`, `required_controls`, `risk_coverage`, `depth_rules` et `contraindications`
 ```
 
-Ce gabarit reprend exactement les propriétés de `schemas/domain_frame.schema.json`. Toute projection machine doit utiliser ces clés et compléter les champs requis ; aucune clé abrégée telle que `DEPTH-TRIGGER` ne doit être sérialisée. `policy_profile.depth_rules` porte les conditions qui justifient une recherche, une variante, un prototype ou une preuve supplémentaire.
+Ce gabarit reprend exactement les propriétés de `gouvernance/schemas/domain_frame.schema.json`. Toute projection machine doit utiliser ces clés et compléter les champs requis ; aucune clé abrégée telle que `DEPTH-TRIGGER` ne doit être sérialisée. `policy_profile.depth_rules` porte les conditions qui justifient une recherche, une variante, un prototype ou une preuve supplémentaire.
 
 Le `DOMAIN-FRAME` n’est ni un nouveau mode ni une taxonomie de secteurs. Il sert à décider ce qui mérite d’être recherché et ce qui doit être adapté. Ne déduis pas l’expression du domaine par stéréotype : un produit financier n’est pas minimaliste par défaut, un produit culturel n’est pas maximaliste par défaut et un outil technique n’est pas cyberpunk par défaut. Le domaine contraint la décision ; il ne fournit pas à lui seul la direction.
 

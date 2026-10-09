@@ -303,7 +303,7 @@ def lcf_21(t: dict[str, str]) -> bool:
 
 
 # ---------- LCF-22 à LCF-35 ----------
-SCHEMA = ROOT / "schemas" / "run_card.schema.json"
+SCHEMA = ROOT / "gouvernance" / "schemas" / "run_card.schema.json"
 NUM_WORDS = {3: "trois", 4: "quatre", 5: "cinq", 6: "six", 7: "sept"}
 CHANGE_ENUM = re.compile(r"DECISION-CHANGE[^.\n]{0,120}N/A-JUSTIFIED|N/A-JUSTIFIED[^.\n]{0,120}DECISION-CHANGE")
 BOOT_COUNT = re.compile(r"(?i)\b(une|deux|trois|\d+)\s+(anti-directions?|tensions?)\b")

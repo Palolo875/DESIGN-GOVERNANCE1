@@ -103,7 +103,7 @@ La trace doit dire ce qui a changé, ce qui n’a pas été vérifié et ce qui 
 |---|---|---|
 | **Sources et guides** | `V1/official/` | Corpus normatif et guides d’entrée de la V1. |
 | **Activation pratique** | `skills/design-governance-practice/` | Couche d’activation et références conditionnelles ; elle ne crée pas de règles concurrentes. |
-| **Projection machine** | `schemas/` | Schémas, exemples et fixtures de `RUN_CARD`, du cadre de domaine, du brief de recherche et des contrats de production. |
+| **Projection machine** | `gouvernance/schemas/` | Schémas, exemples et fixtures de `RUN_CARD`, du cadre de domaine, du brief de recherche et des contrats de production. |
 | **Contrôles et distributions** | `scripts/` | Validation du package, validation des RUN_CARD et génération des exports. |
 
 Les cinq sources normatives sont les suivantes :
@@ -118,7 +118,7 @@ Les cinq sources normatives sont les suivantes :
 
 `README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` facilitent l’orientation et la compréhension ; ils ne créent pas de route, de gate, de statut ou d’autorité supplémentaire.
 
-Pour charger uniquement un bloc documenté, utilisez `python3 scripts/read_route.py DIRECTION/START` ; pour rechercher un terme dans les sources normatives, `python3 scripts/read_route.py --trouver "terme"` (mots entiers, casse et accents ignorés, quelques synonymes et traductions ; routes classées) ; pour voir toutes les routes et leur rôle, `python3 scripts/read_route.py --sommaire`. Ajoutez `--guides` pour inclure les documents d’orientation (guides du corpus, ce README et les références de la skill), séparés des résultats normatifs. L’absence de résultat ne prouve pas l’absence d’une notion : essayez une reformulation ciblée. Le noyau active cette recherche si la route utile est inconnue ou si un signal reste sans intervention concrète. Pour une carte concrète, `python3 scripts/validate_run_card.py --strict chemin/vers/run_card.json` complète la validation structurelle en rejetant les placeholders et en contrôlant l’existence des locators locaux (artefact, trace, captures B1b) ; remplacez le chemin d’exemple par celui de votre fichier.
+Pour charger uniquement un bloc documenté, utilisez `python3 scripts/read_route.py DIRECTION/START` ; pour rechercher un terme dans les sources normatives, `python3 scripts/read_route.py --trouver "terme"` (mots entiers, casse et accents ignorés, quelques synonymes et traductions ; routes classées) ; pour voir toutes les routes et leur rôle, `python3 scripts/read_route.py --sommaire`. Ajoutez `--guides` pour inclure les documents d’orientation (guides du corpus, ce README et les références de la skill), séparés des résultats normatifs. L’absence de résultat ne prouve pas l’absence d’une notion : essayez une reformulation ciblée. Le noyau active cette recherche si la route utile est inconnue ou si un signal reste sans intervention concrète. Pour une carte concrète, `python3 gouvernance/outils/validate_run_card.py --strict chemin/vers/run_card.json` complète la validation structurelle en rejetant les placeholders et en contrôlant l’existence des locators locaux (artefact, trace, captures B1b) ; remplacez le chemin d’exemple par celui de votre fichier.
 
 ## Source de vérité et distributions
 
@@ -174,14 +174,14 @@ Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machin
 
 Les tests JavaScript sur DOM simulés utilisent un runtime Node déjà disponible ; son absence laisse cette partie `NOT-VERIFIED`. `python3 scripts/test_check_render.py --skip-browser` exécute seulement les tests synthétiques et les DOM simulés, sans ouvrir de page ni installer de dépendance.
 
-La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`, `RESEARCH_BRIEF` et les contrats de direction créative, de réalité UI/UX et d’évaluation. Ils sont illustrés dans `schemas/examples/` et contrôlés par `scripts/validate_contracts.py`.
+La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`, `RESEARCH_BRIEF` et les contrats de direction créative, de réalité UI/UX et d’évaluation. Ils sont illustrés dans `gouvernance/schemas/examples/` et contrôlés par `gouvernance/outils/validate_contracts.py`.
 
 | Commande | Fonction |
 |---|---|
 | `python3 scripts/validate_design_governance.py` | Contrôle l’inventaire, les liens Markdown relatifs, le vocabulaire structuré et les conventions du package. |
-| `python3 scripts/validate_run_card.py` | Exécute la suite intégrée de validation des projections et des fixtures `RUN_CARD`. |
-| `python3 scripts/validate_run_card.py chemin/run.json` | Valide un fichier JSON ciblé et échoue s’il est absent, malformé ou sémantiquement invalide. |
-| `python3 scripts/validate_contracts.py --type production_contracts chemin/contrat.json` | Valide un contrat ciblé, y compris hors du package ; sans `--type`, la famille est détectée par les clés racines. |
+| `python3 gouvernance/outils/validate_run_card.py` | Exécute la suite intégrée de validation des projections et des fixtures `RUN_CARD`. |
+| `python3 gouvernance/outils/validate_run_card.py chemin/run.json` | Valide un fichier JSON ciblé et échoue s’il est absent, malformé ou sémantiquement invalide. |
+| `python3 gouvernance/outils/validate_contracts.py --type production_contracts chemin/contrat.json` | Valide un contrat ciblé, y compris hors du package ; sans `--type`, la famille est détectée par les clés racines. |
 | `python3 scripts/validate_reading_map.py` | Vérifie la carte de lecture, ses propriétaires, ses locators et sa frontière non normative. |
 | `python3 scripts/read_route.py --connexions` | Affiche le sommaire des connexions situées ; ajouter un identifiant comme `C03` pour lire condition, contributions, limites et sources résolues. |
 | `python3 scripts/test_audit_regressions.py` | Exécute les régressions de navigation, de capacités et de conditions de façade ; ne mesure ni la compréhension utilisateur ni la qualité esthétique. |
@@ -192,7 +192,7 @@ Les chemins `chemin/run.json` et `chemin/contrat.json` sont des exemples à remp
 
 ```bash
 python3 scripts/validate_design_governance.py
-python3 scripts/validate_run_card.py
+python3 gouvernance/outils/validate_run_card.py
 python3 scripts/validate_all.py
 ```
 

@@ -101,7 +101,7 @@ def sha256(path: Path) -> str:
 def order(name: str) -> tuple:
     if name in FIRST:
         return (0, FIRST.index(name), name)
-    group = 0 if name.startswith("V1/") else 1 if name.startswith("skills/") else 2 if name.startswith("schemas/") else 3 if name.startswith("scripts/") else 4
+    group = 0 if name.startswith("V1/") else 1 if name.startswith("skills/") else 2 if name.startswith(("schemas/", "gouvernance/")) else 3 if name.startswith("scripts/") else 4
     return (1 + group, 0, name)
 
 

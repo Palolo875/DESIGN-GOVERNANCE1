@@ -17,10 +17,10 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
-ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = ROOT / "schemas" / "run_card.schema.json"
-EXAMPLE = ROOT / "schemas" / "run_card.example.json"
-FIXTURES = ROOT / "schemas" / "fixtures"
+ROOT = Path(__file__).resolve().parents[2]  # gouvernance/outils/ → racine du package
+SCHEMA = ROOT / "gouvernance" / "schemas" / "run_card.schema.json"
+EXAMPLE = ROOT / "gouvernance" / "schemas" / "run_card.example.json"
+FIXTURES = ROOT / "gouvernance" / "schemas" / "fixtures"
 
 
 class ValidationError(Exception):
@@ -683,7 +683,7 @@ def check_fixture(
 
 
 # Table déclarative des fixtures (A2) : nom → None (valide) ou motif attendu, sous-chaîne
-# stable du diagnostic existant. Tout fichier de schemas/fixtures/ doit y figurer, et
+# stable du diagnostic existant. Tout fichier de gouvernance/schemas/fixtures/ doit y figurer, et
 # toute entrée doit exister. Les négatifs restent des scénarios composites nommés.
 FIXTURE_TABLE: dict[str, str | None] = {
     "valid_closed_return.json": None,
@@ -928,9 +928,9 @@ def check_strict_admitted(schema: dict[str, Any], errors: list[str]) -> None:
 def check_fixture_table(schema: dict[str, Any], errors: list[str]) -> None:
     present = {path.name for path in FIXTURES.glob("*.json")}
     for name in sorted(present - set(FIXTURE_TABLE)):
-        errors.append(f"fixture non déclarée : schemas/fixtures/{name}")
+        errors.append(f"fixture non déclarée : gouvernance/schemas/fixtures/{name}")
     for name in sorted(set(FIXTURE_TABLE) - present):
-        errors.append(f"fixture déclarée absente : schemas/fixtures/{name}")
+        errors.append(f"fixture déclarée absente : gouvernance/schemas/fixtures/{name}")
     before = len(errors)
     for name, motif in FIXTURE_TABLE.items():
         if name in present:
@@ -957,7 +957,7 @@ SCHEMA_WITNESS_MODE = "SCHEMA-WITNESS-INVALID-MODE"
 def load_schema() -> dict[str, Any]:
     """Chargement gouverné : aucun PASS n’est possible avec un schéma absent, vide ou incomplet."""
     if not SCHEMA.is_file():
-        raise ValidationError("schéma absent : schemas/run_card.schema.json")
+        raise ValidationError("schéma absent : gouvernance/schemas/run_card.schema.json")
     schema = load_json(SCHEMA)
     if not isinstance(schema, dict) or not schema:
         raise ValidationError("schéma inopérant : la racine doit être un objet non vide")

@@ -291,9 +291,9 @@ Les noms de route sont des locators documentaires. Pour les résoudre, utiliser 
 | `SAVOIR/*` | `SAVOIR.md` |
 | `BIBLIOTHEQUE/*` | `BIBLIOTHEQUE.md` |
 | `CHANGELOG/*` | `CHANGELOG.md` |
-| `RUN_CARD` | `schemas/run_card.schema.json`, exemple et validateur |
+| `RUN_CARD` | `gouvernance/schemas/run_card.schema.json`, exemple et validateur |
 
-`RUN_CARD` est un **adaptateur machine**, pas un locator Markdown résolvable par `scripts/read_route.py`. Pour l’inspecter ou le valider, utiliser le schéma, l’exemple et `scripts/validate_run_card.py`; ne pas l’invoquer comme une route documentaire.
+`RUN_CARD` est un **adaptateur machine**, pas un locator Markdown résolvable par `scripts/read_route.py`. Pour l’inspecter ou le valider, utiliser le schéma, l’exemple et `gouvernance/outils/validate_run_card.py`; ne pas l’invoquer comme une route documentaire.
 
 ## Locators principaux
 

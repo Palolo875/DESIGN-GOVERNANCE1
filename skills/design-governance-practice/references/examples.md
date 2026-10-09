@@ -2,7 +2,7 @@
 
 > Ces exemples sont des aides non canoniques. Reprendre la séquence, pas le style, les valeurs, les composants ou les décisions visuelles. Les cas sont `ILLUSTRATIVE` et `SIMULATED` sauf mention contraire. Les champs affichés varient volontairement selon le mode : une omission dans une condensation n’est pas une suppression de la règle correspondante et ces blocs ne constituent pas un formulaire universel de `RUN_CARD`. Les champs affichés respectent les contrats d’ACTION ; un champ omis reste dû dans la `RUN_CARD`.
 >
-> **Trace, pas sérialisation.** Ces blocs sont des traces : leurs noms (`OBSERVED`, `AXES`, `RISK` en phrase…) ne sont pas des clés JSON. Pour produire une `RUN_CARD`, partir de `schemas/run_card.example.json`, suivre [machine_projection.md](machine_projection.md) et la table de correspondance d’`ACTION/RUN_CARD`, puis contrôler avec `scripts/validate_run_card.py`.
+> **Trace, pas sérialisation.** Ces blocs sont des traces : leurs noms (`OBSERVED`, `AXES`, `RISK` en phrase…) ne sont pas des clés JSON. Pour produire une `RUN_CARD`, partir de `gouvernance/schemas/run_card.example.json`, suivre [machine_projection.md](machine_projection.md) et la table de correspondance d’`ACTION/RUN_CARD`, puis contrôler avec `gouvernance/outils/validate_run_card.py`.
 >
 > **Niveau de trace.** Les exemples qui se terminent par `CLOSED` montrent une trace complète (clôture demandée ou run persistant) ; « fabrication depuis un brief flou » montre la sortie par défaut : une proposition, sa réponse visible et sa trace légère, sans clôture.
 

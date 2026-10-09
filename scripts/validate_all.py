@@ -192,12 +192,12 @@ def main() -> int:
     parser.add_argument("--lecture-seule", action="store_true", help="tout contrôler sans construire : ni dist/ ni archives ne sont écrits ; build et reproductibilité restent non vérifiés")
     args = parser.parse_args()
     before = build_outputs() if args.lecture_seule else None
-    scripts = sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / "scripts").glob("*.py"))
+    scripts = sorted(p.relative_to(ROOT).as_posix() for d in ("scripts", "gouvernance/outils") for p in (ROOT / d).glob("*.py"))
     run([sys.executable, "-m", "py_compile", *scripts])
     run([sys.executable, "scripts/build_core.py", "--check"])
     run([sys.executable, "scripts/validate_design_governance.py"])
-    run([sys.executable, "scripts/validate_run_card.py"])
-    run([sys.executable, "scripts/validate_contracts.py"])
+    run([sys.executable, "gouvernance/outils/validate_run_card.py"])
+    run([sys.executable, "gouvernance/outils/validate_contracts.py"])
     run([sys.executable, "scripts/validate_reading_map.py"])
     run([sys.executable, "scripts/validate_structure.py"])
     check_craft_regressions()
@@ -218,8 +218,8 @@ def main() -> int:
         "locator inconnu",
         "locator inconnu : DIRECTION/UNKNOWN",
     )
-    run([sys.executable, "scripts/validate_contracts.py", "schemas/examples/domain_frame.example.json"])
-    run([sys.executable, "scripts/validate_run_card.py", "schemas/run_card.example.json"])
+    run([sys.executable, "gouvernance/outils/validate_contracts.py", "gouvernance/schemas/examples/domain_frame.example.json"])
+    run([sys.executable, "gouvernance/outils/validate_run_card.py", "gouvernance/schemas/run_card.example.json"])
     for fixture, motif in (
         ("invalid_capability_profile_missing_basis.json", "capability_profile exige basis non vide"),
         ("invalid_accepted_lost_in_build.json", "LOST-IN-BUILD ne peut pas produire un verdict accepté"),
@@ -227,37 +227,37 @@ def main() -> int:
         ("invalid_critical_placeholder_protection.json", "critical_protection.control ne peut pas être un placeholder"),
     ):
         expect_failure(
-            [sys.executable, "scripts/validate_run_card.py", f"schemas/fixtures/{fixture}"],
+            [sys.executable, "gouvernance/outils/validate_run_card.py", f"gouvernance/schemas/fixtures/{fixture}"],
             fixture,
             motif,
         )
     with tempfile.TemporaryDirectory(prefix="design-governance-cli-") as temp_dir:
         temp = Path(temp_dir)
         strict_card = temp / "strict_card.json"
-        strict_card.write_text((ROOT / "schemas/run_card.example.json").read_text(encoding="utf-8").replace("chemin-ou-url-local", (ROOT / "schemas/run_card.example.json").as_posix()).replace("ticket-ou-chemin-de-run", (ROOT / "schemas/run_card.example.json").as_posix()), encoding="utf-8")
+        strict_card.write_text((ROOT / "gouvernance/schemas/run_card.example.json").read_text(encoding="utf-8").replace("chemin-ou-url-local", (ROOT / "gouvernance/schemas/run_card.example.json").as_posix()).replace("ticket-ou-chemin-de-run", (ROOT / "gouvernance/schemas/run_card.example.json").as_posix()), encoding="utf-8")
         (temp / "captures").mkdir()
         (temp / "captures/premiere-scene-v1.png").write_bytes(b"")
         expect_failure(
-            [sys.executable, "scripts/validate_run_card.py", "--strict", str(strict_card)],
+            [sys.executable, "gouvernance/outils/validate_run_card.py", "--strict", str(strict_card)],
             "strict capture B1b absente",
             "strict : capture B1b après local absent",
         )
         (temp / "captures/premiere-scene-v1-sans-objet.png").write_bytes(b"")
-        run([sys.executable, "scripts/validate_run_card.py", "--strict", str(strict_card)])
+        run([sys.executable, "gouvernance/outils/validate_run_card.py", "--strict", str(strict_card)])
         expect_failure(
-            [sys.executable, "scripts/validate_run_card.py", "--strict", "schemas/run_card.example.json"],
+            [sys.executable, "gouvernance/outils/validate_run_card.py", "--strict", "gouvernance/schemas/run_card.example.json"],
             "strict placeholder",
             "strict : placeholder",
         )
         malformed = temp / "malformed.json"
         malformed.write_text('{"run_card":', encoding="utf-8")
         expect_failure(
-            [sys.executable, "scripts/validate_run_card.py", str(malformed)],
+            [sys.executable, "gouvernance/outils/validate_run_card.py", str(malformed)],
             "JSON malformé",
             "lecture JSON impossible",
         )
         expect_failure(
-            [sys.executable, "scripts/validate_run_card.py", str(temp / "missing.json")],
+            [sys.executable, "gouvernance/outils/validate_run_card.py", str(temp / "missing.json")],
             "fichier absent",
             "lecture JSON impossible",
         )

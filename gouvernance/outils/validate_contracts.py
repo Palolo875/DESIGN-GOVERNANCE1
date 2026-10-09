@@ -16,11 +16,11 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]  # gouvernance/outils/ → racine du package
 CONTRACTS = {
-    "domain_frame": (ROOT / "schemas/domain_frame.schema.json", ROOT / "schemas/examples/domain_frame.example.json"),
-    "research_brief": (ROOT / "schemas/research_brief.schema.json", ROOT / "schemas/examples/research_brief.example.json"),
-    "production_contracts": (ROOT / "schemas/production_contracts.schema.json", ROOT / "schemas/examples/production_contracts.example.json"),
+    "domain_frame": (ROOT / "gouvernance/schemas/domain_frame.schema.json", ROOT / "gouvernance/schemas/examples/domain_frame.example.json"),
+    "research_brief": (ROOT / "gouvernance/schemas/research_brief.schema.json", ROOT / "gouvernance/schemas/examples/research_brief.example.json"),
+    "production_contracts": (ROOT / "gouvernance/schemas/production_contracts.schema.json", ROOT / "gouvernance/schemas/examples/production_contracts.example.json"),
 }
 METADATA_KEYS = {"$schema", "$id", "title", "description", "default", "examples"}
 SUPPORTED_KEYS = {"type", "enum", "required", "properties", "additionalProperties", "items", "minLength", "minItems", "maxItems"} | METADATA_KEYS

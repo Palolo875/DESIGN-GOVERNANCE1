@@ -345,7 +345,7 @@ NUMERIC_LOCATOR = re.compile(r"\((?:[^()]*, )?(?:DIRECTION|ACTION|SAVOIR|BIBLIOT
 
 
 def check_numeric_locators(errors: list[str]) -> None:
-    path = ROOT / "scripts" / "validate_run_card.py"
+    path = ROOT / "gouvernance" / "outils" / "validate_run_card.py"
     if not path.is_file():
         return
     for i, line in enumerate(path.read_text(encoding="utf-8").splitlines()):

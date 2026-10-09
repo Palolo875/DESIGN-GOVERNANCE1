@@ -221,7 +221,7 @@ def check_action_projection_source(errors: list[str]) -> None:
     """Keep the structured RUN_CARD example canonical and machine-validatable.
 
     ACTION.md may explain the transport contract, but it must not carry a second
-    YAML/JSON projection that can drift from schemas/run_card.example.json.
+    YAML/JSON projection that can drift from gouvernance/schemas/run_card.example.json.
     """
     if not any(p.is_file() for p in lieu("ACTION.md")):
         return
@@ -229,7 +229,7 @@ def check_action_projection_source(errors: list[str]) -> None:
     if "schemas/run_card.example.json" not in text:
         fail(errors, "ACTION ne référence pas l’exemple RUN_CARD canonique")
     if re.search(r"(?im)^\s*(```|~~~)(?:yaml|yml|json)\s*$", text):  # insensible à la casse
-        fail(errors, "ACTION contient une projection YAML/JSON embarquée : utiliser schemas/run_card.example.json")
+        fail(errors, "ACTION contient une projection YAML/JSON embarquée : utiliser gouvernance/schemas/run_card.example.json")
 
 
 def check_structured_values(errors: list[str]) -> None:

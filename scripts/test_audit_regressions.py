@@ -13,6 +13,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import validate_design_governance as package
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "gouvernance" / "outils"))
 import validate_run_card as cards
 import validate_reading_map as reading_map
 import validate_structure as structure
@@ -117,8 +118,8 @@ class NavigationTests(unittest.TestCase):
 
 class CapabilityTests(unittest.TestCase):
     def setUp(self):
-        self.document = cards.load_json(ROOT / "schemas/fixtures/valid_direction_exploratory_untransformed.json")
-        self.schema = cards.load_json(ROOT / "schemas/run_card.schema.json")
+        self.document = cards.load_json(ROOT / "gouvernance/schemas/fixtures/valid_direction_exploratory_untransformed.json")
+        self.schema = cards.load_json(ROOT / "gouvernance/schemas/run_card.schema.json")
         self.profile = {"available": ["inspection vectorielle"], "unavailable": ["navigateur/capture"],
                         "not_required": ["connexion bancaire"], "basis": [
                             {"capability": "inspection vectorielle", "kind": "tool_result", "detail": "Rasterisation du SVG et inspection du rendu."}]}
@@ -157,8 +158,8 @@ class CapabilityTests(unittest.TestCase):
 
 class StrictHostTests(unittest.TestCase):
     def test_demo_families_for_artifact_and_trace_without_network(self):
-        schema = cards.load_json(ROOT / 'schemas/run_card.schema.json')
-        baseline = cards.load_json(ROOT / 'schemas/run_card.example.json')
+        schema = cards.load_json(ROOT / 'gouvernance/schemas/run_card.schema.json')
+        baseline = cards.load_json(ROOT / 'gouvernance/schemas/run_card.example.json')
         baseline['run_card']['artifact']['locator'] = 'https://production.audit-project.test/page'
         baseline['run_card']['proof']['provenance']['artifact_locator'] = baseline['run_card']['artifact']['locator']
         baseline['run_card']['trace_locator'] = 'trace-audit-42'

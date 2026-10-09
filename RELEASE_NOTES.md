@@ -45,7 +45,7 @@ Le détail est dans [`V1/official/CHANGELOG.md`](V1/official/CHANGELOG.md).
 |---|---|
 | `V1/official/` | Sources normatives, guides d’entrée, glossaire et carte de lecture |
 | `skills/design-governance-practice/` | Couche d’activation : noyau de fabrication compilé, références conditionnelles |
-| `schemas/` | Projections machine, exemples et fixtures de contrôle |
+| `gouvernance/schemas/` | Projections machine, exemples et fixtures de contrôle |
 | `scripts/` | Validateurs, compilation du noyau, runner global et construction des distributions |
 
 ## Parcours

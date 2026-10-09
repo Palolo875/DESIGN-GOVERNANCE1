@@ -55,11 +55,8 @@ cp -a "$ROOT/.gitignore" "$STAGE/github/.gitignore"
 cp -a "$ROOT/V1" "$STAGE/github/V1"
 cp -a "$ROOT/gouvernance" "$STAGE/github/gouvernance"
 cp -a "$ROOT/skills" "$STAGE/github/skills"
-cp -a "$ROOT/schemas" "$STAGE/github/schemas"
 mkdir -p "$STAGE/github/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/github/scripts/validate_design_governance.py"
-cp -a "$ROOT/scripts/validate_run_card.py" "$STAGE/github/scripts/validate_run_card.py"
-cp -a "$ROOT/scripts/validate_contracts.py" "$STAGE/github/scripts/validate_contracts.py"
 cp -a "$ROOT/scripts/build_distributions.sh" "$STAGE/github/scripts/build_distributions.sh"
 cp -a "$ROOT/scripts/package_manifest.json" "$STAGE/github/scripts/package_manifest.json"
 cp -a "$ROOT/scripts/validate_all.py" "$STAGE/github/scripts/validate_all.py"
@@ -81,11 +78,8 @@ cp -a "$ROOT/.github/workflows/validate.yml" "$STAGE/github/.github/workflows/va
 cp -a "$ROOT/V1/official" "$STAGE/local/official"
 cp -a "$ROOT/gouvernance" "$STAGE/local/gouvernance"
 cp -a "$ROOT/skills/design-governance-practice" "$STAGE/local/skill"
-cp -a "$ROOT/schemas" "$STAGE/local/schemas"
 mkdir -p "$STAGE/local/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/local/scripts/validate_design_governance.py"
-cp -a "$ROOT/scripts/validate_run_card.py" "$STAGE/local/scripts/validate_run_card.py"
-cp -a "$ROOT/scripts/validate_contracts.py" "$STAGE/local/scripts/validate_contracts.py"
 cp -a "$ROOT/scripts/package_manifest.json" "$STAGE/local/scripts/package_manifest.json"
 cp -a "$ROOT/scripts/validate_all.py" "$STAGE/local/scripts/validate_all.py"
 cp -a "$ROOT/scripts/validate_reading_map.py" "$STAGE/local/scripts/validate_reading_map.py"
@@ -123,15 +117,15 @@ python3 scripts/read_route.py --connexions
 Pour renforcer une carte concrète, remplacez le chemin d’exemple par celui de votre fichier :
 
 ```bash
-python3 scripts/validate_run_card.py --strict chemin/vers/run_card.json
+python3 gouvernance/outils/validate_run_card.py --strict chemin/vers/run_card.json
 ```
 
 Les cinq sources normatives sont `official/DIRECTION.md`, `official/ACTION.md`, `official/SAVOIR.md`, `official/BIBLIOTHEQUE.md` et `official/CHANGELOG.md`. `README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` orientent la lecture sans créer de règle concurrente.
 
-La projection machine de référence se trouve dans `schemas/run_card.example.json`. Les contrôles documentaires et machine utilisent la bibliothèque standard Python et supposent Python 3.10 ou plus récent. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus Playwright et son navigateur Chromium ; sans eux, ces tests restent `NOT-VERIFIED`. Pour contrôler la projection :
+La projection machine de référence se trouve dans `gouvernance/schemas/run_card.example.json`. Les contrôles documentaires et machine utilisent la bibliothèque standard Python et supposent Python 3.10 ou plus récent. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus Playwright et son navigateur Chromium ; sans eux, ces tests restent `NOT-VERIFIED`. Pour contrôler la projection :
 
 ```bash
-python3 scripts/validate_run_card.py
+python3 gouvernance/outils/validate_run_card.py
 ```
 
 `STATE: CLOSED` signifie que la trace est persistée ; cela ne signifie pas automatiquement que le résultat est accepté ou entièrement vérifié. La validation du package ou de la `RUN_CARD` confirme uniquement les contrôles exécutés ; elle ne prouve ni l’usage, ni l’accessibilité exécutée, ni la performance, ni la qualité visuelle du produit.
@@ -142,7 +136,7 @@ Les contrôles disponibles sont :
 
 ```bash
 python3 scripts/validate_design_governance.py
-python3 scripts/validate_run_card.py
+python3 gouvernance/outils/validate_run_card.py
 python3 scripts/validate_reading_map.py
 python3 scripts/validate_structure.py
 python3 scripts/read_route.py DIRECTION/START
@@ -195,8 +189,8 @@ PY
 
 # Vérification de la distribution canonique avant archivage.
 python3 "$STAGE/github/scripts/validate_design_governance.py"
-python3 "$STAGE/github/scripts/validate_run_card.py"
-python3 "$STAGE/github/scripts/validate_contracts.py"
+python3 "$STAGE/github/gouvernance/outils/validate_run_card.py"
+python3 "$STAGE/github/gouvernance/outils/validate_contracts.py"
 python3 "$STAGE/github/scripts/validate_reading_map.py"
 python3 "$STAGE/github/scripts/validate_structure.py"
 
@@ -228,8 +222,8 @@ for path in root.rglob("*.md"):
 print(f"LOCAL EXPORT PASSED — {len(expected)} fichiers attendus et liens contrôlés")
 PY
 python3 "$STAGE/local/scripts/validate_design_governance.py"
-python3 "$STAGE/local/scripts/validate_run_card.py"
-python3 "$STAGE/local/scripts/validate_contracts.py"
+python3 "$STAGE/local/gouvernance/outils/validate_run_card.py"
+python3 "$STAGE/local/gouvernance/outils/validate_contracts.py"
 python3 "$STAGE/local/scripts/validate_reading_map.py"
 python3 "$STAGE/local/scripts/validate_structure.py"
 python3 "$STAGE/local/scripts/validate_all.py"

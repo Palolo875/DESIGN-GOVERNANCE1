@@ -12,3 +12,5 @@ Le rangement du système est en cours : les sections de ce module viennent d’`
 | [`verification.md`](verification.md) | Contrats de décision, vérification en contexte, dérogation |
 | [`cloture.md`](cloture.md) | Dossier de clôture, test de sortie, clôture de direction |
 | [`structure.md`](structure.md) | Contrats de structure et test de sortie des formes |
+| [`schemas/`](schemas/run_card.schema.json) | Schémas de la fiche de travail et des contrats, exemples et fichiers de test |
+| `outils/` | `validate_run_card.py` (fiches) et `validate_contracts.py` (contrats) : `python3 gouvernance/outils/validate_run_card.py chemin/vers/fiche.json` |

@@ -2,12 +2,12 @@
 
 Cette projection sert au transport entre agents, scripts ou handoffs. Elle ne crée pas de contrat concurrent : `ACTION.md` reste la source d’autorité. La forme courte LITE sans RUN_CARD reste une trace complète selon `ACTION/HANDOFF` et `ACTION/CLOSE-PACKAGE` ; elle est hors de cette projection. Une demande de projection structurée conserve le schéma et le validateur.
 
-La forme de référence ci-dessous est présentée en YAML pour la lecture. Une version JSON contrôlable et son schéma sont fournis dans `schemas/` :
+La forme de référence ci-dessous est présentée en YAML pour la lecture. Une version JSON contrôlable et son schéma sont fournis dans `gouvernance/schemas/` :
 
-- `schemas/run_card.schema.json` décrit les champs et les valeurs admises ;
-- `schemas/run_card.example.json` est une projection valide ;
-- `schemas/fixtures/` contient des cas valides et invalides ;
-- `scripts/validate_run_card.py` exécute le contrôle structurel et les invariants sémantiques V1 sans dépendance externe.
+- `gouvernance/schemas/run_card.schema.json` décrit les champs et les valeurs admises ;
+- `gouvernance/schemas/run_card.example.json` est une projection valide ;
+- `gouvernance/schemas/fixtures/` contient des cas valides et invalides ;
+- `gouvernance/outils/validate_run_card.py` exécute le contrôle structurel et les invariants sémantiques V1 sans dépendance externe.
 
 ```yaml
 run_card:

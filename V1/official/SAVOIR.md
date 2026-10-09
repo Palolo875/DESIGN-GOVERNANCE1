@@ -583,7 +583,7 @@ OWNER / NEXT-PROOF: responsable et prochaine vérification
 RIGHTS / UNCERTAINTY: droits, autorisation ou inconnue lorsque l’asset ou le claim le requiert
 ```
 
-**Projection machine, facultative.** Quand une recherche doit être contrôlée par machine, `RESEARCH_BRIEF` (`schemas/research_brief.schema.json`, validé par `scripts/validate_contracts.py`) la porte : question, décision à risque, profondeur, classes de sources, incertitude avant et après, condition d’arrêt, puis une entrée par source qui reprend cette fiche. `ROLE` et `OWNER / NEXT-PROOF` n’y ont pas de champ et restent dans la trace. Ce schéma n’est jamais exigé pour faire une recherche.
+**Projection machine, facultative.** Quand une recherche doit être contrôlée par machine, `RESEARCH_BRIEF` (`gouvernance/schemas/research_brief.schema.json`, validé par `gouvernance/outils/validate_contracts.py`) la porte : question, décision à risque, profondeur, classes de sources, incertitude avant et après, condition d’arrêt, puis une entrée par source qui reprend cette fiche. `ROLE` et `OWNER / NEXT-PROOF` n’y ont pas de champ et restent dans la trace. Ce schéma n’est jamais exigé pour faire une recherche.
 
 Une recherche de domaine et une recherche de calibration visuelle peuvent se compléter, mais elles ne se substituent pas l’une à l’autre. Une source de tendance ne prouve pas l’usage ; une référence visuelle ne prouve pas les droits ; une convention concurrente ne devient pas une vérité produit ; un résultat généré ne devient pas une observation externe. Lorsque la recherche ne peut modifier aucune décision, déclare `N/A-JUSTIFIED` et n’approfondis pas par réflexe ; une recherche faite qui confirme la décision est une confirmation (`ACTION/STATUS`), pas un `N/A-JUSTIFIED`.
 

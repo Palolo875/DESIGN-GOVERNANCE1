@@ -104,8 +104,8 @@ python3 scripts/read_route.py --trouver "cohérence de rayon"
 Le lecteur résout le locator selon `READING_MAP.md` (raccourci, titre propriétaire, puis sous-locator) et n’affiche que le bloc demandé. Pour une carte concrète, le mode strict rejette les placeholders et vérifie l’existence des locators locaux : artefact, trace et captures avant/après de la paire B1b. Remplacez les chemins d’exemple ci-dessous par ceux de vos fichiers :
 
 ```bash
-python3 scripts/validate_run_card.py --strict chemin/vers/run_card.json
-python3 scripts/validate_contracts.py --type production_contracts chemin/vers/contrat.json
+python3 gouvernance/outils/validate_run_card.py --strict chemin/vers/run_card.json
+python3 gouvernance/outils/validate_contracts.py --type production_contracts chemin/vers/contrat.json
 ```
 
 Le mode strict complète la validation structurelle ; il ne transforme pas une preuve documentaire en preuve d’usage. Pour les locators HTTP(S) d’artefact, de trace et de captures, il refuse les familles `example.com`, `example.org`, `example.net` et `.invalid`, y compris leurs sous-domaines, après normalisation de casse et du point final. Une URL admise n’est pas vérifiée sur le réseau. Pour une préparation interrompue, voir la procédure de diagnostic et de reprise dans le README du paquet.
