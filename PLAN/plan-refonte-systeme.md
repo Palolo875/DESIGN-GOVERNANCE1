@@ -1,7 +1,7 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après la phase 4 réduite (langue claire des portes humaines). Aucun run n’est prévu sans ton accord explicite.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `715075a`.
+**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après les phases 5 (partielle), 6 et 8 minimales ; paquets livrés (révision R2026-10-09-REFONTE). Aucun run n’est prévu sans ton accord explicite.
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `52be4b9`.
 
 ---
 
@@ -14,7 +14,10 @@
 | 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
 | 3 — Rangement | **faite : lots 0 à 7c** | Voir le détail ci-dessous |
 | 4 — Langue claire (réduite, choix A) | **faite** | README `e13b8f3` ; sommaires `34cfd3a` ; guide designer `7bc881e` ; glossaire `3c13742` ; guide d’équipe `5ddf769` ; libellés hérités `715075a`. Les adresses lisibles remplacent les codes ; les contrôles les relisent en codes (`rr.en_codes`) et restent identiques sur le fond. Reportés à la phase 5 : le `design/` lu par l’agent, l’exemple complet du guide d’équipe ; la gouvernance reste telle quelle |
-| 5 à 8 | à venir | |
+| 5 — Chemin de l’agent | **partielle** | Sources de convergence retirées `6e3e2ab` ; exemples recopiables neutralisés `7f12fe5` ; écran cadré : Gate B complète en trace complète seulement `eda7d94` (79 500 → 70 700 caractères lus). Reste : réécriture de la skill pour les cibles de coût, convergence avec une petite mesure |
+| 6 — Visuel (minimal) | **faite** | Deux schémas Mermaid (double boucle, carte des parties) `52be4b9` ; rien de décoratif |
+| 7 — Anglais | **reportée** | À reprendre sur les textes clairs |
+| 8 — Emballage (minimal) | **faite** | Arborescence unique GitHub/Local `67f6fa4` ; copie Markdown retirée `f4e37ec` ; révision R2026-10-09-REFONTE `657aca5` ; paquets livrés |
 
 **Rangement, lot par lot :**
 
