@@ -1,0 +1,8 @@
+[
+ {"source": "V1/official/READING_MAP.md", "titre": "## Carte des sujets", "destination": "guides/designer.md"},
+ {"source": "V1/official/READING_MAP.md", "titre": "## Combinaisons par résultat recherché", "destination": "guides/designer.md"},
+ {"source": "V1/official/READING_MAP.md", "titre": "## Activation multi-perspective", "destination": "guides/designer.md"},
+ {"source": "V1/official/READING_MAP.md", "titre": "## Condition d’arrêt", "destination": "guides/designer.md"},
+ {"source": "V1/official/READING_MAP.md", "titre": "## Connexions situées", "destination": "design/savoir/connexions.md"},
+ {"source": "V1/official/READING_MAP.md", "titre": "## Résolution des routes", "destination": "maintenance/README.md"}
+]

@@ -1,7 +1,7 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après le lot 6 du rangement. Aucun run n’est prévu sans ton accord explicite.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `f665c81`.
+**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après le lot 7 du rangement (rangement terminé). Aucun run n’est prévu sans ton accord explicite.
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `ffedd2b`.
 
 ---
 
@@ -12,7 +12,7 @@
 | 0 — Charte et grilles | **faite** | Charte en 10 principes, grilles fichier, système et résultat (`PLAN/charte.md`, `PLAN/grilles.md`) |
 | 1 — Audit | **faite** | 8 fiches, mesures, second jeu de recherche, synthèse et dispositions (`AUDIT2/`) |
 | 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
-| 3 — Rangement | **en cours : lots 0 à 6 faits** | Voir le détail ci-dessous |
+| 3 — Rangement | **faite : lots 0 à 7c** | Voir le détail ci-dessous |
 | 4 à 8 | à venir | |
 
 **Rangement, lot par lot :**
@@ -27,7 +27,9 @@
 | 4b — Schémas et outils de gouvernance | fait | `a92a47c` | `gouvernance/schemas/` et `gouvernance/outils/` ; seuls les chemins changent dans la documentation (23 lignes), renommages déclarés |
 | 5 — Cœur du design | fait | `8e2b23d` | 37 sections dans `design/` (direction, savoir, formes, produit), un README par dossier ; texte servi identique pour les 110 routes |
 | 6 — Agent | fait | `f665c81` | 9 sections dans `agent/chemins.md` et `agent/repondre.md` ; la skill dans `agent/skill/`, identique ; consigne d’installation corrigée (la skill garde son nom) |
-| 7 — Portes et maintenance | à faire | | README court, guides par public, glossaire, `maintenance/` |
+| 7a — Maintenance | fait | `090678e` | 6 sections dans `maintenance/` (évolution, distributions, validation) ; le CHANGELOG devient `maintenance/versions.md` |
+| 7b — Guides et connexions | fait | `6a483ba` | `guides/equipe.md` (ancien QUICKSTART), `guides/glossaire.md`, `guides/designer.md` (sujets, combinaisons) ; connexions C01 à C09 dans `design/savoir/connexions.md` ; le lecteur lit la carte par `LIEUX` |
+| 7c — Porte du débutant et README | fait | `ffedd2b` | `guides/commencer.md` ; README avec « Par où entrer » et la vraie arborescence (23 000 → 13 600 caractères) ; ENT-01 et FAC-01 suivent l’entrée dans le guide |
 
 **Garanties vérifiées à chaque lot :** rien de perdu (chaque bloc retrouvé ou retiré avec sa raison) ; texte servi identique pour chaque route ; skill identique à l’octet près ; validation complète verte, archives comprises ; un commit annulable avec sa fiche.
 
@@ -37,7 +39,10 @@
 3. **Lot 4.** Un fichier qui reçoit des sections de plusieurs sources marque l’origine de chacune, de façon invisible à la lecture, pour que les contrôles retrouvent la part de chaque source.
 4. **Lot 4b ajouté.** Déplacer les schémas et leurs outils touche de nombreux chemins (scripts, CI, documentation) : c’est un lot à part.
 5. **Lot 6.** Renommer le dossier de la skill aurait fait installer la skill sous le nom « skill » : la consigne d’installation dit désormais sous quel nom la copier.
-6. **Phase 5.** Les mesures de l’audit y ajoutent deux priorités : la convergence des résultats (même police, même concept d’un run à l’autre) et l’effet possible de mon ajout récent « signaux de page ».
+6. **Lot 7, découpé en trois commits** (maintenance, guides, porte du débutant) : chaque partie touchait des fichiers que les outils lisent directement.
+7. **Lot 7c.** La « Fiche de version » reste au README : elle porte la mention d’efficacité `NOT-VERIFIED` que le contrôle LCF-21 exige du README. Elle sera fusionnée avec les limites en phase 4.
+8. **Outil de déplacement.** La marque d’origine prend désormais le nom historique de la source (fichier renommé ou partagé), et non le nom du fichier.
+9. **Phase 5.** Les mesures de l’audit y ajoutent deux priorités : la convergence des résultats (même police, même concept d’un run à l’autre) et l’effet possible de mon ajout récent « signaux de page ».
 
 ---
 
@@ -194,6 +199,10 @@ Chaque phase indique son but, son contenu, ce qu’elle produit, la condition po
   - un glossaire réduit aux vrais termes du métier.
 - **Verrous :** les phrases exigées mot pour mot par les contrôles qui touchent le fichier réécrit sont converties en règles protégées (présence de la règle et de quelques termes clés), avec une mutation rouge chacune ; le registre `RANGEMENT/verrous.csv` sert de liste de travail.
 - **Contrôle du sens :** on garde un échantillon avant/après par fichier, que tu relis, et la table de correspondance vérifie qu’aucune règle n’a disparu. Les blocs du noyau attendent la phase 5 (skill identique jusque-là).
+- **Hérité du rangement :**
+  - libellés de liens qui disent encore l’ancien nom (« DIRECTION.md », « QUICKSTART.md », « README à la racine ») alors que le lien mène au bon fichier ;
+  - doublon provisoire entre « Par où entrer » et « Pour les agents et les opérateurs » au README ; « Fiche de version » et limites à fusionner ;
+  - ce qui reste dans `V1/official/` : préambules (« Responsabilité », « Rôle », « Posture »…), sections à fusionner ou à scinder, la table des locators de `READING_MAP` (retrait prévu en phase 5, le lecteur s’en sert encore).
 - **Fin :** tous les fichiers passent la grille de la phase 0 sur la langue.
 - **Risque :** perdre une nuance en simplifiant. Parade : la relecture d’échantillons, et les règles à forte conséquence relues une à une.
 

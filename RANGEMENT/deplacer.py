@@ -15,6 +15,7 @@ from pathlib import Path
 repo, plan = Path(sys.argv[1]), json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
 sys.path.insert(0, str(repo / "scripts"))
 from validate_design_governance import markdown_anchors  # noqa: E402
+import read_route as rr  # noqa: E402
 
 LINK = re.compile(r"(\]\()([^)\s]+)(\))")
 
@@ -55,6 +56,17 @@ def relink(text, old_rel, new_rel, moved_anchors_here):
     return LINK.sub(fix, text)
 
 
+def origine(src, lines, start):
+    """Nom historique de la source d'une section : la marque d'origine qui la précède, sinon la source unique du
+    fichier (table LIEUX : un fichier renommé garde son nom historique), sinon le nom du fichier."""
+    for line in reversed(lines[:start]):
+        m = rr.ORIGINE.match(line)
+        if m:
+            return m.group(1)
+    names = rr.origines(repo / src)
+    return next(iter(names)) if len(names) == 1 else posixpath.basename(src)
+
+
 # 1. Extraire chaque section, dans l'ordre du plan.
 sources = {}
 moved = []  # (source, destination, texte)
@@ -67,18 +79,18 @@ for step in plan:
     block = lines[start:end]
     while block and not block[-1].strip():
         block.pop()
-    moved.append((src, step["destination"], "\n".join(block)))
+    moved.append((src, step["destination"], "\n".join(block), origine(src, lines, start)))
     del lines[start:end]
 for src, lines in sources.items():
     (repo / src).write_text(re.sub(r"\n{3,}", "\n\n", "\n".join(lines)), encoding="utf-8")
 
 # 2. Ancres déplacées : (fichier d'origine, ancre) → fichier de destination.
 by_dest = {}
-for src, dest, text in moved:
-    by_dest.setdefault(dest, []).append((src, text))
+for src, dest, text, name in moved:
+    by_dest.setdefault(dest, []).append((src, text, name))
 anchor_moves = {}
 for dest, items in by_dest.items():
-    for src, text in items:
+    for src, text, _ in items:
         for a in markdown_anchors(text):
             anchor_moves[(src, a)] = dest
 
@@ -89,7 +101,7 @@ for dest, items in by_dest.items():
     target.parent.mkdir(parents=True, exist_ok=True)
     existing = target.read_text(encoding="utf-8").rstrip("\n") + "\n\n" if target.exists() else ""
     # Chaque section porte son origine (invisible à la lecture) : un fichier peut recevoir plusieurs sources.
-    body = "\n\n".join(f"<!-- origine:{posixpath.basename(src)} -->\n" + relink(text, src, dest, here) for src, text in items)
+    body = "\n\n".join(f"<!-- origine:{name} -->\n" + relink(text, src, dest, here) for src, text, name in items)
     target.write_text(existing + body + "\n", encoding="utf-8")
 
 # 4. Rediriger, dans tout le dépôt, les liens vers une ancre déplacée.
@@ -118,4 +130,4 @@ for path in sorted(repo.rglob("*.md")):
         path.write_text(new_text, encoding="utf-8")
 print(f"{len(moved)} sections déplacées vers {len(by_dest)} fichier(s) ; {count} lien(s) redirigé(s)")
 for dest, items in by_dest.items():
-    print(f"  {dest} ← " + ", ".join(t.split(chr(10))[0][:50] for _, t in items))
+    print(f"  {dest} ← " + ", ".join(t.split(chr(10))[0][:50] for _, t, _ in items))

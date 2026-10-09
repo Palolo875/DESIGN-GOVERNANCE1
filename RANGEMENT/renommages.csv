@@ -4,3 +4,6 @@ gouvernance/outils/validate_run_card.py,scripts/validate_run_card.py,4b,validate
 gouvernance/outils/validate_contracts.py,scripts/validate_contracts.py,4b,validateur des contrats déplacé dans le module de gouvernance
 agent/skill/,skills/design-governance-practice/,6,skill déplacée dans agent/
 agent/skill,skills/design-governance-practice,6,skill déplacée dans agent/
+maintenance/versions.md,V1/official/CHANGELOG.md,7a,journal des versions déplacé dans maintenance/
+guides/equipe.md,V1/official/QUICKSTART.md,7b,guide opérateur devenu guide d'équipe
+guides/glossaire.md,V1/official/GLOSSAIRE.md,7b,glossaire rangé avec les guides

@@ -1,0 +1,8 @@
+[
+ {"source": "V1/official/ACTION.md", "titre": "## ACTION/MAINTENANCE — recette documentaire", "destination": "maintenance/evolution.md"},
+ {"source": "V1/official/BIBLIOTHEQUE.md", "titre": "## BIBLIOTHEQUE/EVOLUTION — promotion et dépréciation", "destination": "maintenance/evolution.md"},
+ {"source": "V1/official/CHANGELOG.md", "titre": "## Cycle de vie des routes", "destination": "maintenance/evolution.md"},
+ {"source": "V1/official/CHANGELOG.md", "titre": "## Migration des anciens aliases", "destination": "maintenance/evolution.md"},
+ {"source": "README.md", "titre": "## Source de vérité et distributions", "destination": "maintenance/README.md"},
+ {"source": "README.md", "titre": "## Validation", "destination": "maintenance/README.md"}
+]

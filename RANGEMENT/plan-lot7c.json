@@ -1,0 +1,12 @@
+[
+ {
+  "source": "README.md",
+  "titre": "## Commencer",
+  "destination": "guides/commencer.md"
+ },
+ {
+  "source": "guides/glossaire.md",
+  "titre": "## Pour commencer sans vocabulaire préalable",
+  "destination": "guides/commencer.md"
+ }
+]
