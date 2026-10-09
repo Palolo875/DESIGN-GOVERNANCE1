@@ -1,0 +1,389 @@
+fichier,ligne,niveau,titre,caracteres,destination,disposition,note
+README.md,1,1,Design Governance V1.0.0,1089,README,réécrire,titre ; paragraphe de révision retiré
+README.md,10,2,Commencer,2282,guides/commencer + README,déplacer,porte débutant (balise ENT-01) ; résumé de trois lignes au README
+README.md,25,2,Fiche de version,1134,maintenance/versions,déplacer,fiche de version
+README.md,39,2,Mission,1143,README,réécrire,mission en tête
+README.md,47,2,Pour les agents et les opérateurs,717,README + guides/equipe,scinder,installer au README ; opérateurs au guide d'équipe
+README.md,56,3,Installer la skill dans un agent,1607,README + guides/equipe,scinder,
+README.md,71,2,Constitution minimale,995,README,déplacer,constitution minimale (balise CST-01)
+README.md,78,2,Le modèle à double boucle,2166,design/README,réécrire,double boucle : schéma à refaire (phase 6)
+README.md,100,2,Structure du dépôt,2355,README,réécrire,"structure du dépôt, nouvelle arborescence"
+README.md,123,2,Source de vérité et distributions,1715,maintenance/README,déplacer,"source de vérité, distributions, reprise"
+README.md,148,3,Reprendre une préparation interrompue,2156,maintenance/README,déplacer,
+README.md,171,2,Validation,3512,maintenance/README,déplacer,validation
+README.md,202,2,Limites et discipline d’usage,1099,README,fusionner,limites : section unique
+RELEASE_NOTES.md,1,1,Release notes — Design Governance V1.0.0,254,maintenance/versions,réécrire,journal court
+RELEASE_NOTES.md,7,2,Révision R2026-10-08-ACCES-MATIERE,1122,maintenance/versions + HORS PRODUIT (branche refonte),scinder,une ligne par révision au journal ; détail hors produit
+RELEASE_NOTES.md,17,2,Révision précédente R2026-10-08-CORRECTIONS,1485,maintenance/versions + HORS PRODUIT (branche refonte),scinder,
+RELEASE_NOTES.md,25,2,Révision précédente R2026-10-04-AUDIT2-FIXES,2577,maintenance/versions + HORS PRODUIT (branche refonte),scinder,
+RELEASE_NOTES.md,37,2,Révision précédente R2026-10-04-AUDIT-FIXES,4550,maintenance/versions + HORS PRODUIT (branche refonte),scinder,
+RELEASE_NOTES.md,59,3,Contrôles et capacités conservés,3485,maintenance/versions + HORS PRODUIT (branche refonte),scinder,
+RELEASE_NOTES.md,79,2,Présentation,537,README,fusionner,"présentation, points clés, contenu, parcours : déjà dans le README"
+RELEASE_NOTES.md,85,2,Points clés,1038,README,fusionner,
+RELEASE_NOTES.md,96,2,Contenu,478,README,fusionner,
+RELEASE_NOTES.md,105,2,Parcours,548,README,fusionner,
+RELEASE_NOTES.md,119,2,Contrôles inclus,964,maintenance/README,fusionner,"contrôles inclus, ce que le validateur atteste"
+RELEASE_NOTES.md,139,2,Ce que le validateur atteste,342,maintenance/README,fusionner,
+RELEASE_NOTES.md,152,2,Limites déclarées,731,README,fusionner,limites : une seule section
+V1/official/ACTION.md,1,1,ACTION — Pipeline de livraison & preuves,435,gouvernance/README,réécrire,intro
+V1/official/ACTION.md,5,2,Responsabilité,1079,gouvernance/principes,scinder,responsabilité ; la phrase sur la qualité du premier rendu va au produit
+V1/official/ACTION.md,11,3,Carte de lecture par mode,877,RETIRÉ,retirer,carte par mode qui renvoie à la table de chargement sans la répéter
+V1/official/ACTION.md,21,3,ACTION/HANDOFF — sortie minimale commune,5047,agent/repondre + gouvernance/travail,scinder,"réponse visible et trace légère (blocs SORTIE, TRACE) ; trace persistante au module"
+V1/official/ACTION.md,62,3,Les quatre registres à ne pas mélanger,2999,gouvernance/principes,déplacer,quatre registres ; l'ordre de preuve P0-P3 est cité au produit
+V1/official/ACTION.md,88,3,ACTION/AUTHORITY — portée d’action et reprise,994,gouvernance/principes,déplacer,portée d'action
+V1/official/ACTION.md,94,3,Parcours minimal,402,RETIRÉ,retirer,renvoi circulaire vers le noyau
+V1/official/ACTION.md,98,2,ACTION/FIRST-RENDER — qualité initiale attendue,1743,design/produit/premier-rendu,déplacer,
+V1/official/ACTION.md,112,3,ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble,2564,design/produit/interface,déplacer,interface réelle
+V1/official/ACTION.md,138,2,"ACTION/STATUS — états, issues et verdicts",209,gouvernance/statuts,déplacer,
+V1/official/ACTION.md,142,3,États du run,1377,gouvernance/statuts,déplacer,
+V1/official/ACTION.md,158,3,Issues et exceptions,1563,gouvernance/statuts,déplacer,
+V1/official/ACTION.md,173,3,Règle de lecture des statuts,801,gouvernance/statuts,déplacer,
+V1/official/ACTION.md,183,3,Chemin minimal,324,RETIRÉ,retirer,doublon du chemin minimal
+V1/official/ACTION.md,187,3,Principe positif de qualité,683,design/produit/premier-rendu,fusionner,principe positif de qualité
+V1/official/ACTION.md,192,3,Verdicts V/U/A/T,1081,design/produit/finition + gouvernance/statuts,scinder,quatre questions de qualité au produit ; statuts au module
+V1/official/ACTION.md,205,3,Statut de direction,559,gouvernance/statuts,déplacer,
+V1/official/ACTION.md,218,2,"ACTION/PRECONDITION — mode, capacité et preuve",1362,gouvernance/travail,déplacer,conditions de départ
+V1/official/ACTION.md,233,3,Contrat de décision et de preuve,984,gouvernance/travail,déplacer,
+V1/official/ACTION.md,249,3,Trace post-build de `DIRECTION/EXTERNAL-START`,757,gouvernance/travail,déplacer,
+V1/official/ACTION.md,261,3,Raccord de trace pour la section `DESIGN-ATLAS` de `SAVOIR.md`,1797,gouvernance/travail,déplacer,
+V1/official/ACTION.md,271,2,ACTION/FAST-PATH — preuve minimale sans rituel,1105,agent/chemins,fusionner,chemin court ; règle « un fix local reste court »
+V1/official/ACTION.md,281,2,ACTION/RUN_CARD — carte de run minimale,7374,gouvernance/travail,déplacer,fiche de travail
+V1/official/ACTION.md,342,3,Profil de capacités,1777,gouvernance/travail,déplacer,
+V1/official/ACTION.md,352,3,Mode agent seul et preuve dégradée,1823,design/produit/preuve-visuelle,déplacer,mode agent seul et preuve dégradée (HON-05)
+V1/official/ACTION.md,366,3,Vue d’exécution dérivée,2897,gouvernance/travail,déplacer,
+V1/official/ACTION.md,393,3,Projection machine-readable optionnelle,1571,gouvernance/travail,déplacer,
+V1/official/ACTION.md,401,3,Frontière de validation et de preuve,2737,gouvernance/travail,déplacer,
+V1/official/ACTION.md,415,2,ACTION/RUN — routes d’exécution,275,agent/chemins + gouvernance/travail,scinder,"« Faire » de chaque mode au chemin ; entrée, sortie, clôture au module"
+V1/official/ACTION.md,419,3,`ACTION/RUN-LITE`,803,agent/chemins + gouvernance/travail,scinder,
+V1/official/ACTION.md,429,3,`ACTION/RUN-ITER`,829,agent/chemins + gouvernance/travail,scinder,
+V1/official/ACTION.md,439,3,`ACTION/RUN-STANDARD`,963,agent/chemins + gouvernance/travail,scinder,
+V1/official/ACTION.md,449,3,`ACTION/RUN-DIRECTION`,2035,agent/chemins + gouvernance/travail,scinder,
+V1/official/ACTION.md,459,3,`ACTION/RUN-SYSTEM`,947,agent/chemins + gouvernance/travail,scinder,
+V1/official/ACTION.md,471,2,ACTION/CLOSE-PACKAGE — paquet de clôture,3229,gouvernance/cloture,déplacer,
+V1/official/ACTION.md,489,3,Fraîcheur de la preuve,913,gouvernance/cloture,déplacer,
+V1/official/ACTION.md,495,3,Cycle de vie des réserves,632,gouvernance/cloture,déplacer,
+V1/official/ACTION.md,511,3,"Responsabilité, droits et confidentialité",1399,agent/repondre,réécrire,droits et confidentialité en version courte (HON-08)
+V1/official/ACTION.md,519,3,Condition d’arrêt du polish,666,design/produit/finition,déplacer,condition d'arrêt du polish
+V1/official/ACTION.md,525,2,ACTION/PIPELINE-DIRECTION — direction vérifiable,605,gouvernance/travail,scinder,déroulé ; la règle one-shot va à la boucle
+V1/official/ACTION.md,531,3,Boucle de qualité et branche one-shot,1054,gouvernance/travail,scinder,
+V1/official/ACTION.md,537,3,1. Situer les positions,957,design/direction/diriger,déplacer,"situer, traduire l'émotion, alternative située"
+V1/official/ACTION.md,545,3,2. Traduire l’émotion,349,design/direction/diriger,déplacer,
+V1/official/ACTION.md,551,3,3. Développer une alternative située,837,design/direction/diriger,déplacer,
+V1/official/ACTION.md,557,3,4. Produire la spec visuelle,2016,design/produit/preuve-visuelle + gouvernance/travail,scinder,spec visuelle
+V1/official/ACTION.md,571,3,5. Sourcer et tracer,977,design/savoir/images-et-sources + gouvernance/travail,scinder,sourcer et tracer
+V1/official/ACTION.md,579,3,6. Sélectionner contre la facilité,343,design/direction/diriger,déplacer,contre la facilité
+V1/official/ACTION.md,585,3,7. Écrire la direction et demander une décision si nécessaire,1524,agent/repondre,déplacer,écrire la direction (bloc CHECKPOINT)
+V1/official/ACTION.md,596,3,8. Vérifier le rendu réel,799,design/produit/finition,déplacer,vérifier le rendu réel ; passe créative et polish
+V1/official/ACTION.md,600,3,Passe créative et polish,2753,design/produit/finition,déplacer,
+V1/official/ACTION.md,616,2,ACTION/STRUCTURED-PROOF — contrats de décision et leur preuve,1533,gouvernance/verification,scinder,déclencheurs au module
+V1/official/ACTION.md,634,3,Carte de hiérarchie,779,design/produit/preuve-visuelle,déplacer,"carte de hiérarchie, partition typographique, fiche d'asset"
+V1/official/ACTION.md,661,3,Partition typographique,977,design/produit/preuve-visuelle,déplacer,
+V1/official/ACTION.md,675,3,Fiche d’asset directeur,2344,design/produit/preuve-visuelle,déplacer,
+V1/official/ACTION.md,692,3,Contrat de composant et baseline,938,gouvernance/verification,déplacer,contrat de composant et baseline
+V1/official/ACTION.md,702,3,Contrat de motion ou scène spatiale,461,design/produit/preuve-visuelle,déplacer,contrat de motion
+V1/official/ACTION.md,710,2,ACTION/VISUAL_PROOF — rendre la direction vérifiable,2020,design/produit/preuve-visuelle,déplacer,
+V1/official/ACTION.md,732,2,ACTION/GATE-A — plancher objectivable,184,design/produit/plancher,déplacer,plancher produit
+V1/official/ACTION.md,736,3,Contrat de portée,1439,gouvernance/verification,déplacer,"portée, méthodes, adéquation des preuves"
+V1/official/ACTION.md,753,3,Familles de méthodes,1489,gouvernance/verification,déplacer,
+V1/official/ACTION.md,766,3,Adéquation des preuves,736,gouvernance/verification,déplacer,
+V1/official/ACTION.md,776,3,Contrôles applicables,8088,design/produit/plancher,déplacer,contrôles applicables et profils
+V1/official/ACTION.md,815,2,ACTION/GATE-B — jugement contextualisé et risques,155,gouvernance/verification,scinder,vérification en contexte
+V1/official/ACTION.md,819,3,B1 — Comparaison relationnelle,656,design/produit/finition,déplacer,comparaison relationnelle
+V1/official/ACTION.md,827,3,"B1b — Discrimination sur capture, requise dans son scope",4751,design/produit/finition + gouvernance/verification,scinder,atelier sur capture (bloc BOUCLE-ATELIER) ; formalités au module
+V1/official/ACTION.md,853,3,B2 — Familles de preuve,1177,gouvernance/verification,déplacer,
+V1/official/ACTION.md,866,3,B3 — Regard externe,1909,gouvernance/verification,déplacer,
+V1/official/ACTION.md,891,3,B4 — Corrections ancrées,502,design/produit/finition,fusionner,"corrections ancrées, avec la passe créative"
+V1/official/ACTION.md,897,3,B5 — Trace d’assets et statut de direction,601,gouvernance/verification,déplacer,
+V1/official/ACTION.md,903,3,B6 — Format de sortie compact,375,gouvernance/verification,déplacer,
+V1/official/ACTION.md,911,2,ACTION/GATE-C — craft sur rendu réel,3966,design/produit/finition,déplacer,finition sur rendu
+V1/official/ACTION.md,936,2,ACTION/ANTI-SLOP — conséquence de gate,679,design/produit/finition,fusionner,"contre le générique, avec la finition"
+V1/official/ACTION.md,944,2,ACTION/OVERRIDE — FAIL-ASSUMED et péremption,49,gouvernance/verification,déplacer,dérogation et péremption
+V1/official/ACTION.md,946,3,FAIL-ASSUMED,1461,gouvernance/verification,déplacer,
+V1/official/ACTION.md,970,3,Péremption,535,gouvernance/verification,déplacer,
+V1/official/ACTION.md,980,2,ACTION/POLICIES — contraste et inspection,46,design/produit/plancher + gouvernance/verification,scinder,
+V1/official/ACTION.md,982,3,Politique de contraste,677,design/produit/plancher,fusionner,politique de contraste
+V1/official/ACTION.md,990,3,Inspection et ressources techniques,1362,gouvernance/verification,déplacer,inspection et ressources
+V1/official/ACTION.md,1014,2,ACTION/ROUTING — prérequis de jugement et de structure,1615,agent/chemins,fusionner,prérequis : une seule liste avec la table de chargement
+V1/official/ACTION.md,1035,2,ACTION/MAINTENANCE — recette documentaire,1703,maintenance/evolution,déplacer,
+V1/official/ACTION.md,1059,2,ACTION/CLOSE-EXIT-CHECK — test de sortie canonique,1390,gouvernance/cloture + design/produit/finition,scinder,Q1-Q8 au module ; Q9-Q10 au produit
+V1/official/ACTION.md,1076,3,Mesure expérimentale de la méthode,560,maintenance/evolution,déplacer,mesure expérimentale
+V1/official/BIBLIOTHEQUE.md,1,1,BIBLIOTHEQUE — Structures d’interface situées,523,design/formes/README,réécrire,"rôle, public ; bannière retirée"
+V1/official/BIBLIOTHEQUE.md,5,2,Responsabilité,1884,design/formes/README,réécrire,
+V1/official/BIBLIOTHEQUE.md,22,3,Entrée prioritaire — à lire avant le catalogue,1795,gouvernance/structure,fusionner,entrée prioritaire et orientation ; « zéro route est valide » reste en tête du design
+V1/official/BIBLIOTHEQUE.md,35,3,Orientation interne et sortie de sélection,2071,gouvernance/structure,fusionner,
+V1/official/BIBLIOTHEQUE.md,51,2,BIBLIOTHEQUE/READ — responsabilités et convention de route,1588,design/formes/choisir,scinder,chaîne de lecture (bloc STRUCT-OU)
+V1/official/BIBLIOTHEQUE.md,63,3,Lecture expressive de la structure,1255,design/formes/choisir,déplacer,"lecture expressive, tension, signature, thèse (blocs STRUCT-EXPRESSION, STRUCT-TENSION)"
+V1/official/BIBLIOTHEQUE.md,71,3,BIBLIOTHEQUE/TENSION — diverger avant de sélectionner,1557,design/formes/choisir,déplacer,
+V1/official/BIBLIOTHEQUE.md,91,3,BIBLIOTHEQUE/SIGNATURE — rendre l’écart vérifiable,860,design/formes/choisir,déplacer,
+V1/official/BIBLIOTHEQUE.md,104,3,Thèse structurelle et premier objet habitable,1659,design/formes/choisir,déplacer,
+V1/official/BIBLIOTHEQUE.md,114,3,Préfixes canoniques,1409,maintenance/evolution,déplacer,préfixes canoniques
+V1/official/BIBLIOTHEQUE.md,131,3,Types de preuve,1538,gouvernance/verification,fusionner,types de preuve : une seule table
+V1/official/BIBLIOTHEQUE.md,148,2,BIBLIOTHEQUE/SELECT — choisir avant de composer,1244,design/formes/choisir,déplacer,sélection (bloc STRUCT-ACTIVATION)
+V1/official/BIBLIOTHEQUE.md,156,3,Traduire une intention en construction,4039,design/formes/choisir,déplacer,
+V1/official/BIBLIOTHEQUE.md,175,3,BIBLIOTHEQUE/AVANT-SELECTION — vérifier avant de sélectionner,1066,gouvernance/structure,fusionner,avant-sélection
+V1/official/BIBLIOTHEQUE.md,181,3,Question de sélection,1009,design/formes/choisir,déplacer,
+V1/official/BIBLIOTHEQUE.md,195,3,Sélection par mode,1533,agent/chemins,fusionner,sélection par mode
+V1/official/BIBLIOTHEQUE.md,207,3,One-shot et boucle structurelle,646,design/direction/boucle,fusionner,one-shot et boucle structurelle
+V1/official/BIBLIOTHEQUE.md,213,3,Garde-fou de dérivation,746,design/formes/choisir,déplacer,"garde-fou, dérivation (champs au module), signaux de convergence (bloc STRUCT-SIGNAUX)"
+V1/official/BIBLIOTHEQUE.md,221,3,BIBLIOTHEQUE/DERIVE — inventer sans fabriquer un menu,2436,design/formes/choisir,déplacer,
+V1/official/BIBLIOTHEQUE.md,251,3,Signaux de convergence structurelle,2008,design/formes/choisir,déplacer,
+V1/official/BIBLIOTHEQUE.md,274,2,BIBLIOTHEQUE/CONTRACTS — contrat commun de route,3357,gouvernance/structure,déplacer,contrat commun de route
+V1/official/BIBLIOTHEQUE.md,304,3,Calibration locale de la relation retenue,3399,design/formes/choisir,déplacer,calibration locale
+V1/official/BIBLIOTHEQUE.md,324,2,BIBLIOTHEQUE/SUPPORT — où la surface vit,220,design/formes/catalogue,déplacer,supports
+V1/official/BIBLIOTHEQUE.md,328,3,`SUPPORT/FREE_FIELD`,524,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,338,3,`SUPPORT/ARCHITECTED_FRAME`,470,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,348,3,`SUPPORT/OPERATIONAL_CANVAS`,481,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,358,3,`SUPPORT/COLLECTION_PLINTH`,431,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,368,3,Test de support,628,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,376,2,BIBLIOTHEQUE/GRID — comment le regard circule,269,design/formes/catalogue,déplacer,grilles
+V1/official/BIBLIOTHEQUE.md,380,3,`GRID/MODULAR`,346,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,388,3,`GRID/COLUMN`,276,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,396,3,`GRID/RADIAL`,268,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,404,3,`GRID/HIERARCHICAL`,308,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,412,3,`GRID/BASELINE`,266,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,420,3,`GRID/AXIAL`,320,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,428,3,Contrat de grille,1703,design/formes/catalogue + gouvernance/structure,scinder,contrat de grille ; phrase mobile au catalogue
+V1/official/BIBLIOTHEQUE.md,462,2,BIBLIOTHEQUE/SCENE — comment la promesse devient une surface,351,design/formes/catalogue,déplacer,"scènes, séquence, objets"
+V1/official/BIBLIOTHEQUE.md,468,3,`SCENE/INSTRUMENT`,439,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,478,3,`SCENE/EDITORIAL_FIELD`,528,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,488,3,`SCENE/FRAMED_PRODUCT`,438,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,498,3,`SCENE/OPERATING_GRID`,456,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,508,3,`SCENE/SPLIT_PROOF`,427,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,518,3,`SCENE/PRODUCT_NARRATIVE`,426,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,528,3,Test de scène,477,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,538,2,BIBLIOTHEQUE/SEQUENCE — comment la page s’enchaîne,2755,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,557,3,Structure mobile,484,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,563,2,BIBLIOTHEQUE/OBJECT — quelle preuve devient tangible,647,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,569,3,Routes d’objet,1452,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,583,3,Contrat d’objet,1718,gouvernance/structure,déplacer,contrat d'objet
+V1/official/BIBLIOTHEQUE.md,606,2,BIBLIOTHEQUE/MICRO — unités denses,2625,design/formes/catalogue,déplacer,micro
+V1/official/BIBLIOTHEQUE.md,628,3,Before-after,1352,design/produit/finition,déplacer,avant/après
+V1/official/BIBLIOTHEQUE.md,651,2,BIBLIOTHEQUE/MODIFIER — comportements transversaux,243,design/formes/catalogue,déplacer,"modificateurs, composants"
+V1/official/BIBLIOTHEQUE.md,655,3,`MODIFIER/FIELD_SWITCH`,286,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,661,3,`MODIFIER/NAVIGATION_SHELL`,279,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,667,3,`MODIFIER/PRINT_FIELD`,776,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,677,2,BIBLIOTHEQUE/COMPONENTS — couches et dépendances,1075,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,688,3,Contrat de composant partagé,813,gouvernance/structure,déplacer,contrat de composant partagé
+V1/official/BIBLIOTHEQUE.md,708,3,Échelle de responsabilité,1332,design/formes/catalogue,déplacer,"échelle de responsabilité, compatibilité"
+V1/official/BIBLIOTHEQUE.md,747,2,BIBLIOTHEQUE/COMPAT — combiner avec une raison,2938,design/formes/catalogue,déplacer,
+V1/official/BIBLIOTHEQUE.md,775,3,Contrat de compatibilité,584,gouvernance/structure,déplacer,contrat de compatibilité
+V1/official/BIBLIOTHEQUE.md,783,2,BIBLIOTHEQUE/GATE — contrôle de module structurel complémentaire,3369,design/produit/finition + gouvernance/structure,scinder,tests au produit ; statuts au module (PRC-01)
+V1/official/BIBLIOTHEQUE.md,808,3,Statut ACTION du contrôle structurel,970,gouvernance/structure,déplacer,
+V1/official/BIBLIOTHEQUE.md,820,2,BIBLIOTHEQUE/EVOLUTION — promotion et dépréciation,826,maintenance/evolution,déplacer,promotion et dépréciation ; liste d'alias retirée après adaptation du contrôle
+V1/official/BIBLIOTHEQUE.md,826,3,Contrat minimal par périmètre de contribution et statut de route,1277,maintenance/evolution,déplacer,
+V1/official/BIBLIOTHEQUE.md,837,3,Contrat de gain réel,1121,maintenance/evolution,déplacer,
+V1/official/BIBLIOTHEQUE.md,864,3,Contribution et retour d’usage,2058,maintenance/evolution,déplacer,
+V1/official/BIBLIOTHEQUE.md,876,2,Test de sortie BIBLIOTHEQUE,1414,gouvernance/structure,fusionner,test de sortie
+V1/official/CHANGELOG.md,1,1,Changelog — Design Governance V1.0.0,333,maintenance/versions,réécrire,en-tête de version et de révision (lu par les scripts)
+V1/official/CHANGELOG.md,10,2,V1.0.0 — Version initiale expérimentale (2026-10-01),5098,maintenance/versions,réécrire,"version initiale, en court"
+V1/official/CHANGELOG.md,30,2,Autorité et maintenance,11949,maintenance/evolution + HORS PRODUIT (branche refonte),scinder,règle d'évolution et budget au produit ; journal des décisions hors produit
+V1/official/CHANGELOG.md,58,2,Cycle de vie des routes,1480,maintenance/evolution,déplacer,cycle de vie des routes
+V1/official/CHANGELOG.md,72,2,Migration des anciens aliases,979,maintenance/evolution,déplacer,migration des anciens alias
+V1/official/CHANGELOG.md,86,2,Limites de la version,438,maintenance/versions,fusionner,"limites, avec la section unique des limites"
+V1/official/DIRECTION.md,1,1,DIRECTION — Cadre de décision et de design situé,463,gouvernance/principes,réécrire,"intro ; la mention d'expérimentation ne reste qu'une fois, dans le README"
+V1/official/DIRECTION.md,5,2,Rôle,1236,design/direction/diriger,déplacer,"rôle et posture en tête de la direction (blocs ROLE, POSTURE)"
+V1/official/DIRECTION.md,18,2,Posture — à lire avant toute action,994,design/direction/diriger,déplacer,
+V1/official/DIRECTION.md,30,2,Constitution du document,1061,gouvernance/principes,scinder,"Constitution : propriétaires, contrats, activation"
+V1/official/DIRECTION.md,44,3,Récapitulatif de protection,1665,RETIRÉ,retirer,récapitulatif qui reprend le corps ; après conversion du verrou ORD-01
+V1/official/DIRECTION.md,56,3,Frontière de responsabilité,540,gouvernance/principes,fusionner,une seule table des propriétaires
+V1/official/DIRECTION.md,60,3,Orientation interne et sortie,1160,gouvernance/principes,fusionner,
+V1/official/DIRECTION.md,68,3,Trois contrats à ne pas mélanger,825,gouvernance/principes,fusionner,
+V1/official/DIRECTION.md,78,3,Architecture d’activation,1646,gouvernance/principes,fusionner,architecture d'activation avec les trois contrats
+V1/official/DIRECTION.md,94,3,Carte de lecture canonique et chemin en trente secondes,6883,design/direction/standard + gouvernance/principes,scinder,l.104-116 standard de qualité visuelle vers le design
+V1/official/DIRECTION.md,120,3,Comment lire les taxonomies,506,gouvernance/principes,déplacer,
+V1/official/DIRECTION.md,124,3,Légende,1709,guides/glossaire + design/direction/standard,réécrire,légende : termes définis à la première apparition ; étiquettes inutilisées retirées (LCF-29)
+V1/official/DIRECTION.md,143,2,DIRECTION/SERVICE-BOUNDARY — ne pas confondre relation et contrat,1130,gouvernance/principes,déplacer,relation ou contrat
+V1/official/DIRECTION.md,149,2,DIRECTION/START — classer avant d’agir,1513,agent/chemins,déplacer,classer avant d'agir
+V1/official/DIRECTION.md,157,3,Arbre de classification,3281,agent/chemins,déplacer,
+V1/official/DIRECTION.md,178,3,Entrée minimale,888,agent/chemins,réécrire,entrée minimale en langage clair
+V1/official/DIRECTION.md,193,3,DIRECTION/CREATIVE-BOOT — activer la boucle avant le premier pixel,2795,design/direction/diriger,déplacer,lancement créatif (bloc MOY-PLAFOND)
+V1/official/DIRECTION.md,223,3,DIRECTION/DOMAIN-FRAME — adapter le design au domaine,2728,design/direction/cadrer,déplacer,cadrage du domaine ; lien vers le schéma du module
+V1/official/DIRECTION.md,252,3,Sortie immédiate,1116,agent/chemins,déplacer,sortie immédiate
+V1/official/DIRECTION.md,270,3,Mémoire de lancement et renvoi de `RUN_CARD`,1658,agent/chemins,fusionner,avec « ITER se souvient »
+V1/official/DIRECTION.md,280,2,"DIRECTION/CHARGE — classer, puis charger",8109,agent/chemins,déplacer,table de chargement (blocs CHARGE-*) ; séparation design/gouvernance des cellules en phase 5
+V1/official/DIRECTION.md,312,3,DIRECTION/FAST-PATH — renvoi vers l’exécution courte,953,agent/chemins,fusionner,chemin court : renvoi sans contenu propre
+V1/official/DIRECTION.md,320,2,DIRECTION/EXTERNAL-START — activation portable sur brief vague,3859,design/direction/cadrer,déplacer,"demande vague (blocs BRIEF, CONTENU) ; gabarit en prose (phase 4)"
+V1/official/DIRECTION.md,351,3,Traduction humaine minimale de DIRECTION/START,1050,guides/commencer,déplacer,traduction humaine
+V1/official/DIRECTION.md,366,2,DIRECTION/FIRST-OBJECT — compiler le brief et produire le premier objet,1984,design/direction/premier-objet,déplacer,bloc PREMIER-OBJET
+V1/official/DIRECTION.md,377,3,Contrat positif du premier objet,2751,design/direction/premier-objet,déplacer,
+V1/official/DIRECTION.md,396,3,Grounding contestable,685,design/direction/premier-objet,déplacer,
+V1/official/DIRECTION.md,411,3,Réutilisation située,1782,design/direction/premier-objet,déplacer,
+V1/official/DIRECTION.md,430,2,DIRECTION/VISUAL_TARGET — rendre la direction pilotable,2291,design/direction/diriger,déplacer,cible visuelle
+V1/official/DIRECTION.md,450,3,Compilation de la première proposition,2134,design/direction/diriger,déplacer,
+V1/official/DIRECTION.md,462,3,Test d’utilité de l’ancre,621,design/direction/diriger,déplacer,
+V1/official/DIRECTION.md,472,3,Décider la route de production,2777,design/direction/diriger,déplacer,
+V1/official/DIRECTION.md,491,3,Réserve `ANCHOR-GENERATED` en enjeu identitaire élevé,1387,gouvernance/verification,déplacer,réserve sur l'ancre générée
+V1/official/DIRECTION.md,501,2,DIRECTION/DIRECTION-ATELIER — module officiel de direction située,981,design/direction/diriger,déplacer,"atelier de direction (blocs VER-SCENE, VER-AUDIENCE)"
+V1/official/DIRECTION.md,507,3,Noyau du contrat,1628,design/direction/diriger,déplacer,
+V1/official/DIRECTION.md,520,3,Vérité de la scène et clôture de craft,2249,design/direction/diriger,déplacer,
+V1/official/DIRECTION.md,541,2,DIRECTION/DOUBLE-LOOP — créer puis apprendre,625,design/direction/boucle,déplacer,créer puis apprendre (blocs BOUCLE-*)
+V1/official/DIRECTION.md,545,3,Contrôle du premier objet — qualité intrinsèque sans nouveau gate,1180,design/direction/boucle,déplacer,
+V1/official/DIRECTION.md,553,3,One-shot et boucle d’amélioration,1752,design/direction/boucle,déplacer,
+V1/official/DIRECTION.md,561,3,Boucle d’édition — du diagnostic au geste,1437,design/direction/boucle,déplacer,
+V1/official/DIRECTION.md,580,3,Signaux de réouverture,1651,design/direction/boucle,déplacer,
+V1/official/DIRECTION.md,599,3,Test de résilience visuelle,1173,design/direction/boucle,déplacer,
+V1/official/DIRECTION.md,613,3,Signaux d’apprentissage expérimental,393,maintenance/evolution,déplacer,signaux d'apprentissage expérimental
+V1/official/DIRECTION.md,617,2,LES CINQ RÈGLES ABSOLUES,480,design/direction/standard,déplacer,les cinq règles gardées ensemble comme cadre ; détails 2 à 4 dans la gouvernance
+V1/official/DIRECTION.md,623,3,[ABSOLU 1 — STANDARD VISUEL] Une surface identitaire conforme mais sans direction perceptible est un échec de livraison.,1891,design/direction/standard,déplacer,
+V1/official/DIRECTION.md,641,3,[ABSOLU 2 — ANCRAGE OBSERVABLE] Ne fais jamais accepter une direction identitaire calibrée uniquement de mémoire.,3371,gouvernance/principes + design/direction/standard,scinder,"règle 2 : énoncé au standard, procédure au module (bloc ANCRE)"
+V1/official/DIRECTION.md,662,3,[ABSOLU 3 — GATE] Aucune livraison sans les preuves applicables au mode.,1226,gouvernance/principes + design/direction/standard,scinder,"règles 3 et 4 : énoncé au standard, procédure au module"
+V1/official/DIRECTION.md,674,3,"[ABSOLU 4 — MODE, PREUVE ET BUDGET] Déclare la route et la prochaine preuve avant d’exécuter.",1702,gouvernance/principes + design/direction/standard,scinder,
+V1/official/DIRECTION.md,689,3,"[ABSOLU 5 — RÉEL ET BEAU ENSEMBLE] Cadre le produit, le JTBD, les preuves et les contraintes pour produire une beauté pertinente.",2548,design/direction/standard,déplacer,règle 5
+V1/official/DIRECTION.md,707,2,"0. Classification du mode, preuve et capacité",1182,agent/chemins,fusionner,avec classer avant d'agir
+V1/official/DIRECTION.md,717,3,ITER se souvient,540,agent/chemins,fusionner,
+V1/official/DIRECTION.md,723,2,Cadrage de médium et de capacité,2402,design/produit/interface,déplacer,cadrage de médium et de capacité
+V1/official/DIRECTION.md,746,2,1. Direction divergente — déclenchement `DIRECTION`,1887,design/direction/diriger,déplacer,direction divergente
+V1/official/DIRECTION.md,763,2,2. Routage — quoi charger et quand,303,agent/chemins,fusionner,routage avec la table de chargement
+V1/official/DIRECTION.md,767,3,Déclencheurs critiques,2019,agent/chemins,fusionner,
+V1/official/DIRECTION.md,784,3,Index à la demande,1351,agent/chemins,fusionner,
+V1/official/DIRECTION.md,805,2,3. Invariants de jugement,30,design/direction/standard,déplacer,invariants de jugement
+V1/official/DIRECTION.md,807,3,Convergence de genre ≠ slop,527,design/direction/standard,déplacer,
+V1/official/DIRECTION.md,813,3,PASS technique ≠ direction tenue,514,design/direction/standard,déplacer,
+V1/official/DIRECTION.md,819,3,Les listes ne sont pas un canon,212,design/direction/standard,déplacer,
+V1/official/DIRECTION.md,825,2,Clôture de direction,1252,gouvernance/cloture,déplacer,clôture de direction
+V1/official/DIRECTION.md,833,3,Lecture instrumentée et règle de passage,1623,maintenance/evolution,déplacer,lecture instrumentée (MNT-01)
+V1/official/GLOSSAIRE.md,1,1,Glossaire — Design Governance V1,11097,guides/glossaire,réécrire,réduit après le vocabulaire de la phase 2
+V1/official/GLOSSAIRE.md,69,2,Exemples express,1248,guides/glossaire,réécrire,
+V1/official/GLOSSAIRE.md,82,2,Pour commencer sans vocabulaire préalable,1102,guides/commencer,fusionner,commencer sans vocabulaire
+V1/official/ORCHESTRATION_MAP.md,1,1,ORCHESTRATION_MAP — combinaisons dérivées par résultat,367,RETIRÉ,retirer,pointeur sans contenu propre ; 5 citations ou contrôles à adapter
+V1/official/QUICKSTART.md,1,1,Design Governance V1.0.0 — Quickstart (guide opérateur),1244,guides/equipe,réécrire,guide opérateur devenu guide d'équipe
+V1/official/QUICKSTART.md,11,2,Parcours commun,1556,guides/equipe,réécrire,
+V1/official/QUICKSTART.md,31,2,Carte de résolution rapide,796,guides/equipe,fusionner,carte de résolution
+V1/official/QUICKSTART.md,37,2,1. Choisir la profondeur de lecture,177,guides/designer + guides/equipe,scinder,"profondeur de lecture, façade, constitution"
+V1/official/QUICKSTART.md,41,3,Façade d’activation : ce que chaque source apporte,2630,guides/designer + guides/equipe,scinder,
+V1/official/QUICKSTART.md,51,3,Constitution et entrées par besoin,875,guides/designer + guides/equipe,scinder,
+V1/official/QUICKSTART.md,61,2,2. La ligne de run,936,guides/equipe,déplacer,ligne de travail et parcours complet
+V1/official/QUICKSTART.md,75,2,3. Le parcours complet,1518,guides/equipe,déplacer,
+V1/official/QUICKSTART.md,92,3,Charger une route et renforcer une RUN_CARD,2502,guides/equipe,déplacer,
+V1/official/QUICKSTART.md,113,2,4. Choisir le mode sans le deviner,1670,guides/equipe,fusionner,"choisir le mode : en clair, renvoi au chemin de l'agent"
+V1/official/QUICKSTART.md,138,2,5. Charger seulement ce qui peut changer la décision,402,guides/equipe,fusionner,
+V1/official/QUICKSTART.md,144,2,6. Produire une qualité positive dès le premier rendu,2623,guides/commencer + guides/equipe,scinder,qualité dès le premier rendu ; one-shot ; réponse
+V1/official/QUICKSTART.md,165,2,"7. One-shot : compression, jamais dispense",1147,guides/commencer + guides/equipe,scinder,
+V1/official/QUICKSTART.md,180,2,8. Handoff agentique,1185,guides/commencer + guides/equipe,scinder,
+V1/official/QUICKSTART.md,197,2,9. Exemple complet minimal,2752,RETIRÉ,phase 5,exemple complet recopiable : à retirer ou rendre abstrait (touche l'agent)
+V1/official/QUICKSTART.md,248,2,"10. Observer, interpréter et améliorer",1296,guides/equipe,déplacer,"observer, persister, fermer"
+V1/official/QUICKSTART.md,265,2,11. Persister et fermer honnêtement,1803,guides/equipe,déplacer,
+V1/official/QUICKSTART.md,281,2,12. Sources propriétaires,923,guides/equipe,fusionner,sources propriétaires : déjà dans les portes
+V1/official/READING_MAP.md,1,1,READING_MAP — carte dérivée de lecture et d’activation,213,guides/designer,réécrire,utilisation
+V1/official/READING_MAP.md,5,2,Utilisation,566,guides/designer,réécrire,
+V1/official/READING_MAP.md,11,2,Chemin canonique de démarrage,783,agent/chemins,fusionner,"chemin de démarrage, constitution, routage minimal : déjà au chemin de l'agent"
+V1/official/READING_MAP.md,22,2,Constitution minimale,237,agent/chemins,fusionner,
+V1/official/READING_MAP.md,26,2,Routage minimal par décision,1077,agent/chemins,fusionner,
+V1/official/READING_MAP.md,40,2,Carte des sujets,1926,guides/designer,déplacer,"carte des sujets en noms clairs (lue par le lecteur, SUJ-01)"
+V1/official/READING_MAP.md,69,2,Combinaisons par résultat recherché,4337,guides/designer,déplacer,combinaisons par résultat recherché
+V1/official/READING_MAP.md,91,3,Variation créative,271,guides/designer,déplacer,
+V1/official/READING_MAP.md,97,3,Garde-fous de la combinaison,878,guides/designer,déplacer,
+V1/official/READING_MAP.md,107,2,Connexions situées,1486,design/savoir/connexions,déplacer,connexions C01-C09 : savoir quand plusieurs domaines se croisent (--connexions)
+V1/official/READING_MAP.md,117,3,C01 — Contexte incertain,935,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,131,3,C02 — Typographie déterminante,916,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,145,3,C03 — Asset déterminant,1435,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,159,3,C04 — Récupération après erreur,940,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,173,3,C05 — Réemploi situé,1039,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,187,3,C06 — Changement partagé,980,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,201,3,C07 — Ambition vers construction,1216,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,215,3,C08 — Élément vers ensemble,1206,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,229,3,C09 — Intention vers médium,1427,design/savoir/connexions,déplacer,
+V1/official/READING_MAP.md,243,2,Activation multi-perspective,2385,guides/designer,déplacer,activation multi-perspective
+V1/official/READING_MAP.md,261,2,Handoff minimal commun,723,RETIRÉ,retirer,handoff minimal commun : doublon de la réponse de l'agent
+V1/official/READING_MAP.md,283,2,Résolution des routes,845,maintenance/README,déplacer,résolution des routes
+V1/official/READING_MAP.md,298,2,Locators principaux,3356,RETIRÉ,retirer,table de locators : remplacée par le sommaire du lecteur
+V1/official/READING_MAP.md,332,2,Condition d’arrêt,448,guides/designer,déplacer,condition d'arrêt
+V1/official/README.md,1,1,Design Governance V1.0.0,569,README + guides/designer,fusionner,sources normatives : présentées par les portes
+V1/official/README.md,7,2,Sources normatives,1485,README + guides/designer,fusionner,
+V1/official/SAVOIR.md,1,1,"SAVOIR — Bibliothèque de jugement, craft et production",429,design/savoir/README,réécrire,préface pour un humain ; bannière retirée
+V1/official/SAVOIR.md,5,2,Responsabilité,1951,design/savoir/README,réécrire,
+V1/official/SAVOIR.md,26,3,Orientation interne et sortie vers ACTION,1111,gouvernance/verification,déplacer,sortie vers l'action
+V1/official/SAVOIR.md,34,2,SAVOIR/READ — comment utiliser cette bibliothèque,1333,agent/chemins,déplacer,comment l'agent lit le savoir ; jugement rapide
+V1/official/SAVOIR.md,42,3,SAVOIR/JUGEMENT-COURT — juger sans produire un dossier,383,agent/chemins,déplacer,
+V1/official/SAVOIR.md,48,3,Niveaux d’autorité,1553,design/savoir/README,déplacer,"niveaux d'autorité, en annexe de lecture"
+V1/official/SAVOIR.md,66,2,SAVOIR/ROUTING — routes stables,1298,guides/designer,fusionner,"routes stables, avec la carte des sujets"
+V1/official/SAVOIR.md,86,1,SAVOIR/FRAME — fondations et cadrage,40,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,88,2,FND-01 — principe fondateur,1154,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,102,3,Premium perçu comme heuristique de jugement,934,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,108,3,"Comprendre, ouvrir, converger, prouver",948,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,114,3,Singularité sans rejet des conventions,1239,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,128,3,Grammaire positive de composition,1374,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,146,3,Pluralité esthétique et goût situé,1779,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,156,2,FND-02 — compromis,743,design/savoir/fondements,déplacer,
+V1/official/SAVOIR.md,169,2,FND-03 — cadrage et preuve de contexte,3082,design/savoir/fondements + gouvernance/verification,scinder,cadrage au savoir ; champs d'hypothèse au module
+V1/official/SAVOIR.md,200,1,"SAVOIR/CRAFT — anti-slop, composition et expression",188,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,204,3,"Qualité du premier rendu, one-shot et preuve",1624,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,216,2,CFT-00 — qualité créative et niveau d’ambition,2698,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,235,3,Creative Quality Review,2610,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,249,2,"CFT-01 — motivation, construction et forme située",1463,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,270,3,Dérivation bornée d’une forme située,1649,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,292,2,CFT-02 — registres et alternative située,2066,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,323,2,"CFT-03 — composition, densité et harmonie",2851,design/savoir/composition,déplacer,"composition, densité, harmonie"
+V1/official/SAVOIR.md,346,3,Cohérence et harmonie,1009,design/savoir/composition,déplacer,
+V1/official/SAVOIR.md,356,2,CFT-04 — design émotionnel,1685,design/savoir/qualite-creative,déplacer,"émotion, premier contact"
+V1/official/SAVOIR.md,380,3,"CFT-04a — premier contact, preuve et rapport de personne",2253,design/savoir/qualite-creative,déplacer,
+V1/official/SAVOIR.md,395,2,CFT-05 — couleur et contraste,2919,design/savoir/couleur,déplacer,
+V1/official/SAVOIR.md,419,1,SAVOIR/TYPE — typographie et données,2255,design/savoir/typographie,déplacer,
+V1/official/SAVOIR.md,440,3,Preuve typographique,1070,design/savoir/typographie + gouvernance/verification,scinder,gabarit de preuve au module
+V1/official/SAVOIR.md,464,1,"SAVOIR/STATE — craft, composants et états",329,design/savoir/composition,déplacer,"jugement visuel situé, vocabulaire perceptuel"
+V1/official/SAVOIR.md,468,3,Jugement visuel situé,2977,design/savoir/composition,déplacer,
+V1/official/SAVOIR.md,499,3,Vocabulaire perceptuel,8448,design/savoir/composition,déplacer,
+V1/official/SAVOIR.md,528,3,États pertinents,1425,design/produit/interface,déplacer,états pertinents
+V1/official/SAVOIR.md,539,1,SAVOIR/SOURCE — ancre et sourcing visuel,1819,design/savoir/images-et-sources + gouvernance/verification,scinder,sourcing au savoir ; fiche et projection au module
+V1/official/SAVOIR.md,547,3,Test d’utilité de l’ancre,1686,design/savoir/images-et-sources,déplacer,
+V1/official/SAVOIR.md,565,3,Recherche orientée décision — chercher loin seulement quand cela change le résultat,2782,design/savoir/images-et-sources,déplacer,
+V1/official/SAVOIR.md,592,3,"Curer, produire et intégrer",1416,design/savoir/images-et-sources,déplacer,
+V1/official/SAVOIR.md,606,1,SAVOIR/DESIGN-ATLAS — familles et responsabilités,2465,design/savoir/images-et-sources,déplacer,familles visuelles (bloc MOY-ASSETS)
+V1/official/SAVOIR.md,619,3,Cartographie non exhaustive,2010,design/savoir/images-et-sources,déplacer,
+V1/official/SAVOIR.md,638,3,Rôles d’asset,538,design/savoir/images-et-sources,déplacer,
+V1/official/SAVOIR.md,642,3,Portée par médium,680,design/savoir/images-et-sources,déplacer,
+V1/official/SAVOIR.md,646,3,Test de sélection et de non-recyclage,1660,gouvernance/verification,déplacer,test de sélection et de non-recyclage
+V1/official/SAVOIR.md,654,1,SAVOIR/STYLE — profils contrôlés et dials,538,design/savoir/styles,déplacer,
+V1/official/SAVOIR.md,660,3,Règle de sélection,2591,design/savoir/styles,déplacer,
+V1/official/SAVOIR.md,681,3,Taxonomie transversale,4207,design/savoir/styles,déplacer,
+V1/official/SAVOIR.md,708,3,Usage et test,537,design/savoir/styles,déplacer,
+V1/official/SAVOIR.md,714,3,Dials,2535,design/savoir/styles,déplacer,
+V1/official/SAVOIR.md,732,3,"Styles visuels, culturels et multi-médias",926,design/savoir/styles,déplacer,
+V1/official/SAVOIR.md,738,3,Ponctuation située : le tiret cadratin n’est pas une signature,1246,design/savoir/typographie,déplacer,ponctuation située
+V1/official/SAVOIR.md,744,3,Test anti-slop procédural,985,design/savoir/pieges,déplacer,slop procédural
+V1/official/SAVOIR.md,752,3,Vocabulaire à rendre observable,1621,design/savoir/composition,déplacer,vocabulaire à rendre observable
+V1/official/SAVOIR.md,770,1,SAVOIR/SYSTEM — tokens et composants,1965,design/savoir/systeme-de-design,déplacer,
+V1/official/SAVOIR.md,788,1,"SAVOIR/CONTEXT — accessibilité, contexte et robustesse",531,design/savoir/contexte,déplacer,"accessibilité, fort enjeu, responsive, motion"
+V1/official/SAVOIR.md,794,3,Contextes à fort enjeu,1043,design/savoir/contexte,déplacer,
+V1/official/SAVOIR.md,808,3,Responsive et performance,452,design/savoir/contexte,déplacer,
+V1/official/SAVOIR.md,814,3,Motion et espace,988,design/savoir/contexte,déplacer,
+V1/official/SAVOIR.md,824,1,"SAVOIR/TECH — techniques, tests et stack",703,design/savoir/techniques + gouvernance/verification,scinder,production par médium au savoir ; preuve par médium au module
+V1/official/SAVOIR.md,838,3,Hiérarchie de jugement pour les interfaces,762,design/savoir/techniques + gouvernance/verification,scinder,
+V1/official/SAVOIR.md,842,3,Traduire production et observation par médium,5117,design/savoir/techniques + gouvernance/verification,scinder,
+V1/official/SAVOIR.md,877,1,"SAVOIR/TOOLS — claims, tendances et calibration",51,design/savoir/gout-et-tendances,déplacer,
+V1/official/SAVOIR.md,879,2,Claims externes et péremption,1184,gouvernance/verification,déplacer,claims externes et péremption
+V1/official/SAVOIR.md,909,2,"Goût, références et tendances",2189,design/savoir/gout-et-tendances,déplacer,"goût, tendances datées, moyens ; effet liste noire à traiter en phase 5"
+V1/official/SAVOIR.md,926,3,CONVERGENCE — observations datées,3174,design/savoir/gout-et-tendances,déplacer,
+V1/official/SAVOIR.md,938,3,MOYENS — ressources par couche,2839,design/savoir/gout-et-tendances,déplacer,
+V1/official/SAVOIR.md,969,1,"SAVOIR/INTEGRITY — limites, délégation et critique",54,gouvernance/integrite,déplacer,
+V1/official/SAVOIR.md,971,3,Test de non-récitation,381,design/savoir/pieges,déplacer,"non-récitation, modes d'échec"
+V1/official/SAVOIR.md,975,2,Modes d’échec d’application,2095,design/savoir/pieges,déplacer,
+V1/official/SAVOIR.md,1006,2,Contrôle d’intégrité,903,gouvernance/integrite,déplacer,
+V1/official/SAVOIR.md,1014,2,"Limites, délégation et critique",2075,gouvernance/integrite,déplacer,
+V1/official/SAVOIR.md,1035,2,Règles d’or — lecture rapide,1352,design/savoir/README,déplacer,règles d'or en tête du livre
+V1/official/SAVOIR.md,1050,2,Méthodologie studio,1434,design/direction/boucle,fusionner,méthodologie studio (bloc BOUCLE-REPASSE)
+skills/design-governance-practice/SKILL.md,6,1,Design Governance V1 — pratique,652,agent/skill/SKILL,phase 5,"noyau compilé : identique à l'octet près jusqu'à la phase 5, quelle que soit la place des blocs"
+skills/design-governance-practice/SKILL.md,10,2,Noyau de fabrication,169,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,15,3,1. Rôle et posture,1260,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,25,3,"2. Classer, puis charger",6609,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,43,3,3. Prendre le brief et viser le premier objet,3414,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,53,3,4. Moyens et vérité,3891,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,71,3,5. Structure,4115,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,107,3,6. Composition,3544,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,135,3,7. Gestes de finition,7888,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,157,3,8. Couleur et convergence,1558,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,165,3,9. Boucle d’édition,5067,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,200,3,"10. Proposition, sortie et trace",3548,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/SKILL.md,218,2,Références conditionnelles,776,agent/skill/SKILL,phase 5,
+skills/design-governance-practice/references/canonical_minimum.md,1,1,Aide-mémoire canonique minimal,231,agent/skill/references,fusionner,doublons retirés
+skills/design-governance-practice/references/canonical_minimum.md,5,2,Source et limites,304,agent/skill/references,fusionner,
+skills/design-governance-practice/references/canonical_minimum.md,9,2,Séparations indispensables,972,agent/skill/references,fusionner,
+skills/design-governance-practice/references/canonical_minimum.md,22,2,Priorité,225,agent/skill/references,fusionner,
+skills/design-governance-practice/references/examples.md,1,1,Exemples de runs,1185,agent/skill/references,phase 5,exemples recopiables ; SIMULATED non défini
+skills/design-governance-practice/references/examples.md,9,2,LITE — correctif local,1251,agent/skill/references,phase 5,
+skills/design-governance-practice/references/examples.md,30,2,DIRECTION — fabrication depuis un brief flou,2331,agent/skill/references,phase 5,
+skills/design-governance-practice/references/examples.md,51,2,DIRECTION — première scène identitaire,2424,agent/skill/references,phase 5,
+skills/design-governance-practice/references/examples.md,80,2,DIRECTION + STYLE — profil d’expression situé,1490,agent/skill/references,phase 5,
+skills/design-governance-practice/references/examples.md,101,2,SYSTÈME — composant partagé,1025,agent/skill/references,phase 5,
+skills/design-governance-practice/references/flow.md,1,1,Flux de décision V1,2086,design/README,réécrire,schéma à refaire (phase 6) ou retirer
+skills/design-governance-practice/references/machine_projection.md,1,1,Projection machine-readable,7262,gouvernance/projection-machine,déplacer,"doublons avec le README et l'exemple de schéma retirés (LCF-26, LCF-41)"
