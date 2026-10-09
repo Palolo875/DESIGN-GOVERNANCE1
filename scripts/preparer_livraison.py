@@ -57,7 +57,7 @@ def main() -> int:
     ap.add_argument("--log", "--journal", dest="log", default=".logs/preparer_livraison.log", metavar="CHEMIN", help="conserver la sortie détaillée des contrôles (--journal est un alias)")
     ap.add_argument("--require-browser", action="store_true", help="exiger l’exécution des tests navigateur, sinon échouer")
     args = ap.parse_args()
-    if not (ROOT / "scripts/build_distributions.sh").is_file() or not (ROOT / "V1/official").is_dir():
+    if not (ROOT / "scripts/build_distributions.sh").is_file() or not (ROOT / "V1/sections").is_dir():
         raise SystemExit("PRÉPARATION ÉCHOUÉE — commande réservée à la distribution GitHub. "
                          "Dans l’export Local, utiliser python3 scripts/validate_all.py.")
     journal = Path(args.log).resolve()

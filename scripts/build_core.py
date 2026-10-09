@@ -20,9 +20,10 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from read_route import source_directory
 
 ROOT = Path(__file__).resolve().parents[1]
-OFFICIAL = ROOT / "V1" / "official" if (ROOT / "V1" / "official").is_dir() else ROOT / "official"
+OFFICIAL = source_directory(ROOT)
 SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
 SKILL = SKILL_DIR / "SKILL.md"
 BEGIN, END = "<!-- noyau:compilé début -->", "<!-- noyau:compilé fin -->"
@@ -116,8 +117,8 @@ def lieu(fname: str) -> list[Path]:
     """Fichiers de la source historique `fname` (table LIEUX du lecteur ; sinon le fichier de OFFICIAL)."""
     sys.path.insert(0, str(ROOT / "scripts"))
     import read_route  # import tardif : read_route n'importe pas ce module
-    if fname in read_route.LIEUX:  # « V1/official/ » désigne le dossier des sources de cette disposition
-        return [OFFICIAL / rel[len("V1/official/"):] if rel.startswith("V1/official/") else ROOT / rel
+    if fname in read_route.LIEUX:  # « V1/sections/ » désigne le dossier des sources de cette disposition
+        return [OFFICIAL / rel[len("V1/sections/"):] if rel.startswith("V1/sections/") else ROOT / rel
                 for rel in read_route.LIEUX[fname]]
     return [OFFICIAL / fname]
 

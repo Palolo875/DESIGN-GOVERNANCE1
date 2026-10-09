@@ -54,7 +54,7 @@ class PreparationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); (root / "README.md").write_text("source")
             installed = root / ".claude/skills/design-governance-practice"; installed.mkdir(parents=True)
-            (installed / "SKILL.md").write_text("[lien](../../V1/official/ABSENT.md)\n")
+            (installed / "SKILL.md").write_text("[lien](../../V1/sections/ABSENT.md)\n")
             with patch.object(package_validator, "ROOT", root), patch.object(package_validator, "EXPECTED", ["README.md"]):
                 errors = []; package_validator.check_expected_files(errors)
                 self.assertEqual(errors, [])
@@ -95,7 +95,7 @@ class PreparationTests(unittest.TestCase):
     def test_browser_requirement_reaches_validation_command(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); (root / "scripts").mkdir(); (root / "scripts/build_distributions.sh").touch()
-            (root / "V1/official").mkdir(parents=True)
+            (root / "V1/sections").mkdir(parents=True)
             for name in prep.ARCHIVES:
                 (root / name).touch()
             journal = root / "audit.log"
@@ -107,7 +107,7 @@ class PreparationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); (root / "scripts").mkdir()
             (root / "scripts/build_distributions.sh").touch()
-            (root / "V1/official").mkdir(parents=True)
+            (root / "V1/sections").mkdir(parents=True)
             for name in prep.ARCHIVES:
                 (root / name).touch()
             log = root / "audit.log"
@@ -134,7 +134,7 @@ class PreparationTests(unittest.TestCase):
             extra = 46_001 - skill.stat().st_size
             self.assertGreater(extra, 2)
             source.write_text(source.read_text().replace("<!-- noyau:fin CHARGE-REGLE -->", "x" * (extra - 2) + "\n\n<!-- noyau:fin CHARGE-REGLE -->", 1))
-            with patch.object(bc, "OFFICIAL", root / "V1/official"), patch.object(bc, "ROOT", root):
+            with patch.object(bc, "OFFICIAL", root / "V1/sections"), patch.object(bc, "ROOT", root):
                 skill.write_bytes(bc.render(skill.read_text(), bc.compile_core()).encode())
             self.assertEqual(skill.stat().st_size, 46_001)
             for name in prep.ARCHIVES:

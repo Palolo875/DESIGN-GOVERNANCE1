@@ -7,6 +7,14 @@
 
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
+## Finalisation de la refonte — 2026-10-09
+
+Le contrôle des références opérationnelles couvre les extensions courantes, les noms historiques retirés sans extension et les scripts des commandes Python et shell simples. Les options de module ou de code en ligne, les arguments utilisateur, les exemples explicites et les blocs de code ne sont pas traités comme des fichiers à livrer. Les tests couvrent les refus, les chemins valides et les portées des distributions.
+
+Le dossier des sections conservées devient `V1/sections/`. Son contenu, ses codes historiques et l’autorité des sections restent inchangés ; les manifests, liens, lecteur, compilation et préparation de livraison utilisent le chemin courant. Les anciennes dispositions physiques restent reconnues par le lecteur et le compilateur lorsqu’elles sont présentes. Pour reprendre un ancien chemin direct, utiliser le sommaire courant ou le code historique de la section. Le principe de gouvernance utile rejoint la règle de trace dans sa source, et la skill est régénérée.
+
+La CI hébergée est attestée pour `df5aa46` (run 45) et `d2c4d01` (run 46) dans les release notes. Les nouvelles modifications exigent leur validation propre ; l’effet sur la qualité des rendus reste non établi.
+
 ## Correctif de recette — 2026-10-09
 
 La mise en pratique sur Maison Lisière a révélé un faux retour de la recette de rendu : les contrôles placés dans un dialogue fermé ou un conteneur `display:none` étaient inspectés comme rendus, puis déclarés sans nom. Le contrôle des candidats DOM exclut désormais les descendants d’un ancêtre non rendu. Deux pages de régression couvrent ces cas ; les contrôles effectivement rendus restent inspectés. Cette correction de mesure ne modifie aucune règle de design et ne constitue pas une preuve d’efficacité du système.

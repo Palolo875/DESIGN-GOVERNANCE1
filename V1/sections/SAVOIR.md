@@ -25,7 +25,7 @@ SAVOIR ne remplace pas :
 
 ### Orientation interne et sortie vers ACTION
 
-`SAVOIR/ROUTING` est la carte de décision principale de ce fichier. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `V1/official/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
+`SAVOIR/ROUTING` est la carte de décision principale de ce fichier. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `V1/sections/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
 
 La sortie de SAVOIR n’est pas un verdict. Elle doit transmettre à ACTION la décision jugée, le principe ou la méthode utilisés, la conséquence observable, la preuve attendue, la limite, le propriétaire et la prochaine preuve. Si aucune décision ne peut changer, ne chargez pas une route supplémentaire. À la clôture, si aucune décision n’est changée, confirmée ou abandonnée, les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsqu’aucune conséquence n’était applicable, `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée.
 

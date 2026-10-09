@@ -37,7 +37,15 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OFFICIAL = ROOT / "V1" / "official" if (ROOT / "V1" / "official").is_dir() else ROOT / "official"
+
+
+def source_directory(root: Path) -> Path:
+    """Sections courantes, puis anciennes dispositions pour lire les exports existants."""
+    return next((path for path in (root / "V1" / "sections", root / "V1" / "official", root / "official")
+                 if path.is_dir()), root / "V1" / "sections")
+
+
+OFFICIAL = source_directory(ROOT)
 PREFIXES = ("DIRECTION", "ACTION", "SAVOIR", "BIBLIOTHEQUE", "CHANGELOG")
 STRUCTURE_KINDS = ("SUPPORT", "GRID", "SCENE", "OBJECT", "MICRO", "MODIFIER", "LAYER")
 STRUCTURE_PARENTS = {kind: ("COMPONENTS" if kind == "LAYER" else kind) for kind in STRUCTURE_KINDS}
@@ -135,24 +143,24 @@ LIEUX: dict[str, tuple[str, ...]] = {
     # Rangement, lot 5 : le cœur du design part dans design/ (direction, savoir, formes, produit ; texte inchangé).
     # Rangement, lot 6 : le chemin de l'agent (classer, quoi lire) et sa réponse partent dans agent/ (texte inchangé).
     # Rangement, lot 7a : l'évolution du système et le journal des versions partent dans maintenance/ (texte inchangé).
-    "DIRECTION.md": ("V1/official/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
+    "DIRECTION.md": ("V1/sections/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
                      "design/direction/cadrer.md", "design/direction/premier-objet.md", "design/direction/diriger.md",
                      "design/direction/boucle.md", "design/direction/standard.md", "design/produit/interface.md"),
-    "ACTION.md": ("V1/official/ACTION.md", "agent/chemins.md", "agent/repondre.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
+    "ACTION.md": ("V1/sections/ACTION.md", "agent/chemins.md", "agent/repondre.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
                   "gouvernance/verification.md", "gouvernance/cloture.md", "design/produit/premier-rendu.md",
                   "design/produit/plancher.md", "design/produit/finition.md", "design/produit/preuve-visuelle.md",
                   "maintenance/evolution.md"),
-    "SAVOIR.md": ("V1/official/SAVOIR.md", "agent/chemins.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
+    "SAVOIR.md": ("V1/sections/SAVOIR.md", "agent/chemins.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
                   "design/savoir/typographie.md", "design/savoir/composition.md", "design/savoir/images-et-sources.md",
                   "design/savoir/styles.md", "design/savoir/systeme-de-design.md", "design/savoir/contexte.md",
                   "design/savoir/techniques.md", "design/savoir/gout-et-tendances.md"),
-    "BIBLIOTHEQUE.md": ("V1/official/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
+    "BIBLIOTHEQUE.md": ("V1/sections/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
                         "design/formes/catalogue.md", "maintenance/evolution.md"),
     "CHANGELOG.md": ("maintenance/versions.md", "maintenance/evolution.md"),
     # Rangement, lot 7b : guides par public (équipe, designer, glossaire) et connexions du savoir (texte inchangé).
     "QUICKSTART.md": ("guides/equipe.md",),
     "GLOSSAIRE.md": ("guides/glossaire.md", "guides/commencer.md"),  # lot 7c : « Pour commencer » rejoint le guide débutant
-    "READING_MAP.md": ("V1/official/READING_MAP.md", "guides/designer.md", "design/savoir/connexions.md",
+    "READING_MAP.md": ("V1/sections/READING_MAP.md", "guides/designer.md", "design/savoir/connexions.md",
                        "maintenance/README.md"),
 }
 
@@ -228,8 +236,8 @@ def adresse(locator: str) -> str:
 
 
 def chemin_lieu(rel: str) -> Path:
-    """Chemin d’une entrée de LIEUX ; « V1/official/ » désigne le dossier des sources (OFFICIAL), quelle que soit la disposition."""
-    return OFFICIAL / rel[len("V1/official/"):] if rel.startswith("V1/official/") else ROOT / rel
+    """Chemin d’une entrée de LIEUX ; « V1/sections/ » désigne le dossier des sources (OFFICIAL), quelle que soit la disposition."""
+    return OFFICIAL / rel[len("V1/sections/"):] if rel.startswith("V1/sections/") else ROOT / rel
 
 
 def lieu(name: str) -> list[Path]:

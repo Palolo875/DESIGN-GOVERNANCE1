@@ -133,6 +133,57 @@ class OperationalReferenceTests(unittest.TestCase):
     def test_deleted_changelog_reference_is_rejected(self):
         self.assertTrue(any("CHANGELOG.md" in e for e in self.check("Lire `CHANGELOG.md`.")))
 
+    def test_retired_names_without_extension_are_rejected(self):
+        for name in ("QUICKSTART", "GLOSSAIRE", "ORCHESTRATION_MAP"):
+            with self.subTest(name=name):
+                self.assertTrue(any(name in e for e in self.check(f"Lire `{name}`.")))
+
+    def test_supported_changelog_alias_and_symbolic_names_are_admitted(self):
+        self.assertEqual(self.check("`CHANGELOG` ; `ACTION` ; `DIRECTION` ; `PASS` ; `CI`."), [])
+
+    def test_common_extensions_missing_and_existing_files(self):
+        for suffix in ("sh", "bash", "yml", "yaml", "html", "htm", "css", "js", "mjs", "cjs", "ts", "tsx", "jsx", "toml", "txt", "markdown"):
+            with self.subTest(suffix=suffix):
+                name = f"outils/controle.{suffix}"
+                self.assertTrue(any(name in e for e in self.check(f"Lire `{name}`.")))
+                self.assertEqual(self.check(f"Lire `{name}`.", {name: ""}), [])
+
+    def test_declared_extensionless_file_is_checked(self):
+        self.assertEqual(self.check("Lire `LICENSE`.", {"LICENSE": "Licence"}), [])
+        with patch.multiple(package, EXPECTED=["README.md", "LICENSE"]):
+            # Tester le manifeste sans créer le fichier déclaré.
+            with tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                (root / "README.md").write_text("Lire `LICENSE`.")
+                errors = []
+                with patch.object(package, "ROOT", root):
+                    package.check_inline_references(errors)
+                self.assertTrue(any("LICENSE" in e for e in errors))
+
+    def test_shell_commands_check_scripts_and_ignore_user_arguments(self):
+        for command in ("bash", "sh", "bash -n", "bash -eux", "bash --"):
+            with self.subTest(command=command):
+                text = f"Lancer `{command} scripts/test.sh chemin/saisie.json`."
+                self.assertTrue(any("scripts/test.sh" in e for e in self.check(text)))
+                self.assertEqual(self.check(text, {"scripts/test.sh": ""}), [])
+
+    def test_python_flags_keep_script_and_route_checks(self):
+        self.assertTrue(any("SAVOIR/FAUX" in e for e in self.check("`python3 -u ./scripts/read_route.py SAVOIR/FAUX`.",
+                                                                 {"scripts/read_route.py": ""})))
+
+    def test_modules_inline_code_and_complex_options_are_not_script_paths(self):
+        for command in ("python3 -m http.server 4173", "python3 -c 'print(1)'", "bash -c 'echo scripts/absent.sh'", "bash -s argument-utilisateur", "bash --rcfile configuration.sh"):
+            with self.subTest(command=command):
+                self.assertEqual(self.check(f"`{command}`."), [])
+
+    def test_new_reference_families_keep_example_and_fence_exemptions(self):
+        self.assertEqual(self.check("`exemple: QUICKSTART` ; `exemple: scripts/absent.sh`\n```sh\nbash scripts/absent.sh\n```"), [])
+
+    def test_shell_scope_uses_other_distribution_manifest(self):
+        with patch.multiple(package, IS_LOCAL=True, LISTS={"github": ["scripts/github.sh"], "local": []}):
+            self.assertEqual(self.check("`bash scripts/github.sh` <!-- références:github -->"), [])
+            self.assertTrue(self.check("`bash scripts/absent.sh` <!-- références:github -->"))
+
     def test_moved_document_is_resolved_at_current_path(self):
         self.assertEqual(self.check("Lire `maintenance/versions.md`.", {"maintenance/versions.md": "# Versions"}), [])
 

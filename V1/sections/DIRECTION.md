@@ -59,7 +59,7 @@ Les sections détaillées ci-dessous restent intégralement actives. Lorsque ce 
 
 ### Orientation interne et sortie
 
-Pour une personne, `V1/official/READING_MAP.md` est la vue dérivée lorsque le besoin est déjà identifiable ; l’agent charge par `DIRECTION/CHARGE`. `START` reste la source normative de classification ; les autres vues (`CHARGE`, `FAST-PATH`, `EXTERNAL-START`) sont des vues dérivées ou conditionnelles.
+Pour une personne, `V1/sections/READING_MAP.md` est la vue dérivée lorsque le besoin est déjà identifiable ; l’agent charge par `DIRECTION/CHARGE`. `START` reste la source normative de classification ; les autres vues (`CHARGE`, `FAST-PATH`, `EXTERNAL-START`) sont des vues dérivées ou conditionnelles.
 
 La sortie de DIRECTION vers ACTION réutilise `ACTION/HANDOFF` ; la phase de chaque champ (avant build, après observation, clôture) est celle de la table de correspondance d’`ACTION/RUN_CARD`. Pour `MODE=DIRECTION`, transmettre aussi la cible/ancre et, lors d’une clôture, les éléments de `creative_close`; ACTION renseigne `closure.direction_status`, `issue`, `verdict` et l’état selon son schéma. Si un champ ne s’applique pas, marquez `N/A-JUSTIFIED` selon ACTION ; ne créez ni statut ni verdict dans DIRECTION.
 
@@ -97,7 +97,7 @@ Classer : `DIRECTION/START`. Charger : `DIRECTION/CHARGE`, seule liste de charge
 
 En trente secondes, nomme : **la décision à changer, le risque dominant, le mode, la capacité minimale et le premier objet que la preuve devra inspecter**. Cette vue accélère l’entrée ; elle ne remplace ni `START`, ni les contrats d’ACTION, ni le jugement situé.
 
-Cette carte est la vue de lecture interne canonique de DIRECTION. `CHARGE`, `FAST-PATH`, `EXTERNAL-START`, la section 0 et le récapitulatif de protection sont des vues dérivées de `START` : elles ne classent pas, ne créent ni nouveau mode, ni nouveau contrat, ni nouvelle condition de sortie et ne peuvent pas contredire `START`. `V1/official/READING_MAP.md` reste le guide dérivé inter-document. En cas de différence, `START`, les propriétaires de responsabilité et les contrats d’ACTION prévalent.
+Cette carte est la vue de lecture interne canonique de DIRECTION. `CHARGE`, `FAST-PATH`, `EXTERNAL-START`, la section 0 et le récapitulatif de protection sont des vues dérivées de `START` : elles ne classent pas, ne créent ni nouveau mode, ni nouveau contrat, ni nouvelle condition de sortie et ne peuvent pas contredire `START`. `V1/sections/READING_MAP.md` reste le guide dérivé inter-document. En cas de différence, `START`, les propriétaires de responsabilité et les contrats d’ACTION prévalent.
 
 **Chaîne de lecture interne.** Utilise le document selon la décision à faire évoluer, dans l’ordre de l’architecture d’activation : `START` classe ; `CREATIVE-BOOT` ouvre la décision ; `VISUAL_TARGET` rend la position pilotable ; `DIRECTION-ATELIER` approfondit la direction située lorsque cette profondeur peut changer la décision ; `FIRST-OBJECT` matérialise la cible et rend la promesse jugeable ; `DOUBLE-LOOP` organise l’observation et la correction ; le `HANDOFF` remet à `ACTION` une cible, un artefact, une preuve et une limite explicites. Chaque module doit être chargé pour son gain attendu : meilleure orientation, meilleur premier objet, meilleur jugement, meilleure structure ou meilleure preuve — jamais pour augmenter la procédure.
 

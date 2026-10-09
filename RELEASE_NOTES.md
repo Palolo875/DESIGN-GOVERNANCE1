@@ -10,7 +10,9 @@ Correction des renvois après la refonte. Les sections propriétaires font foi �
 
 Le paquet contrôle désormais aussi les références opérationnelles entre accents graves et les emplacements déclarés dans le registre des sources. Le lecteur accepte le journal `maintenance/versions` et son alias historique `CHANGELOG`. La recette de rendu permet de sélectionner explicitement un Chromium installé, sans téléchargement ni substitution silencieuse.
 
-Compatibilité : V1.0.0 ; aucun nouveau mode, statut ou champ RUN_CARD. Efficacité sur les rendus et CI hébergée : `NOT-VERIFIED`.
+La finalisation couvre les extensions courantes, les anciens noms sans extension et les commandes Python et shell simples. Les exemples explicites et blocs de code restent hors contrôle ; les arguments utilisateur ne sont pas des dépendances du paquet. Les sections conservées sont rangées dans `V1/sections/` ; les codes historiques gardent leur sens. Le principe de gouvernance utile est intégré à la règle de trace, puis recompilé dans la skill.
+
+Compatibilité : V1.0.0 ; aucun nouveau mode, statut ou champ RUN_CARD. **Efficacité sur les rendus : `NOT-VERIFIED`.** CI hébergée observée : [run 45](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/37987098716), réussi pour `df5aa46`, et [run 46](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/37993730822), réussi pour `d2c4d01`. Ces preuves portent sur les commits cités ; les changements suivants ont leur propre validation.
 
 ## Révision précédente R2026-10-09-REFONTE
 
@@ -64,7 +66,7 @@ Le détail est dans [`maintenance/versions.md`](maintenance/versions.md).
 | `agent/` | Chemins, réponse et skill |
 | `gouvernance/` | Trace et preuve adaptées au besoin |
 | `maintenance/` | Versions, évolution et distributions |
-| `V1/official/` | Sections conservées et carte dérivée ; même autorité que les sections déplacées |
+| `V1/sections/` | Sections conservées et carte dérivée ; même autorité que les sections déplacées |
 | `agent/skill/` | Couche d’activation : noyau de fabrication compilé, références conditionnelles |
 | `gouvernance/schemas/` | Projections machine, exemples et fixtures de contrôle |
 | `scripts/` | Validateurs, compilation du noyau, runner global et construction des distributions |
@@ -101,7 +103,7 @@ Pour vérifier le package :
 python3 scripts/validate_all.py
 ```
 
-Le workflow livré dans la distribution GitHub (`.github/workflows/validate.yml`) configure Linux (`ubuntu-latest`), Python 3.11 et Playwright 1.56.0 avec Chromium ; il exige les tests de pages (`--require-browser`). Sa présence n’atteste pas son exécution : l’exécution CI de cette révision est `NOT-VERIFIED`. Les contrôles locaux sont décrits ci-dessus.
+Le workflow livré dans la distribution GitHub (`.github/workflows/validate.yml`) configure Linux (`ubuntu-latest`), Python 3.11 et Playwright 1.56.0 avec Chromium ; il exige les tests de pages (`--require-browser`). Son exécution a été observée : les runs 45 (`df5aa46`) et 46 (`d2c4d01`), liés ci-dessus, réussissent avec l’étape de navigateur et l’audit du paquet. Une CI verte atteste les contrôles du commit concerné, sans établir l’efficacité visuelle du système. Les contrôles locaux sont décrits ci-dessus.
 
 ## Ce que le validateur atteste
 

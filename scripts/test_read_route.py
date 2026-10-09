@@ -15,6 +15,28 @@ import validate_structure as structure
 ROOT = Path(__file__).resolve().parents[1]
 
 
+class SourceLayoutTests(unittest.TestCase):
+    def test_historical_codes_read_current_and_legacy_layouts(self):
+        for folder in ("V1/sections", "V1/official", "official"):
+            with self.subTest(folder=folder), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                source = root / folder / "SAVOIR.md"
+                source.parent.mkdir(parents=True)
+                source.write_text("# Savoir\n## SAVOIR/TYPE\nVoix conservée.\n")
+                chosen = reader.source_directory(root)
+                with patch.multiple(reader, ROOT=root, OFFICIAL=chosen, LIEUX={"SAVOIR.md": ("V1/sections/SAVOIR.md",)}):
+                    path, lines, index = reader.resolve("SAVOIR/TYPE", routes={})
+                    self.assertEqual(path, source)
+                    self.assertIn("Voix conservée.", reader.extract(lines, index))
+
+    def test_current_sections_take_precedence_over_legacy_copies(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for folder in ("V1/sections", "V1/official", "official"):
+                (root / folder).mkdir(parents=True)
+            self.assertEqual(reader.source_directory(root), root / "V1/sections")
+
+
 class CodeFenceTests(unittest.TestCase):
     def test_nested_shorter_fence_is_code(self):
         lines=['````markdown','```','## ACTION/GATE-A — faux','```','````','## Titre réel']

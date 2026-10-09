@@ -36,7 +36,7 @@ try:
     EXPECTED = manifest["local" if IS_LOCAL else "github"]
     if not isinstance(EXPECTED, list) or not all(isinstance(item, str) for item in EXPECTED):
         raise ValueError("la liste de chemins du manifest est invalide")
-    OFFICIAL = ROOT / "V1" / "official"
+    OFFICIAL = routes.OFFICIAL
     LISTS = {name: manifest.get(name) for name in ("github", "local")}
     VERSION = manifest.get("version")
 except (OSError, ValueError, KeyError, TypeError) as exc:
@@ -255,6 +255,9 @@ def check_inline_references(errors: list[str]) -> None:
     for relative in EXPECTED:
         by_name.setdefault(Path(relative).name, []).append(ROOT / relative)
     resolved_routes: dict[str, str | None] = {}
+    file_pattern = re.compile(r"[\w./-]+\.(?:md|markdown|py|json|sh|bash|yml|yaml|html|htm|css|js|mjs|cjs|ts|tsx|jsx|toml|txt)(?:#[\w-]+)?", re.I)
+    retired_names = {"QUICKSTART": "guides/equipe.md", "GLOSSAIRE": "guides/glossaire.md",
+                     "ORCHESTRATION_MAP": "V1/sections/READING_MAP.md"}
 
     def file_reference(doc: Path, value: str, distribution: str | None = None) -> None:
         name, _, fragment = value.partition("#")
@@ -303,20 +306,35 @@ def check_inline_references(errors: list[str]) -> None:
         for value, distribution in values:
             if value.startswith("exemple:"):
                 continue
-            if re.fullmatch(r"[\w./-]+\.(?:md|py|json)(?:#[\w-]+)?", value):
+            if value in retired_names:
+                fail(errors, f"ancienne référence opérationnelle : {relative} -> {value} ; utiliser {retired_names[value]}")
+            elif file_pattern.fullmatch(value) or value.partition("#")[0] in EXPECTED or value in by_name:
                 file_reference(doc, value, distribution)
-            elif value.startswith("python3 "):
+            elif re.match(r"(?:python(?:3(?:\.\d+)?)?|bash|sh)\s", value):
                 try:
                     words = shlex.split(value)
                 except ValueError:
                     fail(errors, f"commande mal formée : {relative} -> {value}")
                     continue
-                if len(words) > 1 and words[1].endswith(".py"):
-                    file_reference(doc, words[1], distribution)
-                    if words[1] == "scripts/read_route.py" and len(words) > 2:
-                        arg = words[2]
+                # Modules et code en ligne ne désignent pas un script du paquet.
+                # Les options simples sont sautées ; aucune commande n'est exécutée.
+                script_index = 1
+                simple_flags = ({"-u", "-B", "-E", "-I", "-s", "--"} if words[0].startswith("python")
+                                else {"-n", "-e", "-x", "-v", "-eu", "-eux", "--"})
+                while script_index < len(words) and words[script_index] in simple_flags:
+                    flag = words[script_index]
+                    script_index += 1
+                    if flag == "--":
+                        break
+                if script_index < len(words) and not words[script_index].startswith("-"):
+                    script = words[script_index]
+                    file_reference(doc, script, distribution)
+                    if script.removeprefix("./") == "scripts/read_route.py" and len(words) > script_index + 1:
+                        arg = words[script_index + 1]
                         if not arg.startswith("-") and arg not in {"LOCATOR", "ADRESSE", "…"}:
                             route_reference(doc, arg)
+            elif value == "CHANGELOG":
+                route_reference(doc, value)
             elif re.fullmatch(r"(?:DIRECTION|ACTION|SAVOIR|BIBLIOTHEQUE|CHANGELOG)/[A-Z0-9_-]+(?:/[A-Z0-9_-]+)?", value):
                 route_reference(doc, value)
             elif value in routes.ADRESSES or re.fullmatch(r"(?:design/)?[a-z][a-z0-9-]*/[a-z0-9-]+(?:#[a-z0-9-]+)?", value):

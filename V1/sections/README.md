@@ -1,6 +1,6 @@
 # Design Governance V1.0.0
 
-Ce dossier conserve les sections officielles non encore déplacées et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Il n’est ni une copie complète ni une autorité supérieure aux sections rangées dans les autres dossiers.
+Ce dossier conserve les sections non encore déplacées et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Leur autorité suit la section propriétaire, comme dans les autres dossiers. Le sommaire reste le point d’entrée vers toutes les responsabilités historiques.
 
 Pour commencer, lisez le [guide pour commencer](../../guides/commencer.md#commencer) : vous n’avez pas à choisir de mode. Pour piloter un run, lisez le guide d’équipe [`guides/equipe.md`](../../guides/equipe.md) ; un agent entre par la skill `design-governance-practice`. Le vocabulaire est défini dans [`guides/glossaire.md`](../../guides/glossaire.md).
 
@@ -20,6 +20,6 @@ Les marqueurs de provenance ne rendent pas un guide normatif : une section de r�
 
 Les anciens codes et les adresses lisibles sont deux noms pour une même section. L’agent utilise les codes stables du noyau ; une personne peut utiliser les adresses lisibles. Aucune seconde lecture n’est requise. Les noms historiques de fichiers conservés dans le registre et les marqueurs servent à la provenance, pas de chemins à ouvrir.
 
-Le README et les guides (`guides/`) sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`V1/official/READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
+Le README et les guides (`guides/`) sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`V1/sections/READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
 
 Lorsqu’une décision exige une trace structurée, la `RUN_CARD` rassemble le mode, le risque, la décision, l’artefact, la preuve, la limite et la clôture ; son schéma est dans `gouvernance/schemas/` et son validateur est `gouvernance/outils/validate_run_card.py`, exécuté depuis la racine du paquet. Une validation de package ou de `RUN_CARD` confirme uniquement les contrôles exécutés ; elle ne prouve ni l’usage, ni l’accessibilité exécutée, ni la performance, ni la qualité visuelle du produit.

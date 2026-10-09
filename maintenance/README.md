@@ -34,11 +34,11 @@ Le budget décrit dans `maintenance/versions.md` concerne le fichier `SKILL.md` 
 
 ### Reprendre une préparation interrompue
 
-Un verrou `.distribution.lock` bloque un second build. `owner.txt`, lorsqu’il existe, indique PID, début UTC et dossier ; ces indices peuvent être absents sur un ancien verrou et ne suffisent pas à prouver qu’un processus est arrêté. Dans le même environnement, inspectez le PID et sa commande (`ps -p PID -o pid,ppid,lstart,args`), les builds de ce dossier et le job ou la session qui les lance. Un PID peut être réutilisé. Tant que l’absence de build actif n’est pas établie, conservez le verrou ; son ancienneté ne justifie aucune suppression.
+Un verrou `.distribution.lock` bloque un second build. Le fichier owner.txt est produit pendant le build dans ce verrou, et ne fait pas partie des fichiers distribués. Lorsqu’il existe, il indique PID, début UTC et dossier ; ces indices peuvent être absents sur un ancien verrou et ne suffisent pas à prouver qu’un processus est arrêté. Dans le même environnement, inspectez le PID et sa commande (`ps -p PID -o pid,ppid,lstart,args`), les builds de ce dossier et le job ou la session qui les lance. Un PID peut être réutilisé. Tant que l’absence de build actif n’est pas établie, conservez le verrou ; son ancienneté ne justifie aucune suppression.
 
 Avant toute reprise, conservez à part les archives, `dist`, `.dist.previous`, `.archives.previous` et le journal s’ils existent. Si `.archives.previous` existe, ou si `dist` et `.dist.previous` coexistent, le script s’arrête : comparez les inventaires et empreintes, identifiez la dernière livraison complète à l’aide du journal, puis conservez cette livraison et les autres exemplaires dans des dossiers distincts. Ne promouvez pas un mélange de versions et ne supprimez pas une sauvegarde pour forcer le build. Une sauvegarde `.dist.previous` seule est restaurée par le script ; elle ne prouve pas à elle seule l’état des archives.
 
-Dans la distribution GitHub, lorsque le build est confirmé inactif et les sauvegardes identifiées, retirez uniquement `owner.txt` puis le dossier de verrou vide (`rmdir` refuse un contenu inattendu). Relancez `python3 scripts/preparer_livraison.py` ; le succès exige les contrôles et les exports complets. Si la situation reste ambiguë, conservez les fichiers et le diagnostic pour le mainteneur. Aucun verrou ni backup n’est effacé automatiquement selon son âge. <!-- références:github -->
+Dans la distribution GitHub, lorsque le build est confirmé inactif et les sauvegardes identifiées, retirez uniquement le fichier owner.txt produit par le build, puis le dossier de verrou vide (`rmdir` refuse un contenu inattendu). Relancez `python3 scripts/preparer_livraison.py` ; le succès exige les contrôles et les exports complets. Si la situation reste ambiguë, conservez les fichiers et le diagnostic pour le mainteneur. Aucun verrou ni backup n’est effacé automatiquement selon son âge. <!-- références:github -->
 
 Pour produire seulement les deux archives, exécutez :
 
@@ -101,7 +101,7 @@ Une `RUN_CARD` validée atteste la forme de la projection et les invariants de l
 <!-- origine:READING_MAP.md -->
 ## Résolution des routes
 
-Les noms de route sont des locators documentaires. Les résoudre avec `python3 scripts/read_route.py LOCATOR` : le lecteur retrouve la section propriétaire à son emplacement actuel via le registre `LIEUX`. En lecture manuelle, suivre le [sommaire des sources](../V1/official/README.md), puis le titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
+Les noms de route sont des locators documentaires. Les résoudre avec `python3 scripts/read_route.py LOCATOR` : le lecteur retrouve la section propriétaire à son emplacement actuel via le registre `LIEUX`. En lecture manuelle, suivre le [sommaire des sources](../V1/sections/README.md), puis le titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
 
 | Code ou adresse | Propriétaire actuel |
 |---|---|
