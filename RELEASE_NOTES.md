@@ -80,7 +80,7 @@ Pour vérifier le package :
 python3 scripts/validate_all.py
 ```
 
-Le [workflow livré](.github/workflows/validate.yml) configure Linux (`ubuntu-latest`), Python 3.11 et Playwright 1.56.0 avec Chromium ; il exige les tests de pages (`--require-browser`). Sa présence n’atteste pas son exécution : l’exécution CI de cette révision est `NOT-VERIFIED`. Les contrôles locaux sont décrits ci-dessus.
+Le workflow livré dans la distribution GitHub (`.github/workflows/validate.yml`) configure Linux (`ubuntu-latest`), Python 3.11 et Playwright 1.56.0 avec Chromium ; il exige les tests de pages (`--require-browser`). Sa présence n’atteste pas son exécution : l’exécution CI de cette révision est `NOT-VERIFIED`. Les contrôles locaux sont décrits ci-dessus.
 
 ## Ce que le validateur atteste
 

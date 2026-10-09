@@ -125,7 +125,7 @@ def check_move_regression() -> None:
     rel = current.relative_to(ROOT).as_posix()
     known = tuple(p.relative_to(ROOT).as_posix() for p in rr.lieu("SAVOIR.md"))
     skill_rel = bc.SKILL.relative_to(ROOT)
-    layout = "local" if rr.OFFICIAL.relative_to(ROOT).as_posix() == "official" else "github"  # export Local ou GitHub
+    layout = "github" if (ROOT / "scripts/build_distributions.sh").is_file() else "local"  # export Local : sans les outils de préparation
     target = "design/savoir/typographie-essai.md"
     with tempfile.TemporaryDirectory(prefix="design-governance-move-") as temp_dir:
         for with_table, duplicate in ((True, False), (False, False), (True, True)):

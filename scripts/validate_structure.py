@@ -21,7 +21,7 @@ Gardes :
      les façades y renvoient ; la ligne `DIRECTION` garde le build et l'ordre cible → premier objet ;
      Gate B n'y est chargée qu'en trace complète ; la carte de lecture d'ACTION renvoie à CHARGE (D2).
  12. LOCATORS DU VALIDATEUR — un message de `validate_run_card.py` cite un lieu nommé, jamais un numéro de ligne.
- 13. ENTRÉE HUMAINE — une seule entrée balisée (README du package, reprise par le README Local), quatre questions,
+ 13. ENTRÉE HUMAINE — une seule entrée balisée (guide pour commencer, lié depuis le README), quatre questions,
      aucun mode demandé, vouvoiement ; une seule constitution minimale (ENT-01, CST-01).
  15. PRÉAMBULE DE BIBLIOTHEQUE — ni catégories de lecture ni contrat de promotion avant les routes (MNT-01).
  16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » (SKL-01).
@@ -280,7 +280,7 @@ FIDELITY: list[tuple[str, str, str]] = [
 ]
 
 # 13. Entrée humaine : une seule entrée, balisée dans le guide pour commencer (guides/commencer.md), vers lequel
-#     renvoient le README du package et le README Local ; quatre questions ; aucun mode interne demandé ; vouvoiement.
+#     renvoient le README du package ; quatre questions ; aucun mode interne demandé ; vouvoiement.
 #     Une seule constitution minimale, balisée dans le README du package.
 ENTRY = re.compile(r"<!-- entree:début -->(.*?)<!-- entree:fin -->", re.S)
 CONSTITUTION = re.compile(r"<!-- constitution:début -->(.*?)<!-- constitution:fin -->", re.S)

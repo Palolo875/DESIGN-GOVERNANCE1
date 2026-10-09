@@ -16,7 +16,7 @@ from urllib.parse import unquote
 from read_route import headings, lieu, non_code_lines as indexed_non_code_lines
 
 ROOT = Path(__file__).resolve().parents[1]
-IS_LOCAL = (ROOT / "official").is_dir() and not (ROOT / "V1" / "official").is_dir()
+IS_LOCAL = not (ROOT / "scripts" / "build_distributions.sh").is_file()  # export Local : même arborescence, sans les outils de préparation
 
 MANIFEST = ROOT / "scripts" / "package_manifest.json"
 try:
@@ -34,7 +34,7 @@ try:
     EXPECTED = manifest["local" if IS_LOCAL else "github"]
     if not isinstance(EXPECTED, list) or not all(isinstance(item, str) for item in EXPECTED):
         raise ValueError("la liste de chemins du manifest est invalide")
-    OFFICIAL = ROOT / ("official" if IS_LOCAL else "V1/official")
+    OFFICIAL = ROOT / "V1" / "official"
     LISTS = {name: manifest.get(name) for name in ("github", "local")}
     VERSION = manifest.get("version")
 except (OSError, ValueError, KeyError, TypeError) as exc:
@@ -330,7 +330,7 @@ def check_local_autonomy(errors: list[str]) -> None:
         return
     readme = read(ROOT / "README.md", errors)
     if re.search(r"(?i)consulter.*github|d[ée]pend.*github|depuis github", readme):
-        fail(errors, "le README Local renvoie encore vers GitHub comme dépendance")
+        fail(errors, "le README de l’export Local renvoie encore vers GitHub comme dépendance")
 
 
 def main() -> int:

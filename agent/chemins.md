@@ -1,6 +1,6 @@
 # Agent — chemins
 
-Comment l’agent classe une demande, choisit son chemin et décide quoi lire. La skill (`skill/SKILL.md`) en porte le noyau ; ce fichier en est la version complète.
+Comment l’agent classe une demande, choisit son chemin et décide quoi lire. La skill (`agent/skill/SKILL.md`) en porte le noyau ; ce fichier en est la version complète.
 
 <!-- origine:DIRECTION.md -->
 ## DIRECTION/START — classer avant d’agir

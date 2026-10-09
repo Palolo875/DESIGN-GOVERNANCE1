@@ -256,8 +256,7 @@ class PreparationTests(unittest.TestCase):
             self.assertEqual(contents[0], contents[1])
 
     def test_direct_build_refuses_canonical_overflow_and_preserves_archives(self):
-        # Régression réelle : 46 001 octets GitHub deviennent 45 998 dans Local.
-        # Le build doit refuser la source, même si Local entrerait dans le budget.
+        # Le build refuse une skill qui dépasse le budget de 46 000 octets, sans toucher aux archives en place.
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             manifest = json.loads((prep.ROOT / "scripts/package_manifest.json").read_text())
@@ -273,8 +272,6 @@ class PreparationTests(unittest.TestCase):
             with patch.object(bc, "OFFICIAL", root / "V1/official"), patch.object(bc, "ROOT", root):
                 skill.write_bytes(bc.render(skill.read_text(), bc.compile_core()).encode())
             self.assertEqual(skill.stat().st_size, 46_001)
-            local = skill.read_text().replace("V1/official/", "official/").replace("agent/skill/", "skill/").replace("](../../README.md", "](../README.md")
-            self.assertLessEqual(len(local.encode()), 46_000)
             for name in prep.ARCHIVES:
                 (root / name).write_bytes(b"archive precedente")
             (root / "dist").mkdir(); (root / "dist/previous.txt").write_bytes(b"export precedent")
