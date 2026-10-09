@@ -104,7 +104,16 @@ cat > "$STAGE/local/README.md" <<'EOF'
 
 Design Governance V1.0.0 est une expérimentation maintenue qui aide à transformer un brief en proposition de design visuellement dirigée, cultivée, spécifique, construite et polie, puis en travail vérifiable. Son usage recommandé est supervisé ; son efficacité réelle reste `NOT-VERIFIED`.
 
-<!-- partage:entree -->
+## Par où entrer
+
+| Vous êtes | Entrée | Ce que vous y trouvez |
+|---|---|---|
+| Débutant : vous voulez un résultat, sans apprendre le système | [`guides/commencer.md`](guides/commencer.md) | Quoi demander, quoi fournir, ce que vous recevrez, comment poursuivre |
+| Designer | [`guides/designer.md`](guides/designer.md) | Où se trouve chaque sujet, comment combiner les capacités, quand s’arrêter |
+| Équipe ou opérateur | [`guides/equipe.md`](guides/equipe.md) | Piloter un travail, le tracer et le livrer |
+| Agent | [`skill/SKILL.md`](skill/SKILL.md) | Le noyau, puis quoi lire selon le chemin |
+
+Le vocabulaire est expliqué dans [`guides/glossaire.md`](guides/glossaire.md).
 
 ## Pour les agents et les opérateurs
 
@@ -154,8 +163,8 @@ python3 scripts/validate_all.py
 Dans l’export Local, `validate_all.py` contrôle le package, la projection, les fixtures et la CLI ; `--require-browser` exige les tests de pages, sinon leur indisponibilité reste explicite. Le build et la reproductibilité restent contrôlés depuis la distribution GitHub, avec `scripts/preparer_livraison.py` ; cette commande n’est pas livrée dans l’export Local.
 EOF
 
-# L’entrée humaine et la constitution du README Local sont reprises des blocs balisés du README du package
-# (une seule source), avec les chemins propres au layout Local.
+# La constitution du README Local est reprise du bloc balisé du README du package (une seule source), avec les
+# chemins propres au layout Local. L’entrée humaine vit dans guides/commencer.md, livré tel quel.
 python3 - "$ROOT/README.md" "$STAGE/local/README.md" <<'PY'
 import re
 import sys
@@ -164,7 +173,7 @@ from pathlib import Path
 source = Path(sys.argv[1]).read_text(encoding="utf-8")
 target = Path(sys.argv[2])
 text = target.read_text(encoding="utf-8")
-for name in ("entree", "constitution"):
+for name in ("constitution",):
     found = re.findall(rf"<!-- {name}:début -->.*?<!-- {name}:fin -->", source, re.S)
     if len(found) != 1:
         raise SystemExit(f"BUILD FAILED — README du package : bloc partagé « {name} » trouvé {len(found)} fois (attendu : 1)")

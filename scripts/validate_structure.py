@@ -279,8 +279,9 @@ FIDELITY: list[tuple[str, str, str]] = [
     ("test de masquage : dépendance porteuse recevable", r"Si texte, données et images sont masqués", "dépendance est recevable"),
 ]
 
-# 13. Entrée humaine : une seule entrée, balisée dans le README du package et reprise par le README Local ;
-#     quatre questions ; aucun mode interne demandé ; vouvoiement. Une seule constitution minimale, balisée au même lieu.
+# 13. Entrée humaine : une seule entrée, balisée dans le guide pour commencer (guides/commencer.md), vers lequel
+#     renvoient le README du package et le README Local ; quatre questions ; aucun mode interne demandé ; vouvoiement.
+#     Une seule constitution minimale, balisée dans le README du package.
 ENTRY = re.compile(r"<!-- entree:début -->(.*?)<!-- entree:fin -->", re.S)
 CONSTITUTION = re.compile(r"<!-- constitution:début -->(.*?)<!-- constitution:fin -->", re.S)
 QUESTIONS = ("**1. Que demander ?**", "**2. Que fournir ?**", "**3. Que recevoir ?**", "**4. Comment poursuivre ?**")
@@ -289,14 +290,14 @@ CONSTITUTION_SIGNATURE = "le réel et le beau sont cadrés ensemble"
 
 
 def check_entry(corpus: dict[Path, list[str]], errors: list[str]) -> None:
-    readme = ROOT / "README.md"
+    readme, guide = ROOT / "README.md", ROOT / "guides" / "commencer.md"
     if not readme.is_file():
         errors.append("[ENT-01] README.md absent à la racine du package")
         return
     text = readme.read_text(encoding="utf-8")
-    entries = ENTRY.findall(text)
+    entries = ENTRY.findall(guide.read_text(encoding="utf-8")) if guide.is_file() else []
     if len(entries) != 1:
-        errors.append(f"[ENT-01] entrée humaine balisée {len(entries)} fois dans README.md (attendu : 1)")
+        errors.append(f"[ENT-01] entrée humaine balisée {len(entries)} fois dans guides/commencer.md (attendu : 1)")
     else:
         block = entries[0]
         for question in QUESTIONS:
@@ -725,7 +726,7 @@ ROW_NEEDLES = [  # (fichier, début de ligne, mot attendu, constat)
     ("ACTION.md", "| Token, composant ou blast radius |", "si un composant change", "C26"),
 ]
 EXAMPLE_SECTION = "## DIRECTION — fabrication depuis un brief flou"
-COMMENCER = re.compile(r"\]\((?:\.\./)+README\.md#commencer\)")
+COMMENCER = re.compile(r"\]\((?:\.\./)*(?:guides/)?commencer\.md#commencer\)")
 
 
 def check_facades(errors: list[str]) -> None:
@@ -747,10 +748,10 @@ def check_facades(errors: list[str]) -> None:
     for name in ("README.md", "QUICKSTART.md"):
         paths = [p for p in rr.lieu(name) if p.is_file()]
         if paths and not COMMENCER.search(rr.lieu_texte(name)):
-            errors.append(f"[FAC-01] {name} : la section « Commencer » du README du package n'est pas liée")
-    readme = ROOT / "README.md"
-    if readme.is_file() and "## Commencer" not in readme.read_text(encoding="utf-8"):
-        errors.append("[FAC-01] README du package : titre « Commencer » absent, cible des liens")
+            errors.append(f"[FAC-01] {name} : la section « Commencer » du guide pour commencer n'est pas liée")
+    guide = ROOT / "guides" / "commencer.md"
+    if not guide.is_file() or "## Commencer" not in guide.read_text(encoding="utf-8"):
+        errors.append("[FAC-01] guide pour commencer : titre « Commencer » absent, cible des liens")
     notes = ROOT / "RELEASE_NOTES.md"
     if notes.is_file():
         body = notes.read_text(encoding="utf-8")

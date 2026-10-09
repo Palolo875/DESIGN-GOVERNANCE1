@@ -6,21 +6,16 @@ Design Governance V1 est un cadre de **direction, de création, de jugement et d
 
 > **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue. La baseline est contrôlée et destinée à un usage supervisé ; elle ne promet ni beauté automatique, ni réussite universelle, ni validation d’usage, ni conformité sans preuve adaptée.
 
-<!-- entree:début -->
-## Commencer
+## Par où entrer
 
-Design Governance aide un agent à produire un design dirigé, construit et soigné dès la première proposition, puis à l’améliorer avec vous. Vous n’avez besoin de connaître ni les modes, ni le vocabulaire interne : l’agent s’en charge.
+| Vous êtes | Entrée | Ce que vous y trouvez |
+|---|---|---|
+| Débutant : vous voulez un résultat, sans apprendre le système | [`guides/commencer.md`](guides/commencer.md) | Quoi demander, quoi fournir, ce que vous recevrez, comment poursuivre |
+| Designer | [`guides/designer.md`](guides/designer.md) | Où se trouve chaque sujet, comment combiner les capacités, quand s’arrêter |
+| Équipe ou opérateur | [`guides/equipe.md`](guides/equipe.md) | Piloter un travail, le tracer et le livrer |
+| Agent | [`agent/skill/SKILL.md`](agent/skill/SKILL.md) | Le noyau, puis quoi lire selon le chemin |
 
-**1. Que demander ?** Décrivez en quelques phrases ce que vous voulez obtenir (une page, un écran, une identité, une correction), pour qui, et où cela servira : démonstration, maquette ou vrai produit. S’il s’agit d’un vrai commerce ou d’un vrai service, dites-le.
-
-**2. Que fournir ?** Ce que vous avez déjà : textes, prix, horaires, logo, couleurs, photos (même prises au téléphone, à la lumière du jour), exemples que vous aimez, lien vers l’existant. Vos textes, votre marque et vos photos aident à produire une proposition plus spécifique et crédible. S’il en manque, l’agent construit quand même une première proposition, avec des exemples marqués, et vous pose dans sa réponse au plus trois questions, seulement celles qui améliorent vraiment le résultat : contenu réel, marque, image principale ou source d’images autorisée, destination si elle est incertaine. Si vous préférez répondre avant qu’il construise, dites-le.
-
-**3. Que recevoir ?** Une première proposition réellement construite, pas un gabarit vide. La réponse dit simplement ce qui a été fait et pourquoi, ce qui est un exemple à remplacer, ce qui manque pour la vraie version, et la suite proposée. C’est une proposition à discuter, pas une validation.
-
-**4. Comment poursuivre ?** Validez pour continuer, réorientez ou arrêtez. Pour retenir cette direction pour votre vrai produit, dites-le : l’agent réunit alors les éléments réels et fait les vérifications nécessaires. Dites en une phrase ce qui ne va pas (« le titre écrase la photo », « trop froid pour une boulangerie ») : l’agent corrige le défaut principal, regarde de nouveau le résultat et vous dit ce qui a changé. Avant toute action irréversible ou coûteuse (publier, envoyer, payer, remplacer l’existant), il vous demande votre accord.
-
-Pour aller plus loin : le [guide opérateur](guides/equipe.md), la [skill](agent/skill/SKILL.md) pour les agents, le [glossaire](guides/glossaire.md) et les [sources normatives](V1/official/README.md).
-<!-- entree:fin -->
+Le vocabulaire est expliqué dans [`guides/glossaire.md`](guides/glossaire.md).
 
 ## Fiche de version
 
@@ -99,12 +94,15 @@ La trace doit dire ce qui a changé, ce qui n’a pas été vérifié et ce qui 
 
 ## Structure du dépôt
 
-| Couche | Chemin | Responsabilité |
+| Partie | Chemin | Contenu |
 |---|---|---|
-| **Sources et guides** | `V1/official/` | Corpus normatif et guides d’entrée de la V1. |
-| **Activation pratique** | `agent/skill/` | Couche d’activation et références conditionnelles ; elle ne crée pas de règles concurrentes. |
-| **Projection machine** | `gouvernance/schemas/` | Schémas, exemples et fixtures de `RUN_CARD`, du cadre de domaine, du brief de recherche et des contrats de production. |
-| **Contrôles et distributions** | `scripts/` | Validation du package, validation des RUN_CARD et génération des exports. |
+| **Guides** | `guides/` | Les portes : commencer, designer, équipe, glossaire. |
+| **Design** | `design/` | Le cœur : direction, savoir, formes, qualité du produit. |
+| **Agent** | `agent/` | La skill (`agent/skill/`), le chemin de l’agent et sa réponse. |
+| **Gouvernance** (facultative) | `gouvernance/` | Trace, vérification formelle et livraison ; schémas et outils de validation. |
+| **Maintenance** | `maintenance/` | Faire évoluer le système : distributions, validation, versions. |
+| **Sources en cours de rangement** | `V1/official/` | Sections pas encore rangées ; toutes les adresses restent valables. |
+| **Outils** | `scripts/` | Lecteur, contrôles et construction des distributions. |
 
 Les cinq sources normatives sont les suivantes :
 

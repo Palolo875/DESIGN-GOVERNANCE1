@@ -152,7 +152,7 @@ LIEUX: dict[str, tuple[str, ...]] = {
     "CHANGELOG.md": ("maintenance/versions.md", "maintenance/evolution.md"),
     # Rangement, lot 7b : guides par public (équipe, designer, glossaire) et connexions du savoir (texte inchangé).
     "QUICKSTART.md": ("guides/equipe.md",),
-    "GLOSSAIRE.md": ("guides/glossaire.md",),
+    "GLOSSAIRE.md": ("guides/glossaire.md", "guides/commencer.md"),  # lot 7c : « Pour commencer » rejoint le guide débutant
     "READING_MAP.md": ("V1/official/READING_MAP.md", "guides/designer.md", "design/savoir/connexions.md",
                        "maintenance/README.md"),
 }
