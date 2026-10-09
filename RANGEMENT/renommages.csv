@@ -2,3 +2,5 @@ nouveau,ancien,lot,raison
 gouvernance/schemas/,schemas/,4b,schémas déplacés dans le module de gouvernance
 gouvernance/outils/validate_run_card.py,scripts/validate_run_card.py,4b,validateur des fiches déplacé dans le module de gouvernance
 gouvernance/outils/validate_contracts.py,scripts/validate_contracts.py,4b,validateur des contrats déplacé dans le module de gouvernance
+agent/skill/,skills/design-governance-practice/,6,skill déplacée dans agent/
+agent/skill,skills/design-governance-practice,6,skill déplacée dans agent/

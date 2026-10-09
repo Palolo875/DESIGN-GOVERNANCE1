@@ -1,7 +1,7 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après le lot 5 du rangement. Aucun run n’est prévu sans ton accord explicite.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `8e2b23d`.
+**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après le lot 6 du rangement. Aucun run n’est prévu sans ton accord explicite.
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `f665c81`.
 
 ---
 
@@ -12,7 +12,7 @@
 | 0 — Charte et grilles | **faite** | Charte en 10 principes, grilles fichier, système et résultat (`PLAN/charte.md`, `PLAN/grilles.md`) |
 | 1 — Audit | **faite** | 8 fiches, mesures, second jeu de recherche, synthèse et dispositions (`AUDIT2/`) |
 | 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
-| 3 — Rangement | **en cours : lots 0 à 5 faits** | Voir le détail ci-dessous |
+| 3 — Rangement | **en cours : lots 0 à 6 faits** | Voir le détail ci-dessous |
 | 4 à 8 | à venir | |
 
 **Rangement, lot par lot :**
@@ -26,7 +26,7 @@
 | 4 — Gouvernance en module | fait | `4077ae3` | 15 sections (~80 000 caractères) dans `gouvernance/` ; texte servi identique pour les 110 routes |
 | 4b — Schémas et outils de gouvernance | fait | `a92a47c` | `gouvernance/schemas/` et `gouvernance/outils/` ; seuls les chemins changent dans la documentation (23 lignes), renommages déclarés |
 | 5 — Cœur du design | fait | `8e2b23d` | 37 sections dans `design/` (direction, savoir, formes, produit), un README par dossier ; texte servi identique pour les 110 routes |
-| 6 — Agent | à faire | | Chemins et réponse dans `agent/` ; la skill dans `agent/skill/` |
+| 6 — Agent | fait | `f665c81` | 9 sections dans `agent/chemins.md` et `agent/repondre.md` ; la skill dans `agent/skill/`, identique ; consigne d’installation corrigée (la skill garde son nom) |
 | 7 — Portes et maintenance | à faire | | README court, guides par public, glossaire, `maintenance/` |
 
 **Garanties vérifiées à chaque lot :** rien de perdu (chaque bloc retrouvé ou retiré avec sa raison) ; texte servi identique pour chaque route ; skill identique à l’octet près ; validation complète verte, archives comprises ; un commit annulable avec sa fiche.
@@ -36,7 +36,8 @@
 2. **Lot 4.** Le rangement ne déplace que des **sections entières** dont le déplacement ne change pas ce que lit l’agent. Les sections qui mêlent design, produit et gouvernance doivent être **découpées**, ce qui change ce que lit l’agent : ce découpage passe **en phase 5**, avec la skill et la table de lecture.
 3. **Lot 4.** Un fichier qui reçoit des sections de plusieurs sources marque l’origine de chacune, de façon invisible à la lecture, pour que les contrôles retrouvent la part de chaque source.
 4. **Lot 4b ajouté.** Déplacer les schémas et leurs outils touche de nombreux chemins (scripts, CI, documentation) : c’est un lot à part.
-5. **Phase 5.** Les mesures de l’audit y ajoutent deux priorités : la convergence des résultats (même police, même concept d’un run à l’autre) et l’effet possible de mon ajout récent « signaux de page ».
+5. **Lot 6.** Renommer le dossier de la skill aurait fait installer la skill sous le nom « skill » : la consigne d’installation dit désormais sous quel nom la copier.
+6. **Phase 5.** Les mesures de l’audit y ajoutent deux priorités : la convergence des résultats (même police, même concept d’un run à l’autre) et l’effet possible de mon ajout récent « signaux de page ».
 
 ---
 

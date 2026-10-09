@@ -1,0 +1,47 @@
+[
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/START — classer avant d’agir",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/CHARGE — classer, puis charger",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## 0. Classification du mode, preuve et capacité",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## 2. Routage — quoi charger et quand",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/RUN — routes d’exécution",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/FAST-PATH — preuve minimale sans rituel",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/ROUTING — prérequis de jugement et de structure",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/SAVOIR.md",
+  "titre": "## SAVOIR/READ — comment utiliser cette bibliothèque",
+  "destination": "agent/chemins.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "### ACTION/HANDOFF — sortie minimale commune",
+  "destination": "agent/repondre.md"
+ }
+]

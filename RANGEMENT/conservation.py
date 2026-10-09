@@ -17,7 +17,11 @@ Usage :
 import csv, hashlib, json, re, subprocess, sys
 from pathlib import Path
 
-SKILL = "skills/design-governance-practice/SKILL.md"
+SKILLS = ("agent/skill/SKILL.md", "skills/design-governance-practice/SKILL.md")  # emplacement actuel, puis ancien
+
+
+def skill_path(repo: Path) -> Path:
+    return next((repo / s for s in SKILLS if (repo / s).is_file()), repo / SKILLS[0])
 
 
 def documents(repo: Path) -> list[Path]:
@@ -106,7 +110,7 @@ def scan(repo: Path):
     found = {}
     for path in documents(repo):
         rel = path.relative_to(repo).as_posix()
-        if rel == SKILL:
+        if rel in SKILLS:
             continue  # copie compilée : contrôlée par son empreinte, pas comme source
         for line, b in (u for s, bl in blocks(path.read_text(encoding="utf-8")) for u in units(s, bl)):
             if only_comments(b):
@@ -119,10 +123,10 @@ def main(argv):
     if argv[:1] == ["--base"]:
         repo, out = Path(argv[1]), Path(argv[2])
         base = {"commit": argv[3] if len(argv) > 3 else subprocess.run(["git", "-C", str(repo), "rev-parse", "--short", "HEAD"], capture_output=True, text=True).stdout.strip(),
-                "skill_sha256": hashlib.sha256((repo / SKILL).read_bytes()).hexdigest(), "blocs": {}}
+                "skill_sha256": hashlib.sha256(skill_path(repo).read_bytes()).hexdigest(), "blocs": {}}
         for path in documents(repo):
             rel = path.relative_to(repo).as_posix()
-            if rel == SKILL:
+            if rel in SKILLS:
                 continue
             for line, b in (u for s, bl in blocks(path.read_text(encoding="utf-8")) for u in units(s, bl)):
                 if only_comments(b):
@@ -144,7 +148,7 @@ def main(argv):
     now = scan(repo)
     lost = [(h, b) for h, b in base["blocs"].items() if h not in now and h not in retraits]
     stale = [h for h in retraits if h not in base["blocs"]]
-    skill_ok = free or hashlib.sha256((repo / SKILL).read_bytes()).hexdigest() == base["skill_sha256"]
+    skill_ok = free or hashlib.sha256(skill_path(repo).read_bytes()).hexdigest() == base["skill_sha256"]
     if "--pertes" in argv:  # liste brute pour préparer retraits.csv : empreinte, origine, début
         for h, b in lost:
             print(f"{h}\t{b['origine']}\t{b['debut']}")
