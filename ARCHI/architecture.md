@@ -208,6 +208,7 @@ Chaque lot est un commit annulable.
 
 **Ordre.** Les lots 0 à 2 rendent le rangement sûr et bon marché. Les lots 3 à 7 déplacent sans réécrire. La réécriture en clair viendra en phase 4.
 
+**Précision du 9 octobre (lot 4).** Le rangement ne déplace que des sections entières dont le déplacement laisse identique le texte que sert chaque route (contrôle `RANGEMENT/servi.py`). Les dispositions « scinder » de la table de correspondance — sections qui mêlent design, produit et gouvernance — changent ce que lit l’agent : elles passent en phase 5, avec la skill et la table de chargement. Un fichier qui reçoit plusieurs sources marque l’origine de chaque section (`<!-- origine:… -->`).
 ## 10. Risques propres à cette architecture
 
 | Risque | Parade |

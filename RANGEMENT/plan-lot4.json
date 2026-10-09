@@ -1,0 +1,77 @@
+[
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "### Les quatre registres à ne pas mélanger",
+  "destination": "gouvernance/principes.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "### ACTION/AUTHORITY — portée d’action et reprise",
+  "destination": "gouvernance/principes.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## DIRECTION/SERVICE-BOUNDARY — ne pas confondre relation et contrat",
+  "destination": "gouvernance/principes.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "### Entrée prioritaire — à lire avant le catalogue",
+  "destination": "gouvernance/structure.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## BIBLIOTHEQUE/CONTRACTS — contrat commun de route",
+  "destination": "gouvernance/structure.md"
+ },
+ {
+  "source": "V1/official/BIBLIOTHEQUE.md",
+  "titre": "## Test de sortie BIBLIOTHEQUE",
+  "destination": "gouvernance/structure.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/STATUS — états, issues et verdicts",
+  "destination": "gouvernance/statuts.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/PRECONDITION — mode, capacité et preuve",
+  "destination": "gouvernance/travail.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/RUN_CARD — carte de run minimale",
+  "destination": "gouvernance/travail.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/STRUCTURED-PROOF — contrats de décision et leur preuve",
+  "destination": "gouvernance/verification.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/GATE-B — jugement contextualisé et risques",
+  "destination": "gouvernance/verification.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/OVERRIDE — FAIL-ASSUMED et péremption",
+  "destination": "gouvernance/verification.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/CLOSE-PACKAGE — paquet de clôture",
+  "destination": "gouvernance/cloture.md"
+ },
+ {
+  "source": "V1/official/ACTION.md",
+  "titre": "## ACTION/CLOSE-EXIT-CHECK — test de sortie canonique",
+  "destination": "gouvernance/cloture.md"
+ },
+ {
+  "source": "V1/official/DIRECTION.md",
+  "titre": "## Clôture de direction",
+  "destination": "gouvernance/cloture.md"
+ }
+]
