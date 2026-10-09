@@ -47,6 +47,16 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 
 ## Ce que contient le dépôt
 
+```mermaid
+flowchart TD
+  R["README"] --> G["guides/ : une porte par public"]
+  G --> D["design/ : direction, savoir, formes, produit"]
+  R --> AG["agent/ : la skill et son chemin"]
+  AG --> D
+  D -. "si le travail est tracé ou livré" .-> GV["gouvernance/ : facultatif"]
+  R --> M["maintenance/ : faire évoluer le système"]
+```
+
 | Partie | Chemin | Contenu |
 |---|---|---|
 | **Guides** | `guides/` | Les portes : commencer, designer, équipe, glossaire. |
