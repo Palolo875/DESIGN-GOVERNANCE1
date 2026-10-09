@@ -13,7 +13,7 @@ RUN=""
 if ! mkdir "$LOCK" 2>/dev/null; then
   echo "BUILD FAILED — verrou de construction présent ($LOCK) ; ne pas lancer deux builds simultanément" >&2
   if [[ -f "$LOCK/owner.txt" ]]; then cat "$LOCK/owner.txt" >&2; fi
-  echo "Diagnostic et reprise manuelle : README.md, section Reprendre une préparation interrompue" >&2
+  echo "Diagnostic et reprise manuelle : maintenance/README.md, section Reprendre une préparation interrompue" >&2
   exit 1
 fi
 cleanup() {
@@ -56,6 +56,7 @@ cp -a "$ROOT/V1" "$STAGE/github/V1"
 cp -a "$ROOT/gouvernance" "$STAGE/github/gouvernance"
 cp -a "$ROOT/design" "$STAGE/github/design"
 cp -a "$ROOT/agent" "$STAGE/github/agent"
+cp -a "$ROOT/maintenance" "$STAGE/github/maintenance"
 mkdir -p "$STAGE/github/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/github/scripts/validate_design_governance.py"
 cp -a "$ROOT/scripts/build_distributions.sh" "$STAGE/github/scripts/build_distributions.sh"
@@ -82,6 +83,7 @@ cp -a "$ROOT/design" "$STAGE/local/design"
 cp -a "$ROOT/agent/skill" "$STAGE/local/skill"
 mkdir -p "$STAGE/local/agent"
 cp -a "$ROOT/agent/chemins.md" "$ROOT/agent/repondre.md" "$STAGE/local/agent/"
+cp -a "$ROOT/maintenance" "$STAGE/local/maintenance"
 mkdir -p "$STAGE/local/scripts"
 cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/local/scripts/validate_design_governance.py"
 cp -a "$ROOT/scripts/package_manifest.json" "$STAGE/local/scripts/package_manifest.json"
@@ -124,7 +126,7 @@ Pour renforcer une carte concrète, remplacez le chemin d’exemple par celui de
 python3 gouvernance/outils/validate_run_card.py --strict chemin/vers/run_card.json
 ```
 
-Les cinq sources normatives sont `official/DIRECTION.md`, `official/ACTION.md`, `official/SAVOIR.md`, `official/BIBLIOTHEQUE.md` et `official/CHANGELOG.md`. `README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` orientent la lecture sans créer de règle concurrente.
+Les cinq sources normatives sont `official/DIRECTION.md`, `official/ACTION.md`, `official/SAVOIR.md`, `official/BIBLIOTHEQUE.md` et `maintenance/versions.md`. `README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` orientent la lecture sans créer de règle concurrente.
 
 La projection machine de référence se trouve dans `gouvernance/schemas/run_card.example.json`. Les contrôles documentaires et machine utilisent la bibliothèque standard Python et supposent Python 3.10 ou plus récent. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus Playwright et son navigateur Chromium ; sans eux, ces tests restent `NOT-VERIFIED`. Pour contrôler la projection :
 
@@ -181,13 +183,14 @@ root = Path(sys.argv[1])
 targets = sorted((root / "skill").rglob("*.md")) + [root / "official" / "QUICKSTART.md", root / "official" / "README.md"]
 targets += sorted((root / "gouvernance").glob("*.md")) + sorted((root / "official").glob("*.md"))
 targets += sorted((root / "design").rglob("*.md")) + sorted((root / "agent").glob("*.md"))
+targets += sorted((root / "maintenance").glob("*.md"))
 for path in dict.fromkeys(targets):
     text = path.read_text(encoding="utf-8")
     rewritten = text.replace("V1/official/", "official/").replace("agent/skill/", "skill/")
     # Le README du package est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
     rewritten = rewritten.replace("](../../README.md", "](../README.md")
     # Le module gouvernance/ est à ../../ depuis V1/official/, à ../ depuis official/ (Local).
-    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/").replace("](../../design/", "](../design/").replace("](../../agent/", "](../agent/")
+    rewritten = rewritten.replace("](../../gouvernance/", "](../gouvernance/").replace("](../../design/", "](../design/").replace("](../../agent/", "](../agent/").replace("](../../maintenance/", "](../maintenance/")
     if rewritten != text:
         path.write_text(rewritten, encoding="utf-8")
 PY

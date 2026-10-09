@@ -286,6 +286,6 @@ Si une étape, une variante, une référence ou un tag ne change aucune décisio
 | Trace, preuve, gates, verdict et clôture | [`ACTION.md`](./ACTION.md) |
 | Craft, contenu, contexte, sources et intégrité | [`SAVOIR.md`](./SAVOIR.md) |
 | Support, grille, scène, objet et composants | [`BIBLIOTHEQUE.md`](./BIBLIOTHEQUE.md) |
-| État officiel du package et changements partagés | [`CHANGELOG.md`](./CHANGELOG.md) |
+| État officiel du package et changements partagés | [`CHANGELOG.md`](../../maintenance/versions.md) |
 
 Lisez une source détaillée uniquement si elle peut modifier une décision, un artefact, une preuve, une limite ou la prochaine action. Pour les exemples, le flux et la projection machine, consultez les références de la skill pratique lorsque le parcours le justifie : `agent/skill/references/examples.md`, `agent/skill/references/flow.md` et `agent/skill/references/machine_projection.md`.

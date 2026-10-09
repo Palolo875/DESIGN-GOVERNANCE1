@@ -35,7 +35,7 @@ ARCHIVES = ("Design_Governance_V1_GITHUB.zip", "Design_Governance_V1_LOCAL.zip")
 LANG = {"json": "json", "py": "python", "sh": "bash", "yml": "yaml"}
 FIRST = ["README.md", "RELEASE_NOTES.md", "V1/official/README.md", "V1/official/QUICKSTART.md", "V1/official/READING_MAP.md",
          "V1/official/DIRECTION.md", "V1/official/ACTION.md", "V1/official/SAVOIR.md", "V1/official/BIBLIOTHEQUE.md",
-         "V1/official/CHANGELOG.md"]
+         "maintenance/versions.md"]
 # Script de restauration embarqué dans la copie complète. Le motif est découpé pour ne jamais contenir le marqueur littéral.
 RESTORE = '''import re, sys, hashlib, pathlib
 src, dest = sys.argv[1], pathlib.Path(sys.argv[2])
@@ -108,7 +108,7 @@ def order(name: str) -> tuple:
 def markdown_copy(archive: Path, only_docs: bool) -> str:
     z = zipfile.ZipFile(archive)
     names = sorted((n for n in z.namelist() if not n.endswith("/") and (n.endswith(".md") or not only_docs)), key=order)
-    changelog = (ROOT / "V1" / "official" / "CHANGELOG.md").read_text(encoding="utf-8")
+    changelog = (ROOT / "maintenance" / "versions.md").read_text(encoding="utf-8")
     version = (re.search(r"`(V\d+\.\d+\.\d+)`", changelog) or [None, "V1"])[1]
     revision = re.search(r"Révision[^`\n]*`([^`]+)`", (ROOT / "README.md").read_text(encoding="utf-8"))
     title = f"Design Governance {version} — " + ("documents en Markdown" if only_docs else "copie complète en Markdown")

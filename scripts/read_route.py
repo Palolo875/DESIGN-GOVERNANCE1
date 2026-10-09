@@ -136,18 +136,21 @@ LIEUX: dict[str, tuple[str, ...]] = {
     # Rangement, lot 4 : la gouvernance formelle part dans le module gouvernance/ (texte inchangé).
     # Rangement, lot 5 : le cœur du design part dans design/ (direction, savoir, formes, produit ; texte inchangé).
     # Rangement, lot 6 : le chemin de l'agent (classer, quoi lire) et sa réponse partent dans agent/ (texte inchangé).
+    # Rangement, lot 7a : l'évolution du système et le journal des versions partent dans maintenance/ (texte inchangé).
     "DIRECTION.md": ("V1/official/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
                      "design/direction/cadrer.md", "design/direction/premier-objet.md", "design/direction/diriger.md",
                      "design/direction/boucle.md", "design/direction/standard.md", "design/produit/interface.md"),
     "ACTION.md": ("V1/official/ACTION.md", "agent/chemins.md", "agent/repondre.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
                   "gouvernance/verification.md", "gouvernance/cloture.md", "design/produit/premier-rendu.md",
-                  "design/produit/plancher.md", "design/produit/finition.md", "design/produit/preuve-visuelle.md"),
+                  "design/produit/plancher.md", "design/produit/finition.md", "design/produit/preuve-visuelle.md",
+                  "maintenance/evolution.md"),
     "SAVOIR.md": ("V1/official/SAVOIR.md", "agent/chemins.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
                   "design/savoir/typographie.md", "design/savoir/composition.md", "design/savoir/images-et-sources.md",
                   "design/savoir/styles.md", "design/savoir/systeme-de-design.md", "design/savoir/contexte.md",
                   "design/savoir/techniques.md", "design/savoir/gout-et-tendances.md"),
     "BIBLIOTHEQUE.md": ("V1/official/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
-                        "design/formes/catalogue.md"),
+                        "design/formes/catalogue.md", "maintenance/evolution.md"),
+    "CHANGELOG.md": ("maintenance/versions.md", "maintenance/evolution.md"),
 }
 
 

@@ -7,7 +7,6 @@
     "RELEASE_NOTES.md",
     "V1/official/ACTION.md",
     "V1/official/BIBLIOTHEQUE.md",
-    "V1/official/CHANGELOG.md",
     "V1/official/DIRECTION.md",
     "V1/official/GLOSSAIRE.md",
     "V1/official/QUICKSTART.md",
@@ -103,13 +102,15 @@
     "design/savoir/techniques.md",
     "design/savoir/typographie.md",
     "agent/chemins.md",
-    "agent/repondre.md"
+    "agent/repondre.md",
+    "maintenance/README.md",
+    "maintenance/evolution.md",
+    "maintenance/versions.md"
   ],
   "local": [
     "README.md",
     "official/ACTION.md",
     "official/BIBLIOTHEQUE.md",
-    "official/CHANGELOG.md",
     "official/DIRECTION.md",
     "official/GLOSSAIRE.md",
     "official/QUICKSTART.md",
@@ -202,6 +203,9 @@
     "design/savoir/techniques.md",
     "design/savoir/typographie.md",
     "agent/chemins.md",
-    "agent/repondre.md"
+    "agent/repondre.md",
+    "maintenance/README.md",
+    "maintenance/evolution.md",
+    "maintenance/versions.md"
   ]
 }

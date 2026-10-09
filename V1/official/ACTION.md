@@ -112,27 +112,3 @@ Lorsque le risque visuel ou identitaire le requiert, la preuve doit être repré
 Retourne à la direction, à l’ancre, à la spec ou au build lorsque l’écart dominant persiste, lorsque la preuve manque ou lorsqu’une correction locale ne change plus réellement le résultat. Aucun nombre fixe d’itérations n’est requis.
 
 ---
-
-## ACTION/MAINTENANCE — recette documentaire
-
-Tout cycle qui modifie ACTION ou un contrat connexe se clôt par une recette avant adoption.
-
-| Contrôle | Preuve attendue |
-|---|---|
-| Fichiers et renvois | Chaque fichier et route référencés existent et portent la bonne portée. |
-| Statuts | Les états, issues, verdicts et statuts de direction appartiennent aux registres canoniques ; aucun plan de maturité concurrent n’est ajouté. |
-| Scopes | Chaque obligation précise son mode, contexte ou niveau de proportionnalité. |
-| Exemples | Aucun exemple ne propage un statut ou une règle dépréciée. |
-| Claims datés | Source, version/date, portée, limite et prochaine preuve sont renseignées dans la trace locale quand le run en dépend. |
-| Routage | Chaque signal a une route principale ; les miroirs sont dérivés explicitement. |
-| Quotas artificiels | Aucun quota de variantes, retraits, comparaisons, itérations ou appels ne gouverne la qualité. |
-| Échappatoire théâtrale | Chaque mécanisme est testé contre sa manière la plus facile d’être satisfait sans intention. |
-| Run réel | Une modification substantielle est exercée sur un run réel avant adoption élargie. |
-| Ownership | Owner du changement, statut d’adoption et prochaine revue sont nommés. |
-| Réserves | Owner, périmètre, date ou version, impact, date de revue, prochaine preuve et condition de sortie sont persistants. |
-
-La recette peut être automatisée pour les fichiers, routes, statuts et renvois. Elle doit rester humaine pour le scope, l’intention, l’échappatoire théâtrale, la proportionnalité et le jugement du risque.
-
-Une contradiction non résolue devient un risque explicite, jamais une règle silencieusement concurrente.
-
----

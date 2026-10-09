@@ -14,7 +14,7 @@ Les cinq fichiers suivants sont les **seules sources normatives** de V1 :
 | [`ACTION.md`](./ACTION.md) | Run, preuve, gates, statuts, verdict et clôture. |
 | [`SAVOIR.md`](./SAVOIR.md) | Jugement, craft, contenu, contexte, sources et intégrité. |
 | [`BIBLIOTHEQUE.md`](./BIBLIOTHEQUE.md) | Support, grille, scène, objet, micro-interface, contrat et compatibilité. |
-| [`CHANGELOG.md`](./CHANGELOG.md) | État du corpus, changements, compatibilités et maintenance. |
+| [`CHANGELOG.md`](../../maintenance/versions.md) | État du corpus, changements, compatibilités et maintenance. |
 
 `README.md`, `QUICKSTART.md` et `GLOSSAIRE.md` sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
 

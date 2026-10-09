@@ -37,34 +37,6 @@ Toute évolution doit identifier une source normative unique, un propriétaire, 
 
 L’historique de conception et de travail n’est pas livré avec cette distribution. Il n’est pas requis pour lire, utiliser ou valider V1.
 
-## Cycle de vie des routes
-
-Les statuts de route décrivent la maintenance d’une route candidate ou canonique. Ils ne sont pas des verdicts de design.
-
-| Statut | Sens | Transition autorisée |
-|---|---|---|
-| `SEED` | Route du seed V1, canonique par construction, sans gain mesuré. | `ADOPTED` (contrat de gain réel satisfait, `BIBLIOTHEQUE/EVOLUTION`) ou `DEPRECATED`. |
-| `PILOT` | Route locale ou candidate testée dans un périmètre déclaré. | `ADOPTED` ou `ABANDONED` ; `DEPRECATED` lorsque la route a des consumers. |
-| `ADOPTED` | Route canonique dont le contrat, la maintenance et le gain sont acceptés. | `DEPRECATED`. |
-| `DEPRECATED` | Route conservée pour migration ou compatibilité ; elle ne doit pas être choisie dans un nouveau run. Aucun nouvel usage ; migration par `ACTION/RUN-SYSTEM` (paquet SYSTÈME). | `ABANDONED` après migration. |
-| `ABANDONED` | Route qui n’est plus maintenue ni proposée. | Aucune transition silencieuse. |
-
-Les routes présentes dans le seed de la V1 ont le statut `SEED` : canoniques, sans gain mesuré. `ADOPTED` exige le contrat de gain réel (`BIBLIOTHEQUE/EVOLUTION`). Une route peut être dépréciée depuis tout état publié ou utilisé (`SEED`, `PILOT` avec consumers, `ADOPTED`) ; une dépréciation interdit les nouveaux usages, exige une migration et ne revendique aucun gain. Toute nouvelle route ou promotion doit indiquer son problème, sa décision, son owner, son contrat, sa preuve, sa limite, sa compatibilité et sa prochaine revue.
-
-## Migration des anciens aliases
-
-Les aliases suivants, issus des brouillons antérieurs à V1, ne sont pas des routes actives. Ils sont reclassés selon ce qu’ils établissent réellement ; l’ancien identifiant peut être conservé dans une trace de compatibilité.
-
-| Alias | Reclassification retenue |
-|---|---|
-| `REFERENCES/QUERY` | `SAVOIR/TOOLS` pour une recherche ou un claim à vérifier. |
-| `REFERENCES/SOURCE` | `SAVOIR/SOURCE` pour une ancre ou une référence observée. |
-| `REFERENCES/ASSET` | `DIRECTION/VISUAL_TARGET` pour la route et le rôle de production ; `SAVOIR/SOURCE` pour provenance et limite. |
-| `REFERENCES/MEMORY` | `TRACE-LOCATOR` et artefact local ; une mémoire ne devient pas une source normative. |
-| `REFERENCES/CORPUS` | Le propriétaire normatif réellement concerné ; `CHANGELOG` seulement si le contenu modifie le package. |
-
-Une reclassification ambiguë reste `NOT-VERIFIED` ou `EXPLORATORY` jusqu’à ce que son propriétaire et sa portée soient établis.
-
 ## Limites de la version
 
 Une validation de package ou de `RUN_CARD` confirme uniquement les contrôles exécutés. Elle ne remplace ni l’observation d’un rendu, ni un test utilisateur, ni une vérification d’accessibilité exécutée, ni une mesure de performance, ni une preuve d’adoption.

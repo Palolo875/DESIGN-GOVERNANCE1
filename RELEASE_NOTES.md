@@ -37,7 +37,7 @@ L’agent lit un **noyau de fabrication**, compilé depuis les sources normative
 - **Interfaces.** Réalité UI/UX chargée avant fabrication ; toute exigence UI/UX déclarée est couverte.
 - **Projection machine.** Schéma `RUN_CARD` et contrats de production, avec exemples et fixtures.
 
-Le détail est dans [`V1/official/CHANGELOG.md`](V1/official/CHANGELOG.md).
+Le détail est dans [`maintenance/versions.md`](maintenance/versions.md).
 
 ## Contenu
 
