@@ -50,25 +50,27 @@ PROCHAINE PREUVE: vrais tarifs, horaires et numéro intégrés, puis capture mob
 
 ## DIRECTION — première scène identitaire
 
-**Demande :** créer une hero mémorable pour un service de cartographie sonore, sans page SaaS générique.
+**Demande :** créer une première scène mémorable pour [un service au domaine précis], sans page générique.
 
-**Décisions :** thèse située, premier objet sonore, composition asymétrique, matière utile, composant authored, modal et parti. L’artefact doit être ouvrable et les données fictives marquées.
+Comme plus haut, les crochets marquent ce que chaque run tire de son propre brief : l’exemple ne fournit ni thèse, ni objet, ni parti, pour qu’ils ne soient pas recopiés. La séquence et les champs, eux, sont à reprendre.
+
+**Décisions :** thèse située, premier objet tiré du produit, composition, matière utile, composant construit pour ce produit, modal et parti. L’artefact doit être ouvrable et les données fictives marquées.
 
 ```text
 MODE: DIRECTION
 DECISION-INTENT: choisir une direction située pour le premier geste de découverte
-THESIS: la ville se découvre par couches d’écoute
-FIRST-OBJECT: topographie sonore interactive
-MODAL: carte plate à pins, titre centré, cartes de fonctionnalités
-PARTI: s’écarter de la carte à pins ; l’écoute par couches porte la scène
-ARTIFACT: hero construite avec objet, contenu et geste
+THESIS: [ce que le produit affirme, en une phrase tirée du brief]
+FIRST-OBJECT: [l’élément du produit qui rend la promesse visible et utile]
+MODAL: [ce que n’importe quelle IA produirait pour ce brief : structure, palette, typo, assets]
+PARTI: [où s’écarter du modal et pourquoi, au regard de la thèse ; ce qu’on garde]
+ARTIFACT: première scène construite avec objet, contenu et geste
 OBSERVED: hiérarchie, matière et premier geste dans le viewport inspecté
 NOT-VERIFIED: préférence, utilisabilité générale, accessibilité exécutée
 AXES: V PASS · U NOT-VERIFIED · A NOT-VERIFIED · T PASS
-DECISION-CHANGE: CHANGED — la topographie sonore remplace la carte à pins comme premier objet (observation : paire v1/v1b, le premier geste est lu en premier dans le viewport inspecté)
-CREATIVE-REVIEW: présence portée par la topographie sonore ; signature spécifique dans la relation entre ville, couche et écoute ; résolution à renforcer dans les états secondaires ; prochaine action : polir la transition entre découverte et premier geste
+DECISION-CHANGE: CHANGED — [le premier objet] remplace [l’élément attendu du modal] comme premier objet (observation : paire v1/v1b, le premier geste est lu en premier dans le viewport inspecté)
+CREATIVE-REVIEW: présence portée par [le premier objet] ; signature dans [la relation propre à ce produit] ; résolution à renforcer dans les états secondaires ; prochaine action : polir la transition entre découverte et premier geste
 VERDICT: ACCEPTED-WITH-RESERVATION
-RESERVATION: accessibilité exécutée non vérifiée — owner : lead design ; scope : hero ; impact : parcours clavier de la topographie inconnu ; prochaine preuve : parcours clavier et lecteur d’écran ; revue : 2026-10-09 ; condition de sortie : parcours clavier observé sans blocage
+RESERVATION: accessibilité exécutée non vérifiée — owner : lead design ; scope : première scène ; impact : parcours clavier du premier objet inconnu ; prochaine preuve : parcours clavier et lecteur d’écran ; revue : 2026-10-09 ; condition de sortie : parcours clavier observé sans blocage
 DIRECTION-STATUS: HELD
 STATE: CLOSED
 ```
@@ -79,21 +81,21 @@ Lecture visuelle illustrative — annotation narrative, non-champ `RUN_CARD` : l
 
 ## DIRECTION + STYLE — profil d’expression situé
 
-**Demande :** donner une présence culturelle à une archive numérique sans transformer l’interface en nostalgie décorative.
+**Demande :** donner une présence culturelle à [une collection ou une archive précise] sans transformer l’interface en décor.
 
-**Choix :** tester `STYLE/DIGITAL_MEMORY` comme hypothèse d’expression. Le profil modifie la matière, le rythme et le traitement des fragments ; il ne choisit ni la structure de l’archive ni le verdict.
+**Choix :** tester [un profil de `SAVOIR/STYLE` choisi pour ce contenu] comme hypothèse d’expression. Le profil modifie la matière, le rythme et le traitement des pièces ; il ne choisit ni la structure ni le verdict. Les crochets marquent ce que le run tire de son brief.
 
 ```text
 MODE: DIRECTION
-PROFILE: STYLE/DIGITAL_MEMORY
-PROFILE-DECISION: transformer la mémoire d’écran en repère de collection
+PROFILE: [profil de SAVOIR/STYLE]
+PROFILE-DECISION: [ce que le profil doit transformer, et en quoi cela sert le contenu]
 PROFILE-PHASE: observed
-DIALS: densité haute dans l’archive, motion basse dans la navigation, variance modérée dans les pièces
-COUNTERINDICATION: lecture critique, contraste faible, nostalgie sans relation au contenu
-ARTIFACT: scène d’archive avec fragments, métadonnées et états réels
-EVIDENCE: paire de captures avec et sans traitement pixel/raster : les pièces se distinguent des contrôles et les métadonnées restent lisibles (claim visuel seulement)
-PROOF-LIMIT: mémorisation et tâche NOT-VERIFIED (elles exigeraient un protocole utilisateur : participants, tâche, mesure) ; droits des fragments externes non validés
-DECISION-CHANGE: CHANGED — le traitement numérique est limité aux pièces et retiré des contrôles critiques (observation : paire de captures)
+DIALS: [densité, mouvement et variance, réglés zone par zone]
+COUNTERINDICATION: lecture critique, contraste faible, effet sans relation au contenu
+ARTIFACT: scène de collection avec pièces, métadonnées et états réels
+EVIDENCE: paire de captures avec et sans le traitement : les pièces se distinguent des contrôles et les métadonnées restent lisibles (claim visuel seulement)
+PROOF-LIMIT: mémorisation et tâche NOT-VERIFIED (elles exigeraient un protocole utilisateur : participants, tâche, mesure) ; droits des pièces externes non validés
+DECISION-CHANGE: CHANGED — le traitement est limité aux pièces et retiré des contrôles critiques (observation : paire de captures)
 ```
 
 Le profil peut être refusé si la paire ne change aucune décision ou si la matière nuit à la lisibilité. `PROFILE-DECISION` ne devient ni un score, ni un verdict esthétique, ni une autorisation d’imiter une référence.
