@@ -362,6 +362,30 @@ class SearchAndSummaryTests(unittest.TestCase):
                 if locator:
                     self.assertIn(f"\n{locator} ", out)
 
+    def test_every_route_has_a_readable_address(self):
+        # Rangement, lot 2 : chaque route a une adresse lisible qui la sert ; les anciennes restent servies.
+        routes = {row[0] for row in reader.summary_rows()}
+        self.assertEqual(sorted(routes - set(reader.ADRESSE_DE) - reader.SANS_ADRESSE), [])
+        self.assertEqual(len(set(reader.ADRESSES.values())), len(reader.ADRESSES))
+        for new, old in reader.ADRESSES.items():
+            self.assertEqual(reader.resolve(new)[:2], reader.resolve(old)[:2], new)
+            self.assertEqual(reader.resolve("design/" + new)[2], reader.resolve(old)[2], new)
+        out = self.cli("savoir/couleur").stdout
+        self.assertIn("ROUTE: SAVOIR/CRAFT/CFT-05 (adresse : savoir/couleur)", out)
+
+    def test_phrase_search_reaches_the_owner(self):
+        # Rangement, lot 2 : une phrase d'humain trouve la route qui y répond, même si l'expression exacte n'existe pas.
+        out = self.cli("--trouver", "quelle police choisir").stdout
+        top = [l.split(" ")[0] for l in out.splitlines() if l.split(" ")[0].count("/") == 1 and "ligne(s)" in l][:3]
+        self.assertIn("mots de la phrase", out)
+        self.assertIn("SAVOIR/TYPE", top)
+        # Une expression trouvée seulement hors route ne bloque pas la recherche par mots.
+        outside = [(None, "CHANGELOG.md", 1, "quelle police choisir")]
+        inside = [("SAVOIR/TYPE", "SAVOIR.md", 2, "police à choisir")]
+        with patch.object(reader, "_scan", side_effect=[outside, outside, [], inside]):
+            self.assertEqual(reader.search("quelle police choisir")[0], "mots de la phrase")
+        self.assertEqual(reader.phrase_words("police"), [])
+
     def test_route_outline_gives_readable_sublocators(self):
         rows = reader.outline("SAVOIR/CRAFT")
         subs = [sub for _, _, sub, _ in rows if sub]

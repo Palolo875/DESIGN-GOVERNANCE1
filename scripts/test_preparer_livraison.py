@@ -184,6 +184,20 @@ class PreparationTests(unittest.TestCase):
                 errors = []; package_validator.check_expected_files(errors)
                 self.assertTrue(any("scripts/.git/leak.txt" in error for error in errors))
 
+    def test_agent_install_folder_is_not_part_of_the_package(self):
+        # Le README propose de copier la skill dans .claude/skills/ du projet, qui peut être le dossier du package.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); (root / "README.md").write_text("source")
+            installed = root / ".claude/skills/design-governance-practice"; installed.mkdir(parents=True)
+            (installed / "SKILL.md").write_text("[lien](../../V1/official/ABSENT.md)\n")
+            with patch.object(package_validator, "ROOT", root), patch.object(package_validator, "EXPECTED", ["README.md"]):
+                errors = []; package_validator.check_expected_files(errors)
+                self.assertEqual(errors, [])
+                self.assertFalse(package_validator.in_package(installed / "SKILL.md"))
+                nested = root / "scripts/.claude"; nested.mkdir(parents=True); (nested / "leak.txt").touch()
+                errors = []; package_validator.check_expected_files(errors)
+                self.assertTrue(any("scripts/.claude/leak.txt" in error for error in errors))
+
     def test_success_keeps_limit_visible_and_complete_log(self):
         with tempfile.TemporaryDirectory() as tmp:
             journal = Path(tmp) / "audit.log"

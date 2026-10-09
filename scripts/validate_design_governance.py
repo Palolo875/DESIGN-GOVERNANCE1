@@ -111,6 +111,16 @@ def check_manifest(errors: list[str]) -> None:
             fail(errors, f"version du titre divergente : {label} (attendu V{match.group(1)})")
 
 
+# Dossier d'installation d'un agent (copie de la skill, réglages) : il peut vivre dans le dossier du package
+# sans en faire partie, comme le README le propose ; ni inventaire, ni liens, ni valeurs n'y sont contrôlés.
+INSTALL_ROOT = {".claude"}
+
+
+def in_package(path: Path) -> bool:
+    parts = path.relative_to(ROOT).parts
+    return not parts or parts[0] not in INSTALL_ROOT | {"dist", ".build", ".dist.previous", ".git"}
+
+
 def check_expected_files(errors: list[str]) -> None:
     expected = set(EXPECTED)
     for relative in EXPECTED:
@@ -118,7 +128,7 @@ def check_expected_files(errors: list[str]) -> None:
             fail(errors, f"fichier attendu absent : {relative}")
     # C8 O-4 : sorties de build, journaux et métadonnées du checkout ne sont exclus qu’à la racine ;
     # `__pycache__` l’est partout, puisque le build le purge avant l’archivage.
-    generated_root = {"dist", ".build", ".dist.previous", ".git", ".logs", ".distribution.lock"}
+    generated_root = {"dist", ".build", ".dist.previous", ".git", ".logs", ".distribution.lock", *INSTALL_ROOT}
     allowed_root_artifacts = {
         "Design_Governance_V1_GITHUB.zip",
         "Design_Governance_V1_LOCAL.zip",
@@ -187,7 +197,7 @@ def markdown_anchors(text: str) -> set[str]:
 
 def check_links(errors: list[str]) -> None:
     link_pattern = re.compile(r"\]\(([^)]+)\)")
-    for path in ROOT.rglob("*.md"):
+    for path in filter(in_package, ROOT.rglob("*.md")):
         if "/dist/" in str(path):
             continue
         text = path.read_text(encoding="utf-8")
@@ -229,7 +239,7 @@ def check_structured_values(errors: list[str]) -> None:
         "VERDICT": (re.compile(r"^\s*VERDICT:\s*([^\s`]+)"), VERDICT_VALUES),
         "DIRECTION-STATUS": (re.compile(r"^\s*DIRECTION-STATUS:\s*([^\s`]+)"), DIRECTION_VALUES),
     }
-    for path in ROOT.rglob("*.md"):
+    for path in filter(in_package, ROOT.rglob("*.md")):
         if "/dist/" in str(path):
             continue
         lines = path.read_text(encoding="utf-8").splitlines()
@@ -241,7 +251,7 @@ def check_structured_values(errors: list[str]) -> None:
 
 
 def check_state_direction_separation(errors: list[str]) -> None:
-    for path in ROOT.rglob("*.md"):
+    for path in filter(in_package, ROOT.rglob("*.md")):
         if "/dist/" in str(path):
             continue
         text = path.read_text(encoding="utf-8")

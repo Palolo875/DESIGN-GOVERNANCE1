@@ -11,10 +11,13 @@ Comme le validateur de carte : locator de table unique, propriétaire et titre c
 Les identifiants structurels documentés (GRID/…, OBJECT/…, etc.) sont des raccourcis
 vers BIBLIOTHEQUE : titre exact, ou section porteuse si l'identifiant est une ligne de table.
 Un identifiant absent, ambigu ou présent seulement dans un bloc de code est refusé.
+Une adresse lisible (`savoir/couleur`, `produit/plancher`, préfixe `design/` facultatif ; table ADRESSES)
+est servie comme le locator qu'elle désigne ; l'ancien locator reste accepté.
 
 Recherche de routes par terme : `--trouver TERME` cherche le terme en mots entiers, avec ses alias
 (synonymes et traductions stricts d'ALIAS_GROUPS), puis en correspondance partielle, puis mot à mot sur
-une même ligne ; les routes sont classées et les premières affichées (`--tout` pour toutes).
+une même ligne ; enfin, pour une phrase (« quelle police choisir »), mot par mot avec racines et alias, les routes
+classées par la rareté des mots qu'elles portent. Les routes sont classées et les premières affichées (`--tout` pour toutes).
 La casse et les accents sont ignorés, pas le sens. `--sommaire [LOCATOR]` liste les routes et leur rôle,
 ou les sous-sections d'une route. `--guides` ajoute les documents d'orientation
 (guides du corpus, README racine, références de la skill), identifiés séparément. Les marqueurs internes sont exclus. Aucun résultat ne prouve l'absence du savoir.
@@ -27,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import math
 import re
 import sys
 import unicodedata
@@ -129,6 +133,64 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
 # son contenu. Un nom absent de la table désigne le fichier du même nom dans OFFICIAL. Le rangement déplace le
 # texte puis met à jour cette table, et elle seule : lecteur, compilation du noyau et validateurs passent par elle.
 LIEUX: dict[str, tuple[str, ...]] = {}
+
+
+# Adresses lisibles (architecture cible, branche refonte : ARCHI/architecture.md §6) → locator actuel.
+# On peut les donner au lecteur dès maintenant ; l'ancien locator reste accepté pendant toute la V1.
+# Le préfixe « design/ » est facultatif. Quand une route change de titre (phase de langue), seule cette table change.
+ADRESSES: dict[str, str] = {
+    "direction/cadrer#demande-vague": "DIRECTION/EXTERNAL-START", "direction/cadrer#domaine": "DIRECTION/DOMAIN-FRAME",
+    "direction/diriger#lancement": "DIRECTION/CREATIVE-BOOT", "direction/diriger#cible-visuelle": "DIRECTION/VISUAL_TARGET",
+    "direction/diriger#atelier": "DIRECTION/DIRECTION-ATELIER", "direction/premier-objet": "DIRECTION/FIRST-OBJECT",
+    "direction/boucle": "DIRECTION/DOUBLE-LOOP",
+    "savoir/fondements": "SAVOIR/FRAME", "savoir/qualite-creative": "SAVOIR/CRAFT",
+    "savoir/qualite-creative#ambition": "SAVOIR/CRAFT/CFT-00", "savoir/qualite-creative#forme-situee": "SAVOIR/CRAFT/CFT-01",
+    "savoir/qualite-creative#registres": "SAVOIR/CRAFT/CFT-02", "savoir/qualite-creative#emotion": "SAVOIR/CRAFT/CFT-04",
+    "savoir/qualite-creative#premier-contact": "SAVOIR/CRAFT/CFT-04a", "savoir/composition": "SAVOIR/CRAFT/CFT-03",
+    "savoir/composition#jugement-visuel": "SAVOIR/STATE", "savoir/couleur": "SAVOIR/CRAFT/CFT-05",
+    "savoir/typographie": "SAVOIR/TYPE", "savoir/images-et-sources": "SAVOIR/SOURCE",
+    "savoir/images-et-sources#familles": "SAVOIR/DESIGN-ATLAS", "savoir/styles": "SAVOIR/STYLE",
+    "savoir/systeme-de-design": "SAVOIR/SYSTEM", "savoir/contexte": "SAVOIR/CONTEXT", "savoir/techniques": "SAVOIR/TECH",
+    "savoir/gout-et-tendances": "SAVOIR/TOOLS", "savoir/gout-et-tendances#tendances-datees": "SAVOIR/TOOLS/CONVERGENCE",
+    "savoir/gout-et-tendances#ressources": "SAVOIR/TOOLS/MOYENS",
+    "formes/choisir": "BIBLIOTHEQUE/SELECT", "formes/choisir#lire": "BIBLIOTHEQUE/READ",
+    "formes/choisir#tension": "BIBLIOTHEQUE/TENSION", "formes/choisir#signature": "BIBLIOTHEQUE/SIGNATURE",
+    "formes/choisir#deriver": "BIBLIOTHEQUE/DERIVE", "formes/catalogue#supports": "BIBLIOTHEQUE/SUPPORT",
+    "formes/catalogue#grilles": "BIBLIOTHEQUE/GRID", "formes/catalogue#scenes": "BIBLIOTHEQUE/SCENE",
+    "formes/catalogue#sequence": "BIBLIOTHEQUE/SEQUENCE", "formes/catalogue#objets": "BIBLIOTHEQUE/OBJECT",
+    "formes/catalogue#micro": "BIBLIOTHEQUE/MICRO", "formes/catalogue#modificateurs": "BIBLIOTHEQUE/MODIFIER",
+    "formes/catalogue#composants": "BIBLIOTHEQUE/COMPONENTS", "formes/catalogue#compatibilite": "BIBLIOTHEQUE/COMPAT",
+    "produit/premier-rendu": "ACTION/FIRST-RENDER", "produit/interface": "ACTION/UI-UX-REALITY",
+    "produit/plancher": "ACTION/GATE-A", "produit/plancher#contraste": "ACTION/POLICIES",
+    "produit/finition": "ACTION/GATE-C", "produit/finition#contre-le-generique": "ACTION/ANTI-SLOP",
+    "produit/preuve-visuelle": "ACTION/VISUAL_PROOF",
+    "agent/chemins#classer": "DIRECTION/START", "agent/chemins#quoi-lire": "DIRECTION/CHARGE",
+    "agent/chemins#chemin-court": "ACTION/FAST-PATH", "agent/chemins#lire-le-savoir": "SAVOIR/READ",
+    "agent/chemins#jugement-rapide": "SAVOIR/JUGEMENT-COURT", "agent/chemins#prerequis": "ACTION/ROUTING",
+    "agent/chemins#modes": "ACTION/RUN", "agent/chemins#retouche": "ACTION/RUN-LITE",
+    "agent/chemins#iteration": "ACTION/RUN-ITER", "agent/chemins#ecran": "ACTION/RUN-STANDARD",
+    "agent/chemins#direction": "ACTION/RUN-DIRECTION", "agent/chemins#systeme": "ACTION/RUN-SYSTEM",
+    "agent/repondre": "ACTION/HANDOFF",
+    "gouvernance/principes#relation-ou-contrat": "DIRECTION/SERVICE-BOUNDARY",
+    "gouvernance/principes#portee": "ACTION/AUTHORITY", "gouvernance/statuts": "ACTION/STATUS",
+    "gouvernance/travail": "ACTION/RUN_CARD", "gouvernance/travail#conditions": "ACTION/PRECONDITION",
+    "gouvernance/travail#deroule": "ACTION/PIPELINE-DIRECTION", "gouvernance/cloture": "ACTION/CLOSE-PACKAGE",
+    "gouvernance/cloture#test-de-sortie": "ACTION/CLOSE-EXIT-CHECK", "gouvernance/verification": "ACTION/GATE-B",
+    "gouvernance/verification#contrats": "ACTION/STRUCTURED-PROOF", "gouvernance/verification#derogation": "ACTION/OVERRIDE",
+    "gouvernance/structure": "BIBLIOTHEQUE/CONTRACTS", "gouvernance/structure#avant-selection": "BIBLIOTHEQUE/AVANT-SELECTION",
+    "gouvernance/structure#controle": "BIBLIOTHEQUE/GATE", "gouvernance/integrite": "SAVOIR/INTEGRITY",
+    "maintenance/evolution": "ACTION/MAINTENANCE", "maintenance/evolution#routes": "BIBLIOTHEQUE/EVOLUTION",
+    "guides/designer#routes": "SAVOIR/ROUTING",
+}
+# Renvois sans contenu propre : pas d'adresse lisible, l'ancien locator reste servi.
+SANS_ADRESSE = {"DIRECTION/FAST-PATH"}
+ADRESSE_DE = {old: new for new, old in ADRESSES.items()}
+
+
+def adresse(locator: str) -> str:
+    """Locator actuel pour une adresse lisible (préfixe design/ facultatif) ; sinon le locator tel quel."""
+    key = locator.strip().removeprefix("design/")
+    return ADRESSES.get(key, locator)
 
 
 def lieu(name: str) -> list[Path]:
@@ -303,7 +365,8 @@ def connections(text: str | None = None) -> tuple[str, dict[str, dict[str, str]]
 
 
 def resolve(locator: str, routes: dict[str, tuple[str, list[str]]] | None = None) -> tuple[Path, list[str], int]:
-    """Renvoie (fichier, lignes, index du titre servi)."""
+    """Renvoie (fichier, lignes, index du titre servi). Accepte aussi une adresse lisible (table ADRESSES)."""
+    locator = adresse(locator)
     parts = locator.split("/")
     if len(parts) == 2 and parts[0] in STRUCTURE_PARENTS:
         locator = f"BIBLIOTHEQUE/{STRUCTURE_PARENTS[parts[0]]}/{parts[1]}"
@@ -550,6 +613,24 @@ ALIAS_GROUPS = (
     ("état vide", "empty state", "empty"),
     ("tabulaire", "tabular", "chiffres tabulaires"),
     ("densité", "density"),
+    # Ajouts du lot 2 du rangement : vocabulaire courant d'un débutant, d'un designer ou en anglais (moitié de réglage
+    # du second jeu de trouvabilité ; l'autre moitié sert de témoin).
+    ("accessibilité", "accessible", "accessibility", "handicap", "wcag", "a11y"),
+    ("erreur", "erreurs", "error", "plante"),
+    ("mise en page", "layout"),
+    ("titre", "titres", "headline", "heading"),
+    ("retour à la ligne", "line break", "line breaks", "césure", "orphelin"),
+    ("style", "styles", "look"),
+    ("tableau", "tableaux", "table", "dashboard", "tableau de bord"),
+    ("token", "tokens", "variable", "variables"),
+    ("test utilisateur", "usability", "utilisabilité", "test d’usage", "test d'usage"),
+    ("fort enjeu", "médical", "santé", "healthcare", "high-stakes", "paiement"),
+    ("péremption", "dépassé", "dépassée", "obsolète", "outdated"),
+    ("fictif", "fictive", "fake", "inventé", "inventés"),
+    ("largeur", "largeurs", "viewport", "widths", "breakpoint"),
+    ("dérogation", "override", "known issue"),
+    ("réponse", "answer", "compte rendu"),
+    ("chargement", "charger", "load"),
 )
 STOPWORDS = {"le", "la", "les", "un", "une", "des", "de", "du", "d", "l", "et", "ou", "en", "a", "au", "aux", "sur",
              "pour", "par", "avec", "dans", "the", "of", "and", "to", "for"}
@@ -577,21 +658,82 @@ def search(term: str, include_guides: bool = False) -> tuple[str, list[str], lis
     terms = aliases(term)
     if not _fold(term.strip()):
         raise RouteError("terme de recherche vide")
+    phrase = phrase_words(term)
+
+    def enough(found):  # une phrase continue vers le mode suivant tant qu'aucune ligne trouvée n'est dans une route
+        return found and (not phrase or any(r[0] is not None for r in found))
     patterns = [_word(t) for t in terms]
     results = _scan(lambda folded: any(p.search(folded) for p in patterns), include_guides)
-    if results:
+    if enough(results):
         return "mots entiers", terms, results
     folded_terms = [_fold(t) for t in terms]
     results = _scan(lambda folded: any(f in folded for f in folded_terms), include_guides)
-    if results:
+    if enough(results):
         return "correspondance partielle", terms, results
     words = [w for w in re.split(r"[^a-z0-9]+", _fold(term)) if len(w) > 1 and w not in STOPWORDS]
     if len(words) > 1:
         word_patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(w)) for w in words]
         results = _scan(lambda folded: all(p.search(folded) for p in word_patterns), include_guides)
-        if results:
+        if enough(results):
             return "mots séparés sur une même ligne", words, results
+    if phrase:
+        results = _scan(lambda folded: any(m(folded) for _, m in phrase), include_guides)
+        if results:
+            return "mots de la phrase", [w for w, _ in phrase], results
     return "aucun", terms, []
+
+
+# Recherche par phrase : mots de liaison et mots de question ignorés, en français et en anglais.
+PHRASE_STOPWORDS = STOPWORDS | {
+    "quel", "quelle", "quels", "quelles", "que", "qui", "quoi", "comment", "pourquoi", "quand", "combien", "est", "sont",
+    "mon", "ma", "mes", "ton", "ta", "tes", "son", "sa", "ses", "notre", "nos", "votre", "vos", "leur", "leurs",
+    "je", "tu", "il", "elle", "on", "nous", "vous", "ils", "ce", "cet", "cette", "ces", "ca", "cela", "se", "ne", "pas",
+    "plus", "tres", "trop", "bien", "sans", "sous", "entre", "faire", "fait", "mettre", "avoir", "etre", "veut", "dire",
+    "a", "an", "is", "are", "how", "what", "which", "why", "when", "my", "your", "i", "you", "it", "do", "does",
+    "should", "can", "with", "without", "on", "in", "from", "into", "use", "using", "make", "best", "this", "that"}
+
+
+def phrase_words(term: str) -> list[tuple[str, object]]:
+    """Mots significatifs d'une phrase, chacun avec son test de ligne : ses alias en mots entiers, sinon sa racine
+    (pluriel retiré, fin de mot longue tronquée) en début de mot. Vide si la phrase a moins de deux mots significatifs."""
+    words = [w for w in re.split(r"[^a-z0-9]+", _fold(term)) if len(w) > 2 and w not in PHRASE_STOPWORDS]
+    words = list(dict.fromkeys(words))
+    if len(words) < 2:
+        return []
+    out = []
+    for w in words:
+        root = w[:-1] if w.endswith(("s", "x")) and len(w) > 4 else w
+        if len(root) > 6:  # racine : fin de mot retirée (choisir → chois, lisibilité → lisibili)
+            root = root[:max(5, len(root) - 3)]
+        patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(root))] + [_word(a) for a in aliases(w)[1:]]
+        out.append((w, lambda folded, ps=patterns: any(p.search(folded) for p in ps)))
+    return out
+
+
+def rank_phrase(results: list[tuple[str | None, str, int, str]], term: str) -> list[tuple[str, list[tuple[str | None, str, int, str]]]]:
+    """Routes classées pour une phrase : somme, sur les mots de la phrase présents dans la route, de leur rareté
+    (un mot présent dans peu de routes compte plus) ; au moins la moitié des mots requise."""
+    phrase = phrase_words(term)
+    grouped: dict[str, list] = {}
+    for r in results:
+        if r[0] is not None:
+            grouped.setdefault(r[0], []).append(r)
+    present = {loc: {w for w, m in phrase if any(m(_fold(line)) for _, _, _, line in lines)} for loc, lines in grouped.items()}
+    total = max(len(grouped), 1)
+    df = {w: sum(1 for found in present.values() if w in found) for w, _ in phrase}
+    need = len(phrase) if len(phrase) <= 2 else (len(phrase) + 1) // 2
+    kept = [(loc, lines) for loc, lines in grouped.items() if len(present[loc]) >= need]
+    while not kept and need > 1:  # aucune route n'a assez de mots : les meilleures routes partielles
+        need -= 1
+        kept = [(loc, lines) for loc, lines in grouped.items() if len(present[loc]) >= need]
+    titled = {loc: {w for w, m in phrase if any(line.lstrip().startswith("#") and m(_fold(line)) for _, _, _, line in lines)}
+              for loc, lines in kept}
+
+    def score(item):
+        loc, lines = item
+        weight = sum(math.log(1 + total / df[w]) * (2.5 if w in titled[loc] else 1) for w in present[loc])
+        return (-round(weight, 6), -len(present[loc]), -min(len(lines), 5), loc)
+    return sorted(kept, key=score)
 
 
 def topics(text: str | None = None) -> dict[str, tuple[str, str, list[str]]]:
@@ -785,7 +927,8 @@ def main(argv: list[str] | None = None) -> int:
                 if name != current:
                     current = name
                     print(f"\n{name}")
-                print(f"{locator:<34} {size // 100 / 10:>5.1f} k  {subs:>2} s.-s.  {role}")
+                print(f"{locator:<34} {size // 100 / 10:>5.1f} k  {subs:>2} s.-s.  {role}"
+                      + (f"  · {ADRESSE_DE[locator]}" if locator in ADRESSE_DE else ""))
             print("\nTable des matières d’une route : python3 scripts/read_route.py --sommaire LOCATOR")
         return 0
     if args.trouver:
@@ -799,11 +942,12 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         normative = [r for r in results if r[1] in {nom(p) for p in sources_normatives()}]
         guides = [r for r in results if r not in normative]
-        ranked = rank_routes(normative, terms)
+        ranked = rank_phrase(normative, args.trouver) if mode == "mots de la phrase" else rank_routes(normative, terms)
         core_index = {nom(p): core_blocks(p.read_text(encoding="utf-8").splitlines()) for p in sources_normatives()}
         outside = [r for r in normative if r[0] is None]
         shown = ranked if args.tout else ranked[:TOP_ROUTES]
-        extra = f" ; alias : {', '.join(terms[1:])}" if len(terms) > 1 and mode != "mots séparés sur une même ligne" else ""
+        extra = (f" ; mots : {', '.join(terms)}" if mode == "mots de la phrase" else
+                 f" ; alias : {', '.join(terms[1:])}" if len(terms) > 1 and mode != "mots séparés sur une même ligne" else "")
         print(f"TROUVER ({mode}{extra}) : « {args.trouver} » — {len(normative)} ligne(s) normative(s), "
               f"{len(ranked)} route(s) ; {len(guides)} ligne(s) de guide")
         topic = topic_for(args.trouver)
@@ -813,7 +957,7 @@ def main(argv: list[str] | None = None) -> int:
         if shown or outside:
             print("SOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)")
             for locator, lines in shown:
-                print(f"{locator:<34} {len(lines)} ligne(s)")
+                print(f"{locator:<34} {len(lines)} ligne(s)" + (f"  · {ADRESSE_DE[locator]}" if locator in ADRESSE_DE else ""))
                 for _, name, number, line in lines[:2]:
                     mark = " (noyau)" if number - 1 in core_index.get(name, {}) else ""
                     print(f"    {name}:{number:<5}{mark} {_excerpt_any(line, terms)}")
@@ -831,7 +975,9 @@ def main(argv: list[str] | None = None) -> int:
         path, lines, index = resolve(args.locator)
     except RouteError as exc:
         fail(str(exc))
-    print(f"ROUTE: {args.locator}")
+    current = adresse(args.locator)
+    print(f"ROUTE: {current}" + (f" (adresse : {args.locator})" if current != args.locator else
+                                 f" (adresse : {ADRESSE_DE[current]})" if current in ADRESSE_DE else ""))
     print(f"OWNER: {path.relative_to(ROOT)}")
     print(f"HEADING: {lines[index].strip()}")
     print("---")
