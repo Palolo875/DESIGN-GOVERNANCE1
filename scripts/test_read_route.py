@@ -525,7 +525,8 @@ class SearchAndSummaryTests(unittest.TestCase):
                 _, lines, index = reader.resolve("DIRECTION/CHARGE")
                 row = next(l for l in reader.extract(lines, index) if l.startswith(f"| **{mode}** |"))
                 self.assertIn(row, r.stdout)
-                self.assertEqual(r.stdout.count("| **"), 1)
+                served_rows = [line for line in r.stdout.splitlines() if line.startswith("| **")]
+                self.assertEqual(served_rows, [row])
 
     def test_mode_view_preserves_ui_and_trace_scopes(self):
         self.assertNotIn("UI-UX-REALITY", self.cli("--mode", "LITE").stdout)

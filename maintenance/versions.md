@@ -3,11 +3,15 @@
 **Version expérimentale :** `V1.0.0`  
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
 **Date de V1.0.0 :** 2026-10-01\
-**Révision :** `R2026-10-10-PHASE5`
+**Révision :** `R2026-10-10-PRATIQUE`
 
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
 ## Phase 5 — noyau commun et lecture utile — 2026-10-10
+
+La suite pratique distingue dans l’unique ligne DIRECTION le cadrage, la fabrication/observation et la sortie. Les contraintes critiques sont lues avant le choix qu’elles protègent ; aucun gate ni condition de trace n’est retiré. L’inventaire anticipé de toutes les exclusions est remplacé par les raisons qui changent une décision dans la trace existante.
+
+Le premier objet précise la relation entre résultat visible, geste et conséquence. La comparaison située confronte des positions plausibles au même scope. Le savoir technique détaille transitions annulables, fallback, réduction de mouvement et adaptation mobile ; ces méthodes restent chargées à la demande. Aucun nouveau mode, statut ou champ machine. L’effet général sur qualité, variété et coût reste `NOT-VERIFIED`.
 
 Le noyau commun charge les protections et l’activation utiles à tous les chemins. La table des modes et les détails de fabrication restent dans leurs sources, lus au moment utile. Le registre du compilateur classe chaque bloc comme commun ou servi par une route : un bloc absent, orphelin, incomplet ou sans renvoi fait échouer la compilation. Aucun savoir de détail n’est supprimé pour réduire la skill.
 

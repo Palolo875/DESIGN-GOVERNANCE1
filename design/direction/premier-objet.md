@@ -12,6 +12,8 @@ Lorsque la priorité du run, la cible visuelle (`DIRECTION/VISUAL_TARGET`) ou l�
 Les données d’exemple restent cohérentes entre elles : totaux, pourcentages, unités, dates et prix se recoupent. Un chiffre sans référence (« +32 % ») se situe (par rapport à quoi, sur quelle période) ou se retire.
 <!-- noyau:fin PREMIER-OBJET -->
 
+**Relier ce qui se voit à ce qui se fait.** Sur une interface, examine ensemble l’objet montré, l’action voisine et la conséquence annoncée : comprend-on ce que l’on peut modifier, choisir ou obtenir, et ce qui changera ensuite ? Une donnée pertinente, une variation de valeur ou un état nommé peut rendre ce lien plus concret qu’une promesse générale. Si le premier écran montre surtout un résultat fini, rends l’accès au geste compréhensible ; s’il expose un instrument, vérifie que sa densité n’empêche pas de comprendre le résultat. Un document en vitrine, un formulaire visible et une révélation progressive sont des choix situés, sans préférence universelle. Observe aussi le format étroit ; une explication cachée dans un autre état ne fait pas partie de ce que la capture nominale établit.
+
 Un CTA doit soit déclencher un comportement local réellement implémenté, soit mener à une action réellement disponible, soit déclarer sa limite. Un lien vide, une inscription fictive ou une démo qui simule une conséquence externe ne peut pas être présenté comme une action disponible. Une action principale dont la valeur manque (numéro, adresse, lien) reste présente avec une valeur d’exemple marquée (`CNT-01`) : c’est une limite déclarée, pas un retrait.
 
 ### Contrat positif du premier objet

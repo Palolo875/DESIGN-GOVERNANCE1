@@ -124,6 +124,8 @@ Pour produire du beau varié sans produire du bruit, fais varier **un axe situé
 
 Une alternative n’a pas à être matérialisée si elle ne peut modifier aucune décision. Lorsque le choix est ouvert et qu’une position différente peut réellement changer le résultat, développe-la au niveau nécessaire pour comparer : phrase, schéma, cible ou rendu.
 
+**Comparer des choix plausibles.** Les positions comparées répondent à la demande et aux mêmes contraintes connues. Un contre-choix qui suppose un autre produit ou des capacités absentes éclaire une limite, mais ne départage pas deux solutions viables. Lorsque le doute porte sur une relation visible — accès au geste, densité, séquence ou place du résultat — matérialise cette relation au niveau utile : esquisse, fragment ou état construit. Conserve contenu et scope comparables ; note ce qui devient plus clair, ce qui perd en présence ou en confort et pourquoi tu retiens l’un des choix. Un changement de couleur seul ne teste pas la structure ; davantage de données n’améliore pas nécessairement la compréhension. Cette méthode précise la comparaison existante, sans quota de variantes ni second produit complet.
+
 Les axes survivent aux tendances ; les étiquettes culturelles et les exemples doivent être révisés dans `SAVOIR/TOOLS`.
 
 ## CFT-03 — composition, densité et harmonie

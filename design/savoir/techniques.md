@@ -36,6 +36,29 @@ Ces points de départ adaptent le contrat au support utile ; ils ne constituent 
 
 Si production ou observation manque, conserve le plafond et la prochaine preuve dans les responsabilités ci-dessous ; une documentation de médium n’est pas une capacité de fabrication.
 
+### Mettre en œuvre une transition interactive
+
+[MÉTHODE] Le contrat d’états de `SAVOIR/CONTEXT` précède le choix technique. Commence par un état correct sans animation, puis ajoute la continuité qui aide à suivre sa transformation. La donnée, le nom accessible, la sélection et l’action disponible se mettent à jour sans attendre la fin de l’effet.
+
+| Relation à construire | Point de départ technique | Fragilité à éprouver |
+|---|---|---|
+| Feedback d’un contrôle ou d’une valeur | Transition CSS ou animation locale, courte et annulable. | Actions répétées : l’état final correspond à la dernière intention, sans file d’effets périmés. |
+| Déplacement ou recomposition d’un même objet | Mesurer avant/après, puis animer leur différence (FLIP) ; les View Transitions si le runtime et le fallback s’y prêtent. | Identité stable, contenu long, changement de largeur, interruption et état sans effet. |
+| Entrée d’un panneau ou changement de vue | CSS ou Web Animations API selon le besoin de contrôle ; conserver le repère utile. | Ouverture/fermeture rapide, focus, retour, fermeture pendant l’entrée et absence de l’API. |
+| Geste direct | Suivre le pointeur pertinent, avec capture et annulation explicites ; séparer poignée et zone défilable. | Défilement, mouvement inverse, plusieurs pointeurs, annulation du geste et alternative par bouton/clavier. |
+
+Lis la géométrie nécessaire ensemble, puis écris les changements ; évite d’alterner mesure et écriture à chaque élément. `transform` et `opacity` sont souvent de bons points de départ, sans garantir le coût réel d’un effet. Si une animation est remplacée, observe la position courante, annule l’ancienne puis raccorde la nouvelle ; son callback périmé ne peut pas rétablir l’ancien état. Garde un état final correct si l’API manque, si le document devient caché ou si le mouvement réduit est activé pendant la transition. Une durée est calibrée sur la distance et la tâche : elle ne retarde ni validation, ni calcul, ni récupération.
+
+Éprouve dans le runtime : action nominale, répétition rapide, inversion, fermeture ou annulation, puis préférence de mouvement réduit. Observe les états et les erreurs, pas seulement la fin de la séquence. Mesure le coût lorsque c’est le risque ; une émulation de viewport ou une capture fixe ne démontre pas la fluidité sur appareil physique.
+
+### Adapter une interface mobile
+
+[MÉTHODE] Distingue Web mobile et application native. Sur le Web, examine viewport dynamique, zones sûres, défilement du panneau, focus visible, champs adaptés et action qui reste accessible lorsque la hauteur disponible baisse. Une poignée de glissement garde un bouton de fermeture et ne détourne pas le défilement du contenu.
+
+Dans le natif, utilise les primitives et les conventions de la plateforme : navigation et retour, taille de texte réglable, clavier et insets, sémantique d’accessibilité, gestes et réduction de mouvement. Les points iOS, les dp Android et les pixels CSS ne sont pas interchangeables ; des cibles usuelles de 44 points iOS ou 48 dp Android sont des repères de confort à vérifier dans leur contexte, pas une conversion automatique. SwiftUI, UIKit, Compose, Flutter ou React Native demandent une observation dans leur runtime et leurs devices déclarés.
+
+Le Web mobile peut éprouver un contrat de tâche et une continuité visuelle ; il ne certifie ni un build natif, ni le clavier logiciel, les gestes système ou la performance d’un téléphone réel. Conserve ces limites et la prochaine preuve dans la trace existante.
+
 [MÉTHODE] Pour tout médium non web — natif mobile, desktop, spatial, print ou embarqué — examine cinq responsabilités de preuve, regroupables dans un même artefact, avant de juger :
 
 | Dérivation | Question | Conséquence de preuve |

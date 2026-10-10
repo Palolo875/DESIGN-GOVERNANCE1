@@ -37,4 +37,6 @@ Une animation interactive est décrite comme un système d’états : état init
 
 Documente l’équivalent de motion réduite, l’interruption, le fallback statique, clavier/tactile, contenu alternatif, performance, device, runtime, mobile et capture. Une capture documente le rendu dans son scope, mais ne remplace pas un test d’accessibilité, de performance ou de tâche. Si motion ou scène ne donnent ni feedback, ni information, ni relation spatiale, préfère la suppression ou une composition 2D plus juste.
 
+Pour choisir le mécanisme, gérer des interruptions ou traduire un geste mobile, consulte les méthodes de `SAVOIR/TECH` au moment de l’implémentation. Un mouvement réduit conserve l’état, la conséquence et l’accès à l’action ; il réduit la transition, sans enlever le feedback utile.
+
 ---

@@ -4,7 +4,15 @@
 **Date de V1.0.0 :** 2026-10-01\
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
-## Révision R2026-10-10-PHASE5
+## Révision R2026-10-10-PRATIQUE
+
+La ligne DIRECTION précise quand lire le cadrage, les responsabilités de fabrication/observation et la formalisation de sortie. Les contraintes critiques avancent la lecture nécessaire ; les preuves applicables restent dues. L’agent trace les raisons qui changent une décision au lieu de dresser à l’avance l’inventaire de toutes les exclusions.
+
+Le premier objet relie explicitement objet, action et conséquence. Une alternative située compare des positions plausibles sur un même besoin et au scope utile. Les méthodes de transitions annulables et de mobile rejoignent `SAVOIR/TECH`, sans bibliothèque obligatoire ni nouvelle route. Un runtime Web mobile n’est pas présenté comme une preuve de fonctionnement natif.
+
+Compatibilité : V1.0.0 ; aucun nouveau mode, gate, statut ou champ RUN_CARD. Ces corrections répondent à des observations d’U6 ; elles ne démontrent pas encore une amélioration générale de qualité, de variété ou de coût. **Efficacité : `NOT-VERIFIED`.**
+
+## Révision précédente R2026-10-10-PHASE5
 
 La skill porte un noyau commun de 18 852 octets, contre 44 437 auparavant. Les détails restent entiers dans leurs routes propriétaires ; le compilateur vérifie leur présence, leur classement et leur activation. La ligne du mode se lit à la demande avec `python3 scripts/read_route.py --mode MODE`, depuis l’unique table de chargement.
 
