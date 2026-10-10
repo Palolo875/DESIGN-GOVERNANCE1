@@ -1,4 +1,4 @@
-# Design Governance V1.0.0
+# Design Governance V1.0.0 — expérimental
 
 Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu. Quand un travail doit être livré ou audité, le système garde aussi la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
 
@@ -43,19 +43,13 @@ Une conformité de surface ne vaut ni direction visible, ni preuve d’usage, ni
 
 ## Comment ça marche
 
-Deux boucles se répondent. La première **crée** : cadrer le produit et son public, chercher des références quand elles peuvent changer la décision, choisir une direction, construire une scène complète, polir. La seconde **apprend** : regarder le rendu réel, nommer le défaut principal, corriger, regarder à nouveau, décider. Le détail est dans [`design/README.md`](design/README.md).
+Deux boucles se répondent. La première **crée** : cadrer le produit et son public, chercher des références quand elles peuvent changer la décision, choisir une direction, construire une scène complète, polir. La seconde **apprend** : regarder le rendu réel, nommer le défaut principal, corriger, regarder à nouveau, décider. Le détail est dans [`design/README.md`](design/README.md). Le [parcours d’un travail](supports/parcours.html) et la [boucle créer/apprendre](supports/boucle.html) en donnent deux vues complémentaires.
 
 ## Ce que contient le dépôt
 
-```mermaid
-flowchart TD
-  R["README"] --> G["guides/ : une porte par public"]
-  G --> D["design/ : direction, savoir, formes, produit"]
-  R --> AG["agent/ : la skill et son chemin"]
-  AG --> D
-  D -. "selon le risque, la décision et la reprise" .-> GV["gouvernance/ : adaptée et utile"]
-  R --> M["maintenance/ : faire évoluer le système"]
-```
+[![Carte du système](supports/systeme-clair.svg)](supports/index.html)
+
+[Consulter les trois cartes](supports/README.md) · [Lire la carte en texte](supports/systeme.md).
 
 | Partie | Chemin | Contenu |
 |---|---|---|
@@ -83,7 +77,7 @@ Ajoutez `--guides` pour chercher aussi dans les guides. Une recherche sans résu
 
 ## Limites
 
-- **Version.** V1.0.0, révision `R2026-10-10-PRATIQUE` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
+- **Version.** V1.0.0, révision `R2026-10-10-PRESENTATION` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
 - **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. Les preuves de CI hébergée, distinctes de cette efficacité, sont rattachées aux commits testés dans les [notes de version](RELEASE_NOTES.md#contrôles-inclus).
 - **Une validation confirme seulement les contrôles exécutés.** Une capture prouve un rendu, pas un usage : à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle.
 - **Séduisant n’est pas prouvé, conforme n’est pas réussi.** Le système demande de rendre cet écart visible et de corriger le défaut principal, sans le compenser par une autre preuve. Une étape ou une référence qui ne change rien est retirée.

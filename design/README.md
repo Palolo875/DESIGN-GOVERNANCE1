@@ -15,18 +15,9 @@ Ces fichiers reprennent des sections des anciennes sources (`DIRECTION.md`, `SAV
 
 Le système fait travailler deux boucles qui se répondent : l’une crée, l’autre observe et corrige.
 
-```mermaid
-flowchart LR
-  subgraph C["Créer"]
-    A1["Comprendre le produit et son public"] --> A2["Choisir une direction"] --> A3["Construire un ensemble complet"] --> A4["Polir"]
-  end
-  subgraph O["Observer et corriger"]
-    B1["Regarder le rendu réel"] --> B2["Nommer le défaut principal"] --> B3["Corriger"] --> B4["Regarder de nouveau, décider"]
-  end
-  A4 --> B1
-  B4 -- "défaut restant" --> B2
-  B4 -- "direction à revoir" --> A2
-```
+[![Créer puis apprendre](../supports/boucle-clair.svg)](../supports/boucle.html)
+
+[Version consultable](../supports/boucle.html) · [Équivalent écrit](../supports/boucle.md).
 
 | Créer | Observer et corriger |
 |---|---|

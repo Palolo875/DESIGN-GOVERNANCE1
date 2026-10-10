@@ -51,6 +51,7 @@ mkdir -p "$STAGE/github" "$STAGE/local" "$ARCHIVES"
 # GitHub : distribution canonique versionnée.
 cp -a "$ROOT/README.md" "$STAGE/github/README.md"
 cp -a "$ROOT/RELEASE_NOTES.md" "$STAGE/github/RELEASE_NOTES.md"
+cp -a "$ROOT/supports" "$STAGE/github/supports"
 cp -a "$ROOT/.gitignore" "$STAGE/github/.gitignore"
 cp -a "$ROOT/V1" "$STAGE/github/V1"
 cp -a "$ROOT/gouvernance" "$STAGE/github/gouvernance"
@@ -63,6 +64,7 @@ cp -a "$ROOT/scripts/validate_design_governance.py" "$STAGE/github/scripts/valid
 cp -a "$ROOT/scripts/build_distributions.sh" "$STAGE/github/scripts/build_distributions.sh"
 cp -a "$ROOT/scripts/package_manifest.json" "$STAGE/github/scripts/package_manifest.json"
 cp -a "$ROOT/scripts/validate_all.py" "$STAGE/github/scripts/validate_all.py"
+cp -a "$ROOT/scripts/validate_supports.py" "$STAGE/github/scripts/validate_supports.py"
 cp -a "$ROOT/scripts/validate_reading_map.py" "$STAGE/github/scripts/validate_reading_map.py"
 cp -a "$ROOT/scripts/read_route.py" "$STAGE/github/scripts/read_route.py"
 cp -a "$ROOT/scripts/preparer_livraison.py" "$STAGE/github/scripts/preparer_livraison.py"
@@ -88,6 +90,7 @@ python3 "$STAGE/github/gouvernance/outils/validate_run_card.py"
 python3 "$STAGE/github/gouvernance/outils/validate_contracts.py"
 python3 "$STAGE/github/scripts/validate_reading_map.py"
 python3 "$STAGE/github/scripts/validate_structure.py"
+python3 "$STAGE/github/scripts/validate_supports.py"
 
 # Valider les chemins relatifs du Local indépendamment, sans exiger la structure GitHub.
 python3 - "$STAGE/local" <<'PY'

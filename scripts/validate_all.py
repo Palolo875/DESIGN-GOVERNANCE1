@@ -203,6 +203,7 @@ def main() -> int:
     run([sys.executable, "gouvernance/outils/validate_contracts.py"])
     run([sys.executable, "scripts/validate_reading_map.py"])
     run([sys.executable, "scripts/validate_structure.py"])
+    run([sys.executable, "scripts/validate_supports.py"])
     check_craft_regressions()
     check_move_regression()
     run([sys.executable, "scripts/test_core_budget.py"])
