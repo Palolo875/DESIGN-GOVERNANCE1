@@ -1,0 +1,31 @@
+{
+  "run_card": {
+    "id": "FIXTURE-INVALID_LITE_MISSING_MINIMUM",
+    "owner": "design-owner",
+    "date_version": "2026-08-31 / V1",
+    "mode": "LITE",
+    "decision": "Corriger un delta local sans modifier la structure.",
+    "decision_intent": "Vérifier que le delta reste limité au risque déclaré.",
+    "artifact": {
+      "locator": "diff-local",
+      "scope": "composant touché"
+    },
+    "proof": {
+      "observed": [
+        "Le delta local est identifiable dans le diff."
+      ],
+      "not_verified": [
+        "Autres thèmes et plateformes."
+      ]
+    },
+    "closure": {
+      "state": "CLOSED",
+      "issue": "RETURNED",
+      "verdict": "RETURN",
+      "limitations": [
+        "Les autres thèmes ne sont pas vérifiés."
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,37 @@
+{
+  "base_commit": "4e1f9cc20a9887d570a720934ca5b1752c78971a",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "6fdadc0a52fc6f4e6f945ccdcba87938f6921830fffa025ae345a48483083314"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "sha256": "41e389a4933437e80204076bc507fa1ff823cc590121cd9930c1c06446ebfffa"
+    },
+    {
+      "path": "maintenance/versions.md",
+      "sha256": "be4e1bfc71b97972ea1449c4937edba661c3e941c75b630fa07f31b21c5600cc"
+    },
+    {
+      "path": "design/README.md",
+      "sha256": "e633c1b4dac562cfbcf5bbb07d31a75af6baef0fb3685534107c976ba697dbcf"
+    },
+    {
+      "path": "agent/skill/references/flow.md",
+      "sha256": "e1ea121e5f8babbd73cd52ded149110a48fc21cadff134de415ee00b1f17dbd1"
+    },
+    {
+      "path": "scripts/package_manifest.json",
+      "sha256": "cda4a74b087ac926223dd5a9891e8478d348f57165347801374d9ee580965b4f"
+    },
+    {
+      "path": "scripts/build_distributions.sh",
+      "sha256": "8c196ff76e5f0f4ed38d39b9559ea18f8c46bdf9bc125886d7df1de4cb818c58"
+    },
+    {
+      "path": "design/savoir/connexions.md",
+      "sha256": "398024a323cfb453471661d3e1444fa9d133eb5814d29facdf837614e5f9325d"
+    }
+  ]
+}

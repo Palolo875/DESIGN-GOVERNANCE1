@@ -1,0 +1,18 @@
+{
+  "run_card": {
+    "id": "INVALID-ACCEPTED-NO-LIMITATION",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "LITE",
+    "decision": "Vérifier un correctif local.",
+    "decision_intent": "Vérifier un correctif local.",
+    "risk": {"level": "normal", "statement": "Risque principal : la décision « Vérifier un correctif local » échoue dans le scope déclaré.", "critical_protection": null},
+    "sources": ["DIRECTION/START", "ACTION/RUN-LITE"],
+    "artifact": {"locator": "local-artifact", "scope": "composant"},
+    "next_proof": "Rejouer le contrôle local.",
+    "proof": {"observed": ["Correctif observé."], "not_verified": ["Autres surfaces non vérifiées."], "provenance": {"artifact_locator": "local-artifact", "artifact_version": "2026-08-29 / V1", "method": "Inspection locale du composant.", "observed_at": "2026-08-29"}},
+    "decision_change": {"outcome": "CHANGED", "value": "Le contraste a été corrigé.", "evidence": "Capture avant/après."},
+    "closure": {"state": "CLOSED", "issue": null, "verdict": "ACCEPTED", "limitations": []}
+  }
+}
+

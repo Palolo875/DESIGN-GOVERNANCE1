@@ -1,0 +1,53 @@
+PASS systeme / 320 / clair
+PASS systeme / 320 / sombre
+PASS systeme / 390 / clair
+PASS systeme / 390 / sombre
+PASS systeme / 768 / clair
+PASS systeme / 768 / sombre
+PASS systeme / 1024 / clair
+PASS systeme / 1024 / sombre
+PASS systeme / 1280 / clair
+PASS systeme / 1280 / sombre
+PASS systeme / 1440 / clair
+PASS systeme / 1440 / sombre
+PASS systeme / choix / beginner
+PASS systeme / choix / designer
+PASS systeme / choix / team
+PASS systeme / choix / reviewer
+PASS systeme / choix / agent
+PASS systeme / choix / maintainer
+PASS systeme / clavier
+PASS systeme / export sélectionné puis rouvert
+PASS systeme / 320 / texte agrandi
+PASS systeme / 390 / texte agrandi
+PASS systeme / JavaScript absent
+PASS systeme / SVG autonome / clair
+PASS systeme / SVG autonome / sombre
+PASS parcours / 320 / clair
+PASS parcours / 320 / sombre
+PASS parcours / 390 / clair
+PASS parcours / 390 / sombre
+PASS parcours / 768 / clair
+PASS parcours / 768 / sombre
+PASS parcours / 1024 / clair
+PASS parcours / 1024 / sombre
+PASS parcours / 1280 / clair
+PASS parcours / 1280 / sombre
+PASS parcours / 1440 / clair
+PASS parcours / 1440 / sombre
+PASS parcours / choix / cadrer
+PASS parcours / choix / diriger
+PASS parcours / choix / construire
+PASS parcours / choix / observer
+PASS parcours / choix / verifier
+PASS parcours / choix / sortir
+PASS parcours / clavier
+PASS parcours / export sélectionné puis rouvert
+PASS parcours / 320 / texte agrandi
+PASS parcours / 390 / texte agrandi
+PASS parcours / JavaScript absent
+PASS parcours / SVG autonome / clair
+PASS parcours / SVG autonome / sombre
+PASS boucle / 320 / clair
+PASS boucle / 320 / sombre
+PASS boucle / 390 / clair

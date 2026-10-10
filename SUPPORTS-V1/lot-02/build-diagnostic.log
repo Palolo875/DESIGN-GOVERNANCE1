@@ -1,0 +1,38 @@
++ set -euo pipefail
++++ dirname scripts/build_distributions.sh
+++ cd scripts/..
+++ pwd
++ ROOT=/workspace/DESIGN-GOVERNANCE1
++ DIST=/workspace/DESIGN-GOVERNANCE1/dist
++ WORK=/workspace/DESIGN-GOVERNANCE1/.build
++ BACKUP=/workspace/DESIGN-GOVERNANCE1/.dist.previous
++ ARCHIVES_BACKUP=/workspace/DESIGN-GOVERNANCE1/.archives.previous
++ ZIPS=(Design_Governance_V1_GITHUB.zip Design_Governance_V1_LOCAL.zip)
++ LOCK=/workspace/DESIGN-GOVERNANCE1/.distribution.lock
++ RUN=
++ mkdir /workspace/DESIGN-GOVERNANCE1/.distribution.lock
++ trap cleanup EXIT
+++ date -u +%Y-%m-%dT%H:%M:%SZ
++ printf 'pid=%s\nstarted_utc=%s\nroot=%s\n' 81849 2026-10-10T22:30:45Z /workspace/DESIGN-GOVERNANCE1
++ python3 /workspace/DESIGN-GOVERNANCE1/scripts/build_core.py --check
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 18960 / 46000 octets UTF-8
++ [[ -e /workspace/DESIGN-GOVERNANCE1/.archives.previous ]]
++ [[ -e /workspace/DESIGN-GOVERNANCE1/.dist.previous ]]
++ mkdir -p /workspace/DESIGN-GOVERNANCE1/.build
+++ mktemp -d /workspace/DESIGN-GOVERNANCE1/.build/distributions.XXXXXX
++ RUN=/workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv
++ STAGE=/workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist
++ ARCHIVES=/workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/archives
++ mkdir -p /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/github /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/local /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/archives
++ cp -a /workspace/DESIGN-GOVERNANCE1/README.md /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/github/README.md
++ cp -a /workspace/DESIGN-GOVERNANCE1/RELEASE_NOTES.md /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/github/RELEASE_NOTES.md
++ cp -a /workspace/DESIGN-GOVERNANCE1/supports /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/github/supports
++ find /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/github/supports -type d -name __pycache__ -prune -exec rm -rf '{}' +
++ cp -a /workspace/DESIGN-GOVERNANCE1/scripts/validate_supports.py /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/github/scripts/validate_supports.py
+cp: cannot create regular file '/workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv/dist/github/scripts/validate_supports.py': No such file or directory
++ cleanup
++ [[ -n /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv ]]
++ rm -rf /workspace/DESIGN-GOVERNANCE1/.build/distributions.xMwAPv
++ rm -f /workspace/DESIGN-GOVERNANCE1/.distribution.lock/owner.txt
++ rmdir /workspace/DESIGN-GOVERNANCE1/.distribution.lock

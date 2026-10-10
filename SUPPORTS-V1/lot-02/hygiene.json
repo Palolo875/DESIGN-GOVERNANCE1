@@ -1,0 +1,96 @@
+{
+  "result": "PASS",
+  "intentional_original_or_markdown_whitespace": [
+    {
+      "file": "RELEASE_NOTES.md",
+      "line": 4,
+      "reason": "saut de ligne Markdown explicite"
+    },
+    {
+      "file": "RELEASE_NOTES.md",
+      "line": 5,
+      "reason": "saut de ligne Markdown explicite"
+    },
+    {
+      "file": "maintenance/versions.md",
+      "line": 4,
+      "reason": "saut de ligne Markdown explicite"
+    },
+    {
+      "file": "maintenance/versions.md",
+      "line": 5,
+      "reason": "saut de ligne Markdown explicite"
+    },
+    {
+      "file": "maintenance/versions.md",
+      "line": 6,
+      "reason": "saut de ligne Markdown explicite"
+    },
+    {
+      "file": "supports/parcours-sombre.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/boucle-sombre.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/systeme-sombre.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/index.html",
+      "line": 37,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/index.html",
+      "line": 140,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/systeme-clair.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/parcours-clair.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/boucle-clair.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/parcours.html",
+      "line": 37,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/parcours.html",
+      "line": 140,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/boucle.html",
+      "line": 37,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/boucle.html",
+      "line": 140,
+      "reason": "texte original de licence OFL"
+    },
+    {
+      "file": "supports/fonts/OFL-manrope.txt",
+      "line": 21,
+      "reason": "texte original de licence OFL"
+    }
+  ],
+  "unexpected_trailing_whitespace": []
+}

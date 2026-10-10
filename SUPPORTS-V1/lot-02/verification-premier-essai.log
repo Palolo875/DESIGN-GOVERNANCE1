@@ -1,0 +1,59 @@
+PASS systeme / 320 / clair
+PASS systeme / 320 / sombre
+PASS systeme / 390 / clair
+PASS systeme / 390 / sombre
+PASS systeme / 768 / clair
+PASS systeme / 768 / sombre
+PASS systeme / 1024 / clair
+PASS systeme / 1024 / sombre
+PASS systeme / 1280 / clair
+PASS systeme / 1280 / sombre
+PASS systeme / 1440 / clair
+PASS systeme / 1440 / sombre
+PASS systeme / choix / beginner
+PASS systeme / choix / designer
+PASS systeme / choix / team
+PASS systeme / choix / reviewer
+PASS systeme / choix / agent
+PASS systeme / choix / maintainer
+PASS systeme / clavier
+FAIL systeme / export sélectionné puis rouvert Page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+  - fonts loaded
+
+PASS systeme / 320 / texte agrandi
+PASS systeme / 390 / texte agrandi
+PASS systeme / JavaScript absent
+FAIL systeme / SVG autonome / clair Page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+  - fonts loaded
+
+FAIL systeme / SVG autonome / sombre Page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+  - fonts loaded
+
+PASS parcours / 320 / clair
+PASS parcours / 320 / sombre
+PASS parcours / 390 / clair
+PASS parcours / 390 / sombre
+PASS parcours / 768 / clair
+PASS parcours / 768 / sombre
+PASS parcours / 1024 / clair
+PASS parcours / 1024 / sombre
+PASS parcours / 1280 / clair
+PASS parcours / 1280 / sombre
+PASS parcours / 1440 / clair
+PASS parcours / 1440 / sombre
+PASS parcours / choix / cadrer
+PASS parcours / choix / diriger
+PASS parcours / choix / construire
+PASS parcours / choix / observer
+PASS parcours / choix / verifier
+PASS parcours / choix / sortir
+PASS parcours / clavier

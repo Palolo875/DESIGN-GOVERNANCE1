@@ -1,0 +1,20 @@
+{
+  "baseline": "PASS",
+  "mutations": [
+    {
+      "mutation": "ancre_absente",
+      "result": "REFUSED",
+      "specific_diagnostic": "parcours : ancre absente : README.md#ancre-absente"
+    },
+    {
+      "mutation": "cible_absente",
+      "result": "REFUSED",
+      "specific_diagnostic": "parcours : cible absente ou hors paquet : absent.md"
+    },
+    {
+      "mutation": "sortie_perimee",
+      "result": "REFUSED",
+      "specific_diagnostic": "boucle-clair.svg : sortie absente ou périmée ; régénérer les supports"
+    }
+  ]
+}

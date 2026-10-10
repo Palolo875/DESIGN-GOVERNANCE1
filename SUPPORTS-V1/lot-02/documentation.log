@@ -1,0 +1,4 @@
+VALIDATION FAILED
+- version expérimentale introuvable dans le CHANGELOG (attendu : « **Version expérimentale :** `Vx.y.z` »)
+- marqueur expérimental absent ou divergent : V1/sections/CHANGELOG.md
+- marqueur expérimental absent ou divergent : RELEASE_NOTES.md

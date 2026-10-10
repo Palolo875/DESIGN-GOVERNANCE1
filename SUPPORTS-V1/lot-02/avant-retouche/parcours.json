@@ -1,0 +1,194 @@
+{
+  "id": "parcours",
+  "file": "parcours.html",
+  "number": "02",
+  "title": "De la demande\nà la livraison.",
+  "intro": "Le chemin suit la décision, le risque et les besoins de reprise. La vérification accompagne la fabrication.",
+  "scope": "Vue de lecture : les retours et protections adaptent le parcours.",
+  "nodes": [
+    {
+      "id": "cadrer",
+      "role": "01 · Cadrer et classer",
+      "title": "Comprendre la demande",
+      "target": "agent/chemins.md",
+      "lines": [
+        "Décision, public, risque, preuve minimale",
+        "et condition d’arrêt. Choisir l’effort utile."
+      ],
+      "color": "guides"
+    },
+    {
+      "id": "diriger",
+      "role": "02 · Diriger",
+      "title": "Choisir un point de vue",
+      "target": "design/direction/diriger.md",
+      "lines": [
+        "Une position et un premier objet concrets.",
+        "Des alternatives lorsque le choix est ouvert."
+      ],
+      "color": "design"
+    },
+    {
+      "id": "construire",
+      "role": "03 · Fabriquer",
+      "title": "Construire un objet complet",
+      "target": "design/produit/premier-rendu.md",
+      "lines": [
+        "Contenu crédible, geste et conséquence.",
+        "États, mobile et limites selon le périmètre."
+      ],
+      "color": "design"
+    },
+    {
+      "id": "observer",
+      "role": "04 · Observer et corriger",
+      "title": "Regarder le rendu réel",
+      "target": "design/direction/boucle.md",
+      "lines": [
+        "Isoler le défaut dominant, modifier",
+        "l’artefact, réobserver et comparer."
+      ],
+      "color": "design"
+    },
+    {
+      "id": "verifier",
+      "role": "05 · Vérifier",
+      "title": "Établir ce qui est prouvé",
+      "target": "gouvernance/verification.md",
+      "lines": [
+        "Exécuter les contrôles qui s’appliquent.",
+        "Une preuve absente reste non vérifiée."
+      ],
+      "color": "gouvernance"
+    },
+    {
+      "id": "sortir",
+      "role": "06 · Présenter ou clore",
+      "title": "Transmettre avec ses limites",
+      "target": "gouvernance/cloture.md",
+      "lines": [
+        "Proposition : retour pour la suite.",
+        "Trace complète : décider, livrer et reprendre."
+      ],
+      "color": "agent"
+    }
+  ],
+  "panels": [
+    {
+      "title": "Protéger dès que nécessaire",
+      "lines": [
+        "Un risque critique avance la protection",
+        "avant le choix concerné. Le classement",
+        "et le chemin peuvent être revus."
+      ],
+      "target": "agent/chemins.md",
+      "color": "gouvernance"
+    },
+    {
+      "title": "Adapter la trace",
+      "lines": [
+        "Légère pour une proposition exploratoire.",
+        "Complète pour un travail persistant,",
+        "partagé, audité ou soumis à acceptation.",
+        "Les preuves applicables restent dues."
+      ],
+      "target": "gouvernance/travail.md",
+      "color": "gouvernance"
+    },
+    {
+      "title": "Distinguer les sorties",
+      "lines": [
+        "Valider une proposition oriente la suite.",
+        "Cela ne vaut pas acceptation.",
+        "La clôture conserve la preuve, les limites",
+        "et les besoins de reprise."
+      ],
+      "target": "gouvernance/cloture.md",
+      "color": "agent"
+    }
+  ],
+  "foot": {
+    "title": "Un parcours peut revenir en arrière.",
+    "lines": [
+      "Direction faible : rouvrir le choix. Risque ou périmètre changé : reclasser.",
+      "Défaut local : corriger. Preuve insuffisante : déclarer la limite et la prochaine preuve."
+    ]
+  },
+  "entries": [
+    {
+      "id": "overview",
+      "label": "Vue d’ensemble",
+      "title": "Le chemin reste visible.",
+      "description": "Vue de lecture : les retours et protections adaptent le parcours.",
+      "target": "design/README.md",
+      "link": "Ouvrir les sources du design",
+      "focus": []
+    },
+    {
+      "id": "cadrer",
+      "label": "01 · Cadrer et classer",
+      "title": "Comprendre la demande",
+      "description": "Décision, public, risque, preuve minimale et condition d’arrêt. Choisir l’effort utile.",
+      "target": "agent/chemins.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "cadrer"
+      ]
+    },
+    {
+      "id": "diriger",
+      "label": "02 · Diriger",
+      "title": "Choisir un point de vue",
+      "description": "Une position et un premier objet concrets. Des alternatives lorsque le choix est ouvert.",
+      "target": "design/direction/diriger.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "diriger"
+      ]
+    },
+    {
+      "id": "construire",
+      "label": "03 · Fabriquer",
+      "title": "Construire un objet complet",
+      "description": "Contenu crédible, geste et conséquence. États, mobile et limites selon le périmètre.",
+      "target": "design/produit/premier-rendu.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "construire"
+      ]
+    },
+    {
+      "id": "observer",
+      "label": "04 · Observer et corriger",
+      "title": "Regarder le rendu réel",
+      "description": "Isoler le défaut dominant, modifier l’artefact, réobserver et comparer.",
+      "target": "design/direction/boucle.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "observer"
+      ]
+    },
+    {
+      "id": "verifier",
+      "label": "05 · Vérifier",
+      "title": "Établir ce qui est prouvé",
+      "description": "Exécuter les contrôles qui s’appliquent. Une preuve absente reste non vérifiée.",
+      "target": "gouvernance/verification.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "verifier"
+      ]
+    },
+    {
+      "id": "sortir",
+      "label": "06 · Présenter ou clore",
+      "title": "Transmettre avec ses limites",
+      "description": "Proposition : retour pour la suite. Trace complète : décider, livrer et reprendre.",
+      "target": "gouvernance/cloture.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "sortir"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "run_card": {
+    "id": "presentation-v1-supports-et-nettoyage",
+    "owner": "Coordinateur, choix visuel délégué par le demandeur ; demandeur pour la décision d’usage",
+    "date_version": "2026-10-10 / ab559d18807e",
+    "mode": "DIRECTION",
+    "decision": "Rendre les responsabilités, le parcours et la boucle compréhensibles dans une V1 présentable, avec un journal public nettoyé et un historique conservé.",
+    "decision_intent": "Choisir un langage cohérent pour les supports et vérifier leur reprise sans modifier les règles du système.",
+    "risk": {
+      "level": "important",
+      "statement": "Un parcours pourrait être pris pour un ordre rigide ; un nettoyage pourrait supprimer un contrat de maintenance ; la compréhension par un débutant reste incertaine.",
+      "critical_protection": null
+    },
+    "sources": [
+      "agent/skill/SKILL.md",
+      "agent/chemins.md",
+      "design/direction/boucle.md",
+      "design/README.md",
+      "gouvernance/README.md",
+      "maintenance/versions.md",
+      "scripts/validate_structure.py",
+      "scripts/validate_reading_map.py",
+      "scripts/build_distributions.sh"
+    ],
+    "direction": {
+      "thesis": "Le langage documentaire relie les responsabilités et les retours utiles ; la lecture mobile conserve le texte, les limites et l’accès aux propriétaires.",
+      "anti_direction": [
+        "Un diagramme réduit en miniature sur téléphone.",
+        "Une suite linéaire qui cache les retours et les protections.",
+        "Un journal public qui reproduit le chantier ou supprime ses contrats."
+      ],
+      "first_object": "Trois cartes consultables, leurs SVG, leurs équivalents écrits et un paquet expérimental nettoyé.",
+      "identity_stake": "normal",
+      "constraint": "Manrope et palettes par rôle retenus par délégation ; aucune prescription de style aux productions des agents."
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "produit/supports/index.html",
+      "scope": "Trois pages Web, six largeurs de 320 à 1440 px, clair/sombre, six choix par page, clavier, texte agrandi, sans script et export SVG rouvert.",
+      "rights_status": "cleared",
+      "version": "ab559d18807e35a6e186f09e450f04ea1827b74ae9b6da18fb4d1dd37176c6ca"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Faire trouver la bonne entrée et expliquer la boucle à une personne nouvelle ; contrôler lecteur d’écran et autre plateforme selon l’usage.",
+    "capability_profile": {
+      "available": [
+        "HTML et SVG construits",
+        "Chromium 151 et captures",
+        "DOM et clavier émulé",
+        "Contraste SVG peint",
+        "Validation et archives reproductibles"
+      ],
+      "unavailable": [
+        "Personne représentative",
+        "Lecteur d’écran observé",
+        "Téléphone physique",
+        "Firefox et Safari"
+      ],
+      "not_required": [
+        "Backend",
+        "Paiement",
+        "Animation"
+      ],
+      "basis": [
+        {
+          "capability": "HTML et SVG construits",
+          "kind": "tool_result",
+          "detail": "produit/supports/ et livraison.json : sorties régénérées identiques à celles observées."
+        },
+        {
+          "capability": "Chromium 151 et captures",
+          "kind": "tool_result",
+          "detail": "preuves/verification.json : 76 réussites, aucune erreur, empreintes des trois pages et serveur arrêté."
+        },
+        {
+          "capability": "DOM et clavier émulé",
+          "kind": "tool_result",
+          "detail": "Choix de six publics ou étapes par page, contexte et focus conservés ; thème et détails ouverts au clavier."
+        },
+        {
+          "capability": "Contraste SVG peint",
+          "kind": "tool_result",
+          "detail": "preuves/verification.json : fill et fond réel mesurés ; boîtes des glyphes contrôlées sur les deux axes."
+        },
+        {
+          "capability": "Validation et archives reproductibles",
+          "kind": "tool_result",
+          "detail": "validation-complete.log : FULL VALIDATION PASSED ; livraison.json porte les empreintes des deux archives."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "76 parcours réussis sur les trois pages finales ; SVG sélectionnés exportés et rouverts, licences conservées.",
+        "Captures finales du parcours clair, de la boucle sombre avec retour, du titre mobile 320 px et de la carte système 390 px inspectées.",
+        "Trois recettes Gate A sans RETURN ; réserves de couverture explicitement conservées.",
+        "Huit documents originaux conservés exactement ; 27 sources de connexions réexaminées, 26 textes identiques et journal modifié relu.",
+        "Validation complète avec navigateur réussie, archives reproductibles ; trois mutations refusées avec leur diagnostic."
+      ],
+      "not_verified": [
+        "Compréhension ou préférence d’une personne représentative.",
+        "Accessibilité exhaustive, lecteur d’écran, zoom navigateur réel et contraste non textuel complet.",
+        "Firefox, Safari, téléphone réel et performance d’usage.",
+        "Gain général de qualité, de variété ou de coût du système."
+      ],
+      "provenance": {
+        "artifact_locator": "produit/supports/index.html",
+        "artifact_version": "ab559d18807e35a6e186f09e450f04ea1827b74ae9b6da18fb4d1dd37176c6ca",
+        "method": "AUTOMATED — 76 parcours, recettes Gate A et validation du paquet ; inspection des captures par le coordinateur.",
+        "observed_at": "2026-10-10T22:31:21.682068+00:00",
+        "capability": "Chromium 151 et captures"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Rétablir la hiérarchie du titre mobile et représenter explicitement le retour de la décision au diagnostic.",
+      "evidence": "Paires des captures avant-retouche/finales de boucle sombre et parcours 320 px ; mêmes contenus et viewports, relation de retour ajoutée."
+    },
+    "creative_close": {
+      "presence": "Le design central et les domaines sont lisibles en clair/sombre ; la lecture étroite conserve une vraie hiérarchie.",
+      "signature": "Les cartes relient responsabilités, risque, décision et reprise propres à ce système ; le langage reste documentaire.",
+      "craft_detail": "Titre mobile corrigé, boucle dessinée, glyphes contenus, fontes et licences embarquées ; export réellement rouvert.",
+      "dominant_defect": "La densité documentaire reste à éprouver avec une personne découvrant le système.",
+      "next_polish_action": "STOP — paquet présentable et contrôlé ; la prochaine amélioration vient d’une tâche de découverte, pas d’une nouvelle retouche arbitraire."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "PARTIALLY-HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Choix d’auteur délégué ; aucun jugement humain indépendant ni bénéfice général mesuré.",
+        "Mesures ciblées dans Chromium et revue des captures ; pas de certification exhaustive."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "NOT-VERIFIED",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS-WITH-RESERVATION"
+      },
+      "reservations": [
+        {
+          "owner": "Demandeur et coordinateur",
+          "scope": "Compréhension et couverture de plateforme/accessibilité",
+          "date_version": "2026-10-10 / ab559d18807e",
+          "impact": "Des parcours automatisés ne prouvent pas la compréhension ni la conformité globale.",
+          "next_proof": "Une tâche de découverte puis lecteur d’écran et autre navigateur selon le public visé.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Compréhension observée et réserves de couverture réévaluées."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "preuves-avant-retouche/boucle-sombre.png",
+          "after_locator": "preuves/boucle-sombre.png",
+          "decision": "Une boucle doit représenter le retour au diagnostic lorsqu’un défaut utile reste.",
+          "outcome": "modified"
+        }
+      }
+    }
+  }
+}

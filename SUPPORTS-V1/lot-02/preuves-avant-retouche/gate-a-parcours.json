@@ -1,0 +1,674 @@
+{
+  "provenance": {
+    "artifact_locator": "/workspace/DESIGN-GOVERNANCE1/supports/parcours.html",
+    "artifact_version": "57e02734d6db",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-10T22:27:39Z",
+    "scope": "état initial, largeurs 320,390,768,1440 px",
+    "external_requests_blocked": 0,
+    "captures": [
+      "/workspace/presentation-v1-travaux/preuves/gate-a-parcours/capture-320px.png",
+      "/workspace/presentation-v1-travaux/preuves/gate-a-parcours/capture-390px.png",
+      "/workspace/presentation-v1-travaux/preuves/gate-a-parcours/capture-768px.png",
+      "/workspace/presentation-v1-travaux/preuves/gate-a-parcours/capture-1440px.png"
+    ],
+    "browser": {
+      "engine": "chromium",
+      "version": "151.0.7922.173",
+      "executable": "/usr/bin/chromium"
+    },
+    "local_server": "127.0.0.1, temporaire"
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 320, 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 320 px : 98 texte(s) évalué(s), 148 candidat(s), 49 exclu(s) ; 390 px : 98 texte(s) évalué(s), 148 candidat(s), 49 exclu(s) ; 768 px : 100 texte(s) évalué(s), 148 candidat(s), 47 exclu(s) ; 1440 px : 65 texte(s) évalué(s), 148 candidat(s), 35 exclu(s) ; 320 px : texte non évalué : #entry (texte de contrôle natif) ; 390 px : texte non évalué : #entry (texte de contrôle natif) ; 768 px : texte non évalué : #entry (texte de contrôle natif) ; 1440 px : texte non évalué : #entry (texte de contrôle natif) ; 1440 px : candidat(s) restant hors évaluation ; texte SVG non évalué (#font-license, #map-desc, #map-title) : relever fill/stroke, opacités et fond réel, puis calculer le contraste ; méthode dans ACTION/GATE-A"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "24 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement ; 9 petite(s) cible(s) admise(s) par l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "24 arrêt(s) à 320 px ; 320 px : page, fin=end, 24 candidat(s) ; 24 arrêt(s) à 390 px ; 390 px : page, fin=end, 24 candidat(s) ; 24 arrêt(s) à 768 px ; 768 px : page, fin=end, 24 candidat(s) ; 15 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 15 candidat(s) ; style observé, visibilité et contraste du focus à vérifier"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation active"
+    },
+    {
+      "check": "Objet de preuve au premier écran (.recommendation)",
+      "status": "PASS",
+      "detail": "320 px : intersection verticale 112 px sur 112, horizontale 284 px sur 284; 390 px : intersection verticale 112 px sur 112, horizontale 354 px sur 354; 768 px : intersection verticale 98 px sur 98, horizontale 460 px sur 460; 1440 px : intersection verticale 98 px sur 98, horizontale 852 px sur 852 ; rectangle et CSS observés, pixels et occlusion non vérifiés"
+    }
+  ],
+  "keyboard_coverage": {
+    "320": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#theme"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "#entry"
+        },
+        {
+          "key": "control-5",
+          "id": "#entry-link"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "a"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "a"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "a"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        },
+        {
+          "key": "control-21",
+          "id": "summary"
+        },
+        {
+          "key": "control-22",
+          "id": "#export"
+        },
+        {
+          "key": "control-23",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-22",
+        "control-23",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 24
+    },
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#theme"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "#entry"
+        },
+        {
+          "key": "control-5",
+          "id": "#entry-link"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "a"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "a"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "a"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        },
+        {
+          "key": "control-21",
+          "id": "summary"
+        },
+        {
+          "key": "control-22",
+          "id": "#export"
+        },
+        {
+          "key": "control-23",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-22",
+        "control-23",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 24
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#theme"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "#entry"
+        },
+        {
+          "key": "control-5",
+          "id": "#entry-link"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "a"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "a"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "a"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        },
+        {
+          "key": "control-21",
+          "id": "summary"
+        },
+        {
+          "key": "control-22",
+          "id": "#export"
+        },
+        {
+          "key": "control-23",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-22",
+        "control-23",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 24
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#theme"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "#entry"
+        },
+        {
+          "key": "control-5",
+          "id": "#entry-link"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "a"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "a"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "summary"
+        },
+        {
+          "key": "control-13",
+          "id": "#export"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 15
+    }
+  },
+  "contrast_coverage": {
+    "320": {
+      "method": "dom-text-bounded",
+      "candidates": 148,
+      "evaluated": 98,
+      "excluded": 49,
+      "unmeasured": [
+        {
+          "sel": "#entry",
+          "kind": "texte de contrôle natif"
+        }
+      ]
+    },
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 148,
+      "evaluated": 98,
+      "excluded": 49,
+      "unmeasured": [
+        {
+          "sel": "#entry",
+          "kind": "texte de contrôle natif"
+        }
+      ]
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 148,
+      "evaluated": 100,
+      "excluded": 47,
+      "unmeasured": [
+        {
+          "sel": "#entry",
+          "kind": "texte de contrôle natif"
+        }
+      ]
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 148,
+      "evaluated": 65,
+      "excluded": 35,
+      "unmeasured": [
+        {
+          "sel": "#entry",
+          "kind": "texte de contrôle natif"
+        }
+      ]
+    }
+  },
+  "proof_observations": {
+    "320": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 284,
+      "h": 112,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 284,
+      "visible": 112,
+      "limits": []
+    },
+    "390": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 354,
+      "h": 112,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 354,
+      "visible": 112,
+      "limits": []
+    },
+    "768": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 460,
+      "h": 98,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 460,
+      "visible": 98,
+      "limits": []
+    },
+    "1440": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 852,
+      "h": 98,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 852,
+      "visible": 98,
+      "limits": []
+    }
+  }
+}

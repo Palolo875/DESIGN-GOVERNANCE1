@@ -1,7 +1,9 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** comparaison concurrentielle et anglais reportés par le propriétaire ; diagnostic U6 et essai Web mobile livrés dans la [suite pratique](../SUITE-PRATIQUE/resultats.md). La priorité actuelle est la [présentation V1 expérimentale](../SUPPORTS-V1/README.md) : schémas, puis nettoyage éditorial et emballage, avec conservation des travaux. La première carte et son langage visuel sont proposés à la discussion. Les phases 6 et 8 avaient livré leur périmètre minimal ; leur suite est ouverte. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire ne sont pas établies.
+**Statut :** comparaison concurrentielle et anglais reportés par le propriétaire ; diagnostic U6 et essai Web mobile livrés dans la [suite pratique](../SUITE-PRATIQUE/resultats.md). Le lot de [présentation V1 expérimentale](../SUPPORTS-V1/README.md) livre trois cartes et le nettoyage public, après délégation du choix visuel. La [PR 2](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2) est en brouillon ; ce candidat n’est pas intégré à `main`. Les vues supplémentaires de phase 6 et l’observation par un nouveau public restent ouvertes. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire sur ses résultats ne sont pas établies.
 **Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié :** `3b79b3a10d2344a52db76f6e6239cf0a91c056c7` (révision `R2026-10-10-PRATIQUE`). Validation complète avec navigateur et archives reproductibles ; CI 52 et 53 réussies sur ce SHA ; PR 1 fusionnée dans `main` (`4e1f9cc`), arbre strictement identique au commit testé. Les CI 50 et 51 restent les preuves de la révision précédente, sans les réattribuer ; [livraison suivie](../SUITE-PRATIQUE/livraison.md).
+
+**Candidat de présentation vérifié localement :** `213cfbaf8867142eb834c834311adb0fa626d8fe`, révision `R2026-10-10-PRESENTATION`, construit depuis `main` au commit `4e1f9cc20a9887d570a720934ca5b1752c78971a`. Les preuves propres à ce lot et l’observation datée de la CI sont conservées dans [SUPPORTS-V1/lot-02](../SUPPORTS-V1/lot-02/README.md). La CI 54 de la base n’est pas réattribuée au candidat.
 
 ---
 
@@ -15,9 +17,9 @@
 | 3 — Rangement | **faite : lots 0 à 7c** | Voir le détail ci-dessous |
 | 4 — Langue claire (réduite, choix A) | **faite** | README `e13b8f3` ; sommaires `34cfd3a` ; guide designer `7bc881e` ; glossaire `3c13742` ; guide d’équipe `5ddf769` ; libellés hérités `715075a`. Les adresses lisibles remplacent les codes ; les contrôles les relisent en codes (`rr.en_codes`) et restent identiques sur le fond. Reportés à la phase 5 : le `design/` lu par l’agent, l’exemple complet du guide d’équipe ; la gouvernance a depuis été clarifiée comme adaptée et utile (`df5aa46`), puis sa règle de trace fusionnée (`795e713`) |
 | 5 — Chemin de l’agent | **suite technique et pratique livrée ; choix esthétique du propriétaire ouvert** | Convergence et exemples traités `6e3e2ab`, `7f12fe5` ; Gate B adaptée `eda7d94` ; noyau commun et détails activés `6e5a8c2` (44 437 → 18 852 octets). Conservation, mutations, navigateur et deux distributions vérifiés. Trois pilotes exploratoires, mesure du lecteur puis six créations séparées et deux juges aveugles ([U6](../U6/resultats.md)). Durées et lecture observées, sans baisse nette de l’union sur les créations complètes. Suite pratique `3b79b3a` : lectures par moment, alternatives plausibles, techniques de mobile/mouvement ; noyau 18 960 octets ; 53 parcours réussis. Qualité et variété générales, jetons API, charge cognitive, cibles initiales et décision du propriétaire restent ouverts |
-| 6 — Visuel et supports | **minimum livré ; suite ouverte** | Deux Mermaid historiques `52be4b9`. Nouvelle carte proposée dans [SUPPORTS-V1](../SUPPORTS-V1/README.md) : HTML responsive, SVG clair/sombre, texte, langage visuel et 27 parcours réussis. Parcours de travail, boucle créer/apprendre et adoption visuelle restent ouverts |
+| 6 — Visuel et supports | **trois supports livrés ; vues supplémentaires ouvertes** | Identité Manrope retenue après délégation. Carte du système, parcours de travail et boucle créer/apprendre : sources JSON, HTML responsive, SVG clair/sombre et texte. 76 contrôles ciblés réussis ; captures et réserves conservées dans [le lot 02](../SUPPORTS-V1/lot-02/README.md). Architecture des fichiers, chemins par effort, gabarits et compréhension par un nouveau public restent ouverts |
 | 7 — Anglais | **reportée** | À reprendre sur les textes clairs |
-| 8 — Emballage et présentation | **minimum livré ; nettoyage public ouvert** | Arborescence unique GitHub/Local `67f6fa4` ; copie Markdown retirée `f4e37ec` ; paquets livrés. Journal public, notes de version et présentation professionnelle de la V1 expérimentale restent à nettoyer |
+| 8 — Emballage et présentation | **lot présentable préparé ; intégration ouverte** | Arborescence unique GitHub/Local conservée. README, journal public et notes de version nettoyés ; statut expérimental et limites visibles. Les trois cartes et leur contrôle entrent dans les deux paquets, construits et reproduits à l’identique. Huit originaux conservés hors produit. PR 2 en brouillon, sans fusion |
 
 **Rangement, lot par lot :**
 
@@ -58,7 +60,7 @@ La suite a établi une référence de lecture, rendu les détails disponibles au
 
 La [comparaison U6](../U6/resultats.md) ajoute six producteurs en contextes neufs et deux juges aveugles. Les faits, préférences et limites sont séparés : pas de baisse nette des caractères uniques sur ces créations complètes, un défaut de focus sur A réparé dans une copie hors expérience, et un tour interrompu dont la durée n’est pas comparée. Le jugement du propriétaire reste attendu.
 
-Les cibles de lecture de l’architecture restent provisoires ; une condition de qualité peut justifier une lecture supplémentaire. Les phases 4, 6 et 8 réduites ne signifient pas que tous leurs objectifs initiaux sont réalisés. L’anglais demeure reporté. La nouvelle demande de présentation ouvre la suite des supports ; elle ne vaut pas adoption de leur identité.
+Les cibles de lecture de l’architecture restent provisoires ; une condition de qualité peut justifier une lecture supplémentaire. Les phases 4, 6 et 8 réduites ne signifient pas que tous leurs objectifs initiaux sont réalisés. L’anglais demeure reporté. Le propriétaire a ensuite délégué le choix visuel des supports ; cela n’accepte ni les résultats U6 ni une efficacité générale du système.
 
 ---
 
@@ -76,11 +78,17 @@ La [trace de livraison](../SUITE-PRATIQUE/livraison.md) porte le commit, la CI e
 
 ## Présentation V1 expérimentale — schémas puis nettoyage
 
-Le propriétaire a demandé d’abord une discussion, puis autorisé la première proposition par « allons y ». Le premier lot livre [la carte des responsabilités](../SUPPORTS-V1/carte-01/index.html) et [son langage visuel](../SUPPORTS-V1/carte-01/langage-visuel.md), dérivés de `main` au commit `4e1f9cc20a9887d570a720934ca5b1752c78971a`. Les versions claire/sombre, SVG et texte viennent d’une même source de contenu. Les choix et la preuve restent dans [la notice](../SUPPORTS-V1/carte-01/README.md) ; verdict exploratoire, aucune adoption d’identité.
+Le propriétaire a demandé d’abord une discussion, puis autorisé la première proposition par « allons y ». Le premier lot conserve [la carte des responsabilités](../SUPPORTS-V1/carte-01/index.html) et [son langage visuel](../SUPPORTS-V1/carte-01/langage-visuel.md), dérivés de `main` au commit `4e1f9cc20a9887d570a720934ca5b1752c78971a`. Les versions claire/sombre, SVG et texte viennent d’une même source de contenu. Les choix et la preuve restent dans [la notice](../SUPPORTS-V1/carte-01/README.md) ; verdict exploratoire au moment de cette première proposition.
 
 Les 27 parcours passent sur le HTML final ; la reconstruction est identique et la projection de décision passe le profil strict. Gate A ne relève aucun `RETURN`, avec réserves de couverture explicites. L’utilisabilité réelle, le lecteur d’écran, les autres plateformes et le rendu Mermaid demeurent non vérifiés. La [CI 54](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079876523) confirme séparément le produit sur le commit de fusion ; elle ne constitue pas une CI de cette carte documentaire.
 
-La suite reste ordonnée : retour sur ce support, parcours de travail et boucle créer/apprendre, intégration des supports utiles, puis nettoyage des documents publics et validation du paquet. Les travaux sont conservés sur `refonte`. Le futur journal public présentera la V1 sans reproduire tout le chantier ; les notes de version garderont la portée expérimentale et les limites. Aucun historique ni original U6 n’est supprimé. Comparaison concurrentielle et anglais restent reportés.
+Le propriétaire a répondu « à toi le choix » pour la direction visuelle. Manrope, les palettes par rôle et la composition documentaire sont retenus. Le [lot 02](../SUPPORTS-V1/lot-02/README.md) intègre la carte du système, le parcours d’un travail et la boucle créer/apprendre au candidat produit. Les sources JSON génèrent douze sorties ; un contrôle vérifie leur fraîcheur et leurs renvois. Chaque carte garde son SVG clair/sombre, sa page responsive et son équivalent écrit. L’identité documentaire ne prescrit aucun style aux productions des agents.
+
+Le README, le journal public et les notes de version présentent une V1 expérimentale sans reproduire le chantier. Les huit originaux sont conservés exactement dans `lot-02/avant/`. Les règles, modes et schémas sont conservés ; la skill est identique à la base, à 18 960 octets. Les 27 sources des neuf connexions ont été réexaminées : 26 textes servis sont identiques, le journal changé conserve son contrat de maintenance. Seule la révision de cette carte de connexions est actualisée.
+
+Les 76 contrôles ciblés passent sur les trois pages finales : tailles et thèmes, clavier, exports, texte agrandi, absence de JavaScript et SVG autonomes. Trois recettes Gate A passent avec leurs réserves conservées ; trois mutations de renvois ou de sortie sont refusées. La validation complète avec navigateur passe, ainsi que la construction et la reproductibilité des deux archives. La décision projetée passe le profil strict. Ces observations ne prouvent pas une compréhension par un nouveau public ou une conformité d’accessibilité exhaustive.
+
+La [PR 2](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2) reste en brouillon. Le candidat `213cfbaf8867142eb834c834311adb0fa626d8fe` n’est pas fusionné sur `main` ; ses CI sont suivies séparément dans [la livraison](../SUPPORTS-V1/lot-02/livraison.json). Les vues supplémentaires de phase 6 restent à justifier par leur utilité. Aucun historique ni original U6 n’est supprimé. Comparaison concurrentielle et anglais restent reportés.
 
 ## 1. Ce que l’on veut obtenir
 
@@ -323,7 +331,7 @@ Cette phase peut avancer en parallèle des phases 3 à 5, une fois la phase 2 va
 | Phase 1 | Disposition de chaque fichier |
 | Phase 2 | Architecture, vocabulaire, contrôles retirés, gouvernance en module dans le même paquet ou en paquet séparé |
 | Phase 5 | U6 choisie et exécutée (six producteurs et deux juges) ; ton jugement sur les rendus et la mise en ligne reste à recueillir |
-| Phase 6 | Identité visuelle ; version consultable ou non |
+| Phase 6 | Choix visuel délégué : Manrope retenue pour les trois supports ; utilité des vues supplémentaires et observation par un nouveau public restent ouvertes |
 | Phase 7 | Étendue de la traduction |
 | Phase 8 | Nom de version |
 

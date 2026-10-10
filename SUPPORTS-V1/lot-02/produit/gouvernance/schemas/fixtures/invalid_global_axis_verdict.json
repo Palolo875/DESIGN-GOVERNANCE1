@@ -1,0 +1,41 @@
+{
+  "run_card": {
+    "mode": "LITE",
+    "decision_intent": "Vérifier un correctif local.",
+    "risk": {
+      "level": "normal",
+      "statement": "Risque principal : la décision « Vérifier un correctif local » échoue dans le scope déclaré.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START",
+      "ACTION/RUN-LITE"
+    ],
+    "artifact": {
+      "locator": "local-artifact",
+      "scope": "État initial du bouton"
+    },
+    "proof": {
+      "observed": [
+        "Le correctif a été observé dans le scope déclaré."
+      ],
+      "not_verified": [
+        "Les autres appareils n’ont pas été vérifiés."
+      ]
+    },
+    "closure": {
+      "state": "CLOSED",
+      "issue": null,
+      "verdict": "PASS",
+      "limitations": [
+        "Le verdict PASS appartient à un axe, pas au verdict global."
+      ]
+    },
+    "id": "FIXTURE-INVALID_GLOBAL_AXIS_VERDICT",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "decision": "Vérifier un correctif local.",
+    "next_proof": "Rejouer la preuve attendue dans le scope déclaré."
+  }
+}
+

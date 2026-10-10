@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "scope": "validation complète avec navigateur, 76 parcours sur les trois cartes et trois recettes de rendu, archives reproductibles",
+  "outputs": {
+    "Design_Governance_V1_GITHUB.zip": "b6976aa634dcd857a70240b76ec2de6f1074c174f93c1274c55b6db1f2aa32de",
+    "Design_Governance_V1_LOCAL.zip": "2fffd5d5f6478ad27835511b420ddb2ecb95f33df9e59868cb43f57a55e12fc4"
+  },
+  "supports": {
+    "supports/parcours-sombre.svg": "f7dd62d5b29ee933e9471b91f4fb0a8173d3b9a800a28ad323ec17a3780512c7",
+    "supports/boucle-sombre.svg": "23d81f49e28f218319169e49e6e16e1eb67123b6afee23b5af754dd4c1fd5c8a",
+    "supports/systeme.json": "df9080efc2690222991257f2da7ad211e6861f4538d60729b8679ea5923c8260",
+    "supports/systeme-sombre.svg": "2f5aea217bc7c10004affb308c40c880d6df6e1171befb1ef76e63d33c0f1ce1",
+    "supports/systeme.md": "03ba1c69b0839868a742737dc9d2ada1162a73e3464c64f4f0d1dba14c9f691c",
+    "supports/index.html": "ab559d18807e35a6e186f09e450f04ea1827b74ae9b6da18fb4d1dd37176c6ca",
+    "supports/boucle.json": "dcb98939f58a3399ed2cfb310cf5b8536b9919247c4073a11c8e8fd3d59a8454",
+    "supports/boucle.md": "a08bfbab10b697bf8b7b553defef205177e6d5fa84943b249fb6e298af998ddf",
+    "supports/generer.py": "2c78af09a63642bb87191a282188848b53ddebcd383fda6cf00ca276fccfe408",
+    "supports/systeme-clair.svg": "4748ec362e71727edf50bcb103f7c098fb0d41da0500ece36db5d679978d1728",
+    "supports/README.md": "c9d8667018149c7112a667053a1ba6600aac1d5fd5efdb5c150774d5d0a62695",
+    "supports/parcours-clair.svg": "30b5d5de516531ec15df65f6d7226fa77d2479d25b117d56f40878af94a3b4d4",
+    "supports/boucle-clair.svg": "0f004a870e222d51969caf06e3207c661445ecd6cd3afa8a8f7eeb8a41f7a14a",
+    "supports/parcours.json": "67913229af02add0ad6f52a2a4ac1ac5c6d80b32b58e6fbe06c3fe39133e00cc",
+    "supports/parcours.md": "e3d50533bb3f9cefef23a8494d0c995b8043207b903b64c6e679d50cd5e79948",
+    "supports/page.template.html": "c08bf9d3cb5359aa825e0fcbb8b4d26d7e2171cd0907cd6ec15e6fd5cf68cef3",
+    "supports/parcours.html": "b10bcd5ebc5a199bf2ebbfc644f4f7e072d79e7fb49ab521a7c58dab2eb67d2c",
+    "supports/boucle.html": "d716875ec4554e10170c6a5d891be325c9d1d3ce6e223f96bb51c31cf2556c7f",
+    "supports/fonts/OFL-manrope.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+    "supports/fonts/manrope.ttf": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+  },
+  "skill_sha256": "b8395162d3c5d954d71e1757daaff1665754651f6ff4ebb15e954244ade1f9a6",
+  "product_commit": "213cfbaf8867142eb834c834311adb0fa626d8fe",
+  "base_commit": "4e1f9cc20a9887d570a720934ca5b1752c78971a",
+  "product_branch": "feat/presentation-v1",
+  "pull_request": {
+    "url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2",
+    "number": 2,
+    "draft": true,
+    "merged": false
+  },
+  "hosted_ci": {
+    "observed_at": "2026-10-10T22:49:47.409260+00:00",
+    "state": "IN_PROGRESS",
+    "runs": [
+      {
+        "number": 55,
+        "id": 38092791148,
+        "head_sha": "213cfbaf8867142eb834c834311adb0fa626d8fe",
+        "status": "in_progress",
+        "conclusion": null
+      },
+      {
+        "number": 56,
+        "id": 38092813117,
+        "head_sha": "213cfbaf8867142eb834c834311adb0fa626d8fe",
+        "status": "in_progress",
+        "conclusion": null
+      }
+    ]
+  }
+}

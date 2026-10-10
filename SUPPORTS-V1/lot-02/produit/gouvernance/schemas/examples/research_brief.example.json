@@ -1,0 +1,27 @@
+{
+  "research_question": "Comment rendre une alerte critique immédiatement compréhensible sans écraser le contexte ?",
+  "decision_at_risk": "position et densité du bloc de preuve dans la scène principale",
+  "depth": "targeted",
+  "source_classes": ["patterns du domaine", "retours opérateurs", "référence accessibilité"],
+  "uncertainty_before": "incertitude sur la priorité entre gravité, âge et contexte",
+  "uncertainty_after": "la gravité et l'âge doivent être immédiats; le contexte reste disponible au même niveau de lecture",
+  "entries": [
+    {
+      "source": "entretiens opérateurs internes, synthèse 2026-09",
+      "source_status": "user_source_unverified",
+      "source_date": "2026-09",
+      "source_locator": "notes/entretiens-operateurs-2026-09.md",
+      "source_class": "retours opérateurs",
+      "reliability_basis": "synthèse de quatre opérateurs du même contexte, sans observation d'incident réel",
+      "observed": "les opérateurs cherchent d'abord le niveau de gravité puis la dernière observation fiable",
+      "retained": ["gravité visible", "horodatage proche de l'alerte"],
+      "rejected": ["code couleur seul", "animation permanente"],
+      "transformed": "la gravité devient une hiérarchie typographique et un statut explicite, pas seulement une couleur",
+      "decision_changed": "le panneau d'alerte devient l'objet de preuve principal et conserve le contexte secondaire",
+      "artifact_consequence": "la scène place gravité, âge et action dans le foyer; l'historique reste accessible sans déplacer le premier geste",
+      "limit": "synthèse sans observation en situation d'incident réel"
+    }
+  ],
+  "stop_condition": "arrêter lorsque la position de la preuve et le premier geste sont distingués par les observations disponibles"
+}
+

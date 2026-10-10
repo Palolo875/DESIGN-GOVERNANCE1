@@ -1,0 +1,172 @@
+{
+  "revision": "R2026-10-10-PRESENTATION",
+  "result": "PASS",
+  "scope": "tous les propriétaires cités dans les neuf connexions ; journal changé relu, autres corps servis identiques",
+  "sources": [
+    {
+      "locator": "ACTION/AUTHORITY",
+      "owner": "gouvernance/principes.md",
+      "result": "IDENTICAL",
+      "sha256": "b6f1bd5e88ba36eb5f41e0dfb100eda2fd0d4409fee9acef98fe9307aee7747d"
+    },
+    {
+      "locator": "ACTION/GATE-A",
+      "owner": "design/produit/plancher.md",
+      "result": "IDENTICAL",
+      "sha256": "9a94f4b2493c7e3732c60bc662c4677398ced23d887dc0c7b00b2ae9e4420c71"
+    },
+    {
+      "locator": "ACTION/RUN-SYSTEM",
+      "owner": "agent/chemins.md",
+      "result": "IDENTICAL",
+      "sha256": "4392cdabba6e861c0259dbf3b71c9b3a257ea0f8574c13b050b6ba33e4e57708"
+    },
+    {
+      "locator": "ACTION/RUN_CARD",
+      "owner": "gouvernance/travail.md",
+      "result": "IDENTICAL",
+      "sha256": "4155fc386bd92c72d878a440ab0fde283f36f0c5180f1eb9ebaa96cefab80d2e"
+    },
+    {
+      "locator": "ACTION/STRUCTURED-PROOF",
+      "owner": "gouvernance/verification.md",
+      "result": "IDENTICAL",
+      "sha256": "00ecd8c0aead9d39de1a5e63fb2d15e0f3b3f2cf0e2991972f86054ddc9a1009"
+    },
+    {
+      "locator": "ACTION/UI-UX-REALITY",
+      "owner": "design/produit/premier-rendu.md",
+      "result": "IDENTICAL",
+      "sha256": "80662f85ecf82ee71c203aa4734cbebb893b3e4ece753af7d3970a8e44cbe76c"
+    },
+    {
+      "locator": "BIBLIOTHEQUE/COMPONENTS",
+      "owner": "design/formes/catalogue.md",
+      "result": "IDENTICAL",
+      "sha256": "fd7ef16300ba01c04c383cc1c2be2b4650e53f889f7193036359ad34bbe8f5e4"
+    },
+    {
+      "locator": "BIBLIOTHEQUE/CONTRACTS",
+      "owner": "gouvernance/structure.md",
+      "result": "IDENTICAL",
+      "sha256": "3db970f961cbf5d315f8f39f38ca77c52e67e2f671d35d2fa136cdf28168f04a"
+    },
+    {
+      "locator": "BIBLIOTHEQUE/EVOLUTION",
+      "owner": "maintenance/evolution.md",
+      "result": "IDENTICAL",
+      "sha256": "336cdb599145971c403fb2f7d7a3c9dbfd0742f87ebf349049873176b8f89b81"
+    },
+    {
+      "locator": "BIBLIOTHEQUE/SELECT",
+      "owner": "design/formes/choisir.md",
+      "result": "IDENTICAL",
+      "sha256": "281bd44b8b3fbb3a65d75101b3221de857403dfc2350b842a448d8c10d97b13c"
+    },
+    {
+      "locator": "DIRECTION/CREATIVE-BOOT",
+      "owner": "agent/chemins.md",
+      "result": "IDENTICAL",
+      "sha256": "402ff86c03188ec26e52185350658f30872b7b49f36cc33b1a46d9410e74e3f1"
+    },
+    {
+      "locator": "DIRECTION/DOMAIN-FRAME",
+      "owner": "agent/chemins.md",
+      "result": "IDENTICAL",
+      "sha256": "1894730828fe977cdaf0839a1d45bdf277aea0d619550b71ef6def6706816fe1"
+    },
+    {
+      "locator": "DIRECTION/FIRST-OBJECT",
+      "owner": "design/direction/premier-objet.md",
+      "result": "IDENTICAL",
+      "sha256": "00803cdfaef7b5c4dbbf4a186e68e856601619cdc00438f8dabd402379b91461"
+    },
+    {
+      "locator": "DIRECTION/START",
+      "owner": "agent/chemins.md",
+      "result": "IDENTICAL",
+      "sha256": "0eb6c426d50662f792409484b44a152075ca602324bf70b91c99beaa09af40d6"
+    },
+    {
+      "locator": "DIRECTION/VISUAL_TARGET",
+      "owner": "design/direction/diriger.md",
+      "result": "IDENTICAL",
+      "sha256": "605c526de996114505f0daea55446475daff8512f03416129b449d62b89a1f4c"
+    },
+    {
+      "locator": "SAVOIR/CRAFT/CFT-00",
+      "owner": "design/savoir/qualite-creative.md",
+      "result": "IDENTICAL",
+      "sha256": "e7a4f120cba64bf36b779adbbb57637cca3e81749bd7fd065cfc51e5e3f72d2b"
+    },
+    {
+      "locator": "SAVOIR/CRAFT/CFT-03",
+      "owner": "design/savoir/qualite-creative.md",
+      "result": "IDENTICAL",
+      "sha256": "dcc3c6e15b523929f3fef5de197fc82d5e99b99cc94fbefa3dcae12980418e27"
+    },
+    {
+      "locator": "SAVOIR/DESIGN-ATLAS",
+      "owner": "design/savoir/images-et-sources.md",
+      "result": "IDENTICAL",
+      "sha256": "07fd320e57256eb5e711f5cf05165a1e032d229f0d2a8b4a6bc1a2c7839985d2"
+    },
+    {
+      "locator": "SAVOIR/FRAME/FND-03",
+      "owner": "design/savoir/fondements.md",
+      "result": "IDENTICAL",
+      "sha256": "a7a77db63a74592f4ea74feb408c8e1c40e0c5631c621cd4dfc5c4548d945378"
+    },
+    {
+      "locator": "SAVOIR/SOURCE",
+      "owner": "design/savoir/images-et-sources.md",
+      "result": "IDENTICAL",
+      "sha256": "d97696fe7d137debb481a11355f1b6770f85dd5e923d66ca73776505ff102352"
+    },
+    {
+      "locator": "SAVOIR/STATE",
+      "owner": "design/savoir/composition.md",
+      "result": "IDENTICAL",
+      "sha256": "5bc938b204c7454fae931a34049d676b06bbbee7f2aa0a559b033c42476eb0aa"
+    },
+    {
+      "locator": "SAVOIR/STYLE",
+      "owner": "design/savoir/styles.md",
+      "result": "IDENTICAL",
+      "sha256": "a69d527ddb90c39dfb9b2148c0c874726189bc854a254a4cbcc2e4cb007edd04"
+    },
+    {
+      "locator": "SAVOIR/SYSTEM",
+      "owner": "design/savoir/systeme-de-design.md",
+      "result": "IDENTICAL",
+      "sha256": "e4be5c10e44a9f1f1da95f1345b380f79511ca7a968e0ce753e46aaa81fb1b4d"
+    },
+    {
+      "locator": "SAVOIR/TECH",
+      "owner": "design/savoir/techniques.md",
+      "result": "IDENTICAL",
+      "sha256": "3722c209694ef4ccc6ad1ef970a4010be47930d0010cf74a46a2794de190ee00"
+    },
+    {
+      "locator": "SAVOIR/TOOLS",
+      "owner": "design/savoir/gout-et-tendances.md",
+      "result": "IDENTICAL",
+      "sha256": "20c968cada16e74ae2e4c76a72874620896952a611fab47015611dfc97ab11ab"
+    },
+    {
+      "locator": "SAVOIR/TYPE",
+      "owner": "design/savoir/typographie.md",
+      "result": "IDENTICAL",
+      "sha256": "c48a0757fa1fbdca43440629b0cd6c7dc2ea0465f239acbef4349cdfd132f510"
+    },
+    {
+      "locator": "maintenance/versions",
+      "owner": "maintenance/versions.md",
+      "result": "CHANGED-REVIEWED",
+      "retained": "contrat de budget et section Autorité et maintenance conservés exactement ; limites conservées",
+      "change": "chronologie archivée, journal public et métadonnées de révision actualisés",
+      "before_sha256": "be4e1bfc71b97972ea1449c4937edba661c3e941c75b630fa07f31b21c5600cc",
+      "after_sha256": "da060d14b20490db3d1232d0a2b0b4a9ac8c87c703f5a8d067feb8e51703433f"
+    }
+  ]
+}
