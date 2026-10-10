@@ -1,0 +1,80 @@
+{
+  "run_card": {
+    "id": "INVALID-DIRECTION-ACCEPTED-UNTRANSFORMED-ANCHOR",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "DIRECTION",
+    "decision": "Construire une scène située.",
+    "decision_intent": "Construire une scène située.",
+    "risk": {
+      "level": "important",
+      "statement": "Risque principal : la décision « Construire une scène située » échoue dans le scope déclaré.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START",
+      "ACTION/RUN-DIRECTION"
+    ],
+    "direction": {
+      "thesis": "La matière porte le geste.",
+      "anti_direction": [
+        "Copier la référence."
+      ],
+      "first_object": "Objet directeur.",
+      "identity_stake": "normal"
+    },
+    "anchors": [
+      {
+        "role": "direction",
+        "type": "observed",
+        "source": "URL ou référence réellement ouverte",
+        "date": "2026-08-29",
+        "scope": "matière",
+        "retained": [
+          "contraste"
+        ],
+        "rejected": [
+          "copie"
+        ],
+        "limitation": "Ne prouve pas l’efficacité.",
+        "transformation_status": "not_transformed"
+      }
+    ],
+    "artifact": {
+      "locator": "local-artifact",
+      "scope": "première scène",
+      "rights_status": "not_applicable"
+    },
+    "trace_locator": "ticket-ou-chemin",
+    "next_proof": "Observer la transformation dans le rendu.",
+    "proof": {
+      "observed": [
+        "Scène construite."
+      ],
+      "not_verified": [
+        "Transformation non établie."
+      ],
+      "provenance": {
+        "artifact_locator": "local-artifact",
+        "artifact_version": "v1",
+        "method": "capture",
+        "observed_at": "2026-08-31"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Direction exploratoire.",
+      "evidence": "Capture locale."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "HELD",
+      "issue": null,
+      "verdict": "ACCEPTED-WITH-RESERVATION",
+      "limitations": [
+        "Transformation non établie."
+      ]
+    }
+  }
+}
+

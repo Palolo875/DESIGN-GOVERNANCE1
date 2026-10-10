@@ -1,0 +1,49 @@
+# Produit — finition
+
+Le craft jugé sur le rendu réel, et ce qui sépare un produit fini d’un rendu générique.
+
+<!-- origine:ACTION.md -->
+## ACTION/GATE-C — craft sur rendu réel
+
+Gate C évalue la présence de décisions perceptibles et la qualité de leur résolution. Il est obligatoire en `DIRECTION`, ciblé au risque craft en `STANDARD`, limité à la zone touchée en `ITER` et `N/A-JUSTIFIED` en `LITE` lorsque le craft n’est pas concerné.
+
+Une capture réelle est nécessaire pour un jugement C. Sans runtime ou capture, le craft reste `NOT-VERIFIED`.
+
+Gate C décide sur le rendu à partir des observations de la revue créative et, si elle est déclenchée, de la paire B1b (`ACTION/GATE-B — B1b`) pour la décision mise à l’épreuve ; il ne refait pas une seconde revue, ni une seconde procédure de comparaison.
+
+Chaque verdict C précise le périmètre : viewport, état, scène, contenu et élément observé. Pour une finesse insuffisante, utilise les gestes conditionnels de `SAVOIR/STATE`, puis compare les versions au même scope ; une cohérence déclarée ou un geste seulement prévu ne prouve pas la résolution. Lorsque la structure est ouverte, applique sur la même capture les tests perceptifs de `BIBLIOTHEQUE/GATE` (non-généricité, silhouette, grille) ; ils nourrissent C3 et C4 sans verdict propre.
+
+| Critère | Présent si… | Retour ou réserve si… | Geste si absent (source à charger) |
+|---|---|---|---|
+| **C1 — Stratégie de surface** | Photo, donnée, lumière, illustration, surface, trame, profondeur ou planéité assumée découle du produit. | Traitement par défaut sans relation observable. | Choisis la surface d’après ce que le produit montre (« Moyens et vérité » : carte des moyens) ; un traitement justifié par la thèse pour les assets moyens ; retire le traitement sans rôle. |
+| **C2 — Typographie choisie** | Famille, système existant ou alternative est justifié ; rôles, échelle et fallback servent le contexte. | Choix par défaut non interrogé ou non calibré. | Choisis la famille pour la voix et la donnée à porter (« Composition » : typographie) ; fixe deux ou trois rôles et une échelle contrastée ; vérifie le fallback au rendu. |
+| **C3 — Composition intentionnelle** | Structure de lecture identifiable sert l’action et le rythme. | Empilement uniforme sans décision spatiale. | Recompose dans l’ordre intention → foyer → masse → rythme (« Composition ») ; nomme le foyer et l’ordre de lecture ; romps la trame modale si elle ne sert pas la tâche (« Structure » : test de trame). |
+| **C4 — Densité optique** | Espace, masses et regroupements suivent la priorité et l’usage. | Espacement uniforme qui masque les relations. | Regroupe par proximité ; redistribue masses et vides selon la priorité (« Gestes de finition » : masse visuelle, gestion du vide) ; contrôle la silhouette à faible détail. |
+| **C5 — Stratégie de profondeur applicable** | Profondeur, lumière ou planéité est cohérente avec le registre et lisible au rendu. | Ombres, bordures ou flous par défaut sans logique. `N/A-JUSTIFIED` si la planéité est intentionnelle et suffisante. | Tiens une seule logique, lumière, élévation ou planéité, sur toute la surface ; retire ombres, bordures et flous sans rôle (« Gestes de finition » : surface). |
+| **C6 — Résolution située** | Une difficulté réelle est résolue par microcopie, état, donnée, interaction, asset ou transition pertinente. | Assemblage de composants sans adaptation au cas. | Trouve la difficulté réelle du cas (attente, erreur, donnée, choix) et résous-la par microcopie, état, donnée ou interaction (« Composition » : forme située) ; une erreur se résout jusqu’à la reprise (`SAVOIR/STATE`). |
+
+Chaque verdict C cite l’élément concret observé. Un critère bloquant absent, ou plusieurs signaux faibles convergeant sur le même risque, déclenchent un retour. La correction revient à la direction, à la spec ou au build ; elle n’ajoute pas un effet décoratif terminal.
+
+En trace légère, Gate C sert de contrôle de craft sur la capture, dans la boucle d’édition : un critère absent déclenche son geste, puis une nouvelle capture ; aucun verdict n’est écrit.
+
+---
+
+<!-- origine:ACTION.md -->
+## ACTION/ANTI-SLOP — conséquence de gate
+
+La matrice canonique motivation/construction appartient à `SAVOIR/CRAFT/CFT-01`. ACTION ne la reproduit pas : il vérifie sa conséquence sur l’artefact. Lorsqu’un motif manque de motivation, de construction ou des deux, la trace nomme l’élément observé, la relation produit/lecture manquante et la sortie : correction, retrait, réserve ou `RETURN`.
+
+Une couleur de marque, une contrainte de contenu ou une construction technique soignée n’immunisent pas un choix contre les autres gates. Les watchlists et tendances restent des aides de jugement dans `SAVOIR/CRAFT` ou la veille ; elles ne deviennent pas des interdits universels.
+
+---
+
+<!-- origine:ACTION.md -->
+## ACTION/ATELIER-EDITION — opération observable
+
+<!-- noyau:début BOUCLE-ATELIER -->
+Dans le scope de B1b (surface `DIRECTION` qui accepte avec l’axe V positif, en trace complète : `ACTION/GATE-B/B1b`), cet atelier est requis, sauf deux motifs `N/A-JUSTIFIED` : aucune décision principale éditable, ou une paire équivalente encore valide qui couvre la même décision. Hors de ce scope, sur une surface `DIRECTION` en trace légère, fais-en au moins un tour (lecture légère, édition, nouvelle capture comparée) ; la paire n’est pas exigée en trace.
+
+Après la première capture, fais une lecture légère en ignorant le texte explicatif et nomme en une phrase la catégorie, la marque et le niveau de preuve que la surface semble raconter. Nomme ensuite la décision principale à mettre à l’épreuve. Édite-la par **retrait, réduction ou transformation** ; une décision peut coordonner plusieurs diffs, mais l’unité de compte n’est pas le nombre de changements. N’ajoute rien pour compenser.
+
+Conserve et compare la capture suivante. La trace nomme le changement, sa direction, son effet et la décision qu’il confirme, modifie ou abandonne. Garder l’original lorsqu’il résout mieux la décision est un résultat valide : la variante a alors confirmé une décision par comparaison plutôt que par déclaration.
+<!-- noyau:fin BOUCLE-ATELIER -->

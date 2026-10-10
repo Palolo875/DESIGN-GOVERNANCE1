@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "document": "README.md",
+      "theme": "light",
+      "selected": "systeme-clair.svg",
+      "link": "supports/systeme.md",
+      "result": "PASS"
+    },
+    {
+      "document": "README.md",
+      "theme": "dark",
+      "selected": "systeme-sombre.svg",
+      "link": "supports/systeme.md",
+      "result": "PASS"
+    },
+    {
+      "document": "design/README.md",
+      "theme": "light",
+      "selected": "boucle-clair.svg",
+      "link": "../supports/boucle.md",
+      "result": "PASS"
+    },
+    {
+      "document": "design/README.md",
+      "theme": "dark",
+      "selected": "boucle-sombre.svg",
+      "link": "../supports/boucle.md",
+      "result": "PASS"
+    },
+    {
+      "document": "agent/skill/references/flow.md",
+      "theme": "light",
+      "selected": "parcours-clair.svg",
+      "link": "../../../supports/parcours.md",
+      "result": "PASS"
+    },
+    {
+      "document": "agent/skill/references/flow.md",
+      "theme": "dark",
+      "selected": "parcours-sombre.svg",
+      "link": "../../../supports/parcours.md",
+      "result": "PASS"
+    }
+  ],
+  "server_stopped": true,
+  "scope": "Structure conservée par le moteur Markdown GitHub ; sélection native du navigateur observée sous Chromium, sans prétendre auditer toute l’interface GitHub."
+}

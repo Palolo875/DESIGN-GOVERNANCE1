@@ -21,3 +21,5 @@ La [PR 2](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2), en brouillon,
 La compréhension des supports par un nouveau public reste à observer. Les autres vues de phase 6 — architecture des fichiers, chemins par effort et gabarits — ne sont pas déclarées terminées : elles seront ajoutées si elles expliquent davantage que les entrées actuelles. L’intégration de ce candidat sur `main` reste distincte de sa livraison en brouillon.
 
 Concurrents et anglais restent reportés. Les dossiers historiques, les jugements et les originaux U6 ainsi que le prototype Folio sont conservés. Ce lot ne prouve pas une efficacité générale du système ni une conformité d’accessibilité exhaustive.
+
+Le [lot 03 de correctifs](lot-03/README.md) allège les supports de 86,5 %, adapte les entrées et images à GitHub, accepte SYSTEME sans accent et précise les deux titres du noyau. Il rétablit l’historique succinct dans le paquet et vérifie les lectures réellement consignées dans U6. Le candidat `b3e071b24bd67a71c9438779eaf8f6810aa8b3a1` reste dans PR 2, en brouillon ; sa validation locale complète passe. Les CI sont suivies dans sa livraison.

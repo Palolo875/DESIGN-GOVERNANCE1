@@ -1,0 +1,3 @@
+{
+  "diff_check": "Une fin de ligne Markdown avec deux espaces est conservée volontairement sur la révision du journal, comme dans la version précédente. Les autres lignes nouvelles ne portent pas d’espace final."
+}

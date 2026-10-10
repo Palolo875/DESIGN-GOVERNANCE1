@@ -1,0 +1,105 @@
+{
+  "run_card": {
+    "id": "INVALID-CAPABILITY-AVAILABLE-WITHOUT-BASIS",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "DIRECTION",
+    "decision": "Faire comprendre la relation entre le produit et son premier geste.",
+    "decision_intent": "Faire comprendre la relation entre le produit et son premier geste.",
+    "risk": {
+      "level": "important",
+      "statement": "Risque principal : la décision « Faire comprendre la relation entre le produit et son premier geste » échoue dans le scope déclaré.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START",
+      "ACTION/RUN_CARD",
+      "ACTION/GATE-B",
+      "ACTION/GATE-C"
+    ],
+    "direction": {
+      "thesis": "La matière du produit doit guider le premier geste.",
+      "anti_direction": [
+        "Hero générique sans objet directeur."
+      ],
+      "first_object": "Objet principal qui rend la relation produit-geste observable.",
+      "identity_stake": "normal"
+    },
+    "anchors": [
+      {
+        "role": "direction",
+        "type": "observed",
+        "source": "URL ou référence réellement ouverte",
+        "date": "2026-08-29",
+        "scope": "matière, rythme et hiérarchie de la première scène",
+        "retained": [
+          "rythme séquencé",
+          "contraste de matière"
+        ],
+        "rejected": [
+          "copie de marque",
+          "ornement sans rôle"
+        ],
+        "transformation": "Reformulé en relation propre au produit et au premier geste.",
+        "limitation": "Ne prouve ni l’efficacité ni l’adéquation culturelle générale.",
+        "transformation_status": "transformed"
+      }
+    ],
+    "artifact": {
+      "locator": "chemin-ou-url-local",
+      "scope": "Viewport desktop et mobile de la première scène, état initial.",
+      "rights_status": "not_applicable"
+    },
+    "trace_locator": "ticket-ou-chemin-de-run",
+    "next_proof": "Revue de la scène mobile et test de la première action.",
+    "capability_profile": {
+      "available": [
+        "artefact disponible",
+        "navigateur/capture disponible"
+      ],
+      "unavailable": [
+        "clavier/AT non exécuté"
+      ],
+      "not_required": [
+        "participant non requis pour cette passe"
+      ],
+      "basis": []
+    },
+    "proof": {
+      "observed": [
+        "Hiérarchie et premier geste observés dans le viewport inspecté."
+      ],
+      "not_verified": [
+        "Préférence humaine et utilisabilité générale non vérifiées."
+      ],
+      "provenance": {
+        "artifact_locator": "chemin-ou-url-local",
+        "artifact_version": "2026-08-29 / V1",
+        "method": "Inspection du rendu construit dans les viewports déclarés.",
+        "observed_at": "2026-08-29"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "L’objet directeur a remplacé une composition générique.",
+      "evidence": "Comparaison de la capture initiale et de la capture après édition."
+    },
+    "creative_close": {
+      "presence": "La première scène produit une présence matérielle et calme autour de l’objet directeur.",
+      "signature": "La relation entre matière, objet et premier geste rend la proposition spécifique au produit.",
+      "craft_detail": "La hiérarchie typographique et l’état initial de l’objet restent lisibles dans les viewports inspectés.",
+      "dominant_defect": "La transition entre découverte et première action manque encore de résolution sur mobile.",
+      "next_polish_action": "Polir la transition mobile et vérifier son comportement dans l’état de contenu long."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "HELD",
+      "issue": null,
+      "verdict": "ACCEPTED-WITH-RESERVATION",
+      "limitations": [
+        "La preuve reste limitée au scope déclaré."
+      ]
+    }
+  }
+}
+

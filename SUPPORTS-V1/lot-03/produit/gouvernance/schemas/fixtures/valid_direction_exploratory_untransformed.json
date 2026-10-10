@@ -1,0 +1,75 @@
+{
+  "run_card": {
+    "id": "VALID-DIRECTION-EXPLORATORY-UNTRANSFORMED-ANCHOR",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "DIRECTION",
+    "decision": "Construire une scène située.",
+    "decision_intent": "Construire une scène située.",
+    "risk": {
+      "level": "important",
+      "statement": "Risque principal : la décision « Construire une scène située » échoue dans le scope déclaré.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START",
+      "ACTION/RUN-DIRECTION"
+    ],
+    "direction": {
+      "thesis": "La matière porte le geste.",
+      "anti_direction": [
+        "Copier la référence."
+      ],
+      "first_object": "Objet directeur.",
+      "identity_stake": "normal"
+    },
+    "anchors": [
+      {
+        "role": "direction",
+        "type": "observed",
+        "source": "URL ou référence réellement ouverte",
+        "date": "2026-08-29",
+        "scope": "matière",
+        "retained": [
+          "contraste"
+        ],
+        "rejected": [
+          "copie"
+        ],
+        "transformation": "Transformation encore à observer dans le rendu.",
+        "limitation": "Ne prouve pas l’efficacité.",
+        "transformation_status": "not_transformed"
+      }
+    ],
+    "artifact": {
+      "locator": "local-artifact",
+      "scope": "première scène",
+      "rights_status": "not_applicable"
+    },
+    "trace_locator": "ticket-ou-chemin",
+    "next_proof": "Observer la transformation dans le rendu.",
+    "proof": {
+      "observed": [
+        "Scène construite."
+      ],
+      "not_verified": [
+        "Transformation non établie."
+      ]
+    },
+    "decision_change": {
+      "outcome": "NOT-OBSERVED",
+      "value": "Direction exploratoire.",
+      "evidence": "Capture locale."
+    },
+    "closure": {
+      "state": "DECIDED",
+      "direction_status": "PARTIALLY-HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Transformation non établie."
+      ]
+    }
+  }
+}
+

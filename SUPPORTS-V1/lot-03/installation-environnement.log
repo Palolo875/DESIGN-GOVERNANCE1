@@ -1,0 +1,14 @@
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3
+/usr/bin/bash
+/usr/bin/zip
+/usr/bin/unzip
+/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node
+/usr/bin/chromium
+POLICE REPRODUCTIBLE — glyphes, axe de graisses, empreintes et couverture vérifiés
+Chromium 151.0.7922.173 built on Debian GNU/Linux 13 (trixie)
+v24.19.0
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 18971 / 46000 octets UTF-8
+VALIDATION PASSED — GitHub, 133 fichiers attendus, liens, références opérationnelles, sources, vocabulaire et convention contrôlés
+Environnement prêt : /workspace/DESIGN-GOVERNANCE1
+Suite complète : source "/workspace/cloud-setup/design-governance/venv/bin/activate" && DG_BROWSER_EXECUTABLE="/usr/bin/chromium" DG_RENDER_SERVE_LOCAL=1 python scripts/validate_all.py --require-browser

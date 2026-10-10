@@ -1,0 +1,352 @@
+{
+  "revision": "R2026-10-11-CORRECTIFS",
+  "sources": [
+    {
+      "connection": "C01",
+      "locator": "DIRECTION/DOMAIN-FRAME",
+      "file": "agent/chemins.md",
+      "owner_text_identical": true,
+      "before_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b",
+      "after_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b"
+    },
+    {
+      "connection": "C01",
+      "locator": "SAVOIR/FRAME/FND-03",
+      "file": "design/savoir/fondements.md",
+      "owner_text_identical": true,
+      "before_sha256": "edfecfc3b68afcce197aa698d1b2558d3a3131468e7e65b2a08ffb47de84001b",
+      "after_sha256": "edfecfc3b68afcce197aa698d1b2558d3a3131468e7e65b2a08ffb47de84001b"
+    },
+    {
+      "connection": "C01",
+      "locator": "SAVOIR/SOURCE",
+      "file": "design/savoir/images-et-sources.md",
+      "owner_text_identical": true,
+      "before_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f",
+      "after_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f"
+    },
+    {
+      "connection": "C02",
+      "locator": "SAVOIR/TYPE",
+      "file": "design/savoir/typographie.md",
+      "owner_text_identical": true,
+      "before_sha256": "ffacc5a6d74f76f03cf4189ba6ab35dcb2297a7f87f8cef381ae07674432c722",
+      "after_sha256": "ffacc5a6d74f76f03cf4189ba6ab35dcb2297a7f87f8cef381ae07674432c722"
+    },
+    {
+      "connection": "C02",
+      "locator": "SAVOIR/CRAFT/CFT-03",
+      "file": "design/savoir/qualite-creative.md",
+      "owner_text_identical": true,
+      "before_sha256": "8bd6b59988b061e4a724f4c6486735813821ae9cbab09738c40117d261911524",
+      "after_sha256": "8bd6b59988b061e4a724f4c6486735813821ae9cbab09738c40117d261911524"
+    },
+    {
+      "connection": "C02",
+      "locator": "DIRECTION/CREATIVE-BOOT",
+      "file": "agent/chemins.md",
+      "owner_text_identical": true,
+      "before_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b",
+      "after_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b"
+    },
+    {
+      "connection": "C02",
+      "locator": "ACTION/STRUCTURED-PROOF",
+      "file": "gouvernance/verification.md",
+      "owner_text_identical": true,
+      "before_sha256": "ce903fb62209c966f9a8950b58daed64761ad3795e20d92f568a1132e431783f",
+      "after_sha256": "ce903fb62209c966f9a8950b58daed64761ad3795e20d92f568a1132e431783f"
+    },
+    {
+      "connection": "C03",
+      "locator": "DIRECTION/VISUAL_TARGET",
+      "file": "design/direction/diriger.md",
+      "owner_text_identical": true,
+      "before_sha256": "163a0ee3dde9c2a2efae9f7acd4a823fcd7bddeb16d4d185b2677976f4f97003",
+      "after_sha256": "163a0ee3dde9c2a2efae9f7acd4a823fcd7bddeb16d4d185b2677976f4f97003"
+    },
+    {
+      "connection": "C03",
+      "locator": "SAVOIR/SOURCE",
+      "file": "design/savoir/images-et-sources.md",
+      "owner_text_identical": true,
+      "before_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f",
+      "after_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f"
+    },
+    {
+      "connection": "C03",
+      "locator": "SAVOIR/DESIGN-ATLAS",
+      "file": "design/savoir/images-et-sources.md",
+      "owner_text_identical": true,
+      "before_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f",
+      "after_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f"
+    },
+    {
+      "connection": "C03",
+      "locator": "SAVOIR/TOOLS",
+      "file": "design/savoir/gout-et-tendances.md",
+      "owner_text_identical": true,
+      "before_sha256": "ad6af4a128be14c07f5931608ad8f54fa7d7dad35a34819ce50ec6909cc25c55",
+      "after_sha256": "ad6af4a128be14c07f5931608ad8f54fa7d7dad35a34819ce50ec6909cc25c55"
+    },
+    {
+      "connection": "C03",
+      "locator": "BIBLIOTHEQUE/CONTRACTS",
+      "file": "gouvernance/structure.md",
+      "owner_text_identical": true,
+      "before_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8",
+      "after_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8"
+    },
+    {
+      "connection": "C03",
+      "locator": "ACTION/STRUCTURED-PROOF",
+      "file": "gouvernance/verification.md",
+      "owner_text_identical": true,
+      "before_sha256": "ce903fb62209c966f9a8950b58daed64761ad3795e20d92f568a1132e431783f",
+      "after_sha256": "ce903fb62209c966f9a8950b58daed64761ad3795e20d92f568a1132e431783f"
+    },
+    {
+      "connection": "C04",
+      "locator": "SAVOIR/STATE",
+      "file": "design/savoir/composition.md",
+      "owner_text_identical": true,
+      "before_sha256": "4f70721952ff2ecc9e3dd997294c9367aa8c9d58cc7f044418806cf6e44ce293",
+      "after_sha256": "4f70721952ff2ecc9e3dd997294c9367aa8c9d58cc7f044418806cf6e44ce293"
+    },
+    {
+      "connection": "C04",
+      "locator": "ACTION/UI-UX-REALITY",
+      "file": "design/produit/premier-rendu.md",
+      "owner_text_identical": true,
+      "before_sha256": "8c7d326ed71159f910229fdce866744da86b01e7c27c317a60287f44f9cd54f9",
+      "after_sha256": "8c7d326ed71159f910229fdce866744da86b01e7c27c317a60287f44f9cd54f9"
+    },
+    {
+      "connection": "C04",
+      "locator": "ACTION/GATE-A",
+      "file": "design/produit/plancher.md",
+      "owner_text_identical": true,
+      "before_sha256": "404e452dec8c721e60ab764a4c6bf40b174ea4aa3d3afba5e72e115deb921b52",
+      "after_sha256": "404e452dec8c721e60ab764a4c6bf40b174ea4aa3d3afba5e72e115deb921b52"
+    },
+    {
+      "connection": "C05",
+      "locator": "DIRECTION/FIRST-OBJECT",
+      "file": "design/direction/premier-objet.md",
+      "owner_text_identical": true,
+      "before_sha256": "e854a5559c792be8b7b3c73cd0555c3895968fcf16cb33a8f65640b75021a72d",
+      "after_sha256": "e854a5559c792be8b7b3c73cd0555c3895968fcf16cb33a8f65640b75021a72d"
+    },
+    {
+      "connection": "C05",
+      "locator": "BIBLIOTHEQUE/CONTRACTS",
+      "file": "gouvernance/structure.md",
+      "owner_text_identical": true,
+      "before_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8",
+      "after_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8"
+    },
+    {
+      "connection": "C05",
+      "locator": "SAVOIR/STYLE",
+      "file": "design/savoir/styles.md",
+      "owner_text_identical": true,
+      "before_sha256": "51bbee38b49e0e1bfc0b941a2fb272d4c7814e3ebf07da82b66496e30be1fff4",
+      "after_sha256": "51bbee38b49e0e1bfc0b941a2fb272d4c7814e3ebf07da82b66496e30be1fff4"
+    },
+    {
+      "connection": "C05",
+      "locator": "SAVOIR/SYSTEM",
+      "file": "design/savoir/systeme-de-design.md",
+      "owner_text_identical": true,
+      "before_sha256": "9551c0d3680e4ed24cded3eb60a30edb7e01868ee7e5b776ed91263c0c9790d2",
+      "after_sha256": "9551c0d3680e4ed24cded3eb60a30edb7e01868ee7e5b776ed91263c0c9790d2"
+    },
+    {
+      "connection": "C06",
+      "locator": "DIRECTION/START",
+      "file": "agent/chemins.md",
+      "owner_text_identical": true,
+      "before_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b",
+      "after_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b"
+    },
+    {
+      "connection": "C06",
+      "locator": "ACTION/RUN-SYSTEM",
+      "file": "agent/chemins.md",
+      "owner_text_identical": true,
+      "before_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b",
+      "after_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b"
+    },
+    {
+      "connection": "C06",
+      "locator": "BIBLIOTHEQUE/COMPONENTS",
+      "file": "design/formes/catalogue.md",
+      "owner_text_identical": true,
+      "before_sha256": "e061949425faa45706e5fb395825a8d8305caea0d219d83be21b4e2710c36b6a",
+      "after_sha256": "e061949425faa45706e5fb395825a8d8305caea0d219d83be21b4e2710c36b6a"
+    },
+    {
+      "connection": "C06",
+      "locator": "BIBLIOTHEQUE/EVOLUTION",
+      "file": "maintenance/evolution.md",
+      "owner_text_identical": true,
+      "before_sha256": "2078412f1552c2caa133b69b5c11a873f5d762fc7bfc9edf64a5215239be2136",
+      "after_sha256": "2078412f1552c2caa133b69b5c11a873f5d762fc7bfc9edf64a5215239be2136"
+    },
+    {
+      "connection": "C06",
+      "locator": "SAVOIR/SYSTEM",
+      "file": "design/savoir/systeme-de-design.md",
+      "owner_text_identical": true,
+      "before_sha256": "9551c0d3680e4ed24cded3eb60a30edb7e01868ee7e5b776ed91263c0c9790d2",
+      "after_sha256": "9551c0d3680e4ed24cded3eb60a30edb7e01868ee7e5b776ed91263c0c9790d2"
+    },
+    {
+      "connection": "C06",
+      "locator": "maintenance/versions",
+      "file": "maintenance/versions.md",
+      "owner_text_identical": false,
+      "before_sha256": "da060d14b20490db3d1232d0a2b0b4a9ac8c87c703f5a8d067feb8e51703433f",
+      "after_sha256": "cf1d6de001c56456a8e457f80afab2cdde4b0970dcf26337ccc7506bd934555b"
+    },
+    {
+      "connection": "C07",
+      "locator": "DIRECTION/CREATIVE-BOOT",
+      "file": "agent/chemins.md",
+      "owner_text_identical": true,
+      "before_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b",
+      "after_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b"
+    },
+    {
+      "connection": "C07",
+      "locator": "DIRECTION/VISUAL_TARGET",
+      "file": "design/direction/diriger.md",
+      "owner_text_identical": true,
+      "before_sha256": "163a0ee3dde9c2a2efae9f7acd4a823fcd7bddeb16d4d185b2677976f4f97003",
+      "after_sha256": "163a0ee3dde9c2a2efae9f7acd4a823fcd7bddeb16d4d185b2677976f4f97003"
+    },
+    {
+      "connection": "C07",
+      "locator": "SAVOIR/CRAFT/CFT-00",
+      "file": "design/savoir/qualite-creative.md",
+      "owner_text_identical": true,
+      "before_sha256": "8bd6b59988b061e4a724f4c6486735813821ae9cbab09738c40117d261911524",
+      "after_sha256": "8bd6b59988b061e4a724f4c6486735813821ae9cbab09738c40117d261911524"
+    },
+    {
+      "connection": "C07",
+      "locator": "SAVOIR/STYLE",
+      "file": "design/savoir/styles.md",
+      "owner_text_identical": true,
+      "before_sha256": "51bbee38b49e0e1bfc0b941a2fb272d4c7814e3ebf07da82b66496e30be1fff4",
+      "after_sha256": "51bbee38b49e0e1bfc0b941a2fb272d4c7814e3ebf07da82b66496e30be1fff4"
+    },
+    {
+      "connection": "C07",
+      "locator": "BIBLIOTHEQUE/SELECT",
+      "file": "design/formes/choisir.md",
+      "owner_text_identical": true,
+      "before_sha256": "bed20e1a3e49798abed35f2e33699c12764de4d4d6f7c43feb72ba2a904b56b9",
+      "after_sha256": "bed20e1a3e49798abed35f2e33699c12764de4d4d6f7c43feb72ba2a904b56b9"
+    },
+    {
+      "connection": "C07",
+      "locator": "BIBLIOTHEQUE/CONTRACTS",
+      "file": "gouvernance/structure.md",
+      "owner_text_identical": true,
+      "before_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8",
+      "after_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8"
+    },
+    {
+      "connection": "C08",
+      "locator": "BIBLIOTHEQUE/COMPONENTS",
+      "file": "design/formes/catalogue.md",
+      "owner_text_identical": true,
+      "before_sha256": "e061949425faa45706e5fb395825a8d8305caea0d219d83be21b4e2710c36b6a",
+      "after_sha256": "e061949425faa45706e5fb395825a8d8305caea0d219d83be21b4e2710c36b6a"
+    },
+    {
+      "connection": "C08",
+      "locator": "BIBLIOTHEQUE/CONTRACTS",
+      "file": "gouvernance/structure.md",
+      "owner_text_identical": true,
+      "before_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8",
+      "after_sha256": "aee6536e861b404da3c07ee6a4f35d4ea15a4e2d200e954c6b68dd90edb9e2c8"
+    },
+    {
+      "connection": "C08",
+      "locator": "SAVOIR/CRAFT/CFT-00",
+      "file": "design/savoir/qualite-creative.md",
+      "owner_text_identical": true,
+      "before_sha256": "8bd6b59988b061e4a724f4c6486735813821ae9cbab09738c40117d261911524",
+      "after_sha256": "8bd6b59988b061e4a724f4c6486735813821ae9cbab09738c40117d261911524"
+    },
+    {
+      "connection": "C08",
+      "locator": "SAVOIR/SYSTEM",
+      "file": "design/savoir/systeme-de-design.md",
+      "owner_text_identical": true,
+      "before_sha256": "9551c0d3680e4ed24cded3eb60a30edb7e01868ee7e5b776ed91263c0c9790d2",
+      "after_sha256": "9551c0d3680e4ed24cded3eb60a30edb7e01868ee7e5b776ed91263c0c9790d2"
+    },
+    {
+      "connection": "C08",
+      "locator": "SAVOIR/STATE",
+      "file": "design/savoir/composition.md",
+      "owner_text_identical": true,
+      "before_sha256": "4f70721952ff2ecc9e3dd997294c9367aa8c9d58cc7f044418806cf6e44ce293",
+      "after_sha256": "4f70721952ff2ecc9e3dd997294c9367aa8c9d58cc7f044418806cf6e44ce293"
+    },
+    {
+      "connection": "C08",
+      "locator": "ACTION/STRUCTURED-PROOF",
+      "file": "gouvernance/verification.md",
+      "owner_text_identical": true,
+      "before_sha256": "ce903fb62209c966f9a8950b58daed64761ad3795e20d92f568a1132e431783f",
+      "after_sha256": "ce903fb62209c966f9a8950b58daed64761ad3795e20d92f568a1132e431783f"
+    },
+    {
+      "connection": "C09",
+      "locator": "SAVOIR/DESIGN-ATLAS",
+      "file": "design/savoir/images-et-sources.md",
+      "owner_text_identical": true,
+      "before_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f",
+      "after_sha256": "1e5eec83aa7ce83ab832bc45315e3b34084de43240fccf6b737dcae6f520059f"
+    },
+    {
+      "connection": "C09",
+      "locator": "SAVOIR/TECH",
+      "file": "design/savoir/techniques.md",
+      "owner_text_identical": true,
+      "before_sha256": "5722bcf7cf18a4d5e69ca9097bdf312158d35c22ad0433fd340b5c20cc785abe",
+      "after_sha256": "5722bcf7cf18a4d5e69ca9097bdf312158d35c22ad0433fd340b5c20cc785abe"
+    },
+    {
+      "connection": "C09",
+      "locator": "DIRECTION/CREATIVE-BOOT",
+      "file": "agent/chemins.md",
+      "owner_text_identical": true,
+      "before_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b",
+      "after_sha256": "2cba1031c608e262c23121bec9093c660c9c0434d2e6f5399cf293d3fe0df91b"
+    },
+    {
+      "connection": "C09",
+      "locator": "ACTION/RUN_CARD",
+      "file": "gouvernance/travail.md",
+      "owner_text_identical": true,
+      "before_sha256": "42a8f388ef97d3d747f8693bd457bcdaab7b8202c05a6873f67873b2b77077da",
+      "after_sha256": "42a8f388ef97d3d747f8693bd457bcdaab7b8202c05a6873f67873b2b77077da"
+    },
+    {
+      "connection": "C09",
+      "locator": "ACTION/AUTHORITY",
+      "file": "gouvernance/principes.md",
+      "owner_text_identical": true,
+      "before_sha256": "7190db85600750be601430ab6715bac0d1e152597f635d46d8481be95363f846",
+      "after_sha256": "7190db85600750be601430ab6715bac0d1e152597f635d46d8481be95363f846"
+    }
+  ],
+  "unchanged": 42,
+  "changed_reviewed": "Journal : historique succinct ajouté, budget et contrat de maintenance inchangés.",
+  "unique_locators": 27
+}

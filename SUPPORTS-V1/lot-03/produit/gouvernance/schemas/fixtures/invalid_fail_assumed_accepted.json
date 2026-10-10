@@ -1,0 +1,19 @@
+{
+  "run_card": {
+    "id": "INVALID-FAIL-ASSUMED-ACCEPTED",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "STANDARD",
+    "decision": "Corriger une surface avant diffusion.",
+    "decision_intent": "Corriger une surface avant diffusion.",
+    "risk": {"level": "important", "statement": "Risque principal : la décision « Corriger une surface avant diffusion » échoue dans le scope déclaré.", "critical_protection": null},
+    "sources": ["DIRECTION/START", "ACTION/RUN-STANDARD"],
+    "artifact": {"locator": "ticket-ou-commit", "scope": "surface concernée"},
+    "trace_locator": "ticket-ou-chemin",
+    "next_proof": "Rejouer le contrôle après correction.",
+    "proof": {"observed": ["Le défaut est observé."], "not_verified": ["Correction non rejouée."]},
+    "decision_change": {"outcome": "CHANGED", "value": "Diffusion limitée malgré le défaut.", "evidence": "Décision documentée."},
+    "closure": {"state": "CLOSED", "issue": "FAIL-ASSUMED", "verdict": "ACCEPTED-WITH-RESERVATION", "limitations": ["Le défaut reste à corriger."], "exception": {"owner": "design-owner", "scope": "Surface concernée, diffusion interne", "impact": "Défaut connu livré sous exception", "next_proof": "Correction et nouvelle observation", "review_date": "2026-09-12", "exit_condition": "Défaut corrigé et observé", "gate_axis": "Gate A / défaut observé", "failure_evidence": "Le défaut est observé.", "requested_by": "Owner produit (demande écrite)", "disposition": "DIFFUSÉ-LIMITÉ"}}
+  }
+}
+

@@ -1,0 +1,7 @@
+{
+  "renderer": "GitHub markdown API, gfm",
+  "picture_retained": true,
+  "dark_source_retained": true,
+  "primary_targets": "Markdown",
+  "scope": "Structure du rendu GitHub vérifiée ; préférence de thème exercée séparément dans Chromium."
+}

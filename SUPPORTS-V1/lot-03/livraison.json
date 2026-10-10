@@ -1,0 +1,37 @@
+{
+  "revision": "R2026-10-11-CORRECTIFS",
+  "local_validation": "PASS",
+  "support_checks": 76,
+  "picture_checks": 6,
+  "route_tests": 85,
+  "font_mutations_refused": 3,
+  "font_vector_samples": 690,
+  "archives": {
+    "Design_Governance_V1_GITHUB.zip": "d9a201b074390e99df75be9db82d3a44c5c9a2bc4183f1b5339157b5eab3a228",
+    "Design_Governance_V1_LOCAL.zip": "af4f8c4894224bdf2596e2e3534cf25eeab15e480665b2ff531c11782ade0eb8"
+  },
+  "product_commit": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1",
+  "branch": "feat/presentation-v1",
+  "pr": {
+    "number": 2,
+    "url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2",
+    "draft": true,
+    "merged": false
+  },
+  "hosted_ci": {
+    "observed_at": "2026-10-10T23:47:01.825326+00:00",
+    "state": "IN_PROGRESS",
+    "runs": [
+      {
+        "number": 57,
+        "id": 38096160922,
+        "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1"
+      },
+      {
+        "number": 58,
+        "id": 38096163445,
+        "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1"
+      }
+    ]
+  }
+}

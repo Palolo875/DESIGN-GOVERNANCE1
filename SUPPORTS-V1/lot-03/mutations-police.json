@@ -1,0 +1,51 @@
+[
+  {
+    "scenario": "baseline",
+    "result": "PASS",
+    "diagnostics": [
+      "SUPPORTS VALIDATION PASSED — fraîcheur, cibles et alternatives ; rendu non évalué"
+    ]
+  },
+  {
+    "scenario": "couverture_perimee",
+    "result": "REFUSED",
+    "diagnostics": [
+      "- police : couverture périmée ; régénérer la police puis les supports",
+      "- index.html : sortie absente ou périmée ; régénérer les supports",
+      "SUPPORTS VALIDATION FAILED — fraîcheur, cibles et alternatives ; rendu non évalué"
+    ]
+  },
+  {
+    "scenario": "police_alteree",
+    "result": "REFUSED",
+    "diagnostics": [
+      "- police : empreinte différente : manrope-supports.woff2",
+      "- systeme-clair.svg : sortie absente ou périmée ; régénérer les supports",
+      "- systeme-sombre.svg : sortie absente ou périmée ; régénérer les supports",
+      "- index.html : sortie absente ou périmée ; régénérer les supports",
+      "- parcours-clair.svg : sortie absente ou périmée ; régénérer les supports",
+      "- parcours-sombre.svg : sortie absente ou périmée ; régénérer les supports",
+      "- parcours.html : sortie absente ou périmée ; régénérer les supports",
+      "- boucle-clair.svg : sortie absente ou périmée ; régénérer les supports",
+      "- boucle-sombre.svg : sortie absente ou périmée ; régénérer les supports",
+      "- boucle.html : sortie absente ou périmée ; régénérer les supports",
+      "SUPPORTS VALIDATION FAILED — fraîcheur, cibles et alternatives ; rendu non évalué"
+    ]
+  },
+  {
+    "scenario": "police_complete",
+    "result": "REFUSED",
+    "diagnostics": [
+      "- systeme-clair.svg : budget de poids dépassé (50000 octets)",
+      "- systeme-sombre.svg : budget de poids dépassé (50000 octets)",
+      "- index.html : budget de poids dépassé (100000 octets)",
+      "- parcours-clair.svg : budget de poids dépassé (50000 octets)",
+      "- parcours-sombre.svg : budget de poids dépassé (50000 octets)",
+      "- parcours.html : budget de poids dépassé (100000 octets)",
+      "- boucle-clair.svg : budget de poids dépassé (50000 octets)",
+      "- boucle-sombre.svg : budget de poids dépassé (50000 octets)",
+      "- boucle.html : budget de poids dépassé (100000 octets)",
+      "SUPPORTS VALIDATION FAILED — fraîcheur, cibles et alternatives ; rendu non évalué"
+    ]
+  }
+]

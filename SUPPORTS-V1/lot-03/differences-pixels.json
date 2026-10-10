@@ -1,0 +1,542 @@
+{
+  "browser": "151.0.7922.173",
+  "comparisons": [
+    {
+      "file": "systeme-390-clavier.png",
+      "same_dimensions": true,
+      "different_pixels": 341,
+      "percent": 0.02012796902299665,
+      "delta_above_20": 236,
+      "bounds": [
+        55,
+        792,
+        321,
+        4102
+      ]
+    },
+    {
+      "file": "parcours-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 465,
+      "percent": 0.011060810193642674,
+      "delta_above_20": 369,
+      "bounds": [
+        294,
+        334,
+        666,
+        1789
+      ]
+    },
+    {
+      "file": "parcours-390-texte-agrandi.png",
+      "same_dimensions": true,
+      "different_pixels": 92,
+      "percent": 0.002159837354856582,
+      "delta_above_20": 62,
+      "bounds": [
+        128,
+        9104,
+        224,
+        9627
+      ]
+    },
+    {
+      "file": "boucle-320-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 369,
+      "percent": 0.022377741121676693,
+      "delta_above_20": 241,
+      "bounds": [
+        42,
+        1076,
+        266,
+        4869
+      ]
+    },
+    {
+      "file": "boucle-320-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 370,
+      "percent": 0.022438385406559284,
+      "delta_above_20": 246,
+      "bounds": [
+        42,
+        1076,
+        266,
+        4869
+      ]
+    },
+    {
+      "file": "systeme-320-texte-agrandi.png",
+      "same_dimensions": true,
+      "different_pixels": 64,
+      "percent": 0.0017605633802816902,
+      "delta_above_20": 43,
+      "bounds": [
+        26,
+        9493,
+        196,
+        9520
+      ]
+    },
+    {
+      "file": "boucle-320-premiere-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 0,
+      "percent": 0.0,
+      "delta_above_20": 0,
+      "bounds": null
+    },
+    {
+      "file": "boucle-1440-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 384,
+      "percent": 0.01140575990875392,
+      "delta_above_20": 272,
+      "bounds": [
+        176,
+        692,
+        1003,
+        2230
+      ]
+    },
+    {
+      "file": "parcours-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 465,
+      "percent": 0.011060810193642674,
+      "delta_above_20": 371,
+      "bounds": [
+        294,
+        334,
+        666,
+        1789
+      ]
+    },
+    {
+      "file": "parcours-export.png",
+      "same_dimensions": true,
+      "different_pixels": 191,
+      "percent": 0.018173030081597857,
+      "delta_above_20": 156,
+      "bounds": [
+        147,
+        167,
+        333,
+        894
+      ]
+    },
+    {
+      "file": "boucle-320-premiere-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 0,
+      "percent": 0.0,
+      "delta_above_20": 0,
+      "bounds": null
+    },
+    {
+      "file": "boucle-390-texte-agrandi.png",
+      "same_dimensions": true,
+      "different_pixels": 103,
+      "percent": 0.0022911647792362637,
+      "delta_above_20": 66,
+      "bounds": [
+        42,
+        10040,
+        134,
+        10403
+      ]
+    },
+    {
+      "file": "systeme-390-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 265,
+      "percent": 0.018869402373984434,
+      "delta_above_20": 176,
+      "bounds": [
+        55,
+        792,
+        252,
+        3359
+      ]
+    },
+    {
+      "file": "parcours-390-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 332,
+      "percent": 0.01976967141853347,
+      "delta_above_20": 234,
+      "bounds": [
+        76,
+        344,
+        298,
+        4065
+      ]
+    },
+    {
+      "file": "systeme-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 302,
+      "percent": 0.0074334436042848145,
+      "delta_above_20": 213,
+      "bounds": [
+        146,
+        777,
+        1662,
+        1805
+      ]
+    },
+    {
+      "file": "systeme-320-premiere-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 18,
+      "percent": 0.005625,
+      "delta_above_20": 9,
+      "bounds": [
+        103,
+        832,
+        110,
+        836
+      ]
+    },
+    {
+      "file": "boucle-320-texte-agrandi.png",
+      "same_dimensions": true,
+      "different_pixels": 102,
+      "percent": 0.0022767857142857143,
+      "delta_above_20": 63,
+      "bounds": [
+        42,
+        12129,
+        189,
+        12540
+      ]
+    },
+    {
+      "file": "parcours-390-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 333,
+      "percent": 0.019829218621601342,
+      "delta_above_20": 239,
+      "bounds": [
+        76,
+        344,
+        298,
+        4065
+      ]
+    },
+    {
+      "file": "boucle-390-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 373,
+      "percent": 0.02074642638633962,
+      "delta_above_20": 242,
+      "bounds": [
+        42,
+        991,
+        236,
+        4368
+      ]
+    },
+    {
+      "file": "systeme-320-premiere-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 18,
+      "percent": 0.005625,
+      "delta_above_20": 9,
+      "bounds": [
+        103,
+        832,
+        110,
+        836
+      ]
+    },
+    {
+      "file": "parcours-390-clavier.png",
+      "same_dimensions": true,
+      "different_pixels": 540,
+      "percent": 0.024997569680725484,
+      "delta_above_20": 380,
+      "bounds": [
+        76,
+        344,
+        298,
+        5297
+      ]
+    },
+    {
+      "file": "parcours-320-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 341,
+      "percent": 0.02228874712403263,
+      "delta_above_20": 225,
+      "bounds": [
+        73,
+        362,
+        241,
+        4498
+      ]
+    },
+    {
+      "file": "parcours-320-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 342,
+      "percent": 0.022354110018824515,
+      "delta_above_20": 227,
+      "bounds": [
+        73,
+        362,
+        241,
+        4498
+      ]
+    },
+    {
+      "file": "systeme-export.png",
+      "same_dimensions": true,
+      "different_pixels": 171,
+      "percent": 0.01683601134215501,
+      "delta_above_20": 112,
+      "bounds": [
+        73,
+        388,
+        831,
+        903
+      ]
+    },
+    {
+      "file": "parcours-1440-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 383,
+      "percent": 0.01234782832972248,
+      "delta_above_20": 291,
+      "bounds": [
+        210,
+        244,
+        1019,
+        2046
+      ]
+    },
+    {
+      "file": "parcours-320-texte-agrandi.png",
+      "same_dimensions": true,
+      "different_pixels": 94,
+      "percent": 0.0021623113728376888,
+      "delta_above_20": 60,
+      "bounds": [
+        192,
+        11431,
+        224,
+        11954
+      ]
+    },
+    {
+      "file": "parcours-1440-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 383,
+      "percent": 0.01234782832972248,
+      "delta_above_20": 289,
+      "bounds": [
+        210,
+        244,
+        1019,
+        2046
+      ]
+    },
+    {
+      "file": "parcours-320-premiere-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 32,
+      "percent": 0.01,
+      "delta_above_20": 17,
+      "bounds": [
+        232,
+        362,
+        241,
+        367
+      ]
+    },
+    {
+      "file": "systeme-320-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 269,
+      "percent": 0.020942326856003987,
+      "delta_above_20": 174,
+      "bounds": [
+        26,
+        832,
+        217,
+        3730
+      ]
+    },
+    {
+      "file": "parcours-320-premiere-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 32,
+      "percent": 0.01,
+      "delta_above_20": 17,
+      "bounds": [
+        232,
+        362,
+        241,
+        367
+      ]
+    },
+    {
+      "file": "boucle-390-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 372,
+      "percent": 0.02069080594026364,
+      "delta_above_20": 243,
+      "bounds": [
+        42,
+        991,
+        236,
+        4368
+      ]
+    },
+    {
+      "file": "systeme-320-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 269,
+      "percent": 0.020942326856003987,
+      "delta_above_20": 174,
+      "bounds": [
+        26,
+        832,
+        217,
+        3730
+      ]
+    },
+    {
+      "file": "systeme-390-texte-agrandi.png",
+      "same_dimensions": true,
+      "different_pixels": 66,
+      "percent": 0.0017976499812063867,
+      "delta_above_20": 43,
+      "bounds": [
+        188,
+        7953,
+        252,
+        7958
+      ]
+    },
+    {
+      "file": "boucle-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 456,
+      "percent": 0.009089865278628291,
+      "delta_above_20": 358,
+      "bounds": [
+        172,
+        356,
+        1669,
+        1929
+      ]
+    },
+    {
+      "file": "systeme-390-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 264,
+      "percent": 0.018798197082007136,
+      "delta_above_20": 174,
+      "bounds": [
+        55,
+        792,
+        252,
+        3359
+      ]
+    },
+    {
+      "file": "systeme-1440-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 303,
+      "percent": 0.009525426286404104,
+      "delta_above_20": 197,
+      "bounds": [
+        241,
+        489,
+        1198,
+        2101
+      ]
+    },
+    {
+      "file": "boucle-1440-sombre.png",
+      "same_dimensions": true,
+      "different_pixels": 383,
+      "percent": 0.01137605740899154,
+      "delta_above_20": 272,
+      "bounds": [
+        176,
+        692,
+        1003,
+        2230
+      ]
+    },
+    {
+      "file": "boucle-export.png",
+      "same_dimensions": true,
+      "different_pixels": 208,
+      "percent": 0.01658501735047969,
+      "delta_above_20": 155,
+      "bounds": [
+        86,
+        178,
+        835,
+        965
+      ]
+    },
+    {
+      "file": "systeme-1440-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 304,
+      "percent": 0.009556863336854283,
+      "delta_above_20": 201,
+      "bounds": [
+        241,
+        489,
+        1198,
+        2101
+      ]
+    },
+    {
+      "file": "boucle-390-clavier.png",
+      "same_dimensions": true,
+      "different_pixels": 509,
+      "percent": 0.0220349182024009,
+      "delta_above_20": 341,
+      "bounds": [
+        42,
+        991,
+        283,
+        5682
+      ]
+    },
+    {
+      "file": "boucle-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 457,
+      "percent": 0.009109799193713002,
+      "delta_above_20": 359,
+      "bounds": [
+        172,
+        356,
+        1669,
+        1929
+      ]
+    },
+    {
+      "file": "systeme-clair.png",
+      "same_dimensions": true,
+      "different_pixels": 302,
+      "percent": 0.0074334436042848145,
+      "delta_above_20": 220,
+      "bounds": [
+        146,
+        777,
+        1662,
+        1805
+      ]
+    }
+  ],
+  "scope": "Comparaison des captures archivées, même navigateur et dimensions. Les contours et avances sont vérifiés séparément ; aucun test humain."
+}

@@ -1,0 +1,18 @@
+{
+  "files": {
+    "supports/boucle-clair.svg": 29188,
+    "supports/boucle-sombre.svg": 29189,
+    "supports/parcours-clair.svg": 28589,
+    "supports/parcours-sombre.svg": 28590,
+    "supports/systeme-clair.svg": 29149,
+    "supports/systeme-sombre.svg": 29150,
+    "supports/boucle.html": 71079,
+    "supports/index.html": 68930,
+    "supports/parcours.html": 70152
+  },
+  "total": 384016,
+  "before": 2843548,
+  "reduction_percent": 86.49518137200427,
+  "skill_bytes": 18971,
+  "core_instructions_unchanged": true
+}

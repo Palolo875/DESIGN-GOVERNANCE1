@@ -139,3 +139,5 @@ On peut les supprimer sans perte, puisque leurs résultats sont dans les livrabl
 - [Pourquoi les juges préfèrent F et E](SUITE-PRATIQUE/diagnostic/diagnostic-u6.md)
 - [Prototype Folio](SUITE-PRATIQUE/mobile/index.html) et [galerie comparée](SUITE-PRATIQUE/galerie.html)
 - [Livraison et intégration](SUITE-PRATIQUE/livraison.md)
+
+Le [lot 03 de correctifs](SUPPORTS-V1/lot-03/README.md) allège les supports de 86,5 %, adapte les entrées et images à GitHub, accepte SYSTEME sans accent et précise les deux titres du noyau. Il rétablit l’historique succinct dans le paquet et vérifie les lectures réellement consignées dans U6. Le candidat `b3e071b24bd67a71c9438779eaf8f6810aa8b3a1` reste dans PR 2, en brouillon ; sa validation locale complète passe. Les CI sont suivies dans sa livraison.
