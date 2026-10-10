@@ -1,0 +1,14 @@
+# Sorties générées par le build
+.build/
+dist/
+*.zip
+.logs/
+.distribution.lock/
+
+# Artefacts Python locaux
+__pycache__/
+*.py[cod]
+
+# Fichiers temporaires d’éditeur et du système
+.DS_Store
+*.swp

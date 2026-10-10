@@ -1,0 +1,37 @@
+{
+  "run_card": {
+    "mode": "DIRECTION",
+    "decision_intent": "Tester une séparation de statuts.",
+    "risk": {
+      "level": "normal",
+      "statement": "Risque principal : la décision « Tester une séparation de statuts » échoue dans le scope déclaré.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START"
+    ],
+    "artifact": {
+      "locator": "local",
+      "scope": "viewport",
+      "rights_status": "not_applicable"
+    },
+    "proof": {
+      "observed": [
+        "capture"
+      ],
+      "not_verified": []
+    },
+    "closure": {
+      "state": "HELD",
+      "issue": null,
+      "verdict": "ACCEPTED-WITH-RESERVATION",
+      "limitations": []
+    },
+    "id": "FIXTURE-INVALID_STATE_HELD",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "decision": "Tester une séparation de statuts.",
+    "next_proof": "Rejouer la preuve attendue dans le scope déclaré."
+  }
+}
+

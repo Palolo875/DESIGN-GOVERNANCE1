@@ -1,0 +1,36 @@
+{
+  "domain": "outil B2B de pilotage industriel",
+  "audience": "responsables d'exploitation expérimentés, usage desktop puis tablette",
+  "expertise": "élevée sur les opérations, variable sur l'outil",
+  "jtbd": "détecter un écart critique et décider rapidement d'une action",
+  "trust_model": "la confiance vient de la traçabilité, de la stabilité et de la lisibilité des alertes",
+  "critical_actions": ["filtrer une alerte", "inspecter la cause", "assigner une action"],
+  "domain_conventions": ["densité informationnelle", "statuts explicites", "horodatage visible"],
+  "cultural_context": "vocabulaire opérationnel direct, sans métaphore ambiguë",
+  "originality_tolerance": "medium",
+  "proof_requirements": ["inspection experte des alertes", "test de tâche sur incident"],
+  "domain_risks": ["faux sentiment de sécurité", "surcharge en situation urgente", "alerte critique"],
+  "required_research": ["modèles mentaux des opérateurs", "patterns d'alertes industrielles"],
+  "critical_states": ["données en retard", "source indisponible", "incident non assigné"],
+  "design_constraints": ["prioriser les anomalies", "préserver la lisibilité à forte densité"],
+  "evidence_plan": [
+    {"method": "comparaison desktop/tablette", "scope": "écran incidents, 1440 et 834", "artifact": "captures desktop et tablette attendues", "limit": "pas de test utilisateur", "next_proof": "observation d'une tâche d'alerte"},
+    {"method": "observation d'une tâche d'alerte", "scope": "filtrer, inspecter et assigner une alerte critique", "artifact": "enregistrement de tâche attendu", "limit": "opérateurs internes, sans incident réel", "next_proof": "observation en situation d'incident"},
+    {"method": "inspection clavier et contraste", "scope": "panneau d'alerte et actions", "artifact": "relevé clavier et mesures de contraste attendus", "limit": "lecteur d'écran non couvert", "next_proof": "test au lecteur d'écran"}
+  ],
+  "policy_profile": {
+    "risk_triggers": ["alerte critique", "donnée retardée", "action irréversible"],
+    "required_controls": ["inspection experte des alertes", "statut explicite", "horodatage", "focus clavier", "récupération après erreur"],
+    "risk_coverage": [
+      {"risk": "faux sentiment de sécurité", "control": "statut explicite"},
+      {"risk": "faux sentiment de sécurité", "control": "horodatage"},
+      {"risk": "surcharge en situation urgente", "review": "test de tâche sur incident (proof_requirements)"},
+      {"risk": "surcharge en situation urgente", "control": "récupération après erreur"},
+      {"risk": "alerte critique", "control": "inspection experte des alertes"},
+      {"risk": "alerte critique", "control": "focus clavier"}
+    ],
+    "depth_rules": ["activer la recherche si le modèle mental est incertain", "inspecter desktop et tablette si la densité change"],
+    "contraindications": ["ne pas porter la gravité par la couleur seule", "ne pas utiliser une animation permanente pour signaler l'urgence"]
+  }
+}
+

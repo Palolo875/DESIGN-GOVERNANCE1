@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://design-governance.invalid/v1/run-card.schema.json",
+  "title": "Design Governance V1 — RUN_CARD",
+  "description": "Projection structurée de la RUN_CARD. Les invariants métier dépendants du mode sont contrôlés par le validateur V1.",
+  "type": "object",
+  "required": ["run_card"],
+  "additionalProperties": false,
+  "properties": {
+    "run_card": {
+      "type": "object",
+      "required": ["id", "owner", "date_version", "mode", "decision", "decision_intent", "risk", "sources", "artifact", "proof", "next_proof", "closure"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "owner": {"type": "string", "minLength": 1},
+        "date_version": {"type": "string", "minLength": 1},
+        "mode": {"enum": ["LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"]},
+        "decision": {"type": "string", "minLength": 1},
+        "decision_intent": {"type": "string", "minLength": 1},
+        "risk": {
+          "type": "object",
+          "required": ["level", "critical_protection", "statement"],
+          "additionalProperties": false,
+          "properties": {
+            "level": {"enum": ["normal", "important", "critical"]},
+            "statement": {"type": "string", "minLength": 1},
+            "critical_protection": {
+              "type": ["object", "null"],
+              "additionalProperties": false,
+              "required": ["control", "owner", "scope", "failure_action", "evidence_locator", "result"],
+              "properties": {
+                "control": {"type": "string", "minLength": 1},
+                "owner": {"type": "string", "minLength": 1},
+                "scope": {"type": "string", "minLength": 1},
+                "failure_action": {"enum": ["RETURNED", "BLOCKED", "ESCALATED"]},
+                "evidence_locator": {"type": "string", "minLength": 1},
+                "result": {"enum": ["PASS", "FAIL", "NOT-VERIFIED"]}
+              }
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "direction": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "thesis": {"type": "string", "minLength": 1},
+            "anti_direction": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "first_object": {"type": "string", "minLength": 1},
+            "scope": {"type": "string", "minLength": 1},
+            "constraint": {"type": "string", "minLength": 1},
+            "identity_stake": {"enum": ["high", "normal"]},
+            "calibration": {
+              "type": "object",
+              "required": ["basis", "detail"],
+              "additionalProperties": false,
+              "properties": {
+                "basis": {"enum": ["observed_anchor", "provided_anchor", "real_constraint", "generated_only_reserved"]},
+                "detail": {"type": "string", "minLength": 1}
+              }
+            }
+          }
+        },
+        "anchors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["role", "type", "source", "date", "scope", "retained", "rejected", "transformation", "transformation_status", "limitation"],
+            "additionalProperties": false,
+            "properties": {
+              "role": {"enum": ["direction", "production", "verification"]},
+              "type": {"enum": ["generated", "observed", "provided"]},
+              "source": {"type": "string", "minLength": 1},
+              "date": {"type": "string", "minLength": 1},
+              "scope": {"type": "string", "minLength": 1},
+              "retained": {"type": "array", "items": {"type": "string", "minLength": 1}},
+              "rejected": {"type": "array", "items": {"type": "string", "minLength": 1}},
+              "transformation": {"type": "string", "minLength": 1},
+              "transformation_status": {"enum": ["transformed", "not_transformed", "unknown"]},
+              "limitation": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "artifact": {
+          "type": "object",
+          "required": ["locator", "scope"],
+          "additionalProperties": false,
+          "properties": {
+            "locator": {"type": "string", "minLength": 1},
+            "scope": {"type": "string", "minLength": 1},
+            "version": {"type": "string", "minLength": 1},
+            "rights_status": {"enum": ["not_applicable", "cleared", "unknown", "restricted"]}
+          }
+        },
+        "trace_locator": {"type": "string", "minLength": 1},
+        "next_proof": {"type": "string", "minLength": 1},
+        "capability_profile": {
+          "type": "object",
+          "required": ["available", "unavailable", "not_required", "basis"],
+          "additionalProperties": false,
+          "properties": {
+            "available": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "unavailable": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "not_required": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "basis": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["capability", "kind", "detail"],
+                "additionalProperties": false,
+                "properties": {
+                  "capability": {"type": "string", "minLength": 1},
+                  "kind": {"enum": ["tool_result", "attested_environment", "user_source", "unattested_declaration"]},
+                  "detail": {"type": "string", "minLength": 1}
+                }
+              }
+            }
+          }
+        },
+        "proof": {
+          "type": "object",
+          "required": ["observed", "not_verified"],
+          "additionalProperties": false,
+          "anyOf": [
+            {"properties": {"observed": {"minItems": 1}}},
+            {"properties": {"not_verified": {"minItems": 1}}}
+          ],
+          "properties": {
+            "observed": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "not_verified": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "provenance": {
+              "type": "object",
+              "required": ["artifact_locator", "artifact_version", "method", "observed_at"],
+              "additionalProperties": false,
+              "properties": {
+                "artifact_locator": {"type": "string", "minLength": 1},
+                "artifact_version": {"type": "string", "minLength": 1},
+                "method": {"type": "string", "minLength": 1},
+                "observed_at": {"type": "string", "minLength": 1},
+                "capability": {"type": "string", "minLength": 1}
+              }
+            }
+          }
+        },
+        "creative_close": {
+          "type": "object",
+          "required": ["presence", "signature", "craft_detail", "dominant_defect", "next_polish_action"],
+          "additionalProperties": false,
+          "properties": {
+            "presence": {"type": "string", "minLength": 1},
+            "signature": {"type": "string", "minLength": 1},
+            "craft_detail": {"type": "string", "minLength": 1},
+            "dominant_defect": {"type": "string", "minLength": 1},
+            "next_polish_action": {"type": "string", "minLength": 1}
+          }
+        },
+        "profile_decision": {
+          "type": "object",
+          "required": ["phase", "decision", "dials", "counterindication", "evidence"],
+          "additionalProperties": false,
+          "properties": {
+            "phase": {"enum": ["intended", "observed"]},
+            "decision": {"type": "string", "minLength": 1},
+            "dials": {"type": "string", "minLength": 1},
+            "counterindication": {"type": "string", "minLength": 1},
+            "evidence": {"type": "string", "minLength": 1}
+          }
+        },
+        "decision_change": {
+          "type": "object",
+          "required": ["outcome", "value", "evidence"],
+          "additionalProperties": false,
+          "properties": {
+            "outcome": {"enum": ["CHANGED", "CONFIRMED", "ABANDONED", "N/A-JUSTIFIED", "NOT-OBSERVED"]},
+            "reason": {"type": "string", "minLength": 1},
+            "value": {"type": "string", "minLength": 1},
+            "evidence": {"type": "string", "minLength": 1}
+          }
+        },
+        "closure": {
+          "type": "object",
+          "required": ["state", "issue", "verdict", "limitations"],
+          "additionalProperties": false,
+          "properties": {
+            "state": {"enum": ["INTAKE", "CLASSIFIED", "SPECCED", "BUILDING", "CHECKING", "DECIDED", "CLOSED"]},
+            "direction_status": {"enum": ["HELD", "HELD-WITH-ACCEPTED-DIFFERENCE", "PARTIALLY-HELD", "LOST-IN-BUILD"]},
+            "issue": {"enum": ["BLOCKED", "RETURNED", "RECLASSIFIED", "EXPLORATORY", "FAIL-ASSUMED", "ESCALATED", null]},
+            "verdict": {"enum": ["ACCEPTED", "ACCEPTED-WITH-RESERVATION", "RETURN", "RETURN-DIRECTION", "EXPLORATORY", "SYSTEM-ESCALATION", null]},
+            "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "axes": {
+              "type": "object",
+              "required": ["V", "U", "A", "T"],
+              "additionalProperties": false,
+              "properties": {
+                "V": {"enum": ["PASS", "PASS-WITH-RESERVATION", "RETURN", "N/A-JUSTIFIED", "NOT-VERIFIED"]},
+                "U": {"enum": ["PASS", "PASS-WITH-RESERVATION", "RETURN", "N/A-JUSTIFIED", "NOT-VERIFIED"]},
+                "A": {"enum": ["PASS", "PASS-WITH-RESERVATION", "RETURN", "N/A-JUSTIFIED", "NOT-VERIFIED"]},
+                "T": {"enum": ["PASS", "PASS-WITH-RESERVATION", "RETURN", "N/A-JUSTIFIED", "NOT-VERIFIED"]}
+              }
+            },
+            "reservations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["owner", "scope", "date_version", "impact", "next_proof", "review_date", "exit_condition"],
+                "additionalProperties": false,
+                "properties": {
+                  "owner": {"type": "string", "minLength": 1},
+                  "scope": {"type": "string", "minLength": 1},
+                  "date_version": {"type": "string", "minLength": 1},
+                  "impact": {"type": "string", "minLength": 1},
+                  "next_proof": {"type": "string", "minLength": 1},
+                  "review_date": {"type": "string", "minLength": 1},
+                  "exit_condition": {"type": "string", "minLength": 1}
+                }
+              }
+            },
+            "exception": {
+              "type": "object",
+              "required": ["owner", "scope", "impact", "next_proof", "review_date", "exit_condition", "gate_axis", "failure_evidence", "requested_by", "disposition"],
+              "additionalProperties": false,
+              "properties": {
+                "owner": {"type": "string", "minLength": 1},
+                "scope": {"type": "string", "minLength": 1},
+                "date_version": {"type": "string", "minLength": 1},
+                "impact": {"type": "string", "minLength": 1},
+                "next_proof": {"type": "string", "minLength": 1},
+                "review_date": {"type": "string", "minLength": 1},
+                "exit_condition": {"type": "string", "minLength": 1},
+                "gate_axis": {"type": "string", "minLength": 1},
+                "failure_evidence": {"type": "string", "minLength": 1},
+                "requested_by": {"type": "string", "minLength": 1},
+                "disposition": {"enum": ["NON-DIFFUSÉ", "DIFFUSÉ-LIMITÉ", "RETIRÉ", "ESCALADÉ"]}
+              }
+            },
+            "system_package": {
+              "type": "object",
+              "required": ["impact", "consumers", "owner", "migration", "rollback", "non_regression", "changelog_ref"],
+              "additionalProperties": false,
+              "properties": {
+                "impact": {"type": "string", "minLength": 1},
+                "consumers": {"type": "array", "items": {"type": "string", "minLength": 1}},
+                "owner": {"type": "string", "minLength": 1},
+                "migration": {"type": "string", "minLength": 1},
+                "rollback": {"type": "string", "minLength": 1},
+                "non_regression": {
+                  "type": "object",
+                  "required": ["claim", "baseline"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "claim": {"type": "string", "minLength": 1},
+                    "baseline": {
+                      "type": "object",
+                      "required": ["locator", "version", "state"],
+                      "additionalProperties": false,
+                      "properties": {"locator": {"type": "string", "minLength": 1}, "version": {"type": "string", "minLength": 1}, "state": {"type": "string", "minLength": 1}}
+                    }
+                  }
+                },
+                "changelog_ref": {"type": "string", "minLength": 1}
+              }
+            },
+            "b1b": {
+              "type": "object",
+              "required": ["status"],
+              "additionalProperties": false,
+              "properties": {
+                "status": {"enum": ["DONE", "N/A-JUSTIFIED"]},
+                "pair": {
+                  "type": "object",
+                  "required": ["before_locator", "after_locator", "decision", "outcome"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "before_locator": {"type": "string", "minLength": 1},
+                    "after_locator": {"type": "string", "minLength": 1},
+                    "decision": {"type": "string", "minLength": 1},
+                    "outcome": {"enum": ["confirmed", "modified", "abandoned"]}
+                  }
+                },
+                "reason": {"enum": ["no_editable_decision", "equivalent_pair_valid"]},
+                "covered_decision": {"type": "string", "minLength": 1},
+                "owner": {"type": "string", "minLength": 1},
+                "next_proof": {"type": "string", "minLength": 1},
+                "pair_ref": {"type": "string", "minLength": 1}
+              }
+            },
+            "reclassification": {
+              "type": "object",
+              "required": ["to_mode", "successor_run_ref"],
+              "additionalProperties": false,
+              "properties": {
+                "to_mode": {"enum": ["LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"]},
+                "successor_run_ref": {"type": "string", "minLength": 1}
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {"required": ["mode"], "properties": {"mode": {"enum": ["ITER", "STANDARD", "SYSTÈME"]}}},
+          "then": {"required": ["owner", "date_version", "risk", "sources", "next_proof", "trace_locator"]}
+        },
+        {
+          "if": {"required": ["mode"], "properties": {"mode": {"const": "DIRECTION"}}},
+          "then": {"required": ["owner", "date_version", "decision_intent", "risk", "sources", "direction", "anchors", "next_proof", "trace_locator"]}
+        }
+      ]
+    }
+  }
+}
+

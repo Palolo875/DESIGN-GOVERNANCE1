@@ -1,0 +1,18 @@
+{
+  "run_card": {
+    "id": "INVALID-DIRECTION-MISSING-OBJECT",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "DIRECTION",
+    "decision": "Rendre la direction visible.",
+    "decision_intent": "Rendre la direction visible.",
+    "risk": {"level": "important", "statement": "Risque principal : la décision « Rendre la direction visible » échoue dans le scope déclaré.", "critical_protection": null},
+    "sources": ["DIRECTION/START", "ACTION/RUN-DIRECTION"],
+    "artifact": {"locator": "local-artifact", "scope": "première scène", "rights_status": "not_applicable"},
+    "trace_locator": "ticket-ou-chemin",
+    "next_proof": "Construire et observer le premier objet.",
+    "proof": {"observed": ["Le fichier est lisible."], "not_verified": ["Direction non observée."]},
+    "closure": {"state": "CLOSED", "issue": "EXPLORATORY", "verdict": "EXPLORATORY", "limitations": ["La direction n’est pas encore construite."]}
+  }
+}
+

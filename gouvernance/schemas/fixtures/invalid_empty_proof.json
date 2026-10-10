@@ -1,0 +1,37 @@
+{
+  "run_card": {
+    "id": "INVALID-EMPTY-PROOF",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "mode": "LITE",
+    "decision": "Vérifier un correctif local.",
+    "decision_intent": "Vérifier un correctif local.",
+    "risk": {
+      "level": "normal",
+      "statement": "Risque principal : la décision « Vérifier un correctif local » échoue dans le scope déclaré.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START",
+      "ACTION/RUN-LITE"
+    ],
+    "artifact": {
+      "locator": "local-artifact",
+      "scope": "État initial du bouton"
+    },
+    "next_proof": "Capturer le bouton corrigé dans son état normal et focus.",
+    "proof": {
+      "observed": [],
+      "not_verified": []
+    },
+    "closure": {
+      "state": "CLOSED",
+      "issue": null,
+      "verdict": "ACCEPTED",
+      "limitations": [
+        "Aucune observation ni limite n’a été déclarée."
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,32 @@
+{
+  "run_card": {
+    "mode": "LITE",
+    "decision_intent": "Corriger un défaut local.",
+    "risk": {
+      "level": "normal",
+      "statement": "Risque principal : la décision « Corriger un défaut local » échoue dans le scope déclaré.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START"
+    ],
+    "artifact": {
+      "locator": "local",
+      "scope": "composant"
+    },
+    "closure": {
+      "state": "CLOSED",
+      "issue": null,
+      "verdict": "ACCEPTED-WITH-RESERVATION",
+      "limitations": [
+        "Preuve manquante."
+      ]
+    },
+    "id": "FIXTURE-INVALID_MISSING_PROOF",
+    "owner": "design-owner",
+    "date_version": "2026-08-29 / V1",
+    "decision": "Corriger un défaut local.",
+    "next_proof": "Rejouer la preuve attendue dans le scope déclaré."
+  }
+}
+
