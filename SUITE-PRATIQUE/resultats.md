@@ -32,7 +32,7 @@ Produit : [`3b79b3a10d2344a52db76f6e6239cf0a91c056c7`](https://github.com/Palolo
 
 Les premiers essais de validation sont joints séparément : révision de connexions non actualisée, assertion du lecteur confondant texte en gras d’une cellule et début de ligne de mode, puis navigateur bloquant `file://` faute d’activation du mode HTTP déjà prévu dans l’environnement. Les deux corrections de source et l’environnement HTTP explicite conservent les protections. La RUN_CARD mobile a reçu la date de revue exigée par son schéma, puis passe le profil strict.
 
-La nouvelle CI et l’intégration sont suivies dans [la livraison](livraison.md) ; leur réussite n’est annoncée qu’après observation.
+CI [52](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079276592) et [53](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079280463) réussies sur `3b79b3a10d2344a52db76f6e6239cf0a91c056c7`. La PR 1 est fusionnée ; `main` (`4e1f9cc`) possède exactement le même arbre que le commit testé. Voir [la livraison](livraison.md).
 
 ## Ce qui reste ouvert
 

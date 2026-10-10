@@ -4,4 +4,4 @@ Le [plan courant](PLAN/plan-refonte-systeme.md) indique l'avancement réel des p
 
 La [suite pratique](SUITE-PRATIQUE/resultats.md) explique les préférences des juges et livre un prototype Web mobile avec mouvement, ses 53 parcours et ses limites. Concurrents et anglais sont reportés.
 
-Le [sommaire](00-INDEX.md) relie ces documents à l'historique de la refonte. Le paquet du produit reste sur `fix/refonte-gouvernance`, proposé vers `main` par la [PR 1](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1). Les documents et les pages d'essai restent sur cette branche documentaire, séparés de l'inventaire du paquet.
+Le [sommaire](00-INDEX.md) relie ces documents à l'historique de la refonte. Le paquet du produit est maintenant sur `main`, intégré par la [PR 1](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1). La PR est fusionnée, avec les CI 52 et 53 réussies sur le commit produit exact. Les documents et les pages d'essai restent sur cette branche documentaire, séparés de l'inventaire du paquet.

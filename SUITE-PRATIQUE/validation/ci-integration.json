@@ -1,0 +1,38 @@
+{
+  "pr": {
+    "head": "3b79b3a10d2344a52db76f6e6239cf0a91c056c7",
+    "html_url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1",
+    "merge_commit_sha": "4e1f9cc20a9887d570a720934ca5b1752c78971a",
+    "merged": true,
+    "merged_at": "2026-10-10T19:27:32Z",
+    "state": "closed"
+  },
+  "runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 38079280463,
+      "headSha": "3b79b3a10d2344a52db76f6e6239cf0a91c056c7",
+      "number": 53,
+      "status": "completed",
+      "url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079280463"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 38079276592,
+      "headSha": "3b79b3a10d2344a52db76f6e6239cf0a91c056c7",
+      "number": 52,
+      "status": "completed",
+      "url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079276592"
+    }
+  ],
+  "tree": "cb689bf1ad16a32c467ff7e683708ebd77d334e7",
+  "main_ci": {
+    "conclusion": "",
+    "databaseId": 38079876523,
+    "headSha": "4e1f9cc20a9887d570a720934ca5b1752c78971a",
+    "number": 54,
+    "status": "in_progress",
+    "url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079876523",
+    "observed_at": "2026-10-10T19:29:03Z"
+  }
+}

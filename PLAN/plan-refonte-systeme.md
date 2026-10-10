@@ -1,7 +1,7 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
 **Statut :** comparaison concurrentielle et anglais reportés par le propriétaire ; diagnostic U6 et essai Web mobile livrés dans la [suite pratique](../SUITE-PRATIQUE/resultats.md). Plan validé ; suite de la phase 5 autorisée par la demande « on va tout corriger ». Les phases 6 et 8 ont livré leur périmètre minimal ; la phase 7 reste reportée. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire ne sont pas établies. Les essais nécessaires à cette suite sont autorisés ; les limites de leur protocole sont déclarées.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié localement :** `3b79b3a10d2344a52db76f6e6239cf0a91c056c7` (révision `R2026-10-10-PRATIQUE`). Validation complète avec navigateur et archives reproductibles ; CI 52 et 53 en cours sur ce SHA. Les CI 50 et 51 restent les preuves de la révision précédente, sans les réattribuer ; [livraison suivie](../SUITE-PRATIQUE/livraison.md).
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié :** `3b79b3a10d2344a52db76f6e6239cf0a91c056c7` (révision `R2026-10-10-PRATIQUE`). Validation complète avec navigateur et archives reproductibles ; CI 52 et 53 réussies sur ce SHA ; PR 1 fusionnée dans `main` (`4e1f9cc`), arbre strictement identique au commit testé. Les CI 50 et 51 restent les preuves de la révision précédente, sans les réattribuer ; [livraison suivie](../SUITE-PRATIQUE/livraison.md).
 
 ---
 

@@ -15,6 +15,7 @@ Puis consulter http://127.0.0.1:8080/index.html. Le navigateur cloud fourni bloq
 Les trois scripts de mesure utilisent Playwright 1.56.0 et Chromium `/usr/bin/chromium` (151.0.7922.173 lors de la mesure). Ils ouvrent et arrêtent leur serveur local, puis réécrivent les preuves correspondantes : conserver les résultats historiques avant une nouvelle exécution.
 
 ```sh
+python3 -m pip install -r requirements.txt
 python3 construire.py
 python3 verifier.py
 python3 comparer.py

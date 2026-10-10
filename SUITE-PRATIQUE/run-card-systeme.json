@@ -60,7 +60,8 @@
         "Validation complète locale avec navigateur, contrôles de références et distributions reproductibles.",
         "41 blocs protégés identiques et deux consignes de chargement modifiées ; aucun bloc absent ou ajouté.",
         "53 parcours Web mobile finaux réussis ; les trois premiers échecs restent conservés.",
-        "1 344 empreintes des originaux U6 inchangées."
+        "1 344 empreintes des originaux U6 inchangées.",
+        "CI 52 et 53 réussies sur le commit exact ; PR 1 fusionnée dans main, arbre de fusion identique au commit testé."
       ],
       "not_verified": [
         "Effet causal du chargement sur l’attention et la qualité.",
