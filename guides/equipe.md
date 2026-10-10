@@ -139,7 +139,7 @@ Le mode est une hypothèse de travail, jamais un moyen de baisser la protection.
 
 ## 5. Charger seulement ce qui peut changer la décision
 
-La liste de lecture par mode est unique : `agent/chemins#quoi-lire`. La skill en porte une copie générée.
+La liste de lecture par mode est unique : `agent/chemins#quoi-lire`. La skill active la ligne utile dans cette source unique.
 
 « Non chargé par défaut » veut dire qu’une section n’est pas lue sans raison ; jamais qu’il est interdit de lire une section nécessaire. Lire moins ne baisse ni le mode, ni le niveau de preuve, ni la protection d’un risque.
 

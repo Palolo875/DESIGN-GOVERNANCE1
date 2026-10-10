@@ -10,7 +10,7 @@
 
 ### Carte de lecture par mode
 
-La liste de chargement de chaque mode est `DIRECTION/CHARGE`, la seule du corpus ; la skill en porte une copie compilée. Cette section ne la répète pas : elle précise seulement ce qui s’ajoute selon la trace.
+La liste de chargement de chaque mode est `DIRECTION/CHARGE`, la seule du corpus ; la skill active sa ligne à la demande. Cette section ne la répète pas : elle précise seulement ce qui s’ajoute selon la trace.
 
 **Socle pour tous les modes :** `ACTION/STATUS` et `ACTION/PRECONDITION`, dès que le run écrit un statut, un gate ou un verdict (trace complète) ; `DIRECTION/CHARGE` reste la liste du démarrage.
 

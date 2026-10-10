@@ -13,7 +13,7 @@ Gate C décide sur le rendu à partir des observations de la revue créative et,
 
 Chaque verdict C précise le périmètre : viewport, état, scène, contenu et élément observé. Pour une finesse insuffisante, utilise les gestes conditionnels de `SAVOIR/STATE`, puis compare les versions au même scope ; une cohérence déclarée ou un geste seulement prévu ne prouve pas la résolution. Lorsque la structure est ouverte, applique sur la même capture les tests perceptifs de `BIBLIOTHEQUE/GATE` (non-généricité, silhouette, grille) ; ils nourrissent C3 et C4 sans verdict propre.
 
-| Critère | Présent si… | Retour ou réserve si… | Geste si absent (section du noyau) |
+| Critère | Présent si… | Retour ou réserve si… | Geste si absent (source à charger) |
 |---|---|---|---|
 | **C1 — Stratégie de surface** | Photo, donnée, lumière, illustration, surface, trame, profondeur ou planéité assumée découle du produit. | Traitement par défaut sans relation observable. | Choisis la surface d’après ce que le produit montre (« Moyens et vérité » : carte des moyens) ; un traitement justifié par la thèse pour les assets moyens ; retire le traitement sans rôle. |
 | **C2 — Typographie choisie** | Famille, système existant ou alternative est justifié ; rôles, échelle et fallback servent le contexte. | Choix par défaut non interrogé ou non calibré. | Choisis la famille pour la voix et la donnée à porter (« Composition » : typographie) ; fixe deux ou trois rôles et une échelle contrastée ; vérifie le fallback au rendu. |
@@ -36,3 +36,14 @@ La matrice canonique motivation/construction appartient à `SAVOIR/CRAFT/CFT-01`
 Une couleur de marque, une contrainte de contenu ou une construction technique soignée n’immunisent pas un choix contre les autres gates. Les watchlists et tendances restent des aides de jugement dans `SAVOIR/CRAFT` ou la veille ; elles ne deviennent pas des interdits universels.
 
 ---
+
+<!-- origine:ACTION.md -->
+## ACTION/ATELIER-EDITION — opération observable
+
+<!-- noyau:début BOUCLE-ATELIER -->
+Dans le scope de B1b (surface `DIRECTION` qui accepte avec l’axe V positif, en trace complète : `ACTION/GATE-B/B1b`), cet atelier est requis, sauf deux motifs `N/A-JUSTIFIED` : aucune décision principale éditable, ou une paire équivalente encore valide qui couvre la même décision. Hors de ce scope, sur une surface `DIRECTION` en trace légère, fais-en au moins un tour (lecture légère, édition, nouvelle capture comparée) ; la paire n’est pas exigée en trace.
+
+Après la première capture, fais une lecture légère en ignorant le texte explicatif et nomme en une phrase la catégorie, la marque et le niveau de preuve que la surface semble raconter. Nomme ensuite la décision principale à mettre à l’épreuve. Édite-la par **retrait, réduction ou transformation** ; une décision peut coordonner plusieurs diffs, mais l’unité de compte n’est pas le nombre de changements. N’ajoute rien pour compenser.
+
+Conserve et compare la capture suivante. La trace nomme le changement, sa direction, son effet et la décision qu’il confirme, modifie ou abandonne. Garder l’original lorsqu’il résout mieux la décision est un résultat valide : la variante a alors confirmé une décision par comparaison plutôt que par déclaration.
+<!-- noyau:fin BOUCLE-ATELIER -->

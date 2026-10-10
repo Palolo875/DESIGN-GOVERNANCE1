@@ -504,6 +504,22 @@ def boot_block(t: dict[str, str]) -> list[str]:
     return fenced_after(t["D"], "Le boot tient au maximum les décisions suivantes").splitlines()
 
 
+def skill_activates(t: dict[str, str], locator: str, mode: str | None = None) -> bool:
+    """La façade peut embarquer une règle ou activer sa route propriétaire.
+
+    Une ligne de mode se lit dans CHARGE, jamais dans une seconde table. Ce
+    contrôle borné vérifie le renvoi ; build_core vérifie le bloc servi complet.
+    """
+    text = t["SK"]
+    begin, end = text.find("<!-- noyau:compilé début -->"), text.find("<!-- noyau:compilé fin -->")
+    core = text[begin:end] if 0 <= begin < end else ""
+    if f"`{locator}`" in core:
+        return True
+    selected = charge_row(t, mode) if mode else None
+    return bool(selected and len(selected) > 1 and f"`{locator}`" in selected[1]
+                and "python3 scripts/read_route.py --mode MODE" in core)
+
+
 def lcf_43(t: dict[str, str]) -> bool:
     entry = fenced_after(t["D"], "### Entrée minimale").splitlines()
     boot = boot_block(t)
@@ -511,19 +527,24 @@ def lcf_43(t: dict[str, str]) -> bool:
     return (any(l.startswith("CONSTRAINT —") and "destination" in l for l in entry) and any(l.startswith("FABRICATION:") for l in boot)
             and not any(l.startswith(("ANCHOR-BASIS:", "ANCHOR-LIMIT:")) for l in boot)
             and "jamais un faux asset" in vt and "bilan `FABRICATION`" in t["A"]
-            and all("`FABRICATION`" in t[k] for k in ("Q", "SK")))
+            and "`FABRICATION`" in t["Q"]
+            and ("`FABRICATION`" in t["SK"] or skill_activates(t, "DIRECTION/CREATIVE-BOOT", "DIRECTION")))
 
 
 def lcf_44(t: dict[str, str]) -> bool:
     ext = t["D"][t["D"].find("## DIRECTION/EXTERNAL-START"):t["D"].find("### Traduction humaine minimale")]
-    return all(BRIEF_ORDER.search(x) and "au plus trois" in x.lower() for x in (ext, t["Q"], t["SK"]))
+    return (all(BRIEF_ORDER.search(x) and "au plus trois" in x.lower() for x in (ext, t["Q"]))
+            and ((BRIEF_ORDER.search(t["SK"]) and "au plus trois" in t["SK"].lower())
+                 or skill_activates(t, "DIRECTION/EXTERNAL-START", "DIRECTION")))
 
 
 def lcf_45(t: dict[str, str]) -> bool:
     boot = boot_block(t)
     return (any(l.startswith("MODAL:") for l in boot) and any(l.startswith("PARTI:") for l in boot)
             and not any(l.startswith("ANTI-DIRECTIONS:") for l in boot)
-            and all("`MODAL`/`PARTI`" in t[k] for k in ("Q", "SK")) and "MODAL:" in t["EX"])
+            and "`MODAL`/`PARTI`" in t["Q"]
+            and ("`MODAL`/`PARTI`" in t["SK"] or skill_activates(t, "DIRECTION/CREATIVE-BOOT", "DIRECTION"))
+            and "MODAL:" in t["EX"])
 
 
 # Un halo de détourage ou de bord est un défaut de production, pas une affirmation de tendance :
@@ -555,7 +576,9 @@ def savoir_section(t: dict[str, str], start: str, stop: str) -> str:
 
 def lcf_47(t: dict[str, str]) -> bool:
     fo = t["D"][t["D"].find("## DIRECTION/FIRST-OBJECT"):t["D"].find("### Contrat positif du premier objet")]
-    return "de préférence **codé**" in fo and bool(re.search(r"de préférence (\*\*)?codé", t["SK"]))
+    return ("de préférence **codé**" in fo
+            and (bool(re.search(r"de préférence (\*\*)?codé", t["SK"]))
+                 or skill_activates(t, "DIRECTION/FIRST-OBJECT", "DIRECTION")))
 
 
 def lcf_48(t: dict[str, str]) -> bool:
@@ -566,8 +589,10 @@ def lcf_48(t: dict[str, str]) -> bool:
 
 def lcf_49(t: dict[str, str]) -> bool:
     atlas = savoir_section(t, "# SAVOIR/DESIGN-ATLAS", "# SAVOIR/STYLE")
+    source = savoir_section(t, "# SAVOIR/SOURCE", "# SAVOIR/DESIGN-ATLAS")
     vt = t["D"][t["D"].find("### Décider la route de production"):t["D"].find("### Réserve `ANCHOR-GENERATED`")]
-    return "**Traitement des assets moyens.**" in atlas and "jamais un dessin de remplacement" in vt
+    return ("**Traitement des assets moyens.**" in source and "`SAVOIR/SOURCE`" in atlas
+            and "jamais un dessin de remplacement" in vt and skill_activates(t, "SAVOIR/SOURCE"))
 
 
 def lcf_50(t: dict[str, str]) -> bool:
@@ -700,7 +725,7 @@ def check_facades(errors: list[str]) -> None:
         ("LCF-46", "textes et façades : marqueurs de vague seulement en [VEILLE] daté", "SAVOIR ([VEILLE] daté)", lcf_46(t)),
         ("LCF-47", "FIRST-OBJECT et skill : objet de preuve codé, de préférence", "DIRECTION/FIRST-OBJECT", lcf_47(t)),
         ("LCF-48", "SAVOIR ([VEILLE] daté) et route de production : carte des moyens", "SAVOIR ([VEILLE])", lcf_48(t)),
-        ("LCF-49", "SAVOIR (DESIGN-ATLAS) et route de production : traitement des assets moyens", "SAVOIR (DESIGN-ATLAS)", lcf_49(t)),
+        ("LCF-49", "SAVOIR/SOURCE, atlas et route de production : traitement des assets moyens", "SAVOIR/SOURCE", lcf_49(t)),
         ("LCF-50", "SAVOIR, [VEILLE] daté : vague 3", "SAVOIR ([VEILLE])", lcf_50(t)),
         ("LCF-51", "BIBLIOTHEQUE, entrée et résumés locaux", "BIBLIOTHEQUE/AVANT-SELECTION ; ACTION/STATUS (héritage distinct de non-applicabilité)", lcf_51(t)),
         ("LCF-52", "GLOSSAIRE, RUN_CARD", "ACTION/HANDOFF ; ACTION/RUN_CARD (niveau de trace et mode)", lcf_52(t)),

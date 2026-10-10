@@ -116,15 +116,9 @@ Une différence significative sur un axe dominant déclenche une correction, un 
 
 La preuve minimale est une paire de captures réelles : une capture initiale, puis une capture après l’édition réversible d’une seule décision principale. La variable doit être observable : masse, vide, silhouette, lumière, densité, cohérence de rayon, définition d’état, crop, vocabulaire, preuve, couleur ou action.
 
-#### Atelier d’édition — opération observable
+#### Atelier d’édition — méthode de fabrication
 
-<!-- noyau:début BOUCLE-ATELIER -->
-Dans le scope de B1b (surface `DIRECTION` qui accepte avec l’axe V positif, en trace complète : `ACTION/GATE-B/B1b`), cet atelier est requis, sauf deux motifs `N/A-JUSTIFIED` : aucune décision principale éditable, ou une paire équivalente encore valide qui couvre la même décision. Hors de ce scope, sur une surface `DIRECTION` en trace légère, fais-en au moins un tour (lecture légère, édition, nouvelle capture comparée) ; la paire n’est pas exigée en trace.
-
-Après la première capture, fais une lecture légère en ignorant le texte explicatif et nomme en une phrase la catégorie, la marque et le niveau de preuve que la surface semble raconter. Nomme ensuite la décision principale à mettre à l’épreuve. Édite-la par **retrait, réduction ou transformation** ; une décision peut coordonner plusieurs diffs, mais l’unité de compte n’est pas le nombre de changements. N’ajoute rien pour compenser.
-
-Conserve et compare la capture suivante. La trace nomme le changement, sa direction, son effet et la décision qu’il confirme, modifie ou abandonne. Garder l’original lorsqu’il résout mieux la décision est un résultat valide : la variante a alors confirmé une décision par comparaison plutôt que par déclaration.
-<!-- noyau:fin BOUCLE-ATELIER -->
+Lire `ACTION/ATELIER-EDITION` pour l’opération observable. La méthode vaut aussi en trace légère ; les conditions de B1b, ses preuves et ses deux exceptions restent définies ici.
 
 `N/A-JUSTIFIED` n’est recevable que si aucune décision principale éditable n’existe dans le périmètre, ou si une paire équivalente, toujours valide après le dernier changement substantiel, couvre déjà exactement la même décision. La justification lie l’artefact concerné, l’owner et la prochaine preuve. Une thèse encore incertaine, un élément producteur introuvable ou une paire qui n’autorise aucune conclusion maintiennent le run en `EXPLORATORY` ; ils ne produisent pas un `PASS` indirect.
 

@@ -193,7 +193,7 @@ ADRESSES: dict[str, str] = {
     "formes/catalogue#composants": "BIBLIOTHEQUE/COMPONENTS", "formes/catalogue#compatibilite": "BIBLIOTHEQUE/COMPAT",
     "produit/premier-rendu": "ACTION/FIRST-RENDER", "produit/interface": "ACTION/UI-UX-REALITY",
     "produit/plancher": "ACTION/GATE-A", "produit/plancher#contraste": "ACTION/POLICIES",
-    "produit/finition": "ACTION/GATE-C", "produit/finition#contre-le-generique": "ACTION/ANTI-SLOP",
+    "produit/finition": "ACTION/GATE-C", "produit/finition#atelier": "ACTION/ATELIER-EDITION", "produit/finition#contre-le-generique": "ACTION/ANTI-SLOP",
     "produit/preuve-visuelle": "ACTION/VISUAL_PROOF",
     "agent/chemins#classer": "DIRECTION/START", "agent/chemins#quoi-lire": "DIRECTION/CHARGE",
     "agent/chemins#chemin-court": "ACTION/FAST-PATH", "agent/chemins#lire-le-savoir": "SAVOIR/READ",
@@ -567,17 +567,45 @@ CORE_END = re.compile(r"^\s*<!-- noyau:fin ([A-Z0-9\-]+) -->\s*$")
 
 
 def core_blocks(lines: list[str]) -> dict[int, str]:
-    """Index source → nom du bloc compilé dans le noyau, pour les lignes entre marqueurs."""
-    block_of, current = {}, None
+    """Index des seuls blocs dont le texte complet est réellement dans la skill.
+
+    Un marqueur source ne prouve pas que le bloc a été chargé. Sans skill, ou si
+    son texte est périmé, le lecteur sert le texte propriétaire en entier.
+    """
+    compiled = ""
+    for skill in (ROOT / "agent" / "skill" / "SKILL.md", ROOT / "skill" / "SKILL.md"):
+        if skill.is_file():
+            text = skill.read_text(encoding="utf-8")
+            begin, end = text.find("<!-- noyau:compilé début -->"), text.find("<!-- noyau:compilé fin -->")
+            if 0 <= begin < end:
+                compiled = text[begin:end]
+            break
+    block_of, current, positions = {}, None, []
     for i, line in enumerate(lines):
         start, end = CORE_START.match(line), CORE_END.match(line)
         if start:
             current = start.group(1)
+            positions = []
         elif end:
+            if current == end.group(1):
+                body = "\n".join(lines[k] for k in positions if not CONCEPT_MARKER.match(lines[k])).strip()
+                if body and body in compiled:
+                    block_of.update((k, current) for k in positions)
             current = None
         elif current:
-            block_of[i] = current
+            positions.append(i)
     return block_of
+
+
+def mode_row(mode: str) -> list[str]:
+    """Vue d'une seule ligne de CHARGE, sans classification ni règle concurrente."""
+    _, lines, index = resolve("DIRECTION/CHARGE")
+    served = extract(lines, index)
+    header = [line for line in served if line.startswith("| Mode |")]
+    rows = [line for line in served if line.startswith(f"| **{mode}** |")]
+    if len(header) != 1 or len(rows) != 1:
+        raise RouteError(f"table de chargement ambiguë ou incomplète pour {mode}")
+    return [header[0], "|---|---|---|", rows[0]]
 
 
 def core_section(first_line: str) -> str | None:
@@ -956,9 +984,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--sommaire", nargs="?", const="", metavar="LOCATOR", help="liste des routes avec leur rôle, ou table des matières d’une route")
     parser.add_argument("--guides", action="store_true", help="ajouter les documents d’orientation (guides, README racine, références de la skill) à une recherche --trouver")
     parser.add_argument("--connexions", nargs="?", const="", metavar="Cxx", help="sommaire des connexions situées, ou entrée Cxx")
+    parser.add_argument("--mode", choices=("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"), help="ligne du mode déjà classé dans DIRECTION/CHARGE, sans charger les autres modes")
     args = parser.parse_args(argv)
-    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None)) != 1:
-        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR]")
+    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None, args.mode is not None)) != 1:
+        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR], soit --mode MODE")
     if args.complet and args.locator is None:
         parser.error("--complet exige un locator")
     if args.tout and not args.trouver:
@@ -972,6 +1001,15 @@ def main(argv: list[str] | None = None) -> int:
     bad = non_utf8(ROOT)
     if bad:
         fail(f"Markdown non UTF-8 : {', '.join(bad)}")
+    if args.mode is not None:
+        try:
+            selected = mode_row(args.mode)
+        except (RouteError, OSError) as exc:
+            fail(str(exc))
+        print(f"CHARGEMENT — {args.mode} ; source : DIRECTION/CHARGE")
+        print("Le mode et la protection de niveau restent définis par DIRECTION/START.")
+        print("\n".join(selected))
+        return 0
     if args.connexions is not None:
         try:
             revision, entries = connections()

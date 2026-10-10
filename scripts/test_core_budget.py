@@ -84,6 +84,71 @@ class BudgetTests(unittest.TestCase):
             compile_core.assert_not_called()
 
 
+class DeferredKnowledgeTests(unittest.TestCase):
+    def test_current_registry_compiles_and_serves_all_details(self):
+        compiled = bc.compile_core()
+        self.assertIn("python3 scripts/read_route.py --mode MODE", compiled)
+        self.assertNotIn("| Cohérence de rayon |", compiled)
+
+    def test_missing_deferred_block_cannot_compile(self):
+        real = bc.blocks_of_source
+
+        def missing(fname):
+            blocks = real(fname)
+            blocks.pop("COMP-VOCABULAIRE", None)
+            return blocks
+
+        with patch.object(bc, "blocks_of_source", side_effect=missing):
+            with self.assertRaisesRegex(bc.CoreError, "bloc COMP-VOCABULAIRE absent"):
+                bc.compile_core()
+
+    def test_existing_wrong_route_cannot_hide_deferred_knowledge(self):
+        with patch.dict(bc.DETAILS, {"COMP-VOCABULAIRE": "SAVOIR/TYPE"}):
+            with self.assertRaisesRegex(bc.CoreError, "COMP-VOCABULAIRE.*bloc complet"):
+                bc.compile_core()
+
+    def test_missing_deferred_route_cannot_compile(self):
+        with patch.dict(bc.DETAILS, {"COMP-VOCABULAIRE": "SAVOIR/ABSENT"}):
+            with self.assertRaisesRegex(bc.CoreError, "COMP-VOCABULAIRE.*indisponible"):
+                bc.compile_core()
+
+    def test_unclassified_block_cannot_disappear(self):
+        with patch.object(bc, "COMMUN", bc.COMMUN - {"ROLE"}):
+            with self.assertRaisesRegex(bc.CoreError, "chaque bloc"):
+                bc.compile_core()
+
+    def test_block_cannot_be_both_common_and_deferred(self):
+        with patch.dict(bc.DETAILS, {"ROLE": "DIRECTION/START"}):
+            with self.assertRaisesRegex(bc.CoreError, "chaque bloc"):
+                bc.compile_core()
+
+    def test_removing_block_from_both_registries_does_not_orphan_source(self):
+        registry = [(title, [item for item in items if item[0] != "COMP-VOCABULAIRE"])
+                    for title, items in bc.NOYAU]
+        details = {key: value for key, value in bc.DETAILS.items() if key != "COMP-VOCABULAIRE"}
+        with patch.object(bc, "NOYAU", registry), patch.object(bc, "DETAILS", details):
+            with self.assertRaisesRegex(bc.CoreError, "bloc source non classé.*COMP-VOCABULAIRE"):
+                bc.compile_core()
+
+    def test_readable_detail_without_activation_cannot_compile(self):
+        real = bc.blocks_of_source
+        original_extract = rr.extract
+
+        def without_relay(fname):
+            return {bid: [line.replace("`SAVOIR/INTEGRITY/REPASSE`", "renvoi supprimé") for line in body]
+                    for bid, body in real(fname).items()}
+
+        with patch.object(bc, "blocks_of_source", side_effect=without_relay):
+            def without_charge_relay(lines, index):
+                body = original_extract(lines, index)
+                return [line.replace("`SAVOIR/INTEGRITY/REPASSE`", "renvoi supprimé") for line in body] \
+                    if lines[index].startswith("## DIRECTION/CHARGE") else body
+
+            with patch.object(rr, "extract", side_effect=without_charge_relay):
+                with self.assertRaisesRegex(bc.CoreError, "BOUCLE-REPASSE.*renvoi.*absent"):
+                    bc.compile_core()
+
+
 if __name__ == "__main__":
     result = unittest.TextTestRunner(stream=sys.stdout).run(unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__]))
     print(f"CORE BUDGET TESTS {'PASSED' if result.wasSuccessful() else 'FAILED'} — {result.testsRun} cas")

@@ -71,6 +71,10 @@ Avant de retenir un asset directeur, formule une contre-épreuve proportionnée 
 ---
 
 <!-- origine:SAVOIR.md -->
+<!-- noyau:début MOY-ASSETS -->
+**Traitement des assets moyens.** Quand les assets disponibles sont moyens (photos de téléphone, banque d’images), choisis le traitement que justifie la thèse — recadrage, étalonnage, duotone, grain ou trame — plutôt que de les poser bruts ou de les remplacer par un dessin. Un traitement commun peut unifier une série disparate ; plusieurs traitements se justifient si leurs rôles sont distincts et lisibles. Vérifie sur capture la relation entre les images et la composition. Le traitement ne masque ni un droit inconnu, ni une image hors sujet.
+<!-- noyau:fin MOY-ASSETS -->
+
 # SAVOIR/DESIGN-ATLAS — familles et responsabilités
 
 `DESIGN-ATLAS` est la section atlas de `SAVOIR.md` : un index de jugement, pas un catalogue de recettes. Commence par la décision et le risque ; si aucune famille ne peut modifier la prochaine décision, ne charge pas l’atlas. Il aide à nommer la famille d’un choix avant de charger la route spécialisée. Il ne choisit ni le mode, ni le JTBD, ni une esthétique par défaut. Il ne peut jamais réduire un mode, un niveau de preuve ou une protection déjà imposée par `DIRECTION/START` ou par un risque critique ; s’il révèle un risque supérieur, retourne à `DIRECTION/START` pour mettre à jour `MODE`, `RISK` et `SCOPE`, puis laisse ACTION recalculer owner, preuve, gates et prochaine action avant toute reprise.
@@ -99,9 +103,7 @@ Les familles ci-dessous orientent la recherche ; elles ne sont ni des quotas, ni
 
 Un effet est retenu seulement s’il modifie une relation observable. Une ombre, un blur, un gradient, une texture, une animation ou une transition peuvent être légitimes, mais leur présence seule ne prouve rien. `DÉCORATIF-SANS-CONSEQUENCE` est une catégorie de retrait, jamais une technique à promouvoir.
 
-<!-- noyau:début MOY-ASSETS -->
-**Traitement des assets moyens.** Quand les assets disponibles sont moyens (photos de téléphone, banque d’images), choisis le traitement que justifie la thèse — recadrage, étalonnage, duotone, grain ou trame — plutôt que de les poser bruts ou de les remplacer par un dessin. Un traitement commun peut unifier une série disparate ; plusieurs traitements se justifient si leurs rôles sont distincts et lisibles. Vérifie sur capture la relation entre les images et la composition. Le traitement ne masque ni un droit inconnu, ni une image hors sujet.
-<!-- noyau:fin MOY-ASSETS -->
+Le traitement des images et des assets moyens suit `SAVOIR/SOURCE` ; une famille ne dicte pas le traitement.
 
 ### Rôles d’asset
 

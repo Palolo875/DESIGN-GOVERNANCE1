@@ -478,27 +478,36 @@ class SearchAndSummaryTests(unittest.TestCase):
         errors = []; rmap.check_topics(unknown, errors)
         self.assertTrue(any("ne se résout pas" in e for e in errors), errors)
 
-    def test_core_blocks_folded_with_section_pointer(self):
+    def test_deferred_craft_details_are_served_in_full(self):
         r = self.cli("SAVOIR/STATE")
         self.assertEqual(r.returncode, 0, r.stderr)
-        self.assertNotIn("Cohérence de rayon", r.stdout)
-        self.assertIn("Déjà dans le noyau de la skill, section « 7. Gestes de finition »", r.stdout)
+        self.assertIn("Cohérence de rayon", r.stdout)
+        self.assertNotIn("Déjà dans le noyau de la skill", r.stdout)
         self.assertNotIn("<!-- noyau:", r.stdout)
         full = self.cli("SAVOIR/STATE", "--complet").stdout
-        self.assertLess(len(r.stdout), len(full))
+        self.assertEqual(r.stdout, full)
+
+    def test_loaded_typography_floor_folds_but_title_details_remain(self):
+        r = self.cli("SAVOIR/TYPE")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("Déjà dans le noyau de la skill, section", r.stdout)
+        self.assertIn("Équilibre d’un titre", r.stdout)
+        self.assertLess(len(r.stdout), len(self.cli("SAVOIR/TYPE", "--complet").stdout))
 
     def test_every_core_block_names_its_skill_section(self):
-        for prefix in ("DIRECTION", "ACTION", "SAVOIR", "BIBLIOTHEQUE"):
-            lines = (reader.OFFICIAL / f"{prefix}.md").read_text(encoding="utf-8").splitlines()
+        for path in reader.sources_normatives():
+            lines = path.read_text(encoding="utf-8").splitlines()
             blocks = reader.core_blocks(lines)
             for name in set(blocks.values()):
                 first = next(lines[k] for k in sorted(k for k, n in blocks.items() if n == name)
                              if lines[k].strip() and not reader.CONCEPT_MARKER.match(lines[k]))
-                self.assertIsNotNone(reader.core_section(first), f"{prefix} {name}")
+                self.assertIsNotNone(reader.core_section(first), f"{path.name} {name}")
 
     def test_search_marks_core_passages(self):
         out = self.cli("--trouver", "cohérence de rayon").stdout
-        self.assertRegex(out, r"\S+\.md:\d+\s+\(noyau\) \| Cohérence de rayon")  # le fichier peut avoir changé (rangement)
+        self.assertIn("Cohérence de rayon", out)
+        self.assertNotRegex(out, r"\(noyau\) \| Cohérence de rayon")
+        self.assertIn("(noyau)", self.cli("--trouver", "fonctions, intégrations et conformités affirmées").stdout)
         self.assertEqual(self.cli("--complet").returncode, 2)
 
     def test_new_options_refused_in_bad_combinations(self):
@@ -507,6 +516,70 @@ class SearchAndSummaryTests(unittest.TestCase):
         r = self.cli("--sommaire", "NOPE/X")
         self.assertNotEqual(r.returncode, 0)
         self.assertNotIn("Traceback", r.stderr)
+
+    def test_each_mode_reads_exactly_its_canonical_row(self):
+        for mode in ("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"):
+            with self.subTest(mode=mode):
+                r = self.cli("--mode", mode)
+                self.assertEqual(r.returncode, 0, r.stderr)
+                _, lines, index = reader.resolve("DIRECTION/CHARGE")
+                row = next(l for l in reader.extract(lines, index) if l.startswith(f"| **{mode}** |"))
+                self.assertIn(row, r.stdout)
+                self.assertEqual(r.stdout.count("| **"), 1)
+
+    def test_mode_view_preserves_ui_and_trace_scopes(self):
+        self.assertNotIn("UI-UX-REALITY", self.cli("--mode", "LITE").stdout)
+        self.assertIn("UI-UX-REALITY", self.cli("--mode", "STANDARD").stdout)
+        direction = self.cli("--mode", "DIRECTION").stdout
+        self.assertLess(direction.index("trace complète"), direction.index("`ACTION/GATE-B`"))
+
+    def test_mode_option_rejects_unknown_modes_and_other_views(self):
+        for args in [("--mode", "INCONNU"), ("--mode", "LITE", "DIRECTION/START"),
+                     ("--mode", "LITE", "--trouver", "couleur"), ("--mode", "LITE", "--complet")]:
+            with self.subTest(args=args):
+                self.assertEqual(self.cli(*args).returncode, 2)
+
+
+class FoldingTruthTests(unittest.TestCase):
+    lines = ["## SAVOIR/TEST", "<!-- noyau:début TEST -->", "Première phrase.",
+             "Texte complet requis.", "<!-- noyau:fin TEST -->"]
+
+    def folded(self, body):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            if body is not None:
+                skill = root / "agent/skill/SKILL.md"
+                skill.parent.mkdir(parents=True)
+                skill.write_text("<!-- noyau:compilé début -->\n### 1. Test\n" + body + "\n<!-- noyau:compilé fin -->")
+            with patch.object(reader, "ROOT", root):
+                return "\n".join(reader.fold_core(self.lines, 0))
+
+    def test_missing_skill_never_hides_a_marked_block(self):
+        self.assertIn("Texte complet requis.", self.folded(None))
+
+    def test_matching_first_line_is_not_proof_of_loaded_block(self):
+        out = self.folded("Première phrase.\nAncienne règle.")
+        self.assertIn("Texte complet requis.", out)
+        self.assertNotIn("Déjà dans le noyau", out)
+
+    def test_complete_loaded_block_is_folded(self):
+        out = self.folded("Première phrase.\nTexte complet requis.")
+        self.assertNotIn("Texte complet requis.", out)
+        self.assertIn("Déjà dans le noyau", out)
+
+    def test_text_outside_compiled_section_does_not_count(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); (root / "skill").mkdir()
+            (root / "skill/SKILL.md").write_text("Première phrase.\nTexte complet requis.\n<!-- noyau:compilé début -->\nAutre texte.\n<!-- noyau:compilé fin -->")
+            with patch.object(reader, "ROOT", root):
+                self.assertIn("Texte complet requis.", "\n".join(reader.fold_core(self.lines, 0)))
+
+    def test_duplicate_or_missing_mode_rows_are_governed_failures(self):
+        for rows in [[], ["| **LITE** | route | scope |"] * 2]:
+            with self.subTest(rows=rows), patch.object(reader, "resolve", return_value=(Path("source.md"), [], 0)), \
+                    patch.object(reader, "extract", return_value=["| Mode | Charger d’abord | Ajouter seulement si |", *rows]):
+                with self.assertRaisesRegex(reader.RouteError, "ambiguë ou incomplète"):
+                    reader.mode_row("LITE")
 
 
 class ActivationTests(unittest.TestCase):

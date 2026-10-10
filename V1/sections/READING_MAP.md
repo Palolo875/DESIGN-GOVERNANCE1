@@ -83,6 +83,7 @@ Cette table liste des **raccourcis et sous-locators** ; elle n’est pas un inve
 | `ACTION/UI-UX-REALITY` | `ACTION.md` — `### ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble` |
 | `ACTION/CLOSE-PACKAGE` | `ACTION.md` — `## ACTION/CLOSE-PACKAGE — paquet de clôture` |
 | `ACTION/GATE-A` | `ACTION.md` — `## ACTION/GATE-A — plancher objectivable` |
+| `ACTION/ATELIER-EDITION` | `ACTION.md` — `## ACTION/ATELIER-EDITION — opération observable` |
 | `ACTION/ROUTING` | `ACTION.md` — `## ACTION/ROUTING — prérequis de jugement et de structure` |
 | `ACTION/CLOSE-EXIT-CHECK` | `ACTION.md` — `## ACTION/CLOSE-EXIT-CHECK — test de sortie canonique` |
 | `SAVOIR/READ` | `SAVOIR.md` — `## SAVOIR/READ — comment utiliser cette bibliothèque` |
@@ -92,3 +93,6 @@ Cette table liste des **raccourcis et sous-locators** ; elle n’est pas un inve
 | `BIBLIOTHEQUE/SELECT` | `BIBLIOTHEQUE.md` — `## BIBLIOTHEQUE/SELECT — choisir avant de composer` |
 | `BIBLIOTHEQUE/COMPONENTS` | `BIBLIOTHEQUE.md` — `## BIBLIOTHEQUE/COMPONENTS — couches et dépendances` |
 | `BIBLIOTHEQUE/EVOLUTION` | `BIBLIOTHEQUE.md` — `## BIBLIOTHEQUE/EVOLUTION — promotion et dépréciation` |
+| `SAVOIR/FRAME/COMPOSITION` | `SAVOIR.md` — `# SAVOIR/FRAME — fondations et cadrage` › `### Grammaire positive de composition` |
+| `SAVOIR/FRAME/SINGULARITE` | `SAVOIR.md` — `# SAVOIR/FRAME — fondations et cadrage` › `### Singularité sans rejet des conventions` |
+| `SAVOIR/INTEGRITY/REPASSE` | `SAVOIR.md` — `# SAVOIR/INTEGRITY — limites, délégation et critique` › `## Méthodologie studio` |

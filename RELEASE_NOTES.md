@@ -4,6 +4,14 @@
 **Date de V1.0.0 :** 2026-10-01\
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
 
+## Révision R2026-10-10-PHASE5
+
+La skill porte un noyau commun de 18 852 octets, contre 44 437 auparavant. Les détails restent entiers dans leurs routes propriétaires ; le compilateur vérifie leur présence, leur classement et leur activation. La ligne du mode se lit à la demande avec `python3 scripts/read_route.py --mode MODE`, depuis l’unique table de chargement.
+
+Le lecteur distingue un marqueur source d’un contenu effectivement chargé. Il sert les détails différés et les textes absents d’une skill périmée, au lieu de les masquer comme déjà lus. L’atelier sur capture est accessible dans le produit sans charger les formalités B1b hors de leur scope. Les conditions d’acceptation, de trace complète, de preuve et de protection restent conservées.
+
+Compatibilité : V1.0.0 ; aucun nouveau mode, gate, statut ni champ RUN_CARD. Les comparaisons de lecture sont des mesures de texte, pas des mesures de jetons ni une preuve d’efficacité esthétique. **Efficacité : `NOT-VERIFIED`.**
+
 ## Révision R2026-10-09-COHERENCE
 
 Correction des renvois après la refonte. Les sections propriétaires font foi à leur emplacement actuel ; les identités historiques servent à la provenance et les anciens codes restent compatibles. La gouvernance est adaptée au travail : chaque contrôle et chaque élément de trace doit aider une décision, une preuve ou une reprise, sans supprimer les protections applicables.
@@ -78,8 +86,8 @@ Le détail est dans [`maintenance/versions.md`](maintenance/versions.md).
 **Pour un agent :**
 
 ```text
-lire la skill (noyau de fabrication) → classer avec DIRECTION/START
-→ charger la ligne de son mode dans DIRECTION/CHARGE → construire la première proposition
+lire la skill (noyau commun) → classer avec DIRECTION/START/TREE
+→ lire la ligne propriétaire avec read_route --mode MODE → construire la première proposition
 → boucle d’édition → réponse visible et trace légère (trace complète si le run est persistant, partagé, audité ou à accepter)
 ```
 

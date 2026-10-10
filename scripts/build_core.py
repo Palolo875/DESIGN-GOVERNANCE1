@@ -58,7 +58,42 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
                           ("BOUCLE-AXE", "SAVOIR.md", None)]),
     ("Proposition, sortie et trace", [("CHECKPOINT", "ACTION.md", None), ("SORTIE", "ACTION.md", None),
                                       ("TRACE", "ACTION.md", None)]),
+    ("Lire les détails au moment utile", [("CHARGE-DETAILS", "DIRECTION.md", None)]),
 ]
+
+# Le registre conserve tous les blocs protégés ; seule cette partie est chargée
+# systématiquement. Les autres restent entiers dans leur route propriétaire.
+COMMUN = frozenset({
+    "ROLE", "POSTURE", "CHARGE-REGLE", "CHARGE-FIN", "CHARGE-DETAILS",
+    "CONTENU", "ANCRE", "MOY-CARTE", "VER-FAUX-ASSET", "VER-SCENE", "VER-AUDIENCE",
+    "STRUCT-OU", "COMP-TYPO", "COMP-COULEUR", "COMP-VAGUES", "BOUCLE",
+    "BOUCLE-DIAGNOSTIC", "CHECKPOINT", "SORTIE", "TRACE",
+})
+DETAILS = {
+    "CHARGE-TABLE": "DIRECTION/CHARGE",
+    "BRIEF": "DIRECTION/EXTERNAL-START",
+    "PREMIER-OBJET": "DIRECTION/FIRST-OBJECT",
+    "MOY-PLAFOND": "DIRECTION/CREATIVE-BOOT",
+    "MOY-ASSETS": "SAVOIR/SOURCE",
+    "MOY-CALIBRATION": "SAVOIR/SOURCE",
+    "STRUCT-EXPRESSION": "BIBLIOTHEQUE/READ",
+    "STRUCT-TENSION": "BIBLIOTHEQUE/TENSION",
+    "STRUCT-ACTIVATION": "BIBLIOTHEQUE/SELECT",
+    "STRUCT-SIGNAUX": "BIBLIOTHEQUE/SELECT",
+    "COMP-GRAMMAIRE": "SAVOIR/FRAME/COMPOSITION",
+    "COMP-SINGULARITE": "SAVOIR/FRAME/SINGULARITE",
+    "COMP-FORME": "SAVOIR/CRAFT/CFT-01",
+    "COMP-CONTROLES": "SAVOIR/CRAFT/CFT-03",
+    "COMP-TITRE": "SAVOIR/TYPE",
+    "COMP-TEXTE-IMAGE": "SAVOIR/CRAFT/CFT-03",
+    "COMP-VOCABULAIRE": "SAVOIR/STATE",
+    "COMP-CONVERGENCE": "SAVOIR/CRAFT/CFT-05",
+    "BOUCLE-ATELIER": "ACTION/ATELIER-EDITION",
+    "BOUCLE-REVUE": "SAVOIR/CRAFT/CFT-00",
+    "BOUCLE-QUESTIONS": "DIRECTION/DOUBLE-LOOP",
+    "BOUCLE-REPASSE": "SAVOIR/INTEGRITY/REPASSE",
+    "BOUCLE-AXE": "SAVOIR/CRAFT/CFT-02",
+}
 
 
 class CoreError(Exception):
@@ -137,20 +172,52 @@ def blocks_of_source(fname: str) -> dict[str, list[str]]:
 
 
 def compile_core() -> str:
+    import read_route
+
     cache: dict[str, dict[str, list[str]]] = {}
     parts = ["_Section générée par `scripts/build_core.py` depuis les blocs « noyau » des sources ; ne pas modifier à la main._", ""]
-    for n, (title, items) in enumerate(NOYAU, 1):
-        parts.append(f"### {n}. {title}")
-        parts.append("")
+    registered = [bid for _, items in NOYAU for bid, _, _ in items]
+    if len(registered) != len(set(registered)) or set(registered) != COMMUN | DETAILS.keys() or COMMUN & DETAILS.keys():
+        raise CoreError("registre du noyau : chaque bloc doit être commun ou servi par une route unique")
+    n = 0
+    for title, items in NOYAU:
+        loaded = []
         for bid, fname, cols in items:
             if fname not in cache:
                 cache[fname] = blocks_of_source(fname)
             if bid not in cache[fname]:
                 raise CoreError(f"bloc {bid} absent de {fname}")
             body = project(cache[fname][bid], cols)
-            parts.extend(body)
-            parts.append("")
-    return "\n".join(parts).rstrip() + "\n"
+            if bid in COMMUN:
+                loaded.extend(body)
+                loaded.append("")
+            else:
+                locator = DETAILS[bid]
+                try:
+                    _, lines, index = read_route.resolve(locator)
+                    served = "\n".join(read_route.extract(lines, index))
+                except (read_route.RouteError, OSError) as exc:
+                    raise CoreError(f"activation de {bid} : {locator} indisponible ({exc})") from exc
+                if "\n".join(body).strip() not in served:
+                    raise CoreError(f"activation de {bid} : {locator} ne sert pas le bloc complet")
+        if not loaded:
+            continue
+        n += 1
+        parts.append(f"### {n}. {title}")
+        parts.append("")
+        parts.extend(loaded)
+    available = {bid for blocks in cache.values() for bid in blocks}
+    if available != set(registered):
+        raise CoreError("registre du noyau : bloc source non classé : " + ", ".join(sorted(available - set(registered))))
+    core = "\n".join(parts).rstrip() + "\n"
+    _, lines, index = read_route.resolve("DIRECTION/CHARGE")
+    activation = core + "\n" + "\n".join(read_route.extract(lines, index))
+    for bid, locator in DETAILS.items():
+        if bid == "CHARGE-TABLE" and "python3 scripts/read_route.py --mode MODE" in core:
+            continue  # --mode résout la table propriétaire, sans en recopier le locator.
+        if f"`{locator}`" not in activation:
+            raise CoreError(f"activation de {bid} : renvoi {locator} absent du noyau et de CHARGE")
+    return core
 
 
 def render(skill_text: str, core: str) -> str:

@@ -32,6 +32,12 @@ Dans l’export Local, utilisez `python3 scripts/validate_all.py`, avec `--requi
 
 Le budget décrit dans `maintenance/versions.md` concerne le fichier `SKILL.md` complet, mesuré en octets UTF-8. Le même contrôle est exécuté lors de la compilation et de la validation des distributions. Il borne la taille chargée ; il ne mesure ni la charge cognitive ni le coût complet d’un run.
 
+### Noyau commun et détails
+
+Le compilateur conserve un registre de tous les blocs protégés : communs, ou disponibles dans une route propriétaire avec leur activation. Le lecteur ne replie que les textes complets effectivement présents dans la skill. Installer une ancienne skill avec un paquet récent ne prouve donc pas que les détails récents sont déjà chargés ; après mise à jour, recompiler et recopier la skill.
+
+La commande `python3 scripts/read_route.py --mode MODE` affiche uniquement la ligne du mode déjà classé, sans créer de classification ni de table concurrente. Les détails se lisent selon la décision et le périmètre ; le nombre de contrôles et la taille du fichier ne remplacent pas la preuve de leur utilité.
+
 ### Reprendre une préparation interrompue
 
 Un verrou `.distribution.lock` bloque un second build. Le fichier owner.txt est produit pendant le build dans ce verrou, et ne fait pas partie des fichiers distribués. Lorsqu’il existe, il indique PID, début UTC et dossier ; ces indices peuvent être absents sur un ancien verrou et ne suffisent pas à prouver qu’un processus est arrêté. Dans le même environnement, inspectez le PID et sa commande (`ps -p PID -o pid,ppid,lstart,args`), les builds de ce dossier et le job ou la session qui les lance. Un PID peut être réutilisé. Tant que l’absence de build actif n’est pas établie, conservez le verrou ; son ancienneté ne justifie aucune suppression.

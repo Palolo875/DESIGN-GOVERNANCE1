@@ -17,7 +17,7 @@ Gardes :
  11. CHOIX CONTEXTUELS (garde bornée) — refuse le retour des formulations universelles retirées et les impératifs
      universels explicites (« toujours », « à tous les »…) sur un traitement ou une famille unique ; accepte un choix situé.
  10. ORDRE — dans DIRECTION, rôle, posture et récapitulatif de protection précèdent les sections détaillées.
-  9. CHARGEMENT — une seule table de chargement (`DIRECTION/CHARGE`, et sa copie compilée dans la skill) ;
+  9. CHARGEMENT — une seule table de chargement (`DIRECTION/CHARGE`, sa ligne servie à la demande) ;
      les façades y renvoient ; la ligne `DIRECTION` garde le build et l'ordre cible → premier objet ;
      Gate B n'y est chargée qu'en trace complète ; la carte de lecture d'ACTION renvoie à CHARGE (D2).
  12. LOCATORS DU VALIDATEUR — un message de `validate_run_card.py` cite un lieu nommé, jamais un numéro de ligne.
@@ -621,18 +621,15 @@ def check_order(errors: list[str]) -> None:
 
 
 # Ce que la section compilée de la skill doit porter
-CORE_FLOOR = [("| Ajouter seulement si", "colonne « Ajouter seulement si » de DIRECTION/CHARGE"),
+CORE_FLOOR = [("python3 scripts/read_route.py --mode MODE", "activation de la ligne propriétaire de DIRECTION/CHARGE"),
               ("`SAVOIR/TOOLS/CONVERGENCE`", "activation conditionnelle des observations datées"),
               ("`SAVOIR/TOOLS/MOYENS`", "activation conditionnelle des ressources par rôle"),
               ("python3 scripts/read_route.py --trouver", "recherche conditionnelle de savoir dans CHARGE"),
               ("sans conclure à l’absence du savoir", "limite de la recherche littérale dans CHARGE"),
               ("Conçois une palette par rôles", "plancher couleur de SAVOIR/CRAFT/CFT-05"),
               ("Choisis une typographie pour ses langues", "plancher typographique de SAVOIR/TYPE"),
-              ("Dans le scope de B1b", "portée de l'atelier d'édition et ses deux exceptions"),
-              ("`ACTION/UI-UX-REALITY` si la surface UI/UX est nouvelle ou substantiellement modifiée",
-               "déclencheur UI/UX avant fabrication"),
+              ("`ACTION/ATELIER-EDITION`", "activation de l'atelier d'édition dans son scope"),
               ("fonctions, intégrations et conformités affirmées", "fonctions d'un produit fictif marquées"),
-              ("`DIRECTION/DOMAIN-FRAME` si la demande est nouvelle", "déclencheur DOMAIN-FRAME dans CHARGE"),
               ("sauf avec `--allow-external`", "recette check_render et son blocage externe par défaut (C39)")]
 
 
@@ -710,8 +707,10 @@ def check_ui_trigger(errors: list[str]) -> None:
     source = texte("DIRECTION.md")
     start = source.find("## DIRECTION/CHARGE")
     skill = (SKILL_DIR / "SKILL.md").read_text(encoding="utf-8")
-    places = [("CHARGE", source[start:source.find("\n## ", start + 1)] if start >= 0 else ""),
-              ("noyau compilé", skill[skill.find("<!-- noyau:compilé début -->"):skill.find("<!-- noyau:compilé fin -->")])]
+    core = skill[skill.find("<!-- noyau:compilé début -->"):skill.find("<!-- noyau:compilé fin -->")]
+    if "python3 scripts/read_route.py --mode MODE" not in core:
+        errors.append("[UIX-01] noyau compilé : la ligne propriétaire du mode n'est pas activée")
+    places = [("CHARGE", source[start:source.find("\n## ", start + 1)] if start >= 0 else "")]
     for place, section in places:
         rows = {line.split("|")[1].strip(): line.split("|") for line in section.splitlines() if line.startswith("| **")}
         for mode in ("**STANDARD**", "**DIRECTION**"):

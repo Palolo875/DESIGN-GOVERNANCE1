@@ -28,7 +28,7 @@ class MobilisationFacadeTests(unittest.TestCase):
 
     def assert_rejected(self, key, old, new, expected):
         texts = dict(self.texts)
-        self.assertIn(old, texts[key])
+        self.assertIn(old, texts[key], f"mutation impossible dans {key} : {old}")
         texts[key] = texts[key].replace(old, new, 1)
         errors = []
         with patch.object(reading_map, "load_texts", return_value=texts):
@@ -66,6 +66,21 @@ class MobilisationFacadeTests(unittest.TestCase):
 
     def test_compiled_trace_keeps_short_lite_exception(self):
         self.assert_rejected('SK','La forme courte LITE conserve une trace complète sans RUN_CARD','Toute clôture exige une RUN_CARD','LCF-56')
+
+    def test_brief_rule_stays_protected_when_loaded_by_reference(self):
+        self.assert_rejected('D', 'Au plus trois demandes', 'Questionnaire sans limite', 'LCF-44')
+
+    def test_first_object_rule_stays_protected_when_loaded_by_reference(self):
+        self.assert_rejected('D', 'de préférence **codé**', 'décoratif par défaut', 'LCF-47')
+
+    def test_missing_brief_relay_cannot_pass_as_a_shorter_skill(self):
+        texts = dict(self.texts)
+        for key in ('D', 'SK'):
+            texts[key] = texts[key].replace('`DIRECTION/EXTERNAL-START`', 'renvoi retiré')
+        self.assertFalse(reading_map.lcf_44(texts))
+
+    def test_asset_treatment_rule_stays_at_its_current_owner(self):
+        self.assert_rejected('S', '**Traitement des assets moyens.**', '**Règle supprimée.**', 'LCF-49')
 
 
 class NavigationTests(unittest.TestCase):

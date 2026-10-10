@@ -3,9 +3,19 @@
 **Version expérimentale :** `V1.0.0`  
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
 **Date de V1.0.0 :** 2026-10-01\
-**Révision :** `R2026-10-09-COHERENCE`
+**Révision :** `R2026-10-10-PHASE5`
 
 **Usage recommandé :** pilote contrôlé, supervision humaine et preuve adaptée au risque
+
+## Phase 5 — noyau commun et lecture utile — 2026-10-10
+
+Le noyau commun charge les protections et l’activation utiles à tous les chemins. La table des modes et les détails de fabrication restent dans leurs sources, lus au moment utile. Le registre du compilateur classe chaque bloc comme commun ou servi par une route : un bloc absent, orphelin, incomplet ou sans renvoi fait échouer la compilation. Aucun savoir de détail n’est supprimé pour réduire la skill.
+
+`python3 scripts/read_route.py --mode MODE` sert une seule ligne de la table propriétaire `DIRECTION/CHARGE`, après classification ; il ne choisit pas le mode et conserve ses conditions de preuve et de trace. Le lecteur ne replie un bloc que si son texte complet est effectivement présent dans la section compilée de la skill ; une skill absente ou périmée ne masque pas la source.
+
+L’atelier d’édition est servi par `ACTION/ATELIER-EDITION` dans le produit ; les conditions formelles, preuves et exceptions B1b restent dans la gouvernance. Le traitement des assets moyens rejoint `SAVOIR/SOURCE`. Des sous-routes ciblées servent la composition, la singularité et la repasse sans ouvrir leur chapitre entier. Les anciens locators restent valides.
+
+La skill passe de 44 437 à 18 852 octets UTF-8. Cette mesure concerne le fichier complet ; les caractères de routes servis et le coût réel d’un run restent des mesures distinctes. La réduction du chargement ne prouve pas un gain de qualité, qui reste `NOT-VERIFIED`.
 
 ## Finalisation de la refonte — 2026-10-09
 
