@@ -1,0 +1,89 @@
+- banner:
+  - text: Design Governance V1 expérimentale · proposition de support Carte 01
+  - button "Thème sombre" [pressed]
+- main:
+  - heading "Le design au cœur. Un chemin pour chaque besoin." [level=1]
+  - paragraph: Choisir une entrée, comprendre les responsabilités, retrouver les sections qui font foi.
+  - region "Choisir son entrée":
+    - text: Votre entrée
+    - combobox "Votre entrée":
+      - option "Vue d’ensemble" [selected]
+      - option "Je découvre"
+      - option "Je conçois"
+      - option "Je travaille en équipe"
+      - option "Je relis ou je décide"
+      - option "Je suis un agent"
+      - option "Je maintiens le système"
+    - heading "L’ensemble reste visible." [level=2]
+    - paragraph: Les accès conduisent au travail de design ; la gouvernance protège les preuves et la maintenance entretient le système.
+    - link "Lire la présentation":
+      - /url: https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/4e1f9cc20a9887d570a720934ca5b1752c78971a/README.md
+  - region "Les responsabilités reliées":
+    - heading "Les responsabilités reliées" [level=2]
+    - paragraph: Carte de responsabilités, pas un ordre fixe d’exécution.
+    - 'img "Design Governance V1 — Vue d’ensemble Guides : Des repères pour les personnes. Commencer, concevoir, travailler en équipe. Agent : Un noyau commun, puis les lectures utiles. Le chemin, la fabrication et la réponse. Design : Le cœur de la fabrication et du jugement. Gouvernance : Protéger un risque, vérifier, garder une trace. L’effort suit la décision et les besoins de reprise. Trace complète pour un travail persistant, partagé, audité ou à accepter. Les preuves restent dues. Risque critique : protéger avant le choix concerné. Maintenance : Versions, validation et distributions. Faire évoluer l’ensemble. La section propriétaire, à son emplacement actuel. V1/sections/ conserve des sections de même autorité. Carte de responsabilités, pas un ordre fixe d’exécution."': "DESIGN GOVERNANCE / V1.0.0 expérimentale CARTE DE LECTURE ENTRER Guides guides/ Des repères pour les personnes. Commencer, concevoir, travailler en équipe. AGIR Agent agent/ Un noyau commun, puis les lectures utiles. Le chemin, la fabrication et la réponse. orienter lire et fabriquer CONCEVOIR Design design/ Le cœur de la fabrication et du jugement. Direction Choisir un point de vue situé. direction/ Savoir Juger, comprendre et fabriquer. savoir/ Formes Composer une structure adaptée. formes/ Produit Construire, observer et finir. produit/ risque · décision · reprise ÉPROUVER gouvernance/ Gouvernance Protéger un risque, vérifier, garder une trace. Trace complète pour un travail persistant, partagé, audité ou à accepter. Les preuves restent dues. Risque critique : protéger avant le choix concerné. ENTRETENIR maintenance/ Maintenance Versions, validation et distributions. Faire évoluer l’ensemble. Ce qui fait foi La section propriétaire, à son emplacement actuel. V1/sections/ conserve des sections de même autorité. Guides, carte et noyau généré orientent ou projettent les sources. Carte de responsabilités, pas un ordre fixe d’exécution."
+  - region "Ouvrir la bonne porte":
+    - heading "Ouvrir la bonne porte" [level=2]
+    - list:
+      - listitem:
+        - link "Ouvrir le guide pour commencer":
+          - /url: https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/4e1f9cc20a9887d570a720934ca5b1752c78971a/guides/commencer.md
+        - text: Le guide pour commencer explique quoi demander, quoi fournir, ce que vous recevez et comment poursuivre.
+      - listitem:
+        - link "Ouvrir le guide du designer":
+          - /url: https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/4e1f9cc20a9887d570a720934ca5b1752c78971a/guides/designer.md
+        - text: Le guide du designer relie les sujets, leurs combinaisons et les gestes de fabrication.
+      - listitem:
+        - link "Ouvrir le guide d’équipe":
+          - /url: https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/4e1f9cc20a9887d570a720934ca5b1752c78971a/guides/equipe.md
+        - text: Le guide d’équipe relie le pilotage, les preuves, la trace et la livraison, selon les besoins du travail.
+      - listitem:
+        - link "Ouvrir la gouvernance":
+          - /url: https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/4e1f9cc20a9887d570a720934ca5b1752c78971a/gouvernance/README.md
+        - text: La gouvernance aide à vérifier les affirmations, protéger les risques et préparer une clôture ou une acceptation.
+      - listitem:
+        - link "Ouvrir la skill":
+          - /url: https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/4e1f9cc20a9887d570a720934ca5b1752c78971a/agent/skill/SKILL.md
+        - text: La skill active le classement et les lectures utiles. Les sections propriétaires restent la source de la règle.
+      - listitem:
+        - link "Ouvrir la maintenance":
+          - /url: https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/4e1f9cc20a9887d570a720934ca5b1752c78971a/maintenance/README.md
+        - text: La maintenance rassemble l’évolution, la validation et la préparation des versions.
+  - group:
+    - text: Lire la carte en texte
+    - list:
+      - listitem:
+        - strong: Guides
+        - text: — Des repères pour les personnes. Commencer, concevoir, travailler en équipe.
+      - listitem:
+        - strong: Agent
+        - text: — Un noyau commun, puis les lectures utiles. Le chemin, la fabrication et la réponse.
+      - listitem:
+        - strong: Design
+        - text: — Le cœur de la fabrication et du jugement.
+        - list:
+          - listitem:
+            - strong: Direction
+            - text: — Choisir un point de vue situé.
+          - listitem:
+            - strong: Savoir
+            - text: — Juger, comprendre et fabriquer.
+          - listitem:
+            - strong: Formes
+            - text: — Composer une structure adaptée.
+          - listitem:
+            - strong: Produit
+            - text: — Construire, observer et finir.
+      - listitem:
+        - strong: Gouvernance
+        - text: "— Protéger un risque, vérifier, garder une trace. L’effort suit la décision et les besoins de reprise. Trace complète pour un travail persistant, partagé, audité ou à accepter. Les preuves restent dues. Risque critique : protéger avant le choix concerné."
+      - listitem:
+        - strong: Maintenance
+        - text: — Versions, validation et distributions. Faire évoluer l’ensemble.
+    - paragraph: Les guides orientent vers le design. L’agent lit les sources utiles et fabrique. Le design et la gouvernance se répondent selon le risque, la décision et la reprise. La maintenance entretient toutes les parties.
+    - paragraph: La section propriétaire, à son emplacement actuel. V1/sections/ conserve des sections de même autorité. Guides, carte et noyau généré orientent ou projettent les sources.
+  - button "Exporter cette vue en SVG"
+  - link "Équivalent textuel":
+    - /url: equivalent.md
+  - paragraph: "SVG : vue complète. Sur petit écran, la page recompose les mêmes responsabilités en blocs lisibles."
+- contentinfo: Vue dérivée · sources produit 4e1f9cc Cette carte est une proposition à discuter.

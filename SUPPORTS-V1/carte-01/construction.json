@@ -1,0 +1,12 @@
+{
+  "base_commit": "4e1f9cc20a9887d570a720934ca5b1752c78971a",
+  "source_sha256": "be79cd30e1b808fa63910deb493950bcffe31fd4927e1d426ebb0661bbc89875",
+  "outputs": {
+    "index.html": "5dcd05d10a25225ce0538678db20c18ffb3879e269290ca2088c4ade4378855d",
+    "carte-claire.svg": "0b2958bb39d230e5dc22ffa8084030ff094928cebb1b69a870e1b38f708e71d8",
+    "carte-sombre.svg": "e5d33e0046f43ccf860810038cc6fb3bc5d5725e2985b8f3dd3e42381621718a",
+    "equivalent.md": "0f445270de4c8fa25cf61edd605ed76a7017091053b6404cabf86eba53cf1cc2",
+    "carte.mmd": "b8e1138c36fa9ae73f92f2b0a0a8ee68c6e1f4635f2b04c7fd93e7e25caccfe7",
+    "langage-visuel.md": "662da41c4f34612721dab2e4b3463dda6a7b4c368c1971e4374067aec32ed1ec"
+  }
+}

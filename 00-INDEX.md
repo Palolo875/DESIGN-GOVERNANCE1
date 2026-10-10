@@ -1,8 +1,10 @@
 # Entrée de la refonte Design Governance
 
-**État courant au 10 octobre 2026.** Cette branche `refonte` contient le plan et ses preuves. Le produit vérifié est `6e5a8c2a9016b31969051499b1c895a116fd75b4`, sur `fix/refonte-gouvernance`. La [PR 1](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1) est ouverte vers `main` ; elle n'est pas fusionnée.
+**État courant au 10 octobre 2026.** Cette branche `refonte` contient le plan et ses preuves. Le produit est sur `main`, commit de fusion `4e1f9cc20a9887d570a720934ca5b1752c78971a`, avec un arbre identique au commit produit testé `3b79b3a10d2344a52db76f6e6239cf0a91c056c7`. La [PR 1](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1) est fusionnée et la [CI 54](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079876523) est réussie sur le commit de fusion.
 
 Pour l'état actuel, lire le [plan de refonte](PLAN/plan-refonte-systeme.md), le [bilan technique de phase 5](PLAN/phase5-suite.md), puis la [comparaison indépendante U6](U6/resultats.md). Les mesures de lecture, les parcours, les jugements visuels et la décision du propriétaire y sont distingués. Les phases réduites, les objectifs ouverts et l'anglais reporté restent explicites.
+
+La [présentation V1 expérimentale](SUPPORTS-V1/README.md) livre maintenant une première carte avec ses sources, ses SVG et 27 parcours réussis. Le langage visuel reste une proposition à discuter ; les autres schémas et le nettoyage public restent ouverts.
 
 La suite de cette page est un relevé historique des premières sessions des 7 et 8 octobre. Ses anciens états, emplacements et décisions ne remplacent pas les documents courants ci-dessus.
 

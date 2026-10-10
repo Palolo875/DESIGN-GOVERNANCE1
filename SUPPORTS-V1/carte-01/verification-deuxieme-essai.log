@@ -1,0 +1,27 @@
+PASS 1440 / clair / rendu
+PASS 1440 / sombre / rendu
+PASS 1280 / clair / rendu
+PASS 1280 / sombre / rendu
+PASS 1024 / clair / rendu
+PASS 1024 / sombre / rendu
+PASS 768 / clair / rendu
+PASS 768 / sombre / rendu
+PASS 390 / clair / rendu
+PASS 390 / sombre / rendu
+PASS 320 / clair / rendu
+PASS 320 / sombre / rendu
+PASS Entrée : Je découvre
+PASS Entrée : Je conçois
+PASS Entrée : Je travaille en équipe
+PASS Entrée : Je relis ou je décide
+PASS Entrée : Je suis un agent
+PASS Entrée : Je maintiens le système
+PASS Clavier : thème, entrée, équivalent textuel
+PASS Export de la vue sélectionnée, puis ouverture du SVG
+FAIL 390 / texte agrandi et espacé {'width': 390, 'scroll': 493, 'body': 493}
+FAIL 320 / texte agrandi et espacé {'width': 320, 'scroll': 493, 'body': 493}
+PASS JavaScript absent : carte, texte et sources accessibles
+PASS Fonte de repli : lecture étroite
+PASS SVG autonome claire : ouverture et export PNG
+PASS SVG autonome sombre : ouverture et export PNG
+Résultat : 25 PASS, 2 FAIL

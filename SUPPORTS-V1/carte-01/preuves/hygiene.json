@@ -1,0 +1,77 @@
+{
+  "result": "PASS",
+  "scope": "fichiers ajoutés ou modifiés dans ce lot",
+  "intentional_original_whitespace": [
+    {
+      "file": "SUPPORTS-V1/carte-01/carte-claire.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/carte-sombre.svg",
+      "line": 21,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/fonts/OFL-instrument-serif.txt",
+      "line": 21,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/fonts/OFL-manrope.txt",
+      "line": 21,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/index.html",
+      "line": 36,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/index.html",
+      "line": 131,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/index.html",
+      "line": 234,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/preuves/export-agent-sombre.svg",
+      "line": 22,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/verification-premier-essai.log",
+      "line": 13,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/verification-premier-essai.log",
+      "line": 14,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/verification-premier-essai.log",
+      "line": 15,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/verification-premier-essai.log",
+      "line": 16,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/verification-premier-essai.log",
+      "line": 17,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    },
+    {
+      "file": "SUPPORTS-V1/carte-01/verification-premier-essai.log",
+      "line": 18,
+      "reason": "texte original de licence OFL ou journal historique, conservé exactement"
+    }
+  ],
+  "unexpected_trailing_whitespace": []
+}

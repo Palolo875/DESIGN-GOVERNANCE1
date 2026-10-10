@@ -1,0 +1,2146 @@
+{
+  "observed_at": "2026-10-10T21:43:27.975947+00:00",
+  "browser_executable": "/usr/bin/chromium",
+  "browser_version": "151.0.7922.173",
+  "artifact_sha256": "42fb90a72693b80933fa63ec574afe3dd2b90a40dd93ef05c164c3495c145226",
+  "server_stopped": true,
+  "passed": 25,
+  "failed": 2,
+  "results": [
+    {
+      "name": "1440 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1440,
+          "scroll": 1440,
+          "body": 1440
+        },
+        "layout": "SVG",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1440 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1440,
+          "scroll": 1440,
+          "body": 1440
+        },
+        "layout": "SVG",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1280 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1280,
+          "scroll": 1280,
+          "body": 1280
+        },
+        "layout": "SVG",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1280 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1280,
+          "scroll": 1280,
+          "body": 1280
+        },
+        "layout": "SVG",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1024 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1024,
+          "scroll": 1024,
+          "body": 1024
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1024 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1024,
+          "scroll": 1024,
+          "body": 1024
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "768 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 768,
+          "scroll": 768,
+          "body": 768
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "768 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 768,
+          "scroll": 768,
+          "body": 768
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "390 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 390,
+          "scroll": 390,
+          "body": 390
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "390 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 390,
+          "scroll": 390,
+          "body": 390
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "320 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 320,
+          "scroll": 320,
+          "body": 320
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "320 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 320,
+          "scroll": 320,
+          "body": 320
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "Entrée : Je découvre",
+      "result": "PASS",
+      "evidence": {
+        "entry": "Je découvre",
+        "target": "guides/commencer.md",
+        "highlighted": [
+          "guides",
+          "design"
+        ],
+        "all_parts_present": true
+      }
+    },
+    {
+      "name": "Entrée : Je conçois",
+      "result": "PASS",
+      "evidence": {
+        "entry": "Je conçois",
+        "target": "guides/designer.md",
+        "highlighted": [
+          "guides",
+          "design"
+        ],
+        "all_parts_present": true
+      }
+    },
+    {
+      "name": "Entrée : Je travaille en équipe",
+      "result": "PASS",
+      "evidence": {
+        "entry": "Je travaille en équipe",
+        "target": "guides/equipe.md",
+        "highlighted": [
+          "guides",
+          "design",
+          "gouvernance"
+        ],
+        "all_parts_present": true
+      }
+    },
+    {
+      "name": "Entrée : Je relis ou je décide",
+      "result": "PASS",
+      "evidence": {
+        "entry": "Je relis ou je décide",
+        "target": "gouvernance/README.md",
+        "highlighted": [
+          "gouvernance"
+        ],
+        "all_parts_present": true
+      }
+    },
+    {
+      "name": "Entrée : Je suis un agent",
+      "result": "PASS",
+      "evidence": {
+        "entry": "Je suis un agent",
+        "target": "agent/skill/SKILL.md",
+        "highlighted": [
+          "agent",
+          "design"
+        ],
+        "all_parts_present": true
+      }
+    },
+    {
+      "name": "Entrée : Je maintiens le système",
+      "result": "PASS",
+      "evidence": {
+        "entry": "Je maintiens le système",
+        "target": "maintenance/README.md",
+        "highlighted": [
+          "maintenance"
+        ],
+        "all_parts_present": true
+      }
+    },
+    {
+      "name": "Clavier : thème, entrée, équivalent textuel",
+      "result": "PASS",
+      "evidence": {
+        "theme": "sombre",
+        "text_open": true,
+        "native_keyboard": true
+      }
+    },
+    {
+      "name": "Export de la vue sélectionnée, puis ouverture du SVG",
+      "result": "PASS",
+      "evidence": {
+        "name": "carte-systeme-v1-sombre-agent.svg",
+        "svg_reopened": true,
+        "sha256": "7eb426092310351cc54a468ecf82aad9de8b87933d74091349b550a09dc9a3b7"
+      }
+    },
+    {
+      "name": "390 / texte agrandi et espacé",
+      "result": "FAIL",
+      "error": "{'width': 390, 'scroll': 493, 'body': 493}"
+    },
+    {
+      "name": "320 / texte agrandi et espacé",
+      "result": "FAIL",
+      "error": "{'width': 320, 'scroll': 493, 'body': 493}"
+    },
+    {
+      "name": "JavaScript absent : carte, texte et sources accessibles",
+      "result": "PASS",
+      "evidence": {
+        "content": true,
+        "source_links": 6,
+        "interactive_controls_disabled": true
+      }
+    },
+    {
+      "name": "Fonte de repli : lecture étroite",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 390,
+          "scroll": 390,
+          "body": 390
+        },
+        "family": "Arial"
+      }
+    },
+    {
+      "name": "SVG autonome claire : ouverture et export PNG",
+      "result": "PASS",
+      "evidence": {
+        "file": "carte-claire.png",
+        "pixels": [
+          2208,
+          1840
+        ],
+        "font": true
+      }
+    },
+    {
+      "name": "SVG autonome sombre : ouverture et export PNG",
+      "result": "PASS",
+      "evidence": {
+        "file": "carte-sombre.png",
+        "pixels": [
+          2208,
+          1840
+        ],
+        "font": true
+      }
+    },
+    {
+      "name": "Dépendances externes et erreurs JavaScript",
+      "result": "PASS",
+      "evidence": {
+        "external_requests": [],
+        "javascript_errors": []
+      }
+    }
+  ],
+  "svg_contrasts": [
+    {
+      "theme": "clair",
+      "minimum": 5.654571511264956,
+      "pairs": [
+        {
+          "text": "DESIGN GOVERNANCE / V1.0.0 expérimentale",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(244, 245, 241)",
+          "bbox": {
+            "x": 32,
+            "y": 11,
+            "width": 300.4375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "CARTE DE LECTURE",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(244, 245, 241)",
+          "bbox": {
+            "x": 942.046875,
+            "y": 11,
+            "width": 129.953125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "ENTRER",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(237, 243, 233)",
+          "bbox": {
+            "x": 56,
+            "y": 62,
+            "width": 53.40625,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Guides",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(237, 243, 233)",
+          "bbox": {
+            "x": 56,
+            "y": 78,
+            "width": 87.6875,
+            "height": 36
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "guides/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(237, 243, 233)",
+          "bbox": {
+            "x": 453.90625,
+            "y": 62,
+            "width": 50.09375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Des repères pour les personnes.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(237, 243, 233)",
+          "bbox": {
+            "x": 56,
+            "y": 117,
+            "width": 251.609375,
+            "height": 23
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Commencer, concevoir, travailler en équipe.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(237, 243, 233)",
+          "bbox": {
+            "x": 56,
+            "y": 137,
+            "width": 337.375,
+            "height": 23
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "AGIR",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(234, 240, 251)",
+          "bbox": {
+            "x": 600,
+            "y": 62,
+            "width": 32.53125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Agent",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(234, 240, 251)",
+          "bbox": {
+            "x": 600,
+            "y": 78,
+            "width": 75.65625,
+            "height": 36
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "agent/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(234, 240, 251)",
+          "bbox": {
+            "x": 1003.796875,
+            "y": 62,
+            "width": 44.203125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Un noyau commun, puis les lectures utiles.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(234, 240, 251)",
+          "bbox": {
+            "x": 600,
+            "y": 117,
+            "width": 332.0625,
+            "height": 23
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Le chemin, la fabrication et la réponse.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(234, 240, 251)",
+          "bbox": {
+            "x": 600,
+            "y": 137,
+            "width": 298.75,
+            "height": 23
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "orienter",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(244, 245, 241)",
+          "bbox": {
+            "x": 251.828125,
+            "y": 185,
+            "width": 56.73699951171875,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "lire et fabriquer",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(244, 245, 241)",
+          "bbox": {
+            "x": 770.328125,
+            "y": 185,
+            "width": 107.72906494140625,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "CONCEVOIR",
+          "fg": "rgb(37, 78, 171)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 239,
+            "width": 81.765625,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Design",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 254,
+            "width": 107.71875,
+            "height": 44
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "design/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 997.90625,
+            "y": 239,
+            "width": 50.09375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Le cœur de la fabrication et du jugement.",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 254,
+            "y": 269,
+            "width": 338.75,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Direction",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 321,
+            "width": 98.078125,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Choisir un point",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 358,
+            "width": 130.5625,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "de vue situé.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 383,
+            "width": 105.03125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "direction/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 415,
+            "width": 64.859375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Savoir",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 304,
+            "y": 321,
+            "width": 66.54058837890625,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Juger, comprendre",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 304,
+            "y": 358,
+            "width": 154.59375,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "et fabriquer.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 304,
+            "y": 383,
+            "width": 100.28125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "savoir/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 304,
+            "y": 415,
+            "width": 44.828125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Formes",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 552,
+            "y": 321,
+            "width": 77.75,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Composer une",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 552,
+            "y": 358,
+            "width": 121.921875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "structure adaptée.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 552,
+            "y": 383,
+            "width": 155.921875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "formes/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 552,
+            "y": 415,
+            "width": 51.8125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Produit",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 800,
+            "y": 321,
+            "width": 78.421875,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Construire, observer",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 800,
+            "y": 358,
+            "width": 171.08917236328125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "et finir.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 800,
+            "y": 383,
+            "width": 56.703125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "produit/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 800,
+            "y": 415,
+            "width": 53.65625,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "risque · décision · reprise",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(244, 245, 241)",
+          "bbox": {
+            "x": 384,
+            "y": 470,
+            "width": 172.363525390625,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "ÉPROUVER",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(247, 239, 225)",
+          "bbox": {
+            "x": 56,
+            "y": 521,
+            "width": 73.34375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "gouvernance/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(247, 239, 225)",
+          "bbox": {
+            "x": 563.90625,
+            "y": 521,
+            "width": 92.09375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Gouvernance",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(247, 239, 225)",
+          "bbox": {
+            "x": 56,
+            "y": 537,
+            "width": 167.53125,
+            "height": 36
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Protéger un risque, vérifier, garder une trace.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(247, 239, 225)",
+          "bbox": {
+            "x": 56,
+            "y": 574,
+            "width": 368.453125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Trace complète pour un travail persistant, partagé,",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(247, 239, 225)",
+          "bbox": {
+            "x": 56,
+            "y": 609,
+            "width": 373.546875,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "audité ou à accepter. Les preuves applicables restent dues.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(247, 239, 225)",
+          "bbox": {
+            "x": 56,
+            "y": 633,
+            "width": 437.828125,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Risque critique : protéger avant le choix concerné.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(247, 239, 225)",
+          "bbox": {
+            "x": 56,
+            "y": 657,
+            "width": 370.96875,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "ENTRETENIR",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(237, 240, 244)",
+          "bbox": {
+            "x": 738,
+            "y": 521,
+            "width": 84.078125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "maintenance/",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(237, 240, 244)",
+          "bbox": {
+            "x": 956.28125,
+            "y": 521,
+            "width": 91.71875,
+            "height": 19
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Maintenance",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(237, 240, 244)",
+          "bbox": {
+            "x": 738,
+            "y": 537,
+            "width": 162.984375,
+            "height": 36
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Versions, validation",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(237, 240, 244)",
+          "bbox": {
+            "x": 738,
+            "y": 584,
+            "width": 159.6875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "et distributions.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(237, 240, 244)",
+          "bbox": {
+            "x": 738,
+            "y": 610,
+            "width": 131.671875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Faire évoluer l’ensemble.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(237, 240, 244)",
+          "bbox": {
+            "x": 738,
+            "y": 636,
+            "width": 200.328125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Ce qui fait foi",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 749,
+            "width": 138.921875,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "La section propriétaire, à son emplacement actuel.",
+          "fg": "rgb(25, 47, 52)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 782,
+            "width": 476.578125,
+            "height": 27
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "V1/sections/ conserve des sections de même autorité.",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 816,
+            "width": 398.078125,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "Guides, carte et noyau généré orientent ou projettent les sources.",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(255, 255, 255)",
+          "bbox": {
+            "x": 56,
+            "y": 841,
+            "width": 484.46875,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "Carte de responsabilités, pas un ordre fixe d’exécution.",
+          "fg": "rgb(75, 98, 104)",
+          "bg": "rgb(244, 245, 241)",
+          "bbox": {
+            "x": 32,
+            "y": 893,
+            "width": 388.515625,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        }
+      ]
+    },
+    {
+      "theme": "sombre",
+      "minimum": 7.07234788344979,
+      "pairs": [
+        {
+          "text": "DESIGN GOVERNANCE / V1.0.0 expérimentale",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(20, 36, 40)",
+          "bbox": {
+            "x": 32,
+            "y": 11,
+            "width": 300.4375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "CARTE DE LECTURE",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(20, 36, 40)",
+          "bbox": {
+            "x": 942.046875,
+            "y": 11,
+            "width": 129.953125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "ENTRER",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(35, 56, 46)",
+          "bbox": {
+            "x": 56,
+            "y": 62,
+            "width": 53.40625,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Guides",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(35, 56, 46)",
+          "bbox": {
+            "x": 56,
+            "y": 78,
+            "width": 87.6875,
+            "height": 36
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "guides/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(35, 56, 46)",
+          "bbox": {
+            "x": 453.90625,
+            "y": 62,
+            "width": 50.09375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Des repères pour les personnes.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(35, 56, 46)",
+          "bbox": {
+            "x": 56,
+            "y": 117,
+            "width": 251.609375,
+            "height": 23
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Commencer, concevoir, travailler en équipe.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(35, 56, 46)",
+          "bbox": {
+            "x": 56,
+            "y": 137,
+            "width": 337.375,
+            "height": 23
+          },
+          "bounds": {
+            "x": 32,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "AGIR",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(34, 54, 75)",
+          "bbox": {
+            "x": 600,
+            "y": 62,
+            "width": 32.53125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Agent",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(34, 54, 75)",
+          "bbox": {
+            "x": 600,
+            "y": 78,
+            "width": 75.65625,
+            "height": 36
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "agent/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(34, 54, 75)",
+          "bbox": {
+            "x": 1003.796875,
+            "y": 62,
+            "width": 44.203125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Un noyau commun, puis les lectures utiles.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(34, 54, 75)",
+          "bbox": {
+            "x": 600,
+            "y": 117,
+            "width": 332.0625,
+            "height": 23
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "Le chemin, la fabrication et la réponse.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(34, 54, 75)",
+          "bbox": {
+            "x": 600,
+            "y": 137,
+            "width": 298.75,
+            "height": 23
+          },
+          "bounds": {
+            "x": 576,
+            "y": 48,
+            "width": 496,
+            "height": 120
+          }
+        },
+        {
+          "text": "orienter",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(20, 36, 40)",
+          "bbox": {
+            "x": 251.828125,
+            "y": 185,
+            "width": 56.73699951171875,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "lire et fabriquer",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(20, 36, 40)",
+          "bbox": {
+            "x": 770.328125,
+            "y": 185,
+            "width": 107.72906494140625,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "CONCEVOIR",
+          "fg": "rgb(172, 200, 255)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 239,
+            "width": 81.765625,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Design",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 254,
+            "width": 107.71875,
+            "height": 44
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "design/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 997.90625,
+            "y": 239,
+            "width": 50.09375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Le cœur de la fabrication et du jugement.",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 254,
+            "y": 269,
+            "width": 338.75,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Direction",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 321,
+            "width": 98.078125,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Choisir un point",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 358,
+            "width": 130.5625,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "de vue situé.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 383,
+            "width": 105.03125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "direction/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 415,
+            "width": 64.859375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Savoir",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 304,
+            "y": 321,
+            "width": 66.54058837890625,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Juger, comprendre",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 304,
+            "y": 358,
+            "width": 154.59375,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "et fabriquer.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 304,
+            "y": 383,
+            "width": 100.28125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "savoir/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 304,
+            "y": 415,
+            "width": 44.828125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Formes",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 552,
+            "y": 321,
+            "width": 77.75,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Composer une",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 552,
+            "y": 358,
+            "width": 121.921875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "structure adaptée.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 552,
+            "y": 383,
+            "width": 155.921875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "formes/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 552,
+            "y": 415,
+            "width": 51.8125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Produit",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 800,
+            "y": 321,
+            "width": 78.421875,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "Construire, observer",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 800,
+            "y": 358,
+            "width": 171.08917236328125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "et finir.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 800,
+            "y": 383,
+            "width": 56.703125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "produit/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 800,
+            "y": 415,
+            "width": 53.65625,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 224,
+            "width": 1040,
+            "height": 228
+          }
+        },
+        {
+          "text": "risque · décision · reprise",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(20, 36, 40)",
+          "bbox": {
+            "x": 384,
+            "y": 470,
+            "width": 172.363525390625,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        },
+        {
+          "text": "ÉPROUVER",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(65, 53, 37)",
+          "bbox": {
+            "x": 56,
+            "y": 521,
+            "width": 73.34375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "gouvernance/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(65, 53, 37)",
+          "bbox": {
+            "x": 563.90625,
+            "y": 521,
+            "width": 92.09375,
+            "height": 19
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Gouvernance",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(65, 53, 37)",
+          "bbox": {
+            "x": 56,
+            "y": 537,
+            "width": 167.53125,
+            "height": 36
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Protéger un risque, vérifier, garder une trace.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(65, 53, 37)",
+          "bbox": {
+            "x": 56,
+            "y": 574,
+            "width": 368.453125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Trace complète pour un travail persistant, partagé,",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(65, 53, 37)",
+          "bbox": {
+            "x": 56,
+            "y": 609,
+            "width": 373.546875,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "audité ou à accepter. Les preuves applicables restent dues.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(65, 53, 37)",
+          "bbox": {
+            "x": 56,
+            "y": 633,
+            "width": 437.828125,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "Risque critique : protéger avant le choix concerné.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(65, 53, 37)",
+          "bbox": {
+            "x": 56,
+            "y": 657,
+            "width": 370.96875,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 508,
+            "width": 650,
+            "height": 192
+          }
+        },
+        {
+          "text": "ENTRETENIR",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(41, 52, 62)",
+          "bbox": {
+            "x": 738,
+            "y": 521,
+            "width": 84.078125,
+            "height": 19
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "maintenance/",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(41, 52, 62)",
+          "bbox": {
+            "x": 956.28125,
+            "y": 521,
+            "width": 91.71875,
+            "height": 19
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Maintenance",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(41, 52, 62)",
+          "bbox": {
+            "x": 738,
+            "y": 537,
+            "width": 162.984375,
+            "height": 36
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Versions, validation",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(41, 52, 62)",
+          "bbox": {
+            "x": 738,
+            "y": 584,
+            "width": 159.6875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "et distributions.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(41, 52, 62)",
+          "bbox": {
+            "x": 738,
+            "y": 610,
+            "width": 131.671875,
+            "height": 24
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Faire évoluer l’ensemble.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(41, 52, 62)",
+          "bbox": {
+            "x": 738,
+            "y": 636,
+            "width": 200.328125,
+            "height": 24
+          },
+          "bounds": {
+            "x": 714,
+            "y": 508,
+            "width": 358,
+            "height": 192
+          }
+        },
+        {
+          "text": "Ce qui fait foi",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 749,
+            "width": 138.921875,
+            "height": 30
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "La section propriétaire, à son emplacement actuel.",
+          "fg": "rgb(244, 245, 239)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 782,
+            "width": 476.578125,
+            "height": 27
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "V1/sections/ conserve des sections de même autorité.",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 816,
+            "width": 398.078125,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "Guides, carte et noyau généré orientent ou projettent les sources.",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(32, 52, 57)",
+          "bbox": {
+            "x": 56,
+            "y": 841,
+            "width": 484.46875,
+            "height": 22
+          },
+          "bounds": {
+            "x": 32,
+            "y": 736,
+            "width": 1040,
+            "height": 138
+          }
+        },
+        {
+          "text": "Carte de responsabilités, pas un ordre fixe d’exécution.",
+          "fg": "rgb(187, 202, 206)",
+          "bg": "rgb(20, 36, 40)",
+          "bbox": {
+            "x": 32,
+            "y": 893,
+            "width": 388.515625,
+            "height": 21
+          },
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1104,
+            "height": 920
+          }
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Aucun participant représentatif ni observation de lecteur d’écran.",
+    "Chromium seulement ; pas de certification de compréhension ou d’accessibilité exhaustive.",
+    "Les captures ne démontrent pas la préférence esthétique du propriétaire."
+  ]
+}

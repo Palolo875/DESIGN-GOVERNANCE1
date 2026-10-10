@@ -1,0 +1,71 @@
+{
+  "base_commit": "4e1f9cc20a9887d570a720934ca5b1752c78971a",
+  "scope": "sources des rôles, entrées et autorité de la carte ; les corps restent dans le produit",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "6fdadc0a52fc6f4e6f945ccdcba87938f6921830fffa025ae345a48483083314",
+      "bytes": 8022
+    },
+    {
+      "path": "design/README.md",
+      "sha256": "e633c1b4dac562cfbcf5bbb07d31a75af6baef0fb3685534107c976ba697dbcf",
+      "bytes": 3738
+    },
+    {
+      "path": "gouvernance/README.md",
+      "sha256": "fef6dc168a4e78b69e755c53f034666f12e46448b639608bd4996aff1877d340",
+      "bytes": 2282
+    },
+    {
+      "path": "V1/sections/README.md",
+      "sha256": "217a0372d5a13cc4b958e5aacfcf125fde5e4d1e042d404f186870e43a548ee0",
+      "bytes": 3867
+    },
+    {
+      "path": "guides/commencer.md",
+      "sha256": "8f57de6a7097705be1a060e3534e9240aa8572799e9ac59785d5d2ee90ad6083",
+      "bytes": 3725
+    },
+    {
+      "path": "agent/skill/SKILL.md",
+      "sha256": "b8395162d3c5d954d71e1757daaff1665754651f6ff4ebb15e954244ade1f9a6",
+      "bytes": 18960
+    },
+    {
+      "path": "design/direction/diriger.md",
+      "sha256": "163a0ee3dde9c2a2efae9f7acd4a823fcd7bddeb16d4d185b2677976f4f97003",
+      "bytes": 16776
+    },
+    {
+      "path": "design/savoir/README.md",
+      "sha256": "ec78afd7117f7ad8d076bc8a96d4cbd69a0ff336b4082a52c7ac3f821d02486a",
+      "bytes": 1375
+    },
+    {
+      "path": "design/formes/README.md",
+      "sha256": "06d815048cf789ac88371fdc770411f26940a1b0fb0334c782bf2b343664d6c4",
+      "bytes": 398
+    },
+    {
+      "path": "design/produit/README.md",
+      "sha256": "eae2f28ed01c3684a8c4c32d882e2db8f96c38a4544fcbf85f667e86d870a9c7",
+      "bytes": 668
+    },
+    {
+      "path": "maintenance/README.md",
+      "sha256": "c640ff89574c7cca0f37232a958739cf166e4fb01f09967a0b01b30ef0c5e697",
+      "bytes": 12050
+    },
+    {
+      "path": "guides/designer.md",
+      "sha256": "6f0f2ce2b1e3b8a2168de9e318a42ce6efc91603215f05b33f644139b9c5c1ed",
+      "bytes": 12303
+    },
+    {
+      "path": "guides/equipe.md",
+      "sha256": "4f653a95814126e6ed29d1f5a8dd94db96e2970070fb5fe3f0a130ad65ecfd19",
+      "bytes": 26677
+    }
+  ]
+}

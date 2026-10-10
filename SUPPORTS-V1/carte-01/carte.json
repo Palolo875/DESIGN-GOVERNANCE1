@@ -1,0 +1,255 @@
+{
+  "version": "V1.0.0 expérimentale",
+  "base_commit": "4e1f9cc20a9887d570a720934ca5b1752c78971a",
+  "title": "Le design au cœur.\nUn chemin pour chaque besoin.",
+  "intro": "Choisir une entrée, comprendre les responsabilités, retrouver les sections qui font foi.",
+  "scope": "Carte de responsabilités, pas un ordre fixe d’exécution.",
+  "nodes": [
+    {
+      "id": "guides",
+      "role": "Entrer",
+      "title": "Guides",
+      "path": "guides/",
+      "target": "guides/commencer.md",
+      "lines": [
+        "Des repères pour les personnes.",
+        "Commencer, concevoir, travailler en équipe."
+      ]
+    },
+    {
+      "id": "agent",
+      "role": "Agir",
+      "title": "Agent",
+      "path": "agent/",
+      "target": "agent/skill/SKILL.md",
+      "lines": [
+        "Un noyau commun, puis les lectures utiles.",
+        "Le chemin, la fabrication et la réponse."
+      ]
+    },
+    {
+      "id": "design",
+      "role": "Concevoir",
+      "title": "Design",
+      "path": "design/",
+      "target": "design/README.md",
+      "lines": [
+        "Le cœur de la fabrication et du jugement."
+      ],
+      "children": [
+        {
+          "title": "Direction",
+          "path": "direction/",
+          "target": "design/direction/diriger.md",
+          "lines": [
+            "Choisir un point",
+            "de vue situé."
+          ]
+        },
+        {
+          "title": "Savoir",
+          "path": "savoir/",
+          "target": "design/savoir/README.md",
+          "lines": [
+            "Juger, comprendre",
+            "et fabriquer."
+          ]
+        },
+        {
+          "title": "Formes",
+          "path": "formes/",
+          "target": "design/formes/README.md",
+          "lines": [
+            "Composer une",
+            "structure adaptée."
+          ]
+        },
+        {
+          "title": "Produit",
+          "path": "produit/",
+          "target": "design/produit/README.md",
+          "lines": [
+            "Construire, observer",
+            "et finir."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gouvernance",
+      "role": "Éprouver",
+      "title": "Gouvernance",
+      "path": "gouvernance/",
+      "target": "gouvernance/README.md",
+      "lines": [
+        "Protéger un risque, vérifier, garder une trace.",
+        "L’effort suit la décision et les besoins de reprise."
+      ],
+      "conditions": [
+        "Trace complète pour un travail persistant, partagé,",
+        "audité ou à accepter. Les preuves applicables restent dues.",
+        "Risque critique : protéger avant le choix concerné."
+      ]
+    },
+    {
+      "id": "maintenance",
+      "role": "Entretenir",
+      "title": "Maintenance",
+      "path": "maintenance/",
+      "target": "maintenance/README.md",
+      "lines": [
+        "Versions, validation",
+        "et distributions.",
+        "Faire évoluer l’ensemble."
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "guides",
+      "to": "design",
+      "label": "orienter",
+      "kind": "orientation"
+    },
+    {
+      "from": "agent",
+      "to": "design",
+      "label": "lire et fabriquer",
+      "kind": "lecture"
+    },
+    {
+      "from": "design",
+      "to": "gouvernance",
+      "label": "risque · décision · reprise",
+      "kind": "reciprocal"
+    }
+  ],
+  "authority": {
+    "title": "Ce qui fait foi",
+    "rule": "La section propriétaire, à son emplacement actuel.",
+    "retained": "V1/sections/ conserve des sections de même autorité.",
+    "derived": "Guides, carte et noyau généré orientent ou projettent les sources.",
+    "target": "V1/sections/README.md"
+  },
+  "entries": [
+    {
+      "id": "overview",
+      "label": "Vue d’ensemble",
+      "title": "L’ensemble reste visible.",
+      "description": "Les accès conduisent au travail de design ; la gouvernance protège les preuves et la maintenance entretient le système.",
+      "target": "README.md",
+      "link": "Lire la présentation",
+      "focus": []
+    },
+    {
+      "id": "beginner",
+      "label": "Je découvre",
+      "title": "Commencez par votre demande.",
+      "description": "Le guide pour commencer explique quoi demander, quoi fournir, ce que vous recevez et comment poursuivre.",
+      "target": "guides/commencer.md",
+      "link": "Ouvrir le guide pour commencer",
+      "focus": [
+        "guides",
+        "design"
+      ]
+    },
+    {
+      "id": "designer",
+      "label": "Je conçois",
+      "title": "Entrez par le savoir et les formes.",
+      "description": "Le guide du designer relie les sujets, leurs combinaisons et les gestes de fabrication.",
+      "target": "guides/designer.md",
+      "link": "Ouvrir le guide du designer",
+      "focus": [
+        "guides",
+        "design"
+      ]
+    },
+    {
+      "id": "team",
+      "label": "Je travaille en équipe",
+      "title": "Organisez le travail et sa reprise.",
+      "description": "Le guide d’équipe relie le pilotage, les preuves, la trace et la livraison, selon les besoins du travail.",
+      "target": "guides/equipe.md",
+      "link": "Ouvrir le guide d’équipe",
+      "focus": [
+        "guides",
+        "design",
+        "gouvernance"
+      ]
+    },
+    {
+      "id": "reviewer",
+      "label": "Je relis ou je décide",
+      "title": "Examinez les preuves et leurs limites.",
+      "description": "La gouvernance aide à vérifier les affirmations, protéger les risques et préparer une clôture ou une acceptation.",
+      "target": "gouvernance/README.md",
+      "link": "Ouvrir la gouvernance",
+      "focus": [
+        "gouvernance"
+      ]
+    },
+    {
+      "id": "agent",
+      "label": "Je suis un agent",
+      "title": "Lisez le noyau, puis ce qui sert la décision.",
+      "description": "La skill active le classement et les lectures utiles. Les sections propriétaires restent la source de la règle.",
+      "target": "agent/skill/SKILL.md",
+      "link": "Ouvrir la skill",
+      "focus": [
+        "agent",
+        "design"
+      ]
+    },
+    {
+      "id": "maintainer",
+      "label": "Je maintiens le système",
+      "title": "Entretenez les sources et les distributions.",
+      "description": "La maintenance rassemble l’évolution, la validation et la préparation des versions.",
+      "target": "maintenance/README.md",
+      "link": "Ouvrir la maintenance",
+      "focus": [
+        "maintenance"
+      ]
+    }
+  ],
+  "themes": {
+    "clair": {
+      "page": "#f4f5f1",
+      "surface": "#ffffff",
+      "text": "#192f34",
+      "muted": "#4b6268",
+      "line": "#5b7076",
+      "accent": "#254eab",
+      "guides": "#edf3e9",
+      "agent": "#eaf0fb",
+      "design": "#ffffff",
+      "gouvernance": "#f7efe1",
+      "maintenance": "#edf0f4",
+      "focus": "#254eab"
+    },
+    "sombre": {
+      "page": "#142428",
+      "surface": "#203439",
+      "text": "#f4f5ef",
+      "muted": "#bbcace",
+      "line": "#93a9b0",
+      "accent": "#acc8ff",
+      "guides": "#23382e",
+      "agent": "#22364b",
+      "design": "#203439",
+      "gouvernance": "#413525",
+      "maintenance": "#29343e",
+      "focus": "#acc8ff"
+    }
+  },
+  "sources": [
+    "README.md",
+    "design/README.md",
+    "gouvernance/README.md",
+    "V1/sections/README.md",
+    "guides/designer.md",
+    "guides/equipe.md",
+    "maintenance/README.md"
+  ]
+}

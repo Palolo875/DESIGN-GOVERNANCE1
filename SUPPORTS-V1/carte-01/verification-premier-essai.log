@@ -1,0 +1,27 @@
+FAIL 1440 / clair / rendu unsupported operand type(s) for +: 'PosixPath' and 'str'
+FAIL 1440 / sombre / rendu unsupported operand type(s) for +: 'PosixPath' and 'str'
+PASS 1280 / clair / rendu
+PASS 1280 / sombre / rendu
+PASS 1024 / clair / rendu
+PASS 1024 / sombre / rendu
+PASS 768 / clair / rendu
+PASS 768 / sombre / rendu
+FAIL 390 / clair / rendu unsupported operand type(s) for +: 'PosixPath' and 'str'
+FAIL 390 / sombre / rendu unsupported operand type(s) for +: 'PosixPath' and 'str'
+FAIL 320 / clair / rendu unsupported operand type(s) for +: 'PosixPath' and 'str'
+FAIL 320 / sombre / rendu unsupported operand type(s) for +: 'PosixPath' and 'str'
+FAIL Entrée : Je découvre 
+FAIL Entrée : Je conçois 
+FAIL Entrée : Je travaille en équipe 
+FAIL Entrée : Je relis ou je décide 
+FAIL Entrée : Je suis un agent 
+FAIL Entrée : Je maintiens le système 
+PASS Clavier : thème, entrée, équivalent textuel
+PASS Export de la vue sélectionnée, puis ouverture du SVG
+PASS 390 / texte agrandi et espacé
+PASS 320 / texte agrandi et espacé
+PASS JavaScript absent : carte, texte et sources accessibles
+PASS Fonte de repli : lecture étroite
+FAIL SVG autonome claire : ouverture et export PNG unsupported operand type(s) for +: 'PosixPath' and 'str'
+FAIL SVG autonome sombre : ouverture et export PNG unsupported operand type(s) for +: 'PosixPath' and 'str'
+Résultat : 13 PASS, 14 FAIL

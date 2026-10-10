@@ -1,6 +1,6 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** comparaison concurrentielle et anglais reportés par le propriétaire ; diagnostic U6 et essai Web mobile livrés dans la [suite pratique](../SUITE-PRATIQUE/resultats.md). Plan validé ; suite de la phase 5 autorisée par la demande « on va tout corriger ». Les phases 6 et 8 ont livré leur périmètre minimal ; la phase 7 reste reportée. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire ne sont pas établies. Les essais nécessaires à cette suite sont autorisés ; les limites de leur protocole sont déclarées.
+**Statut :** comparaison concurrentielle et anglais reportés par le propriétaire ; diagnostic U6 et essai Web mobile livrés dans la [suite pratique](../SUITE-PRATIQUE/resultats.md). La priorité actuelle est la [présentation V1 expérimentale](../SUPPORTS-V1/README.md) : schémas, puis nettoyage éditorial et emballage, avec conservation des travaux. La première carte et son langage visuel sont proposés à la discussion. Les phases 6 et 8 avaient livré leur périmètre minimal ; leur suite est ouverte. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire ne sont pas établies.
 **Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié :** `3b79b3a10d2344a52db76f6e6239cf0a91c056c7` (révision `R2026-10-10-PRATIQUE`). Validation complète avec navigateur et archives reproductibles ; CI 52 et 53 réussies sur ce SHA ; PR 1 fusionnée dans `main` (`4e1f9cc`), arbre strictement identique au commit testé. Les CI 50 et 51 restent les preuves de la révision précédente, sans les réattribuer ; [livraison suivie](../SUITE-PRATIQUE/livraison.md).
 
 ---
@@ -15,9 +15,9 @@
 | 3 — Rangement | **faite : lots 0 à 7c** | Voir le détail ci-dessous |
 | 4 — Langue claire (réduite, choix A) | **faite** | README `e13b8f3` ; sommaires `34cfd3a` ; guide designer `7bc881e` ; glossaire `3c13742` ; guide d’équipe `5ddf769` ; libellés hérités `715075a`. Les adresses lisibles remplacent les codes ; les contrôles les relisent en codes (`rr.en_codes`) et restent identiques sur le fond. Reportés à la phase 5 : le `design/` lu par l’agent, l’exemple complet du guide d’équipe ; la gouvernance a depuis été clarifiée comme adaptée et utile (`df5aa46`), puis sa règle de trace fusionnée (`795e713`) |
 | 5 — Chemin de l’agent | **suite technique et pratique livrée ; choix esthétique du propriétaire ouvert** | Convergence et exemples traités `6e3e2ab`, `7f12fe5` ; Gate B adaptée `eda7d94` ; noyau commun et détails activés `6e5a8c2` (44 437 → 18 852 octets). Conservation, mutations, navigateur et deux distributions vérifiés. Trois pilotes exploratoires, mesure du lecteur puis six créations séparées et deux juges aveugles ([U6](../U6/resultats.md)). Durées et lecture observées, sans baisse nette de l’union sur les créations complètes. Suite pratique `3b79b3a` : lectures par moment, alternatives plausibles, techniques de mobile/mouvement ; noyau 18 960 octets ; 53 parcours réussis. Qualité et variété générales, jetons API, charge cognitive, cibles initiales et décision du propriétaire restent ouverts |
-| 6 — Visuel (minimal) | **faite** | Deux schémas Mermaid (double boucle, carte des parties) `52be4b9` ; rien de décoratif |
+| 6 — Visuel et supports | **minimum livré ; suite ouverte** | Deux Mermaid historiques `52be4b9`. Nouvelle carte proposée dans [SUPPORTS-V1](../SUPPORTS-V1/README.md) : HTML responsive, SVG clair/sombre, texte, langage visuel et 27 parcours réussis. Parcours de travail, boucle créer/apprendre et adoption visuelle restent ouverts |
 | 7 — Anglais | **reportée** | À reprendre sur les textes clairs |
-| 8 — Emballage (minimal) | **faite** | Arborescence unique GitHub/Local `67f6fa4` ; copie Markdown retirée `f4e37ec` ; révision R2026-10-09-REFONTE `657aca5` ; paquets livrés |
+| 8 — Emballage et présentation | **minimum livré ; nettoyage public ouvert** | Arborescence unique GitHub/Local `67f6fa4` ; copie Markdown retirée `f4e37ec` ; paquets livrés. Journal public, notes de version et présentation professionnelle de la V1 expérimentale restent à nettoyer |
 
 **Rangement, lot par lot :**
 
@@ -58,7 +58,7 @@ La suite a établi une référence de lecture, rendu les détails disponibles au
 
 La [comparaison U6](../U6/resultats.md) ajoute six producteurs en contextes neufs et deux juges aveugles. Les faits, préférences et limites sont séparés : pas de baisse nette des caractères uniques sur ces créations complètes, un défaut de focus sur A réparé dans une copie hors expérience, et un tour interrompu dont la durée n’est pas comparée. Le jugement du propriétaire reste attendu.
 
-Les cibles de lecture de l’architecture restent provisoires ; une condition de qualité peut justifier une lecture supplémentaire. Les phases 4, 6 et 8 marquées « réduite » ou « minimal » ne signifient pas que tous leurs objectifs initiaux sont réalisés. L’anglais et une identité complète des supports restent hors de cette suite.
+Les cibles de lecture de l’architecture restent provisoires ; une condition de qualité peut justifier une lecture supplémentaire. Les phases 4, 6 et 8 réduites ne signifient pas que tous leurs objectifs initiaux sont réalisés. L’anglais demeure reporté. La nouvelle demande de présentation ouvre la suite des supports ; elle ne vaut pas adoption de leur identité.
 
 ---
 
@@ -73,6 +73,14 @@ Le [prototype Folio](../SUITE-PRATIQUE/mobile/index.html), fabriqué par le coor
 La [trace de livraison](../SUITE-PRATIQUE/livraison.md) porte le commit, la CI et l’intégration observés. Le [bilan](../SUITE-PRATIQUE/resultats.md) conserve les résultats et limites. La prochaine preuve utile est une tâche représentative sur téléphone réel, puis l’observation du moment des lectures ; aucune campagne d’agents supplémentaire n’est présumée.
 
 ---
+
+## Présentation V1 expérimentale — schémas puis nettoyage
+
+Le propriétaire a demandé d’abord une discussion, puis autorisé la première proposition par « allons y ». Le premier lot livre [la carte des responsabilités](../SUPPORTS-V1/carte-01/index.html) et [son langage visuel](../SUPPORTS-V1/carte-01/langage-visuel.md), dérivés de `main` au commit `4e1f9cc20a9887d570a720934ca5b1752c78971a`. Les versions claire/sombre, SVG et texte viennent d’une même source de contenu. Les choix et la preuve restent dans [la notice](../SUPPORTS-V1/carte-01/README.md) ; verdict exploratoire, aucune adoption d’identité.
+
+Les 27 parcours passent sur le HTML final ; la reconstruction est identique et la projection de décision passe le profil strict. Gate A ne relève aucun `RETURN`, avec réserves de couverture explicites. L’utilisabilité réelle, le lecteur d’écran, les autres plateformes et le rendu Mermaid demeurent non vérifiés. La [CI 54](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38079876523) confirme séparément le produit sur le commit de fusion ; elle ne constitue pas une CI de cette carte documentaire.
+
+La suite reste ordonnée : retour sur ce support, parcours de travail et boucle créer/apprendre, intégration des supports utiles, puis nettoyage des documents publics et validation du paquet. Les travaux sont conservés sur `refonte`. Le futur journal public présentera la V1 sans reproduire tout le chantier ; les notes de version garderont la portée expérimentale et les limites. Aucun historique ni original U6 n’est supprimé. Comparaison concurrentielle et anglais restent reportés.
 
 ## 1. Ce que l’on veut obtenir
 
@@ -287,7 +295,7 @@ Cette phase peut avancer en parallèle des phases 3 à 5, une fois la phase 2 va
 
 - **But :** un produit propre, présentable et installable.
 - **Contenu :**
-  - choisir le nom de version (1.1 ou 2.0) ;
+  - présenter une V1 qui reste expérimentale ; réserver tout changement de nom ou de numéro majeur à une décision explicite ;
   - écrire l’installation par public ;
   - refaire le README et un journal des versions court ;
   - livrer un zip propre ;

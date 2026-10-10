@@ -1,0 +1,236 @@
+{
+  "observed_at": "2026-10-10T21:41:49.130016+00:00",
+  "browser_executable": "/usr/bin/chromium",
+  "browser_version": "151.0.7922.173",
+  "artifact_sha256": "9fefa27b46905cf5542ea69e0a32bd2b2bc1afe5b6da0274358adb22bf9324cc",
+  "server_stopped": true,
+  "passed": 13,
+  "failed": 14,
+  "results": [
+    {
+      "name": "1440 / clair / rendu",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "1440 / sombre / rendu",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "1280 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1280,
+          "scroll": 1280,
+          "body": 1280
+        },
+        "layout": "SVG",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1280 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1280,
+          "scroll": 1280,
+          "body": 1280
+        },
+        "layout": "SVG",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1024 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1024,
+          "scroll": 1024,
+          "body": 1024
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "1024 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 1024,
+          "scroll": 1024,
+          "body": 1024
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "768 / clair / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 768,
+          "scroll": 768,
+          "body": 768
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "768 / sombre / rendu",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 768,
+          "scroll": 768,
+          "body": 768
+        },
+        "layout": "recomposé",
+        "fonts": true
+      }
+    },
+    {
+      "name": "390 / clair / rendu",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "390 / sombre / rendu",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "320 / clair / rendu",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "320 / sombre / rendu",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "Entrée : Je découvre",
+      "result": "FAIL",
+      "error": ""
+    },
+    {
+      "name": "Entrée : Je conçois",
+      "result": "FAIL",
+      "error": ""
+    },
+    {
+      "name": "Entrée : Je travaille en équipe",
+      "result": "FAIL",
+      "error": ""
+    },
+    {
+      "name": "Entrée : Je relis ou je décide",
+      "result": "FAIL",
+      "error": ""
+    },
+    {
+      "name": "Entrée : Je suis un agent",
+      "result": "FAIL",
+      "error": ""
+    },
+    {
+      "name": "Entrée : Je maintiens le système",
+      "result": "FAIL",
+      "error": ""
+    },
+    {
+      "name": "Clavier : thème, entrée, équivalent textuel",
+      "result": "PASS",
+      "evidence": {
+        "theme": "sombre",
+        "text_open": true,
+        "native_keyboard": true
+      }
+    },
+    {
+      "name": "Export de la vue sélectionnée, puis ouverture du SVG",
+      "result": "PASS",
+      "evidence": {
+        "name": "carte-systeme-v1-sombre-agent.svg",
+        "svg_reopened": true,
+        "sha256": "045aebfb54d4ef199646f5d9323fcf79168c46838ec200910ad4ef28238096fa"
+      }
+    },
+    {
+      "name": "390 / texte agrandi et espacé",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 390,
+          "scroll": 390,
+          "body": 390
+        },
+        "scope": "tailles de texte doublées et espacements renforcés ; adaptation CSS d’essai, pas zoom navigateur"
+      }
+    },
+    {
+      "name": "320 / texte agrandi et espacé",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 320,
+          "scroll": 320,
+          "body": 320
+        },
+        "scope": "tailles de texte doublées et espacements renforcés ; adaptation CSS d’essai, pas zoom navigateur"
+      }
+    },
+    {
+      "name": "JavaScript absent : carte, texte et sources accessibles",
+      "result": "PASS",
+      "evidence": {
+        "content": true,
+        "source_links": 6,
+        "interactive_controls_disabled": true
+      }
+    },
+    {
+      "name": "Fonte de repli : lecture étroite",
+      "result": "PASS",
+      "evidence": {
+        "geometry": {
+          "width": 390,
+          "scroll": 390,
+          "body": 390
+        },
+        "family": "Arial"
+      }
+    },
+    {
+      "name": "SVG autonome claire : ouverture et export PNG",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "SVG autonome sombre : ouverture et export PNG",
+      "result": "FAIL",
+      "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'"
+    },
+    {
+      "name": "Dépendances externes et erreurs JavaScript",
+      "result": "PASS",
+      "evidence": {
+        "external_requests": [],
+        "javascript_errors": []
+      }
+    }
+  ],
+  "svg_contrasts": [],
+  "limits": [
+    "Aucun participant représentatif ni observation de lecteur d’écran.",
+    "Chromium seulement ; pas de certification de compréhension ou d’accessibilité exhaustive.",
+    "Les captures ne démontrent pas la préférence esthétique du propriétaire."
+  ]
+}

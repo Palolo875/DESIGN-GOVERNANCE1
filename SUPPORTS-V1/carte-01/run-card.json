@@ -1,0 +1,163 @@
+{
+  "run_card": {
+    "id": "supports-v1-carte-01",
+    "owner": "Demandeur pour le choix du support ; coordinateur pour la fabrication et les preuves",
+    "date_version": "2026-10-10 / 5dcd05d10a25",
+    "mode": "DIRECTION",
+    "decision": "Faire comprendre les entrées, le cœur Design, les responsabilités et l’autorité actuelle des sections.",
+    "decision_intent": "Proposer une carte et un langage visuel documentaire à discuter avant les autres supports et le nettoyage public.",
+    "risk": {
+      "level": "important",
+      "statement": "Une carte pourrait être lue comme une séquence fixe ou faire croire que la gouvernance est facultative ; sa densité pourrait gêner la découverte.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START/TREE",
+      "DIRECTION/RUN-DIRECTION",
+      "DIRECTION/CREATIVE-BOOT",
+      "DIRECTION/VISUAL_TARGET",
+      "DIRECTION/FIRST-OBJECT",
+      "SAVOIR/TYPE",
+      "ACTION/GATE-A",
+      "ACTION/GATE-B/B2",
+      "ACTION/GATE-C",
+      "ACTION/HANDOFF",
+      "ACTION/CLOSE-PACKAGE",
+      "README.md",
+      "design/README.md",
+      "gouvernance/README.md",
+      "V1/sections/README.md"
+    ],
+    "direction": {
+      "thesis": "Un atlas documentaire donne un centre visible au Design et relie les responsabilités sans imposer un ordre de travail.",
+      "anti_direction": [
+        "Une carte d’arborescence seule ne fait pas comprendre les responsabilités.",
+        "Une carte réduite en miniature sur téléphone ne sert pas la lecture.",
+        "La gouvernance ne doit pas apparaître comme facultative pour toute situation."
+      ],
+      "first_object": "Carte des cinq responsabilités et des quatre matières du design, avec point de départ choisi par public.",
+      "identity_stake": "normal",
+      "constraint": "V1 expérimentale en français, support dérivé du commit 4e1f9cc, fontes OFL locales ; aucune adoption d’identité présumée."
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "index.html",
+      "scope": "Web, six largeurs de 320 à 1440 px, clair/sombre, six entrées, clavier et export SVG sélectionné ; SVG autonome 1104×920.",
+      "rights_status": "cleared",
+      "version": "5dcd05d10a25225ce0538678db20c18ffb3879e269290ca2088c4ade4378855d"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Faire trouver la bonne entrée et expliquer l’autorité des sections par une personne découvrant le système ; discuter le choix visuel.",
+    "capability_profile": {
+      "available": [
+        "HTML et SVG construits",
+        "Chromium 151 et captures",
+        "DOM et clavier émulé",
+        "Contraste SVG peint"
+      ],
+      "unavailable": [
+        "Participant représentatif",
+        "Observation de lecteur d’écran",
+        "Téléphone physique",
+        "Firefox et Safari"
+      ],
+      "not_required": [
+        "Backend",
+        "Paiement",
+        "Animation"
+      ],
+      "basis": [
+        {
+          "capability": "HTML et SVG construits",
+          "kind": "tool_result",
+          "detail": "preuves/reconstruction.json : six sorties identiques ; fonts/ conserve les sources et licences OFL."
+        },
+        {
+          "capability": "Chromium 151 et captures",
+          "kind": "tool_result",
+          "detail": "preuves/verification.json : navigateur, empreinte du HTML et arrêt du serveur ; captures des deux thèmes et exports rouverts."
+        },
+        {
+          "capability": "DOM et clavier émulé",
+          "kind": "tool_result",
+          "detail": "27 parcours réussis ; six entrées reliées au commit produit dans Git ; preuves/gate-a.log : 12 arrêts clavier par largeur."
+        },
+        {
+          "capability": "Contraste SVG peint",
+          "kind": "tool_result",
+          "detail": "preuves/verification.json : fill et fond peint par texte, minimum 5,65:1 clair et 7,07:1 sombre."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "27 parcours réussis, aucun échec ; comportement en clair et sombre, texte agrandi, sans JavaScript et avec fonte de repli.",
+        "SVG de sélection exporté puis rouvert ; fontes chargées et licence embarquée conforme au texte OFL original.",
+        "Captures claire/sombre de la carte, vues mobile à 390 px et comparaison de titre Manrope/Instrument Serif inspectées.",
+        "Reconstruction de six sorties identiques aux empreintes observées ; aucune requête externe ni erreur JavaScript enregistrée.",
+        "Gate A : aucun RETURN au passage final ; réserves de couverture conservées."
+      ],
+      "not_verified": [
+        "Compréhension et préférence d’une personne représentative.",
+        "Accessibilité exhaustive, lecteur d’écran, zoom navigateur réel et contraste non textuel complet.",
+        "Firefox, Safari, téléphone réel et rendu Mermaid.",
+        "Effet général du système sur la qualité, la variété ou le coût."
+      ],
+      "provenance": {
+        "artifact_locator": "index.html",
+        "artifact_version": "5dcd05d10a25225ce0538678db20c18ffb3879e269290ca2088c4ade4378855d",
+        "method": "AUTOMATED — verifier.py et recette Gate A ; inspection des captures par le coordinateur.",
+        "observed_at": "2026-10-10T21:57:54.390425+00:00",
+        "capability": "Chromium 151 et captures"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Corriger le reflow du texte agrandi et compacter le bandeau mobile ; proposer Manrope après comparaison du vrai titre.",
+      "evidence": "preuves-deuxieme-essai/verification.json et preuves/verification.json ; paires de captures à 390 px et texte agrandi 320/390."
+    },
+    "creative_close": {
+      "presence": "La masse centrale du Design et ses quatre matières dominent les accès ; carte-claire.png et carte-sombre.png.",
+      "signature": "Les rôles et l’autorité propres au système structurent la carte ; aucune scène produit générique n’est ajoutée.",
+      "craft_detail": "Les petits écrans recomposent le contenu ; les SVG gardent leur texte et leur fonte sous licence ; export sélectionné réellement rouvert.",
+      "dominant_defect": "La compréhension de cette densité documentaire par une personne nouvelle reste hypothétique.",
+      "next_polish_action": "STOP — première proposition complète pour la discussion prévue ; étendre après retour sur le langage visuel."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "PARTIALLY-HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Choix du coordinateur ; aucune acceptation de l’identité ni préférence humaine mesurée.",
+        "Mesures ciblées dans Chromium et captures ; pas de certification de conformité exhaustive."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "NOT-VERIFIED",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS-WITH-RESERVATION"
+      },
+      "reservations": [
+        {
+          "owner": "Demandeur pour le choix du support ; coordinateur pour la fabrication et les preuves",
+          "scope": "Compréhension, identité proposée et couverture d’accessibilité/plateforme",
+          "date_version": "2026-10-10 / 5dcd05d10a25",
+          "impact": "Les parcours et captures ne prouvent ni la compréhension par un débutant ni une couverture exhaustive des aides techniques et plateformes.",
+          "next_proof": "Une tâche de découverte, choix de langage visuel et contrôle avec lecteur d’écran puis autre navigateur.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Compréhension observée et couverture réévaluée ; direction visuelle explicitement retenue ou modifiée."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "preuves-deuxieme-essai/390-titre-sans.png",
+          "after_locator": "preuves/390-titre-sans.png",
+          "decision": "Bandeau mobile et titre plus compact, avec le même contenu et le même viewport.",
+          "outcome": "modified"
+        }
+      }
+    }
+  }
+}

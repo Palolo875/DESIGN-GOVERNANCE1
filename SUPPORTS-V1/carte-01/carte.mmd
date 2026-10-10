@@ -1,0 +1,11 @@
+%% Carte de responsabilités, pas un ordre fixe d’exécution.
+flowchart TB
+  guides["Guides · entrer"]
+  agent["Agent · agir"]
+  design["Design · concevoir : direction, savoir, formes, produit"]
+  gouvernance["Gouvernance · éprouver"]
+  maintenance["Maintenance · entretenir"]
+  guides -->|orienter| design
+  agent -->|lire et fabriquer| design
+  design <-->|risque · décision · reprise| gouvernance
+  autorite["La section propriétaire, à son emplacement actuel. V1/sections/ conserve des sections de même autorité."]
