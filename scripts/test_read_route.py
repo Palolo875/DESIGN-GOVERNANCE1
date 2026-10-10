@@ -534,6 +534,12 @@ class SearchAndSummaryTests(unittest.TestCase):
         direction = self.cli("--mode", "DIRECTION").stdout
         self.assertLess(direction.index("trace complète"), direction.index("`ACTION/GATE-B`"))
 
+    def test_systeme_alias_serves_the_same_canonical_mode(self):
+        accented = self.cli("--mode", "SYSTÈME")
+        plain = self.cli("--mode", "SYSTEME")
+        self.assertEqual(plain.returncode, 0, plain.stderr)
+        self.assertEqual(plain.stdout, accented.stdout)
+
     def test_mode_option_rejects_unknown_modes_and_other_views(self):
         for args in [("--mode", "INCONNU"), ("--mode", "LITE", "DIRECTION/START"),
                      ("--mode", "LITE", "--trouver", "couleur"), ("--mode", "LITE", "--complet")]:

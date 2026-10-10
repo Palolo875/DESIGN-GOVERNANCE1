@@ -1,0 +1,203 @@
+{
+  "id": "boucle",
+  "file": "boucle.html",
+  "number": "03",
+  "title": "Créer, observer.\nApprendre par le geste.",
+  "intro": "Une correction change l’artefact ou la décision. L’observation suivante permet de comparer et de s’arrêter.",
+  "scope": "Boucle d’édition : aucun quota de retouches, aucune acceptation automatique.",
+  "creation": {
+    "title": "Créer un premier objet déjà résolu",
+    "lines": [
+      "Cadrer le produit et son public. Choisir une direction. Construire un ensemble crédible.",
+      "Le premier objet doit être composé et spécifique avant d’être présenté."
+    ],
+    "target": "design/direction/premier-objet.md"
+  },
+  "nodes": [
+    {
+      "id": "observer",
+      "role": "01 · Observer",
+      "title": "Regarder l’artefact réel",
+      "target": "design/produit/preuve-visuelle.md",
+      "lines": [
+        "Un rendu et un état réellement ouverts.",
+        "Conserver le périmètre et les limites."
+      ],
+      "color": "design"
+    },
+    {
+      "id": "isoler",
+      "role": "02 · Diagnostiquer",
+      "title": "Isoler le défaut dominant",
+      "target": "design/direction/boucle.md",
+      "lines": [
+        "Choisir le défaut qui change le jugement.",
+        "Une critique écrite ne le corrige pas."
+      ],
+      "color": "design"
+    },
+    {
+      "id": "modifier",
+      "role": "03 · Modifier",
+      "title": "Faire une correction utile",
+      "target": "design/savoir/composition.md",
+      "lines": [
+        "Changer l’artefact ou la décision.",
+        "Une variante décorative ne suffit pas."
+      ],
+      "color": "design"
+    },
+    {
+      "id": "reobserver",
+      "role": "04 · Réobserver",
+      "title": "Inspecter l’ensemble",
+      "target": "design/direction/boucle.md",
+      "lines": [
+        "Vérifier le gain et les régressions : usage,",
+        "accessibilité, robustesse et hiérarchie."
+      ],
+      "color": "design"
+    },
+    {
+      "id": "comparer",
+      "role": "05 · Comparer",
+      "title": "Relier le geste au résultat",
+      "target": "gouvernance/verification.md",
+      "lines": [
+        "Dire ce qui a réellement changé.",
+        "La preuve garde sa méthode et son périmètre."
+      ],
+      "color": "gouvernance"
+    },
+    {
+      "id": "decider",
+      "role": "06 · Décider",
+      "title": "Choisir la suite utile",
+      "target": "design/direction/boucle.md",
+      "lines": [
+        "Corriger, rouvrir, reclasser ou arrêter.",
+        "Ne pas prolonger sans gain attendu."
+      ],
+      "color": "agent"
+    }
+  ],
+  "panels": [
+    {
+      "title": "Défaut local",
+      "lines": [
+        "La direction tient : corriger l’artefact,",
+        "puis regarder de nouveau."
+      ],
+      "target": "design/direction/boucle.md",
+      "color": "design"
+    },
+    {
+      "title": "Direction ou risque changé",
+      "lines": [
+        "Direction faible : rouvrir le point de vue.",
+        "Risque ou périmètre changé : reclasser."
+      ],
+      "target": "agent/chemins.md",
+      "color": "guides"
+    },
+    {
+      "title": "Preuve ou décision",
+      "lines": [
+        "Preuve insuffisante : limite et suite utile.",
+        "Décision établie : proposer ; en trace",
+        "complète, décider et persister la trace."
+      ],
+      "target": "gouvernance/cloture.md",
+      "color": "gouvernance"
+    }
+  ],
+  "foot": {
+    "title": "Créer et prouver restent deux responsabilités.",
+    "lines": [
+      "DIRECTION choisit la relation visuelle et le défaut dominant.",
+      "ACTION conserve les preuves, les gates, les verdicts et la clôture."
+    ]
+  },
+  "entries": [
+    {
+      "id": "overview",
+      "label": "Vue d’ensemble",
+      "title": "Le chemin reste visible.",
+      "description": "Boucle d’édition : aucun quota de retouches, aucune acceptation automatique.",
+      "target": "design/README.md",
+      "link": "Ouvrir les sources du design",
+      "focus": []
+    },
+    {
+      "id": "observer",
+      "label": "01 · Observer",
+      "title": "Regarder l’artefact réel",
+      "description": "Un rendu et un état réellement ouverts. Conserver le périmètre et les limites.",
+      "target": "design/produit/preuve-visuelle.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "observer"
+      ]
+    },
+    {
+      "id": "isoler",
+      "label": "02 · Diagnostiquer",
+      "title": "Isoler le défaut dominant",
+      "description": "Choisir le défaut qui change le jugement. Une critique écrite ne le corrige pas.",
+      "target": "design/direction/boucle.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "isoler"
+      ]
+    },
+    {
+      "id": "modifier",
+      "label": "03 · Modifier",
+      "title": "Faire une correction utile",
+      "description": "Changer l’artefact ou la décision. Une variante décorative ne suffit pas.",
+      "target": "design/savoir/composition.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "modifier"
+      ]
+    },
+    {
+      "id": "reobserver",
+      "label": "04 · Réobserver",
+      "title": "Inspecter l’ensemble",
+      "description": "Vérifier le gain et les régressions : usage, accessibilité, robustesse et hiérarchie.",
+      "target": "design/direction/boucle.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "reobserver"
+      ]
+    },
+    {
+      "id": "comparer",
+      "label": "05 · Comparer",
+      "title": "Relier le geste au résultat",
+      "description": "Dire ce qui a réellement changé. La preuve garde sa méthode et son périmètre.",
+      "target": "gouvernance/verification.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "comparer"
+      ]
+    },
+    {
+      "id": "decider",
+      "label": "06 · Décider",
+      "title": "Choisir la suite utile",
+      "description": "Corriger, rouvrir, reclasser ou arrêter. Ne pas prolonger sans gain attendu.",
+      "target": "design/direction/boucle.md",
+      "link": "Lire la section propriétaire",
+      "focus": [
+        "decider"
+      ]
+    }
+  ],
+  "feedback": {
+    "label": "Si un défaut utile reste : reprendre le diagnostic.",
+    "from": "decider",
+    "to": "isoler"
+  }
+}

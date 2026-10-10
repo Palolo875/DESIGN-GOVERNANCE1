@@ -48,11 +48,11 @@ Place un **marquage local de vérité** à proximité du claim ou de l’objet c
 
 **Audience.** Les labels `TRUTH/*` sont internes : spec, trace, annotations. Ils n’apparaissent jamais dans l’interface produit. Quand le public doit savoir, la divulgation se fait en langage produit (« données d’exemple », « taux illustratifs »).
 
-### 5. Structure
+### 5. Situer l’interface
 
 > L’interface ne commence ni avec une « landing premium », ni avec une grille de cartes, ni avec une image inspirante. Elle déclare d’abord **où elle vit**, **comment le regard circule**, **quelle preuve devient tangible** et **comment la personne agit**.
 
-### 6. Composition
+### 6. Typographie
 
 [REQUIS PAR LE MODULE — lecture, ton, données, hiérarchie ou surface identitaire] Choisis une typographie pour ses langues, chiffres, ponctuation, graisses, lisibilité, licence, performance, fallback et ton.
 

@@ -984,7 +984,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--sommaire", nargs="?", const="", metavar="LOCATOR", help="liste des routes avec leur rôle, ou table des matières d’une route")
     parser.add_argument("--guides", action="store_true", help="ajouter les documents d’orientation (guides, README racine, références de la skill) à une recherche --trouver")
     parser.add_argument("--connexions", nargs="?", const="", metavar="Cxx", help="sommaire des connexions situées, ou entrée Cxx")
-    parser.add_argument("--mode", choices=("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"), help="ligne du mode déjà classé dans DIRECTION/CHARGE, sans charger les autres modes")
+    parser.add_argument("--mode", type=lambda value: "SYSTÈME" if value == "SYSTEME" else value,
+                        choices=("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"),
+                        help="ligne du mode déjà classé dans DIRECTION/CHARGE, sans charger les autres modes ; SYSTEME accepte l’écriture sans accent")
     args = parser.parse_args(argv)
     if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None, args.mode is not None)) != 1:
         parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR], soit --mode MODE")
