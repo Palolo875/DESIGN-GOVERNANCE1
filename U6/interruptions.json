@@ -1,0 +1,13 @@
+{
+  "run-05": {
+    "turn_outcome": "usage_limit_error",
+    "artifact_status": "completed_files_verified_after_resume",
+    "wall_measurement_status": "not_comparable_usage_limit_and_coordinator_pause",
+    "last_final_artifact_mtime_utc": "2026-10-10T13:56:53.937064+00:00",
+    "artifact_mtime_limit": "Filesystem timestamp, not an attested model execution end or delivery receipt",
+    "usage_error_receipt_time": "NOT-RECORDED",
+    "resume_observation_utc": "2026-10-10T16:06:49+00:00",
+    "additional_producer_turns": 0,
+    "explanation": "Final HTML, tests, response, card and trace already existed. Parent verified preserved files after user continuation; no page or failed turn replaced. Full observed wall time retained, no generation-time estimate substituted."
+  }
+}

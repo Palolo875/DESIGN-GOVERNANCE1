@@ -1,0 +1,19 @@
+Tu réponds à une demande de design. La personne a écrit : « Il me faut une landing page pour notre atelier de réparation de vélos, avec prise de rendez-vous. »
+La personne ne peut répondre pendant ce run. Livre une première proposition complète dans ce tour.
+
+Livrable : /workspace/remesure-phase5/runs/run-05/livrable/index.html autonome (CSS et JS intégrés ; polices locales intégrées en data URL si retenues), une réponse finale response.md et une trace adaptée à côté. N’écris rien hors de /workspace/remesure-phase5/runs/run-05/livrable. Les lectures instrumentées et les dépendances du navigateur peuvent produire leur journal technique dans le dossier du run.
+
+Tu travailles avec Design Governance V1, installé dans /workspace/remesure-phase5/runs/run-05/paquet. Commence par lire sa skill entière puis applique-la, avec ses détails utiles et leurs sources complètes. Le protocole ne rajoute aucune consigne de design ou de mobilisation au système.
+
+Lis le système par :
+python /workspace/remesure-phase5/lire.py run-05 skill
+python /workspace/remesure-phase5/lire.py run-05 route LOCATOR
+Actions du lecteur : mode MODE, find TERME, outline [LOCATOR], connexions [Cxx]. Si la version ne propose pas une option, utilise ses commandes disponibles, sans modifier le paquet. Le lecteur pagine à 6 000 caractères ; demande chaque suite avec --offset N jusqu’à « lecture terminée ». Respecte la condition du mode. Ne lis pas les autres runs, le protocole, les clés, les anciens résultats ou les autres versions. Limite de lecture : /workspace/remesure-phase5/runs/run-05/paquet, /workspace/remesure-phase5/runs/run-05/livrable, /workspace/remesure-phase5/moyens et lire.py. L’environnement Python/Chromium et ses dépendances techniques restent utilisables.
+
+Moyens identiques pour tous : HTML/CSS/JS, SVG explicitement illustratifs, Manrope, Instrument Serif, DejaVu Sans/Serif/Mono (fichiers et licences dans /workspace/remesure-phase5/moyens). Leur usage est libre. Aucun asset ou appel réseau externe, aucune génération d’image, aucun compte ni service réel. Les contenus manquants restent des exemples ; les fonctions démontrées sont locales. Aucun paiement ou envoi. N’utilise aucune photo fictive CSS/SVG comme si elle était authentique.
+
+Navigateur : /usr/bin/chromium ; Python Playwright 1.56.0 dans /workspace/cloud-setup/design-governance/venv/bin/python. Tu peux servir temporairement /workspace/remesure-phase5/runs/run-05/livrable sur 127.0.0.1, avec port éphémère, puis arrêter ton serveur. Capture et inspecte desktop 1440x1000 et mobile 390x844 ; vérifie aussi l’absence de débordement à 320px. Fais tes vérifications de l’action principale, des états d’erreur et du clavier. N’annonce pas la mise en ligne ou l’acceptation d’une marque réelle.
+
+Une page et au plus trois tours de correction sur captures. Si vingt minutes sont dépassées, signale-le, conserve le résultat et explique la limite. Note les choix, les routes utiles et les limites dans la trace selon la skill. Écris functional-tests.json avec les parcours réellement exécutés, selectors/actions/observations, sans inventer un PASS ; le parent les vérifiera.
+
+Termine par la réponse exacte que tu donnerais à la personne et les fichiers créés. Aucun sous-agent à lancer depuis ce run : le parent assure la comparaison.

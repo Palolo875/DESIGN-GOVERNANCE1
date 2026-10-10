@@ -1,0 +1,966 @@
+{
+  "scope": "Styles calculés et séquence DOM à 1440 px ; pas de note de qualité ou de variété.",
+  "pages": [
+    {
+      "run": "run-01",
+      "label": "F",
+      "condition": "ancien",
+      "inventory": {
+        "body": {
+          "tag": "BODY",
+          "text": "Aller au contenu sillage.Nom de marque d’exempleLe fonctionnementL’offreEssayer la démo → La facturation au rythme des indépendantsLe projet est livré.La facture aussi.Votre travail mérite une suite s",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "16px",
+          "font_weight": "400",
+          "font_style": "normal",
+          "color": "rgb(23, 60, 50)",
+          "background": "rgb(232, 241, 237)",
+          "line_height": "25.6px",
+          "letter_spacing": "normal"
+        },
+        "title": {
+          "tag": "H1",
+          "text": "Le projet est livré.La facture aussi.",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "66px",
+          "font_weight": "650",
+          "font_style": "normal",
+          "color": "rgb(23, 60, 50)",
+          "background": "rgba(0, 0, 0, 0)",
+          "line_height": "70.62px",
+          "letter_spacing": "-3.4px"
+        },
+        "h2_sequence": [
+          {
+            "tag": "H2",
+            "text": "Votre activité avance.Vos factures suivent.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "44px",
+            "font_weight": "600",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "50.6px",
+            "letter_spacing": "-1.7px"
+          },
+          {
+            "tag": "H2",
+            "text": "Moins de gestion.Plus de placepour votre métier.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "48px",
+            "font_weight": "600",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "55.2px",
+            "letter_spacing": "-1.7px"
+          },
+          {
+            "tag": "H2",
+            "text": "Les choses à savoir.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "38px",
+            "font_weight": "600",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "43.7px",
+            "letter_spacing": "-1.7px"
+          },
+          {
+            "tag": "H2",
+            "text": "Une facture au clair.Et la suite devant vous.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "44px",
+            "font_weight": "600",
+            "font_style": "normal",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "50.6px",
+            "letter_spacing": "-1.7px"
+          }
+        ],
+        "first_scene_controls": [
+          {
+            "tag": "A",
+            "text": "Essayer la facture →",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "14px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(23, 60, 50)",
+            "line_height": "18.2px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "A",
+            "text": "Découvrir l’offre",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "20.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgb(255, 255, 255)",
+            "line_height": "19.5px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgb(255, 255, 255)",
+            "line_height": "19.5px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgb(255, 255, 255)",
+            "line_height": "19.5px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgb(255, 255, 255)",
+            "line_height": "19.5px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "SELECT",
+            "text": "20 %10 %5,5 %0 %",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgb(255, 255, 255)",
+            "line_height": "normal",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Préparer l’aperçu →",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "14px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(23, 60, 50)",
+            "background": "rgb(215, 237, 159)",
+            "line_height": "18.2px",
+            "letter_spacing": "normal"
+          }
+        ],
+        "loaded_fonts": [
+          {
+            "family": "Manrope",
+            "status": "loaded",
+            "style": "normal",
+            "weight": "200 800"
+          }
+        ],
+        "document_height": 3251
+      },
+      "external_requests": [],
+      "source_unchanged": true
+    },
+    {
+      "run": "run-02",
+      "label": "A",
+      "condition": "nouveau",
+      "inventory": {
+        "body": {
+          "tag": "BODY",
+          "text": "Aller au contenu PROPOSITION DE PRODUIT · FOLIO EST UN NOM D’EXEMPLE folio Le parcoursL’offreQuestions Essayer la démo La facturation, à votre rythmeVotre travail.Une factureau clair.De la mission au ",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "15px",
+          "font_weight": "400",
+          "font_style": "normal",
+          "color": "rgb(23, 45, 43)",
+          "background": "rgb(247, 248, 242)",
+          "line_height": "24.75px",
+          "letter_spacing": "normal"
+        },
+        "title": {
+          "tag": "H1",
+          "text": "Votre travail.Une factureau clair.",
+          "font_family": "Instrument, Georgia, serif",
+          "font_size": "88px",
+          "font_weight": "400",
+          "font_style": "normal",
+          "color": "rgb(23, 45, 43)",
+          "background": "rgba(0, 0, 0, 0)",
+          "line_height": "91.52px",
+          "letter_spacing": "-3.08px"
+        },
+        "h2_sequence": [
+          {
+            "tag": "H2",
+            "text": "Une facture.Un fil à suivre.",
+            "font_family": "Instrument, Georgia, serif",
+            "font_size": "58px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(247, 248, 242)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "60.32px",
+            "letter_spacing": "-2.03px"
+          },
+          {
+            "tag": "H2",
+            "text": "Tout simplement,votre outil de travail.",
+            "font_family": "Instrument, Georgia, serif",
+            "font_size": "62px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 45, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "64.48px",
+            "letter_spacing": "-2.17px"
+          },
+          {
+            "tag": "H2",
+            "text": "Quelques pointsau clair.",
+            "font_family": "Instrument, Georgia, serif",
+            "font_size": "49px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 45, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "50.96px",
+            "letter_spacing": "-1.715px"
+          },
+          {
+            "tag": "H2",
+            "text": "Commencez par une facture.",
+            "font_family": "Instrument, Georgia, serif",
+            "font_size": "48px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 45, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "49.92px",
+            "letter_spacing": "-1.68px"
+          }
+        ],
+        "first_scene_controls": [
+          {
+            "tag": "BUTTON",
+            "text": "Composer une facture",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(247, 248, 242)",
+            "background": "rgb(23, 45, 43)",
+            "line_height": "19.5px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "A",
+            "text": "Suivre le parcours",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "12px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(23, 45, 43)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "19.8px",
+            "letter_spacing": "normal"
+          }
+        ],
+        "loaded_fonts": [
+          {
+            "family": "Manrope",
+            "status": "loaded",
+            "style": "normal",
+            "weight": "200 800"
+          },
+          {
+            "family": "Instrument",
+            "status": "loaded",
+            "style": "normal",
+            "weight": "400"
+          }
+        ],
+        "document_height": 2706
+      },
+      "external_requests": [],
+      "source_unchanged": true
+    },
+    {
+      "run": "run-03",
+      "label": "C",
+      "condition": "nouveau",
+      "inventory": {
+        "body": {
+          "tag": "BODY",
+          "text": "Aller au contenu Proposition de design · Trait est un nom d’exemple trait. Comment ça marcheL’offreQuestions Essayer la démo La facturation, sans le détour Le travail est fait.La facture aussi. De vot",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "16px",
+          "font_weight": "400",
+          "font_style": "normal",
+          "color": "rgb(23, 59, 50)",
+          "background": "rgb(255, 255, 255)",
+          "line_height": "25.6px",
+          "letter_spacing": "normal"
+        },
+        "title": {
+          "tag": "H1",
+          "text": "Le travail est fait.La facture aussi.",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "66.96px",
+          "font_weight": "500",
+          "font_style": "normal",
+          "color": "rgb(23, 59, 50)",
+          "background": "rgba(0, 0, 0, 0)",
+          "line_height": "69.6384px",
+          "letter_spacing": "-3.6828px"
+        },
+        "h2_sequence": [
+          {
+            "tag": "H2",
+            "text": "Le bon fil,du début à la fin.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "50px",
+            "font_weight": "500",
+            "font_style": "normal",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "55px",
+            "letter_spacing": "-2.75px"
+          },
+          {
+            "tag": "H2",
+            "text": "Simple à lire.Simple à choisir.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "46px",
+            "font_weight": "500",
+            "font_style": "normal",
+            "color": "rgb(23, 59, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "51.52px",
+            "letter_spacing": "-2.53px"
+          },
+          {
+            "tag": "H2",
+            "text": "Les questionsqui comptent.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "39px",
+            "font_weight": "500",
+            "font_style": "normal",
+            "color": "rgb(23, 59, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "43.68px",
+            "letter_spacing": "-2.145px"
+          },
+          {
+            "tag": "H2",
+            "text": "Votre prochaine facturecommence par un exemple.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "32px",
+            "font_weight": "500",
+            "font_style": "normal",
+            "color": "rgb(23, 59, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "35.84px",
+            "letter_spacing": "-1.28px"
+          }
+        ],
+        "first_scene_controls": [
+          {
+            "tag": "BUTTON",
+            "text": "Créer une facture d’exemple",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "14px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(23, 59, 50)",
+            "line_height": "21px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "A",
+            "text": "Découvrir le fonctionnement ↓",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "13px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(23, 59, 50)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "20.8px",
+            "letter_spacing": "normal"
+          }
+        ],
+        "loaded_fonts": [
+          {
+            "family": "Manrope",
+            "status": "loaded",
+            "style": "normal",
+            "weight": "200 800"
+          }
+        ],
+        "document_height": 2644
+      },
+      "external_requests": [],
+      "source_unchanged": true
+    },
+    {
+      "run": "run-04",
+      "label": "E",
+      "condition": "ancien",
+      "inventory": {
+        "body": {
+          "tag": "BODY",
+          "text": "Aller au contenu pli.Facturation · marque d’exempleLe produitL’offreQuestionsEssayer la démo SaaS de facturation · propositionDu travail livréà la facture prête.Vous faites votre métier. Pli met votre",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "16px",
+          "font_weight": "400",
+          "font_style": "normal",
+          "color": "rgb(36, 40, 35)",
+          "background": "rgb(250, 248, 242)",
+          "line_height": "26.4px",
+          "letter_spacing": "normal"
+        },
+        "title": {
+          "tag": "H1",
+          "text": "Du travail livréà la facture prête.",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "66px",
+          "font_weight": "550",
+          "font_style": "normal",
+          "color": "rgb(36, 40, 35)",
+          "background": "rgba(0, 0, 0, 0)",
+          "line_height": "69.3px",
+          "letter_spacing": "-3.6px"
+        },
+        "h2_sequence": [
+          {
+            "tag": "H2",
+            "text": "Facture",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "31px",
+            "font_weight": "600",
+            "font_style": "normal",
+            "color": "rgb(36, 40, 35)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "40.3px",
+            "letter_spacing": "-1px"
+          },
+          {
+            "tag": "H2",
+            "text": "Une mission.Un fil à garder.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "42px",
+            "font_weight": "550",
+            "font_style": "normal",
+            "color": "rgb(36, 40, 35)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "49.56px",
+            "letter_spacing": "-1.7px"
+          },
+          {
+            "tag": "H2",
+            "text": "La place pour votre métier.Le cadre pour vos factures.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "42px",
+            "font_weight": "550",
+            "font_style": "normal",
+            "color": "rgb(250, 248, 242)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "49.56px",
+            "letter_spacing": "-1.7px"
+          },
+          {
+            "tag": "H2",
+            "text": "Les chosesau clair.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "42px",
+            "font_weight": "550",
+            "font_style": "normal",
+            "color": "rgb(36, 40, 35)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "49.56px",
+            "letter_spacing": "-1.7px"
+          },
+          {
+            "tag": "H2",
+            "text": "Commencez par une facture.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "27px",
+            "font_weight": "550",
+            "font_style": "normal",
+            "color": "rgb(36, 40, 35)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "32.4px",
+            "letter_spacing": "-1px"
+          }
+        ],
+        "first_scene_controls": [
+          {
+            "tag": "BUTTON",
+            "text": "Composer une facture",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "650",
+            "font_style": "normal",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(168, 67, 46)",
+            "line_height": "22.4px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Modifier cet exemple",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "12px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(36, 40, 35)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "19.8px",
+            "letter_spacing": "normal"
+          }
+        ],
+        "loaded_fonts": [
+          {
+            "family": "Manrope",
+            "status": "loaded",
+            "style": "normal",
+            "weight": "200 800"
+          },
+          {
+            "family": "Instrument",
+            "status": "unloaded",
+            "style": "normal",
+            "weight": "400"
+          }
+        ],
+        "document_height": 2986
+      },
+      "external_requests": [],
+      "source_unchanged": true
+    },
+    {
+      "run": "run-05",
+      "label": "D",
+      "condition": "nouveau",
+      "inventory": {
+        "body": {
+          "tag": "BODY",
+          "text": "Aller au contenu RAYONAtelier de réparation véloNom d’exempleLes réparationsL’atelierRendez-vous Du soin pour vos kilomètresLa routevous attend.Un frein qui frotte, une vitesse qui saute, un vélo qui ",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "16px",
+          "font_weight": "400",
+          "font_style": "normal",
+          "color": "rgb(25, 43, 40)",
+          "background": "rgb(243, 242, 233)",
+          "line_height": "24.8px",
+          "letter_spacing": "normal"
+        },
+        "title": {
+          "tag": "H1",
+          "text": "La routevous attend.",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "106px",
+          "font_weight": "800",
+          "font_style": "normal",
+          "color": "rgb(25, 43, 40)",
+          "background": "rgba(0, 0, 0, 0)",
+          "line_height": "106px",
+          "letter_spacing": "-6px"
+        },
+        "h2_sequence": [
+          {
+            "tag": "H2",
+            "text": "On regarde votre vélo ?",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "28px",
+            "font_weight": "800",
+            "font_style": "normal",
+            "color": "rgb(25, 43, 40)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "32.2px",
+            "letter_spacing": "-1px"
+          },
+          {
+            "tag": "H2",
+            "text": "Un petit réglage.Un grand bol d’air.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "39px",
+            "font_weight": "800",
+            "font_style": "normal",
+            "color": "rgb(25, 43, 40)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "44.85px",
+            "letter_spacing": "-1.5px"
+          },
+          {
+            "tag": "H2",
+            "text": "Pas besoin de parler mécanique.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "39px",
+            "font_weight": "800",
+            "font_style": "normal",
+            "color": "rgb(25, 43, 40)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "44.85px",
+            "letter_spacing": "-1.5px"
+          },
+          {
+            "tag": "H2",
+            "text": "Votre prochain trajet commence ici.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "32px",
+            "font_weight": "800",
+            "font_style": "normal",
+            "color": "rgb(243, 242, 233)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "36.8px",
+            "letter_spacing": "-1.5px"
+          }
+        ],
+        "first_scene_controls": [
+          {
+            "tag": "A",
+            "text": "Choisir un créneau",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "14px",
+            "font_weight": "750",
+            "font_style": "normal",
+            "color": "rgb(243, 242, 233)",
+            "background": "rgb(25, 43, 40)",
+            "line_height": "21.7px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(84, 84, 84)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Continuer →",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "14px",
+            "font_weight": "750",
+            "font_style": "normal",
+            "color": "rgb(243, 242, 233)",
+            "background": "rgb(25, 43, 40)",
+            "line_height": "21.7px",
+            "letter_spacing": "normal"
+          }
+        ],
+        "loaded_fonts": [
+          {
+            "family": "Manrope",
+            "status": "loaded",
+            "style": "normal",
+            "weight": "200 800"
+          }
+        ],
+        "document_height": 2115
+      },
+      "external_requests": [],
+      "source_unchanged": true
+    },
+    {
+      "run": "run-06",
+      "label": "B",
+      "condition": "ancien",
+      "inventory": {
+        "body": {
+          "tag": "BODY",
+          "text": "Aller au contenuPremière proposition · nom, informations et rendez-vous d'exemple rayon libre.Nom d'atelier proposéLes réparationsL'atelierPrendre rendez-vous Atelier de réparation de vélosUn véloqui ",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "16px",
+          "font_weight": "400",
+          "font_style": "normal",
+          "color": "rgb(40, 37, 31)",
+          "background": "rgb(243, 238, 228)",
+          "line_height": "24.8px",
+          "letter_spacing": "normal"
+        },
+        "title": {
+          "tag": "H1",
+          "text": "Un véloqui roule.Et vous avec.",
+          "font_family": "Manrope, Arial, sans-serif",
+          "font_size": "72px",
+          "font_weight": "750",
+          "font_style": "normal",
+          "color": "rgb(40, 37, 31)",
+          "background": "rgba(0, 0, 0, 0)",
+          "line_height": "74.16px",
+          "letter_spacing": "-3.9px"
+        },
+        "h2_sequence": [
+          {
+            "tag": "H2",
+            "text": "Prenonsrendez-vous.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "28px",
+            "font_weight": "750",
+            "font_style": "normal",
+            "color": "rgb(40, 37, 31)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "30.8px",
+            "letter_spacing": "-1px"
+          },
+          {
+            "tag": "H2",
+            "text": "Le petit réglage.Le grand entretien.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "42px",
+            "font_weight": "750",
+            "font_style": "normal",
+            "color": "rgb(40, 37, 31)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "46.2px",
+            "letter_spacing": "-1.6px"
+          },
+          {
+            "tag": "H2",
+            "text": "Vous déposez.On s'en occupe.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "34px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(40, 37, 31)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "37.4px",
+            "letter_spacing": "-1px"
+          },
+          {
+            "tag": "H2",
+            "text": "À deux coupsde pédale.",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "40px",
+            "font_weight": "700",
+            "font_style": "normal",
+            "color": "rgb(243, 238, 228)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "44px",
+            "letter_spacing": "-1.5px"
+          }
+        ],
+        "first_scene_controls": [
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "16px",
+            "font_weight": "400",
+            "font_style": "normal",
+            "color": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "line_height": "24.8px",
+            "letter_spacing": "normal"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Choisir mon créneau",
+            "font_family": "Manrope, Arial, sans-serif",
+            "font_size": "14px",
+            "font_weight": "750",
+            "font_style": "normal",
+            "color": "rgb(255, 253, 248)",
+            "background": "rgb(184, 51, 34)",
+            "line_height": "19.6px",
+            "letter_spacing": "normal"
+          }
+        ],
+        "loaded_fonts": [
+          {
+            "family": "Manrope",
+            "status": "loaded",
+            "style": "normal",
+            "weight": "200 800"
+          }
+        ],
+        "document_height": 2046
+      },
+      "external_requests": [],
+      "source_unchanged": true
+    }
+  ],
+  "browser_version": "151.0.7922.173"
+}

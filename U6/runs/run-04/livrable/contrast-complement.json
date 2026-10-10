@@ -1,0 +1,134 @@
+{
+  "method": "WCAG relative luminance formula on opaque CSS colors; complementary checks for native fields, status, focus and pseudo-elements",
+  "scope": "index.html final v3, default and error modal colors; no screen reader or full conformance audit",
+  "cases": [
+    {
+      "role": "texte principal",
+      "foreground": "#242823",
+      "background": "#faf8f2",
+      "ratio": 14.096,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "texte secondaire",
+      "foreground": "#60665d",
+      "background": "#faf8f2",
+      "ratio": 5.561,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "texte secondaire sur document",
+      "foreground": "#60665d",
+      "background": "#ffffff",
+      "ratio": 5.906,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "CTA blanc",
+      "foreground": "#ffffff",
+      "background": "#a8432e",
+      "ratio": 5.988,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "CTA hover",
+      "foreground": "#ffffff",
+      "background": "#893421",
+      "ratio": 8.15,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "erreur",
+      "foreground": "#962f20",
+      "background": "#faf8f2",
+      "ratio": 7.258,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "texte succès",
+      "foreground": "#315a43",
+      "background": "#edf2e8",
+      "ratio": 6.906,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "prix secondaire",
+      "foreground": "#d0d1c5",
+      "background": "#242823",
+      "ratio": 9.701,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "CTA offre",
+      "foreground": "#772c1c",
+      "background": "#f5e4dc",
+      "ratio": 7.871,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "pseudo check",
+      "foreground": "#d7e0ba",
+      "background": "#242823",
+      "ratio": 10.879,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "pseudo FAQ plus",
+      "foreground": "#a8432e",
+      "background": "#faf8f2",
+      "ratio": 5.638,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "bordure champ",
+      "foreground": "#79816f",
+      "background": "#ffffff",
+      "ratio": 4.052,
+      "minimum": 3,
+      "result": "PASS"
+    },
+    {
+      "role": "focus",
+      "foreground": "#174ca6",
+      "background": "#faf8f2",
+      "ratio": 7.545,
+      "minimum": 3,
+      "result": "PASS"
+    },
+    {
+      "role": "focus sur papier",
+      "foreground": "#174ca6",
+      "background": "#ffffff",
+      "ratio": 8.013,
+      "minimum": 3,
+      "result": "PASS"
+    },
+    {
+      "role": "champ saisie",
+      "foreground": "#242823",
+      "background": "#ffffff",
+      "ratio": 14.97,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "statut brouillon",
+      "foreground": "#43513a",
+      "background": "#f3f5ed",
+      "ratio": 7.71,
+      "minimum": 4.5,
+      "result": "PASS"
+    }
+  ]
+}

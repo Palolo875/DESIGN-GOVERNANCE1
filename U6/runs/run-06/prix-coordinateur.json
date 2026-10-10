@@ -1,0 +1,191 @@
+{
+  "index_sha256": "562797b93c0f2f2082949f00bd06fa9c1673ee48f72b35da0eb07101538b5243",
+  "viewports": [
+    {
+      "width": 1440,
+      "rows": [
+        {
+          "name": "Révision générale",
+          "lines": [
+            {
+              "left": 1156.6875,
+              "right": 1250,
+              "top": 1166.6875,
+              "bottom": 1180.6875
+            }
+          ],
+          "button": {
+            "left": 1270,
+            "right": 1312,
+            "top": 1137.9375,
+            "bottom": 1179.9375
+          },
+          "overlap": false
+        },
+        {
+          "name": "Freins & vitesses",
+          "lines": [
+            {
+              "left": 1156.6875,
+              "right": 1250,
+              "top": 1260.1875,
+              "bottom": 1274.1875
+            }
+          ],
+          "button": {
+            "left": 1270,
+            "right": 1312,
+            "top": 1231.4375,
+            "bottom": 1273.4375
+          },
+          "overlap": false
+        },
+        {
+          "name": "Roues & crevaisons",
+          "lines": [
+            {
+              "left": 1156.6875,
+              "right": 1250,
+              "top": 1353.6875,
+              "bottom": 1367.6875
+            }
+          ],
+          "button": {
+            "left": 1270,
+            "right": 1312,
+            "top": 1324.9375,
+            "bottom": 1366.9375
+          },
+          "overlap": false
+        }
+      ],
+      "external_requests": [],
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "rows": [
+        {
+          "name": "Révision générale",
+          "lines": [
+            {
+              "left": 254,
+              "right": 347.3125,
+              "top": 1416.109375,
+              "bottom": 1430.109375
+            }
+          ],
+          "button": {
+            "left": 334,
+            "right": 368,
+            "top": 1392.90625,
+            "bottom": 1426.90625
+          },
+          "overlap": true
+        },
+        {
+          "name": "Freins & vitesses",
+          "lines": [
+            {
+              "left": 254,
+              "right": 347.3125,
+              "top": 1547.6875,
+              "bottom": 1561.6875
+            }
+          ],
+          "button": {
+            "left": 334,
+            "right": 368,
+            "top": 1524.484375,
+            "bottom": 1558.484375
+          },
+          "overlap": true
+        },
+        {
+          "name": "Roues & crevaisons",
+          "lines": [
+            {
+              "left": 254,
+              "right": 347.3125,
+              "top": 1660.671875,
+              "bottom": 1674.671875
+            }
+          ],
+          "button": {
+            "left": 334,
+            "right": 368,
+            "top": 1637.46875,
+            "bottom": 1671.46875
+          },
+          "overlap": true
+        }
+      ],
+      "external_requests": [],
+      "status": "FAIL"
+    },
+    {
+      "width": 320,
+      "rows": [
+        {
+          "name": "Révision générale",
+          "lines": [
+            {
+              "left": 200,
+              "right": 293.3125,
+              "top": 1436.0625,
+              "bottom": 1450.0625
+            }
+          ],
+          "button": {
+            "left": 271,
+            "right": 303,
+            "top": 1413.859375,
+            "bottom": 1445.859375
+          },
+          "overlap": true
+        },
+        {
+          "name": "Freins & vitesses",
+          "lines": [
+            {
+              "left": 200,
+              "right": 293.3125,
+              "top": 1564.640625,
+              "bottom": 1578.640625
+            }
+          ],
+          "button": {
+            "left": 271,
+            "right": 303,
+            "top": 1542.4375,
+            "bottom": 1574.4375
+          },
+          "overlap": true
+        },
+        {
+          "name": "Roues & crevaisons",
+          "lines": [
+            {
+              "left": 200,
+              "right": 293.3125,
+              "top": 1674.625,
+              "bottom": 1688.625
+            }
+          ],
+          "button": {
+            "left": 271,
+            "right": 303,
+            "top": 1652.421875,
+            "bottom": 1684.421875
+          },
+          "overlap": true
+        }
+      ],
+      "external_requests": [],
+      "status": "FAIL"
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "source_unchanged": true,
+  "status": "FAIL"
+}

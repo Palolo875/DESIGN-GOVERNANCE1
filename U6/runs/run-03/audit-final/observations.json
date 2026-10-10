@@ -1,0 +1,701 @@
+{
+  "started_at": "2026-10-10T13:18:56.541478+00:00",
+  "output_sha256": {
+    "OFL-manrope.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+    "captures/delivered-1440.png": "f7241eb14d74fa70c16701fa3ed0eb8cf16138d5e73b75c94aa73eefc08d5062",
+    "captures/delivered-320.png": "1c9a5b0433a22fa4778dd7372bc9ba19be77b6515f05309f945d1d9f34eedafc",
+    "captures/delivered-390.png": "8d9f64eae14d6b06e941c65c12090f81ffb2a6cb98c9fc00b58e4a816fb43a07",
+    "captures/delivered-error-1440.png": "7075295ce38f0bf0390581884ad6f1fd5b9fb84cfaee4b3f937f3ed198007c79",
+    "captures/delivered-error-390.png": "578b657d5201eeda5f306082dbdd7e735995dee45b01819d1f2e7dca18f8089c",
+    "captures/delivered-long-success-390.png": "6610b2de0c81d87e52d90f868b62884ce972c8b22768b28d8565e36fabe55a31",
+    "captures/delivered-success-1440.png": "6855d2f86e7815654b817554450aa6dede997b9fb7116c0bd85ac15ee3d29ab6",
+    "captures/delivered-viewport-1440.png": "931996a6d5a90c89e322936b6663b5396a7408e47d35fa26df5d30f0a84d15b9",
+    "captures/delivered-viewport-320.png": "dfd099fc072ad4d9122ae06adbb675d2d1d05f68df4c5ca1fce91c0c913ba7a6",
+    "captures/delivered-viewport-390.png": "81bab0b4719119109f28d18ac670de9f59b82715ec4f030369b659f9ef27a907",
+    "captures/detail-delivered-sheet.png": "447da733dd964f7fa70805142d3c050c476dc01478c18ae75086f0da17a9b8e4",
+    "captures/error-1440.png": "4f840a910b2f967db3fd1b0bde6a9fef589b924cc4ed6a73d9b595bf4767f7cd",
+    "captures/final-1440.png": "f7241eb14d74fa70c16701fa3ed0eb8cf16138d5e73b75c94aa73eefc08d5062",
+    "captures/final-320.png": "1c9a5b0433a22fa4778dd7372bc9ba19be77b6515f05309f945d1d9f34eedafc",
+    "captures/final-390.png": "8d9f64eae14d6b06e941c65c12090f81ffb2a6cb98c9fc00b58e4a816fb43a07",
+    "captures/final-error-1440.png": "7075295ce38f0bf0390581884ad6f1fd5b9fb84cfaee4b3f937f3ed198007c79",
+    "captures/final-error-390.png": "578b657d5201eeda5f306082dbdd7e735995dee45b01819d1f2e7dca18f8089c",
+    "captures/final-long-success-390.png": "6610b2de0c81d87e52d90f868b62884ce972c8b22768b28d8565e36fabe55a31",
+    "captures/final-success-1440.png": "6855d2f86e7815654b817554450aa6dede997b9fb7116c0bd85ac15ee3d29ab6",
+    "captures/final-viewport-1440.png": "931996a6d5a90c89e322936b6663b5396a7408e47d35fa26df5d30f0a84d15b9",
+    "captures/final-viewport-320.png": "dfd099fc072ad4d9122ae06adbb675d2d1d05f68df4c5ca1fce91c0c913ba7a6",
+    "captures/final-viewport-390.png": "81bab0b4719119109f28d18ac670de9f59b82715ec4f030369b659f9ef27a907",
+    "captures/initial-1440.png": "ae0132b792579459af82add64bc88b1ed618e88e8a00f39c40b650c5dab8dcf7",
+    "captures/initial-320.png": "1cedccef05dbf3b7832f2e340b4538253d1fb8fe434fc7127099d704f98f846f",
+    "captures/initial-390.png": "acdc22af59758d2c11bd214e07765da23df0d3bc35c009136da53ebb588d26f1",
+    "captures/long-success-390.png": "2949c1a2a554074dc198e78982c6f9001cb60348701183e9f88a775318a70352",
+    "captures/masses-delivered-1440.png": "ac3ba053c230838110d8cb6f4d4c85c5a861f8c30e2be8593c63d832d21f5e30",
+    "captures/mobile-download-delivered-390.png": "104a3196b0e4049e2e7627405dac09c3bd0203a34c88740353859fc9551b3c3f",
+    "captures/success-1440.png": "12a6ca53e43250c133f8a6a87f3b5fb1d9be7b7a28d48b9e42fd1a80553c6aea",
+    "captures/typography.png": "31cc3bad06e69ca6a183c3cb548ed809b6799f3dccee22bd41c820ed7ea68369",
+    "captures/variant-reduced-field-1440.png": "3eb87ac09b7234d65fb09b69a3c823f0f758cf916574544eb44e74236bf8cff7",
+    "captures/variant-reduced-field-delivered-1440.png": "8ecbc4dad6d2b90a5137823f272690680de77c45037f89a45ce8165b306a403c",
+    "captures/variant-reduced-field-final-1440.png": "8ecbc4dad6d2b90a5137823f272690680de77c45037f89a45ce8165b306a403c",
+    "captures/viewport-1440.png": "29863aecc82ea17ac2e0674f84d571fe432703d0ed0fbeace16e973baab79249",
+    "captures/viewport-320.png": "3ce68c366a91a10d9b733e42213b3e4c8dd2a97aa50c051d7c4100ef6fd92014",
+    "captures/viewport-390.png": "a975696fbc7f1edf3f382bf4921ab88967b402505b68d809a30a7113ab32ec67",
+    "download-observed.txt": "fc9948db38d68e467f1bdf9e74ae18a16f4ac9cd4cc6e728f9fa3530e73be961",
+    "functional-tests-correction-1.json": "11eea2021f1dfc9512d9419d5b75626e72362bcd533b1193b0569418f2d78519",
+    "functional-tests-initial.json": "3b4f0beef9048748c17e6f0f80984f6694788fdd21ca1bbbe52fe53feea39687",
+    "functional-tests.json": "a7bf7077ec759c9d2171043432775023d8b9cc2cf92660fd26ffadf26f387a1f",
+    "index.html": "8e9994d60c00b634d28b16ced89c49292e1dd67975617ad85c9303d2e8d3f2e0",
+    "mobile-download-observed.txt": "09db5cccc300466d3e092825c13e527513eb19968e37b83925b5671337a21d10",
+    "response.md": "4a238a2f2f409050558592716884b445a9624cec9dd58aa53ea45f919a4464d8",
+    "run-card.json": "7f8cc18be7d9b8e3cd6deafa9e04dfa8e6e782faca5eafa06331d0dbd4905f5a",
+    "server.log": "a2236cfea64c2d68026b7589ca5bc3d778015f2fcd6d113fb5d3b21a40dba787",
+    "supplement.py": "2f3c82044e05738659a705a0072a802685f9321df9457a9056ba6a41e8e66738",
+    "trace.md": "b2247f882236c86cf7ac4af0308f5c609047049476796364604bfebb08b48151",
+    "typography-check.py": "99a28f0f8a2598825ca29945e42ffba2725e3ef4beb90606407303b530077989",
+    "validation.log": "5789bad5f2359137a6676d8908fe21dadf26bb09e7dfa25c7dadfb115cd2ecbe",
+    "verify.py": "fd6858fcc46d9832c38cc689d7822c3aa029593537e84a73447d8e582076f2f4"
+  },
+  "status": "requires_manual_review",
+  "functional_tests": "NOT-VERIFIED: actions et erreurs propres à la page à rejouer séparément",
+  "limitations": [
+    "Les observations automatiques ne sont pas un audit WCAG complet.",
+    "Le parcours principal et la vérité du contenu nécessitent une vérification séparée.",
+    "Le focus et les petites cibles sont des indices à inspecter, pas des verdicts automatiques."
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "http_status": 200,
+      "screenshots": {
+        "first": "1440-premiere.png",
+        "full": "1440-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Trait — La facture aussi · proposition",
+        "lang": "fr",
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Le travail est fait.La facture aussi."
+          },
+          {
+            "level": 2,
+            "text": "Le bon fil,du début à la fin."
+          },
+          {
+            "level": 3,
+            "text": "Préparez l’essentiel."
+          },
+          {
+            "level": 3,
+            "text": "Vérifiez d’un regard."
+          },
+          {
+            "level": 3,
+            "text": "Gardez le fil."
+          },
+          {
+            "level": 2,
+            "text": "Simple à lire.Simple à choisir."
+          },
+          {
+            "level": 2,
+            "text": "Les questionsqui comptent."
+          },
+          {
+            "level": 2,
+            "text": "Votre prochaine facturecommence par un exemple."
+          },
+          {
+            "level": 2,
+            "text": "Votre facture d’exemple"
+          },
+          {
+            "level": 3,
+            "text": "Un aperçu, pour commencer."
+          },
+          {
+            "level": 3,
+            "text": "Votre facture,en clair."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [
+          {
+            "text": "trait.",
+            "href": "#"
+          }
+        ],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "trait.",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Comment ça marche",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "L’offre",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Questions",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Créer une facture d’exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Découvrir le fonctionnement ↓",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer avec un exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je essayer ici ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Une facture sera-t-elle envoyée ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Le document est-il utilisable pour facturer ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Ce tarif est-il déjà disponible ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Ouvrir la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Retour au début ↑",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Aller au contenu\nProposition de design · Trait est un nom d’exemple\n\ntrait.\nComm",
+          "focus_visible_match": false,
+          "outline": "rgb(23, 59, 50) none 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "390-premiere.png",
+        "full": "390-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Trait — La facture aussi · proposition",
+        "lang": "fr",
+        "client_width": 390,
+        "scroll_width": 390,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Le travail est fait.La facture aussi."
+          },
+          {
+            "level": 2,
+            "text": "Le bon fil,du début à la fin."
+          },
+          {
+            "level": 3,
+            "text": "Préparez l’essentiel."
+          },
+          {
+            "level": 3,
+            "text": "Vérifiez d’un regard."
+          },
+          {
+            "level": 3,
+            "text": "Gardez le fil."
+          },
+          {
+            "level": 2,
+            "text": "Simple à lire.Simple à choisir."
+          },
+          {
+            "level": 2,
+            "text": "Les questionsqui comptent."
+          },
+          {
+            "level": 2,
+            "text": "Votre prochaine facturecommence par un exemple."
+          },
+          {
+            "level": 2,
+            "text": "Votre facture d’exemple"
+          },
+          {
+            "level": 3,
+            "text": "Un aperçu, pour commencer."
+          },
+          {
+            "level": 3,
+            "text": "Votre facture,en clair."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [
+          {
+            "text": "trait.",
+            "href": "#"
+          }
+        ],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "trait.",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Créer une facture d’exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Découvrir le fonctionnement ↓",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer avec un exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je essayer ici ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Une facture sera-t-elle envoyée ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Le document est-il utilisable pour facturer ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Ce tarif est-il déjà disponible ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Ouvrir la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Retour au début ↑",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Aller au contenu\nProposition de design · Trait est un nom d’exemple\n\ntrait.\nComm",
+          "focus_visible_match": false,
+          "outline": "rgb(23, 59, 50) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "trait.",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "320-premiere.png",
+        "full": "320-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Trait — La facture aussi · proposition",
+        "lang": "fr",
+        "client_width": 320,
+        "scroll_width": 320,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Le travail est fait.La facture aussi."
+          },
+          {
+            "level": 2,
+            "text": "Le bon fil,du début à la fin."
+          },
+          {
+            "level": 3,
+            "text": "Préparez l’essentiel."
+          },
+          {
+            "level": 3,
+            "text": "Vérifiez d’un regard."
+          },
+          {
+            "level": 3,
+            "text": "Gardez le fil."
+          },
+          {
+            "level": 2,
+            "text": "Simple à lire.Simple à choisir."
+          },
+          {
+            "level": 2,
+            "text": "Les questionsqui comptent."
+          },
+          {
+            "level": 2,
+            "text": "Votre prochaine facturecommence par un exemple."
+          },
+          {
+            "level": 2,
+            "text": "Votre facture d’exemple"
+          },
+          {
+            "level": 3,
+            "text": "Un aperçu, pour commencer."
+          },
+          {
+            "level": 3,
+            "text": "Votre facture,en clair."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [
+          {
+            "text": "trait.",
+            "href": "#"
+          }
+        ],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "trait.",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Créer une facture d’exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Découvrir le fonctionnement ↓",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer avec un exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je essayer ici ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Une facture sera-t-elle envoyée ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Le document est-il utilisable pour facturer ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Ce tarif est-il déjà disponible ?",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Ouvrir la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Retour au début ↑",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Aller au contenu\nProposition de design · Trait est un nom d’exemple\n\ntrait.\nComm",
+          "focus_visible_match": false,
+          "outline": "rgb(23, 59, 50) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "trait.",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(64, 100, 34) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "browser_executable": "/usr/bin/chromium",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T13:19:02.872286+00:00",
+  "evidence_sha256": {
+    "1440-complete.png": "f7241eb14d74fa70c16701fa3ed0eb8cf16138d5e73b75c94aa73eefc08d5062",
+    "1440-premiere.png": "931996a6d5a90c89e322936b6663b5396a7408e47d35fa26df5d30f0a84d15b9",
+    "320-complete.png": "1c9a5b0433a22fa4778dd7372bc9ba19be77b6515f05309f945d1d9f34eedafc",
+    "320-premiere.png": "dfd099fc072ad4d9122ae06adbb675d2d1d05f68df4c5ca1fce91c0c913ba7a6",
+    "390-complete.png": "8d9f64eae14d6b06e941c65c12090f81ffb2a6cb98c9fc00b58e4a816fb43a07",
+    "390-premiere.png": "81bab0b4719119109f28d18ac670de9f59b82715ec4f030369b659f9ef27a907"
+  }
+}

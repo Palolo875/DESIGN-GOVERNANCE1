@@ -1,0 +1,197 @@
+{
+  "run_card": {
+    "id": "run-03-trait",
+    "owner": "Demandeur du SaaS ; producteur run-03 pour la proposition locale",
+    "date_version": "2026-10-10 / delivered-v3",
+    "mode": "DIRECTION",
+    "decision": "Montrer une facture et son premier geste local pour rendre la valeur du SaaS tangible.",
+    "decision_intent": "Juger une landing page centrée sur le document plutôt que sur un tableau de bord ou une preuve sociale fictive.",
+    "risk": {
+      "level": "important",
+      "statement": "Faire passer une hypothèse de produit et un aperçu simplifié pour un service réel ou un document comptable valide.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START/TREE",
+      "DIRECTION/EXTERNAL-START",
+      "DIRECTION/CREATIVE-BOOT",
+      "DIRECTION/VISUAL_TARGET",
+      "DIRECTION/FIRST-OBJECT",
+      "ACTION/FIRST-RENDER",
+      "ACTION/UI-UX-REALITY",
+      "ACTION/RUN-DIRECTION",
+      "ACTION/PIPELINE-DIRECTION",
+      "ACTION/VISUAL_PROOF",
+      "ACTION/GATE-A",
+      "ACTION/GATE-B",
+      "ACTION/GATE-C",
+      "ACTION/HANDOFF",
+      "ACTION/RUN_CARD",
+      "ACTION/CLOSE-PACKAGE",
+      "ACTION/ATELIER-EDITION",
+      "SAVOIR/TYPE",
+      "SAVOIR/FRAME/COMPOSITION",
+      "SAVOIR/FRAME/SINGULARITE",
+      "SAVOIR/STATE",
+      "SAVOIR/CRAFT/CFT-00",
+      "SAVOIR/CRAFT/CFT-05",
+      "SAVOIR/INTEGRITY",
+      "BIBLIOTHEQUE/READ",
+      "BIBLIOTHEQUE/SELECT",
+      "BIBLIOTHEQUE/SEQUENCE",
+      "BIBLIOTHEQUE/GATE"
+    ],
+    "direction": {
+      "thesis": "Le travail est fait, le document prend le relais : une facture claire est le foyer de la première scène.",
+      "anti_direction": [
+        "Conserver une navigation familière ; remplacer le screenshot décoratif, les logos et les courbes par le document métier et un premier geste local."
+      ],
+      "first_object": "Landing page complète avec facture remplie et formulaire de prévisualisation local.",
+      "identity_stake": "normal",
+      "constraint": "Brief sans nom, marque, contenu, prix ou capacités réelles ; pas de réseau externe ni service réel."
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "index.html",
+      "scope": "Page entière et démo locale ; Chromium desktop 1440×1000, mobile 390×844, 320px ; géométrie 768 et 1024px ; états initial, erreur, reprise, succès et texte long.",
+      "rights_status": "cleared",
+      "version": "delivered-v3"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Confirmer la marque, le public, le périmètre et le tarif réels ; faire observer la création de facture par un utilisateur représentatif.",
+    "capability_profile": {
+      "available": [
+        "HTML autonome",
+        "DOM et CSS",
+        "Chromium et capture",
+        "calcul de contraste",
+        "clavier exécuté",
+        "téléchargement local"
+      ],
+      "unavailable": [
+        "regard indépendant",
+        "participant utilisateur",
+        "technologie d’assistance",
+        "données et capacités SaaS réelles",
+        "navigation file URL"
+      ],
+      "not_required": [
+        "envoi externe",
+        "paiement",
+        "authentification"
+      ],
+      "basis": [
+        {
+          "capability": "HTML autonome",
+          "kind": "tool_result",
+          "detail": "index.html construit, police Manrope en data URL, CSS et JS intégrés ; 255061 octets."
+        },
+        {
+          "capability": "DOM et CSS",
+          "kind": "tool_result",
+          "detail": "verify.py et supplement.py exécutés ; observations dans functional-tests.json."
+        },
+        {
+          "capability": "Chromium et capture",
+          "kind": "tool_result",
+          "detail": "Captures PNG de la version delivered-v3, Chromium 151.0.7922.173."
+        },
+        {
+          "capability": "calcul de contraste",
+          "kind": "tool_result",
+          "detail": "Luminance WCAG calculée à partir des couleurs CSS réelles ; page nominale et échantillons de dialogue/erreur."
+        },
+        {
+          "capability": "clavier exécuté",
+          "kind": "tool_result",
+          "detail": "Enter, Tab, Shift+Tab et Escape réellement exécutés ; vingt puis quatre parcours supplémentaires observés."
+        },
+        {
+          "capability": "téléchargement local",
+          "kind": "tool_result",
+          "detail": "download-observed.txt et mobile-download-observed.txt sauvegardés par Playwright."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "24 contrôles/parcours exécutés PASS, 1 contrôle NOT-VERIFIED pour file URL bloqué par politique du navigateur.",
+        "Captures desktop et mobile, page entière, masses, détail et états erreur/succès réellement ouvertes et inspectées par l’auteur.",
+        "Pas de débordement de page à 320, 390, 768, 1024 et 1440px ; pas de requête externe ou erreur JavaScript dans les parcours de la recette principale.",
+        "Création, chiffres, montant extrême, texte long, rejet de sous-centimes, récupération, clavier, Escape et téléchargement locaux."
+      ],
+      "not_verified": [
+        "Adéquation au public, marque, prix et fonctionnalités réels ; aucune ancre externe observée ou fournie.",
+        "Utilisabilité avec utilisateur, lecteur d’écran, conformité WCAG exhaustive, autres navigateurs et appareils physiques.",
+        "Conformité fiscale/comptable et toute capacité de service réelle.",
+        "Ouverture directe file:// interdite par net::ERR_BLOCKED_BY_ADMINISTRATOR dans cet environnement."
+      ],
+      "provenance": {
+        "artifact_locator": "index.html",
+        "artifact_version": "delivered-v3",
+        "method": "AUTOMATED et MANUAL : scénarios Python Playwright en Chromium local, calculs CSS, puis lecture réelle des captures par le même auteur.",
+        "observed_at": "2026-10-10T13:14:29.797474+00:00",
+        "capability": "Chromium et capture"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Flèches manquantes remplacées par pictogrammes SVG natifs ; boucle Tab de la fenêtre corrigée ; défilement animé retiré pour rendre le focus immédiatement visible. Champ citron du document confirmé par réduction sur capture.",
+      "evidence": "functional-tests-initial.json, functional-tests-correction-1.json, functional-tests.json ; captures initiales, delivered et variante réduite."
+    },
+    "creative_close": {
+      "presence": "Titre en deux lignes, bouton sombre et feuille blanche isolée dans un champ citron : captures/delivered-viewport-1440.png et masses-delivered-1440.png.",
+      "signature": "La facture EX-001 et ses montants détaillés, puis le formulaire local, situent le premier contact dans la facturation.",
+      "craft_detail": "Erreur près du champ conservant la saisie, focus et retour à la modification ; total 135,80 € pour 123,45 € HT avec TVA illustrative 10 %.",
+      "dominant_defect": "La structure de vitrine reste familière ; la cible et la marque sont des hypothèses. Les métadonnées de facture sont petites et nécessiteront un contrôle avec le contenu réel.",
+      "next_polish_action": "STOP — les défauts observés de glyphes et de focus sont corrigés ; obtenir le produit et les contenus réels avant une autre passe."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "PARTIALLY-HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Proposition seulement, sans acceptation de marque ni publication.",
+        "Auto-comparaison et lecture par l’auteur ; pas de regard externe.",
+        "Marque, clientèle, tarif et fonctions illustratifs ; aperçu sans valeur comptable.",
+        "file URL bloqué ; runtime local HTTP inspecté."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "NOT-VERIFIED",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS-WITH-RESERVATION"
+      },
+      "reservations": [
+        {
+          "owner": "Demandeur du SaaS",
+          "scope": "Public, marque, offre et capacités du produit",
+          "date_version": "2026-10-10 / delivered-v3",
+          "impact": "Une page précise peut correspondre au mauvais public ou à des fonctions absentes.",
+          "next_proof": "Fournir identité, public prioritaire, fonctionnalités et tarif, puis observer une tâche utilisateur.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Contenus réels confirmés et premier geste observé avec utilisateur représentatif."
+        },
+        {
+          "owner": "Producteur de la version réelle",
+          "scope": "Accessibilité et robustesse hors échantillon Chromium",
+          "date_version": "2026-10-10 / delivered-v3",
+          "impact": "Lecteur d’écran, navigateurs additionnels et appareil physique non couverts.",
+          "next_proof": "Tester sémantique calculée, lecteur d’écran, navigateurs cibles et zoom/reflow avec contenus réels.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Contrôles applicables à la version réelle documentés sans défaut bloquant."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "captures/delivered-1440.png",
+          "after_locator": "captures/variant-reduced-field-delivered-1440.png",
+          "decision": "Le champ citron isole le document métier et rend la preuve perceptible dans le premier contact.",
+          "outcome": "confirmed"
+        }
+      }
+    }
+  }
+}

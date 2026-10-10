@@ -1,0 +1,47 @@
+ROUTE: BIBLIOTHEQUE/OBJECT/PROOF_PRODUCT_STAGE
+OWNER: design/formes/catalogue.md
+HEADING: ## BIBLIOTHEQUE/OBJECT — quelle preuve devient tangible
+---
+## BIBLIOTHEQUE/OBJECT — quelle preuve devient tangible
+
+Un objet donne une forme locale et réutilisable à une preuve, une sélection, une comparaison, une mémoire, un contrôle ou une action. Il possède un rôle informationnel, des slots, des contextes et des états. Il ne compose pas un écran complet.
+
+**Objet du métier.** Un document ou un instrument que le domaine utilise déjà (formulaire, ticket, carnet, relevé, cadran, règle graduée) peut donner sa forme à l’objet de preuve ou le gabarit d’une section. Choisis-le s’il rend le mécanisme plus clair ; écarte-le s’il n’est qu’un décor ou s’il imite un document officiel au point de tromper.
+
+### Routes d’objet
+
+| Objet | Responsabilité |
+|---|---|
+| `OBJECT/EDITORIAL_SELECTION` | Image, titre, explication courte et action pour une sélection de catégories, cas, experts, parcours ou articles. |
+| `OBJECT/COMPARISON_SPLIT` | Objet traversé par une rupture de thème, fonction, lumière ou donnée lorsque comparaison ou coexistence de modes est réelle. |
+| `OBJECT/MEDIA_ARCHIVE` | Média principal, métadonnées et valeur ou repère mémorable pour archive, événement, collection ou pièce culturelle. |
+| `OBJECT/SYSTEM_DATA_MODULE` | Lignes, réseaux, nœuds, coordonnées ou structure de données encodent une relation de système, flux, couche, module ou économie. |
+| `OBJECT/PROOF_PRODUCT_STAGE` | Promesse en haut et fenêtre produit large comme preuve concrète ; le produit réel rassure mieux qu’un mockup isolé. |
+| `OBJECT/NAV_CONTEXT_CAPSULE` | Navigation compacte dans un châssis, une scène ou une image, avec destinations, utilitaires et action. |
+| `OBJECT/BRAND_GRAMMAR_PLATE` | Planche de logo, contraste, palette, matière, type et application fonctionnelle lorsque l’identité doit devenir une décision répétable. |
+| `OBJECT/CONVERSION_CONTEXT_FIELD` | Promesse entourée d’artefacts de travail réellement contextualisés lorsque le monde concret du visiteur crédibilise la conversion. |
+| `OBJECT/CONTROL_VALUE_TILE` | Valeur principale, statut, contexte limité et actions courtes pour solde, quota, score, capacité ou décision rapide. |
+
+### Contrat d’objet
+
+Chaque objet durable déclare :
+
+| Champ | Contenu |
+|---|---|
+| Rôle | Preuve, sélection, comparaison, mémoire, contrôle ou action. |
+| Contextes autorisés | Où l’objet aide réellement. |
+| Slots | Requis, optionnels et interdits. |
+| Variantes | Sémantiques : `context`, `density`, `emphasis` ; elles ne remplacent pas les états d’exécution. |
+| États | Default, loading, empty, error, unavailable, disabled, focus, permissions, récupération, contenu extrême et autres pertinents ; chaque état est déclaré applicable, non applicable et justifié, ou requis. |
+| Contenu | Longueur, localisation, données et confidentialité. |
+| Risques | A11y, compréhension, performance, confidentialité, permissions et récupération. |
+| `PROOF-TYPE` | Perceptuel, expert, technique, utilisateur/tâche ou combinaison. |
+| Test | Observation, capture, scénario ou résultat attendu, avec `SCOPE`, `METHOD`, `OWNER`, `TRACE-LOCATOR` et date/version lorsque pertinents. |
+| `PROOF-LIMIT` | Ce qui ne peut pas être conclu à partir de ce test. |
+
+Les variantes de maquettage comme `green-hero-v3` ne sont pas des variantes sémantiques. Les objets très situés — campagne, domaine ou projet — restent locaux tant que leur responsabilité ne démontre pas plusieurs usages distincts.
+
+Un objet accessible ou cohérent en isolation ne constitue pas une preuve de scène. Teste son intégration dans le support, la grille, la scène, le contenu, les états, le viewport, les permissions et les interactions réels lorsque le risque le requiert. Pour un objet partagé ou durable, ajoute `OWNER-SCOPE`, `CONSUMERS`, `MOBILE`, `A11Y`, `COMPATIBILITY`, `MIGRATION`, `ROLLBACK`, `ADOPTION-STATUS` et `NEXT-REVIEW` selon le risque.
+
+---
+

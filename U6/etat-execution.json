@@ -1,0 +1,27 @@
+{
+  "updated_at": "2026-10-10T16:37:51.097327+00:00",
+  "selection": "separate_agents_and_blind_judges",
+  "generation_started": true,
+  "running": [],
+  "productions_completed": [
+    "run-01",
+    "run-02",
+    "run-03",
+    "run-04",
+    "run-05",
+    "run-06"
+  ],
+  "audits_completed": [
+    "run-01",
+    "run-02",
+    "run-03",
+    "run-04",
+    "run-05",
+    "run-06"
+  ],
+  "judges": {
+    "juge-1": "judge_complete",
+    "juge-2": "judge_complete"
+  },
+  "owner_judgement": "pending"
+}

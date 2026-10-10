@@ -1,0 +1,19 @@
+ROUTE: ACTION/FIRST-RENDER (adresse : produit/premier-rendu)
+OWNER: design/produit/premier-rendu.md
+HEADING: ## ACTION/FIRST-RENDER — qualité initiale attendue
+---
+## ACTION/FIRST-RENDER — qualité initiale attendue
+
+Le premier rendu n’est pas une simple ébauche destinée à être rendue présentable plus tard. Lorsqu’un run produit une surface, un composant, un flow ou une scène, le premier artefact doit déjà être **composé, crédible, spécifique au produit et suffisamment résolu pour être jugé comme un objet réel**, dans la proportion du mode et du risque. Le slop est un risque possible, mais la cible positive est la qualité : présence, hiérarchie, typographie, contenu, états, matière ou retenue, relation à la preuve et finition pertinente.
+
+| Mode | Qualité initiale attendue au premier rendu |
+|---|---|
+| `LITE` | Le delta est propre, lisible, cohérent avec le système et ne dégrade pas le rendu existant. |
+| `ITER` | Le delta est visible, intentionnel, fidèle à la direction retrouvable et inspectable dans les états touchés. |
+| `STANDARD` | La vue ou le flow est déjà composé : contenu crédible, hiérarchie, typographie, états pertinents, responsive applicable et finition suffisante pour juger la proposition. |
+| `DIRECTION` | La première scène porte déjà la présence, le point de vue, la composition, la typographie, la matière ou la retenue, l’objet de preuve et l’intégration d’asset nécessaires à la décision. |
+| `SYSTÈME` | Le composant ou token est montré dans ses usages réels, avec baseline, états, consommateurs et risque de régression identifiables. |
+
+Un rendu peut rester `EXPLORATORY` lorsqu’une preuve manque, mais ce statut ne justifie pas un artefact volontairement creux lorsque les capacités nécessaires sont disponibles ; sinon, plafond déclaré avant le build (`FABRICATION`). La qualité initiale est une cible de construction, non un score et non un verdict esthétique.
+
+> `ACTION/UI-UX-REALITY` : servi séparément

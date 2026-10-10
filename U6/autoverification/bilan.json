@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "valid_fixture_viewports": 3,
+  "broken_fixture_viewports": 3,
+  "detectors_observed": [
+    "overflow at 390/320",
+    "script error",
+    "external request blocked",
+    "unlabelled input",
+    "missing alt",
+    "unresolved anchor"
+  ],
+  "production_runs_executed": 0,
+  "limitation": "Fixture tests validate instrumentation only, not system quality."
+}

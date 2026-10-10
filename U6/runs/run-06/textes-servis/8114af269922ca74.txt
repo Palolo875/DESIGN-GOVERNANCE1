@@ -1,0 +1,29 @@
+ROUTE: ACTION/HANDOFF (adresse : agent/repondre)
+OWNER: agent/repondre.md
+HEADING: ### ACTION/HANDOFF — sortie minimale commune
+---
+### ACTION/HANDOFF — sortie minimale commune
+
+`ACTION` est propriétaire de la preuve, des gates, des statuts, des verdicts et de la clôture. Une sortie de run a deux formes, à ne pas confondre. Les façades peuvent les préparer ou les recopier, jamais les redéfinir.
+
+1. **Handoff**, pour une reprise ou un run persistant : les éléments suivants doivent être résolubles.
+
+```text
+MODE — DECISION — RISK — SCOPE — ARTIFACT
+OBSERVATION/METHOD — PROOF/TRACE-LOCATOR — LIMIT/NOT-VERIFIED
+DECISION-CHANGE — NEXT-ACTION — OWNER — NEXT-PROOF — EXIT-CONDITION
+```
+
+2. **Réponse visible**, pour un humain, par défaut :
+
+> [Déjà dans le noyau de la skill, section « 10. Proposition, sortie et trace » : « La personne reçoit une réponse en langage produit, sans le jargon inte… » — --complet pour l'afficher ici]
+
+3. **Niveau de trace**, choisi par l’agent :
+
+> [Déjà dans le noyau de la skill, section « 10. Proposition, sortie et trace » : « Trace légère par défaut. Adapte contrôles et trace au risque et à la d… » — --complet pour l'afficher ici]
+
+**Formes.** La ligne de run de `DIRECTION` est la mémoire de lancement, sous-ensemble de lancement de ce handoff ; le handoff est la transmission ; `ACTION/CLOSE-PACKAGE` est la clôture par mode ; la `RUN_CARD` JSON est la projection persistante, selon la table de correspondance d’`ACTION/RUN_CARD`. **Forme courte LITE** (trace complète d’un `LITE` clôturé sans `RUN_CARD`, distincte de la trace légère, qui ne clôture pas) : le paquet LITE de `ACTION/CLOSE-PACKAGE` ; les autres champs du handoff sont `N/A-JUSTIFIED` par défaut, avec deux pertes déclarées (METHOD, EXIT-CONDITION) ; TRACE-LOCATOR est alors l’artefact. Une reprise par un autre agent exige OWNER et NEXT-ACTION ; sinon la forme courte reste une préparation.
+
+Le handoff réutilise les champs existants ; il ne crée ni statut, ni gate, ni nouveau schéma. Les champs non applicables sont marqués `N/A-JUSTIFIED`. Un run persistant utilise la projection `RUN_CARD` et son validateur, sauf la forme courte LITE définie ci-dessus : sa trace complète persiste dans l’artefact selon `ACTION/CLOSE-PACKAGE`. Cette exception ne dispense ni des preuves dues ni des conditions de reprise ; une demande de projection structurée requiert la `RUN_CARD` validée. Une sortie courte qui ne fournit pas le paquet applicable reste une préparation, une clarification ou une décision non clôturée.
+
+**Condition d’arrêt de lecture :** arrêter lorsque le mode, le risque, la route, la preuve, la limite, le propriétaire et la prochaine action sont connus. Charger un registre, une route ou un gate supplémentaire uniquement s’il peut modifier l’un de ces éléments.

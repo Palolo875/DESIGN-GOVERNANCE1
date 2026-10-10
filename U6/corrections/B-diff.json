@@ -1,0 +1,8 @@
+{
+  "raw_page": "B",
+  "raw_run": "run-06",
+  "raw_sha256": "562797b93c0f2f2082949f00bd06fa9c1673ee48f72b35da0eb07101538b5243",
+  "corrected_sha256": "1012230216921d666e8d0bcb445cb7d0ba48e29efffe394550ee63fb0e8bfc7e",
+  "change": "Mobile : la mention du prix peut revenir à la ligne dans sa colonne, sans déborder vers le bouton flèche.",
+  "scope": "Copie manuelle hors expérience, après les deux jugements ; aucune modification du rendu brut ou des captures jugées."
+}

@@ -1,0 +1,23 @@
+ROUTE: SAVOIR/CRAFT/CFT-05 (adresse : savoir/couleur)
+OWNER: design/savoir/qualite-creative.md
+HEADING: ## CFT-05 — couleur et contraste
+---
+## CFT-05 — couleur et contraste
+
+> [Déjà dans le noyau de la skill, section « 7. Couleur et convergence » : « [REQUIS PAR LE MODULE — couleur, thème, statut ou surface identitaire]… » — --complet pour l'afficher ici]
+
+**Question de convergence.** Cette palette et cette police de titre sont-elles celles que le modèle produirait sans brief (palette : neutres et un seul accent, sombre et doré, dégradé froid ; police : la grotesque large ou la serif de caractère prise par réflexe) ? Si oui, nomme ce qui, dans le produit, les justifie ; si rien ne les justifie, reconsidère-les. Pour la police de titre, compare au moins deux voix typographiques distinctes sur le vrai titre avant de choisir. La question ne prescrit aucun écart : un choix convergent justifié reste valide.
+
+La palette est conditionnelle : elle est documentée lorsqu’elle peut changer la décision, le thème, le statut ou la direction. Si le système existant est conservé et qu’aucun choix de couleur ne change le run, note cette conservation et sa raison.
+
+**Couleur située.** Une palette peut naître du sujet ou de l’asset principal : prélève les teintes dans l’image ou la matière du produit, puis attribue-leur des rôles. Une couleur partagée entre l’image et le texte relie les deux plans. Le fond aussi est une décision : un blanc chaud, froid ou neutre donne le ton avant le reste ; nomme sa température et sa raison. Deux ou trois couleurs tenues valent souvent mieux qu’une palette complète : la retenue est un levier, pas un manque.
+
+OKLCH peut servir d’espace de conception perceptuel. HEX, HSL ou autre format restent des sorties techniques selon le projet. Le dark mode est recomposé — luminosité, saturation et élévation adaptées — et non inversé naïvement.
+
+Le gamut élargi peut enrichir l’expression, mais ne porte jamais une information indispensable. Le contraste est calculé selon la politique d’ACTION ; aucune relation texte/fond ou état/fond ne reçoit un `PASS` à l’œil.
+
+Une relation de couleur peut exprimer un registre ou une hiérarchie, mais ne doit pas porter seule une information critique. Les impressions de statut, chaleur, sérieux ou premium restent des hypothèses de perception à vérifier dans leur contexte.
+
+Les claims sur chroma, statut perçu ou tendances de palette passent par `SAVOIR/TOOLS` et portent source, date, portée et limite dans la trace locale du run.
+
+---

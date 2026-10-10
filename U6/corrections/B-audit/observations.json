@@ -1,0 +1,785 @@
+{
+  "started_at": "2026-10-10T16:37:02.003257+00:00",
+  "output_sha256": {
+    "OFL-instrument-serif.txt": "129ed7618959716959f2941fdd5b49e0ad6e6c1d78726761786a00253d865521",
+    "OFL-manrope.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+    "index.html": "1012230216921d666e8d0bcb445cb7d0ba48e29efffe394550ee63fb0e8bfc7e"
+  },
+  "status": "requires_manual_review",
+  "functional_tests": "NOT-VERIFIED: actions et erreurs propres à la page à rejouer séparément",
+  "limitations": [
+    "Les observations automatiques ne sont pas un audit WCAG complet.",
+    "Le parcours principal et la vérité du contenu nécessitent une vérification séparée.",
+    "Le focus et les petites cibles sont des indices à inspecter, pas des verdicts automatiques."
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "http_status": 200,
+      "screenshots": {
+        "first": "1440-premiere.png",
+        "full": "1440-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Rayon libre — atelier vélo · proposition",
+        "lang": "fr",
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Un véloqui roule.Et vous avec."
+          },
+          {
+            "level": 2,
+            "text": "Prenonsrendez-vous."
+          },
+          {
+            "level": 3,
+            "text": "Quand passez-vous ?"
+          },
+          {
+            "level": 3,
+            "text": "Et pour vous joindre ?"
+          },
+          {
+            "level": 3,
+            "text": "Votre demande est prête."
+          },
+          {
+            "level": 2,
+            "text": "Le petit réglage.Le grand entretien."
+          },
+          {
+            "level": 3,
+            "text": "Révision générale"
+          },
+          {
+            "level": 3,
+            "text": "Freins & vitesses"
+          },
+          {
+            "level": 3,
+            "text": "Roues & crevaisons"
+          },
+          {
+            "level": 2,
+            "text": "Vous déposez.On s'en occupe."
+          },
+          {
+            "level": 3,
+            "text": "Un créneau de dépôt"
+          },
+          {
+            "level": 3,
+            "text": "Un diagnostic ensemble"
+          },
+          {
+            "level": 3,
+            "text": "Le retour en selle"
+          },
+          {
+            "level": 2,
+            "text": "À deux coupsde pédale."
+          },
+          {
+            "level": 3,
+            "text": "Nous trouver · exemple"
+          },
+          {
+            "level": 3,
+            "text": "Les horaires · exemple"
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": [
+          {
+            "tag": "A",
+            "text": "Les réparations",
+            "width": 104.40625,
+            "height": 21.6875
+          },
+          {
+            "tag": "A",
+            "text": "L'atelier",
+            "width": 52.421875,
+            "height": 21.6875
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          }
+        ]
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "rayon libre.Nom d'atelier proposé",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Les réparations",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "L'atelier",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Prendre rendez-vous",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "to-slots",
+          "text": "Choisir mon créneau",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une révision générale",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une réparation des freins ou vitesses",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une réparation de roue ou crevaison",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "privacy-toggle",
+          "text": "Vos données dans cette démo",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Retour en haut ↑",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "top",
+          "text": "Aller au contenuPremière proposition · nom, informations et rendez-vous d'exempl",
+          "focus_visible_match": false,
+          "outline": "rgb(40, 37, 31) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "rayon libre.Nom d'atelier proposé",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Les réparations",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "390-premiere.png",
+        "full": "390-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Rayon libre — atelier vélo · proposition",
+        "lang": "fr",
+        "client_width": 390,
+        "scroll_width": 390,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Un véloqui roule.Et vous avec."
+          },
+          {
+            "level": 2,
+            "text": "Prenonsrendez-vous."
+          },
+          {
+            "level": 3,
+            "text": "Quand passez-vous ?"
+          },
+          {
+            "level": 3,
+            "text": "Et pour vous joindre ?"
+          },
+          {
+            "level": 3,
+            "text": "Votre demande est prête."
+          },
+          {
+            "level": 2,
+            "text": "Le petit réglage.Le grand entretien."
+          },
+          {
+            "level": 3,
+            "text": "Révision générale"
+          },
+          {
+            "level": 3,
+            "text": "Freins & vitesses"
+          },
+          {
+            "level": 3,
+            "text": "Roues & crevaisons"
+          },
+          {
+            "level": 2,
+            "text": "Vous déposez.On s'en occupe."
+          },
+          {
+            "level": 3,
+            "text": "Un créneau de dépôt"
+          },
+          {
+            "level": 3,
+            "text": "Un diagnostic ensemble"
+          },
+          {
+            "level": 3,
+            "text": "Le retour en selle"
+          },
+          {
+            "level": 2,
+            "text": "À deux coupsde pédale."
+          },
+          {
+            "level": 3,
+            "text": "Nous trouver · exemple"
+          },
+          {
+            "level": 3,
+            "text": "Les horaires · exemple"
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": [
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          }
+        ]
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "rayon libre.Nom d'atelier proposé",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Prendre rendez-vous",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "to-slots",
+          "text": "Choisir mon créneau",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une révision générale",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une réparation des freins ou vitesses",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une réparation de roue ou crevaison",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "privacy-toggle",
+          "text": "Vos données dans cette démo",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Retour en haut ↑",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "top",
+          "text": "Aller au contenuPremière proposition · nom, informations et rendez-vous d'exempl",
+          "focus_visible_match": false,
+          "outline": "rgb(40, 37, 31) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "rayon libre.Nom d'atelier proposé",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Prendre rendez-vous",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "to-slots",
+          "text": "Choisir mon créneau",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "320-premiere.png",
+        "full": "320-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Rayon libre — atelier vélo · proposition",
+        "lang": "fr",
+        "client_width": 320,
+        "scroll_width": 320,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Un véloqui roule.Et vous avec."
+          },
+          {
+            "level": 2,
+            "text": "Prenonsrendez-vous."
+          },
+          {
+            "level": 3,
+            "text": "Quand passez-vous ?"
+          },
+          {
+            "level": 3,
+            "text": "Et pour vous joindre ?"
+          },
+          {
+            "level": 3,
+            "text": "Votre demande est prête."
+          },
+          {
+            "level": 2,
+            "text": "Le petit réglage.Le grand entretien."
+          },
+          {
+            "level": 3,
+            "text": "Révision générale"
+          },
+          {
+            "level": 3,
+            "text": "Freins & vitesses"
+          },
+          {
+            "level": 3,
+            "text": "Roues & crevaisons"
+          },
+          {
+            "level": 2,
+            "text": "Vous déposez.On s'en occupe."
+          },
+          {
+            "level": 3,
+            "text": "Un créneau de dépôt"
+          },
+          {
+            "level": 3,
+            "text": "Un diagnostic ensemble"
+          },
+          {
+            "level": 3,
+            "text": "Le retour en selle"
+          },
+          {
+            "level": 2,
+            "text": "À deux coupsde pédale."
+          },
+          {
+            "level": 3,
+            "text": "Nous trouver · exemple"
+          },
+          {
+            "level": 3,
+            "text": "Les horaires · exemple"
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": [
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 18,
+            "height": 18
+          }
+        ]
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "rayon libre.Nom d'atelier proposé",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Prendre rendez-vous",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "to-slots",
+          "text": "Choisir mon créneau",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une révision générale",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une réparation des freins ou vitesses",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Choisir une réparation de roue ou crevaison",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "privacy-toggle",
+          "text": "Vos données dans cette démo",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Retour en haut ↑",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "top",
+          "text": "Aller au contenuPremière proposition · nom, informations et rendez-vous d'exempl",
+          "focus_visible_match": false,
+          "outline": "rgb(40, 37, 31) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "rayon libre.Nom d'atelier proposé",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Prendre rendez-vous",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "to-slots",
+          "text": "Choisir mon créneau",
+          "focus_visible_match": true,
+          "outline": "rgb(184, 51, 34) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "browser_executable": "/usr/bin/chromium",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T16:37:09.403060+00:00",
+  "evidence_sha256": {
+    "1440-complete.png": "ee171e0f6f59c8e2a83a04e77ffaa75cdfaff67385b4da97cf0a7aadd24e1888",
+    "1440-premiere.png": "ba492500bd64d52fbf46093721af24d2d50379870c6157c1cd5f75f3a2894323",
+    "320-complete.png": "51143efff7d6119fffc8ff5629a9d7870a2b7eb1b6396f0d9e85869e12482234",
+    "320-premiere.png": "5ee410f91e1e0c9e114cb104719255d682eecc43f27adc381771bd86d198e8ec",
+    "390-complete.png": "cd1670276dbad5fbbe64acd3dd56749bcc442290cbe6ded6a70cf623e5d541ee",
+    "390-premiere.png": "3b274d39181b45d7a1f0cb2de66c5fb83e4943213103c3463d26a25adc8d9ca2"
+  }
+}

@@ -1,0 +1,516 @@
+{
+  "started_at": "2026-10-10T12:21:05.148828+00:00",
+  "output_sha256": {
+    "index.html": "93a25f780008c38a72d47b42fad5665ee84ee73cc653ea310a4bfd1616cbea1a"
+  },
+  "status": "requires_manual_review",
+  "functional_tests": "NOT-VERIFIED: actions et erreurs propres à la page à rejouer séparément",
+  "limitations": [
+    "Les observations automatiques ne sont pas un audit WCAG complet.",
+    "Le parcours principal et la vérité du contenu nécessitent une vérification séparée.",
+    "Le focus et les petites cibles sont des indices à inspecter, pas des verdicts automatiques."
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "http_status": 200,
+      "screenshots": {
+        "first": "1440-premiere.png",
+        "full": "1440-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Fixture du contrôleur",
+        "lang": "fr",
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Fixture technique"
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "390-premiere.png",
+        "full": "390-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Fixture du contrôleur",
+        "lang": "fr",
+        "client_width": 390,
+        "scroll_width": 390,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Fixture technique"
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "320-premiere.png",
+        "full": "320-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Fixture du contrôleur",
+        "lang": "fr",
+        "client_width": 320,
+        "scroll_width": 320,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Fixture technique"
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Exécuter",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Fixture techniqueNomExécuter",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "nom",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(0, 0, 255) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "browser_executable": "/usr/bin/chromium",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T12:21:10.673644+00:00",
+  "evidence_sha256": {
+    "1440-complete.png": "78268b2f0eddf3ec4686e4cd24876559f290ac601a3ea77426f12205cad821b8",
+    "1440-premiere.png": "78268b2f0eddf3ec4686e4cd24876559f290ac601a3ea77426f12205cad821b8",
+    "320-complete.png": "c280ea32f55c6b0532fbac12c8a5dc1eae081018106381d57bd7a48821e68871",
+    "320-premiere.png": "c280ea32f55c6b0532fbac12c8a5dc1eae081018106381d57bd7a48821e68871",
+    "390-complete.png": "2b34f9e5f331de22155b8de624dc4b4e7f223b9044c82d9cd029a627a320f253",
+    "390-premiere.png": "2b34f9e5f331de22155b8de624dc4b4e7f223b9044c82d9cd029a627a320f253"
+  }
+}

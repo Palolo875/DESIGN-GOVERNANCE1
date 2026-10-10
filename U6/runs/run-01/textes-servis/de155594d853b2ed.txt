@@ -1,0 +1,31 @@
+ROUTE: DIRECTION/CREATIVE-BOOT (adresse : direction/diriger#lancement)
+OWNER: agent/chemins.md
+HEADING: ### DIRECTION/CREATIVE-BOOT — activer la boucle avant le premier pixel
+---
+### DIRECTION/CREATIVE-BOOT — activer la boucle avant le premier pixel
+
+Pour une décision visuelle ouverte, active avant le build un **Creative Boot** court. Il ne crée ni mode, ni route, ni gate, ni statut, ni score esthétique, ni champ obligatoire concurrent de `RUN_CARD`.
+
+Le boot tient au maximum les décisions suivantes :
+
+```text
+DECISION: décision que le premier rendu doit permettre de prendre
+PROMISE: promesse à rendre perceptible
+PROOF-OBJECT: objet, état, donnée ou relation qui rend la promesse crédible
+GESTURE: premier geste ou action attendu
+MODAL: ce que n’importe quelle IA produirait ici (structure, palette, typo, assets) ; se nomme avec les marqueurs de vague datés de `SAVOIR/TOOLS`
+PARTI: garder ou s’écarter — où et pourquoi au regard de la thèse ; projeté dans `direction.anti_direction`
+STRUCTURAL-TENSION: axe(s) de tension selon BIBLIOTHEQUE (un ou deux, `BIBLIOTHEQUE/TENSION`)
+STRUCTURAL-SIGNATURE: relation que cette structure rend possible au-delà de l’héritage
+CFT-TARGETS: jusqu’à trois qualités créatives prioritaires pour la construction
+FABRICATION: moyens réels (assets, marque, polices, composants, génération, sources, contenu) → plafond par couche (structure, typo, couleur, assets, contenu) → construire, construire avec plafond déclaré, demander X ou changer de route ; inclut la base de l’ancre et ce qu’elle ne permet pas d’affirmer
+FIRST-OBJECT: artefact complet construit pour rendre les choix jugeables
+DOMINANT-DEFECT: défaut perceptuel ou structurel recherché en premier
+```
+
+`DIRECTION` possède la promesse, l’objet, le geste, `MODAL`/`PARTI` et `FABRICATION` ; `BIBLIOTHEQUE` possède la tension et la signature structurelles ; `SAVOIR/CRAFT` possède le jugement des qualités de présence et de fabrication ; `ACTION` possède l’observation, la preuve, la correction et la clôture. Les `CFT-TARGETS` sont un foyer de construction, pas un score : les autres dimensions restent applicables lorsqu’un risque ou une décision les active et ne deviennent `N/A-JUSTIFIED` que si elles sont réellement hors périmètre.
+
+> [Déjà dans le noyau de la skill, section « 4. Moyens et vérité » : « Avant le premier rendu, le boot doit conduire à un artefact complet, c… » — --complet pour l'afficher ici]
+
+Sa valeur se juge à sa conséquence sur le premier objet, non à la complétude du formulaire ; il peut être omis pour un delta strictement local.
+

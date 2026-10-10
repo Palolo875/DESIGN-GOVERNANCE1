@@ -1,0 +1,176 @@
+{
+  "started_at": "2026-10-10T16:07:53.090315+00:00",
+  "run": "run-05",
+  "viewports": [
+    {
+      "width": 1440,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Action principale : arrivée sur le formulaire de créneau et focus sur son titre."
+        },
+        {
+          "name": "Erreur de créneau",
+          "status": "PASS",
+          "observation": "Heure manquante refusée ; message associé et focus sur une heure disponible."
+        },
+        {
+          "name": "Choix et clavier des créneaux",
+          "status": "PASS",
+          "observation": "Radios natifs utilisables au clavier ; le créneau désactivé de 14 h est sauté."
+        },
+        {
+          "name": "Transmission du choix",
+          "status": "PASS",
+          "observation": "Service, jour et heure transmis à la seconde étape ; focus sur le nom."
+        },
+        {
+          "name": "Erreur coordonnées vides",
+          "status": "PASS",
+          "observation": "Coordonnées vides refusées ; erreurs locales et focus sur le premier champ."
+        },
+        {
+          "name": "Erreur e-mail et conservation",
+          "status": "PASS",
+          "observation": "E-mail invalide refusé ; nom et choix conservés."
+        },
+        {
+          "name": "Retour et reprise",
+          "status": "PASS",
+          "observation": "Aller-retour entre étapes sans perdre le créneau ou les coordonnées."
+        },
+        {
+          "name": "Préparation locale et résultat",
+          "status": "PASS",
+          "observation": "Récapitulatif exact avec focus et statut de démonstration sans réservation ou envoi."
+        },
+        {
+          "name": "Recommencer",
+          "status": "PASS",
+          "observation": "Nouvel essai : formulaire réinitialisé et focus rendu au premier choix."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Action principale : arrivée sur le formulaire de créneau et focus sur son titre."
+        },
+        {
+          "name": "Erreur de créneau",
+          "status": "PASS",
+          "observation": "Heure manquante refusée ; message associé et focus sur une heure disponible."
+        },
+        {
+          "name": "Choix et clavier des créneaux",
+          "status": "PASS",
+          "observation": "Radios natifs utilisables au clavier ; le créneau désactivé de 14 h est sauté."
+        },
+        {
+          "name": "Transmission du choix",
+          "status": "PASS",
+          "observation": "Service, jour et heure transmis à la seconde étape ; focus sur le nom."
+        },
+        {
+          "name": "Erreur coordonnées vides",
+          "status": "PASS",
+          "observation": "Coordonnées vides refusées ; erreurs locales et focus sur le premier champ."
+        },
+        {
+          "name": "Erreur e-mail et conservation",
+          "status": "PASS",
+          "observation": "E-mail invalide refusé ; nom et choix conservés."
+        },
+        {
+          "name": "Retour et reprise",
+          "status": "PASS",
+          "observation": "Aller-retour entre étapes sans perdre le créneau ou les coordonnées."
+        },
+        {
+          "name": "Préparation locale et résultat",
+          "status": "PASS",
+          "observation": "Récapitulatif exact avec focus et statut de démonstration sans réservation ou envoi."
+        },
+        {
+          "name": "Recommencer",
+          "status": "PASS",
+          "observation": "Nouvel essai : formulaire réinitialisé et focus rendu au premier choix."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Action principale : arrivée sur le formulaire de créneau et focus sur son titre."
+        },
+        {
+          "name": "Erreur de créneau",
+          "status": "PASS",
+          "observation": "Heure manquante refusée ; message associé et focus sur une heure disponible."
+        },
+        {
+          "name": "Choix et clavier des créneaux",
+          "status": "PASS",
+          "observation": "Radios natifs utilisables au clavier ; le créneau désactivé de 14 h est sauté."
+        },
+        {
+          "name": "Transmission du choix",
+          "status": "PASS",
+          "observation": "Service, jour et heure transmis à la seconde étape ; focus sur le nom."
+        },
+        {
+          "name": "Erreur coordonnées vides",
+          "status": "PASS",
+          "observation": "Coordonnées vides refusées ; erreurs locales et focus sur le premier champ."
+        },
+        {
+          "name": "Erreur e-mail et conservation",
+          "status": "PASS",
+          "observation": "E-mail invalide refusé ; nom et choix conservés."
+        },
+        {
+          "name": "Retour et reprise",
+          "status": "PASS",
+          "observation": "Aller-retour entre étapes sans perdre le créneau ou les coordonnées."
+        },
+        {
+          "name": "Préparation locale et résultat",
+          "status": "PASS",
+          "observation": "Récapitulatif exact avec focus et statut de démonstration sans réservation ou envoi."
+        },
+        {
+          "name": "Recommencer",
+          "status": "PASS",
+          "observation": "Nouvel essai : formulaire réinitialisé et focus rendu au premier choix."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T16:07:59.198597+00:00",
+  "passed": 30,
+  "failed": 0
+}

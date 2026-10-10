@@ -1,0 +1,82 @@
+- link "Aller au contenu":
+  - /url: "#contenu"
+- banner:
+  - link "Pli, accueil":
+    - /url: "#"
+    - text: pli.
+  - navigation "Navigation principale":
+    - button "Essayer la démo"
+- main:
+  - region "Du travail livré à la facture prête.":
+    - text: SaaS de facturation · proposition
+    - heading "Du travail livré à la facture prête." [level=1]:
+      - text: Du travail livré à la
+      - emphasis: facture prête.
+    - paragraph: Vous faites votre métier. Pli met votre prestation, vos montants et votre client au clair, sur une seule facture.
+    - button "Composer une facture"
+    - paragraph: Démo locale Sans compte Aucun envoi
+    - strong: UNE PRESTATION → UNE FACTURE
+    - text: Données d’exemple Calcul local
+    - article "Aperçu de la facture d’exemple":
+      - text: atelier noa Brouillon d’exemple
+      - heading "Facture" [level=2]
+      - paragraph: EX-2026-001 · 10 octobre 2026
+      - text: À l’attention de
+      - strong: Studio Lundi
+      - paragraph: Client d’exemple
+      - text: Émise par
+      - strong: Atelier Noa
+      - paragraph: Prestataire d’exemple
+      - text: Prestation Montant HT
+      - strong: Direction artistique
+      - text: 8 h × 75,00 € 600,00 € Total HT 600,00 € TVA illustrative · 20 % 120,00 € Total TTC 720,00 €
+      - paragraph: Exemple de présentation · sans valeur de facture légale
+    - button "Modifier cet exemple"
+    - text: Changez les heures. Le total suit.
+  - strong: La clarté, ligne après ligne.
+  - text: Montants recalculés Saisie corrigible Brouillon téléchargeable
+  - region "Une mission. Un fil à garder.":
+    - text: Le produit, dans votre journée
+    - heading "Une mission. Un fil à garder." [level=2]
+    - paragraph: "La direction proposée pour Pli : garder les étapes d’une mission ensemble, du devis au suivi. Ici, vous pouvez déjà tester la composition d’une facture."
+    - text: 01 /
+    - heading "Poser le cadre" [level=3]
+    - paragraph: Décrire la prestation et son prix dans un devis. Fonction envisagée, à confirmer.
+    - text: 02 /
+    - heading "Mettre en facture" [level=3]
+    - paragraph: Retrouver le client, saisir les heures et vérifier le total. C’est l’étape que cette démo vous laisse essayer.
+    - text: 03 /
+    - heading "Garder une vue claire" [level=3]
+    - paragraph: Suivre les échéances et les règlements. Fonction envisagée, à confirmer.
+    - paragraph: Périmètre du produit illustratif. Aucun suivi réel, transfert de devis ou règlement dans ce prototype.
+  - region "La place pour votre métier. Le cadre pour vos factures.":
+    - text: Une offre de départ
+    - heading "La place pour votre métier. Le cadre pour vos factures." [level=2]
+    - paragraph: Une formule simple pour démarrer la discussion sur votre offre. Le prix et les fonctions ci-contre sont indicatifs.
+    - text: "12"
+    - superscript: €
+    - text: HT / mois · tarif d’exemple
+    - list:
+      - listitem: ✓ Devis et factures — envisagés
+      - listitem: ✓ Répertoire clients — envisagé
+      - listitem: ✓ Suivi des échéances — envisagé
+    - button "Tester la facture d’exemple"
+    - paragraph: Offre à confirmer · aucun abonnement souscrit
+  - region "Les choses au clair.":
+    - text: Avant de commencer
+    - heading "Les choses au clair." [level=2]
+    - paragraph: Cette première proposition montre une direction de produit et de page.
+    - group: Que puis-je faire dans cette démo ? +
+    - group: Est-ce une facture que je peux envoyer ? +
+    - group: Mes données sont-elles enregistrées ? +
+    - group: L’offre à 12 € est-elle disponible ? +
+  - region "Essayer le produit":
+    - heading "Commencez par une facture." [level=2]
+    - paragraph: Une prestation, quelques chiffres. Voyez ce que ça donne.
+    - button "Composer une facture"
+- contentinfo:
+  - link "Pli, retour en haut":
+    - /url: "#"
+    - text: pli.
+  - paragraph: Pli est une marque d’exemple pour cette proposition. Produit, offre et données illustratifs. Démonstration locale, sans compte, envoi ni paiement.
+- status

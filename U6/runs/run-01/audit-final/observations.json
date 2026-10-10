@@ -1,0 +1,673 @@
+{
+  "started_at": "2026-10-10T12:41:07.366780+00:00",
+  "output_sha256": {
+    "OFL-manrope.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+    "capture_page.py": "d53c7977c613aefc64fce55b08f97803e1beb7c7852044882d9889c82b7b92b0",
+    "captures/after-1440-first.png": "3aeda8eedd06fef965fafe43ee0cb091737c69008248ff2851007c2eb86bf5c3",
+    "captures/after-1440-full.png": "2c9c5ebb9cb5e02c764d3e66e607a322eb260d1cca4d974c392b612c67ded2c0",
+    "captures/after-320-full.png": "dc51214f35b366f8eff7abcc9d6ca4d73c4ec856ce4aab264c14cf7eb9d17087",
+    "captures/after-390-first.png": "d41807a9a6b3f91e4d2ed335d7aa4240f26c0d381acb3070d0fa38fd3a5c6d33",
+    "captures/after-390-full.png": "2db3dac86b32d63d1eb6e88496973d060295c96ede9bb3dc6b45108c9c660acc",
+    "captures/before-1440-first.png": "2a21249d06f7ba416d7c4f4aa795f79167bceed109944be8e8929d21d7c9f4fd",
+    "captures/before-1440-full.png": "9a63927a149338e0393e12c83fc4d7cdf861998aa930ba56572326ce1c9496c7",
+    "captures/before-320-full.png": "f010f15cbaead3c9b74180f3760d8f95937464b3f9286b711c19f6f63c4bf8b7",
+    "captures/before-390-first.png": "cca9c35f280833d04bd7b8927edd305d6c247b575a2b454d06947c3cf0fff9b1",
+    "captures/before-390-full.png": "9b51568076d4eda5e1a775cd815f07e264da99f570883e404dbdefee9adb18cd",
+    "captures/error-1440.png": "5c969ad6332f14155322ab563f94d1423a8244271a4f28e17abe49725b293180",
+    "captures/error-320.png": "7813234a3731d9eb28f0ed113c87820633eb81b7af065d209869778b0a04c205",
+    "captures/error-390.png": "56ff0547b021c119a6799f3e5a9e36c471c7c46430a797c363c00d38bcf38b37",
+    "captures/final-1440-first.png": "b78db664629ad906e2cf885d985cf8aa0fd89318a5130eb56febc680ac630f07",
+    "captures/final-1440-full.png": "eb9f5e2f6b918f3009ba9efe1cdd1943e56dc65e379b6188230ca579234e8852",
+    "captures/final-320-full.png": "6b0e91d4f553812495b425f6b083fec0fa88e479ee8d4cfb8f5ef343b1f14044",
+    "captures/final-390-first.png": "b3e5883df0956a5ec7b7ead7aed64d260b7c74ad4644a202714667375d5700ca",
+    "captures/final-390-full.png": "653ce4d84a467ac89516b8ffbe404fe8359324c930781edfe8f6605b56668cd5",
+    "captures/long-preview-390.png": "0a880bd71f99047f159ec0cc28a5bb74fdc323a9955f7dfd89e262b299521f76",
+    "captures/preview-1440.png": "3654ab63f4ccbc5e07c8cb7a49b2dcb6044e4c519f42c1fbab7d4ee73e26c7a5",
+    "captures/preview-320.png": "58905762badc46c5e1a4b5720a6086991ef51fc5047551106a136696618e222a",
+    "captures/preview-390.png": "02325636aa902b7cc97adc9a3bbbc336c33ceb3b970dd4bb6f365e79aaeaa780",
+    "captures/type-study.png": "bed7617de09cac563bda84b5a0d93bbde03da9e65edee87e0c165280f79f8d6a",
+    "download-observed.txt": "b6bb413a374ff3471b1057507caf34e587a9e9d90ed397ab16fbcb5efe738452",
+    "functional-tests-initial.json": "4e6f22ca0a377cfc9a80a5dade7acabb452fa57ee9383b96e184656befd7be83",
+    "functional-tests-second.json": "b2f023e0fdb2ebcf99e973cd2d96af38a489909ee5f55a42d45488ea77b30b65",
+    "functional-tests.json": "2a65353e5ce9edad77d24dcce6496220f6cd09fae145708aec9af15d1b8e175e",
+    "index.html": "a284dc24c653245ebe516d8c0b190693eb8b3c3f4235cb7c09399f40ac248c29",
+    "response.md": "cff1073b7ddba26207544fc53642942cf8e1cad804bf380cdc110e7c4c7539f0",
+    "run-card.json": "851ccf793a799bae23ae8df7a2c81c1efbe53069e897f83599248883ffb99e47",
+    "supplemental-contrast.json": "be3c1b6bc2181a67ee3f3065ea976e8a387a7657fbefcec62e48e13142edf22d",
+    "trace.md": "d5d071c2e81fbe14f78c25d6ab49cbb9351ec68bf681563b6d836da91a09a968",
+    "verify.py": "535416c64612a9876b08c38077f73540a4c64ad5b9c9c621f1b9a44a48a0f8d0"
+  },
+  "status": "requires_manual_review",
+  "functional_tests": "NOT-VERIFIED: actions et erreurs propres à la page à rejouer séparément",
+  "limitations": [
+    "Les observations automatiques ne sont pas un audit WCAG complet.",
+    "Le parcours principal et la vérité du contenu nécessitent une vérification séparée.",
+    "Le focus et les petites cibles sont des indices à inspecter, pas des verdicts automatiques."
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "http_status": 200,
+      "screenshots": {
+        "first": "1440-premiere.png",
+        "full": "1440-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Sillage — le projet est livré, la facture aussi",
+        "lang": "fr",
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Le projet est livré.La facture aussi."
+          },
+          {
+            "level": 2,
+            "text": "Votre activité avance.Vos factures suivent."
+          },
+          {
+            "level": 3,
+            "text": "Posez les bons montants."
+          },
+          {
+            "level": 3,
+            "text": "Gardez une vue claire."
+          },
+          {
+            "level": 3,
+            "text": "Passez au projet suivant."
+          },
+          {
+            "level": 2,
+            "text": "Moins de gestion.Plus de placepour votre métier."
+          },
+          {
+            "level": 2,
+            "text": "Les choses à savoir."
+          },
+          {
+            "level": 2,
+            "text": "Une facture au clair.Et la suite devant vous."
+          },
+          {
+            "level": 2,
+            "text": "Votre aperçu est prêt."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [
+          {
+            "text": "sillage.Nom de marque d’exemple",
+            "href": "#"
+          },
+          {
+            "text": "sillage.",
+            "href": "#"
+          }
+        ],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "sillage.Nom de marque d’exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Le fonctionnement",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "L’offre",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Essayer la démo →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Essayer la facture →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Découvrir l’offre",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "client",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "service",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "quantity",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "rate",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SELECT",
+          "id": "tax",
+          "text": "20 %10 %5,5 %0 %",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "prepare",
+          "text": "Préparer l’aperçu →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Tester avec la facture d’exemple →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "À qui s’adresse cette proposition ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je faire dans la démo ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "390-premiere.png",
+        "full": "390-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Sillage — le projet est livré, la facture aussi",
+        "lang": "fr",
+        "client_width": 390,
+        "scroll_width": 390,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Le projet est livré.La facture aussi."
+          },
+          {
+            "level": 2,
+            "text": "Votre activité avance.Vos factures suivent."
+          },
+          {
+            "level": 3,
+            "text": "Posez les bons montants."
+          },
+          {
+            "level": 3,
+            "text": "Gardez une vue claire."
+          },
+          {
+            "level": 3,
+            "text": "Passez au projet suivant."
+          },
+          {
+            "level": 2,
+            "text": "Moins de gestion.Plus de placepour votre métier."
+          },
+          {
+            "level": 2,
+            "text": "Les choses à savoir."
+          },
+          {
+            "level": 2,
+            "text": "Une facture au clair.Et la suite devant vous."
+          },
+          {
+            "level": 2,
+            "text": "Votre aperçu est prêt."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [
+          {
+            "text": "sillage.Nom de marque d’exemple",
+            "href": "#"
+          },
+          {
+            "text": "sillage.",
+            "href": "#"
+          }
+        ],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "sillage.Nom de marque d’exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Essayer la démo →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Essayer la facture →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Découvrir l’offre",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "client",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "service",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "quantity",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "rate",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SELECT",
+          "id": "tax",
+          "text": "20 %10 %5,5 %0 %",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "prepare",
+          "text": "Préparer l’aperçu →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Tester avec la facture d’exemple →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "À qui s’adresse cette proposition ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je faire dans la démo ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "La facturation électronique est-elle prévue ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Le prix et les fonctions sont-ils définitifs ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "320-premiere.png",
+        "full": "320-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Sillage — le projet est livré, la facture aussi",
+        "lang": "fr",
+        "client_width": 320,
+        "scroll_width": 320,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Le projet est livré.La facture aussi."
+          },
+          {
+            "level": 2,
+            "text": "Votre activité avance.Vos factures suivent."
+          },
+          {
+            "level": 3,
+            "text": "Posez les bons montants."
+          },
+          {
+            "level": 3,
+            "text": "Gardez une vue claire."
+          },
+          {
+            "level": 3,
+            "text": "Passez au projet suivant."
+          },
+          {
+            "level": 2,
+            "text": "Moins de gestion.Plus de placepour votre métier."
+          },
+          {
+            "level": 2,
+            "text": "Les choses à savoir."
+          },
+          {
+            "level": 2,
+            "text": "Une facture au clair.Et la suite devant vous."
+          },
+          {
+            "level": 2,
+            "text": "Votre aperçu est prêt."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [
+          {
+            "text": "sillage.Nom de marque d’exemple",
+            "href": "#"
+          },
+          {
+            "text": "sillage.",
+            "href": "#"
+          }
+        ],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "sillage.Nom de marque d’exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Essayer la démo →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Essayer la facture →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Découvrir l’offre",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "client",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "service",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "quantity",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "rate",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SELECT",
+          "id": "tax",
+          "text": "20 %10 %5,5 %0 %",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "prepare",
+          "text": "Préparer l’aperçu →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Tester avec la facture d’exemple →",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "À qui s’adresse cette proposition ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je faire dans la démo ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "La facturation électronique est-elle prévue ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Le prix et les fonctions sont-ils définitifs ?",
+          "focus_visible_match": true,
+          "outline": "rgb(36, 113, 90) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "browser_executable": "/usr/bin/chromium",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T12:41:13.838447+00:00",
+  "evidence_sha256": {
+    "1440-complete.png": "eb9f5e2f6b918f3009ba9efe1cdd1943e56dc65e379b6188230ca579234e8852",
+    "1440-premiere.png": "223cf3e1cfb50cdbe9ee40d2e28f058e28f11b854a20d1235abe8cdf1de9e7c6",
+    "320-complete.png": "6b0e91d4f553812495b425f6b083fec0fa88e479ee8d4cfb8f5ef343b1f14044",
+    "320-premiere.png": "29045a91e67d8e4a38415898717d39b417b5a2fbd1c42e7b4090f9db195afd53",
+    "390-complete.png": "653ce4d84a467ac89516b8ffbe404fe8359324c930781edfe8f6605b56668cd5",
+    "390-premiere.png": "b3e5883df0956a5ec7b7ead7aed64d260b7c74ad4644a202714667375d5700ca"
+  }
+}

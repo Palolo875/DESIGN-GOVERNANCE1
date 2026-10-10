@@ -1,0 +1,325 @@
+{
+  "artifact": "index.html",
+  "sha256": "e6d5ed677986691617d1d3314a12c33990e62b79ec8eaf82337440dc3960e45a",
+  "observed_at": "2026-10-10T12:53:44.244072+00:00",
+  "runtime": "Chromium / Python Playwright 1.56.0",
+  "journeys": [
+    {
+      "name": "Responsive nominal",
+      "selectors": [
+        "html",
+        "body"
+      ],
+      "actions": [
+        "Rendu 1440×1000 et captures",
+        "Rendu 390×844 et captures",
+        "Mesure à 320px et 768px"
+      ],
+      "observations": {
+        "widths": [
+          {
+            "viewport": 390,
+            "scroll": 390
+          },
+          {
+            "viewport": 320,
+            "scroll": 320
+          },
+          {
+            "viewport": 768,
+            "scroll": 768
+          }
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Action principale",
+      "selectors": [
+        "#primary-action",
+        "#demo",
+        "#client"
+      ],
+      "actions": [
+        "Clic sur Composer une facture"
+      ],
+      "observations": {
+        "dialog_open": true,
+        "focus": "client"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Erreurs et saisie conservée",
+      "selectors": [
+        "#client",
+        "#service",
+        "#amount",
+        ".form-submit",
+        "#errors"
+      ],
+      "actions": [
+        "Vider client et prestation",
+        "Saisir -12 €",
+        "Soumettre"
+      ],
+      "observations": {
+        "summary": "3 champs sont à corriger. Votre saisie est conservée.",
+        "invalid": 3,
+        "focus": "client",
+        "amount_preserved": "-12"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Correction et calcul avec décimales",
+      "selectors": [
+        "#client",
+        "#service",
+        "#amount",
+        "#tax",
+        ".form-submit",
+        "#success",
+        "#invoice-total"
+      ],
+      "actions": [
+        "Corriger avec un contenu long",
+        "Saisir 1234,56 € HT à 20 %",
+        "Soumettre"
+      ],
+      "observations": {
+        "success": true,
+        "total": "1 481,47 €",
+        "preview_total": "1 481,47 €",
+        "tax": "246,91 €",
+        "focus": "success-title"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Téléchargement local",
+      "selectors": [
+        "#download"
+      ],
+      "actions": [
+        "Télécharger le récapitulatif texte",
+        "Lire le fichier obtenu"
+      ],
+      "observations": {
+        "filename": "folio-recapitulatif-exemple.txt",
+        "contains_disclaimer": true,
+        "contains_total": true
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Retour à la modification",
+      "selectors": [
+        "#edit",
+        "#client",
+        "#amount"
+      ],
+      "actions": [
+        "Cliquer Modifier"
+      ],
+      "observations": {
+        "client": "La Maison des projets et des métiers créatifs — exemple de client au nom long",
+        "amount": "1234,56",
+        "focus": "client"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Escape et restitution du focus",
+      "selectors": [
+        "#demo",
+        "#primary-action"
+      ],
+      "actions": [
+        "Appuyer sur Escape"
+      ],
+      "observations": {
+        "closed": true,
+        "focus": "primary-action"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Contenu long à 320px",
+      "selectors": [
+        "#invoice-client",
+        "#invoice-service",
+        "#status-document"
+      ],
+      "actions": [
+        "Inspecter la page après données longues à 320px"
+      ],
+      "observations": {
+        "viewport": 320,
+        "scroll": 320
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Erreur mobile dans le dialog",
+      "selectors": [
+        "#demo",
+        "#amount",
+        ".form-submit"
+      ],
+      "actions": [
+        "Ouvrir à 320px",
+        "Saisir abc",
+        "Soumettre"
+      ],
+      "observations": {
+        "dialog": {
+          "width": 282,
+          "scroll": 282,
+          "left": 18,
+          "right": 302
+        },
+        "error": "Saisissez un montant entre 0,01 et 100 000 €, avec deux décimales maximum."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Dialog au clavier",
+      "selectors": [
+        "#primary-action",
+        "#client",
+        "#service",
+        "#amount",
+        "#tax",
+        ".form-submit",
+        "#close-demo"
+      ],
+      "actions": [
+        "Focus du CTA puis Enter",
+        "8 Tab dans le dialog",
+        "Shift+Tab",
+        "Escape"
+      ],
+      "observations": {
+        "stops": [
+          {
+            "id": "client",
+            "tag": "INPUT",
+            "outline": "solid",
+            "width": "3px"
+          },
+          {
+            "id": "service",
+            "tag": "INPUT",
+            "outline": "solid",
+            "width": "3px"
+          },
+          {
+            "id": "amount",
+            "tag": "INPUT",
+            "outline": "solid",
+            "width": "3px"
+          },
+          {
+            "id": "tax",
+            "tag": "SELECT",
+            "outline": "solid",
+            "width": "3px"
+          },
+          {
+            "id": "",
+            "tag": "BUTTON",
+            "outline": "solid",
+            "width": "3px"
+          },
+          {
+            "id": "",
+            "tag": "BODY",
+            "outline": "none",
+            "width": "3px"
+          },
+          {
+            "id": "close-demo",
+            "tag": "BUTTON",
+            "outline": "solid",
+            "width": "3px"
+          },
+          {
+            "id": "client",
+            "tag": "INPUT",
+            "outline": "solid",
+            "width": "3px"
+          }
+        ],
+        "shift_tab_focus": "client",
+        "returned_focus": "primary-action"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "États de parcours",
+      "selectors": [
+        "[data-step=\"1\"]",
+        "[data-step=\"2\"]",
+        "#status-pill"
+      ],
+      "actions": [
+        "Cliquer Suivre puis Retrouver"
+      ],
+      "observations": {
+        "states": [
+          "À régler",
+          "Réglée"
+        ],
+        "pressed": 1
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "FAQ clavier",
+      "selectors": [
+        "summary",
+        "details"
+      ],
+      "actions": [
+        "Focus première question",
+        "Enter"
+      ],
+      "observations": {
+        "opened": true
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Mouvement réduit",
+      "selectors": [
+        "html"
+      ],
+      "actions": [
+        "Activer prefers-reduced-motion: reduce"
+      ],
+      "observations": {
+        "scroll_behavior": "auto"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Isolation réseau et erreurs JS",
+      "selectors": [
+        "document"
+      ],
+      "actions": [
+        "Observer les requêtes et erreurs pendant tous les parcours"
+      ],
+      "observations": {
+        "external_requests": [],
+        "javascript_errors": []
+      },
+      "result": "PASS"
+    }
+  ],
+  "limits": [
+    "Auteur seul ; pas de participant ni de lecteur d’écran.",
+    "Aucun compte, envoi, paiement ou conformité fiscale testé."
+  ]
+}

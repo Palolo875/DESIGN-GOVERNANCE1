@@ -1,0 +1,606 @@
+{
+  "runtime": "Python Playwright 1.56.0 / Chromium / serveur local 127.0.0.1 à port éphémère",
+  "observed_at": "2026-10-10T16:18:55.677249+00:00",
+  "artifact": "index.html",
+  "version": "final",
+  "tests": [
+    {
+      "name": "Absence de débordement nominal",
+      "selectors": [
+        "html",
+        "body"
+      ],
+      "actions": [
+        "Mesurer scrollWidth à 1440, 390 et 320 px"
+      ],
+      "observations": [
+        {
+          "width": 1440,
+          "scroll": 1440,
+          "body": 1440
+        },
+        {
+          "width": 390,
+          "scroll": 390,
+          "body": 390
+        },
+        {
+          "width": 320,
+          "scroll": 320,
+          "body": 320
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Clavier : lien évitement, tabulation, radios et action",
+      "selectors": [
+        ".skip",
+        "input[name=service]",
+        "#to-slots",
+        "#slots-title"
+      ],
+      "actions": [
+        "Tab puis Enter sur le lien d’évitement",
+        "17 tabulations relevées",
+        "ArrowDown sur le groupe besoin",
+        "Tab puis Enter vers le créneau"
+      ],
+      "observations": {
+        "tab_stops": [
+          {
+            "tag": "INPUT",
+            "id": "",
+            "text": "Révision générale",
+            "outline": "none",
+            "rect": {
+              "x": 837.0625,
+              "y": 344.03125,
+              "width": 18,
+              "height": 18,
+              "top": 344.03125,
+              "right": 855.0625,
+              "bottom": 362.03125,
+              "left": 837.0625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "to-slots",
+            "text": "Choisir mon créneau",
+            "outline": "solid",
+            "rect": {
+              "x": 822.0625,
+              "y": 627.625,
+              "width": 458.9375,
+              "height": 54,
+              "top": 627.625,
+              "right": 1281,
+              "bottom": 681.625,
+              "left": 822.0625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "Choisir une révision générale",
+            "outline": "solid",
+            "rect": {
+              "x": 1270,
+              "y": 490.9375,
+              "width": 42,
+              "height": 42,
+              "top": 490.9375,
+              "right": 1312,
+              "bottom": 532.9375,
+              "left": 1270
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "Choisir une réparation des freins ou vitesses",
+            "outline": "solid",
+            "rect": {
+              "x": 1270,
+              "y": 584.4375,
+              "width": 42,
+              "height": 42,
+              "top": 584.4375,
+              "right": 1312,
+              "bottom": 626.4375,
+              "left": 1270
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "Choisir une réparation de roue ou crevaison",
+            "outline": "solid",
+            "rect": {
+              "x": 1270,
+              "y": 677.9375,
+              "width": 42,
+              "height": 42,
+              "top": 677.9375,
+              "right": 1312,
+              "bottom": 719.9375,
+              "left": 1270
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "privacy-toggle",
+            "text": "Vos données dans cette démo",
+            "outline": "solid",
+            "rect": {
+              "x": 1058.734375,
+              "y": 937.375,
+              "width": 152.203125,
+              "height": 28,
+              "top": 937.375,
+              "right": 1210.9375,
+              "bottom": 965.375,
+              "left": 1058.734375
+            }
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Retour en haut ↑",
+            "outline": "solid",
+            "rect": {
+              "x": 1226.640625,
+              "y": 937.375,
+              "width": 85.359375,
+              "height": 28,
+              "top": 937.375,
+              "right": 1312,
+              "bottom": 965.375,
+              "left": 1226.640625
+            }
+          },
+          {
+            "tag": "BODY",
+            "id": "top",
+            "text": "Aller au contenu\nPremière proposition · nom, informations et rendez-vous d'exemple\nrayon l",
+            "outline": "none",
+            "rect": {
+              "x": 0,
+              "y": -1046,
+              "width": 1440,
+              "height": 2046.375,
+              "top": -1046,
+              "right": 1440,
+              "bottom": 1000.375,
+              "left": 0
+            }
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Aller au contenu",
+            "outline": "solid",
+            "rect": {
+              "x": 16,
+              "y": 12,
+              "width": 147.3125,
+              "height": 52.796875,
+              "top": 12,
+              "right": 163.3125,
+              "bottom": 64.796875,
+              "left": 16
+            }
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "rayon libre.\nNom d'atelier proposé",
+            "outline": "solid",
+            "rect": {
+              "x": 128,
+              "y": 61.59375,
+              "width": 155.421875,
+              "height": 53,
+              "top": 61.59375,
+              "right": 283.421875,
+              "bottom": 114.59375,
+              "left": 128
+            }
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Les réparations",
+            "outline": "solid",
+            "rect": {
+              "x": 879.40625,
+              "y": 77.25,
+              "width": 104.40625,
+              "height": 21.6875,
+              "top": 77.25,
+              "right": 983.8125,
+              "bottom": 98.9375,
+              "left": 879.40625
+            }
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "L'atelier",
+            "outline": "solid",
+            "rect": {
+              "x": 1015.8125,
+              "y": 77.25,
+              "width": 52.421875,
+              "height": 21.6875,
+              "top": 77.25,
+              "right": 1068.234375,
+              "bottom": 98.9375,
+              "left": 1015.8125
+            }
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Prendre rendez-vous",
+            "outline": "solid",
+            "rect": {
+              "x": 1100.234375,
+              "y": 64.25,
+              "width": 211.765625,
+              "height": 47.6875,
+              "top": 64.25,
+              "right": 1312,
+              "bottom": 111.9375,
+              "left": 1100.234375
+            }
+          },
+          {
+            "tag": "INPUT",
+            "id": "",
+            "text": "Révision générale",
+            "outline": "none",
+            "rect": {
+              "x": 837.0625,
+              "y": 465.03125,
+              "width": 18,
+              "height": 18,
+              "top": 465.03125,
+              "right": 855.0625,
+              "bottom": 483.03125,
+              "left": 837.0625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "to-slots",
+            "text": "Choisir mon créneau",
+            "outline": "solid",
+            "rect": {
+              "x": 822.0625,
+              "y": 748.625,
+              "width": 458.9375,
+              "height": 54,
+              "top": 748.625,
+              "right": 1281,
+              "bottom": 802.625,
+              "left": 822.0625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "Choisir une révision générale",
+            "outline": "solid",
+            "rect": {
+              "x": 1270,
+              "y": 490.9375,
+              "width": 42,
+              "height": 42,
+              "top": 490.9375,
+              "right": 1312,
+              "bottom": 532.9375,
+              "left": 1270
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "id": "",
+            "text": "Choisir une réparation des freins ou vitesses",
+            "outline": "solid",
+            "rect": {
+              "x": 1270,
+              "y": 584.4375,
+              "width": 42,
+              "height": 42,
+              "top": 584.4375,
+              "right": 1312,
+              "bottom": 626.4375,
+              "left": 1270
+            }
+          }
+        ],
+        "radio_arrow_selection": "Freins ou vitesses",
+        "next_step": "step-2",
+        "focus": "slots-title"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Créneaux : erreur, indisponible, jour vide et reprise",
+      "selectors": [
+        "#to-contact",
+        "#slot-error",
+        "input[name=date]",
+        "input[name=time]",
+        "#time-options"
+      ],
+      "actions": [
+        "Continuer sans heure",
+        "Vérifier radio indisponible",
+        "Choisir jeudi puis continuer",
+        "Choisir mercredi 15:00 puis continuer"
+      ],
+      "observations": {
+        "empty_error": "Sélectionnez une heure pour continuer.",
+        "disabled": "14:00 mardi",
+        "empty_day": "Jeudi 15 octobre",
+        "recovery": "Mercredi 14 octobre 15:00 → step-3"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Coordonnées : erreurs, correction, retour et récapitulatif local",
+      "selectors": [
+        "#name",
+        "#email",
+        "#name-error",
+        "#email-error",
+        "#step-3 [data-back]",
+        "#final-summary",
+        "#success-title"
+      ],
+      "actions": [
+        "Soumettre vide",
+        "Saisir nom et e-mail invalide puis soumettre",
+        "Corriger e-mail",
+        "Revenir au créneau puis poursuivre",
+        "Soumettre avec coordonnées d’exemple"
+      ],
+      "observations": {
+        "empty_fields": "Erreurs présentes sur nom et e-mail ; focus nom",
+        "invalid_email": "Erreur e-mail ; focus e-mail",
+        "back": "Créneau, nom et e-mail conservés",
+        "summary": "Besoin\nFreins ou vitesses\nDépôt\nMercredi 14 octobre 2026\nHeure\n15:00\nNom\nCamille Martin\nE-mail\ncamille@example.com\nVotre vélo\nLe frein arrière fait du bruit.",
+        "focus": "success-title",
+        "notice": "Ceci est un récapitulatif d'exemple. Aucun rendez-vous n'est réservé et aucun message n'a été envoyé."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Nouvelle simulation : effacement et retour initial",
+      "selectors": [
+        "#restart",
+        "#name",
+        "#email",
+        "#final-summary"
+      ],
+      "actions": [
+        "Cliquer nouvelle simulation",
+        "Observer champs et récapitulatif"
+      ],
+      "observations": {
+        "step": 1,
+        "name": "",
+        "email": "",
+        "summary": "",
+        "service": "Révision générale"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Parcours mobile depuis une intervention et résultat à 320 px",
+      "selectors": [
+        "[data-service=\"Roue ou crevaison\"]",
+        "#to-slots",
+        "input[name=time]",
+        "#name",
+        "#email",
+        "#final-summary"
+      ],
+      "actions": [
+        "Cliquer intervention",
+        "Choisir mardi 09:00",
+        "Saisir coordonnées fictives",
+        "Afficher récapitulatif",
+        "Mesurer 320 px"
+      ],
+      "observations": {
+        "entry": "Choisir une réparation de roue ou crevaison depuis la liste",
+        "date": "Mardi 13 octobre 09:00",
+        "summary": "Besoin\nRoue ou crevaison\nDépôt\nMardi 13 octobre 2026\nHeure\n09:00\nNom\nAlex Exemple\nE-mail\nalex@example.com",
+        "width320": 320
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Information sur les données et absence de stockage",
+      "selectors": [
+        "#privacy-toggle",
+        "#privacy"
+      ],
+      "actions": [
+        "Ouvrir et fermer l’aide",
+        "Inspecter localStorage et sessionStorage"
+      ],
+      "observations": {
+        "opened": true,
+        "closed": true,
+        "localStorage": 0,
+        "sessionStorage": 0
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Autonomie et JavaScript",
+      "selectors": [
+        "document"
+      ],
+      "actions": [
+        "Relever les requests et pageerror sur tous les parcours"
+      ],
+      "observations": {
+        "external_http_requests": [],
+        "page_errors": [],
+        "total_requests": 3
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Parcours entier au clavier sur mobile",
+      "selectors": [
+        "input[name=service]",
+        "input[name=date]",
+        "input[name=time]",
+        "#name",
+        "#email",
+        "#step-3 button[type=submit]",
+        "#restart"
+      ],
+      "actions": [
+        "ArrowDown, Tab, Enter vers les dates",
+        "Tab, ArrowRight vers mercredi",
+        "Tab, ArrowRight vers 15:00",
+        "Tab, Enter puis saisie des champs par keyboard.type",
+        "Tab, Enter vers résultat puis réinitialisation"
+      ],
+      "observations": {
+        "viewport": "390×844",
+        "service": "Freins ou vitesses",
+        "slot": "Mercredi 14 octobre 15:00",
+        "contact": "Clavier Exemple / clavier@example.com",
+        "result": "récapitulatif puis réinitialisation au clavier"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Erreurs mobile et contenu long à 320 px",
+      "selectors": [
+        "#step-3",
+        "#name",
+        "#email",
+        "#note",
+        "#final-summary",
+        "html"
+      ],
+      "actions": [
+        "Soumettre vide",
+        "Capturer erreur à 390 et 320 px",
+        "Saisir nom long et note de 400 caractères",
+        "Afficher récapitulatif à 320 px"
+      ],
+      "observations": [
+        {
+          "state": "error",
+          "width": 390,
+          "scrollWidth": 390
+        },
+        {
+          "state": "error",
+          "width": 320,
+          "scrollWidth": 320
+        },
+        {
+          "state": "long summary",
+          "width": 320,
+          "scrollWidth": 320,
+          "note_length": 400
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Association explicite des champs et labels",
+      "selectors": [
+        "input",
+        "textarea"
+      ],
+      "actions": [
+        "Inspecter HTMLInputElement.labels et HTMLTextAreaElement.labels sur tous les champs"
+      ],
+      "observations": [
+        {
+          "id": "",
+          "name": "service",
+          "label": "Une révision généraledès 65 €*"
+        },
+        {
+          "id": "",
+          "name": "service",
+          "label": "Les freins ou les vitessesdès 25 €*"
+        },
+        {
+          "id": "",
+          "name": "service",
+          "label": "Une roue ou une crevaisondès 15 €*"
+        },
+        {
+          "id": "",
+          "name": "service",
+          "label": "Je ne sais pas encoreon en parle"
+        },
+        {
+          "id": "",
+          "name": "date",
+          "label": "Mardi13octobre"
+        },
+        {
+          "id": "",
+          "name": "date",
+          "label": "Mercredi14octobre"
+        },
+        {
+          "id": "",
+          "name": "date",
+          "label": "Jeudi15octobre"
+        },
+        {
+          "id": "",
+          "name": "time",
+          "label": "09:00"
+        },
+        {
+          "id": "",
+          "name": "time",
+          "label": "11:00"
+        },
+        {
+          "id": "",
+          "name": "time",
+          "label": "14:00Indisponible"
+        },
+        {
+          "id": "name",
+          "name": "name",
+          "label": "Votre nom *"
+        },
+        {
+          "id": "email",
+          "name": "email",
+          "label": "Adresse e-mail *"
+        },
+        {
+          "id": "note",
+          "name": "note",
+          "label": "Un détail sur votre vélo (facultatif)"
+        }
+      ],
+      "result": "PASS"
+    }
+  ],
+  "limits": [
+    "Parcours par le producteur, sans participant ni technologie d’assistance.",
+    "Aucun serveur ni réservation réelle."
+  ]
+}

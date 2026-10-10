@@ -1,0 +1,14 @@
+ROUTE: SCENE/PRODUCT_NARRATIVE
+OWNER: design/formes/catalogue.md
+HEADING: ### `SCENE/PRODUCT_NARRATIVE`
+---
+### `SCENE/PRODUCT_NARRATIVE`
+
+Fenêtre applicative ou état produit qui fait progresser l’histoire.
+
+**Choisir lorsque :** interaction réelle — assistant, analyse, cockpit, collaboration — constitue la preuve la plus forte.
+
+**Éviter lorsque :** fenêtre générique, trop petite ou sans réponse au titre.
+
+`SCENE/PRODUCT_NARRATIVE` est une séquence de preuve ; `OBJECT/PROOF_PRODUCT_STAGE` est une fenêtre produit réutilisable.
+

@@ -1,0 +1,95 @@
+{
+  "observed_at": "2026-10-10T13:37:23.425864+00:00",
+  "runtime": "151.0.7922.173",
+  "method": "Playwright accessible role/name selectors and Chromium aria_snapshot; no screen reader",
+  "names": [
+    {
+      "role": "textbox",
+      "name": "Nom du client",
+      "result": "OBSERVED"
+    },
+    {
+      "role": "textbox",
+      "name": "Prestation",
+      "result": "OBSERVED"
+    },
+    {
+      "role": "spinbutton",
+      "name": "Heures",
+      "result": "OBSERVED"
+    },
+    {
+      "role": "spinbutton",
+      "name": "Prix / heure (€ HT)",
+      "result": "OBSERVED"
+    },
+    {
+      "role": "combobox",
+      "name": "TVA illustrative",
+      "result": "OBSERVED"
+    },
+    {
+      "role": "button",
+      "name": "Fermer l’éditeur",
+      "result": "OBSERVED"
+    },
+    {
+      "role": "button",
+      "name": "Annuler",
+      "result": "OBSERVED"
+    },
+    {
+      "role": "button",
+      "name": "Voir mon brouillon",
+      "result": "OBSERVED"
+    }
+  ],
+  "firstFieldComputedStyle": {
+    "color": "rgb(36, 40, 35)",
+    "background": "rgb(255, 255, 255)",
+    "border": "rgb(121, 129, 111)",
+    "outline": "rgb(23, 76, 166) solid 3px"
+  },
+  "dialogControlSizes": [
+    {
+      "id": "close-dialog",
+      "width": 44,
+      "height": 44
+    },
+    {
+      "id": "client",
+      "width": 304,
+      "height": 48.390625
+    },
+    {
+      "id": "service",
+      "width": 304,
+      "height": 48.390625
+    },
+    {
+      "id": "hours",
+      "width": 146,
+      "height": 48.390625
+    },
+    {
+      "id": "rate",
+      "width": 146,
+      "height": 48.390625
+    },
+    {
+      "id": "tax",
+      "width": 304,
+      "height": 48
+    },
+    {
+      "id": "cancel",
+      "width": 304,
+      "height": 44
+    },
+    {
+      "id": "submit-invoice",
+      "width": 304,
+      "height": 52
+    }
+  ]
+}

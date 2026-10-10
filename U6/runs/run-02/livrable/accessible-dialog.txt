@@ -1,0 +1,18 @@
+- dialog "À vous de composer.":
+  - heading "À vous de composer." [level=2]
+  - button "Fermer la démonstration": ×
+  - paragraph: Créez un exemple local. Rien n’est envoyé ni conservé après rechargement ; ce document n’a pas de valeur comptable.
+  - alert: Un champ est à corriger. Votre saisie est conservée.
+  - text: Nom du client d’exemple
+  - textbox "Nom du client d’exemple": Studio Horizon
+  - text: Prestation
+  - textbox "Prestation": Création d’une identité visuelle
+  - text: Montant HT (€)
+  - textbox "Montant HT (€) De 0,01 à 100 000 € Saisissez un montant entre 0,01 et 100 000 €, avec deux décimales maximum.": abc
+  - text: De 0,01 à 100 000 € Saisissez un montant entre 0,01 et 100 000 €, avec deux décimales maximum. TVA illustrative
+  - combobox "TVA illustrative À adapter à votre activité":
+    - option "20 %" [selected]
+    - option "10 %"
+    - option "0 %"
+  - text: À adapter à votre activité
+  - button "Voir ma facture d’exemple"

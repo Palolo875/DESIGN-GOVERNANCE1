@@ -1,0 +1,35 @@
+ROUTE: SAVOIR/CRAFT/CFT-00 (adresse : savoir/qualite-creative#ambition)
+OWNER: design/savoir/qualite-creative.md
+HEADING: ## CFT-00 — qualité créative et niveau d’ambition
+---
+## CFT-00 — qualité créative et niveau d’ambition
+
+[DURABLE] Lorsqu’une surface, une identité ou une scène engage directement la perception, la qualité attendue ne se limite pas à l’absence de slop ou à la conformité d’une structure. La proposition doit viser, dans la mesure du possible, une **présence**, un **point de vue**, une **spécificité**, une **culture visuelle transformée**, une **composition maîtrisée**, une **expression cohérente**, une **désirabilité située** et une **résolution proportionnée à l’ambition**.
+
+Ces qualités ne constituent ni un score, ni un verdict automatique, ni une promesse universelle. Elles forment une grille de regard qui aide à choisir, comparer, retirer et polir. Une proposition peut être fonctionnelle sans être expressive, soignée sans être spécifique, créative sans être compréhensible ou premium dans son intention sans atteindre encore le niveau de résolution attendu. Décris alors l’écart observable au lieu de le masquer derrière un adjectif.
+
+| Dimension | Question de critique | Signal observable attendu |
+|---|---|---|
+| **Présence** | Le premier contact possède-t-il une force perceptuelle juste ? | Un foyer, une silhouette ou une relation retient le regard sans effet gratuit. |
+| **Point de vue** | Sent-on une position plutôt qu’une application de composants ? | Des choix de composition, de rythme, de type, de matière ou de contenu sont assumés. |
+| **Culture visuelle** | Les références ont-elles été comprises et transformées ? | Une relation extraite d’un autre domaine devient un choix propre au produit. |
+| **Spécificité** | Qu’est-ce qui appartiendrait moins à un autre produit ? | Contenu, donnée, voix, interaction, structure ou matière portent le contexte réel. |
+| **Composition** | Les masses, vides, axes, échelles et tensions sont-ils maîtrisés ? | Le regard circule avec une hiérarchie et un rythme perceptibles. |
+| **Désirabilité** | Le rendu donne-t-il envie d’entrer, de comprendre ou de continuer ? | La valeur, la confiance ou la curiosité sont soutenues sans manipulation décorative. |
+| **Résolution** | Les détails sont-ils au niveau de l’idée ? | États, responsive, microcopie, transitions, assets et composants tiennent la direction. |
+| **Retenue** | Le design sait-il s’arrêter ? | Les effets, variantes et détails faibles ont été retirés lorsqu’ils n’ajoutent rien. |
+
+Une **proposition premium** se juge avec l’heuristique « Premium perçu » ci-dessus, sa seule définition ; elle n’est pas définie par une palette sombre, une grande typographie, un espace vide, une matière riche ou un nom de style, et doit survivre au contenu réel, aux états, au mobile, aux contraintes du produit et au geste principal.
+
+### Creative Quality Review
+
+[MÉTHODE] Pour une décision où la qualité visuelle est dominante, conduis une revue courte après la première scène et après la repasse de craft : **ce qui est présent**, **ce qui est spécifique**, **ce qui est culturellement transformé**, **ce qui est encore générique**, **ce qui manque de résolution** et **l’intervention au gain attendu le plus utile**. Relie le défaut à un geste du vocabulaire perceptuel de `SAVOIR/STATE`, avec sa condition et l’effet à réinspecter. Les gestes proposés sont des points de départ, pas une liste fermée ; un autre geste reste recevable s’il traite le défaut et rend son effet observable. Nomme l’objet, le terme et la modification. Une incohérence de direction appelle une réouverture, pas une accumulation de détails. Si aucun geste ne promet de gain utile, justifie la conservation. La revue produit une prochaine action, sans score esthétique ni substitution aux preuves d’ACTION.
+
+Un rendu n’est pas considéré comme suffisamment travaillé parce qu’il contient davantage de détails. Il l’est lorsque chaque détail important renforce la hiérarchie, le sens, la relation au produit ou la qualité de présence. La beauté pertinente peut venir de l’intensité comme de la retenue ; elle peut être éditoriale, technique, tactile, chaleureuse, colorée, ludique ou silencieuse selon le contexte.
+
+Un **composant authored** est un objet visible conçu pour le produit : sa silhouette, son contenu, sa hiérarchie, sa matière et son comportement forment une unité. Il peut être construit à partir de primitives robustes ; authored ne signifie ni inédit dans le code, ni inhabituel par obligation. Les primitives critiques restent sémantiques, accessibles et fiables.
+
+L’**AI slop** désigne ici une production à faible soin par rapport à son but, souvent favorisée par la vitesse et le faible coût de génération, qui peut être générique, répétitive, trompeuse, incomplète ou coûteuse à vérifier et à maintenir. L’origine IA seule ne suffit pas à établir le slop. Une sortie n’est pas améliorée par une étiquette : elle doit rendre une décision, un artefact, une preuve, une limite ou une prochaine action plus clairs.
+
+Une référence, une ancre, un profil, un choix de style ou une présélection de `DESIGN-ATLAS` calibre une possibilité et peut soutenir un jugement de direction. Aucun ne constitue une preuve indépendante. `DECISION-MODIFIED` et `WHEN-USEFUL` sont des hypothèses de sélection ; seule une observation dans le scope déclaré peut alimenter `DECISION-CHANGE` dans `ACTION`.
+

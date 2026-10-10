@@ -1,0 +1,184 @@
+{
+  "run_card": {
+    "id": "run-01",
+    "owner": "Agent producteur run-01 pour la proposition ; demandeur du SaaS pour la décision de marque",
+    "date_version": "2026-10-10 / final-v3",
+    "mode": "DIRECTION",
+    "decision": "Faire comprendre et essayer un geste de facturation dans une première landing.",
+    "decision_intent": "Vérifier si une facture saisissable portant le calcul et la préparation de son aperçu sert la promesse dès la première scène.",
+    "risk": {
+      "level": "important",
+      "statement": "Démonstration fictive prise pour un produit disponible, ou scène SaaS interchangeable faute de contexte.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START",
+      "DIRECTION/EXTERNAL-START",
+      "DIRECTION/CREATIVE-BOOT",
+      "DIRECTION/VISUAL_TARGET",
+      "DIRECTION/FIRST-OBJECT",
+      "DIRECTION/DOMAIN-FRAME",
+      "SAVOIR/TYPE",
+      "SAVOIR/CRAFT/CFT-00",
+      "SAVOIR/INTEGRITY",
+      "SAVOIR/TOOLS/CONVERGENCE",
+      "BIBLIOTHEQUE/SELECT",
+      "BIBLIOTHEQUE/TENSION",
+      "BIBLIOTHEQUE/SEQUENCE",
+      "GRID/HIERARCHICAL",
+      "SCENE/PRODUCT_NARRATIVE",
+      "OBJECT/PROOF_PRODUCT_STAGE",
+      "BIBLIOTHEQUE/CONTRACTS",
+      "ACTION/FIRST-RENDER",
+      "ACTION/UI-UX-REALITY",
+      "ACTION/RUN-DIRECTION",
+      "ACTION/PIPELINE-DIRECTION",
+      "ACTION/VISUAL_PROOF",
+      "ACTION/GATE-A",
+      "ACTION/GATE-B",
+      "ACTION/GATE-C",
+      "ACTION/HANDOFF",
+      "ACTION/RUN_CARD",
+      "ACTION/CLOSE-PACKAGE"
+    ],
+    "direction": {
+      "thesis": "Le projet est livré. La facture aussi : le document suit le travail et donne immédiatement un geste concret.",
+      "anti_direction": [
+        "Trame promesse, logos, trois bénéfices, tarifs, FAQ remplacée par une facture editable au premier contact, puis une séquence de suivi.",
+        "Pas de tableau de bord décoratif ou preuve de client inventée."
+      ],
+      "first_object": "Facture d’exemple avec client, prestation, jours, prix HT, taux de TVA, total recalculé et aperçu modal.",
+      "scope": "Landing française et états locaux de la facture.",
+      "constraint": "Une proposition sans réponse utilisateur, sans asset externe, compte ni service réel.",
+      "identity_stake": "normal"
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "index.html",
+      "scope": "1440x1000, 390x844, 320x844 ; nominal, erreur, reprise, aperçu, focus, contenu long et téléchargement local sous Chromium.",
+      "rights_status": "unknown",
+      "version": "final-v3 / a284dc24c653245ebe516d8c0b190693eb8b3c3f4235cb7c09399f40ac248c29"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Fournir identité, public et fonctions/prix réels ; confronter la page au parcours produit et faire tester la préparation par un utilisateur de la cible.",
+    "capability_profile": {
+      "available": [
+        "artefact HTML autonome",
+        "Chromium et captures",
+        "DOM CSS et calcul de contraste",
+        "clavier réel dans navigateur"
+      ],
+      "unavailable": [
+        "participant cible",
+        "référence de marque observée",
+        "produit réel et données réelles"
+      ],
+      "not_required": [
+        "service externe",
+        "paiement",
+        "envoi de message"
+      ],
+      "basis": [
+        {
+          "capability": "artefact HTML autonome",
+          "kind": "tool_result",
+          "detail": "index.html créé, ouvert et hashé dans functional-tests.json."
+        },
+        {
+          "capability": "Chromium et captures",
+          "kind": "tool_result",
+          "detail": "capture_page.py et verify.py exécutés ; captures finales et états disponibles."
+        },
+        {
+          "capability": "DOM CSS et calcul de contraste",
+          "kind": "tool_result",
+          "detail": "99 échantillons textuels et supplemental-contrast.json calculés."
+        },
+        {
+          "capability": "clavier réel dans navigateur",
+          "kind": "tool_result",
+          "detail": "Parcours Tab, Escape et Enter réellement exécutés par Playwright."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "33 cas locaux exécutés avec 33 réussites, 0 échec ; aucune erreur JS ou ressource externe observée.",
+        "Captures complètes desktop/mobile et erreur/aperçu/contenu long inspectées par le producteur.",
+        "Retrait du groupe de deux arguments rapproche la facture d’environ 90 px sur mobile.",
+        "Focus Tab et retour Escape corrigés, champs invalides conservés et récapitulatif téléchargé."
+      ],
+      "not_verified": [
+        "Adéquation au public réel, preuve commerciale, marque et capacité du véritable produit.",
+        "AT, zoom navigateur réel, Safari/Firefox, participants ; aucune conformité globale affirmée.",
+        "Disponibilité juridique du nom Sillage non recherchée ; nom d’exemple seulement."
+      ],
+      "provenance": {
+        "artifact_locator": "index.html",
+        "artifact_version": "final-v3 / a284dc24c653245ebe516d8c0b190693eb8b3c3f4235cb7c09399f40ac248c29",
+        "method": "Playwright Chromium, mesures DOM/CSS, calcul WCAG sur fonds unis, clavier exécuté et inspection de captures par auteur.",
+        "observed_at": "2026-10-10T12:35:59.522282+00:00",
+        "capability": "Chromium et captures"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Arguments secondaires supprimés pour rapprocher la preuve sur mobile ; focus de modale et lien d’évitement corrigés.",
+      "evidence": "captures/before-390-first.png et captures/final-390-first.png, functional-tests.json, index.html et trace.md."
+    },
+    "creative_close": {
+      "presence": "Champ vert pâle, encre sombre, document blanc et total dominant inspectés dans les captures finales.",
+      "signature": "Le fil prestation en jours → montant HT/TVA/TTC → aperçu répond au métier de facturation.",
+      "craft_detail": "Quatre erreurs récupérables, texte long complet et boucle de focus modal avec retour au bouton.",
+      "dominant_defect": "Offre et suivi encore illustratifs ; singularité de marque et adéquation produit limitées par les informations absentes.",
+      "next_polish_action": "STOP — nouvelle retouche ne remplace pas le public, le produit et les preuves manquants."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "direction_status": "PARTIALLY-HELD",
+      "limitations": [
+        "Aucune ancre fournie ou observée : proposition, aucune acceptation de marque.",
+        "Contenus, offre et fonctions hypothétiques marqués ; aucun envoi, compte ou paiement.",
+        "Auto-comparaison non indépendante ; zoom/AT et compatibilité élargie non vérifiés.",
+        "Nom de marque d’exemple sans recherche de disponibilité."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "PASS-WITH-RESERVATION",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS"
+      },
+      "reservations": [
+        {
+          "owner": "Demandeur du SaaS, avec agent producteur pour la reprise",
+          "scope": "Marque, audience, offre et capacités du produit réel",
+          "date_version": "2026-10-10 / final-v3",
+          "impact": "La proposition peut viser un public différent du produit et le nom ne peut être retenu sans vérification.",
+          "next_proof": "Fournir identité, cible, fonctions et offre puis réévaluer la page sur ces sources.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Contenus établis et direction retenue par le responsable réel après nouvelle observation."
+        },
+        {
+          "owner": "Agent producteur run-01 pour une reprise de QA",
+          "scope": "Zoom navigateur, AT et compatibilité hors Chromium",
+          "date_version": "2026-10-10 / final-v3",
+          "impact": "L’échantillon actuel ne démontre pas une conformité ou robustesse universelle.",
+          "next_proof": "Exécuter zoom réel, lecteur d’écran et navigateurs cibles sur la version documentée.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Contrôles manquants exécutés et défauts éventuels corrigés."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "captures/before-390-first.png",
+          "after_locator": "captures/final-390-first.png",
+          "decision": "Retirer les arguments redondants entre le geste principal et la facture sur mobile.",
+          "outcome": "modified"
+        }
+      }
+    }
+  }
+}

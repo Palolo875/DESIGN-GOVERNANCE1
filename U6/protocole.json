@@ -1,0 +1,120 @@
+{
+  "frozen_at": "2026-10-10T12:12:01.410367+00:00",
+  "versions": {
+    "ancien": "99caa027ddf08b077ab6664365df2f91e266ae66",
+    "nouveau": "6e5a8c2a9016b31969051499b1c895a116fd75b4"
+  },
+  "briefs": {
+    "B2": "Il me faut une landing page pour notre SaaS de facturation.",
+    "B4": "Il me faut une landing page pour notre atelier de réparation de vélos, avec prise de rendez-vous."
+  },
+  "run_order": [
+    "run-01",
+    "run-02",
+    "run-03",
+    "run-04",
+    "run-05",
+    "run-06"
+  ],
+  "cases": [
+    {
+      "run": "run-01",
+      "brief_id": "B2",
+      "condition": "ancien",
+      "repeat": 1,
+      "anonymous_label": "F",
+      "commit": "99caa027ddf08b077ab6664365df2f91e266ae66",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "packet": "/workspace/remesure-phase5/runs/run-01/paquet",
+      "output": "/workspace/remesure-phase5/runs/run-01/livrable",
+      "skill_sha256": "026c77079bf4da7af3ab7f717c9a15078b01f7a2615333d676b2e5e0dbaee9c6",
+      "status": "prepared"
+    },
+    {
+      "run": "run-02",
+      "brief_id": "B2",
+      "condition": "nouveau",
+      "repeat": 1,
+      "anonymous_label": "A",
+      "commit": "6e5a8c2a9016b31969051499b1c895a116fd75b4",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "packet": "/workspace/remesure-phase5/runs/run-02/paquet",
+      "output": "/workspace/remesure-phase5/runs/run-02/livrable",
+      "skill_sha256": "bdca4698fb5ffb4d7d1c275f70c05ead1bd931803b450ed54fa6147e1e3d02c2",
+      "status": "prepared"
+    },
+    {
+      "run": "run-03",
+      "brief_id": "B2",
+      "condition": "nouveau",
+      "repeat": 2,
+      "anonymous_label": "C",
+      "commit": "6e5a8c2a9016b31969051499b1c895a116fd75b4",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "packet": "/workspace/remesure-phase5/runs/run-03/paquet",
+      "output": "/workspace/remesure-phase5/runs/run-03/livrable",
+      "skill_sha256": "bdca4698fb5ffb4d7d1c275f70c05ead1bd931803b450ed54fa6147e1e3d02c2",
+      "status": "prepared"
+    },
+    {
+      "run": "run-04",
+      "brief_id": "B2",
+      "condition": "ancien",
+      "repeat": 2,
+      "anonymous_label": "E",
+      "commit": "99caa027ddf08b077ab6664365df2f91e266ae66",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "packet": "/workspace/remesure-phase5/runs/run-04/paquet",
+      "output": "/workspace/remesure-phase5/runs/run-04/livrable",
+      "skill_sha256": "026c77079bf4da7af3ab7f717c9a15078b01f7a2615333d676b2e5e0dbaee9c6",
+      "status": "prepared"
+    },
+    {
+      "run": "run-05",
+      "brief_id": "B4",
+      "condition": "nouveau",
+      "repeat": 1,
+      "anonymous_label": "D",
+      "commit": "6e5a8c2a9016b31969051499b1c895a116fd75b4",
+      "brief": "Il me faut une landing page pour notre atelier de réparation de vélos, avec prise de rendez-vous.",
+      "packet": "/workspace/remesure-phase5/runs/run-05/paquet",
+      "output": "/workspace/remesure-phase5/runs/run-05/livrable",
+      "skill_sha256": "bdca4698fb5ffb4d7d1c275f70c05ead1bd931803b450ed54fa6147e1e3d02c2",
+      "status": "prepared"
+    },
+    {
+      "run": "run-06",
+      "brief_id": "B4",
+      "condition": "ancien",
+      "repeat": 1,
+      "anonymous_label": "B",
+      "commit": "99caa027ddf08b077ab6664365df2f91e266ae66",
+      "brief": "Il me faut une landing page pour notre atelier de réparation de vélos, avec prise de rendez-vous.",
+      "packet": "/workspace/remesure-phase5/runs/run-06/paquet",
+      "output": "/workspace/remesure-phase5/runs/run-06/livrable",
+      "skill_sha256": "026c77079bf4da7af3ab7f717c9a15078b01f7a2615333d676b2e5e0dbaee9c6",
+      "status": "prepared"
+    }
+  ],
+  "font_manifest_sha256": "5e76c4eb4b2a5de3bc544c5f16ffb8c2ffd0fb6f78831b3af9f095a073dedb0a",
+  "model": "modèle parent hérité, même configuration pour tous, sans override ; identifiant du service et graines de génération non attestés",
+  "network": "aucun asset externe ; polices locales communes, CSS/SVG explicites et contenus illustratifs",
+  "browser": "/usr/bin/chromium ; Playwright 1.56.0",
+  "per_run_budget": "une page ; au plus trois itérations de correction sur capture ; signaler un dépassement de 20 minutes",
+  "judges": "deux contextes séparés ; captures seules, briefs, noms anonymes et ordre inversé ; propriétaire ensuite",
+  "metrics": [
+    "charactères de bibliothèque servis",
+    "durée murale observée",
+    "contrôles de parcours",
+    "jugements pairés",
+    "différences de composition et de voix"
+  ],
+  "unmeasured": [
+    "jetons API",
+    "effet général et significativité",
+    "choix final du propriétaire"
+  ],
+  "generation_started": false,
+  "status": "protocol_ready_waiting_for_execution_method",
+  "common_instruction_sha256": "7122e3ad018a03538cc2e91e13dff881a6d10166ea262f1f9d4f1d38ad0e2c48"
+}

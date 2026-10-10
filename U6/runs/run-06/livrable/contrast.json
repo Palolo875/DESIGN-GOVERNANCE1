@@ -1,0 +1,81 @@
+{
+  "method": "WCAG 2.2, luminance relative sRGB, couleurs opaques déclarées en CSS sur fonds unis",
+  "artifact": "index.html",
+  "version": "final",
+  "results": [
+    {
+      "role": "corps",
+      "foreground": "#28251f",
+      "background": "#f3eee4",
+      "ratio": 13.21,
+      "minimum": 4.5
+    },
+    {
+      "role": "secondaire",
+      "foreground": "#635e54",
+      "background": "#f3eee4",
+      "ratio": 5.57,
+      "minimum": 4.5
+    },
+    {
+      "role": "aide/placeholder",
+      "foreground": "#635e54",
+      "background": "#fffdf8",
+      "ratio": 6.34,
+      "minimum": 4.5
+    },
+    {
+      "role": "action",
+      "foreground": "#fffdf8",
+      "background": "#b83322",
+      "ratio": 5.84,
+      "minimum": 4.5
+    },
+    {
+      "role": "erreur",
+      "foreground": "#a32319",
+      "background": "#fffdf8",
+      "ratio": 7.35,
+      "minimum": 4.5
+    },
+    {
+      "role": "selection-secondaire",
+      "foreground": "#635e54",
+      "background": "#f9eee8",
+      "ratio": 5.65,
+      "minimum": 4.5
+    },
+    {
+      "role": "footer-secondaire",
+      "foreground": "#dbd2c4",
+      "background": "#28251f",
+      "ratio": 10.2,
+      "minimum": 4.5
+    },
+    {
+      "role": "footer-accent",
+      "foreground": "#f4a390",
+      "background": "#28251f",
+      "ratio": 7.63,
+      "minimum": 4.5
+    },
+    {
+      "role": "focus",
+      "foreground": "#b83322",
+      "background": "#fffdf8",
+      "ratio": 5.84,
+      "minimum": 3
+    },
+    {
+      "role": "bordure-input",
+      "foreground": "#827b6e",
+      "background": "#fffdf8",
+      "ratio": 4.13,
+      "minimum": 3
+    }
+  ],
+  "limits": [
+    "Calcul de paires représentatives, pas scan complet des pixels.",
+    "Rendu natif des radios dépend du navigateur ; non mesuré pixel par pixel."
+  ]
+}

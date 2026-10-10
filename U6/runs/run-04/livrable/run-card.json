@@ -1,0 +1,193 @@
+{
+  "run_card": {
+    "id": "run-04",
+    "owner": "auteur-proposition-run-04",
+    "date_version": "2026-10-10 / 243412440854",
+    "mode": "DIRECTION",
+    "decision": "Rendre la facturation compréhensible par un document manipulable dès la première scène.",
+    "decision_intent": "Comparer le foyer document/action à une masse explicative secondaire, puis vérifier la récupération du brouillon.",
+    "risk": {
+      "level": "important",
+      "statement": "Une offre ou un résultat hypothétiques pourraient être pris pour une preuve réelle ; la cible produit reste inférée.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START",
+      "DIRECTION/CREATIVE-BOOT",
+      "DIRECTION/DOMAIN-FRAME",
+      "ACTION/RUN-DIRECTION",
+      "DIRECTION/EXTERNAL-START",
+      "DIRECTION/VISUAL_TARGET",
+      "DIRECTION/FIRST-OBJECT",
+      "SAVOIR/TYPE",
+      "SAVOIR/FRAME",
+      "SAVOIR/CRAFT/CFT-00",
+      "ACTION/FIRST-RENDER",
+      "ACTION/UI-UX-REALITY",
+      "ACTION/PIPELINE-DIRECTION",
+      "ACTION/VISUAL_PROOF",
+      "ACTION/GATE-A",
+      "ACTION/GATE-C",
+      "ACTION/HANDOFF",
+      "ACTION/RUN_CARD",
+      "ACTION/CLOSE-PACKAGE",
+      "ACTION/GATE-B",
+      "BIBLIOTHEQUE/SELECT",
+      "BIBLIOTHEQUE/SEQUENCE",
+      "OBJECT/PROOF_PRODUCT_STAGE",
+      "BIBLIOTHEQUE/CONTRACTS",
+      "SAVOIR/INTEGRITY"
+    ],
+    "direction": {
+      "thesis": "Du travail livré à une facture prête à relire, pour les indépendants et petites équipes de services.",
+      "anti_direction": [
+        "Modal hypothétique : écran décoratif, logos clients, trois cartes égales ; parti : facture et calcul manipulables avant l’offre."
+      ],
+      "first_object": "Une facture illustrative où prestation, heures, tarif et TVA conduisent à un montant recalculé.",
+      "identity_stake": "normal",
+      "constraint": "Une page autonome, exemple sans service, compte, envoi, paiement ou asset externe."
+    },
+    "anchors": [
+      {
+        "role": "direction",
+        "type": "generated",
+        "source": "captures-v1/desktop-viewport.png",
+        "date": "2026-10-10",
+        "scope": "Document codé, relation promesse/document/action",
+        "retained": [
+          "lignes alignées",
+          "totaux référencés",
+          "document blanc"
+        ],
+        "rejected": [
+          "tampon officiel",
+          "état payé",
+          "témoignage"
+        ],
+        "transformation": "Le document métier devient un objet de démonstration modifiable.",
+        "limitation": "Hypothèse du même auteur ; aucune marque ou preuve de conformité réelle.",
+        "transformation_status": "transformed"
+      }
+    ],
+    "artifact": {
+      "locator": "index.html",
+      "scope": "Page française, 1440×1000, 390×844, 320×844, édition/error/succès/contenu long/clavier/export.",
+      "rights_status": "cleared",
+      "version": "243412440854"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Confirmer public, marque, offre et fonctions réels avec le commanditaire ; tester compréhension et première tâche avec des utilisateurs représentatifs.",
+    "capability_profile": {
+      "available": [
+        "HTML/CSS/JS local",
+        "Chromium/capture",
+        "DOM/noms accessibles",
+        "calcul de contraste",
+        "clavier automatisé"
+      ],
+      "unavailable": [
+        "lecteur d’écran",
+        "utilisateur réel",
+        "revue indépendante",
+        "runtime du SaaS réel"
+      ],
+      "not_required": [
+        "réseau externe",
+        "paiement/envoi"
+      ],
+      "basis": [
+        {
+          "capability": "HTML/CSS/JS local",
+          "kind": "tool_result",
+          "detail": "index.html autonome construit et chargé sur serveur loopback temporaire."
+        },
+        {
+          "capability": "Chromium/capture",
+          "kind": "tool_result",
+          "detail": "captures-final-v4 et captures-states produites et inspectées."
+        },
+        {
+          "capability": "DOM/noms accessibles",
+          "kind": "tool_result",
+          "detail": "semantic-evidence.json et accessibility-snapshot.txt."
+        },
+        {
+          "capability": "calcul de contraste",
+          "kind": "tool_result",
+          "detail": "gate-a.json et contrast-complement.json."
+        },
+        {
+          "capability": "clavier automatisé",
+          "kind": "tool_result",
+          "detail": "functional-tests.json, 18 cas réellement exécutés, 18 succès."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "Facture cohérente, zéro débordement aux trois largeurs, recalcul 888,97 €, erreurs et reprise, clavier, téléchargement textuel, préférence de mouvement réduit.",
+        "Comparaison Manrope/Instrument et retrait de la masse secondaire observés."
+      ],
+      "not_verified": [
+        "Compréhension et conversion par des utilisateurs.",
+        "Lecteur d’écran, conformité complète, métier légal et SaaS réel.",
+        "Direction de marque réelle et regard externe."
+      ],
+      "provenance": {
+        "artifact_locator": "index.html",
+        "artifact_version": "243412440854",
+        "method": "AUTOMATED Playwright et inspection visuelle du même auteur",
+        "observed_at": "2026-10-10T13:39:54.617646+00:00",
+        "capability": "Chromium/capture"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Masse secondaire retirée ; focus et wrapping étroit corrigés après observations.",
+      "evidence": "captures-v1/desktop-viewport.png comparée à captures-final/desktop-viewport.png ; erreurs et version finale documentées dans trace.md et functional-tests.json."
+    },
+    "creative_close": {
+      "presence": "Document blanc identifiable face à une promesse et action sobres.",
+      "signature": "Prestation → heures/prix → total réellement recalculable avant la présentation d’offre.",
+      "craft_detail": "Arrondis 842,63 + 46,34 = 888,97, récupération des erreurs et titre étroit à deux lignes.",
+      "dominant_defect": "Public, marque et offre hypothétiques ; efficacité réelle non vérifiée.",
+      "next_polish_action": "STOP — la prochaine décision dépend de données produit et d’utilisateurs, pas d’un ajout de finition."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Proposition illustrée et locale, pas une marque acceptée ni un service disponible.",
+        "Auto-comparaison, pas d’utilisateur, de lecteur d’écran ou de preuve métier réelle."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "PASS-WITH-RESERVATION",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS"
+      },
+      "reservations": [
+        {
+          "owner": "commanditaire",
+          "scope": "Public, direction de marque et SaaS réel",
+          "date_version": "2026-10-10 / 243412440854",
+          "impact": "Une direction visuellement construite peut répondre à une autre cible ou offre que le produit réel.",
+          "next_proof": "Fournir marque, public/tâche, fonctionnalités/prix/preuves ; revue avec utilisateurs.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Les contenus réels sont fournis, intégrés et la première tâche est revue dans son contexte."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "captures-v1/desktop-viewport.png",
+          "after_locator": "captures-final/desktop-viewport.png",
+          "decision": "Réduire la masse explicative secondaire pour concentrer promesse/action/document.",
+          "outcome": "modified"
+        }
+      }
+    }
+  }
+}

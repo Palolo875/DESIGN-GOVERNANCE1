@@ -1,0 +1,161 @@
+{
+  "started_at": "2026-10-10T13:18:56.569621+00:00",
+  "run": "run-03",
+  "viewports": [
+    {
+      "width": 1440,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "CTA de la première scène : ouverture de la démo, focus sur le client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide : erreur associée au champ et focus rendu."
+        },
+        {
+          "name": "Erreur montant",
+          "status": "PASS",
+          "observation": "Montant négatif refusé, erreur liée au champ et données conservées."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "PASS",
+          "observation": "360 € HT, TVA illustrative 20 %, nom et total 432 € transmis au document."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Fichier texte téléchargé avec les données saisies et le statut d'exemple."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Retour à la saisie avec valeurs et focus préservés."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme la démo et rend le focus au CTA d'origine."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "CTA de la première scène : ouverture de la démo, focus sur le client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide : erreur associée au champ et focus rendu."
+        },
+        {
+          "name": "Erreur montant",
+          "status": "PASS",
+          "observation": "Montant négatif refusé, erreur liée au champ et données conservées."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "PASS",
+          "observation": "360 € HT, TVA illustrative 20 %, nom et total 432 € transmis au document."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Fichier texte téléchargé avec les données saisies et le statut d'exemple."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Retour à la saisie avec valeurs et focus préservés."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme la démo et rend le focus au CTA d'origine."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "CTA de la première scène : ouverture de la démo, focus sur le client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide : erreur associée au champ et focus rendu."
+        },
+        {
+          "name": "Erreur montant",
+          "status": "PASS",
+          "observation": "Montant négatif refusé, erreur liée au champ et données conservées."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "PASS",
+          "observation": "360 € HT, TVA illustrative 20 %, nom et total 432 € transmis au document."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Fichier texte téléchargé avec les données saisies et le statut d'exemple."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Retour à la saisie avec valeurs et focus préservés."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme la démo et rend le focus au CTA d'origine."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T13:19:01.695128+00:00",
+  "passed": 27,
+  "failed": 0
+}

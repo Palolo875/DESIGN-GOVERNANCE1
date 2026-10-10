@@ -1,0 +1,618 @@
+{
+  "started_at": "2026-10-10T12:21:05.148827+00:00",
+  "output_sha256": {
+    "index.html": "54eb6a93833e6b6adacfaff2f773c24dc887ad51e9aab47e573740af574de12e"
+  },
+  "status": "requires_manual_review",
+  "functional_tests": "NOT-VERIFIED: actions et erreurs propres à la page à rejouer séparément",
+  "limitations": [
+    "Les observations automatiques ne sont pas un audit WCAG complet.",
+    "Le parcours principal et la vérité du contenu nécessitent une vérification séparée.",
+    "Le focus et les petites cibles sont des indices à inspecter, pas des verdicts automatiques."
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "http_status": 200,
+      "screenshots": {
+        "first": "1440-premiere.png",
+        "full": "1440-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Fixture défectueuse",
+        "lang": "",
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "headings": [],
+        "broken_images": [
+          "https://example.invalid/absent.png"
+        ],
+        "missing_alts": [
+          "<img src=\"https://example.invalid/absent.png\">"
+        ],
+        "unlabelled_fields": [
+          {
+            "tag": "INPUT",
+            "id": "",
+            "type": "text"
+          }
+        ],
+        "unresolved_anchors": [
+          {
+            "text": "Ancre absente",
+            "href": "#absent"
+          }
+        ],
+        "small_targets": [
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 185,
+            "height": 21
+          },
+          {
+            "tag": "A",
+            "text": "Ancre absente",
+            "width": 91.0625,
+            "height": 17
+          }
+        ]
+      },
+      "focus_steps": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [
+          "Failed to load resource: net::ERR_FAILED"
+        ],
+        "page_errors": [
+          "ERREUR_VOLONTAIRE_FIXTURE"
+        ],
+        "external_requests": [
+          "https://example.invalid/absent.png"
+        ],
+        "failed_requests": [
+          {
+            "url": "https://example.invalid/absent.png",
+            "failure": "net::ERR_FAILED"
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "390-premiere.png",
+        "full": "390-complete.png"
+      },
+      "horizontal_overflow": true,
+      "dom": {
+        "title": "Fixture défectueuse",
+        "lang": "",
+        "client_width": 390,
+        "scroll_width": 908,
+        "headings": [],
+        "broken_images": [
+          "https://example.invalid/absent.png"
+        ],
+        "missing_alts": [
+          "<img src=\"https://example.invalid/absent.png\">"
+        ],
+        "unlabelled_fields": [
+          {
+            "tag": "INPUT",
+            "id": "",
+            "type": "text"
+          }
+        ],
+        "unresolved_anchors": [
+          {
+            "text": "Ancre absente",
+            "href": "#absent"
+          }
+        ],
+        "small_targets": [
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 185,
+            "height": 21
+          },
+          {
+            "tag": "A",
+            "text": "Ancre absente",
+            "width": 91.0625,
+            "height": 17
+          }
+        ]
+      },
+      "focus_steps": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [
+          "Failed to load resource: net::ERR_FAILED"
+        ],
+        "page_errors": [
+          "ERREUR_VOLONTAIRE_FIXTURE"
+        ],
+        "external_requests": [
+          "https://example.invalid/absent.png"
+        ],
+        "failed_requests": [
+          {
+            "url": "https://example.invalid/absent.png",
+            "failure": "net::ERR_FAILED"
+          }
+        ]
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "320-premiere.png",
+        "full": "320-complete.png"
+      },
+      "horizontal_overflow": true,
+      "dom": {
+        "title": "Fixture défectueuse",
+        "lang": "",
+        "client_width": 320,
+        "scroll_width": 908,
+        "headings": [],
+        "broken_images": [
+          "https://example.invalid/absent.png"
+        ],
+        "missing_alts": [
+          "<img src=\"https://example.invalid/absent.png\">"
+        ],
+        "unlabelled_fields": [
+          {
+            "tag": "INPUT",
+            "id": "",
+            "type": "text"
+          }
+        ],
+        "unresolved_anchors": [
+          {
+            "text": "Ancre absente",
+            "href": "#absent"
+          }
+        ],
+        "small_targets": [
+          {
+            "tag": "INPUT",
+            "text": "",
+            "width": 185,
+            "height": 21
+          },
+          {
+            "tag": "A",
+            "text": "Ancre absente",
+            "width": 91.0625,
+            "height": 17
+          }
+        ]
+      },
+      "focus_steps": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Débordement volontaireAncre absentethrow new Error('ERREUR_VOLONTAIRE_FIXTURE')",
+          "focus_visible_match": false,
+          "outline": "rgb(0, 0, 0) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "text": "",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Ancre absente",
+          "focus_visible_match": true,
+          "outline": "rgb(16, 16, 16) auto 1px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [
+          "Failed to load resource: net::ERR_FAILED"
+        ],
+        "page_errors": [
+          "ERREUR_VOLONTAIRE_FIXTURE"
+        ],
+        "external_requests": [
+          "https://example.invalid/absent.png"
+        ],
+        "failed_requests": [
+          {
+            "url": "https://example.invalid/absent.png",
+            "failure": "net::ERR_FAILED"
+          }
+        ]
+      }
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "browser_executable": "/usr/bin/chromium",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T12:21:11.067041+00:00",
+  "evidence_sha256": {
+    "1440-complete.png": "a923c794ac2f59442a8004e1bd4217dd680f6092e64e53a2293b223e300cd681",
+    "1440-premiere.png": "a923c794ac2f59442a8004e1bd4217dd680f6092e64e53a2293b223e300cd681",
+    "320-complete.png": "fbc5a5de11ba7f03865b1bb528212c09d9334cf5b554e10b4c504bdb9b39fd34",
+    "320-premiere.png": "b09ddef917ee063f264afaddaa68b93b3dceb1fa757d9739794efcd7932839c1",
+    "390-complete.png": "fbc5a5de11ba7f03865b1bb528212c09d9334cf5b554e10b4c504bdb9b39fd34",
+    "390-premiere.png": "0ab6e2e770a8df45b32648d1d6149242441fa73e26ef69fcd23b9e52484d18c8"
+  }
+}

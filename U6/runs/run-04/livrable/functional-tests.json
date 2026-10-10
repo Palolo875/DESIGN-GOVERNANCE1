@@ -1,0 +1,780 @@
+{
+  "artifact": "index.html",
+  "sha256": "243412440854ed3d5ca3b01a1b32e11858848423a3cced3f4c81c8475a675be8",
+  "observed_at": "2026-10-10T13:36:15.460030+00:00",
+  "runtime": "Chromium /usr/bin/chromium, Python Playwright 1.56.0",
+  "method": "Browser actions and DOM assertions, no real user or assistive technology",
+  "cases": [
+    {
+      "name": "Initial layout and coherent calculation",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "html, .sheet, #grand-total",
+          "action": "load initial page and inspect document width/amount",
+          "observation": {
+            "scrollWidth": 1440,
+            "viewportWidth": 1440,
+            "amount": "720,00 €",
+            "fontStatus": "loaded",
+            "pageErrors": []
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Primary action and error state",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "#primary-cta",
+          "action": "click",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#client",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill",
+          "observation": {
+            "value": "0"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill",
+          "observation": {
+            "value": "-1"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "click with empty text, zero hours and negative rate",
+          "observation": {
+            "invalidFields": [
+              "client",
+              "service",
+              "hours",
+              "rate"
+            ],
+            "activeElement": "client",
+            "hoursRetained": "0",
+            "rateRetained": "-1",
+            "total": "À vérifier",
+            "alert": "4 champs à corriger. Les valeurs ont été conservées.",
+            "capture": "captures-states/error-1440.png"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Recovery, recalculation, long content and download",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Collectif des artisans indépendants — nom de client très long pour vérifier le retour à la ligne"
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Conception et accompagnement de la nouvelle identité visuelle, atelier de cadrage et préparation des livrables"
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "10.5"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "80.25"
+          }
+        },
+        {
+          "selector": "#tax",
+          "action": "select option 5.5",
+          "observation": {
+            "previewTotal": "888,97 €"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "submit corrected and long content",
+          "observation": {
+            "dialogVisible": false,
+            "activeElement": "success",
+            "subtotal": "842,63 €",
+            "tax": "46,34 €",
+            "total": "888,97 €",
+            "scrollWidth": 1440,
+            "capture": "captures-states/success-long-1440.png"
+          }
+        },
+        {
+          "selector": "#download",
+          "action": "click and read actual downloaded file",
+          "observation": {
+            "suggestedFilename": "pli-brouillon-exemple.txt",
+            "path": "download-test-1440.txt",
+            "lineCount": 13,
+            "containsUpdatedTotal": true,
+            "containsExampleWarning": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Keyboard trap, Escape, cancel and focus recovery",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "#edit-example",
+          "action": "focus and press Enter",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#editor",
+          "action": "8 successive Tab keypresses",
+          "observation": {
+            "focusOrder": [
+              "service",
+              "hours",
+              "rate",
+              "tax",
+              "cancel",
+              "submit-invoice",
+              "close-dialog",
+              "client"
+            ],
+            "focusRemainsInDialog": true,
+            "clientOutline": "rgb(23, 76, 166) solid 3px"
+          }
+        },
+        {
+          "selector": "#editor",
+          "action": "Escape",
+          "observation": {
+            "dialogVisible": false,
+            "focusReturnedTo": "edit-example"
+          }
+        },
+        {
+          "selector": "#client, #cancel, #edit-example",
+          "action": "change value, cancel, reopen",
+          "observation": {
+            "unsubmittedChangeDiscarded": true,
+            "confirmedDraftRetained": true
+          }
+        },
+        {
+          "selector": "#close-dialog",
+          "action": "click",
+          "observation": {
+            "dialogVisible": false
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "FAQ keyboard disclosure",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "details:nth-of-type(1) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(2) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(3) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(4) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Initial layout and coherent calculation",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "html, .sheet, #grand-total",
+          "action": "load initial page and inspect document width/amount",
+          "observation": {
+            "scrollWidth": 390,
+            "viewportWidth": 390,
+            "amount": "720,00 €",
+            "fontStatus": "loaded",
+            "pageErrors": []
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Primary action and error state",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#primary-cta",
+          "action": "click",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#client",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill",
+          "observation": {
+            "value": "0"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill",
+          "observation": {
+            "value": "-1"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "click with empty text, zero hours and negative rate",
+          "observation": {
+            "invalidFields": [
+              "client",
+              "service",
+              "hours",
+              "rate"
+            ],
+            "activeElement": "client",
+            "hoursRetained": "0",
+            "rateRetained": "-1",
+            "total": "À vérifier",
+            "alert": "4 champs à corriger. Les valeurs ont été conservées.",
+            "capture": "captures-states/error-390.png"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Recovery, recalculation, long content and download",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Collectif des artisans indépendants — nom de client très long pour vérifier le retour à la ligne"
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Conception et accompagnement de la nouvelle identité visuelle, atelier de cadrage et préparation des livrables"
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "10.5"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "80.25"
+          }
+        },
+        {
+          "selector": "#tax",
+          "action": "select option 5.5",
+          "observation": {
+            "previewTotal": "888,97 €"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "submit corrected and long content",
+          "observation": {
+            "dialogVisible": false,
+            "activeElement": "success",
+            "subtotal": "842,63 €",
+            "tax": "46,34 €",
+            "total": "888,97 €",
+            "scrollWidth": 390,
+            "capture": "captures-states/success-long-390.png"
+          }
+        },
+        {
+          "selector": "#download",
+          "action": "click and read actual downloaded file",
+          "observation": {
+            "suggestedFilename": "pli-brouillon-exemple.txt",
+            "path": "download-test-390.txt",
+            "lineCount": 13,
+            "containsUpdatedTotal": true,
+            "containsExampleWarning": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Keyboard trap, Escape, cancel and focus recovery",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#edit-example",
+          "action": "focus and press Enter",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#editor",
+          "action": "8 successive Tab keypresses",
+          "observation": {
+            "focusOrder": [
+              "service",
+              "hours",
+              "rate",
+              "tax",
+              "cancel",
+              "submit-invoice",
+              "close-dialog",
+              "client"
+            ],
+            "focusRemainsInDialog": true,
+            "clientOutline": "rgb(23, 76, 166) solid 3px"
+          }
+        },
+        {
+          "selector": "#editor",
+          "action": "Escape",
+          "observation": {
+            "dialogVisible": false,
+            "focusReturnedTo": "edit-example"
+          }
+        },
+        {
+          "selector": "#client, #cancel, #edit-example",
+          "action": "change value, cancel, reopen",
+          "observation": {
+            "unsubmittedChangeDiscarded": true,
+            "confirmedDraftRetained": true
+          }
+        },
+        {
+          "selector": "#close-dialog",
+          "action": "click",
+          "observation": {
+            "dialogVisible": false
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "FAQ keyboard disclosure",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "details:nth-of-type(1) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(2) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(3) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(4) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Initial layout and coherent calculation",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "html, .sheet, #grand-total",
+          "action": "load initial page and inspect document width/amount",
+          "observation": {
+            "scrollWidth": 320,
+            "viewportWidth": 320,
+            "amount": "720,00 €",
+            "fontStatus": "loaded",
+            "pageErrors": []
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Primary action and error state",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "#primary-cta",
+          "action": "click",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#client",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill",
+          "observation": {
+            "value": "0"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill",
+          "observation": {
+            "value": "-1"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "click with empty text, zero hours and negative rate",
+          "observation": {
+            "invalidFields": [
+              "client",
+              "service",
+              "hours",
+              "rate"
+            ],
+            "activeElement": "client",
+            "hoursRetained": "0",
+            "rateRetained": "-1",
+            "total": "À vérifier",
+            "alert": "4 champs à corriger. Les valeurs ont été conservées.",
+            "capture": "captures-states/error-320.png"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Recovery, recalculation, long content and download",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Collectif des artisans indépendants — nom de client très long pour vérifier le retour à la ligne"
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Conception et accompagnement de la nouvelle identité visuelle, atelier de cadrage et préparation des livrables"
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "10.5"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "80.25"
+          }
+        },
+        {
+          "selector": "#tax",
+          "action": "select option 5.5",
+          "observation": {
+            "previewTotal": "888,97 €"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "submit corrected and long content",
+          "observation": {
+            "dialogVisible": false,
+            "activeElement": "success",
+            "subtotal": "842,63 €",
+            "tax": "46,34 €",
+            "total": "888,97 €",
+            "scrollWidth": 320,
+            "capture": "captures-states/success-long-320.png"
+          }
+        },
+        {
+          "selector": "#download",
+          "action": "click and read actual downloaded file",
+          "observation": {
+            "suggestedFilename": "pli-brouillon-exemple.txt",
+            "path": "download-test-320.txt",
+            "lineCount": 13,
+            "containsUpdatedTotal": true,
+            "containsExampleWarning": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Keyboard trap, Escape, cancel and focus recovery",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "#edit-example",
+          "action": "focus and press Enter",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#editor",
+          "action": "8 successive Tab keypresses",
+          "observation": {
+            "focusOrder": [
+              "service",
+              "hours",
+              "rate",
+              "tax",
+              "cancel",
+              "submit-invoice",
+              "close-dialog",
+              "client"
+            ],
+            "focusRemainsInDialog": true,
+            "clientOutline": "rgb(23, 76, 166) solid 3px"
+          }
+        },
+        {
+          "selector": "#editor",
+          "action": "Escape",
+          "observation": {
+            "dialogVisible": false,
+            "focusReturnedTo": "edit-example"
+          }
+        },
+        {
+          "selector": "#client, #cancel, #edit-example",
+          "action": "change value, cancel, reopen",
+          "observation": {
+            "unsubmittedChangeDiscarded": true,
+            "confirmedDraftRetained": true
+          }
+        },
+        {
+          "selector": "#close-dialog",
+          "action": "click",
+          "observation": {
+            "dialogVisible": false
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "FAQ keyboard disclosure",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "details:nth-of-type(1) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(2) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(3) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        },
+        {
+          "selector": "details:nth-of-type(4) summary",
+          "action": "focus and Enter",
+          "observation": {
+            "open": true,
+            "contentVisible": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Reduced movement preference",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "html",
+          "action": "load with reduced_motion=reduce",
+          "observation": {
+            "reduce": true,
+            "scrollBehavior": "auto"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Fresh session has no saved draft",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#client-output, #success",
+          "action": "load a fresh page after previous draft tests",
+          "observation": {
+            "client": "Studio Lundi",
+            "successVisible": false,
+            "noPersistedDraft": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "No external network requests",
+      "viewport": null,
+      "steps": [
+        {
+          "selector": "network request events",
+          "action": "inspect requests observed during all functional cases",
+          "observation": {
+            "externalRequests": [],
+            "observedRequests": 3
+          }
+        }
+      ],
+      "result": "PASS"
+    }
+  ],
+  "summary": {
+    "executed": 18,
+    "passed": 18,
+    "failed": 0
+  }
+}

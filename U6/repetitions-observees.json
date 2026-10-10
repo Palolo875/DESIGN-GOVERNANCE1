@@ -1,0 +1,44 @@
+{
+  "run-01": {
+    "method": "Paragraphes exacts >=250 caractères, uniquement textes complètement servis ; aucun jeton estimé.",
+    "count": 0,
+    "repeated_paragraph_chars": 0,
+    "duplicates": [],
+    "reader_text_integrity": "PASS"
+  },
+  "run-02": {
+    "method": "Paragraphes exacts >=250 caractères, uniquement textes complètement servis ; aucun jeton estimé.",
+    "count": 0,
+    "repeated_paragraph_chars": 0,
+    "duplicates": [],
+    "reader_text_integrity": "PASS"
+  },
+  "run-03": {
+    "method": "Paragraphes exacts >=250 caractères, uniquement textes complètement servis ; aucun jeton estimé.",
+    "count": 0,
+    "repeated_paragraph_chars": 0,
+    "duplicates": [],
+    "reader_text_integrity": "PASS"
+  },
+  "run-04": {
+    "method": "Paragraphes exacts >=250 caractères, uniquement textes complètement servis ; aucun jeton estimé.",
+    "count": 0,
+    "repeated_paragraph_chars": 0,
+    "duplicates": [],
+    "reader_text_integrity": "PASS"
+  },
+  "run-05": {
+    "method": "Paragraphes exacts >=250 caractères, uniquement textes complètement servis ; aucun jeton estimé.",
+    "count": 0,
+    "repeated_paragraph_chars": 0,
+    "duplicates": [],
+    "reader_text_integrity": "PASS"
+  },
+  "run-06": {
+    "method": "Paragraphes exacts >=250 caractères, uniquement textes complètement servis ; aucun jeton estimé.",
+    "count": 0,
+    "repeated_paragraph_chars": 0,
+    "duplicates": [],
+    "reader_text_integrity": "PASS"
+  }
+}

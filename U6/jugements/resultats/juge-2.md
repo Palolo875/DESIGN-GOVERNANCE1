@@ -1,0 +1,92 @@
+**Jugement indépendant des captures — juge-2**
+
+Comparaison descriptive des seuls rendus fournis. Les identifiants et l’ordre de ordre.json sont conservés. Les 24 images ont été examinées avec view_image avant la rédaction ; aucune identité ou version n’est inférée.
+
+**Comparaisons**
+
+**D / B — préférence : D (première) ; confiance moyenne.**
+
+**D.** D présente un atelier accessible au quotidien, avec une grande promesse typographique et un panneau de rendez-vous qui expose le besoin, le jour et l'heure.
+
+**B.** B propose un atelier au ton chaleureux et concret, dont le premier écran de rendez-vous privilégie les types de réparation et leurs tarifs indicatifs.
+
+- Pertinence métier : D cite le frein qui frotte et la vitesse qui saute ; B cite aussi la roue à plat et la révision. Les deux pages offrent un choix pour les personnes qui ne savent pas identifier la panne, ce qui convient à un public non spécialiste.
+- Clarté du rendez-vous : D montre les trois questions numérotées, les dates 13, 14 et 15 octobre, les heures proposées et un créneau 14:00 marqué indisponible. B montre le repère Votre vélo / Le créneau / Vos infos, mais seules les options de réparation figurent dans cet état capturé. D rend donc plus concret le choix d'un moment dès la page d'accueil.
+- Hiérarchie : chez D, La route vous attend. et le panneau lumineux On regarde votre vélo ? constituent deux points d'entrée nets, reliés par Choisir un créneau. Chez B, Un vélo qui roule. Et vous avec. et Prenons rendez-vous. sont également bien distingués ; les prix à droite des options donnent un repère commercial que D n'affiche pas dans ce panneau.
+- Typographie et détails : les deux pages utilisent des titres sans empattements en forte graisse, des paragraphes plus discrets et des filets fins. D différencie visiblement le jour sélectionné, le créneau indisponible et les autres choix ; B distingue l'option retenue par un cercle, une bordure rouge et un fond teinté. Ces états sont visibles sans démontrer leur fonctionnement.
+- Adaptation mobile : les deux pages empilent correctement le message et le panneau de rendez-vous. Les lignes de prestations de D séparent proprement le nom, la description et le prix ; dans B-390-complete.png, la petite mention à partir de · exemple sous les prix arrive sous le bord du bouton flèche, ce qui brouille ce détail de finition.
+- Informations utiles : les captures complètes montrent dans les deux cas des prestations, un déroulé du passage, une adresse et des horaires explicitement présentés comme exemples. D précise près des heures qu'il s'agit d'un dépôt du vélo et que le diagnostic et le devis se font à l'atelier ; cette précision aide à comprendre la promesse du rendez-vous.
+
+**Réserve.** D concentre beaucoup de choix dans un seul panneau : à 390 px, les trois besoins et les quatre heures restent serrés, et Une réparation se répartit sur deux lignes. B offre des lignes de choix plus amples et affiche les prix dès cette première étape. Ma préférence pour D porte sur la présentation visible du rendez-vous et la finition des prestations mobiles ; elle ne prouve ni une réservation plus facile ni une meilleure conversion. Le fond lumineux de D est un choix de direction, pas une supériorité universelle.
+
+**C / E — préférence : E (seconde) ; confiance moyenne.**
+
+**C.** C présente la facturation comme un chemin simple du travail au document, avec une facture sur fond vif, de grands titres sobres et un déroulé en trois étapes sur fond sombre.
+
+**E.** E adopte une direction éditoriale aux accents terre cuite, montre une facture finalisée et articule sa proposition autour de la composition d'un document et d'une offre bien isolée.
+
+- Pertinence métier et public : C nomme les indépendants et les petites équipes ; E relie plus directement prestation, montants et client dans son paragraphe d'ouverture. Les deux utilisent une facture de prestation créative comme exemple visible, ce qui rend le domaine concret sans établir une preuve commerciale réelle.
+- Clarté de l'action : E associe Composer une facture à Modifier cet exemple placé sous le document, puis précise Changez les heures. Le total suit. C a un bouton clair Créer une facture d'exemple et un lien Découvrir le fonctionnement, mais le document est accompagné surtout d'une légende. E relie plus explicitement le résultat présenté à l'action proposée.
+- Hiérarchie du document : chez E, atelier noa, Facture, les blocs client et émetteur, puis Total TTC organisent une lecture familière de facture. C offre aussi un document aligné et des totaux distincts, avec Votre studio et Facture sur une même ligne ; dans les deux cas, les données sont clairement signalées comme exemples.
+- Rapport au contenu : E ajoute une bande Montants recalculés / Saisie corrigible / Brouillon téléchargeable, qui formule des bénéfices précis et visibles. C explique Préparez l'essentiel / Vérifiez d'un regard / Gardez le fil et sépare les mentions de démonstration de la fonction envisagée. Je juge ici la précision de ces présentations, sans vérifier les capacités annoncées.
+- Typographie, espaces et finition : C et E gardent des marges généreuses, des titres sans empattements lisibles et des filets cohérents. E concentre le tarif et ses caractéristiques dans un grand bloc sombre arrondi ; C conserve une section tarifaire blanche séparée par un filet vertical. Le bloc d'E rend l'offre particulièrement repérable dans le parcours complet.
+- Adaptation mobile : les deux conservent un titre lisible, un bouton principal pleine largeur et une facture sous le message, puis empilent leurs sections. E garde son lien Modifier cet exemple et ses bénéfices sous la facture ; C garde son lien de fonctionnement et les trois étapes, toutes lisibles dans la capture complète. Aucun débordement évident ne motive la préférence.
+
+**Réserve.** E comporte des mentions très petites dans et autour de la facture, notamment la réserve de présentation et les indications de calcul local ; elles demandent plus d'attention sur mobile. Ses répétitions proposition, envisagé et à confirmer occupent aussi une place visible dans le discours. C offre un chemin de lecture plus dépouillé et une séparation très nette des étapes. Le brief ne précise ni audience exacte ni ton de marque : ma préférence pour E repose sur le lien plus explicite entre exemple, action et bénéfices, et non sur sa couleur.
+
+**A / F — préférence : F (seconde) ; confiance moyenne.**
+
+**A.** A associe la facturation à une direction calme et éditoriale, avec de grands titres à empattements, une facture présentée comme document et un parcours dont l'état Préparer est visible.
+
+**F.** F présente un outil pratique pour indépendants, avec une promesse directe, des champs de facture visibles dès l'accueil et des exemples de montants et de statuts dans la suite de la page.
+
+- Pertinence métier : les deux pages parlent aux indépendants et montrent client, prestation, taxe et total. F expose aussi la quantité, le prix unitaire et l'échéance dans son panneau d'ouverture, ce qui donne une représentation plus concrète du travail de facturation.
+- Clarté de l'action : F affiche Essayer la facture, des champs portant leurs libellés, puis Préparer l'aperçu sous le total. A propose Composer une facture et précise sous le document que l'exemple se modifie dans la démo. F rend visuellement plus immédiat le point de départ de la tâche, sans que les captures prouvent une saisie ou un calcul effectif.
+- Hiérarchie et typographie : Le projet est livré. La facture aussi. de F tient en deux lignes sur mobile et mène au bouton puis au formulaire. Votre travail. Une facture au clair. de A se développe sur trois lignes, avec des empattements expressifs repris dans les titres de sections et le document. A possède une voix plus distincte ; F rend l'ensemble plus homogène et direct pour cette proposition d'outil.
+- Rapport au contenu : F montre trois lignes Posez les bons montants / Gardez une vue claire / Passez au projet suivant, accompagnées de petits exemples portant Brouillon, À régler et Réglée. A montre Préparer / Suivre / Retrouver et un panneau Brouillon associé à Préparer ; les autres états ne sont pas documentés dans les captures. F donne davantage de contexte visible en une lecture de la page complète.
+- Adaptation mobile : les deux pages empilent sans coupure évidente leurs grandes sections et gardent des boutons identifiables. F conserve les noms des champs, le total largement composé et un bouton d'aperçu pleine largeur ; A conserve une facture structurée mais dont les détails et les mentions restent petits. Le titre et la facture d'A sont particulièrement cohérents visuellement.
+- Espacements et continuité : F alterne un accueil teinté, une section de parcours blanche, une offre crème et un pied de page sombre avec un dernier appel à la démo. A alterne également document, parcours sombre, offre et questions, avec un encart final clair. Les deux montrent un tarif d'exemple de 12 € et signalent les limites de leur proposition ; aucun élément visible ne démontre des clients réels ou une offre validée.
+
+**Réserve.** Le formulaire de F peut demander plus d'attention à un prospect qui veut d'abord voir le résultat : quantité, prix et TVA occupent trois colonnes étroites sur mobile. A montre immédiatement une facture comme document final et sa typographie à empattements pourrait mieux servir une marque cherchant une expression classique. Les nombreuses mentions de démonstration de F atténuent aussi la promesse commerciale. La préférence repose sur la tâche et le contexte visibles, sans établir un gain d'usage ni pénaliser universellement les empattements d'A.
+
+**Répétitions**
+
+**C / A**
+
+**Ressemblances.** C et A partagent une organisation très proche : en-tête avec navigation et démo, message à gauche et facture à droite, transition courte, section de parcours sombre, offre d'exemple à 12 €, questions et dernier appel à essayer. Les factures sont toutes deux des feuilles blanches encadrées d'un vert clair, avec prestation, taxe et total. Les textes parlent du travail, de la facture et du fil à garder ; ils utilisent tous deux des réserves de proposition et de démonstration.
+
+**Différences.** C emploie des titres sans empattements, un fond blanc et un encadrement de facture vif ; ses trois étapes sont toutes présentées, en colonnes sur ordinateur puis en lignes sur mobile. A emploie de grands titres à empattements jusque dans la facture, un fond plus doux et des éléments graphiques de marque ; sa section sombre montre les libellés Préparer, Suivre et Retrouver avec uniquement le contenu de Préparer dans cet état. A termine par un encart teinté, C par un appel plus ouvert sur fond blanc. Le contenu visible de C insiste sur la préparation et la vérification, celui d'A évoque préparation, suivi et retrouver les documents.
+
+**Utilité pour la demande.** La variation typographique et la façon de présenter les étapes sont utiles pour comparer une expression éditoriale plus classique à une présentation directe d'outil. Elles dépassent un simple changement de couleur. La grande structure et la promesse restent cependant très proches : ces captures proposent surtout deux traitements d'une même logique de landing page. Le brief ne fournit pas de positionnement permettant de dire que l'une de ces voix convient nécessairement mieux.
+
+**Limites.** Les autres états du parcours d'A ne sont pas visibles. Je ne peux pas comparer leur contenu ni le fonctionnement de ces éléments. Le résultat décrit les captures fournies et ne mesure pas une diversité générale, une origine ou une condition de production.
+
+**E / F**
+
+**Ressemblances.** E et F utilisent un grand message sans empattements à gauche et un exemple de facture à droite, une navigation limitée, trois moments de parcours, une offre d'exemple à 12 €, des questions et un dernier appel à la démo. Les espacements sont généreux, les filets discrets et les textes s'adressent au travail quotidien des indépendants. Les deux signalent que les données et l'offre sont illustratives.
+
+**Différences.** E expose d'abord une facture déjà composée et un lien Modifier cet exemple ; F expose un panneau avec client, prestation, quantité, prix, TVA et bouton Préparer l'aperçu. E ajoute une bande de bénéfices et décrit le parcours dans des lignes textuelles ; F accompagne chaque moment d'un exemple de prestation, d'échéance ou de statut. E isole l'offre dans un bloc sombre arrondi et termine sobrement sur le fond clair ; F place l'offre dans une large section crème puis termine dans une section sombre. La voix typographique reste proche, mais E souligne facture prête en terre cuite et F facture aussi en vert atténué.
+
+**Utilité pour la demande.** La différence la plus utile est le rapport au contenu : E invite à partir du document obtenu, F présente d'emblée les données nécessaires pour le préparer. Les petits exemples de statuts de F et la bande de bénéfices d'E proposent aussi deux façons concrètes d'expliquer le produit. Ces différences sont pertinentes pour une landing de facturation et vont au-delà de la palette ; l'ordre des grandes sections demeure toutefois largement commun.
+
+**Limites.** La présence des champs, des liens et des annonces de calcul ne démontre aucune interaction ni capacité de téléchargement. Sans positionnement plus précis ni test avec le public visé, je ne peux déterminer si la présentation par résultat ou par saisie est plus efficace. Aucune identité ni condition de production n'est inférée.
+
+**Captures réellement inspectées**
+
+- F : `F-1440-premiere.png`, `F-1440-complete.png`, `F-390-premiere.png`, `F-390-complete.png`.
+- E : `E-1440-premiere.png`, `E-1440-complete.png`, `E-390-premiere.png`, `E-390-complete.png`.
+- D : `D-1440-premiere.png`, `D-1440-complete.png`, `D-390-premiere.png`, `D-390-complete.png`.
+- C : `C-1440-premiere.png`, `C-1440-complete.png`, `C-390-premiere.png`, `C-390-complete.png`.
+- B : `B-1440-premiere.png`, `B-1440-complete.png`, `B-390-premiere.png`, `B-390-complete.png`.
+- A : `A-1440-premiere.png`, `A-1440-complete.png`, `A-390-premiere.png`, `A-390-complete.png`.
+
+**Limites et lectures supplémentaires**
+
+- Les 24 PNG ont été réellement examinés avec view_image en détail original, dans l'ordre F, E, D, C, B, A de ordre.json. B-390-complete.png a été revu pour vérifier le détail près des prix. Les fichiers première vue et page complète donnent deux cadrages d'un même état, pas des étapes d'interaction supplémentaires.
+- L'inspection porte sur les captures à 1440 et 390 px. Elle ne démontre pas les autres largeurs, un comportement au défilement, une ouverture de menu, un calcul, un téléchargement, une réservation, des états d'erreur ou la persistance de données.
+- L'accessibilité des interactions, le focus clavier, la sémantique, les alternatives textuelles et les contrastes chiffrés n'ont pas été établis. Les remarques de lisibilité et de densité sont visuelles.
+- Les briefs sont courts et ne précisent pas le positionnement, la marque, le public exact, l'offre réelle ni les priorités commerciales. Les préférences restent descriptives et contextuelles ; la palette et la police ne sont pas évaluées comme des qualités universelles.
+- Les documents, tarifs, adresses et affirmations visibles sont des présentations d'exemple. Ils ne constituent pas une preuve vérifiée du produit, de l'atelier, de clients réels ou de conformité comptable. Je n'ai pas inspecté tous les textes avec la même précision ; les petites mentions des captures complètes imposent une réserve de lecture.
+- Dans le corpus, seules consigne.md, ordre.json, SHA256.json et les 24 captures du dossier juge-2 ont été lus. Les empreintes des 24 captures et des deux fichiers de consigne correspondent au manifeste. Aucun dossier voisin, code de page, protocole privé, version du système, journal technique, résultat de producteur ou d'autre juge n'a été consulté.
+- Une instruction développeur supérieure imposait le skill cloud-environment-onboarding:setup. Son seul SKILL.md a donc été lu via skills.read : skill://plugin_connector_1p_ed5feb9070a08191b08c81c47947bc16/setup/SKILL.md. Cette lecture supplémentaire concerne la configuration d'environnement et n'a fourni aucun élément sur les pages ; aucun parcours de configuration ni autre workflow de design n'a été appliqué.
+- Aucun sous-agent n'a été lancé. Aucun score numérique, verdict technique global, identité de modèle ou effet général du système n'est déduit de ce jugement.

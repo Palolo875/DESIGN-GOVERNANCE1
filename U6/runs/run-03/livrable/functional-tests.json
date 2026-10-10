@@ -1,0 +1,2350 @@
+{
+  "artifact": "index.html",
+  "artifact_sha256": "8e9994d60c00b634d28b16ced89c49292e1dd67975617ad85c9303d2e8d3f2e0",
+  "observed_at": "2026-10-10T13:12:44.046435+00:00",
+  "method": "Python Playwright 1.56.0 with local Chromium, author-written executed scenarios",
+  "runtime": "151.0.7922.173",
+  "server_stopped": true,
+  "cases": [
+    {
+      "name": "No overflow at 1440px",
+      "steps": [
+        {
+          "selector": "html",
+          "action": "set viewport",
+          "value": "1440x1000"
+        }
+      ],
+      "expected": "document width equals viewport; no page overflow",
+      "observed": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440,
+        "overflowElements": []
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "No overflow at 390px",
+      "steps": [
+        {
+          "selector": "html",
+          "action": "set viewport",
+          "value": "390x844"
+        }
+      ],
+      "expected": "document width equals viewport; no page overflow",
+      "observed": {
+        "width": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390,
+        "overflowElements": []
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "No overflow at 320px",
+      "steps": [
+        {
+          "selector": "html",
+          "action": "set viewport",
+          "value": "320x844"
+        }
+      ],
+      "expected": "document width equals viewport; no page overflow",
+      "observed": {
+        "width": 320,
+        "scrollWidth": 320,
+        "bodyWidth": 320,
+        "overflowElements": []
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Primary action by keyboard",
+      "steps": [
+        {
+          "selector": ".hero [data-open-demo]",
+          "action": "focus"
+        },
+        {
+          "selector": ".hero [data-open-demo]",
+          "action": "press",
+          "value": "Enter"
+        }
+      ],
+      "expected": "dialog opens, client field receives focus",
+      "observed": {
+        "open": true,
+        "focus": "client",
+        "description": "Démo locale · données illustratives · aucun envoi"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Dialog reverse Tab containment",
+      "steps": [
+        {
+          "selector": "#demo-dialog",
+          "action": "press Shift+Tab",
+          "value": "10 times"
+        }
+      ],
+      "expected": "all focus stops remain in dialog",
+      "observed": [
+        {
+          "id": "vat",
+          "inside": true
+        },
+        {
+          "id": "amount",
+          "inside": true
+        },
+        {
+          "id": "service",
+          "inside": true
+        },
+        {
+          "id": "client",
+          "inside": true
+        },
+        {
+          "id": "close-demo",
+          "inside": true
+        },
+        {
+          "id": "",
+          "inside": true
+        },
+        {
+          "id": "vat",
+          "inside": true
+        },
+        {
+          "id": "amount",
+          "inside": true
+        },
+        {
+          "id": "service",
+          "inside": true
+        },
+        {
+          "id": "client",
+          "inside": true
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Dialog Tab containment and focus",
+      "steps": [
+        {
+          "selector": "#demo-dialog",
+          "action": "press Tab",
+          "value": "10 times"
+        }
+      ],
+      "expected": "all focus stops remain inside dialog and show a visible outline",
+      "observed": [
+        {
+          "tag": "INPUT",
+          "id": "service",
+          "text": "",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "INPUT",
+          "id": "amount",
+          "text": "",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "SELECT",
+          "id": "vat",
+          "text": "",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Prévisualiser la facture →",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "BUTTON",
+          "id": "close-demo",
+          "text": "×",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "INPUT",
+          "id": "client",
+          "text": "",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "INPUT",
+          "id": "service",
+          "text": "",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "INPUT",
+          "id": "amount",
+          "text": "",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "SELECT",
+          "id": "vat",
+          "text": "",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Prévisualiser la facture →",
+          "inside": true,
+          "outline": "solid",
+          "outlineWidth": "3px",
+          "visible": true
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Modal error state at 320px",
+      "steps": [
+        {
+          "selector": "#demo-dialog",
+          "action": "set viewport",
+          "value": "320x844"
+        }
+      ],
+      "expected": "no horizontal overflow within dialog",
+      "observed": {
+        "client": 282,
+        "scroll": 282
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Empty and invalid input with recovery instructions",
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill",
+          "value": ""
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "value": ""
+        },
+        {
+          "selector": "#amount",
+          "action": "fill",
+          "value": "-3"
+        },
+        {
+          "selector": "#invoice-form button[type=submit]",
+          "action": "click"
+        }
+      ],
+      "expected": "three inline errors; first invalid field focused; entered amount retained",
+      "observed": {
+        "status": "3 champs sont à corriger. Votre saisie est conservée.",
+        "invalid": [
+          "client",
+          "service",
+          "amount"
+        ],
+        "focus": "client",
+        "amountRetained": "-3",
+        "errors": {
+          "client": "Indiquez un nom de client pour continuer.",
+          "service": "Indiquez la prestation facturée.",
+          "amount": "Saisissez un montant entre 0,01 et 100 000 €, avec deux décimales maximum."
+        }
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Correct errors and create preview",
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill",
+          "value": "Studio Horizon"
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "value": "Design d’une identité"
+        },
+        {
+          "selector": "#amount",
+          "action": "fill",
+          "value": "1200"
+        },
+        {
+          "selector": "#vat",
+          "action": "select_option",
+          "value": "20"
+        },
+        {
+          "selector": "#invoice-form button[type=submit]",
+          "action": "click"
+        }
+      ],
+      "expected": "preview visible; 240 € tax and 1 440 € total; heading focused",
+      "observed": {
+        "visible": true,
+        "total": "1 440,00 €",
+        "tax": "240,00 €",
+        "focus": "result-title",
+        "client": "Studio Horizon"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Local download",
+      "steps": [
+        {
+          "selector": "#download-example",
+          "action": "click"
+        },
+        {
+          "selector": "download",
+          "action": "save_as",
+          "value": "download-observed.txt"
+        }
+      ],
+      "expected": "text download contains correct total and disclosure, no server submission",
+      "observed": {
+        "suggestedFilename": "facture-exemple.txt",
+        "text": "FACTURE D’EXEMPLE — EX-001\nAperçu simplifié, sans valeur comptable.\nAucun document envoyé. Taux de TVA illustratif.\n\nClient : Studio Horizon\nPrestation : Design d’une identité\nMontant HT : 1 200,00 €\nTVA (20 %) : 240,00 €\nTotal TTC : 1 440,00 €\n\nCoordonnées et mentions légales à compléter.",
+        "status": "Téléchargement de l’exemple demandé à votre navigateur."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Return to editing without lost data",
+      "steps": [
+        {
+          "selector": "#edit-example",
+          "action": "click"
+        }
+      ],
+      "expected": "original client is retained and focused",
+      "observed": {
+        "visible": true,
+        "client": "Studio Horizon",
+        "focus": "client"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Reject fractional cents",
+      "steps": [
+        {
+          "selector": "#amount",
+          "action": "fill",
+          "value": "1.001"
+        },
+        {
+          "selector": "#invoice-form button[type=submit]",
+          "action": "click"
+        }
+      ],
+      "expected": "specific error blocks preview",
+      "observed": "Saisissez un montant entre 0,01 et 100 000 €, avec deux décimales maximum.",
+      "result": "PASS"
+    },
+    {
+      "name": "Long content and maximum amount on mobile",
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill",
+          "value": "Studio de création et de communication pour les petites entreprises françaises"
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "value": "Conception et réalisation de supports de communication, direction artistique et accompagnement éditorial — prestation"
+        },
+        {
+          "selector": "#amount",
+          "action": "fill",
+          "value": "99999.99"
+        },
+        {
+          "selector": "#vat",
+          "action": "select_option",
+          "value": "20"
+        },
+        {
+          "selector": "#invoice-form button[type=submit]",
+          "action": "click"
+        },
+        {
+          "selector": "html",
+          "action": "set viewport",
+          "value": "390x844"
+        }
+      ],
+      "expected": "no page or dialog horizontal overflow, total 119 999,99 €",
+      "observed": {
+        "width": 390,
+        "pageScroll": 390,
+        "dialogClient": 352,
+        "dialogScroll": 352,
+        "resultScroll": 312,
+        "resultClient": 312,
+        "total": "119 999,99 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Escape closes and restores focus",
+      "steps": [
+        {
+          "selector": "#demo-dialog",
+          "action": "press",
+          "value": "Escape"
+        }
+      ],
+      "expected": "dialog closed; opener focused; page scrolling restored",
+      "observed": {
+        "open": false,
+        "focusMatchesOpener": true,
+        "bodyLocked": false
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "User text stays plain text, zero VAT",
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill",
+          "value": "<img src=x onerror=alert(1)>"
+        },
+        {
+          "selector": "#amount",
+          "action": "fill",
+          "value": "50"
+        },
+        {
+          "selector": "#vat",
+          "action": "select_option",
+          "value": "0"
+        },
+        {
+          "selector": "#invoice-form button[type=submit]",
+          "action": "click"
+        }
+      ],
+      "expected": "input rendered literally, no injected image, total 50 €",
+      "observed": {
+        "text": "<img src=x onerror=alert(1)>",
+        "images": 0,
+        "total": "50,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "FAQ by keyboard",
+      "steps": [
+        {
+          "selector": "#questions details:first-child summary",
+          "action": "focus"
+        },
+        {
+          "selector": "#questions details:first-child summary",
+          "action": "press",
+          "value": "Enter"
+        }
+      ],
+      "expected": "FAQ opens on Enter",
+      "observed": {
+        "open": true
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Reduced motion",
+      "steps": [
+        {
+          "selector": "html",
+          "action": "emulate prefers-reduced-motion",
+          "value": "reduce"
+        }
+      ],
+      "expected": "scroll behavior is auto",
+      "observed": {
+        "scrollBehavior": "auto"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "All main-page keyboard stops",
+      "steps": [
+        {
+          "selector": "body",
+          "action": "press Tab",
+          "value": "15 successive stops after reload"
+        }
+      ],
+      "expected": "15 focusable controls reached with visible focus and no masked focus",
+      "observed": [
+        {
+          "tag": "A",
+          "id": "",
+          "name": "Aller au contenu",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "name": "Trait, retour en haut",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "name": "Comment ça marche",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "name": "L’offre",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "name": "Questions",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "name": "Essayer la démo",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "name": "Créer une facture d’exemple",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "name": "Découvrir le fonctionnement ↓",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "name": "Essayer avec un exemple",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "name": "Que puis-je essayer ici ?",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "name": "Une facture sera-t-elle envoyée ?",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "name": "Le document est-il utilisable pour facturer ?",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "name": "Ce tarif est-il déjà disponible ?",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "name": "Ouvrir la démo",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "name": "Retour au début ↑",
+          "outline": "solid",
+          "width": "3px",
+          "visible": true,
+          "withinViewport": true
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Text contrast on representative rendered text",
+      "steps": [
+        {
+          "selector": "body text nodes",
+          "action": "calculate WCAG luminance ratios against opaque ancestor backgrounds"
+        }
+      ],
+      "expected": "all measured nominal page text >= relevant AA threshold",
+      "observed": {
+        "sampleCount": 95,
+        "failures": []
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "No external requests or script error",
+      "steps": [
+        {
+          "selector": "page",
+          "action": "listen request and pageerror events throughout all tests"
+        }
+      ],
+      "expected": "no external request and no script error",
+      "observed": {
+        "externalRequests": [],
+        "pageErrors": []
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Direct file URL availability",
+      "steps": [
+        {
+          "selector": "index.html",
+          "action": "open file URL"
+        }
+      ],
+      "expected": "autonomous HTML opens directly",
+      "observed": "Chromium rejected file:///workspace/remesure-phase5/runs/run-03/livrable/index.html with net::ERR_BLOCKED_BY_ADMINISTRATOR",
+      "result": "NOT-VERIFIED"
+    },
+    {
+      "name": "Intermediate viewport geometry",
+      "steps": [
+        {
+          "selector": "html",
+          "action": "set viewport",
+          "value": "768 and 1024px"
+        }
+      ],
+      "observed": [
+        {
+          "width": 768,
+          "scroll": 768,
+          "titleRight": 389.109375,
+          "stageLeft": 425.109375,
+          "verticalOverlap": true,
+          "collision": false
+        },
+        {
+          "width": 1024,
+          "scroll": 1024,
+          "titleRight": 389.109375,
+          "stageLeft": 530,
+          "verticalOverlap": true,
+          "collision": false
+        }
+      ],
+      "expected": "no page overflow or title/document collision",
+      "result": "PASS"
+    },
+    {
+      "name": "Mobile error and decimal rounding",
+      "steps": [
+        {
+          "selector": "index.html",
+          "action": "open via local HTTP at 390x844"
+        },
+        {
+          "selector": ".hero [data-open-demo]",
+          "action": "click"
+        },
+        {
+          "selector": "#amount",
+          "action": "fill",
+          "value": "-1"
+        },
+        {
+          "selector": "#invoice-form button",
+          "action": "click"
+        },
+        {
+          "selector": "#amount",
+          "action": "fill",
+          "value": "123.45"
+        },
+        {
+          "selector": "#vat",
+          "action": "select_option",
+          "value": "10"
+        },
+        {
+          "selector": "#invoice-form button",
+          "action": "click"
+        }
+      ],
+      "observed": {
+        "tax": "12,35 €",
+        "total": "135,80 €",
+        "errorObserved": "Saisissez un montant entre 0,01 et 100 000 €, avec deux décimales maximum.",
+        "invalidFocus": "amount"
+      },
+      "expected": "error focuses amount; correction produces 12,35 € VAT and 135,80 € TTC",
+      "result": "PASS"
+    },
+    {
+      "name": "Mobile local download and scrolling",
+      "steps": [
+        {
+          "selector": "#download-example",
+          "action": "click at 390x844"
+        },
+        {
+          "selector": "download",
+          "action": "save_as",
+          "value": "mobile-download-observed.txt"
+        }
+      ],
+      "observed": {
+        "filename": "facture-exemple.txt",
+        "status": "Téléchargement de l’exemple demandé à votre navigateur.",
+        "totalInFile": true
+      },
+      "expected": "download available after scrolling dialog; correct mobile result in local text",
+      "result": "PASS"
+    },
+    {
+      "name": "Dialog contrast including errors and field boundaries",
+      "steps": [
+        {
+          "selector": "#amount-error, #form-status, #amount, .modal-header p, .close",
+          "action": "measure actual CSS colors and calculate WCAG luminance ratio"
+        }
+      ],
+      "observed": {
+        "text": [
+          {
+            "selector": "#amount",
+            "color": "rgb(23, 59, 50)",
+            "background": "rgb(255, 255, 255)",
+            "border": "rgb(168, 39, 39)",
+            "outline": "rgb(64, 100, 34)",
+            "ratio": 12.295
+          },
+          {
+            "selector": "#amount-error",
+            "color": "rgb(168, 39, 39)",
+            "background": "rgb(255, 255, 255)",
+            "border": "rgb(168, 39, 39)",
+            "outline": "rgb(168, 39, 39)",
+            "ratio": 7.036
+          },
+          {
+            "selector": "#form-status",
+            "color": "rgb(168, 39, 39)",
+            "background": "rgb(255, 255, 255)",
+            "border": "rgb(168, 39, 39)",
+            "outline": "rgb(168, 39, 39)",
+            "ratio": 7.036
+          },
+          {
+            "selector": ".local-note",
+            "color": "rgb(83, 102, 93)",
+            "background": "rgb(255, 255, 255)",
+            "border": "rgb(83, 102, 93)",
+            "outline": "rgb(83, 102, 93)",
+            "ratio": 6.129
+          },
+          {
+            "selector": ".modal-header p",
+            "color": "rgb(83, 102, 93)",
+            "background": "rgb(255, 255, 255)",
+            "border": "rgb(83, 102, 93)",
+            "outline": "rgb(83, 102, 93)",
+            "ratio": 6.129
+          },
+          {
+            "selector": ".close",
+            "color": "rgb(23, 59, 50)",
+            "background": "rgb(243, 246, 242)",
+            "border": "rgb(201, 211, 202)",
+            "outline": "rgb(23, 59, 50)",
+            "ratio": 11.285
+          }
+        ],
+        "nonText": [
+          {
+            "relation": "input border on white",
+            "ratio": 3.055
+          },
+          {
+            "relation": "focus outline on white",
+            "ratio": 6.854
+          },
+          {
+            "relation": "error border on white",
+            "ratio": 7.036
+          }
+        ]
+      },
+      "expected": "sample text >=4.5 and critical non-text borders/focus >=3",
+      "result": "PASS"
+    }
+  ],
+  "observations": {
+    "font_loaded": true,
+    "viewports": [
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "bodyWidth": 1440,
+        "overflowElements": []
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "bodyWidth": 390,
+        "overflowElements": []
+      },
+      {
+        "width": 320,
+        "scrollWidth": 320,
+        "bodyWidth": 320,
+        "overflowElements": []
+      }
+    ],
+    "contrast": {
+      "samples": [
+        {
+          "text": "Aller au contenu",
+          "selector": "a.skip",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 16,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Proposition de design · Trait est un nom d’exemple",
+          "selector": "div.truth-band",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 5.63,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "trait",
+          "selector": "a.brand",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 37,
+          "weight": "800",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": ".",
+          "selector": "span.",
+          "color": "rgb(100, 140, 64)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 37,
+          "weight": "800",
+          "ratio": 3.91,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "Comment ça marche",
+          "selector": "a.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "L’offre",
+          "selector": "a.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Questions",
+          "selector": "a.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Essayer la démo",
+          "selector": "button.button outline",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "700",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "La facturation, sans le détour",
+          "selector": "p.eyebrow",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "750",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Le travail est fait.",
+          "selector": "span.title-line",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 66.96,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "La facture aussi.",
+          "selector": "span.title-line",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 66.96,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "De votre prestation à une facture claire. Un espace pour préparer vos documents et garder le fil de ",
+          "selector": "p.hero-description",
+          "color": "rgb(68, 92, 82)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 17,
+          "weight": "400",
+          "ratio": 7.25,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Créer une facture d’exemple",
+          "selector": "button.button",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 14,
+          "weight": "700",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Démo locale, sans compte. Aucun document envoyé.",
+          "selector": "p.hero-note",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Découvrir le fonctionnement",
+          "selector": "a.quiet-link",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "700",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "↓",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "700",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "01 — Le document",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            220,
+            239,
+            118
+          ],
+          "size": 10,
+          "weight": "750",
+          "ratio": 9.75,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Données d’exemple",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            220,
+            239,
+            118
+          ],
+          "size": 10,
+          "weight": "600",
+          "ratio": 9.75,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Votre studio",
+          "selector": "span.sheet-brand",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 15,
+          "weight": "800",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Facture",
+          "selector": "strong.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 22,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "EX-001 · exemple",
+          "selector": "span.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Émise par",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Votre studio — exemple",
+          "selector": "strong.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 11,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Paris, France",
+          "selector": "span.small",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "À l’attention de",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Studio Horizon",
+          "selector": "strong.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 11,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Client d’exemple",
+          "selector": "span.small",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Prestation",
+          "selector": "th.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 9,
+          "weight": "700",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Montant HT",
+          "selector": "th.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 9,
+          "weight": "700",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Design d’une identité",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "1 prestation",
+          "selector": "span.small",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "1 200,00 €",
+          "selector": "td.numbers",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Total HT",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "1 200,00 €",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "TVA",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "20",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "%",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "240,00 €",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 10,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Total TTC",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 16,
+          "weight": "750",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "1 440,00 €",
+          "selector": "span.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 16,
+          "weight": "750",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Aperçu simplifié · sans valeur comptable.",
+          "selector": "span.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 9,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Coordonnées et mentions légales à compléter.",
+          "selector": "span.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 9,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Une prestation. Un montant. Tout se lit.",
+          "selector": "p.stage-caption",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            220,
+            239,
+            118
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 9.75,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Pensé pour les indépendants et les petites équipes.",
+          "selector": "p.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "600",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Une proposition à adapter à votre produit.",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "500",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "De la prestation au document",
+          "selector": "p.eyebrow",
+          "color": "rgb(220, 239, 118)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 12,
+          "weight": "750",
+          "ratio": 9.75,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Le bon fil,",
+          "selector": "#process-title",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 50,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "du début à la fin.",
+          "selector": "#process-title",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 50,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "Trois étapes, un même document.",
+          "selector": "p.",
+          "color": "rgb(200, 215, 206)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 8.24,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Fonctionnalités proposées : à confirmer pour votre SaaS.",
+          "selector": "p.",
+          "color": "rgb(200, 215, 206)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 8.24,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "01",
+          "selector": "span.step-num",
+          "color": "rgb(220, 239, 118)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 12,
+          "weight": "400",
+          "ratio": 9.75,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Préparez l’essentiel.",
+          "selector": "h3.",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 19,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Votre client, votre prestation et votre montant. Les informations utiles, à leur place.",
+          "selector": "p.",
+          "color": "rgb(200, 215, 206)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 8.24,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "À essayer dans la démo",
+          "selector": "div.step-state",
+          "color": "rgb(227, 236, 221)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 10.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "02",
+          "selector": "span.step-num",
+          "color": "rgb(220, 239, 118)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 12,
+          "weight": "400",
+          "ratio": 9.75,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Vérifiez d’un regard.",
+          "selector": "h3.",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 19,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Un aperçu lisible et des totaux détaillés. Revenez à la saisie si quelque chose doit changer.",
+          "selector": "p.",
+          "color": "rgb(200, 215, 206)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 8.24,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Aperçu disponible dans la démo",
+          "selector": "div.step-state",
+          "color": "rgb(227, 236, 221)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 10.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "03",
+          "selector": "span.step-num",
+          "color": "rgb(220, 239, 118)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 12,
+          "weight": "400",
+          "ratio": 9.75,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Gardez le fil.",
+          "selector": "h3.",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 19,
+          "weight": "650",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Retrouvez vos documents et leur statut dans un espace commun, pour savoir où vous en êtes.",
+          "selector": "p.",
+          "color": "rgb(200, 215, 206)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 8.24,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "○",
+          "selector": "span.",
+          "color": "rgb(227, 236, 221)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 10.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Fonction envisagée, hors démo",
+          "selector": "div.step-state",
+          "color": "rgb(227, 236, 221)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 10.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Une hypothèse d’offre",
+          "selector": "p.eyebrow",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 15,
+          "weight": "750",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Simple à lire.",
+          "selector": "#offer-title",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 46,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "Simple à choisir.",
+          "selector": "#offer-title",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 46,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "Une seule offre pour le quotidien. Le tarif et le périmètre ci-contre sont des exemples pour cette p",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 15,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "L’essentiel",
+          "selector": "span.offer-label",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "700",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "12 €",
+          "selector": "strong.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 67,
+          "weight": "550",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "/ mois HT",
+          "selector": "span.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Tarif d’exemple · à confirmer",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Création de factures",
+          "selector": "li.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Aperçu avant finalisation",
+          "selector": "li.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Historique des documents",
+          "selector": "li.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Essayer avec un exemple",
+          "selector": "button.button",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 14,
+          "weight": "700",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Démo gratuite. Aucun abonnement souscrit.",
+          "selector": "p.local-note",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 12,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Avant de commencer",
+          "selector": "p.eyebrow",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 12,
+          "weight": "750",
+          "ratio": 5.63,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Les questions",
+          "selector": "#faq-title",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 39,
+          "weight": "500",
+          "ratio": 11.28,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "qui comptent.",
+          "selector": "#faq-title",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 39,
+          "weight": "500",
+          "ratio": 11.28,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "Que puis-je essayer ici ?",
+          "selector": "summary.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 14,
+          "weight": "700",
+          "ratio": 11.28,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Créez une facture d’exemple, modifiez son client, sa prestation et son montant, puis prévisualisez s",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 5.63,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Une facture sera-t-elle envoyée ?",
+          "selector": "summary.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 14,
+          "weight": "700",
+          "ratio": 11.28,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Non. La démonstration reste sur cette page : aucun envoi, paiement ni création de compte. Les inform",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 5.63,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Le document est-il utilisable pour facturer ?",
+          "selector": "summary.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 14,
+          "weight": "700",
+          "ratio": 11.28,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Il s’agit d’un aperçu simplifié sans valeur comptable. Les règles fiscales, mentions obligatoires et",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 5.63,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Ce tarif est-il déjà disponible ?",
+          "selector": "summary.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 14,
+          "weight": "700",
+          "ratio": 11.28,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Les 12 € HT par mois constituent une hypothèse pour montrer une offre lisible. Le prix, les fonction",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            243,
+            246,
+            242
+          ],
+          "size": 13,
+          "weight": "400",
+          "ratio": 5.63,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Votre prochaine facture",
+          "selector": "h2.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 32,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "commence par un exemple.",
+          "selector": "h2.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 32,
+          "weight": "500",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "Ouvrir la démo",
+          "selector": "button.button",
+          "color": "rgb(255, 255, 255)",
+          "background": [
+            23,
+            59,
+            50
+          ],
+          "size": 14,
+          "weight": "700",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "trait",
+          "selector": "span.brand",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 26,
+          "weight": "800",
+          "ratio": 12.29,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": ".",
+          "selector": "span.",
+          "color": "rgb(100, 140, 64)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 26,
+          "weight": "800",
+          "ratio": 3.91,
+          "threshold": 3,
+          "pass": true
+        },
+        {
+          "text": "Nom et offre d’exemple.",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Proposition de design · aucun service réel.",
+          "selector": "p.",
+          "color": "rgb(83, 102, 93)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 6.13,
+          "threshold": 4.5,
+          "pass": true
+        },
+        {
+          "text": "Retour au début ↑",
+          "selector": "a.",
+          "color": "rgb(23, 59, 50)",
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "size": 11,
+          "weight": "400",
+          "ratio": 12.29,
+          "threshold": 4.5,
+          "pass": true
+        }
+      ],
+      "failures": []
+    },
+    "requests": [
+      "http://127.0.0.1:38609/index.html",
+      "http://127.0.0.1:38609/index.html"
+    ],
+    "page_errors": [],
+    "chromium_version": "151.0.7922.173",
+    "html_bytes": 255061
+  },
+  "limits": [
+    "No user participant or independent review",
+    "No screen reader or second browser tested",
+    "No service, accounting validity, tax compliance, subscription or sending tested",
+    "Direct file URL blocked by browser administrator policy; local HTTP rendering observed instead",
+    "Contrast calculated for nominal opaque page text and dialog/error samples; no claim of exhaustive WCAG audit"
+  ],
+  "supplement_observed_at": "2026-10-10T13:14:29.797474+00:00"
+}

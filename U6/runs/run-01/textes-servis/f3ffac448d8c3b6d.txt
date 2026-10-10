@@ -1,0 +1,78 @@
+ROUTE: DIRECTION/START (adresse : agent/chemins#classer)
+OWNER: agent/chemins.md
+HEADING: ## DIRECTION/START — classer avant d’agir
+---
+## DIRECTION/START — classer avant d’agir
+
+`START` est le point d’entrée quotidien d’un humain, d’une IA ou d’un pipeline. Il choisit le mode et la prochaine route ; il ne remplace ni les cinq absolus, ni les procédures, ni le jugement. Avant d’ouvrir un run, une proposition de cadrage reste possible (`DIRECTION/SERVICE-BOUNDARY`).
+
+**Source normative de classification.** `DIRECTION/START` est la source normative unique des modes et du risque dominant. `DIRECTION/CHARGE` est la liste de chargement par mode ; `FAST-PATH` est un raccourci pour un delta local ; `EXTERNAL-START` est une vue de transport pour un brief vague. Aucun de ces encadrés ne crée une classification concurrente. En cas de différence, `START` prévaut et le conflit est inscrit dans `maintenance/versions.md`.
+
+> **Ordre de lecture minimal.** 1) `START` classe le mode et le risque. 2) La protection de niveau interdit toute baisse silencieuse face à un risque critique. 3) `CHARGE` choisit la plus petite route utile ; `FAST-PATH` n’est qu’un encadré pour un correctif local ou une décision presque tranchée. 4) Une capacité n’est chargée que si elle change la construction ou la preuve. 5) `ACTION` porte la preuve et la clôture ; `SAVOIR` le jugement ; `BIBLIOTHEQUE` la structure. 6) Les modules `ATELIER`, grounding, réemploi et atlas restent silencieux tant qu’aucune décision ne peut être modifiée ; chacun n’est activé que si sa décision à modifier est identifiée, et plusieurs ne coexistent que si leurs décisions sont distinctes et utiles.
+
+### Arbre de classification
+
+Pose les questions dans cet ordre :
+
+1. La décision partagée est-elle l’objet direct du run, avec plusieurs consumers, un token, un composant, une convention, une dépendance ou une règle migrable à protéger ? → `ACTION/RUN-SYSTEM`.
+2. Faut-il définir ou redéfinir une identité, un premier contact, une surface de marque ou une hypothèse de direction autonome ? → `ACTION/RUN-DIRECTION`.
+3. Une surface avec direction retrouvable est-elle retouchée en demandant de rappeler et réévaluer la direction dans son périmètre, au-delà d’un fix ou delta local qui la conserve, sans remise en cause identitaire ni changement systémique ? → `ACTION/RUN-ITER`.
+4. S’agit-il d’un fix ou d’un delta local dans un système déjà tranché ? → `ACTION/RUN-LITE`.
+5. Sinon, s’agit-il d’un écran ou flow nouveau sans charge identitaire autonome ni blast radius systémique ? → `ACTION/RUN-STANDARD`.
+6. Si aucune réponse n’est nette, pose **une clarification ciblée** : celle qui peut changer le mode ou le risque dominant. Ne devine pas.
+
+**Frontière LITE / ITER.** Un fix local de contraste, libellé, focus ou wrapping qui conserve la direction déjà tranchée relève de `LITE`. Une retouche de composition qui demande de rappeler et réévaluer la direction retrouvable relève de `ITER`. La taille du diff ne décide pas du mode : une règle partagée reste `SYSTÈME` et la protection de niveau ci-dessous prime sur ces deux cas.
+
+Une décision de système est l’objet direct du run lorsqu’elle doit être adoptée, migrée ou protégée pour plusieurs consumers. Si le changement partagé apparaît comme conséquence d’une décision de direction, traite d’abord la direction ; ouvre ensuite le run système dépendant, sauf si les décisions sont inséparables.
+
+**Protection de niveau.** Un risque critique de tâche, de santé, de sécurité, de confidentialité, de permission ou d’accessibilité interdit `LITE` ou `ITER` dès que le changement touche une action, un état, une sémantique, une donnée, une récupération ou une preuve de ce risque. Un nouvel onboarding, formulaire, consentement, flux de santé, permission ou mécanisme de récupération n’est jamais un micro-delta `LITE` ou `ITER`, même si une seule étape ou un seul libellé semble local. Reclassifie vers `STANDARD`, `DIRECTION` ou `SYSTÈME` selon le blast radius. `LITE` ou `ITER` restent possibles seulement lorsqu’il est démontré que le delta est strictement local, réversible et sans effet sur ces responsabilités.
+
+**Silence des micro-deltas.** Une correction de libellé, de traduction, d’overflow, de contraste, de focus, d’état ou de wrapping dans un composant existant ne constitue pas à elle seule une décision de style, de technique, d’effet, d’asset ou de structure. Ne charge pas la section `DESIGN-ATLAS` de `SAVOIR.md` pour ce type de delta ; reste sur la route locale tant qu’aucune responsabilité n’est réellement modifiée.
+
+**Règle de conflit.** Si plusieurs signaux sont positifs, découpe le travail lorsque les risques sont indépendants. Deux risques sont indépendants si la preuve de l’un ne dépend pas de la décision de l’autre et si leur owner, leur artefact et leur condition de sortie peuvent être distincts. Sinon, retiens le mode qui protège le risque dominant, sans importer les artefacts sans rapport.
+
+### Entrée minimale
+
+Avant toute construction, vérifie que l’entrée courte rend retrouvables les décisions qui peuvent changer l’artefact :
+
+```text
+DECISION — ce qui doit être tranché
+RISK — coût d’erreur dominant
+SCOPE — surface, état, viewport, consumer ou périmètre concerné
+CONSTRAINT — contrainte réelle qui peut changer la décision, dont la destination (démo, prototype ou produit réel) et l’enjeu identitaire
+NEXT-PROOF — observation ou test qui permettra de trancher
+OWNER — responsable de la décision et de la prochaine action
+```
+
+Ce gabarit est une vue d’activation, pas un second schéma : `ACTION/RUN_CARD` reste propriétaire des champs complets, des états, des issues, des verdicts et de la clôture. `OWNER` et `SCOPE` ne sont jamais omis : ils rendent la reprise et la portée vérifiables. Les autres lignes sont omises ou `N/A-JUSTIFIED` si elles ne peuvent rien changer.
+
+> `DIRECTION/CREATIVE-BOOT` : servi séparément
+> `DIRECTION/DOMAIN-FRAME` : servi séparément
+### Sortie immédiate
+
+Crée ou mets à jour une ligne de run :
+
+> `RUN — [ID] — [MODE] — [décision dominante] — [risque principal] — [preuve suivante] — [état].`
+
+La ligne de run doit exister dès qu’une action de production, une vérification ou un changement d’état commence. Lorsque le risque ou la reprise l’exige, l’owner doit être retrouvable depuis cette ligne ou son identifiant.
+
+Au lancement, ajoute :
+
+> `DECISION-INTENT — [décision que la procédure doit permettre de trancher].`
+
+Après une observation qui modifie, confirme ou abandonne effectivement une décision, ajoute :
+
+> `DECISION-CHANGE — [décision effectivement changée, confirmée ou abandonnée grâce à la procédure].`
+
+À la clôture, si aucune décision n’a été changée, confirmée ou abandonnée, les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsqu’aucune conséquence n’était applicable, avec la raison, le risque de continuer sans changement et la prochaine action éventuelle ; `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée. Ne déclare jamais un changement avant qu’une observation ne l’ait rendu réel.
+
+### Mémoire de lancement et renvoi de `RUN_CARD`
+
+La ligne de run constitue une mémoire de lancement, sous-ensemble de lancement de `ACTION/HANDOFF`, non un handoff ni une `RUN_CARD` ; la ligne compacte de la sortie immédiate en est l’affichage : `ID`, `MODE`, `DECISION`, `RISK`, `SCOPE`, `ARTIFACT` attendu, `OWNER`, `NEXT-PROOF`, `LIMIT` et `EXIT-CONDITION`. Elle peut vivre dans un ticket, un manifeste de projet, un espace de travail ou un fichier local.
+
+Le schéma complet de `RUN_CARD` appartient exclusivement à **`ACTION/RUN_CARD`**. DIRECTION ne le reproduit pas et transmet la projection `ACTION/HANDOFF`; les champs non applicables sont `N/A-JUSTIFIED`, les observations non vérifiées restent `NOT-VERIFIED`. Une surface `DIRECTION` qui accepte avec V en `PASS` ou `PASS-WITH-RESERVATION`, dont le risque V/craft est dominant ou dont le verdict V dépend d’une intention encore non confrontée doit suivre `ACTION/GATE-B — B1b` avant clôture. Pour une `RUN_CARD DIRECTION` en `CLOSED`, `creative_close` contient `presence`, `signature`, `craft_detail`, `dominant_defect` et `next_polish_action` ; `direction_status`, `issue` et `verdict` restent les registres séparés d’ACTION.
+
+Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité conserve une trace persistante (trace complète, `ACTION/HANDOFF`) ; sinon, la trace légère suffit. `ITER` peut s’appuyer sur la mémoire locale du projet si la direction précédente, le périmètre, le dernier artefact, la décision, la preuve et le risque restant sont retrouvables. `LITE` peut se limiter à la ligne de run et au verdict court si l’artefact et le risque restent retrouvables.
+
+---
+

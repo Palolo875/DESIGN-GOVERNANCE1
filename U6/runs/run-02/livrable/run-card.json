@@ -1,0 +1,159 @@
+{
+  "run_card": {
+    "id": "run-02-folio",
+    "owner": "Demandeur pour la décision produit ; agent run-02 pour la fabrication",
+    "date_version": "2026-10-10 / e6d5ed677986",
+    "mode": "DIRECTION",
+    "decision": "Convaincre par une facture d’exemple manipulable plutôt que par un tableau de bord.",
+    "decision_intent": "Rendre la facture, son calcul et son premier geste observables.",
+    "risk": {
+      "level": "important",
+      "statement": "Le public pourrait confondre une hypothèse de SaaS avec un service disponible.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START/TREE",
+      "DIRECTION/VISUAL_TARGET",
+      "DIRECTION/FIRST-OBJECT",
+      "SAVOIR/TYPE",
+      "SAVOIR/STATE",
+      "SAVOIR/CRAFT/CFT-00",
+      "BIBLIOTHEQUE/SELECT",
+      "BIBLIOTHEQUE/SEQUENCE",
+      "ACTION/GATE-A",
+      "ACTION/GATE-B",
+      "ACTION/GATE-C",
+      "ACTION/HANDOFF",
+      "ACTION/CLOSE-PACKAGE"
+    ],
+    "direction": {
+      "thesis": "La clarté administrative se démontre par une facture lisible et modifiable, avant les arguments.",
+      "anti_direction": [
+        "Écarter logos et réputation inventés, dashboard décoratif et cartes de bénéfices avant le document."
+      ],
+      "first_object": "Facture de service illustrée avec une ligne, détail HT/TVA/TTC et action locale de composition.",
+      "identity_stake": "normal",
+      "constraint": "Une page autonome, sans réseau externe, ni service réel, ni marque fournie."
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "index.html",
+      "scope": "Page entière desktop 1440×1000, mobile 390×844, nominal, contenu long, formulaire erreur/récupération ; largeur 320px et 768px mesurée.",
+      "rights_status": "cleared",
+      "version": "e6d5ed677986"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Obtenir marque, public, fonctionnalités et offre réels ; faire observer la première action par un indépendant représentatif.",
+    "capability_profile": {
+      "available": [
+        "HTML autonome",
+        "Chromium et captures",
+        "DOM et clavier",
+        "Calcul des contrastes"
+      ],
+      "unavailable": [
+        "Participant représentatif",
+        "Lecteur d’écran",
+        "Contexte produit réel",
+        "Ancre identitaire fournie"
+      ],
+      "not_required": [
+        "Service réseau réel",
+        "Paiement"
+      ],
+      "basis": [
+        {
+          "capability": "HTML autonome",
+          "kind": "tool_result",
+          "detail": "index.html construit avec polices data URL et licences intégrées."
+        },
+        {
+          "capability": "Chromium et captures",
+          "kind": "tool_result",
+          "detail": "verify.py exécuté ; desktop.png, mobile.png et captures pleine page."
+        },
+        {
+          "capability": "DOM et clavier",
+          "kind": "tool_result",
+          "detail": "functional-tests.json et accessible-dialog.txt produits dans Chromium."
+        },
+        {
+          "capability": "Calcul des contrastes",
+          "kind": "tool_result",
+          "detail": "supplementary-checks.json contient 13 paires de couleurs calculées."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "Composition desktop et mobile inspectée sur captures réelles.",
+        "14 parcours enregistrés, dont action principale, erreurs et récupération, calcul, téléchargement et clavier.",
+        "Absence de débordement à 320,390,768px observée sur les états nominal et long.",
+        "Treize paires représentatives de contraste calculées au-dessus des seuils déclarés."
+      ],
+      "not_verified": [
+        "Adéquation du public et de la promesse au produit réel.",
+        "Préférence et compréhension d’un utilisateur représentatif.",
+        "Conformité fiscale, service backend, lecteur d’écran et accessibilité exhaustive.",
+        "Aucune ancre fournie ou observée pour accepter la direction."
+      ],
+      "provenance": {
+        "artifact_locator": "index.html",
+        "artifact_version": "e6d5ed677986",
+        "method": "AUTOMATED et MANUAL : Playwright, captures inspectées, calcul sRGB et inspection des états.",
+        "observed_at": "2026-10-10T12:53:47.725520+00:00",
+        "capability": "Chromium et captures"
+      }
+    },
+    "decision_change": {
+      "outcome": "CONFIRMED",
+      "value": "La voix serif est conservée face à la variante sans serif calibrée sur le même titre ; le document reste le mécanisme de preuve.",
+      "evidence": "desktop.png et type-alternative-desktop.png ; mobile.png et type-alternative-mobile.png ; revue dans trace.md."
+    },
+    "creative_close": {
+      "presence": "La grande accroche et la feuille de facture structurent la première scène ; desktop.png.",
+      "signature": "Le total calculé dans un document manipulable rattache la page au métier ; functional-tests.json.",
+      "craft_detail": "La correction de saisie conserve les données, puis actualise la facture et son récapitulatif ; error-mobile.png, long-invoice-detail.png.",
+      "dominant_defect": "La direction reste hypothétique faute d’identité et de public réels ; la facture commence dans le premier écran mobile, son total demande de défiler.",
+      "next_polish_action": "STOP — vérifier d’abord les contenus et le public réels avant de modifier davantage la forme."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "PARTIALLY-HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Proposition locale, aucune direction de marque acceptée.",
+        "Auteur seul, sans regard indépendant ni utilisateur.",
+        "Aucune ancre visuelle observée ou fournie.",
+        "Contraste et sémantique bornés aux contrôles exécutés ; éléments exclus par la recette restent déclarés."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "NOT-VERIFIED",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS"
+      },
+      "reservations": [
+        {
+          "owner": "Demandeur et agent run-02",
+          "scope": "Public, identité et contenu produit",
+          "date_version": "2026-10-10 / e6d5ed677986",
+          "impact": "La proposition cible des indépendants sans validation du contexte réel.",
+          "next_proof": "Brief réel et observation d’une tâche avec un indépendant représentatif.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Public, offre et identité fournis, direction réévaluée sur ces éléments."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "desktop.png",
+          "after_locator": "type-alternative-desktop.png",
+          "decision": "Voix du titre et relation avec le document de facture.",
+          "outcome": "confirmed"
+        }
+      }
+    }
+  }
+}

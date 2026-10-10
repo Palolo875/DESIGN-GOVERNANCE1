@@ -1,0 +1,159 @@
+{
+  "run_card": {
+    "id": "run-05",
+    "owner": "Responsable de l’atelier pour adoption ; agent producteur pour fabrication",
+    "date_version": "2026-10-10 / run-05-v4 / ac80d93e3e22",
+    "mode": "DIRECTION",
+    "decision": "Rendre le choix du passage à l’atelier concret dès l’entrée de la page.",
+    "decision_intent": "Évaluer une page dont le carnet local rend le premier geste observable.",
+    "risk": {
+      "level": "important",
+      "statement": "Confusion entre créneaux d’exemple et disponibilité réelle ; action noyée sous la présentation.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START/TREE",
+      "DIRECTION/EXTERNAL-START",
+      "DIRECTION/VISUAL_TARGET",
+      "DIRECTION/FIRST-OBJECT",
+      "SAVOIR/STATE",
+      "SAVOIR/CRAFT/CFT-00",
+      "ACTION/UI-UX-REALITY",
+      "ACTION/GATE-A",
+      "ACTION/GATE-B",
+      "ACTION/GATE-C",
+      "ACTION/HANDOFF",
+      "ACTION/CLOSE-PACKAGE"
+    ],
+    "direction": {
+      "thesis": "Un atelier pratique se présente par un carnet concret : souci du vélo, créneau de dépôt, récapitulatif.",
+      "anti_direction": [
+        "Photo fictive et preuves inventées.",
+        "Reporter la prise de rendez-vous après des cartes de bénéfices."
+      ],
+      "first_object": "Carnet local de rendez-vous, deux étapes et résultat d’exemple.",
+      "identity_stake": "normal",
+      "constraint": "Sans marque, contenu réel, photo, réseau externe ou service de réservation."
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "index.html",
+      "version": "2026-10-10 / run-05-v4 / ac80d93e3e22",
+      "scope": "Page et états nominal/erreurs/succès ; 1440x1000, 390x844 et 320x844 dans Chromium.",
+      "rights_status": "cleared"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Recevoir contenus et identité réels ; tester réservation réelle, lecteur d’écran et tâche avec un client.",
+    "capability_profile": {
+      "available": [
+        "navigateur/capture",
+        "inspection DOM",
+        "clavier navigateur",
+        "calcul de contrastes"
+      ],
+      "unavailable": [
+        "participant",
+        "lecteur d’écran",
+        "données et réservation réelles",
+        "regard indépendant"
+      ],
+      "not_required": [
+        "paiement",
+        "authentification"
+      ],
+      "basis": [
+        {
+          "capability": "navigateur/capture",
+          "kind": "tool_result",
+          "detail": "functional-tests.json, contrast.json et captures/final-v4 documentent les opérations réellement exécutées."
+        },
+        {
+          "capability": "inspection DOM",
+          "kind": "tool_result",
+          "detail": "functional-tests.json, contrast.json et captures/final-v4 documentent les opérations réellement exécutées."
+        },
+        {
+          "capability": "clavier navigateur",
+          "kind": "tool_result",
+          "detail": "functional-tests.json, contrast.json et captures/final-v4 documentent les opérations réellement exécutées."
+        },
+        {
+          "capability": "calcul de contrastes",
+          "kind": "tool_result",
+          "detail": "functional-tests.json, contrast.json et captures/final-v4 documentent les opérations réellement exécutées."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "16 contrôles exécutés, 16 PASS dans leur scope.",
+        "Captures desktop/mobile/320 inspectées ; trois tours de correction.",
+        "Parcours clavier, erreurs et reprise jusqu’au récapitulatif local.",
+        "Contrastes calculés sur paires opaques, aucun appel externe ni erreur JS finale."
+      ],
+      "not_verified": [
+        "Contenus de marque, offre et disponibilité fictifs et marqués comme exemples.",
+        "Aucune réservation, persistance ni envoi externe.",
+        "Aucun participant, lecteur d’écran, audit WCAG complet, test performance terrain ou second regard.",
+        "Ancre identitaire absente ; proposition exploratoire."
+      ],
+      "provenance": {
+        "artifact_locator": "index.html",
+        "artifact_version": "2026-10-10 / run-05-v4 / ac80d93e3e22",
+        "method": "AUTOMATED parcours Playwright et calculs ; inspection auteur des captures et auto-comparaison.",
+        "observed_at": "2026-10-10T13:54:20.841357+00:00",
+        "capability": "navigateur/capture"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Titre mobile réduit à deux lignes ; pictogramme remplacé ; mécanisme et transfert de focus corrigés. Grande accroche desktop confirmée.",
+      "evidence": "captures/final-v4, functional-tests.json ; échec intermédiaire conservé dans functional-tests-v3.json."
+    },
+    "creative_close": {
+      "presence": "Titre franc et carnet citron dans la capture desktop-viewport.png.",
+      "signature": "Carnet de dépôt avec option diagnostic et distinction du créneau/durée de réparation.",
+      "craft_detail": "Erreur associée, retour sans perte et récapitulatif explicite sans réservation.",
+      "dominant_defect": "La marque et les contraintes réelles de l’atelier restent inconnues.",
+      "next_polish_action": "STOP — trois tours achevés et contrôles locaux passés ; la suite utile exige les contenus réels."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "direction_status": "HELD",
+      "limitations": [
+        "Contenus de marque, offre et disponibilité fictifs et marqués comme exemples.",
+        "Aucune réservation, persistance ni envoi externe.",
+        "Aucun participant, lecteur d’écran, audit WCAG complet, test performance terrain ou second regard.",
+        "Ancre identitaire absente ; proposition exploratoire."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "PASS-WITH-RESERVATION",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS-WITH-RESERVATION"
+      },
+      "reservations": [
+        {
+          "owner": "Responsable de l’atelier pour adoption",
+          "scope": "Identité, offre, réservation réelle, usages et accessibilité complète.",
+          "date_version": "2026-10-10 / run-05-v4 / ac80d93e3e22",
+          "impact": "Le résultat n’autorise ni adoption de marque ni diffusion en service réel.",
+          "next_proof": "Contenus validés, ancre de marque, service réel et tests AT/tâche.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Responsable confirme les contenus et preuves réelles achevées ; date de revue seulement proposée."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "captures/final-v4/desktop-initial.png",
+          "after_locator": "captures/final-v4/desktop-reduced-title.png",
+          "decision": "Échelle du titre desktop, 106px contre 88px, sans changer le carnet.",
+          "outcome": "confirmed"
+        }
+      }
+    }
+  }
+}

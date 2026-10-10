@@ -1,0 +1,1351 @@
+{
+  "run-01": {
+    "requests": 51,
+    "chars_served_with_repetitions": 198085,
+    "unique_chars_per_request_key": 192085,
+    "chars_before_first_html_creation": 192085,
+    "routes": [
+      {
+        "key": "skill",
+        "full_chars": 42866,
+        "unique_chars_served": 42866,
+        "read_completely": true,
+        "before_first_artifact_chars": 42866
+      },
+      {
+        "key": "route:DIRECTION/START",
+        "full_chars": 8699,
+        "unique_chars_served": 8699,
+        "read_completely": true,
+        "before_first_artifact_chars": 8699
+      },
+      {
+        "key": "route:DIRECTION/EXTERNAL-START",
+        "full_chars": 3368,
+        "unique_chars_served": 3368,
+        "read_completely": true,
+        "before_first_artifact_chars": 3368
+      },
+      {
+        "key": "route:DIRECTION/CREATIVE-BOOT",
+        "full_chars": 2564,
+        "unique_chars_served": 2564,
+        "read_completely": true,
+        "before_first_artifact_chars": 2564
+      },
+      {
+        "key": "route:DIRECTION/FIRST-OBJECT",
+        "full_chars": 6152,
+        "unique_chars_served": 6152,
+        "read_completely": true,
+        "before_first_artifact_chars": 6152
+      },
+      {
+        "key": "route:DIRECTION/VISUAL_TARGET",
+        "full_chars": 9393,
+        "unique_chars_served": 9393,
+        "read_completely": true,
+        "before_first_artifact_chars": 9393
+      },
+      {
+        "key": "route:ACTION/UI-UX-REALITY",
+        "full_chars": 2744,
+        "unique_chars_served": 2744,
+        "read_completely": true,
+        "before_first_artifact_chars": 2744
+      },
+      {
+        "key": "route:SAVOIR/TYPE",
+        "full_chars": 2552,
+        "unique_chars_served": 2552,
+        "read_completely": true,
+        "before_first_artifact_chars": 2552
+      },
+      {
+        "key": "route:ACTION/FIRST-RENDER",
+        "full_chars": 1951,
+        "unique_chars_served": 1951,
+        "read_completely": true,
+        "before_first_artifact_chars": 1951
+      },
+      {
+        "key": "route:ACTION/PIPELINE-DIRECTION",
+        "full_chars": 11640,
+        "unique_chars_served": 11640,
+        "read_completely": true,
+        "before_first_artifact_chars": 11640
+      },
+      {
+        "key": "route:ACTION/RUN-DIRECTION",
+        "full_chars": 2163,
+        "unique_chars_served": 2163,
+        "read_completely": true,
+        "before_first_artifact_chars": 2163
+      },
+      {
+        "key": "route:ACTION/GATE-A",
+        "full_chars": 12049,
+        "unique_chars_served": 12049,
+        "read_completely": true,
+        "before_first_artifact_chars": 12049
+      },
+      {
+        "key": "route:ACTION/GATE-C",
+        "full_chars": 4103,
+        "unique_chars_served": 4103,
+        "read_completely": true,
+        "before_first_artifact_chars": 4103
+      },
+      {
+        "key": "route:ACTION/HANDOFF",
+        "full_chars": 2783,
+        "unique_chars_served": 2783,
+        "read_completely": true,
+        "before_first_artifact_chars": 2783
+      },
+      {
+        "key": "route:ACTION/VISUAL_PROOF",
+        "full_chars": 2168,
+        "unique_chars_served": 2168,
+        "read_completely": true,
+        "before_first_artifact_chars": 2168
+      },
+      {
+        "key": "route:ACTION/GATE-B",
+        "full_chars": 9183,
+        "unique_chars_served": 9183,
+        "read_completely": true,
+        "before_first_artifact_chars": 9183
+      },
+      {
+        "key": "route:ACTION/CLOSE-PACKAGE",
+        "full_chars": 6986,
+        "unique_chars_served": 6986,
+        "read_completely": true,
+        "before_first_artifact_chars": 6986
+      },
+      {
+        "key": "route:SAVOIR/INTEGRITY",
+        "full_chars": 7965,
+        "unique_chars_served": 7965,
+        "read_completely": true,
+        "before_first_artifact_chars": 7965
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SELECT",
+        "full_chars": 8894,
+        "unique_chars_served": 8894,
+        "read_completely": true,
+        "before_first_artifact_chars": 8894
+      },
+      {
+        "key": "route:ACTION/RUN_CARD",
+        "full_chars": 18294,
+        "unique_chars_served": 18294,
+        "read_completely": true,
+        "before_first_artifact_chars": 18294
+      },
+      {
+        "key": "route:DIRECTION/DOMAIN-FRAME",
+        "full_chars": 2902,
+        "unique_chars_served": 2902,
+        "read_completely": true,
+        "before_first_artifact_chars": 2902
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SEQUENCE",
+        "full_chars": 3407,
+        "unique_chars_served": 3407,
+        "read_completely": true,
+        "before_first_artifact_chars": 3407
+      },
+      {
+        "key": "route:OBJECT/PROOF_PRODUCT_STAGE",
+        "full_chars": 3954,
+        "unique_chars_served": 3954,
+        "read_completely": true,
+        "before_first_artifact_chars": 3954
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-00",
+        "full_chars": 4674,
+        "unique_chars_served": 4674,
+        "read_completely": true,
+        "before_first_artifact_chars": 4674
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/CONTRACTS",
+        "full_chars": 6945,
+        "unique_chars_served": 6945,
+        "read_completely": true,
+        "before_first_artifact_chars": 6945
+      },
+      {
+        "key": "route:SAVOIR/TOOLS/CONVERGENCE",
+        "full_chars": 1458,
+        "unique_chars_served": 1458,
+        "read_completely": true,
+        "before_first_artifact_chars": 1458
+      },
+      {
+        "key": "route:SCENE/PRODUCT_NARRATIVE",
+        "full_chars": 534,
+        "unique_chars_served": 534,
+        "read_completely": true,
+        "before_first_artifact_chars": 534
+      },
+      {
+        "key": "route:GRID/HIERARCHICAL",
+        "full_chars": 404,
+        "unique_chars_served": 404,
+        "read_completely": true,
+        "before_first_artifact_chars": 404
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/TENSION",
+        "full_chars": 1290,
+        "unique_chars_served": 1290,
+        "read_completely": true,
+        "before_first_artifact_chars": 1290
+      }
+    ],
+    "limits": "Instrumentation du lecteur seulement, en-têtes compris ; lecture directe non attestée ; aucun compteur de jetons ; avant premier fichier HTML, pas avant tout le travail de production."
+  },
+  "run-02": {
+    "requests": 52,
+    "chars_served_with_repetitions": 193209,
+    "unique_chars_per_request_key": 193209,
+    "chars_before_first_html_creation": 193209,
+    "routes": [
+      {
+        "key": "skill",
+        "full_chars": 18241,
+        "unique_chars_served": 18241,
+        "read_completely": true,
+        "before_first_artifact_chars": 18241
+      },
+      {
+        "key": "route:DIRECTION/START/TREE",
+        "full_chars": 3374,
+        "unique_chars_served": 3374,
+        "read_completely": true,
+        "before_first_artifact_chars": 3374
+      },
+      {
+        "key": "mode:DIRECTION",
+        "full_chars": 1869,
+        "unique_chars_served": 1869,
+        "read_completely": true,
+        "before_first_artifact_chars": 1869
+      },
+      {
+        "key": "route:DIRECTION/EXTERNAL-START",
+        "full_chars": 4048,
+        "unique_chars_served": 4048,
+        "read_completely": true,
+        "before_first_artifact_chars": 4048
+      },
+      {
+        "key": "route:DIRECTION/CREATIVE-BOOT",
+        "full_chars": 2886,
+        "unique_chars_served": 2886,
+        "read_completely": true,
+        "before_first_artifact_chars": 2886
+      },
+      {
+        "key": "route:DIRECTION/VISUAL_TARGET",
+        "full_chars": 9393,
+        "unique_chars_served": 9393,
+        "read_completely": true,
+        "before_first_artifact_chars": 9393
+      },
+      {
+        "key": "route:DIRECTION/FIRST-OBJECT",
+        "full_chars": 7304,
+        "unique_chars_served": 7304,
+        "read_completely": true,
+        "before_first_artifact_chars": 7304
+      },
+      {
+        "key": "route:SAVOIR/TYPE",
+        "full_chars": 3281,
+        "unique_chars_served": 3281,
+        "read_completely": true,
+        "before_first_artifact_chars": 3281
+      },
+      {
+        "key": "route:ACTION/FIRST-RENDER",
+        "full_chars": 1951,
+        "unique_chars_served": 1951,
+        "read_completely": true,
+        "before_first_artifact_chars": 1951
+      },
+      {
+        "key": "route:ACTION/PIPELINE-DIRECTION",
+        "full_chars": 11639,
+        "unique_chars_served": 11639,
+        "read_completely": true,
+        "before_first_artifact_chars": 11639
+      },
+      {
+        "key": "route:ACTION/UI-UX-REALITY",
+        "full_chars": 2744,
+        "unique_chars_served": 2744,
+        "read_completely": true,
+        "before_first_artifact_chars": 2744
+      },
+      {
+        "key": "route:ACTION/VISUAL_PROOF",
+        "full_chars": 2168,
+        "unique_chars_served": 2168,
+        "read_completely": true,
+        "before_first_artifact_chars": 2168
+      },
+      {
+        "key": "route:ACTION/RUN-DIRECTION",
+        "full_chars": 2163,
+        "unique_chars_served": 2163,
+        "read_completely": true,
+        "before_first_artifact_chars": 2163
+      },
+      {
+        "key": "route:ACTION/GATE-C",
+        "full_chars": 4103,
+        "unique_chars_served": 4103,
+        "read_completely": true,
+        "before_first_artifact_chars": 4103
+      },
+      {
+        "key": "route:SAVOIR/FRAME/COMPOSITION",
+        "full_chars": 1422,
+        "unique_chars_served": 1422,
+        "read_completely": true,
+        "before_first_artifact_chars": 1422
+      },
+      {
+        "key": "route:ACTION/GATE-A",
+        "full_chars": 12049,
+        "unique_chars_served": 12049,
+        "read_completely": true,
+        "before_first_artifact_chars": 12049
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/READ",
+        "full_chars": 7627,
+        "unique_chars_served": 7627,
+        "read_completely": true,
+        "before_first_artifact_chars": 7627
+      },
+      {
+        "key": "route:ACTION/HANDOFF",
+        "full_chars": 2781,
+        "unique_chars_served": 2781,
+        "read_completely": true,
+        "before_first_artifact_chars": 2781
+      },
+      {
+        "key": "route:SAVOIR/FRAME/SINGULARITE",
+        "full_chars": 1288,
+        "unique_chars_served": 1288,
+        "read_completely": true,
+        "before_first_artifact_chars": 1288
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SELECT",
+        "full_chars": 11299,
+        "unique_chars_served": 11299,
+        "read_completely": true,
+        "before_first_artifact_chars": 11299
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SEQUENCE",
+        "full_chars": 3407,
+        "unique_chars_served": 3407,
+        "read_completely": true,
+        "before_first_artifact_chars": 3407
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/TENSION",
+        "full_chars": 1653,
+        "unique_chars_served": 1653,
+        "read_completely": true,
+        "before_first_artifact_chars": 1653
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-05",
+        "full_chars": 2515,
+        "unique_chars_served": 2515,
+        "read_completely": true,
+        "before_first_artifact_chars": 2515
+      },
+      {
+        "key": "route:SAVOIR/STATE",
+        "full_chars": 13216,
+        "unique_chars_served": 13216,
+        "read_completely": true,
+        "before_first_artifact_chars": 13216
+      },
+      {
+        "key": "route:ACTION/ATELIER-EDITION",
+        "full_chars": 1423,
+        "unique_chars_served": 1423,
+        "read_completely": true,
+        "before_first_artifact_chars": 1423
+      },
+      {
+        "key": "route:ACTION/GATE-B",
+        "full_chars": 9186,
+        "unique_chars_served": 9186,
+        "read_completely": true,
+        "before_first_artifact_chars": 9186
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-00",
+        "full_chars": 5418,
+        "unique_chars_served": 5418,
+        "read_completely": true,
+        "before_first_artifact_chars": 5418
+      },
+      {
+        "key": "route:ACTION/RUN_CARD",
+        "full_chars": 18294,
+        "unique_chars_served": 18294,
+        "read_completely": true,
+        "before_first_artifact_chars": 18294
+      },
+      {
+        "key": "route:ACTION/CLOSE-PACKAGE",
+        "full_chars": 6986,
+        "unique_chars_served": 6986,
+        "read_completely": true,
+        "before_first_artifact_chars": 6986
+      },
+      {
+        "key": "route:SAVOIR/INTEGRITY",
+        "full_chars": 8176,
+        "unique_chars_served": 8176,
+        "read_completely": true,
+        "before_first_artifact_chars": 8176
+      },
+      {
+        "key": "route:SAVOIR/TOOLS/CONVERGENCE",
+        "full_chars": 1458,
+        "unique_chars_served": 1458,
+        "read_completely": true,
+        "before_first_artifact_chars": 1458
+      },
+      {
+        "key": "route:DIRECTION/DOMAIN-FRAME",
+        "full_chars": 2902,
+        "unique_chars_served": 2902,
+        "read_completely": true,
+        "before_first_artifact_chars": 2902
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/CONTRACTS",
+        "full_chars": 6945,
+        "unique_chars_served": 6945,
+        "read_completely": true,
+        "before_first_artifact_chars": 6945
+      }
+    ],
+    "limits": "Instrumentation du lecteur seulement, en-têtes compris ; lecture directe non attestée ; aucun compteur de jetons ; avant premier fichier HTML, pas avant tout le travail de production."
+  },
+  "run-03": {
+    "requests": 56,
+    "chars_served_with_repetitions": 205094,
+    "unique_chars_per_request_key": 205094,
+    "chars_before_first_html_creation": 205094,
+    "routes": [
+      {
+        "key": "skill",
+        "full_chars": 18241,
+        "unique_chars_served": 18241,
+        "read_completely": true,
+        "before_first_artifact_chars": 18241
+      },
+      {
+        "key": "route:DIRECTION/START/TREE",
+        "full_chars": 3374,
+        "unique_chars_served": 3374,
+        "read_completely": true,
+        "before_first_artifact_chars": 3374
+      },
+      {
+        "key": "mode:DIRECTION",
+        "full_chars": 1869,
+        "unique_chars_served": 1869,
+        "read_completely": true,
+        "before_first_artifact_chars": 1869
+      },
+      {
+        "key": "route:DIRECTION/EXTERNAL-START",
+        "full_chars": 4048,
+        "unique_chars_served": 4048,
+        "read_completely": true,
+        "before_first_artifact_chars": 4048
+      },
+      {
+        "key": "route:DIRECTION/VISUAL_TARGET",
+        "full_chars": 9393,
+        "unique_chars_served": 9393,
+        "read_completely": true,
+        "before_first_artifact_chars": 9393
+      },
+      {
+        "key": "route:DIRECTION/FIRST-OBJECT",
+        "full_chars": 7304,
+        "unique_chars_served": 7304,
+        "read_completely": true,
+        "before_first_artifact_chars": 7304
+      },
+      {
+        "key": "route:DIRECTION/CREATIVE-BOOT",
+        "full_chars": 2886,
+        "unique_chars_served": 2886,
+        "read_completely": true,
+        "before_first_artifact_chars": 2886
+      },
+      {
+        "key": "route:ACTION/FIRST-RENDER",
+        "full_chars": 1951,
+        "unique_chars_served": 1951,
+        "read_completely": true,
+        "before_first_artifact_chars": 1951
+      },
+      {
+        "key": "route:ACTION/UI-UX-REALITY",
+        "full_chars": 2744,
+        "unique_chars_served": 2744,
+        "read_completely": true,
+        "before_first_artifact_chars": 2744
+      },
+      {
+        "key": "route:ACTION/RUN-DIRECTION",
+        "full_chars": 2163,
+        "unique_chars_served": 2163,
+        "read_completely": true,
+        "before_first_artifact_chars": 2163
+      },
+      {
+        "key": "route:ACTION/VISUAL_PROOF",
+        "full_chars": 2168,
+        "unique_chars_served": 2168,
+        "read_completely": true,
+        "before_first_artifact_chars": 2168
+      },
+      {
+        "key": "route:SAVOIR/FRAME/COMPOSITION",
+        "full_chars": 1422,
+        "unique_chars_served": 1422,
+        "read_completely": true,
+        "before_first_artifact_chars": 1422
+      },
+      {
+        "key": "route:ACTION/PIPELINE-DIRECTION",
+        "full_chars": 11639,
+        "unique_chars_served": 11639,
+        "read_completely": true,
+        "before_first_artifact_chars": 11639
+      },
+      {
+        "key": "route:SAVOIR/TYPE",
+        "full_chars": 3281,
+        "unique_chars_served": 3281,
+        "read_completely": true,
+        "before_first_artifact_chars": 3281
+      },
+      {
+        "key": "route:SAVOIR/FRAME/SINGULARITE",
+        "full_chars": 1288,
+        "unique_chars_served": 1288,
+        "read_completely": true,
+        "before_first_artifact_chars": 1288
+      },
+      {
+        "key": "route:ACTION/GATE-C",
+        "full_chars": 4103,
+        "unique_chars_served": 4103,
+        "read_completely": true,
+        "before_first_artifact_chars": 4103
+      },
+      {
+        "key": "route:ACTION/GATE-B",
+        "full_chars": 9186,
+        "unique_chars_served": 9186,
+        "read_completely": true,
+        "before_first_artifact_chars": 9186
+      },
+      {
+        "key": "route:ACTION/GATE-A",
+        "full_chars": 12049,
+        "unique_chars_served": 12049,
+        "read_completely": true,
+        "before_first_artifact_chars": 12049
+      },
+      {
+        "key": "route:ACTION/HANDOFF",
+        "full_chars": 2781,
+        "unique_chars_served": 2781,
+        "read_completely": true,
+        "before_first_artifact_chars": 2781
+      },
+      {
+        "key": "route:ACTION/CLOSE-PACKAGE",
+        "full_chars": 6986,
+        "unique_chars_served": 6986,
+        "read_completely": true,
+        "before_first_artifact_chars": 6986
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SELECT",
+        "full_chars": 11299,
+        "unique_chars_served": 11299,
+        "read_completely": true,
+        "before_first_artifact_chars": 11299
+      },
+      {
+        "key": "route:ACTION/RUN_CARD",
+        "full_chars": 18294,
+        "unique_chars_served": 18294,
+        "read_completely": true,
+        "before_first_artifact_chars": 18294
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/READ",
+        "full_chars": 7627,
+        "unique_chars_served": 7627,
+        "read_completely": true,
+        "before_first_artifact_chars": 7627
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/TENSION",
+        "full_chars": 1653,
+        "unique_chars_served": 1653,
+        "read_completely": true,
+        "before_first_artifact_chars": 1653
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SEQUENCE",
+        "full_chars": 3407,
+        "unique_chars_served": 3407,
+        "read_completely": true,
+        "before_first_artifact_chars": 3407
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-05",
+        "full_chars": 2515,
+        "unique_chars_served": 2515,
+        "read_completely": true,
+        "before_first_artifact_chars": 2515
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-00",
+        "full_chars": 5418,
+        "unique_chars_served": 5418,
+        "read_completely": true,
+        "before_first_artifact_chars": 5418
+      },
+      {
+        "key": "route:ACTION/ATELIER-EDITION",
+        "full_chars": 1423,
+        "unique_chars_served": 1423,
+        "read_completely": true,
+        "before_first_artifact_chars": 1423
+      },
+      {
+        "key": "route:SAVOIR/STATE",
+        "full_chars": 13216,
+        "unique_chars_served": 13216,
+        "read_completely": true,
+        "before_first_artifact_chars": 13216
+      },
+      {
+        "key": "route:SAVOIR/TOOLS/CONVERGENCE",
+        "full_chars": 1458,
+        "unique_chars_served": 1458,
+        "read_completely": true,
+        "before_first_artifact_chars": 1458
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/GRID/HIERARCHICAL",
+        "full_chars": 417,
+        "unique_chars_served": 417,
+        "read_completely": true,
+        "before_first_artifact_chars": 417
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/OBJECT/PROOF_PRODUCT_STAGE",
+        "full_chars": 3967,
+        "unique_chars_served": 3967,
+        "read_completely": true,
+        "before_first_artifact_chars": 3967
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/GATE",
+        "full_chars": 4498,
+        "unique_chars_served": 4498,
+        "read_completely": true,
+        "before_first_artifact_chars": 4498
+      },
+      {
+        "key": "route:SAVOIR/TOOLS/MOYENS",
+        "full_chars": 3003,
+        "unique_chars_served": 3003,
+        "read_completely": true,
+        "before_first_artifact_chars": 3003
+      },
+      {
+        "key": "route:DIRECTION/DOMAIN-FRAME",
+        "full_chars": 2902,
+        "unique_chars_served": 2902,
+        "read_completely": true,
+        "before_first_artifact_chars": 2902
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/CONTRACTS",
+        "full_chars": 6945,
+        "unique_chars_served": 6945,
+        "read_completely": true,
+        "before_first_artifact_chars": 6945
+      },
+      {
+        "key": "route:SAVOIR/INTEGRITY",
+        "full_chars": 8176,
+        "unique_chars_served": 8176,
+        "read_completely": true,
+        "before_first_artifact_chars": 8176
+      }
+    ],
+    "limits": "Instrumentation du lecteur seulement, en-têtes compris ; lecture directe non attestée ; aucun compteur de jetons ; avant premier fichier HTML, pas avant tout le travail de production."
+  },
+  "run-04": {
+    "requests": 54,
+    "chars_served_with_repetitions": 219803,
+    "unique_chars_per_request_key": 205020,
+    "chars_before_first_html_creation": 205020,
+    "routes": [
+      {
+        "key": "skill",
+        "full_chars": 42866,
+        "unique_chars_served": 42866,
+        "read_completely": true,
+        "before_first_artifact_chars": 42866
+      },
+      {
+        "key": "route:DIRECTION/START",
+        "full_chars": 8699,
+        "unique_chars_served": 8699,
+        "read_completely": true,
+        "before_first_artifact_chars": 8699
+      },
+      {
+        "key": "route:DIRECTION/EXTERNAL-START",
+        "full_chars": 3368,
+        "unique_chars_served": 3368,
+        "read_completely": true,
+        "before_first_artifact_chars": 3368
+      },
+      {
+        "key": "route:DIRECTION/CREATIVE-BOOT",
+        "full_chars": 2564,
+        "unique_chars_served": 2564,
+        "read_completely": true,
+        "before_first_artifact_chars": 2564
+      },
+      {
+        "key": "route:DIRECTION/VISUAL_TARGET",
+        "full_chars": 9393,
+        "unique_chars_served": 9393,
+        "read_completely": true,
+        "before_first_artifact_chars": 9393
+      },
+      {
+        "key": "route:DIRECTION/FIRST-OBJECT",
+        "full_chars": 6152,
+        "unique_chars_served": 6152,
+        "read_completely": true,
+        "before_first_artifact_chars": 6152
+      },
+      {
+        "key": "route:SAVOIR/TYPE",
+        "full_chars": 2552,
+        "unique_chars_served": 2552,
+        "read_completely": true,
+        "before_first_artifact_chars": 2552
+      },
+      {
+        "key": "route:ACTION/FIRST-RENDER",
+        "full_chars": 1951,
+        "unique_chars_served": 1951,
+        "read_completely": true,
+        "before_first_artifact_chars": 1951
+      },
+      {
+        "key": "route:ACTION/UI-UX-REALITY",
+        "full_chars": 2744,
+        "unique_chars_served": 2744,
+        "read_completely": true,
+        "before_first_artifact_chars": 2744
+      },
+      {
+        "key": "route:ACTION/RUN-DIRECTION",
+        "full_chars": 2163,
+        "unique_chars_served": 2163,
+        "read_completely": true,
+        "before_first_artifact_chars": 2163
+      },
+      {
+        "key": "route:ACTION/PIPELINE-DIRECTION",
+        "full_chars": 11640,
+        "unique_chars_served": 11640,
+        "read_completely": true,
+        "before_first_artifact_chars": 11640
+      },
+      {
+        "key": "route:ACTION/VISUAL_PROOF",
+        "full_chars": 2168,
+        "unique_chars_served": 2168,
+        "read_completely": true,
+        "before_first_artifact_chars": 2168
+      },
+      {
+        "key": "route:ACTION/GATE-A",
+        "full_chars": 12049,
+        "unique_chars_served": 12049,
+        "read_completely": true,
+        "before_first_artifact_chars": 12049
+      },
+      {
+        "key": "route:ACTION/GATE-C",
+        "full_chars": 4103,
+        "unique_chars_served": 4103,
+        "read_completely": true,
+        "before_first_artifact_chars": 4103
+      },
+      {
+        "key": "route:ACTION/HANDOFF",
+        "full_chars": 2783,
+        "unique_chars_served": 2783,
+        "read_completely": true,
+        "before_first_artifact_chars": 2783
+      },
+      {
+        "key": "route:ACTION/RUN_CARD",
+        "full_chars": 18294,
+        "unique_chars_served": 18294,
+        "read_completely": true,
+        "before_first_artifact_chars": 18294
+      },
+      {
+        "key": "route:ACTION/CLOSE-PACKAGE",
+        "full_chars": 6986,
+        "unique_chars_served": 6986,
+        "read_completely": true,
+        "before_first_artifact_chars": 6986
+      },
+      {
+        "key": "outline:ACTION/GATE-B",
+        "full_chars": 615,
+        "unique_chars_served": 615,
+        "read_completely": true,
+        "before_first_artifact_chars": 615
+      },
+      {
+        "key": "route:ACTION/GATE-B",
+        "full_chars": 9183,
+        "unique_chars_served": 9183,
+        "read_completely": true,
+        "before_first_artifact_chars": 9183
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SELECT",
+        "full_chars": 8894,
+        "unique_chars_served": 8894,
+        "read_completely": true,
+        "before_first_artifact_chars": 8894
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SEQUENCE",
+        "full_chars": 3407,
+        "unique_chars_served": 3407,
+        "read_completely": true,
+        "before_first_artifact_chars": 3407
+      },
+      {
+        "key": "route:DIRECTION/DOMAIN-FRAME",
+        "full_chars": 2902,
+        "unique_chars_served": 2902,
+        "read_completely": true,
+        "before_first_artifact_chars": 2902
+      },
+      {
+        "key": "route:OBJECT/PROOF_PRODUCT_STAGE",
+        "full_chars": 3954,
+        "unique_chars_served": 3954,
+        "read_completely": true,
+        "before_first_artifact_chars": 3954
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/CONTRACTS",
+        "full_chars": 6945,
+        "unique_chars_served": 6945,
+        "read_completely": true,
+        "before_first_artifact_chars": 6945
+      },
+      {
+        "key": "route:SAVOIR/INTEGRITY",
+        "full_chars": 7965,
+        "unique_chars_served": 7965,
+        "read_completely": true,
+        "before_first_artifact_chars": 7965
+      },
+      {
+        "key": "find:schema",
+        "full_chars": 3011,
+        "unique_chars_served": 3011,
+        "read_completely": true,
+        "before_first_artifact_chars": 3011
+      },
+      {
+        "key": "find:frame",
+        "full_chars": 2623,
+        "unique_chars_served": 2623,
+        "read_completely": true,
+        "before_first_artifact_chars": 2623
+      },
+      {
+        "key": "route:SAVOIR/FRAME",
+        "full_chars": 10372,
+        "unique_chars_served": 10372,
+        "read_completely": true,
+        "before_first_artifact_chars": 10372
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-00",
+        "full_chars": 4674,
+        "unique_chars_served": 4674,
+        "read_completely": true,
+        "before_first_artifact_chars": 4674
+      }
+    ],
+    "limits": "Instrumentation du lecteur seulement, en-têtes compris ; lecture directe non attestée ; aucun compteur de jetons ; avant premier fichier HTML, pas avant tout le travail de production."
+  },
+  "run-05": {
+    "requests": 50,
+    "chars_served_with_repetitions": 187860,
+    "unique_chars_per_request_key": 187860,
+    "chars_before_first_html_creation": 187860,
+    "routes": [
+      {
+        "key": "skill",
+        "full_chars": 18241,
+        "unique_chars_served": 18241,
+        "read_completely": true,
+        "before_first_artifact_chars": 18241
+      },
+      {
+        "key": "route:DIRECTION/START/TREE",
+        "full_chars": 3374,
+        "unique_chars_served": 3374,
+        "read_completely": true,
+        "before_first_artifact_chars": 3374
+      },
+      {
+        "key": "mode:DIRECTION",
+        "full_chars": 1869,
+        "unique_chars_served": 1869,
+        "read_completely": true,
+        "before_first_artifact_chars": 1869
+      },
+      {
+        "key": "route:DIRECTION/EXTERNAL-START",
+        "full_chars": 4048,
+        "unique_chars_served": 4048,
+        "read_completely": true,
+        "before_first_artifact_chars": 4048
+      },
+      {
+        "key": "route:DIRECTION/CREATIVE-BOOT",
+        "full_chars": 2886,
+        "unique_chars_served": 2886,
+        "read_completely": true,
+        "before_first_artifact_chars": 2886
+      },
+      {
+        "key": "route:SAVOIR/TYPE",
+        "full_chars": 3281,
+        "unique_chars_served": 3281,
+        "read_completely": true,
+        "before_first_artifact_chars": 3281
+      },
+      {
+        "key": "route:DIRECTION/VISUAL_TARGET",
+        "full_chars": 9393,
+        "unique_chars_served": 9393,
+        "read_completely": true,
+        "before_first_artifact_chars": 9393
+      },
+      {
+        "key": "route:DIRECTION/FIRST-OBJECT",
+        "full_chars": 7304,
+        "unique_chars_served": 7304,
+        "read_completely": true,
+        "before_first_artifact_chars": 7304
+      },
+      {
+        "key": "route:ACTION/RUN-DIRECTION",
+        "full_chars": 2163,
+        "unique_chars_served": 2163,
+        "read_completely": true,
+        "before_first_artifact_chars": 2163
+      },
+      {
+        "key": "route:ACTION/UI-UX-REALITY",
+        "full_chars": 2744,
+        "unique_chars_served": 2744,
+        "read_completely": true,
+        "before_first_artifact_chars": 2744
+      },
+      {
+        "key": "route:ACTION/FIRST-RENDER",
+        "full_chars": 1951,
+        "unique_chars_served": 1951,
+        "read_completely": true,
+        "before_first_artifact_chars": 1951
+      },
+      {
+        "key": "route:ACTION/GATE-A",
+        "full_chars": 12049,
+        "unique_chars_served": 12049,
+        "read_completely": true,
+        "before_first_artifact_chars": 12049
+      },
+      {
+        "key": "route:ACTION/PIPELINE-DIRECTION",
+        "full_chars": 11639,
+        "unique_chars_served": 11639,
+        "read_completely": true,
+        "before_first_artifact_chars": 11639
+      },
+      {
+        "key": "route:ACTION/VISUAL_PROOF",
+        "full_chars": 2168,
+        "unique_chars_served": 2168,
+        "read_completely": true,
+        "before_first_artifact_chars": 2168
+      },
+      {
+        "key": "route:ACTION/GATE-C",
+        "full_chars": 4103,
+        "unique_chars_served": 4103,
+        "read_completely": true,
+        "before_first_artifact_chars": 4103
+      },
+      {
+        "key": "route:SAVOIR/FRAME/SINGULARITE",
+        "full_chars": 1288,
+        "unique_chars_served": 1288,
+        "read_completely": true,
+        "before_first_artifact_chars": 1288
+      },
+      {
+        "key": "route:SAVOIR/FRAME/COMPOSITION",
+        "full_chars": 1422,
+        "unique_chars_served": 1422,
+        "read_completely": true,
+        "before_first_artifact_chars": 1422
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SELECT",
+        "full_chars": 11299,
+        "unique_chars_served": 11299,
+        "read_completely": true,
+        "before_first_artifact_chars": 11299
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-05",
+        "full_chars": 2515,
+        "unique_chars_served": 2515,
+        "read_completely": true,
+        "before_first_artifact_chars": 2515
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/READ",
+        "full_chars": 7627,
+        "unique_chars_served": 7627,
+        "read_completely": true,
+        "before_first_artifact_chars": 7627
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/TENSION",
+        "full_chars": 1653,
+        "unique_chars_served": 1653,
+        "read_completely": true,
+        "before_first_artifact_chars": 1653
+      },
+      {
+        "key": "route:ACTION/ATELIER-EDITION",
+        "full_chars": 1423,
+        "unique_chars_served": 1423,
+        "read_completely": true,
+        "before_first_artifact_chars": 1423
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SEQUENCE",
+        "full_chars": 3407,
+        "unique_chars_served": 3407,
+        "read_completely": true,
+        "before_first_artifact_chars": 3407
+      },
+      {
+        "key": "route:ACTION/HANDOFF",
+        "full_chars": 2781,
+        "unique_chars_served": 2781,
+        "read_completely": true,
+        "before_first_artifact_chars": 2781
+      },
+      {
+        "key": "route:SAVOIR/STATE",
+        "full_chars": 13216,
+        "unique_chars_served": 13216,
+        "read_completely": true,
+        "before_first_artifact_chars": 13216
+      },
+      {
+        "key": "route:ACTION/CLOSE-PACKAGE",
+        "full_chars": 6986,
+        "unique_chars_served": 6986,
+        "read_completely": true,
+        "before_first_artifact_chars": 6986
+      },
+      {
+        "key": "route:SAVOIR/CRAFT/CFT-00",
+        "full_chars": 5418,
+        "unique_chars_served": 5418,
+        "read_completely": true,
+        "before_first_artifact_chars": 5418
+      },
+      {
+        "key": "route:SAVOIR/TOOLS/CONVERGENCE",
+        "full_chars": 1458,
+        "unique_chars_served": 1458,
+        "read_completely": true,
+        "before_first_artifact_chars": 1458
+      },
+      {
+        "key": "route:ACTION/RUN_CARD",
+        "full_chars": 18294,
+        "unique_chars_served": 18294,
+        "read_completely": true,
+        "before_first_artifact_chars": 18294
+      },
+      {
+        "key": "route:ACTION/GATE-B",
+        "full_chars": 9186,
+        "unique_chars_served": 9186,
+        "read_completely": true,
+        "before_first_artifact_chars": 9186
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/GATE",
+        "full_chars": 4498,
+        "unique_chars_served": 4498,
+        "read_completely": true,
+        "before_first_artifact_chars": 4498
+      },
+      {
+        "key": "route:SAVOIR/INTEGRITY",
+        "full_chars": 8176,
+        "unique_chars_served": 8176,
+        "read_completely": true,
+        "before_first_artifact_chars": 8176
+      }
+    ],
+    "limits": "Instrumentation du lecteur seulement, en-têtes compris ; lecture directe non attestée ; aucun compteur de jetons ; avant premier fichier HTML, pas avant tout le travail de production."
+  },
+  "run-06": {
+    "requests": 47,
+    "chars_served_with_repetitions": 187225,
+    "unique_chars_per_request_key": 184673,
+    "chars_before_first_html_creation": 184673,
+    "routes": [
+      {
+        "key": "skill",
+        "full_chars": 42866,
+        "unique_chars_served": 42866,
+        "read_completely": true,
+        "before_first_artifact_chars": 42866
+      },
+      {
+        "key": "route:DIRECTION/START",
+        "full_chars": 8699,
+        "unique_chars_served": 8699,
+        "read_completely": true,
+        "before_first_artifact_chars": 8699
+      },
+      {
+        "key": "route:DIRECTION/EXTERNAL-START",
+        "full_chars": 3368,
+        "unique_chars_served": 3368,
+        "read_completely": true,
+        "before_first_artifact_chars": 3368
+      },
+      {
+        "key": "route:DIRECTION/CREATIVE-BOOT",
+        "full_chars": 2564,
+        "unique_chars_served": 2564,
+        "read_completely": true,
+        "before_first_artifact_chars": 2564
+      },
+      {
+        "key": "route:ACTION/FIRST-RENDER",
+        "full_chars": 1951,
+        "unique_chars_served": 1951,
+        "read_completely": true,
+        "before_first_artifact_chars": 1951
+      },
+      {
+        "key": "route:DIRECTION/FIRST-OBJECT",
+        "full_chars": 6152,
+        "unique_chars_served": 6152,
+        "read_completely": true,
+        "before_first_artifact_chars": 6152
+      },
+      {
+        "key": "route:DIRECTION/VISUAL_TARGET",
+        "full_chars": 9393,
+        "unique_chars_served": 9393,
+        "read_completely": true,
+        "before_first_artifact_chars": 9393
+      },
+      {
+        "key": "route:SAVOIR/TYPE",
+        "full_chars": 2552,
+        "unique_chars_served": 2552,
+        "read_completely": true,
+        "before_first_artifact_chars": 2552
+      },
+      {
+        "key": "route:ACTION/RUN-DIRECTION",
+        "full_chars": 2163,
+        "unique_chars_served": 2163,
+        "read_completely": true,
+        "before_first_artifact_chars": 2163
+      },
+      {
+        "key": "route:ACTION/UI-UX-REALITY",
+        "full_chars": 2744,
+        "unique_chars_served": 2744,
+        "read_completely": true,
+        "before_first_artifact_chars": 2744
+      },
+      {
+        "key": "route:ACTION/PIPELINE-DIRECTION",
+        "full_chars": 11640,
+        "unique_chars_served": 11640,
+        "read_completely": true,
+        "before_first_artifact_chars": 11640
+      },
+      {
+        "key": "route:ACTION/HANDOFF",
+        "full_chars": 2783,
+        "unique_chars_served": 2783,
+        "read_completely": true,
+        "before_first_artifact_chars": 2783
+      },
+      {
+        "key": "route:ACTION/VISUAL_PROOF",
+        "full_chars": 2168,
+        "unique_chars_served": 2168,
+        "read_completely": true,
+        "before_first_artifact_chars": 2168
+      },
+      {
+        "key": "route:ACTION/GATE-A",
+        "full_chars": 12049,
+        "unique_chars_served": 12049,
+        "read_completely": true,
+        "before_first_artifact_chars": 12049
+      },
+      {
+        "key": "route:ACTION/GATE-C",
+        "full_chars": 4103,
+        "unique_chars_served": 4103,
+        "read_completely": true,
+        "before_first_artifact_chars": 4103
+      },
+      {
+        "key": "route:ACTION/GATE-B",
+        "full_chars": 9183,
+        "unique_chars_served": 9183,
+        "read_completely": true,
+        "before_first_artifact_chars": 9183
+      },
+      {
+        "key": "route:ACTION/RUN_CARD",
+        "full_chars": 18294,
+        "unique_chars_served": 18294,
+        "read_completely": true,
+        "before_first_artifact_chars": 18294
+      },
+      {
+        "key": "route:ACTION/CLOSE-PACKAGE",
+        "full_chars": 6986,
+        "unique_chars_served": 6986,
+        "read_completely": true,
+        "before_first_artifact_chars": 6986
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SEQUENCE",
+        "full_chars": 3407,
+        "unique_chars_served": 3407,
+        "read_completely": true,
+        "before_first_artifact_chars": 3407
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/SELECT",
+        "full_chars": 8894,
+        "unique_chars_served": 8894,
+        "read_completely": true,
+        "before_first_artifact_chars": 8894
+      },
+      {
+        "key": "route:DIRECTION/DOMAIN-FRAME",
+        "full_chars": 2902,
+        "unique_chars_served": 2902,
+        "read_completely": true,
+        "before_first_artifact_chars": 2902
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/CONTRACTS",
+        "full_chars": 6945,
+        "unique_chars_served": 6945,
+        "read_completely": true,
+        "before_first_artifact_chars": 6945
+      },
+      {
+        "key": "route:BIBLIOTHEQUE/GATE",
+        "full_chars": 4498,
+        "unique_chars_served": 4498,
+        "read_completely": true,
+        "before_first_artifact_chars": 4498
+      },
+      {
+        "key": "route:SAVOIR/INTEGRITY",
+        "full_chars": 7965,
+        "unique_chars_served": 7965,
+        "read_completely": true,
+        "before_first_artifact_chars": 7965
+      },
+      {
+        "key": "route:GRID/HIERARCHICAL",
+        "full_chars": 404,
+        "unique_chars_served": 404,
+        "read_completely": true,
+        "before_first_artifact_chars": 404
+      }
+    ],
+    "limits": "Instrumentation du lecteur seulement, en-têtes compris ; lecture directe non attestée ; aucun compteur de jetons ; avant premier fichier HTML, pas avant tout le travail de production."
+  }
+}

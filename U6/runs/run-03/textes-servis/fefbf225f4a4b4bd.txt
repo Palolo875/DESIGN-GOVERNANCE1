@@ -1,0 +1,34 @@
+ROUTE: SAVOIR/TOOLS/MOYENS (adresse : savoir/gout-et-tendances#ressources)
+OWNER: design/savoir/gout-et-tendances.md
+HEADING: ### MOYENS — ressources par couche
+---
+### MOYENS — ressources par couche
+
+[VEILLE 2026-09] **Carte des moyens par couche** : des sources, jamais des styles. Licence et conditions d’usage vérifiées pour chaque ressource retenue, au moment de l’intégrer ; le nom d’une plateforme ne vaut pas autorisation. Pour chaque couche : où chercher, comment choisir, ce qui limite.
+- **Typographie :** polices de la marque ; Google Fonts (licences ouvertes, surtout SIL OFL) ; Fontshare (licence FFL ou OFL selon la police). Choisir par la voix et la donnée à porter ; vérifier chargement, graisses et glyphes (accents, chiffres) dans la cible.
+- **Icônes :** une famille qui couvre les pictogrammes nécessaires (par exemple Lucide, Phosphor) ; poids, taille et sens accordés au texte ; mélanger des familles demande une raison visible.
+- **Composants :** design system fourni, sinon bibliothèque éprouvée (par exemple shadcn, Radix) ; hors Web, les idiomes de la plateforme.
+- **Données et objets de preuve :** contenu du client, sinon exemples marqués ; codables, donc au plafond sans intrant.
+- **Texture et traitement :** CSS, SVG, canvas ; rendu inspecté sur capture, performance mesurée dans le runtime cible.
+- **Photographie :** client (même au téléphone, en lumière du jour), banques sous licence (Wikimedia Commons, Unsplash).
+- **Illustration et 3D :** commande, packs sous licence, génération dirigée avec références (`GÉNÉRÉ-DIRIGÉ`).
+- **Fichiers et marque :** Figma ou kit de marque par connecteur.
+
+Sans intrant ni route autorisée, les assets figuratifs et le contenu réel restent hors plafond (`FABRICATION`). À revoir avant 2027-03.
+
+**Ce que vaut cette carte.** Elle nomme des sources : le paquet n’en contient aucune et n’a testé ni leur accès ni leur intégration. Une ressource compte dans le plafond seulement une fois atteinte depuis l’environnement du run, chargée dans l’artefact et vue sur capture ; nommée ou seulement atteignable, elle reste une intention. Une police ou une image externe bloquée par `scripts/check_render.py` sans `--allow-external` n’est pas observée. Si l’accès échoue (réseau, licence, connecteur), dis-le et prends la route de production qui tient sans elle (`DIRECTION/VISUAL_TARGET` : `CODE-NATIVE`, `SANS-ASSET` ou emplacement marqué) ; le plafond baisse et la trace le dit.
+
+Une tendance est une hypothèse de direction. Avant de l’utiliser, vérifie qu’elle sert le JTBD, améliore la compréhension, reste accessible et performante et survit lorsque son nom marketing disparaît.
+
+Distingue :
+
+| Niveau | Définition |
+|---|---|
+| Signal de veille | Observation datée. |
+| Principe durable | Mécanisme transférable. |
+| Style | Décision située d’expression. |
+| Technique | Moyen de production ou de preuve. |
+
+Le terme `same-energy` peut indexer un risque de convergence, mais ne remplace jamais une description causale de l’échec.
+
+---

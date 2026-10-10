@@ -1,0 +1,221 @@
+{
+  "started_at": "2026-10-10T16:37:02.013196+00:00",
+  "run": "run-06",
+  "viewports": [
+    {
+      "width": 1440,
+      "checks": [
+        {
+          "name": "CTA principal et besoin",
+          "status": "PASS",
+          "observation": "Action de rendez-vous, choix du besoin et arrivée sur les créneaux avec focus."
+        },
+        {
+          "name": "Erreur de créneau",
+          "status": "PASS",
+          "observation": "Heure manquante refusée, message local et focus sur une heure disponible."
+        },
+        {
+          "name": "Jour indisponible",
+          "status": "PASS",
+          "observation": "Jour sans créneau : arrêt explicite, aucun passage à la suite, focus pour changer de jour."
+        },
+        {
+          "name": "Clavier et changement de jour",
+          "status": "PASS",
+          "observation": "Flèches natives sautent le créneau désactivé ; changement de jour efface l'ancienne heure."
+        },
+        {
+          "name": "Transmission du choix",
+          "status": "PASS",
+          "observation": "Besoin, jour et heure transmis à la saisie de coordonnées."
+        },
+        {
+          "name": "Erreur coordonnées vides",
+          "status": "PASS",
+          "observation": "Coordonnées vides refusées, erreurs nommées et focus sur le premier champ."
+        },
+        {
+          "name": "Erreur e-mail et conservation",
+          "status": "PASS",
+          "observation": "E-mail invalide refusé sans perte du nom ou des choix."
+        },
+        {
+          "name": "Retour et reprise",
+          "status": "PASS",
+          "observation": "Aller-retour entre étapes avec conservation de l'heure et des coordonnées."
+        },
+        {
+          "name": "Préparation locale et résultat",
+          "status": "PASS",
+          "observation": "Récapitulatif exact, focus sur le résultat et statut d'exemple sans réservation ni envoi."
+        },
+        {
+          "name": "Recommencer",
+          "status": "PASS",
+          "observation": "Nouvelle simulation : coordonnées et choix de créneau effacés, focus sur le besoin."
+        },
+        {
+          "name": "Choix depuis les prestations",
+          "status": "PASS",
+          "observation": "Le choix dans la liste des réparations renseigne réellement le formulaire."
+        },
+        {
+          "name": "Explication des données",
+          "status": "PASS",
+          "observation": "Explication des données ouvrable et refermable, état accessible renseigné."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "checks": [
+        {
+          "name": "CTA principal et besoin",
+          "status": "PASS",
+          "observation": "Action de rendez-vous, choix du besoin et arrivée sur les créneaux avec focus."
+        },
+        {
+          "name": "Erreur de créneau",
+          "status": "PASS",
+          "observation": "Heure manquante refusée, message local et focus sur une heure disponible."
+        },
+        {
+          "name": "Jour indisponible",
+          "status": "PASS",
+          "observation": "Jour sans créneau : arrêt explicite, aucun passage à la suite, focus pour changer de jour."
+        },
+        {
+          "name": "Clavier et changement de jour",
+          "status": "PASS",
+          "observation": "Flèches natives sautent le créneau désactivé ; changement de jour efface l'ancienne heure."
+        },
+        {
+          "name": "Transmission du choix",
+          "status": "PASS",
+          "observation": "Besoin, jour et heure transmis à la saisie de coordonnées."
+        },
+        {
+          "name": "Erreur coordonnées vides",
+          "status": "PASS",
+          "observation": "Coordonnées vides refusées, erreurs nommées et focus sur le premier champ."
+        },
+        {
+          "name": "Erreur e-mail et conservation",
+          "status": "PASS",
+          "observation": "E-mail invalide refusé sans perte du nom ou des choix."
+        },
+        {
+          "name": "Retour et reprise",
+          "status": "PASS",
+          "observation": "Aller-retour entre étapes avec conservation de l'heure et des coordonnées."
+        },
+        {
+          "name": "Préparation locale et résultat",
+          "status": "PASS",
+          "observation": "Récapitulatif exact, focus sur le résultat et statut d'exemple sans réservation ni envoi."
+        },
+        {
+          "name": "Recommencer",
+          "status": "PASS",
+          "observation": "Nouvelle simulation : coordonnées et choix de créneau effacés, focus sur le besoin."
+        },
+        {
+          "name": "Choix depuis les prestations",
+          "status": "PASS",
+          "observation": "Le choix dans la liste des réparations renseigne réellement le formulaire."
+        },
+        {
+          "name": "Explication des données",
+          "status": "PASS",
+          "observation": "Explication des données ouvrable et refermable, état accessible renseigné."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "checks": [
+        {
+          "name": "CTA principal et besoin",
+          "status": "PASS",
+          "observation": "Action de rendez-vous, choix du besoin et arrivée sur les créneaux avec focus."
+        },
+        {
+          "name": "Erreur de créneau",
+          "status": "PASS",
+          "observation": "Heure manquante refusée, message local et focus sur une heure disponible."
+        },
+        {
+          "name": "Jour indisponible",
+          "status": "PASS",
+          "observation": "Jour sans créneau : arrêt explicite, aucun passage à la suite, focus pour changer de jour."
+        },
+        {
+          "name": "Clavier et changement de jour",
+          "status": "PASS",
+          "observation": "Flèches natives sautent le créneau désactivé ; changement de jour efface l'ancienne heure."
+        },
+        {
+          "name": "Transmission du choix",
+          "status": "PASS",
+          "observation": "Besoin, jour et heure transmis à la saisie de coordonnées."
+        },
+        {
+          "name": "Erreur coordonnées vides",
+          "status": "PASS",
+          "observation": "Coordonnées vides refusées, erreurs nommées et focus sur le premier champ."
+        },
+        {
+          "name": "Erreur e-mail et conservation",
+          "status": "PASS",
+          "observation": "E-mail invalide refusé sans perte du nom ou des choix."
+        },
+        {
+          "name": "Retour et reprise",
+          "status": "PASS",
+          "observation": "Aller-retour entre étapes avec conservation de l'heure et des coordonnées."
+        },
+        {
+          "name": "Préparation locale et résultat",
+          "status": "PASS",
+          "observation": "Récapitulatif exact, focus sur le résultat et statut d'exemple sans réservation ni envoi."
+        },
+        {
+          "name": "Recommencer",
+          "status": "PASS",
+          "observation": "Nouvelle simulation : coordonnées et choix de créneau effacés, focus sur le besoin."
+        },
+        {
+          "name": "Choix depuis les prestations",
+          "status": "PASS",
+          "observation": "Le choix dans la liste des réparations renseigne réellement le formulaire."
+        },
+        {
+          "name": "Explication des données",
+          "status": "PASS",
+          "observation": "Explication des données ouvrable et refermable, état accessible renseigné."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T16:37:10.240047+00:00",
+  "passed": 39,
+  "failed": 0
+}

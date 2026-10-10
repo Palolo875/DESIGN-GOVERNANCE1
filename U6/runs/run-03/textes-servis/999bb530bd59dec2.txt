@@ -1,0 +1,90 @@
+ROUTE: BIBLIOTHEQUE/SELECT (adresse : formes/choisir)
+OWNER: design/formes/choisir.md
+HEADING: ## BIBLIOTHEQUE/SELECT — choisir avant de composer
+---
+## BIBLIOTHEQUE/SELECT — choisir avant de composer
+
+Après `DIRECTION/START` et, si un registre d’expression doit être choisi, après `SAVOIR/STYLE`, sélectionne zéro à plusieurs responsabilités selon la décision. Ne sélectionne aucune route si la structure existante suffit ; sinon choisis uniquement les niveaux qui peuvent modifier la prochaine décision : support, grille, scène, objet de preuve, objet de rythme, micro-interface si la tâche l’exige et modificateur si son comportement est réel.
+
+Une route est refusée lorsqu’elle ne change aucune décision d’espace, de hiérarchie, de comportement ou de preuve. Elle appartient alors au style dans `SAVOIR`, au projet local ou est retirée. La chaîne de responsabilités (support, grille, scène, objet) est décrite dans `BIBLIOTHEQUE/READ` ; pour combiner deux routes avec une raison, `BIBLIOTHEQUE/COMPAT`.
+
+**Filtre avant catalogue.** Avant de lire une table de routes, réponds : quelle décision doit changer, quel niveau minimal peut la changer, quel premier objet rendra la relation observable et quelle preuve fera sortir la route ? Si ces réponses ne sont pas nommées, ne descends pas dans le catalogue ; reviens à `DIRECTION/START`, conserve l’existant ou pose une clarification ciblée.
+
+### Traduire une intention en construction
+
+**Activer la bibliothèque.** Pour une relation visuelle ouverte, relie **intention → niveau structurel → levier concret → effet à observer**. « Calme » ou le nom d’une scène ne suffit pas : nomme ce qui change dans l’espace, le rythme, le cadrage, la mesure ou le comportement. Si le levier reste indéterminé, lis la traduction de `BIBLIOTHEQUE/SELECT`, puis seulement la route utile. Pour spécifier ou construire un objet sélectionné, utilise la calibration locale de `BIBLIOTHEQUE/CONTRACTS` si ses proportions, tokens ou états ne sont pas déjà définis dans une source pertinente du projet. Une structure héritée peut être calibrée sans nouvelle sélection ; nomme sa source retrouvable, sinon présente-la comme hypothèse nouvelle. Réemploie la trace existante ; distingue l’effet attendu de l’effet observé. Une relation déjà résolue ne déclenche aucune lecture supplémentaire.
+
+Les correspondances suivantes sont des hypothèses de construction. Le contenu, le public, le médium et le risque peuvent appeler un autre levier ou une dérivation locale (`BIBLIOTHEQUE/DERIVE`). Une qualité n’impose ni palette, ni police, ni route. Lis seulement la ligne qui peut faire avancer la décision.
+
+| Relation recherchée | Responsabilité à examiner | Premier levier concret | Observation et condition de reprise |
+|---|---|---|---|
+| Calme avec plusieurs informations nécessaires | `GRID/HIERARCHICAL` ou `GRID/COLUMN` | Séparer les groupes par leur distance ; réserver la plus forte masse à la priorité ; garder les informations utiles. | À faible détail puis à taille réelle, les groupes et la priorité restent perceptibles. Reprendre si le vide disloque un groupe ou éloigne sa conséquence. |
+| Intimité ou présence d’un sujet réel | `OBJECT/MEDIA_ARCHIVE` ou `OBJECT/PROOF_PRODUCT_STAGE` | Régler distance du sujet, point focal, occupation de l’image et voisinage du texte sur l’asset disponible. | Inspecter sujet, contexte, texte et recomposition au format étroit. Reprendre si le cadrage détruit le contexte ou si l’asset contredit la promesse. |
+| Précision d’une valeur ou comparaison | `OBJECT/CONTROL_VALUE_TILE`, `MICRO/USAGE_LEDGER` ou `GRID/BASELINE` | Lier valeur, unité, période et conséquence ; aligner les éléments comparables ; régler la longueur d’une graduation à la donnée réelle. | Tester variation des valeurs, unité, signe et contenu long. Reprendre si un repère est inexact ou si une valeur perd sa référence ; la régularité visuelle seule ne suffit pas. |
+| Intensité ou monumentalité | `GRID/HIERARCHICAL` ou `SCENE/EDITORIAL_FIELD` | Donner à une masse typographique ou picturale une échelle dominante, puis régler le contraste et la place des informations secondaires. | Lire l’ensemble et les informations pratiques au format final. Réduire ou recomposer si l’intensité efface la compréhension ou multiplie les foyers. |
+| Continuité, révélation ou rupture de rythme | `SCENE/PRODUCT_NARRATIVE` ou `GRID/AXIAL` | Séquencer une transformation réelle, conserver un repère commun ou déplacer une priorité à un moment précis. | Observer la séquence et son état final ; avec mouvement, jouer aussi l’interruption et la version réduite. Reprendre si la rupture ne change rien de perceptible ou fait perdre le repère. |
+| Collection de pièces distinctes | `SUPPORT/COLLECTION_PLINTH` ou `OBJECT/EDITORIAL_SELECTION` | Rendre la sélection et les différences de priorité sensibles par l’échelle, l’ordre, le voisinage ou la cadence. | Comparer mémoire des pièces et accès à la sélection. Recomposer si le rythme ralentit une comparaison rapide requise par la tâche. |
+
+La qualité expressive relève du jugement de SAVOIR ; cette table rend son hypothèse construisible. Une sélection peut résoudre le foyer tout en restant froide, générique ou mal finie : réinspecte aussi les qualités prioritaires du premier objet. Une contre-indication demande un choix situé ; elle n’interdit pas un registre expressif.
+
+> `BIBLIOTHEQUE/AVANT-SELECTION` : servi séparément
+### Question de sélection
+
+| Décision | Question |
+|---|---|
+| Support | Quel champ, cadre ou niveau de densité donne sa place à la surface ? |
+| Grille | Quels axes, rythme, foyer ou relations organisent le regard ? |
+| Scène | Comment promesse, contenu, média, preuve et action se rencontrent-ils ? |
+| Objet de preuve | Quel objet rend la promesse crédible ? |
+| Objet de rythme | Quel objet règle sélection, comparaison, mémoire ou récit ? |
+| Micro-interface | Quelle unité dense demande un contrat d’état, de conséquence et d’action ? |
+| Modificateur | Quel comportement transversal est nécessaire et vérifiable ? |
+
+> **Objet de rythme.** « Objet de rythme » est un rôle, non un préfixe canonique. Il est tenu par une route `OBJECT/*` qui règle sélection, comparaison, mémoire ou récit, par exemple `OBJECT/EDITORIAL_SELECTION`, `OBJECT/MEDIA_ARCHIVE` ou `OBJECT/COMPARISON_SPLIT`. Si aucune route existante ne porte ce rôle, la sélection peut omettre l’objet de rythme et justifier `N/A-JUSTIFIED`.
+
+### Sélection par mode
+
+| Mode | Sélection suffisante | Limite utile |
+|---|---|---|
+| **LITE** | Aucune, sauf si le delta modifie réellement une relation de structure. | Préserver la structure existante. |
+| **ITER** | Aucune, ou la seule route effectivement modifiée. | Ne pas redéfinir la structure pour un delta local. |
+| **STANDARD** | Une décision structurante : `GRID`, `SCENE`, `OBJECT` ou `MICRO`. | Ajouter `SUPPORT` seulement si le champ est ouvert. |
+| **DIRECTION** | Évaluer `SUPPORT`, `GRID`, `SCENE` et objet de preuve, puis ne retenir que les niveaux qui changent la décision ; déclarer l’héritage des autres. | `MICRO` seulement si une tâche opérationnelle existe. |
+| **SYSTÈME** | La couche réellement affectée — par exemple `LAYER/PRIMITIVES`, `LAYER/OBJECTS`, `LAYER/SCENES` ou `LAYER/TOKENS` — avec le contrat de la couche, du token, du composant, de la scène ou de l’objet affecté. | Une scène ou un style n’est pas une décision système sans blast radius démontré. |
+
+En trace complète, la sélection structurelle est persistée dans la `RUN_CARD` ou la trace canonique du run référencée par `trace_locator`, avec `MODE`, `DECISION`, `RISK`, `SCOPE`, `ARTIFACT`, `OBSERVATION/METHOD`, `PROOF/TRACE-LOCATOR`, `LIMIT/NOT-VERIFIED`, `DECISION-CHANGE`, `NEXT-ACTION`, `OWNER`, `NEXT-PROOF` et `EXIT-CONDITION`. Les identifiants de routes peuvent être rappelés dans `sources` ou dans le paquet de preuve ; BIBLIOTHEQUE ne crée pas de champ machine concurrent et respecte `MODE / STATE / ISSUE / VERDICT` d’ACTION.
+
+### One-shot et boucle structurelle
+
+Le `one-shot` suit la branche one-shot d’`ACTION/PIPELINE-DIRECTION`. Après sélection, il ne ferme que si la thèse structurelle, la composition, la spécificité, les états et les risques applicables tiennent déjà ; si une relation dominante échoue, retourne ou corrige, sans seconde version décorative.
+
+La boucle structurelle est la boucle d’édition de `DIRECTION/DOUBLE-LOOP` appliquée à la structure : toute correction change une relation de foyer, de rythme, de hiérarchie, de preuve, de comportement ou de robustesse ; une route supplémentaire ou une variante nominale ne constitue pas une amélioration.
+
+### Garde-fou de dérivation
+
+Lorsqu’une forme locale doit être inventée, ne crée pas immédiatement une route. Charge `SAVOIR/CRAFT`, puis dérive la forme de la tâche, de la donnée, de l’état, de la conséquence, de la densité et de la preuve attendue.
+
+Une matière, une métaphore ou un phénomène n’est retenu que s’il modifie une de ces relations et survit aux états, à l’accessibilité, à la performance et au test de retrait. La forme reste locale jusqu’à ce que plusieurs usages contrastés prouvent qu’une route durable réduit une décision ou une erreur sans homogénéiser les rendus.
+
+`PRINT_FIELD` désigne ici une matière imprimée ou générée par code — CSS, SVG, masque, trame ou procédé local — et son nom historique ne limite pas le médium.
+
+> `BIBLIOTHEQUE/DERIVE` : servi séparément
+### Signaux de convergence structurelle
+
+Les compositions suivantes sont des signaux d’enquête, pas des interdits stylistiques :
+
+| Signal | Question de reprise |
+|---|---|
+| Trois cartes égales sous un titre centré | Quelle hiérarchie ou quel objet dominant la décision exige-t-elle réellement ? |
+| Hero image avec double CTA générique | Quelle preuve, quel geste ou quelle conséquence l’image et les CTA remplacent-ils ? |
+| Split 50/50 promesse / screenshot sans mécanisme | Quelle relation entre artefact, état et action doit être rendue visible ? |
+| Plinthe de logos avant l’objet de preuve | Quelle preuve située est remplacée par un signal de réputation ? |
+| Screenshot produit décoratif sans état ni geste | Quel comportement ou quel résultat de tâche le produit doit-il démontrer ? |
+| Grille répétitive sans différence de priorité | Quelle rupture doit changer la lecture, la comparaison ou l’action ? |
+| Grain, trame d’impression ou texture repris d’un brief à l’autre | Quelle matière la thèse de ce produit appelle-t-elle, et que perd la page si on la retire (`MODIFIER/PRINT_FIELD`, test de retrait) ? |
+
+**Test de trame.** Chaque brief a aussi sa trame modale : l’ordre de sections que n’importe quelle IA produirait pour lui (pour un SaaS : promesse, logos, trois bénéfices, tarifs, FAQ). Avant de fixer la structure, écris-la en une ligne, puis romps-la ou garde-la en le justifiant par ce que la personne doit voir, comprendre ou faire d’abord. Rompre, c’est changer l’ordre, le foyer ou l’objet qui organise la page ; renommer ou restyler les sections ne suffit pas.
+
+Un signal de convergence déclenche une reformulation de la tension, de la signature ou de l’objet ; il ne justifie pas l’ajout mécanique d’une nouvelle scène. La diversité crédible vient de la relation entre contenu réel, mécanisme de preuve, geste, contrainte et structure, et non d’un changement de nom ou de peau.
+
+---

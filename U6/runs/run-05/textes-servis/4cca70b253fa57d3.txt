@@ -1,0 +1,68 @@
+ROUTE: BIBLIOTHEQUE/READ (adresse : formes/choisir#lire)
+OWNER: design/formes/choisir.md
+HEADING: ## BIBLIOTHEQUE/READ — responsabilités et convention de route
+---
+## BIBLIOTHEQUE/READ — responsabilités et convention de route
+
+La chaîne canonique est une carte de responsabilités, non une séquence obligatoire :
+
+> **support → grille → scène → objet → primitive**
+
+Une surface peut hériter d’un niveau ou n’en sélectionner aucun si aucune décision structurelle ne change. Le **support** définit le champ spatial dans lequel vit la surface. La **grille** organise la circulation, les axes, le rythme, le foyer et la hiérarchie dans ce champ. La **scène** définit le scénario de lecture et de preuve entre promesse, contenu, média et action. L’**objet** rend une preuve, un état ou une action locale tangible. La **primitive** porte le geste accessible et la sémantique de base.
+
+Sur une page de plusieurs sections, la **séquence** ordonne les scènes, leur rythme et leur fin (`BIBLIOTHEQUE/SEQUENCE`). Cette chaîne décrit une responsabilité, pas un ordre de lecture rigide. Une micro-interface peut être le point de départ d’une surface dense. Un modificateur intervient seulement après la structure lorsqu’il change un comportement réel.
+
+Une structure peut porter une scène naturelle, éditoriale, technique, tactile ou expressive ; elle ne se limite pas à un dashboard ou à une grille de cards. Lorsque la décision le justifie, l’objet visible peut être un composant authored : sa silhouette, son contenu, sa hiérarchie, sa matière et son comportement sont composés pour le produit. Cela ne rend pas les primitives critiques inhabituelles par obligation ; leur sémantique, leur accessibilité, leur feedback et leur comportement restent prioritaires.
+
+### Lecture expressive de la structure
+
+Une structure ne choisit pas seule le goût, mais elle ouvre ou ferme des possibilités de présence. Lorsqu’une décision esthétique est active, décris aussi le caractère perceptuel que la structure doit favoriser : **calme ou tension, intimité ou monumentalité, précision ou spontanéité, continuité ou rupture, collection ou instrument, retenue ou intensité**. Ces termes ne sont pas des styles à appliquer ; ils doivent être traduits par des relations observables de masse, de rythme, de matière, de typographie, de lumière, de contenu ou de comportement.
+
+Une sélection structurelle est créativement utile lorsqu’elle améliore au moins une relation entre le produit et le regard : foyer, cadence, révélation, profondeur, voisinage, contraste, mémoire, geste ou preuve. Une structure peut donc être retenue pour sa contribution perceptuelle, à condition de nommer la décision, la contre-indication et la condition de sortie. La beauté ne justifie pas une structure qui masque la tâche, mais la tâche n’épuise pas toute la valeur d’une structure lorsque la présence, la voix ou l’expérience du regard sont elles-mêmes des décisions du run.
+
+> `BIBLIOTHEQUE/TENSION` : servi séparément
+> `BIBLIOTHEQUE/SIGNATURE` : servi séparément
+### Thèse structurelle et premier objet habitable
+
+Toute sélection ouverte doit formuler une **thèse structurelle** : quelle relation perceptuelle et produit la combinaison rend-elle possible, et comment cette relation sera-t-elle visible dans le premier objet ? La réponse doit relier au moins une décision de support, grille, scène ou objet à un foyer, une masse, une cadence, une révélation, une profondeur, un geste ou une preuve.
+
+Sépare les objets de trace : `STRUCTURAL-THESIS` décrit la relation recherchée ; `STRUCTURAL-SIGNATURE` décrit l’écart et la limite antérieure ; `OBSERVABLE-CONSEQUENCE` est l’assertion testable commune aux deux ; `FIRST-OBJECT` est l’artefact où elle doit apparaître. `EXIT-CONDITION` décide de maintenir, modifier ou abandonner la direction. La conséquence observée doit être cohérente avec la thèse et la signature, pas seulement déclarée dans deux champs.
+
+Le premier objet doit être **habitable** : complet assez pour être regardé, comparé et jugé dans son contexte, avec contenu crédible, hiérarchie, action, états pertinents et niveau de résolution proportionné au mode. Une route ne peut pas être considérée comme réussie parce qu’elle est nommée dans la trace, ni parce qu’un schéma vide respecte ses slots.
+
+La structure n’est pas tenue lorsqu’elle ne fonctionne qu’avec un contenu idéal, une image absente, un viewport unique ou une justification textuelle. Lorsque l’ambition visuelle est ouverte, le premier objet doit déjà posséder une composition, une spécificité et une présence suffisantes pour permettre une observation réelle ; la correction vient ensuite si une relation dominante peut être améliorée.
+
+### Préfixes canoniques
+
+| Préfixe | Responsabilité |
+|---|---|
+| `SUPPORT/<NAME>` | Champ, cadre ou niveau de densité où vit la surface. |
+| `GRID/<NAME>` | Axes, rythme, foyer et hiérarchie qui organisent la lecture dans le support. |
+| `SCENE/<NAME>` | Scénario reliant promesse, contenu, média, preuve et action. |
+| `OBJECT/<NAME>` | Preuve, sélection, comparaison, mémoire, contrôle ou action locale. |
+| `MICRO/<NAME>` | Unité dense portant un contrat de lecture, d’état, de conséquence et d’action. |
+| `MODIFIER/<NAME>` | Comportement transversal ajouté après la structure. |
+| `LAYER/PRIMITIVES` | Couche canonique des primitives accessibles et sémantiques ; les primitives nommées restent sélectionnées par les contrats d’objet ou de couche. |
+| `LAYER/<NAME>` | Couche de composants et de dépendance. |
+
+Un nom de domaine, un nom de campagne ou un nom de variante locale ne devient pas une route canonique par défaut.
+
+**Lire un identifiant de structure.** `scripts/read_route.py GRID/HIERARCHICAL` et `scripts/read_route.py BIBLIOTHEQUE/GRID/HIERARCHICAL` ouvrent le titre documenté. Quand l’identifiant est une ligne de table, par exemple `MICRO/USAGE_LEDGER`, le lecteur ouvre sa section porteuse `BIBLIOTHEQUE/MICRO` ; il ne fabrique pas de sous-route. Les identifiants absents ou ambigus sont refusés. Ces raccourcis de lecture conservent les propriétaires et les responsabilités existants.
+
+### Types de preuve
+
+Toute route peut indiquer le type de preuve attendu :
+
+| Type | Ce qu’il établit | Ce qu’il n’établit pas seul |
+|---|---|---|
+| `PERCEPTUAL` | Foyer, axes, masses, rythme, silhouette, contraste ou relation visible. | Utilisabilité réelle ou réussite de tâche. |
+| `EXPERT` | Cohérence interprétée par un regard compétent dans le contexte déclaré. | Vérité universelle ou validation utilisateur. |
+| `TECHNICAL` | Structure, responsive, performance, compatibilité ou contrôle mesuré. | Qualité de direction ou compréhension globale. |
+| `USER/TASK` | Compréhension, réussite, erreur, effort ou satisfaction dans une tâche déclarée. | Conformité technique complète ou validité dans tous les contextes. |
+
+Une route peut exiger plusieurs types. Une preuve perceptuelle ou experte ne devient pas une preuve d’utilisabilité par changement de vocabulaire.
+
+La typologie BIBLIOTHEQUE décrit **ce qui est prouvé**. Les méthodes ACTION — `AUTOMATED`, `MANUAL`, `EXPERT`, `USER` ou combinaison — décrivent **comment la preuve est obtenue**. Correspondance indicative : `PERCEPTUAL` peut s’appuyer sur capture ou comparaison ; `TECHNICAL` sur script ou inspection ; `USER/TASK` sur observation d’une tâche utilisateur. Une preuve peut combiner plusieurs types et plusieurs méthodes ; aucune correspondance ne constitue un mapping automatique de verdict. `EXPERT` comme type de preuve ne doit pas être confondu avec `METHOD: EXPERT` ; le premier qualifie ce qui est établi, le second la manière dont le regard est obtenu.
+
+---
+

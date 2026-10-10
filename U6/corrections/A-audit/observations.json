@@ -1,0 +1,601 @@
+{
+  "started_at": "2026-10-10T13:02:15.961006+00:00",
+  "output_sha256": {
+    "font-licenses.txt": "3b1793d90550301cbb614718bfae6e54c1e8480b857d7c5beb0504278cc30b19",
+    "index.html": "89299922dd5542418ec36d3202feea7fbdfae18ec50e8f0d4004fb44f74936f7"
+  },
+  "status": "requires_manual_review",
+  "functional_tests": "NOT-VERIFIED: actions et erreurs propres à la page à rejouer séparément",
+  "limitations": [
+    "Les observations automatiques ne sont pas un audit WCAG complet.",
+    "Le parcours principal et la vérité du contenu nécessitent une vérification séparée.",
+    "Le focus et les petites cibles sont des indices à inspecter, pas des verdicts automatiques."
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "http_status": 200,
+      "screenshots": {
+        "first": "1440-premiere.png",
+        "full": "1440-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Folio — Votre travail, au clair",
+        "lang": "fr",
+        "client_width": 1440,
+        "scroll_width": 1440,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Votre travail.Une factureau clair."
+          },
+          {
+            "level": 2,
+            "text": "Une facture.Un fil à suivre."
+          },
+          {
+            "level": 3,
+            "text": "Le bon détail, dès le départ."
+          },
+          {
+            "level": 2,
+            "text": "Tout simplement,votre outil de travail."
+          },
+          {
+            "level": 2,
+            "text": "Quelques pointsau clair."
+          },
+          {
+            "level": 2,
+            "text": "Commencez par une facture."
+          },
+          {
+            "level": 2,
+            "text": "À vous de composer."
+          },
+          {
+            "level": 3,
+            "text": "Votre exemple est prêt."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "folio",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Le parcours",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "L’offre",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Questions",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "primary-action",
+          "text": "Composer une facture",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Suivre le parcours",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "01 Préparer",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "02 Suivre",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "03 Retrouver",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Découvrir avec un exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je essayer ici ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Mes informations sont-elles envoyées ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Est-ce prêt pour ma facturation réelle ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Composer mon exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "390-premiere.png",
+        "full": "390-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Folio — Votre travail, au clair",
+        "lang": "fr",
+        "client_width": 390,
+        "scroll_width": 390,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Votre travail.Une factureau clair."
+          },
+          {
+            "level": 2,
+            "text": "Une facture.Un fil à suivre."
+          },
+          {
+            "level": 3,
+            "text": "Le bon détail, dès le départ."
+          },
+          {
+            "level": 2,
+            "text": "Tout simplement,votre outil de travail."
+          },
+          {
+            "level": 2,
+            "text": "Quelques pointsau clair."
+          },
+          {
+            "level": 2,
+            "text": "Commencez par une facture."
+          },
+          {
+            "level": 2,
+            "text": "À vous de composer."
+          },
+          {
+            "level": 3,
+            "text": "Votre exemple est prêt."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "folio",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "primary-action",
+          "text": "Composer une facture",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Suivre le parcours",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "01 Préparer",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "02 Suivre",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "03 Retrouver",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Découvrir avec un exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je essayer ici ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Mes informations sont-elles envoyées ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Est-ce prêt pour ma facturation réelle ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Composer mon exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "folio",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Aller au contenu\nPROPOSITION DE PRODUIT · FOLIO EST UN NOM D’EXEMPLE\n\n\nfolio\nLe ",
+          "focus_visible_match": false,
+          "outline": "rgb(23, 45, 43) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "http_status": 200,
+      "screenshots": {
+        "first": "320-premiere.png",
+        "full": "320-complete.png"
+      },
+      "horizontal_overflow": false,
+      "dom": {
+        "title": "Folio — Votre travail, au clair",
+        "lang": "fr",
+        "client_width": 320,
+        "scroll_width": 320,
+        "headings": [
+          {
+            "level": 1,
+            "text": "Votre travail.Une factureau clair."
+          },
+          {
+            "level": 2,
+            "text": "Une facture.Un fil à suivre."
+          },
+          {
+            "level": 3,
+            "text": "Le bon détail, dès le départ."
+          },
+          {
+            "level": 2,
+            "text": "Tout simplement,votre outil de travail."
+          },
+          {
+            "level": 2,
+            "text": "Quelques pointsau clair."
+          },
+          {
+            "level": 2,
+            "text": "Commencez par une facture."
+          },
+          {
+            "level": 2,
+            "text": "À vous de composer."
+          },
+          {
+            "level": 3,
+            "text": "Votre exemple est prêt."
+          }
+        ],
+        "broken_images": [],
+        "missing_alts": [],
+        "unlabelled_fields": [],
+        "unresolved_anchors": [],
+        "small_targets": []
+      },
+      "focus_steps": [
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "folio",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Essayer la démo",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "primary-action",
+          "text": "Composer une facture",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Suivre le parcours",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "01 Préparer",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "02 Suivre",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "03 Retrouver",
+          "focus_visible_match": true,
+          "outline": "rgb(213, 234, 125) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Découvrir avec un exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Que puis-je essayer ici ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Mes informations sont-elles envoyées ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "text": "Est-ce prêt pour ma facturation réelle ?",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "Composer mon exemple",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "folio",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "BODY",
+          "id": "",
+          "text": "Aller au contenu\nPROPOSITION DE PRODUIT · FOLIO EST UN NOM D’EXEMPLE\n\n\nfolio\nLe ",
+          "focus_visible_match": false,
+          "outline": "rgb(23, 45, 43) none 3px",
+          "box_shadow": "none"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "text": "Aller au contenu",
+          "focus_visible_match": true,
+          "outline": "rgb(66, 99, 57) solid 3px",
+          "box_shadow": "none"
+        }
+      ],
+      "events": {
+        "console_errors": [],
+        "page_errors": [],
+        "external_requests": [],
+        "failed_requests": []
+      }
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "browser_executable": "/usr/bin/chromium",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T13:02:21.715259+00:00",
+  "evidence_sha256": {
+    "1440-complete.png": "5c09abae0d4809041141e80d4af9dbb85c1128e400d45f2396fba3eb5b753866",
+    "1440-premiere.png": "870285e7182ae4f53ac08d0e9174406cc864b01baa8670c7f7c8fc97a9a5b589",
+    "320-complete.png": "dc3aabe23cee992a4b87529f82c25134c3dcb91d20cf14c78d1c3b6cdc74dc4a",
+    "320-premiere.png": "e6cdfc04c57e212b04b8a2b0ab2ab3a2aa0687f041523383aad7fc236c192200",
+    "390-complete.png": "128da4278090e447f213f427b96bb2966a6e3d32d2ffcc944afe877685c10796",
+    "390-premiere.png": "f8a7f16bccff7a675b6cc2d7e0808a4c369526da41c9026823043b8949ece317"
+  }
+}

@@ -1,0 +1,5 @@
+Observed command: PYTHONDONTWRITEBYTECODE=1 python /workspace/remesure-phase5/runs/run-03/paquet/gouvernance/outils/validate_run_card.py /workspace/remesure-phase5/runs/run-03/livrable/run-card.json --strict
+Exit code: 0
+RUN_CARD VALIDATION PASSED — fichier ciblé : /workspace/remesure-phase5/runs/run-03/livrable/run-card.json
+Artifact freshness: final functional-tests.json SHA256 matches delivered index.html.
+24 PASS local cases, 1 NOT-VERIFIED file URL blocked by browser policy.

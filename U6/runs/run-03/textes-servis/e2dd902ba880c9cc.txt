@@ -1,0 +1,44 @@
+ROUTE: DIRECTION/EXTERNAL-START (adresse : direction/cadrer#demande-vague)
+OWNER: design/direction/cadrer.md
+HEADING: ## DIRECTION/EXTERNAL-START — activation portable sur brief vague
+---
+## DIRECTION/EXTERNAL-START — activation portable sur brief vague
+
+Cette vue rend V1 activable lorsqu’un agent externe reçoit un brief court, une skill ou les fichiers du package dans une conversation. Elle s’applique aussi lorsqu’un brief interne est suffisamment vague pour que la première scène, le grounding ou le réemploi puisse changer la décision ; elle ne remplace pas le fast path de `LITE` ou `ITER`. Elle n’impose aucun profil ni style. Elle est une **vue de démarrage**, pas un nouveau mode, gate, statut, owner, score, questionnaire ni une seconde `RUN_CARD`. Propriétaires et modules : ordre de lecture minimal de `DIRECTION/START`.
+
+Après `DIRECTION/START`, avant le premier code ou le premier rendu d’une surface `DIRECTION`, l’agent tient seulement les décisions qui peuvent changer l’artefact :
+
+```text
+RUN-PRIORITY
+1. TRUTH — retirer, sourcer ou marquer tout claim, chiffre, logo, témoignage,
+   disponibilité, intégration, personne, action ou résultat non observé.
+2. DIRECTION — retenir support, tension, scène, typographie, modal et parti
+   parce qu’ils servent ce brief ; « premium », « beau » ou « moderne » ne suffisent pas.
+3. FIRST-OBJECT — matérialiser la cible : promesse → objet de preuve → geste,
+   avant les éléments génériques ou décoratifs (bénéfices, navigation, cartes,
+   polish), sauf si la navigation, la recherche ou les cartes sont elles-mêmes
+   l’objet de preuve.
+4. FINISH — corriger seulement le défaut dominant qui empêche lecture, action,
+   contraste, état, mobile ou vérité ; ne pas polir une erreur de niveau supérieur.
+NO-GO — faux réalisme, dashboard décoratif, cartes avant mécanisme, ou retour
+        automatique au dernier style, asset ou rendu disponible.
+```
+
+**Prise de brief.** Au plus trois demandes, en un seul échange, par gain de plafond : contenu réel (textes, chiffres, preuves, noms), marque, asset principal ou route autorisée, destination si elle est incertaine. Brief riche : aucune. Le build se fait dans le même tour, avec des hypothèses nommées ; les demandes accompagnent la proposition, sous « Ce qui manque pour la vraie version ». Une réponse n’est attendue avant le build que si la personne l’a demandé ou si l’action est irréversible ou coûteuse. Sans personne pour répondre : plafond déclaré, demandes listées à la livraison. La réponse est une proposition, pas un compte rendu de cadrage ; le raisonnement de cadrage reste dans la trace. Si une ligne ne peut modifier ni artefact, claim, preuve, limite ou décision, elle est omise ; `N/A-JUSTIFIED` reste réservé à une non-applicabilité réelle et justifiée selon ACTION.
+
+> [Déjà dans le noyau de la skill, section « 3. Prendre le brief et viser le premier objet » : « Destination réelle sans contenu. Si la surface sert un vrai commerce, … » — --complet pour l'afficher ici]
+
+### Traduction humaine minimale de DIRECTION/START
+
+Pour une personne non spécialiste, les mêmes décisions peuvent être formulées sans le vocabulaire du corpus :
+
+| Question simple | Contrat correspondant |
+|---|---|
+| Qu’est-ce que la personne doit comprendre, ressentir ou faire ? | `DECISION`, `JTBD`, promesse et geste. |
+| Qu’est-ce qui doit être visible tout de suite ? | `FIRST-OBJECT`, preuve, foyer et hiérarchie. |
+| Qu’est-ce qui rend cette proposition propre à ce produit ? | Signature située, matière, contenu, public et contrainte. |
+| Qu’est-ce que nous refusons de faire ? | `MODAL` écarté par le `PARTI`, contre-choix et limites. |
+| Qu’est-ce qui coûterait cher si c’était faux ? | `RISK` et Protection de niveau (`DIRECTION/START`). |
+| Comment saurons-nous si cela tient ? | `NEXT-PROOF`, observation, condition d’arrêt et owner. |
+
+Cette traduction n’ajoute ni formulaire ni mode. Elle rend seulement le chemin d’entrée compréhensible par une personne qui ne connaît pas `VISUAL_TARGET`, `DIRECTION-ATELIER` ou `N/A-JUSTIFIED`.

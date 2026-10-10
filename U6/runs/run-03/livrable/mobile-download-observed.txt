@@ -1,0 +1,11 @@
+FACTURE D’EXEMPLE — EX-001
+Aperçu simplifié, sans valeur comptable.
+Aucun document envoyé. Taux de TVA illustratif.
+
+Client : Studio Horizon
+Prestation : Design d’une identité
+Montant HT : 123,45 €
+TVA (10 %) : 12,35 €
+Total TTC : 135,80 €
+
+Coordonnées et mentions légales à compléter.

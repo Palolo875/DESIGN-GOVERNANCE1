@@ -1,0 +1,16 @@
+ROUTE: SAVOIR/FRAME/SINGULARITE
+OWNER: design/savoir/fondements.md
+HEADING: ### Singularité sans rejet des conventions
+---
+### Singularité sans rejet des conventions
+
+Le test de singularité demande : si le logo et le nom disparaissent, qu’est-ce qui reste spécifique au produit ? La réponse peut être une donnée, une tâche, une hiérarchie, une voix, une densité, une interaction, une microcopie ou un traitement matériel.
+
+La singularité n’exige pas une structure spectaculaire lorsque la convention de genre sert mieux l’usage. La convergence de genre est légitime lorsque la structure partagée répond à un besoin connu et que contenu, états, données, microcopie et craft sont propres au produit.
+
+Le recipe-slop apparaît lorsque structure, copie et détails deviennent interchangeables ou copiés sans adaptation. Utilise `ACTION/ANTI-SLOP` avant de flaguer une ressemblance comme défaut.
+
+L’ordre de décision reste : **JTBD → structure → hiérarchie → lisibilité → accessibilité → système visuel → polish**.
+
+Une architecture faible ne se répare pas par un dégradé, une typographie rare ou de la motion. La singularité doit survivre aux états, au contenu long, au responsive et à la récupération. Une homepage spécifique qui devient générique dans l’usage n’est pas une direction tenue.
+

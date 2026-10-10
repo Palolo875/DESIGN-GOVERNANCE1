@@ -1,0 +1,20 @@
+ROUTE: SAVOIR/FRAME/COMPOSITION
+OWNER: design/savoir/fondements.md
+HEADING: ### Grammaire positive de composition
+---
+### Grammaire positive de composition
+
+Lorsque la décision visuelle est ouverte, construis dans cet ordre : **intention → tension → foyer → masse → rythme → matière et type → contenu réel → états → résolution → retenue**. Cette séquence n’est ni une recette de style ni une checklist obligatoire ; elle vérifie que les choix se renforcent au lieu d’être ajoutés séparément.
+
+| Élément | Question de composition |
+|---|---|
+| **Intention** | Quelle promesse, tâche ou relation doit être rendue crédible ? |
+| **Tension** | Quelle polarité productive donne de l’énergie à la proposition sans nuire à la compréhension ? |
+| **Foyer et masse** | Quel objet ou geste domine, où se trouve le poids visuel et pourquoi ? |
+| **Rythme** | Comment le regard, la lecture ou la révélation progressent-ils ? |
+| **Matière et type** | Quelle surface, voix, typographie, donnée ou absence d’asset porte cette relation ? |
+| **Résolution et retenue** | Quels états, contenus, contraintes et détails doivent déjà tenir, et qu’est-il volontairement retiré ? |
+
+
+Une proposition est forte lorsque sa beauté vient d’une relation tenue entre produit, composition, contenu, matière, type, geste et contrainte. Elle n’est pas forte parce qu’elle accumule des effets, ni parce qu’elle s’écarte arbitrairement d’une convention.
+

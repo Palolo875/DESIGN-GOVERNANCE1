@@ -1,0 +1,176 @@
+{
+  "started_at": "2026-10-10T13:01:24.491933+00:00",
+  "run": "run-02",
+  "viewports": [
+    {
+      "width": 1440,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Le CTA ouvre la démonstration et place le focus dans le champ client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide : erreur visible, focus rendu, saisie conservée."
+        },
+        {
+          "name": "Erreur montant",
+          "status": "PASS",
+          "observation": "Montant non numérique : erreur liée au champ, focus et valeurs conservés."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "PASS",
+          "observation": "Montant 360 € HT saisi avec virgule : total 432 € transmis au document et à l'aperçu."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Téléchargement local réel, valeurs exactes et exemple sans valeur comptable explicite."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Retour à la saisie avec valeurs préservées et focus sur le client."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme la démo et rend le focus au CTA d'origine."
+        },
+        {
+          "name": "Sélecteur de parcours illustratif",
+          "status": "PASS",
+          "observation": "Sélection d'étapes fonctionnelle, état réglé signalé comme illustration sans paiement réel."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Le CTA ouvre la démonstration et place le focus dans le champ client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide : erreur visible, focus rendu, saisie conservée."
+        },
+        {
+          "name": "Erreur montant",
+          "status": "PASS",
+          "observation": "Montant non numérique : erreur liée au champ, focus et valeurs conservés."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "PASS",
+          "observation": "Montant 360 € HT saisi avec virgule : total 432 € transmis au document et à l'aperçu."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Téléchargement local réel, valeurs exactes et exemple sans valeur comptable explicite."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Retour à la saisie avec valeurs préservées et focus sur le client."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme la démo et rend le focus au CTA d'origine."
+        },
+        {
+          "name": "Sélecteur de parcours illustratif",
+          "status": "PASS",
+          "observation": "Sélection d'étapes fonctionnelle, état réglé signalé comme illustration sans paiement réel."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Le CTA ouvre la démonstration et place le focus dans le champ client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide : erreur visible, focus rendu, saisie conservée."
+        },
+        {
+          "name": "Erreur montant",
+          "status": "PASS",
+          "observation": "Montant non numérique : erreur liée au champ, focus et valeurs conservés."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "PASS",
+          "observation": "Montant 360 € HT saisi avec virgule : total 432 € transmis au document et à l'aperçu."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Téléchargement local réel, valeurs exactes et exemple sans valeur comptable explicite."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Retour à la saisie avec valeurs préservées et focus sur le client."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme la démo et rend le focus au CTA d'origine."
+        },
+        {
+          "name": "Sélecteur de parcours illustratif",
+          "status": "PASS",
+          "observation": "Sélection d'étapes fonctionnelle, état réglé signalé comme illustration sans paiement réel."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T13:01:28.914102+00:00",
+  "passed": 30,
+  "failed": 0
+}

@@ -1,0 +1,103 @@
+ROUTE: SAVOIR/FRAME (adresse : savoir/fondements)
+OWNER: design/savoir/fondements.md
+HEADING: # SAVOIR/FRAME — fondations et cadrage
+---
+# SAVOIR/FRAME — fondations et cadrage
+
+## FND-01 — principe fondateur
+
+[DURABLE] Une interface senior ne cherche pas à paraître différente par défaut. Elle choisit une réponse appropriée, hiérarchise ce qui compte, retire ce qui détourne l’attention et tient sa décision dans les détails.
+
+**Portée.** Il s’agit d’un principe de jugement et non d’une loi empirique. Sa valeur se vérifie par les décisions qu’il permet de prendre et les artefacts qu’il aide à produire.
+
+Trois lois organisent l’ordre de jugement :
+
+1. **Intention avant décoration.** Chaque élément sert une tâche, une émotion choisie ou une information. Si sa justification ne relie pas l’élément au produit, le retrait est le défaut raisonnable.
+2. **Retenue avant accumulation.** La valeur perçue vient d’un rapport juste entre vide, précision, contenu et craft, jamais d’un empilement d’effets.
+3. **Cohérence systémique avant créativité locale.** Tokens, états, grilles et conventions cohérentes valent mieux que des gestes brillants isolés.
+
+> Aucun signal de craft — matière, effet, typographie expressive, asymétrie ou motion — ne vaut comme qualité s’il ne sert pas le JTBD, la compréhension ou la direction retenue.
+
+### Premium perçu comme heuristique de jugement
+
+[OPINION DE SYSTÈME] Pour une revue de surface, le caractère premium peut être examiné comme une relation entre **clarté, cohérence, précision, singularité maîtrisée, confiance et désirabilité**. Cette formule n’est ni une mesure scientifique, ni un score, ni un verdict. Elle sert uniquement à poser une question de critique : où la valeur perçue est-elle soutenue ou affaiblie par la structure, le système visuel, les détails, les états et le comportement ?
+
+Ne déduis jamais le premium d’un style minimaliste, d’une palette sombre, d’une grande typographie ou d’un espace généreux. Une direction peut être éditoriale, technique, chaleureuse, colorée, tactile ou ludique ; elle reste située si ses choix servent le JTBD, la compréhension, la confiance et la spécificité du produit. Si la clarté ou la confiance tombe, aucun polish expressif ne compense silencieusement cette perte.
+
+### Comprendre, ouvrir, converger, prouver
+
+[MÉTHODE] Pour une décision créative ou identitaire, alterne quatre mouvements sans créer une nouvelle route : **comprendre** le public, le JTBD, les contraintes et le risque ; **ouvrir** le champ par plusieurs directions réellement distinctes ; **converger** vers une proposition principale et, seulement si utile, une alternative qui change une décision ; **prouver** par un artefact réel, une observation dans le scope déclaré et une limite explicite.
+
+Un moodboard, une référence ou une rationale doit être annoté par la décision qu’il peut modifier : composition, lumière, densité, matière, typographie, rythme, contenu ou ton. Une belle référence sans conséquence observable reste une ancre de jugement, jamais une preuve. La sélection fait partie du craft : retirer les variantes faibles et les éléments décoratifs qui ne changent ni la compréhension, ni la tâche, ni la direction, ni la preuve.
+
+### Singularité sans rejet des conventions
+
+> [Déjà dans le noyau de la skill, section « 6. Composition » : « Le test de singularité demande : si le logo et le nom disparaissent, q… » — --complet pour l'afficher ici]
+
+La singularité n’exige pas une structure spectaculaire lorsque la convention de genre sert mieux l’usage. La convergence de genre est légitime lorsque la structure partagée répond à un besoin connu et que contenu, états, données, microcopie et craft sont propres au produit.
+
+Le recipe-slop apparaît lorsque structure, copie et détails deviennent interchangeables ou copiés sans adaptation. Utilise `ACTION/ANTI-SLOP` avant de flaguer une ressemblance comme défaut.
+
+L’ordre de décision reste : **JTBD → structure → hiérarchie → lisibilité → accessibilité → système visuel → polish**.
+
+Une architecture faible ne se répare pas par un dégradé, une typographie rare ou de la motion. La singularité doit survivre aux états, au contenu long, au responsive et à la récupération. Une homepage spécifique qui devient générique dans l’usage n’est pas une direction tenue.
+
+### Grammaire positive de composition
+
+> [Déjà dans le noyau de la skill, section « 6. Composition » : « Lorsque la décision visuelle est ouverte, construis dans cet ordre : i… » — --complet pour l'afficher ici]
+
+Une proposition est forte lorsque sa beauté vient d’une relation tenue entre produit, composition, contenu, matière, type, geste et contrainte. Elle n’est pas forte parce qu’elle accumule des effets, ni parce qu’elle s’écarte arbitrairement d’une convention.
+
+### Pluralité esthétique et goût situé
+
+[À ADAPTER] L’anti-slop, la retenue, le premium et la maturité ne constituent pas un canon visuel unique. Une direction peut être calme ou énergique, minimale ou dense, populaire ou sophistiquée, ludique ou institutionnelle, étrange ou familière, maximaliste ou silencieuse ; elle est jugée par son adéquation au produit, au public, au médium, au contexte culturel et à l’ambition déclarée, non par sa proximité avec un style dominant.
+
+Avant de rejeter une expression forte comme gratuite, vérifie qu’elle ne porte pas une fonction de présence, de mémoire, d’émotion, de culture, de voix ou de différenciation. Avant de qualifier une solution de premium, nomme le contexte qui rend cette qualité pertinente et les personnes pour lesquelles elle doit inspirer confiance. Une préférence personnelle ou professionnelle ne devient pas une règle générale par le seul emploi de termes comme « senior », « cultivé », « mature », « beau » ou « haut de gamme ».
+
+Lorsque plusieurs regards sont disponibles et que l’enjeu est identitaire, culturel ou irréversible, cherche un contrepoint pertinent : utilisateur concerné, expert du domaine, regard culturel situé, designer différent ou responsable produit. Le regard externe ne garantit ni neutralité ni absence de biais ; il rend seulement le jugement plus contestable et moins dépendant d’une seule autorité.
+
+Une revue de pluralité ne demande pas de produire des variantes artificielles. Elle demande de pouvoir répondre à trois questions : **quelle expression valide est rendue possible par le contexte, quelle expression serait injustement disqualifiée par un canon implicite, et quelle observation permettrait de distinguer préférence personnelle, inadéquation réelle et risque critique ?**
+
+## FND-02 — compromis
+
+[DURABLE] Il n’existe pas de solution qui maximise tout. Une décision senior nomme la tension, choisit ce qui gagne pour une raison située et rend visible ce qui reste à risque.
+
+Utilise ce format :
+
+> **Décision.** Je privilégie X au détriment de Y parce que Z.  
+> **Risque résiduel.** Ce qui peut rester moins bon ou moins couvert.  
+> **Réversibilité / signal.** Ce qui ferait revenir sur la décision.  
+> **Owner / prochaine preuve.** Qui peut reconsidérer et quelle observation déclenchera la revue.
+
+Les compromis alimentent les axes V/U/A/T d’ACTION sans devenir une note concurrente. Un effet qui dégrade usage, performance, accessibilité ou confiance est une dette explicitée, jamais un sacrifice silencieux.
+
+## FND-03 — cadrage et preuve de contexte
+
+[REQUIS PAR LE MODULE — toute tâche de surface ; une ligne compacte peut suffire en LITE uniquement si le changement est réellement local] Ne dessine pas avant d’avoir cadré public, JTBD, décision dominante, preuves et contraintes. Si un élément manque, formule une hypothèse et son impact.
+
+| Question | Décision attendue |
+|---|---|
+| **Qui ?** | Utilisateur principal, expertise, contexte, contrainte et état émotionnel. |
+| **Pourquoi ?** | JTBD : « Quand [situation], je veux [motivation], afin de [résultat]. » |
+| **Quelle décision ?** | Action ou compréhension qui doit être évidente dans cette vue. |
+| **Quelle preuve ?** | Données, états, explications ou sources qui rendent l’action crédible. |
+| **Quelles contraintes ?** | Plateforme, permissions, contenu, localisation, accessibilité, performance, droits et temps. |
+
+Toute hypothèse importante indique, dans la ligne de run ou la `RUN_CARD` existante :
+
+| Champ | Rôle |
+|---|---|
+| **Nature et confiance** | `PRODUIT`, `CONTENU`, `DIRECTION`, `TECHNIQUE` ou `CONFORMITÉ`, avec ce qui est connu, inféré ou incertain. |
+| **Source et coût d’erreur** | Utilisateur, contenu, observation, recherche ou inférence ; impact si l’hypothèse est fausse. |
+| **Owner et prochaine preuve** | Qui peut confirmer ou corriger, et par quel test, retour, donnée, capture ou décision. |
+| **User input requis** | `YES`, `NO` ou `NOT-REQUIRED` selon le risque U/A et le contexte ; une non-applicabilité doit être justifiée séparément et ne constitue pas un verdict. |
+
+Ces champs sont une projection lisible du handoff d’ACTION ; ils ne créent ni nouveau schéma ni nouveau statut. Lorsque le run passe à ACTION, ces champs rejoignent le handoff canonique (`ACTION/HANDOFF`) ; en trace complète, ils vont dans la `RUN_CARD` ou la trace équivalente. `Nature et confiance` alimente la qualification de la décision et du risque ; `Source et coût d’erreur` alimente les sources, le scope et la limite ; `User input requis` déclenche une méthode proportionnée lorsque U ou A domine.
+
+Distingue hypothèses de produit, de contenu et de direction : elles n’ont pas le même coût d’erreur. Une microcopie peut être provisoire ; une cible d’utilisateur, une contrainte critique ou un droit d’asset doivent rester visiblement incertains jusqu’à preuve.
+
+Lorsque le risque dominant concerne l’utilisabilité réelle, déclenche dans ACTION une méthode `USER/TASK` avec personne, tâche, contexte, échantillon et résultat observé. Lorsque l’accessibilité ou une population concernée domine, choisis `USER`, `EXPERT` ou le regard d’une personne concernée selon le risque et justifie ce choix. Dans tous les cas, conserve scope, limite, owner et `NEXT-PROOF` ; cette preuve ne remplace ni les contrôles techniques ni l’inspection experte.
+
+L’architecture regroupe l’information par tâche et vocabulaire utilisateur, jamais par organigramme interne. Elle distingue contenu primaire, secondaire, état et action ; elle prévoit cas vides, erreurs, permissions, données longues, succès partiel et localisation.
+
+---

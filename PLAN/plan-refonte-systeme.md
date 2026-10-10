@@ -1,6 +1,6 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** plan validé ; suite de la phase 5 autorisée par la demande « on va tout corriger ». Les phases 6 et 8 ont livré leur périmètre minimal ; la phase 7 reste reportée. Aucun résultat de comparaison n’est présumé. Les essais nécessaires à cette suite sont autorisés ; les limites de leur protocole sont déclarées.
+**Statut :** plan validé ; suite de la phase 5 autorisée par la demande « on va tout corriger ». Les phases 6 et 8 ont livré leur périmètre minimal ; la phase 7 reste reportée. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire ne sont pas établies. Les essais nécessaires à cette suite sont autorisés ; les limites de leur protocole sont déclarées.
 **Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié :** `6e5a8c2a9016b31969051499b1c895a116fd75b4` (révision `R2026-10-10-PHASE5`). Validation complète avec navigateur et archives reproductibles ; CI 50 et 51 vertes sur ce SHA ; [bilan de la suite](phase5-suite.md).
 
 ---
@@ -14,7 +14,7 @@
 | 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
 | 3 — Rangement | **faite : lots 0 à 7c** | Voir le détail ci-dessous |
 | 4 — Langue claire (réduite, choix A) | **faite** | README `e13b8f3` ; sommaires `34cfd3a` ; guide designer `7bc881e` ; glossaire `3c13742` ; guide d’équipe `5ddf769` ; libellés hérités `715075a`. Les adresses lisibles remplacent les codes ; les contrôles les relisent en codes (`rr.en_codes`) et restent identiques sur le fond. Reportés à la phase 5 : le `design/` lu par l’agent, l’exemple complet du guide d’équipe ; la gouvernance a depuis été clarifiée comme adaptée et utile (`df5aa46`), puis sa règle de trace fusionnée (`795e713`) |
-| 5 — Chemin de l’agent | **suite technique faite ; comparaison indépendante ouverte** | Convergence et exemples traités `6e3e2ab`, `7f12fe5` ; Gate B adaptée `eda7d94` ; noyau commun et détails activés `6e5a8c2` (44 437 → 18 852 octets). Conservation, mutations, navigateur et deux distributions vérifiés. Trois pilotes exploratoires et mesure du lecteur ; qualité générale, variété, jetons, durée et cibles initiales encore non établis |
+| 5 — Chemin de l’agent | **suite technique faite ; U6 exécutée ; choix du propriétaire ouvert** | Convergence et exemples traités `6e3e2ab`, `7f12fe5` ; Gate B adaptée `eda7d94` ; noyau commun et détails activés `6e5a8c2` (44 437 → 18 852 octets). Conservation, mutations, navigateur et deux distributions vérifiés. Trois pilotes exploratoires, mesure du lecteur puis six créations séparées et deux juges aveugles ([U6](../U6/resultats.md)). Durées et lecture observées, sans baisse nette de l’union sur les créations complètes. Qualité et variété générales, jetons API, charge cognitive, cibles initiales et décision du propriétaire restent ouverts |
 | 6 — Visuel (minimal) | **faite** | Deux schémas Mermaid (double boucle, carte des parties) `52be4b9` ; rien de décoratif |
 | 7 — Anglais | **reportée** | À reprendre sur les textes clairs |
 | 8 — Emballage (minimal) | **faite** | Arborescence unique GitHub/Local `67f6fa4` ; copie Markdown retirée `f4e37ec` ; révision R2026-10-09-REFONTE `657aca5` ; paquets livrés |
@@ -55,6 +55,8 @@
 Les commits `df5aa46`, `d2c4d01`, `795e713` et `99caa027` ont clarifié l’autorité des sections, adapté la gouvernance, corrigé les références opérationnelles et renommé les sections conservées. La [PR 1](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1) porte le produit vers `main`. Les CI 48 et 49 sont vertes sur `99caa027`.
 
 La suite a établi une référence de lecture, rendu les détails disponibles au bon moment, limité le repli au contenu réellement présent dans la skill et conservé la classification et les protections applicables. Les mesures distinguent les octets du fichier, les caractères servis, les jetons, la durée et le jugement sur le rendu. Le [bilan](phase5-suite.md) et la [correspondance complémentaire](../ARCHI/correspondance-phase5.csv) rendent les changements vérifiables. Le savoir complet demeure dans ses sections propriétaires.
+
+La [comparaison U6](../U6/resultats.md) ajoute six producteurs en contextes neufs et deux juges aveugles. Les faits, préférences et limites sont séparés : pas de baisse nette des caractères uniques sur ces créations complètes, un défaut de focus sur A réparé dans une copie hors expérience, et un tour interrompu dont la durée n’est pas comparée. Le jugement du propriétaire reste attendu.
 
 Les cibles de lecture de l’architecture restent provisoires ; une condition de qualité peut justifier une lecture supplémentaire. Les phases 4, 6 et 8 marquées « réduite » ou « minimal » ne signifient pas que tous leurs objectifs initiaux sont réalisés. L’anglais et une identité complète des supports restent hors de cette suite.
 
@@ -233,9 +235,9 @@ C’est la seule phase qui change le comportement de l’agent.
   - utiliser les **mécanismes de variété existants** : distinguer les alternatives plausibles, repérer les choix par défaut et remonter aux particularités de la demande ; n’ajouter un mécanisme que pour un défaut observé ;
   - intégrer la **barre produit** dans le chemin par défaut : rendu vérifié sur ordinateur et sur mobile, états, interactions, contenu crédible, accessibilité de base, composants cohérents ;
   - ajouter un mode dégradé explicite : sans navigateur, sans assets, avec un autre agent.
-- **Mesure envisagée à l’origine :** un run par demande (facturation, natation) pour la qualité, et deux runs sur une même demande pour la variété. Soit trois ou quatre runs, au lieu des quatre runs plus juges qu’on avait envisagés. La suite actuelle ajoute trois pilotes sur Lisière et une comparaison reproductible du lecteur ; ce protocole exploratoire ne remplace pas les runs indépendants ni le jugement à l’aveugle.
+- **Mesure envisagée à l’origine :** trois ou quatre runs. Les trois pilotes sur Lisière et la comparaison mécanique du lecteur ne remplaçaient pas des générations indépendantes. Le propriétaire a ensuite choisi plusieurs agents séparés et des juges aveugles : [U6](../U6/resultats.md) exécute six nouvelles créations (deux répétitions de facturation par version, un atelier vélo par version) et deux jugements anonymisés, sans réutiliser U3/U5 comme témoins. Les versions, briefs et critères ont été figés avant les générations.
 - **Fin technique :** skill réécrite, activation des détails conservée, chemins de lecture documentés, contrôles et distributions verts.
-- **Fin expérimentale :** comparaison avant/après sur des demandes identiques et une demande nouvelle, avec mêmes capacités, observations et limites ; trois ou quatre essais repèrent une régression et ne prouvent pas une efficacité générale. Une mesure reportée reste un point ouvert, distinct de la fin technique.
+- **Fin expérimentale :** productions et deux jugements U6 livrés avec leurs observations, échecs et écarts au protocole. Six pages ne prouvent pas une efficacité générale. La décision du propriétaire sur R1 à R4 et R9 reste ouverte ; les jetons API et la charge cognitive restent non mesurés. Les cibles initiales de lecture ne sont pas validées. La clôture technique, la livraison de l’échantillon et l’acceptation sont trois états distincts.
 - **Risque :** une skill plus courte qui active moins. Parade : la mesure, et le retour arrière possible en un commit.
 
 ### Phase 6 — Identité visuelle et supports
@@ -300,7 +302,7 @@ Cette phase peut avancer en parallèle des phases 3 à 5, une fois la phase 2 va
 | Phase 0 | Charte, publics, grilles |
 | Phase 1 | Disposition de chaque fichier |
 | Phase 2 | Architecture, vocabulaire, contrôles retirés, gouvernance en module dans le même paquet ou en paquet séparé |
-| Phase 5 | Faire ou non la petite mesure (trois ou quatre runs) |
+| Phase 5 | U6 choisie et exécutée (six producteurs et deux juges) ; ton jugement sur les rendus et la mise en ligne reste à recueillir |
 | Phase 6 | Identité visuelle ; version consultable ou non |
 | Phase 7 | Étendue de la traduction |
 | Phase 8 | Nom de version |
@@ -335,6 +337,6 @@ Ce sont des ordres de grandeur, sans run.
 
 ## 11. Hors de ce plan
 
-- Les mesures larges avec juges : seule la petite mesure de la phase 5 reste possible.
+- Les mesures larges : U6 est un échantillon limité de phase 5, explicitement choisi avec deux juges ; aucune campagne supplémentaire ni preuve générale n’est présumée.
 - Les ajouts de savoir nouveau, sauf ce qui est déjà décidé. Les points reportés (registre et chaleur sans photo, échéance des marqueurs de tendance, texte tronqué dans la vérification du rendu, second test de trouvabilité) sont rangés dans l’audit de la phase 1 et traités s’ils relèvent du nettoyage.
 - Toute publication ou PR sans ta demande.

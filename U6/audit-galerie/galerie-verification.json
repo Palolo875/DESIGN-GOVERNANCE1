@@ -1,0 +1,473 @@
+{
+  "checks": [
+    {
+      "group": 0,
+      "labels": [
+        "F",
+        "A"
+      ],
+      "source_width": 1440,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 0,
+      "labels": [
+        "F",
+        "A"
+      ],
+      "source_width": 1440,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 3251,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 2706,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 0,
+      "labels": [
+        "F",
+        "A"
+      ],
+      "source_width": 390,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 0,
+      "labels": [
+        "F",
+        "A"
+      ],
+      "source_width": 390,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 3958,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 3526,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 1,
+      "labels": [
+        "E",
+        "C"
+      ],
+      "source_width": 1440,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 1,
+      "labels": [
+        "E",
+        "C"
+      ],
+      "source_width": 1440,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 2986,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 2644,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 1,
+      "labels": [
+        "E",
+        "C"
+      ],
+      "source_width": 390,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 1,
+      "labels": [
+        "E",
+        "C"
+      ],
+      "source_width": 390,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 3903,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 3438,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "labels": [
+        "B",
+        "D"
+      ],
+      "source_width": 1440,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "labels": [
+        "B",
+        "D"
+      ],
+      "source_width": 1440,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 2046,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 2115,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "labels": [
+        "B",
+        "D"
+      ],
+      "source_width": 390,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "labels": [
+        "B",
+        "D"
+      ],
+      "source_width": 390,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 2949,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 2923,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "labels": [
+        "F",
+        "E"
+      ],
+      "source_width": 1440,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "labels": [
+        "F",
+        "E"
+      ],
+      "source_width": 1440,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 3251,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 2986,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "labels": [
+        "F",
+        "E"
+      ],
+      "source_width": 390,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "labels": [
+        "F",
+        "E"
+      ],
+      "source_width": 390,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 3958,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 3903,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 4,
+      "labels": [
+        "A",
+        "C"
+      ],
+      "source_width": 1440,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 4,
+      "labels": [
+        "A",
+        "C"
+      ],
+      "source_width": 1440,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 1440,
+          "height": 2706,
+          "complete": true
+        },
+        {
+          "width": 1440,
+          "height": 2644,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 4,
+      "labels": [
+        "A",
+        "C"
+      ],
+      "source_width": 390,
+      "kind": "premiere",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "group": 4,
+      "labels": [
+        "A",
+        "C"
+      ],
+      "source_width": 390,
+      "kind": "complete",
+      "status": "PASS",
+      "images": [
+        {
+          "width": 390,
+          "height": 3526,
+          "complete": true
+        },
+        {
+          "width": 390,
+          "height": 3438,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "gallery_viewport": 1440,
+      "horizontal_overflow": false,
+      "status": "PASS"
+    },
+    {
+      "gallery_viewport": 390,
+      "horizontal_overflow": false,
+      "status": "PASS"
+    },
+    {
+      "gallery_viewport": 320,
+      "horizontal_overflow": false,
+      "status": "PASS"
+    }
+  ],
+  "captures": {
+    "comparaison-1-1440.png": "13572fc6409a339e76f9bf8c13203dbace8d87405a7af9ef738c2773e28cce75",
+    "comparaison-1-390.png": "0ded5e72e079518ac9ba4ba5a06154f04dcb2cb7fc2480a8618ba547586ac400",
+    "comparaison-2-1440.png": "8d6da24d7674633bebeed28f31274fe3a385dd72446ad648df0ac16fc2f07b6b",
+    "comparaison-2-390.png": "bbb7654f9c9ce245d67432b5b6eae2f12183ddef6aa4f69ec141ba4ff49a08fa",
+    "comparaison-3-1440.png": "7219cf137bf55f079a27a1510d5b207d4115286ba2cbb44ee9ac4565c5f755d2",
+    "comparaison-3-390.png": "8c59f8db52d94c8b3b27015de8b2ec4fbc0d73f6b6e80092e10f27d4d3704abd"
+  },
+  "gallery_sha256": "20ac37a3795e3686a9feee9ea1389388f69655d02f64210b3689c9686af8c5ac",
+  "browser_version": "151.0.7922.173",
+  "external_requests": [],
+  "page_errors": [],
+  "source_unchanged": true,
+  "status": "PASS"
+}

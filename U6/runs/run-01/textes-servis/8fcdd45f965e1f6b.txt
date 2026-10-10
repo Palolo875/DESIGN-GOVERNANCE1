@@ -1,0 +1,10 @@
+ROUTE: SAVOIR/TOOLS/CONVERGENCE (adresse : savoir/gout-et-tendances#tendances-datees)
+OWNER: design/savoir/gout-et-tendances.md
+HEADING: ### CONVERGENCE — observations datées
+---
+### CONVERGENCE — observations datées
+
+[VEILLE 2026-09] **Marqueurs de vague**, pour nommer `MODAL` (`DIRECTION/CREATIVE-BOOT`), jamais pour interdire : un marqueur gardé par décision reste valide. Vague 1 : violet, police Inter, halos et gradient décoratif, hero SaaS à cartes répétées. Vague 2 : fond beige ou crème, brun, serif de caractère ou serif italique, orange rouille, bandeau défilant, illustration peinte, tramage. Vague 3 : dithering, logos pixel, ASCII, hachures de plan, gravures, bleu Klein, libellés mono en capitales, repères de recadrage, paysage peint en fond. Source : essais internes (26-09-2026) et revue de références de designers (27-09-2026), 6 rendus sur 6 sur fond crème et brun, avec ou sans système. Signaux à confirmer : grotesque large ou condensée (Archivo) sur fond blanc neutre avec un seul accent vif (27-09-2026, 3 rendus sur 3, même auteur, non retrouvé ensuite) ; même objet central par brief (fournées du jour ; facture tamponnée) et même grotesque de titre sur un brief, avec ou sans système (30-09-2026, auto-comparaison, 6 rendus). À revoir avant 2027-03.
+
+> [Déjà dans le noyau de la skill, section « 4. Moyens et vérité » : « Carte des moyens par couche (datée, dans SAVOIR/TOOLS/MOYENS) : des so… » — --complet pour l'afficher ici]
+

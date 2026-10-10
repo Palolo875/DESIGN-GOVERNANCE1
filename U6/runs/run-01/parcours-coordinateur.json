@@ -1,0 +1,146 @@
+{
+  "started_at": "2026-10-10T12:41:07.369180+00:00",
+  "run": "run-01",
+  "viewports": [
+    {
+      "width": 1440,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Le CTA de navigation place le focus dans le champ client de l'exemple."
+        },
+        {
+          "name": "Calcul interactif",
+          "status": "PASS",
+          "observation": "3 × 120 € HT, TVA illustrative 20 %, total 432 € TTC."
+        },
+        {
+          "name": "Erreur puis récupération",
+          "status": "PASS",
+          "observation": "Client vide : erreur visible associée au champ, focus rendu, aucun aperçu."
+        },
+        {
+          "name": "Aperçu après récupération",
+          "status": "PASS",
+          "observation": "Récupération et aperçu : nom et total transmis ; focus dans le dialogue."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Fichier texte réellement téléchargé, nom/total exacts, statut de démonstration explicite."
+        },
+        {
+          "name": "Fermeture et retour du focus",
+          "status": "PASS",
+          "observation": "Échap ferme l'aperçu et rend le focus au bouton de préparation."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Le CTA de navigation place le focus dans le champ client de l'exemple."
+        },
+        {
+          "name": "Calcul interactif",
+          "status": "PASS",
+          "observation": "3 × 120 € HT, TVA illustrative 20 %, total 432 € TTC."
+        },
+        {
+          "name": "Erreur puis récupération",
+          "status": "PASS",
+          "observation": "Client vide : erreur visible associée au champ, focus rendu, aucun aperçu."
+        },
+        {
+          "name": "Aperçu après récupération",
+          "status": "PASS",
+          "observation": "Récupération et aperçu : nom et total transmis ; focus dans le dialogue."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Fichier texte réellement téléchargé, nom/total exacts, statut de démonstration explicite."
+        },
+        {
+          "name": "Fermeture et retour du focus",
+          "status": "PASS",
+          "observation": "Échap ferme l'aperçu et rend le focus au bouton de préparation."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "Le CTA de navigation place le focus dans le champ client de l'exemple."
+        },
+        {
+          "name": "Calcul interactif",
+          "status": "PASS",
+          "observation": "3 × 120 € HT, TVA illustrative 20 %, total 432 € TTC."
+        },
+        {
+          "name": "Erreur puis récupération",
+          "status": "PASS",
+          "observation": "Client vide : erreur visible associée au champ, focus rendu, aucun aperçu."
+        },
+        {
+          "name": "Aperçu après récupération",
+          "status": "PASS",
+          "observation": "Récupération et aperçu : nom et total transmis ; focus dans le dialogue."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans le dialogue modal."
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Fichier texte réellement téléchargé, nom/total exacts, statut de démonstration explicite."
+        },
+        {
+          "name": "Fermeture et retour du focus",
+          "status": "PASS",
+          "observation": "Échap ferme l'aperçu et rend le focus au bouton de préparation."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T12:41:12.027675+00:00",
+  "passed": 24,
+  "failed": 0
+}

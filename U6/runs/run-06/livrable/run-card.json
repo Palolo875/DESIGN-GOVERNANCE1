@@ -1,0 +1,137 @@
+{
+  "run_card": {
+    "id": "run-06",
+    "owner": "Producteur de la proposition",
+    "date_version": "2026-10-10 / final 562797b93c0f2f20",
+    "mode": "DIRECTION",
+    "decision": "Montrer un accueil d’atelier centré sur le besoin et le rendez-vous de dépôt.",
+    "decision_intent": "Évaluer si la fiche de besoin visible rend le rendez-vous concret.",
+    "risk": {
+      "level": "important",
+      "statement": "Confondre une simulation et une réservation réelle.",
+      "critical_protection": null
+    },
+    "sources": [
+      "trace.md"
+    ],
+    "direction": {
+      "thesis": "Un atelier accessible montre le besoin du vélo puis un créneau de dépôt.",
+      "anti_direction": [
+        "Photo de mécanicien et avis fictifs avant une action distante."
+      ],
+      "first_object": "Fiche de rendez-vous locale avec besoin, date, coordonnées et récapitulatif.",
+      "constraint": "HTML autonome sans service externe ; contenus d’exemple explicites.",
+      "identity_stake": "normal"
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "index.html",
+      "scope": "Page entière, 1440×1000 et 390×844 ; états de formulaire et largeur 320 px.",
+      "rights_status": "cleared",
+      "version": "562797b93c0f2f20"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Recueillir identité, offre et méthode d’agenda réelles ; observation de cyclistes et technologies d’assistance.",
+    "capability_profile": {
+      "available": [
+        "Navigateur Chromium et captures",
+        "Parcours clavier",
+        "DOM et calculs de contraste"
+      ],
+      "unavailable": [
+        "Regard indépendant",
+        "Participants cyclistes",
+        "Lecteur d’écran",
+        "Agenda réel"
+      ],
+      "not_required": [
+        "Génération d’image"
+      ],
+      "basis": [
+        {
+          "capability": "Navigateur Chromium et captures",
+          "kind": "tool_result",
+          "detail": "Captures initiales et finales dans captures/."
+        },
+        {
+          "capability": "Parcours clavier",
+          "kind": "tool_result",
+          "detail": "functional-tests.json, parcours complet mobile."
+        },
+        {
+          "capability": "DOM et calculs de contraste",
+          "kind": "tool_result",
+          "detail": "functional-tests.json et contrast.json."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "11 contrôles et parcours PASS au scope déclaré.",
+        "Captures desktop/mobile inspectées, édition de masse comparée.",
+        "Absence de débordement à 320 px."
+      ],
+      "not_verified": [
+        "Identité ancrée et marque réelle.",
+        "Utilisabilité avec cyclistes et conformité complète.",
+        "Safari, Firefox et lecteur d’écran."
+      ],
+      "provenance": {
+        "artifact_locator": "index.html",
+        "artifact_version": "562797b93c0f2f20",
+        "method": "Playwright Chromium, parcours automatisés et inspection des captures par le producteur.",
+        "observed_at": "2026-10-10T16:23:30.371803+00:00",
+        "capability": "Navigateur Chromium et captures"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Titre réduit de 82 à 72 px pour rééquilibrer la scène vers la fiche ; correction des flèches et du focus d’étape.",
+      "evidence": "captures/desktop-initial-viewport.png → captures/desktop-reduction-viewport.png ; captures finales et functional-tests.json."
+    },
+    "creative_close": {
+      "presence": "Accroche compacte face à une fiche plane de rendez-vous.",
+      "signature": "Besoin métier, prix hors pièces et créneau de dépôt distinct de la réparation.",
+      "craft_detail": "Erreurs liées aux champs, focus visible, données conservées au retour et récapitulatif local honnête.",
+      "dominant_defect": "Absence d’identité et de photographie humaines authentiques ; offre d’exemple.",
+      "next_polish_action": "STOP — contenu réel et ancre nécessaires avant une nouvelle passe utile."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "PARTIALLY-HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Sans ancre réelle ni validation de l’atelier.",
+        "Tests partiels par le producteur, sans revue indépendante.",
+        "Aucun rendez-vous réel, envoi ou publication."
+      ],
+      "axes": {
+        "V": "NOT-VERIFIED",
+        "U": "PASS-WITH-RESERVATION",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS"
+      },
+      "reservations": [
+        {
+          "owner": "Personne de l’atelier",
+          "scope": "Identité, contenu et fonctionnement du rendez-vous",
+          "date_version": "2026-10-10 / final 562797b93c0f2f20",
+          "impact": "La proposition ne peut pas servir de page publiée ni confirmer un dépôt réel.",
+          "next_proof": "Fournir les contenus et vérifier un agenda réel dans un travail ultérieur.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Identité et offre confirmées ; réservation réelle testée et erreurs couvertes."
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "captures/desktop-initial-viewport.png",
+          "after_locator": "captures/desktop-reduction-viewport.png",
+          "decision": "Réduire la masse du titre pour renforcer la priorité relative du formulaire.",
+          "outcome": "modified"
+        }
+      }
+    }
+  }
+}

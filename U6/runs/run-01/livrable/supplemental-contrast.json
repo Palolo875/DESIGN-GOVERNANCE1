@@ -1,0 +1,20 @@
+{
+  "method": "WCAG relative luminance calculation on final CSS solid colors",
+  "artifact_sha256": "a284dc24c653245ebe516d8c0b190693eb8b3c3f4235cb7c09399f40ac248c29",
+  "control_border_on_white": {
+    "foreground": "#789486",
+    "background": "#ffffff",
+    "ratio": 3.292
+  },
+  "focus_on_white": {
+    "foreground": "#24715a",
+    "background": "#ffffff",
+    "ratio": 5.858
+  },
+  "focus_on_field": {
+    "foreground": "#24715a",
+    "background": "#e8f1ed",
+    "ratio": 5.087
+  },
+  "limitations": "No opacity, photo, gradient or non-text icon comparisons needed. Focus geometry is separately checked in actual keyboard journeys. This does not establish full WCAG conformance."
+}

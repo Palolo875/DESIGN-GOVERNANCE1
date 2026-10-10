@@ -1,0 +1,74 @@
+ROUTE: SAVOIR/STATE (adresse : savoir/composition#jugement-visuel)
+OWNER: design/savoir/composition.md
+HEADING: # SAVOIR/STATE — craft, composants et états
+---
+# SAVOIR/STATE — craft, composants et états
+
+[REQUIS PAR LE MODULE — composant, état, surface `DIRECTION` ou Gate C] Le craft n’est pas une couche de polish. Il concerne états, alignements, contenus réels, microcopie, données extrêmes, récupération et détails qui empêchent l’interface de paraître héritée d’un défaut de stack.
+
+### Jugement visuel situé
+
+Le jugement visuel porte sur le rendu réellement construit, dans son contexte et son périmètre. Il distingue les qualités suivantes sans les transformer en score, en verdict ou en statut :
+
+| Dimension | Question de jugement |
+|---|---|
+| **Direction artistique** | Quelle position visuelle située relie produit, public, contenu, médium et contexte ? |
+| **Craft** | La hiérarchie, la composition, la typographie, la matière, les états et le comportement sont-ils construits avec précision ? |
+| **Polish** | Le rendu est-il résolu dans ses détails, ses transitions, ses erreurs, son responsive et sa cohérence réelle, plutôt que décoré par des effets ? |
+| **Créativité située** | L’écart, la relation ou la reformulation apporte-t-il une réponse spécifique et utile, plutôt qu’une nouveauté forcée ? |
+| **Goût situé** | Les choix sont-ils sélectionnés, proportionnés et retenus pour ce contexte, avec une préférence assumée comme située ? |
+| **Spécificité** | Que resterait-il de pertinent si le logo, la référence ou le template disparaissait ? |
+
+La direction artistique donne le point de vue ; le craft le construit ; le polish le résout ; la créativité ouvre une possibilité pertinente ; le goût sélectionne et retient. Ces termes sont des lentilles de jugement, pas des valeurs de `DIRECTION-STATUS`, de `VERDICT` ou du schéma machine.
+
+Une revue visuelle peut examiner hiérarchie, composition, typographie, matière, premier objet, spécificité, cohérence, retenue et résolution lorsque ces dimensions peuvent modifier la décision. Elle ne les recopie pas toutes par réflexe : une observation nomme l’élément visible, sa conséquence sur la direction ou la décision, son scope et sa limite éventuelle. Une capture, une rationale ou une image générée ne prouve ni le build complet, ni l’usage, ni l’accessibilité, ni la robustesse.
+
+Trois niveaux se complètent :
+
+1. **Correction :** comportement et accessibilité de base fonctionnent.
+2. **Précision :** mesures, alignements, transitions, états et relations sont ajustés.
+3. **Intention :** une décision située répond à une difficulté réelle et produit une différence visible ou d’usage.
+
+En lecture visuelle, ces niveaux décrivent la résolution effectivement atteinte : `Correction` permet de juger la base ; `Précision` permet de juger la construction et le polish pertinent ; `Intention` permet de juger une différence située. Ils ne forment pas une note de beauté. Un rendu peut être précis mais générique, avoir une intention forte mais une finition insuffisante, ou être poli dans une vue tout en restant non vérifié dans ses états secondaires.
+
+La question de niveau 3 est :
+
+> Quel choix résulte ici d’un jugement délibéré, serait absent d’une version par défaut, et quelle contrainte sert-il ?
+
+Le temps investi est un indice, jamais une preuve. Une simplification juste, un ordre de lecture, une microcopie ou un token peuvent être rapides à implémenter et néanmoins intentionnels.
+
+### Vocabulaire perceptuel
+
+Si le défaut vient de l’organisation de la scène, reprends la traduction de `BIBLIOTHEQUE/SELECT` avant un geste de finition. Si la relation est retenue mais ses paramètres restent ouverts, utilise la calibration de `BIBLIOTHEQUE/CONTRACTS` ; le jugement demeure chez SAVOIR et les preuves chez ACTION.
+
+**Activation du craft.** Le système doit aider à produire la finesse, au-delà de la cohérence : **signal visible → savoir pertinent → geste concret et condition → modification de l’artefact → réinspection → conserver, ajuster ou retirer**. Avant le premier build, anticipe la relation fragile à partir du contenu réel et prépare son geste ; après le rendu, confirme ou corrige ce diagnostic. Pour le défaut dominant, utilise une ligne pertinente de la table ; ne déroule pas toutes les lignes. Si le geste reste vague, approfondis la source indiquée selon `DIRECTION/CHARGE` ; ne renvoie pas la résolution au seul « savoir-faire de l’agent » ou à une future revue humaine. Un pixel peut suffire si la relation est déjà juste ; un pixel ne répare pas une direction faible.
+
+| Terme | Signal à traiter | Geste concret et condition | Réinspection et savoir à approfondir |
+|---|---|---|---|
+| Cohérence de rayon | Un cadre et son contenu emboîté paraissent non concentriques. | Pour deux rectangles arrondis à inset uniforme, tester `rayon intérieur = max(0, rayon extérieur − inset)` ; intégrer l’épaisseur de bord à l’inset mesuré. Pour une autre géométrie, ajuster ses courbes propres, sans imposer cette formule. | Inspecter les coins à taille réelle et au viewport étroit ; éviter une rupture de courbe ou un contenu coupé. `SAVOIR/SYSTEM`. |
+| Masse visuelle | Un élément secondaire concurrence la priorité de lecture ou d’action. | Réduire son échelle, sa densité ou son contraste, ou renforcer le foyer par sa position ; choisir le levier qui sert la tâche ou le parti. L’objet de preuve peut être discret ; il n’est pas nécessairement le plus grand. | Relire l’ensemble à faible détail, puis le geste principal à taille réelle ; conserver le rythme expressif utile. `SAVOIR/CRAFT/CFT-03`. |
+| Gestion du vide | Un groupe paraît disloqué, ou deux contenus indépendants paraissent liés. | Rapprocher ce qui appartient à la même unité, ou augmenter la distance entre unités. Préserver les vides qui portent respiration, tension, information ou émotion ; resserrer seulement le vide qui affaiblit la relation voulue. | Comparer le groupement et le rythme dans la page entière, avec contenu long et mobile. `SAVOIR/CRAFT/CFT-03`. |
+| Silhouette | À faible détail, aucun foyer ou ordre de lecture n’émerge. | Déplacer ou redimensionner une masse, modifier un recadrage ou un contraste pour rendre la priorité perceptible ; si la trame reste interchangeable, rouvrir la structure plutôt qu’ajouter un effet. | Comparer les silhouettes au même format puis la lecture normale ; ne pas exiger du spectaculaire dans une vue de gestion. `SAVOIR/CRAFT/CFT-03` ; structure par `BIBLIOTHEQUE/SELECT`. |
+| Surface | Un bloc semble collé, ses bords se perdent, ou ombre et lumière se contredisent. | Si une matière éclairée par le haut est voulue, tester un liseré clair de **1 px CSS** sur son bord supérieur et atténuer l’ombre opposée. Ajuster l’opacité au fond réel. Pour une surface plane, tester plutôt une frontière ou un écart de valeur ; pour plusieurs matières, régler leur relation sans les uniformiser. | Inspecter à taille réelle : séparation accrue sans halo, bord trop dur ni lumière contradictoire ; retirer le liseré s’il ne sert pas la matière. Une hauteur visuelle ne code pas automatiquement l’importance. `SAVOIR/STYLE` ; `SAVOIR/STATE`. |
+| Chiffres | Une valeur changeante saute en largeur, ou une colonne devient difficile à comparer. | Si les chiffres sont alignés ou dynamiques, activer des figures tabulaires (`font-variant-numeric: tabular-nums` en CSS), aligner les nombres sur un axe et garder leur unité liée. Ne pas atténuer un zéro, une décimale ou un identifiant nécessaires à l’interprétation. | Tester changement de valeur, signe, unité, locale et police de repli ; contrôler la stabilité sans effacer de précision utile. `SAVOIR/TYPE`. |
+| Accent | Plusieurs couleurs réclament la même action, ou une couleur critique devient ambiguë. | Réaffecter les couleurs par rôles, distinguer action et statut, puis retirer ou réduire seulement les usages parasites. Une palette multicolore, culturelle ou expressive est recevable ; ne pas la réduire à un accent unique par réflexe. | Inspecter l’action, les états, le contraste mesuré et les indices non chromatiques critiques ; préserver le parti coloré. `SAVOIR/CRAFT/CFT-05`. |
+| Détail révélateur | L’idée est forte mais une jonction, une graduation ou un état paraît laissé par défaut. | Résoudre d’abord ce détail : aligner une graduation à sa mesure, soigner le passage entre deux zones ou la relation d’un repère à l’objet. En conserver plusieurs si chacun a un rôle ; retirer ceux qui n’apportent qu’une impression de finition. | Vérifier la relation à l’idée, à la donnée ou à l’usage, puis l’ensemble sans surcharge. Une graduation doit rester exacte. `SAVOIR/STATE` ; `SAVOIR/CRAFT/CFT-01`. |
+| Texte secondaire | L’appoint disparaît ou concurrence le contenu principal. | Corriger d’abord le contraste texte/fond selon `ACTION/GATE-A`, puis régler graisse, position ou espacement pour établir la hiérarchie. Réduire la taille seulement si la lecture reste confortable dans le contexte ; ne pas résoudre la concurrence par l’illisibilité. | Mesurer le contraste, inspecter à taille réelle, au zoom et sur mobile ; garder lisibles aide, unité et erreur. `SAVOIR/TYPE` ; `SAVOIR/CONTEXT`. |
+| États | Un changement d’état semble improvisé, déplace la scène ou empêche de reprendre. | Réserver la place utile pendant le chargement, conserver la saisie en erreur et placer une reprise explicite près du problème. Dessiner les états nécessaires au composant ; ne pas fabriquer tous les états possibles. | Parcourir l’état et sa sortie avec contenu réel ; une capture seule ne prouve pas la reprise ni le focus. `SAVOIR/STATE` ; preuve par `ACTION/GATE-A`. |
+| Alignement optique | Une icône, un titre ou une courbe semble décentré malgré ses boîtes alignées. | Comparer les contours visibles et la ligne de base ; tester un décalage local de **1 px CSS** ou un ajustement d’approche si le déséquilibre persiste. Conserver la grille et la zone interactive ; ne pas déplacer tous les éléments ni rasteriser le texte par réflexe. | Comparer avant/après à taille réelle, avec la police chargée et son repli ; retirer le décalage s’il corrige une vue mais casse les autres. `SAVOIR/TYPE` ; `SAVOIR/STATE`. |
+| Image intégrée | Le sujet est coupé, un détourage porte un halo, ou le texte lutte avec l’image. | Ajuster le point focal et le recadrage selon le viewport ; traiter le bord sur son fond réel si un détourage est requis. Pour le texte superposé, choisir une zone calme ou un voile local plutôt qu’assombrir toute l’image par défaut. | Inspecter bord, sujet, texte et raccord sur desktop et mobile ; mesurer le contraste au fond défavorable. Si l’asset est inadéquat, remplacer ou produire par la route autorisée. `SAVOIR/SOURCE` ; `SAVOIR/CRAFT/CFT-03`. |
+| Mouvement | Une transition est saccadée, gratuite ou déstabilise le repère de lecture. | Relier le mouvement à un changement d’état ; régler trajectoire, durée ou atténuation sur ce changement précis. Si le mouvement n’apporte rien, supprimer l’animation ; prévoir une alternative réduite selon le contexte. | Jouer l’interaction, vérifier interruption, fin d’état et mouvement réduit ; une image fixe n’atteste pas la fluidité. `SAVOIR/CONTEXT`. |
+
+**Choix et contrôle.** Chaque ligne relie un symptôme, une intervention possible et une observation ; elle n’impose pas une esthétique. Choisis le geste qui traite le défaut avec le moins de dommages aux relations déjà réussies ; compare avant/après à taille réelle dans le même scope, puis réinspecte l’ensemble et les états concernés ; sans capacité de rendu ou d’interaction, déclare la limite. La trace existante suffit ; aucun score, nouveau gate ou dossier par geste.
+
+La silhouette n’exige pas une identité spectaculaire. Dans une vue administrative ou transactionnelle, elle vérifie surtout la lecture prioritaire au flou.
+
+### États pertinents
+
+Un composant ne possède pas tous les états imaginables, mais aucun état nécessaire ne peut être implicite : focus clavier, empty de liste, erreur de formulaire, overflow, chargement, permission refusée, image absente, valeur extrême et contenu long lorsque pertinents.
+
+HTML sémantique, nom accessible, focus visible, erreur associée et récupération compréhensible sont des conditions de craft autant que de conformité. `ACTION/GATE-A` vérifie leur présence ; `ACTION/GATE-C` peut ensuite juger leur résolution perceptuelle ; une tâche utilisateur peut être requise lorsque la récupération ou la compréhension est le risque dominant.
+
+**Récupération après erreur.** Un message d’erreur dit ce qui s’est passé, pourquoi si c’est utile, et comment reprendre ; il apparaît près de l’élément concerné, dans la langue du produit. La saisie de la personne est conservée et une action de reprise est proposée : corriger, réessayer ou revenir. Le focus dépend du moment : après une soumission bloquée, il peut aller à l’erreur ou au résumé des erreurs ; pendant la saisie, l’erreur est annoncée de façon accessible (région live) sans déplacer le focus. Une capture montre le message ; seule une interaction montre la reprise : parcours l’erreur, puis la correction, jusqu’au succès, ou jusqu’à une issue claire lorsque la réussite est impossible (alternative ou sortie expliquée).
+
+---

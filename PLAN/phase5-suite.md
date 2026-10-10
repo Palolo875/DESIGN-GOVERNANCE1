@@ -34,7 +34,7 @@ La recette de chaque pilote est fixée : skill complète, classification, ligne 
 | Nouveau composant de comparaison | 110 547 | 78 000 | −29,44 % |
 | Autre première scène | 157 767 | 126 839 | −19,60 % |
 
-Ce sont des comparaisons mécaniques du lecteur, pas deux exécutions indépendantes d’agents. Les détails différés sont inclus : la baisse du fichier seul n’est pas présentée comme la baisse du run entier. Les totaux incluent des contrôles après fabrication ; ils ne valident pas les cibles provisoires de lecture **avant** production (35 000 / 75 000 / 110 000). Ces cibles restent ouvertes, sans modification opportuniste du seuil ni retrait de protection. Jetons, durée et charge cognitive restent non mesurés.
+Ce sont des comparaisons mécaniques du lecteur, pas deux exécutions indépendantes d’agents. Les détails différés sont inclus : la baisse du fichier seul n’est pas présentée comme la baisse du run entier. Les totaux incluent des contrôles après fabrication ; ils ne valident pas les cibles provisoires de lecture **avant** production (35 000 / 75 000 / 110 000). Ces cibles restent ouvertes, sans modification opportuniste du seuil ni retrait de protection. Cette recette ne mesure ni jetons, ni durée, ni charge cognitive ; les durées observées lors des nouvelles créations U6 sont documentées séparément ci-dessous.
 
 ## Trois pilotes sur la landing page Lisière
 
@@ -54,6 +54,24 @@ Le premier essai du composant a rencontré un test qui attendait des images lazy
 
 Appréciation de l’auteur : la retouche précise l’action ; l’aperçu rend les prix et capacités comparables mais allonge le parcours ; la variante donne davantage de place à l’architecture, au prix d’une image moins immédiate sur ordinateur. Ce sont des compromis observables, pas des notes de qualité attribuées à la nouvelle skill. Les trois variantes restent proposées pour examen ; la baseline n’est pas remplacée automatiquement.
 
+## Comparaison indépendante U6
+
+Le propriétaire a choisi plusieurs agents séparés et des juges aveugles. Le [protocole](../U6/protocole.md) a été figé avant les générations. Six producteurs ont commencé dans des contextes neufs, en série, avec les versions `99caa027` et `6e5a8c2` : deux répétitions du même brief de facturation par version, puis un brief nouveau d’atelier vélo par version. Aucun ancien rendu U3/U5 ne sert de témoin. Deux juges séparés examinent seulement les captures finales anonymisées, dans des ordres inversés. Le [bilan U6](../U6/resultats.md) conserve leurs avis, la [galerie](../U6/Galerie-U6.html), les parcours et les écarts au protocole. Le jugement du propriétaire sur R1 à R4 et R9 reste distinct.
+
+| Paire avant → après | Union des caractères servis | Caractères servis avec répétitions | Minutes observées |
+|---|---:|---:|---|
+| Facturation, F → A | +0,59 % | −2,46 % | 16,8 → 15,5 |
+| Facturation, E → C | +0,04 % | −6,69 % | 18,7 → 18,8 |
+| Atelier vélo, B → D | +1,73 % | +0,34 % | comparaison exclue : interruption d’usage |
+
+Ces [mesures](../U6/mesures.md) comptent les textes servis par le lecteur DG, en-têtes inclus, puis leur union par clé. Elles ne comptent pas tout le contexte, ne dédupliquent pas les recouvrements sémantiques entre routes et ne donnent pas les jetons API. Les producteurs ont chargé leurs routes complètes avant le premier fichier HTML ; ce repère ne date pas toute la préparation. Le périmètre diffère des recettes mécaniques de retouche de Lisière. La baisse de la skill ne se traduit pas ici par une baisse nette du volume unique pour les créations complètes.
+
+Les six livrables passent les captures sans débordement aux trois largeurs contrôlées. Les parcours du coordinateur donnent F : 24/0, A : 27/3, C : 27/0, E : 27/0, D : 30/0 et B : 39/0 (réussites/échecs). Leur nombre dépend du parcours ; ce n’est pas un score comparatif. Le focus de la modale A sort vers l’interface du navigateur après validation. Une [copie corrigée](../U6/corrections/A/index.html), hors expérience, passe 30 contrôles et conserve six captures statiques identiques aux originales. L’original reste compté avec ses échecs. La règle était présente dans les deux versions ; une causalité liée à la refonte n’est pas démontrée.
+
+Les deux juges préfèrent F à A, E à C et D à B, avec une confiance moyenne et des réserves : deux préférences pour l’ancienne version en facturation, une pour la nouvelle sur le vélo. Ils trouvent les variations de ton et de présentation utiles, mais l’architecture générale reste proche. Ce résultat ne valide pas une supériorité uniforme de la refonte. La mention de prix de B chevauche le bouton mobile ; la [copie corrigée B](../U6/corrections/B/index.html) résout ce défaut et passe les 39 parcours, sans changer le brut ni les captures jugées.
+
+Le tour D termine sur une limite d’usage alors que les fichiers finaux existent déjà. Ils sont contrôlés à la reprise sans nouveau tour producteur. Sa durée murale entière de 145,1 minutes est conservée, sans comparaison. Les premières captures d’A ont été écrasées par le producteur ; des sources et rapports intermédiaires restent, sans prétendre reconstituer les PNG perdus. Les runs 04, 05 et 06 déclarent la lecture de la skill cloud héritée. Les restrictions entre agents sont des consignes, pas des sandboxes distincts. Voir les [notes](../U6/notes-coordinateur.md).
+
 ## État final et suites
 
-La suite technique a une compilation, une activation et des distributions vérifiables. La comparaison indépendante de qualité et de variété reste ouverte : briefs identiques et demande nouvelle, capacités constantes, exécutions séparées et jugement sans indication de version. Les essais actuels ne ferment pas ce point. La phase 6 conserve son périmètre minimal ; la phase 7 reste reportée. La PR du produit doit encore être fusionnée vers `main`.
+La suite technique a une compilation, une activation et des distributions vérifiables. Les six productions et la comparaison visuelle indépendante U6 sont livrées ; elles décrivent un petit échantillon, sans prouver une efficacité générale. La décision du propriétaire, les jetons API, la charge cognitive et les cibles initiales de lecture restent ouverts. La phase 6 conserve son périmètre minimal ; la phase 7 reste reportée. La PR du produit reste ouverte vers `main`.

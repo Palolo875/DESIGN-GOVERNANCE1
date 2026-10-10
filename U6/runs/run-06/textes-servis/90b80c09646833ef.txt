@@ -1,0 +1,12 @@
+ROUTE: GRID/HIERARCHICAL
+OWNER: design/formes/catalogue.md
+HEADING: ### `GRID/HIERARCHICAL`
+---
+### `GRID/HIERARCHICAL`
+
+Tailles et positions inégales selon priorité, avec ruptures contrôlées de trame.
+
+**Choisir lorsque :** page narrative, annonce, pièce forte ou relation promesse/artefact/preuve.
+
+**Preuve :** l’œil trouve sujet, contexte puis détail ; chaque rupture change réellement la priorité.
+

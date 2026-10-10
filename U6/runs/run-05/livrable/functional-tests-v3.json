@@ -1,0 +1,417 @@
+{
+  "artifact": "index.html",
+  "sha256": "ead4fd02807bcda67a1c7fa7029cf6d4660c9c9b3c2fe7b57c09f2b9cbc06436",
+  "observed_at": "2026-10-10T13:53:32.214579+00:00",
+  "runtime": "Chromium / Python Playwright 1.56.0",
+  "server": "ephemeral loopback; shut down after execution",
+  "tests": [
+    {
+      "name": "Action principale mobile",
+      "actions": [
+        {
+          "selector": "#primary-cta",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "focused": "",
+        "booking_y": 483.828125
+      },
+      "result": "FAIL"
+    },
+    {
+      "name": "Erreur de créneau",
+      "actions": [
+        {
+          "selector": "#continue",
+          "action": "click without selected time"
+        }
+      ],
+      "observations": {
+        "error_visible": true,
+        "focus": "time-0900"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Changement de date",
+      "actions": [
+        {
+          "selector": "label[for=\"time-1130\"]",
+          "action": "click"
+        },
+        {
+          "selector": "label[for=\"day-wed\"]",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "time_reset": true,
+        "disabled_time": true
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Choix vers coordonnées",
+      "actions": [
+        {
+          "selector": "label[for=\"time-1630\"]",
+          "action": "click"
+        },
+        {
+          "selector": "label[for=\"service-check\"]",
+          "action": "click"
+        },
+        {
+          "selector": "#continue",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "summary": "Une révision\nMercredi 14 octobre 2026 · 16:30",
+        "focus": "customer-name"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Coordonnées obligatoires",
+      "actions": [
+        {
+          "selector": "#prepare",
+          "action": "click with empty fields"
+        }
+      ],
+      "observations": {
+        "name_error": true,
+        "email_error": true,
+        "focus": "customer-name"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "E-mail invalide",
+      "actions": [
+        {
+          "selector": "#customer-name",
+          "action": "fill Camille Exemple"
+        },
+        {
+          "selector": "#customer-email",
+          "action": "fill adresse-invalide"
+        },
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "email_error": true,
+        "name_preserved": "Camille Exemple",
+        "focus": "customer-email"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Retour sans perte",
+      "actions": [
+        {
+          "selector": "#back",
+          "action": "click"
+        },
+        {
+          "selector": "#continue",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "contact_preserved": true,
+        "notes": "Le frein arrière frotte après quelques kilomètres."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Récapitulatif local",
+      "actions": [
+        {
+          "selector": "#prepare",
+          "action": "click with valid sample fields"
+        }
+      ],
+      "observations": {
+        "success": true,
+        "text": "✓\nVotre passage est préparé.\n\nVoici votre récapitulatif d’exemple. Aucune réservation n’a été faite et aucun e-mail n’a été envoyé.\n\nVotre passage\nMercredi 14 octobre 2026 à 16:30\nPour votre vélo\nUne révision\nAu nom de\nCamille Exemple\nVotre précision\nLe frein arrière frotte après quelques kilomètres.\nEssayer un autre créneau\n↻",
+        "focus": "success-title",
+        "storage_count": 0
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Recommencer",
+      "actions": [
+        {
+          "selector": "#restart",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "stage_one_visible": true,
+        "name": "",
+        "selected_time_count": 0
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Lien d’évitement",
+      "actions": [
+        {
+          "selector": ".skip",
+          "action": "Tab from fresh page, then Enter"
+        }
+      ],
+      "observations": {
+        "focused_clip": "none",
+        "main_focus": "main"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Parcours clavier",
+      "actions": [
+        {
+          "selector": "document",
+          "action": "Tab ×10; observations focus"
+        },
+        {
+          "selector": "#service-repair",
+          "action": "focus then ArrowRight, Tab, ArrowRight, Tab, Space, Tab, Enter"
+        },
+        {
+          "selector": "#customer-name",
+          "action": "fill then Tab/type email, Tab/type note, Tab/Enter"
+        }
+      ],
+      "observations": {
+        "initial_stops": [
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Aller au contenu",
+            "outline": "3px"
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "RAYONAtelier de réparation vélo",
+            "outline": "3px"
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Les réparations",
+            "outline": "3px"
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "L’atelier",
+            "outline": "3px"
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Rendez-vous",
+            "outline": "3px"
+          },
+          {
+            "tag": "A",
+            "id": "primary-cta",
+            "text": "Choisir un créneau",
+            "outline": "3px"
+          },
+          {
+            "tag": "INPUT",
+            "id": "service-repair",
+            "text": "",
+            "outline": "3px"
+          },
+          {
+            "tag": "INPUT",
+            "id": "day-tue",
+            "text": "",
+            "outline": "3px"
+          },
+          {
+            "tag": "INPUT",
+            "id": "time-0900",
+            "text": "",
+            "outline": "3px"
+          },
+          {
+            "tag": "BUTTON",
+            "id": "continue",
+            "text": "Continuer →",
+            "outline": "3px"
+          }
+        ],
+        "service_selected_by_arrow": true,
+        "day_focus": "day-tue",
+        "day_selected_by_arrow": true,
+        "time_focus": "time-0900",
+        "continue_focus": "continue",
+        "success": true
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Reflow 320px",
+      "actions": [
+        {
+          "selector": "viewport",
+          "action": "resize to 320×844"
+        }
+      ],
+      "observations": {
+        "viewport": 320,
+        "scroll": 320
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Contenu long 320px",
+      "actions": [
+        {
+          "selector": "#customer-name",
+          "action": "fill 100 letters"
+        },
+        {
+          "selector": "#bike-notes",
+          "action": "fill 500 letters"
+        },
+        {
+          "selector": "#customer-email",
+          "action": "fill long@example.com"
+        },
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "success": true,
+        "no_overflow": true
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Mouvement réduit",
+      "actions": [
+        {
+          "selector": "media",
+          "action": "prefers-reduced-motion reduce"
+        }
+      ],
+      "observations": {
+        "scroll_behavior": "auto"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Cibles mobiles",
+      "actions": [
+        {
+          "selector": ".choice label,button,.nav-cta,.btn",
+          "action": "measure visible rectangles at 390px"
+        }
+      ],
+      "observations": {
+        "sizes": [
+          {
+            "text": "Rendez-vous",
+            "width": 132.671875,
+            "height": 40.59375
+          },
+          {
+            "text": "Choisir un créneau",
+            "width": 208.609375,
+            "height": 53.6875
+          },
+          {
+            "text": "Une réparation",
+            "width": 96.65625,
+            "height": 50.59375
+          },
+          {
+            "text": "Une révision",
+            "width": 96.671875,
+            "height": 44
+          },
+          {
+            "text": "Je ne sais pas",
+            "width": 96.671875,
+            "height": 44
+          },
+          {
+            "text": "MAR.13octobre",
+            "width": 96.65625,
+            "height": 79.984375
+          },
+          {
+            "text": "MER.14octobre",
+            "width": 96.671875,
+            "height": 79.984375
+          },
+          {
+            "text": "JEU.15octobre",
+            "width": 96.671875,
+            "height": 79.984375
+          },
+          {
+            "text": "09:00",
+            "width": 71,
+            "height": 44
+          },
+          {
+            "text": "11:30",
+            "width": 71,
+            "height": 44
+          },
+          {
+            "text": "14:00indisponible",
+            "width": 71,
+            "height": 50.59375
+          },
+          {
+            "text": "16:30",
+            "width": 71,
+            "height": 44
+          },
+          {
+            "text": "Continuer →",
+            "width": 302,
+            "height": 52.140625
+          }
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Runtime et requêtes",
+      "actions": [
+        {
+          "selector": "page",
+          "action": "collect pageerror and network requests through all journeys"
+        }
+      ],
+      "observations": {
+        "page_errors": [],
+        "external_requests": []
+      },
+      "result": "PASS"
+    }
+  ],
+  "limitations": [
+    "No screen reader or real user task test",
+    "No real availability, booking service, persistence or email sending",
+    "Theoretical solid-color contrast pairs; no automated full WCAG audit"
+  ]
+}

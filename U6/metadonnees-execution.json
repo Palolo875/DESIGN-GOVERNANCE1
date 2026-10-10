@@ -1,0 +1,47 @@
+{
+  "experiment": "U6",
+  "execution_method": "six separate producer agents, fresh contexts; two separate blind judges, fresh contexts",
+  "user_selection": "Plusieurs agents séparés et juges aveugles (recommandé)",
+  "model_configuration": "parent configuration inherited, no model override",
+  "exact_service_model_identifier": "NOT-ATTESTED",
+  "internal_generation_seeds": "NOT-ATTESTED",
+  "api_token_usage": "NOT-MEASURED",
+  "producer_order": "serial, independent verification completed before next producer spawn",
+  "access_isolation": "instruction, not a per-agent filesystem sandbox",
+  "frozen_files": "PROTOCOLE-SHA256SUMS and CONTROLES-SHA256SUMS",
+  "runtime": {
+    "python_playwright": "1.56.0",
+    "python_executable": "/workspace/cloud-setup/design-governance/venv/bin/python",
+    "chromium_executable": "/usr/bin/chromium",
+    "chromium_version": "151.0.7922.173",
+    "measurement_transport": "temporary loopback HTTP server; file:// blocked by runtime policy"
+  },
+  "known_deviations": [
+    "run-02 first PNG captures were overwritten by the producer; intermediate source and reports remain, final independent captures are intact",
+    "runs 04, 05 and 06 report reading cloud setup skill outside the experimental reading perimeter to follow a higher-priority instruction; uninstrumented library-external context is not equalized",
+    "run-04 coordinator initially expected CTA focus after success; corrected to legitimate result focus without page change; both reports preserved",
+    "run-05 first start marker preceded the actual spawn; corrected marker and explanation retained, last start marker used for duration",
+    "run-05 final turn ended in a usage-limit error despite complete files; preserved artifacts verified at coordinator resume, wall-time comparison excluded",
+    "both judges report reading the inherited cloud setup skill; no other design workflow or neighboring result read, as declared",
+    "review-gallery first control failed on a label containing select options; explicit for/id labels corrected, initial gallery and failure retained, no producer image changed",
+    "owner review was invited while judges finished, without sending owner observations or any result to judges; owner judgement is not claimed blind"
+  ],
+  "acceptance": "visual owner judgement R1-R4 and R9 remains separate from technical and automated judge results",
+  "status": "completed_owner_judgement_pending",
+  "producer_turns": {
+    "successful": 5,
+    "usage_limit_error": 1,
+    "complete_artifacts": 6,
+    "replacement_turns": 0
+  },
+  "manual_repairs": [
+    "A: modal focus containment, 30 checks pass; six static PNGs identical, raw artifact retained",
+    "B: price note wraps within column on mobile, targeted rectangle test and 39 journeys pass; raw artifact retained"
+  ],
+  "blind_judgements": {
+    "received": 2,
+    "screenshots_per_judge": 24,
+    "agreement": "F over A, E over C, D over B; medium confidence",
+    "owner": "pending"
+  }
+}

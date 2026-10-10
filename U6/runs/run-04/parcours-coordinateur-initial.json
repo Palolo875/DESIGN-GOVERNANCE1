@@ -1,0 +1,161 @@
+{
+  "started_at": "2026-10-10T13:40:58.546553+00:00",
+  "run": "run-04",
+  "viewports": [
+    {
+      "width": 1440,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "CTA de la première scène : ouverture de l'éditeur et focus sur le client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide refusé ; erreur locale associée et focus rendu au champ."
+        },
+        {
+          "name": "Erreur quantité",
+          "status": "PASS",
+          "observation": "Heures négatives refusées, nom conservé et erreur liée au champ."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans l'éditeur modal."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "FAIL",
+          "observation": "Locator expected to be focused\nActual value: inactive \nCall log:\n  - Expect \"to_be_focused\" with timeout 5000ms\n  - waiting for locator(\"#primary-cta\")\n    9 × locator resolved to <button data-open=\"\" class=\"button\" id=\"primary-cta\">…</button>\n      - unexpected value \"inactive\"\n"
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Brouillon texte réellement téléchargé, avec données saisies et statut d'exemple."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Réouverture avec valeurs conservées et focus dans l'éditeur."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme l'éditeur et rend le focus au bouton utilisé pour le rouvrir."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "CTA de la première scène : ouverture de l'éditeur et focus sur le client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide refusé ; erreur locale associée et focus rendu au champ."
+        },
+        {
+          "name": "Erreur quantité",
+          "status": "PASS",
+          "observation": "Heures négatives refusées, nom conservé et erreur liée au champ."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans l'éditeur modal."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "FAIL",
+          "observation": "Locator expected to be focused\nActual value: inactive \nCall log:\n  - Expect \"to_be_focused\" with timeout 5000ms\n  - waiting for locator(\"#primary-cta\")\n    9 × locator resolved to <button data-open=\"\" class=\"button\" id=\"primary-cta\">…</button>\n      - unexpected value \"inactive\"\n"
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Brouillon texte réellement téléchargé, avec données saisies et statut d'exemple."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Réouverture avec valeurs conservées et focus dans l'éditeur."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme l'éditeur et rend le focus au bouton utilisé pour le rouvrir."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "checks": [
+        {
+          "name": "CTA principal",
+          "status": "PASS",
+          "observation": "CTA de la première scène : ouverture de l'éditeur et focus sur le client."
+        },
+        {
+          "name": "Erreur client",
+          "status": "PASS",
+          "observation": "Client vide refusé ; erreur locale associée et focus rendu au champ."
+        },
+        {
+          "name": "Erreur quantité",
+          "status": "PASS",
+          "observation": "Heures négatives refusées, nom conservé et erreur liée au champ."
+        },
+        {
+          "name": "Clavier du dialogue",
+          "status": "PASS",
+          "observation": "Quatorze déplacements Tab/Maj+Tab restent dans l'éditeur modal."
+        },
+        {
+          "name": "Récupération, calcul et transmission",
+          "status": "FAIL",
+          "observation": "Locator expected to be focused\nActual value: inactive \nCall log:\n  - Expect \"to_be_focused\" with timeout 5000ms\n  - waiting for locator(\"#primary-cta\")\n    9 × locator resolved to <button data-open=\"\" class=\"button\" id=\"primary-cta\">…</button>\n      - unexpected value \"inactive\"\n"
+        },
+        {
+          "name": "Téléchargement local",
+          "status": "PASS",
+          "observation": "Brouillon texte réellement téléchargé, avec données saisies et statut d'exemple."
+        },
+        {
+          "name": "Retour à la saisie",
+          "status": "PASS",
+          "observation": "Réouverture avec valeurs conservées et focus dans l'éditeur."
+        },
+        {
+          "name": "Fermeture et focus",
+          "status": "PASS",
+          "observation": "Échap ferme l'éditeur et rend le focus au bouton utilisé pour le rouvrir."
+        },
+        {
+          "name": "Aucun envoi externe pendant le parcours",
+          "status": "PASS",
+          "observation": []
+        }
+      ]
+    }
+  ],
+  "browser_version": "151.0.7922.173",
+  "source_unchanged": true,
+  "finished_at": "2026-10-10T13:41:18.596836+00:00",
+  "passed": 24,
+  "failed": 3
+}

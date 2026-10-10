@@ -1,0 +1,88 @@
+{
+  "pages": [
+    {
+      "label": "F",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "screenshots": [
+        "F-1440-premiere.png",
+        "F-1440-complete.png",
+        "F-390-premiere.png",
+        "F-390-complete.png"
+      ]
+    },
+    {
+      "label": "E",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "screenshots": [
+        "E-1440-premiere.png",
+        "E-1440-complete.png",
+        "E-390-premiere.png",
+        "E-390-complete.png"
+      ]
+    },
+    {
+      "label": "D",
+      "brief": "Il me faut une landing page pour notre atelier de réparation de vélos, avec prise de rendez-vous.",
+      "screenshots": [
+        "D-1440-premiere.png",
+        "D-1440-complete.png",
+        "D-390-premiere.png",
+        "D-390-complete.png"
+      ]
+    },
+    {
+      "label": "C",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "screenshots": [
+        "C-1440-premiere.png",
+        "C-1440-complete.png",
+        "C-390-premiere.png",
+        "C-390-complete.png"
+      ]
+    },
+    {
+      "label": "B",
+      "brief": "Il me faut une landing page pour notre atelier de réparation de vélos, avec prise de rendez-vous.",
+      "screenshots": [
+        "B-1440-premiere.png",
+        "B-1440-complete.png",
+        "B-390-premiere.png",
+        "B-390-complete.png"
+      ]
+    },
+    {
+      "label": "A",
+      "brief": "Il me faut une landing page pour notre SaaS de facturation.",
+      "screenshots": [
+        "A-1440-premiere.png",
+        "A-1440-complete.png",
+        "A-390-premiere.png",
+        "A-390-complete.png"
+      ]
+    }
+  ],
+  "comparisons": [
+    [
+      "D",
+      "B"
+    ],
+    [
+      "C",
+      "E"
+    ],
+    [
+      "A",
+      "F"
+    ]
+  ],
+  "repetitions": [
+    [
+      "C",
+      "A"
+    ],
+    [
+      "E",
+      "F"
+    ]
+  ]
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "role": "Texte/papier",
+    "foreground": "#192b28",
+    "background": "#f3f2e9",
+    "ratio": 13.18,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Texte/carnet",
+    "foreground": "#192b28",
+    "background": "#deef64",
+    "ratio": 11.74,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Secondaire/papier",
+    "foreground": "#53645d",
+    "background": "#f3f2e9",
+    "ratio": 5.58,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Erreur/carnet",
+    "foreground": "#86251d",
+    "background": "#deef64",
+    "ratio": 7.25,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Footer",
+    "foreground": "#c4cbbb",
+    "background": "#192b28",
+    "ratio": 8.89,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Texte aide/carnet",
+    "foreground": "#344324",
+    "background": "#deef64",
+    "ratio": 8.43,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Indisponible/carnet",
+    "foreground": "#566135",
+    "background": "#deef64",
+    "ratio": 5.27,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Texte/champ",
+    "foreground": "#192b28",
+    "background": "#f8f9dc",
+    "ratio": 13.81,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Texte/récap",
+    "foreground": "#192b28",
+    "background": "#eff6ac",
+    "ratio": 13.01,
+    "threshold": 4.5,
+    "result": "PASS"
+  },
+  {
+    "role": "Frontière/champ",
+    "foreground": "#60702d",
+    "background": "#f8f9dc",
+    "ratio": 5.08,
+    "threshold": 3,
+    "result": "PASS"
+  },
+  {
+    "role": "Frontière/carnet",
+    "foreground": "#60702d",
+    "background": "#deef64",
+    "ratio": 4.32,
+    "threshold": 3,
+    "result": "PASS"
+  },
+  {
+    "role": "Frontière/papier",
+    "foreground": "#71807a",
+    "background": "#f3f2e9",
+    "ratio": 3.69,
+    "threshold": 3,
+    "result": "PASS"
+  }
+]

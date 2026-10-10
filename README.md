@@ -1,7 +1,5 @@
-# Branche `refonte` : documents de travail
+# Branche `refonte` : plan et preuves de travail
 
-Cette branche ne contient **que** les documents de la refonte de Design Governance : index, registre des constats, plan de route, fiches d'inventaire, recherches et preuves rejouables.
+Le [plan courant](PLAN/plan-refonte-systeme.md) indique l'avancement réel des phases. Le [bilan technique de phase 5](PLAN/phase5-suite.md) documente la conservation, la lecture et les contrôles du paquet. La [comparaison U6](U6/resultats.md) conserve les productions séparées, leurs parcours, les jugements et les limites.
 
-Le paquet, lui, vit sur sa propre branche ; il refuse tout fichier hors de son inventaire (constat C20, décision D1).
-
-Pour commencer, lire `00-INDEX.md`.
+Le [sommaire](00-INDEX.md) relie ces documents à l'historique de la refonte. Le paquet du produit reste sur `fix/refonte-gouvernance`, proposé vers `main` par la [PR 1](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1). Les documents et les pages d'essai restent sur cette branche documentaire, séparés de l'inventaire du paquet.

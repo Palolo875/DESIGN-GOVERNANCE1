@@ -1,0 +1,2290 @@
+{
+  "artifact": "index.html",
+  "sha256": "c8ee87b1edde58e8cee201a7add46501942e9ec2cad80064a2a3decc99ff8e75",
+  "observed_at": "2026-10-10T12:35:26.657468+00:00",
+  "runtime": "Python Playwright / /usr/bin/chromium",
+  "method": "Executed browser interactions, DOM measurements and screenshots; no participants or assistive technology",
+  "journeys": [
+    {
+      "name": "Page nominale et débordement",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "document",
+          "action": "navigate, await fonts, measure widths"
+        }
+      ],
+      "observations": {
+        "width": 1440,
+        "scroll": 1440,
+        "body": 1440,
+        "fields": [
+          {
+            "id": "client",
+            "w": 550.140625,
+            "h": 44
+          },
+          {
+            "id": "service",
+            "w": 550.140625,
+            "h": 44
+          },
+          {
+            "id": "quantity",
+            "w": 153.5625,
+            "h": 44
+          },
+          {
+            "id": "rate",
+            "w": 215,
+            "h": 44
+          },
+          {
+            "id": "tax",
+            "w": 153.5625,
+            "h": 44
+          },
+          {
+            "id": "prepare",
+            "w": 550.140625,
+            "h": 52
+          }
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Calcul initial",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#total",
+          "action": "read nominal value"
+        }
+      ],
+      "observations": {
+        "total": "2 040,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Action principale",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": ".hero-actions [data-start]",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "active": "client",
+        "rect": {
+          "x": 764.84375,
+          "y": 372.5625,
+          "width": 550.140625,
+          "height": 44,
+          "top": 372.5625,
+          "right": 1314.984375,
+          "bottom": 416.5625,
+          "left": 764.84375
+        },
+        "height": 1000
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Erreurs et saisie conservée",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#client,#service",
+          "action": "fill empty"
+        },
+        {
+          "selector": "#quantity",
+          "action": "fill 0"
+        },
+        {
+          "selector": "#rate",
+          "action": "fill -1"
+        },
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "focus": "client",
+        "errors": [
+          {
+            "id": "client-error",
+            "text": "Indiquez le nom de votre client."
+          },
+          {
+            "id": "service-error",
+            "text": "Décrivez votre prestation."
+          },
+          {
+            "id": "quantity-error",
+            "text": "Saisissez une quantité entre 0,1 et 999 jours."
+          },
+          {
+            "id": "rate-error",
+            "text": "Saisissez un prix entre 0,01 et 99 999 €."
+          }
+        ],
+        "values": [
+          {
+            "id": "client",
+            "value": "",
+            "invalid": "true"
+          },
+          {
+            "id": "service",
+            "value": "",
+            "invalid": "true"
+          },
+          {
+            "id": "quantity",
+            "value": "0",
+            "invalid": "true"
+          },
+          {
+            "id": "rate",
+            "value": "-1",
+            "invalid": "true"
+          }
+        ],
+        "dialog": false,
+        "total": "À compléter"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Reprise après erreur et recalcul",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#client,#service,#quantity,#rate",
+          "action": "fill Atelier Horizon / Conception du site vitrine / 3 / 240"
+        },
+        {
+          "selector": "#tax",
+          "action": "select 20"
+        }
+      ],
+      "observations": {
+        "errors_visible": 0,
+        "subtotal": "720,00 €",
+        "vat": "144,00 €",
+        "total": "864,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Aperçu réussi",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "open": true,
+        "focus": "close-preview",
+        "client": "Atelier Horizon",
+        "service": "Conception du site vitrine",
+        "total": "Total TTC · 864,00 €",
+        "scroll": {
+          "client": 588,
+          "scroll": 588
+        }
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Clavier dans la modale",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#preview-dialog",
+          "action": "press Tab seven times"
+        }
+      ],
+      "observations": {
+        "focus_sequence": [
+          "download",
+          "edit",
+          "close-preview",
+          "download",
+          "edit",
+          "close-preview",
+          "download"
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Téléchargement local",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#download",
+          "action": "click and save browser download"
+        }
+      ],
+      "observations": {
+        "suggested_filename": "sillage-recapitulatif-exemple.txt",
+        "contains_total": true,
+        "contains_client": true,
+        "contains_disclaimer": true,
+        "status": "Le téléchargement du récapitulatif d’exemple a été lancé."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Sortie par Escape",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#preview-dialog",
+          "action": "press Escape"
+        }
+      ],
+      "observations": {
+        "open": false,
+        "focus": "prepare"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "TVA illustrative nulle",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "#tax",
+          "action": "select 0"
+        }
+      ],
+      "observations": {
+        "total": "720,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Page nominale et débordement",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "document",
+          "action": "navigate, await fonts, measure widths"
+        }
+      ],
+      "observations": {
+        "width": 390,
+        "scroll": 390,
+        "body": 390,
+        "fields": [
+          {
+            "id": "client",
+            "w": 308,
+            "h": 44
+          },
+          {
+            "id": "service",
+            "w": 308,
+            "h": 44
+          },
+          {
+            "id": "quantity",
+            "w": 80.296875,
+            "h": 44
+          },
+          {
+            "id": "rate",
+            "w": 120.46875,
+            "h": 44
+          },
+          {
+            "id": "tax",
+            "w": 89.21875,
+            "h": 44
+          },
+          {
+            "id": "prepare",
+            "w": 308,
+            "h": 52
+          }
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Calcul initial",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "#total",
+          "action": "read nominal value"
+        }
+      ],
+      "observations": {
+        "total": "2 040,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Action principale",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": ".hero-actions [data-start]",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "active": "client",
+        "rect": {
+          "x": 41,
+          "y": 286.1875,
+          "width": 308,
+          "height": 44,
+          "top": 286.1875,
+          "right": 349,
+          "bottom": 330.1875,
+          "left": 41
+        },
+        "height": 844
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Erreurs et saisie conservée",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "#client,#service",
+          "action": "fill empty"
+        },
+        {
+          "selector": "#quantity",
+          "action": "fill 0"
+        },
+        {
+          "selector": "#rate",
+          "action": "fill -1"
+        },
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "focus": "client",
+        "errors": [
+          {
+            "id": "client-error",
+            "text": "Indiquez le nom de votre client."
+          },
+          {
+            "id": "service-error",
+            "text": "Décrivez votre prestation."
+          },
+          {
+            "id": "quantity-error",
+            "text": "Saisissez une quantité entre 0,1 et 999 jours."
+          },
+          {
+            "id": "rate-error",
+            "text": "Saisissez un prix entre 0,01 et 99 999 €."
+          }
+        ],
+        "values": [
+          {
+            "id": "client",
+            "value": "",
+            "invalid": "true"
+          },
+          {
+            "id": "service",
+            "value": "",
+            "invalid": "true"
+          },
+          {
+            "id": "quantity",
+            "value": "0",
+            "invalid": "true"
+          },
+          {
+            "id": "rate",
+            "value": "-1",
+            "invalid": "true"
+          }
+        ],
+        "dialog": false,
+        "total": "À compléter"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Reprise après erreur et recalcul",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "#client,#service,#quantity,#rate",
+          "action": "fill Atelier Horizon / Conception du site vitrine / 3 / 240"
+        },
+        {
+          "selector": "#tax",
+          "action": "select 20"
+        }
+      ],
+      "observations": {
+        "errors_visible": 0,
+        "subtotal": "720,00 €",
+        "vat": "144,00 €",
+        "total": "864,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Aperçu réussi",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "open": true,
+        "focus": "close-preview",
+        "client": "Atelier Horizon",
+        "service": "Conception du site vitrine",
+        "total": "Total TTC · 864,00 €",
+        "scroll": {
+          "client": 350,
+          "scroll": 350
+        }
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Sortie par Escape",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "#preview-dialog",
+          "action": "press Escape"
+        }
+      ],
+      "observations": {
+        "open": false,
+        "focus": "prepare"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "TVA illustrative nulle",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "#tax",
+          "action": "select 0"
+        }
+      ],
+      "observations": {
+        "total": "720,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Page nominale et débordement",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "document",
+          "action": "navigate, await fonts, measure widths"
+        }
+      ],
+      "observations": {
+        "width": 320,
+        "scroll": 320,
+        "body": 320,
+        "fields": [
+          {
+            "id": "client",
+            "w": 256,
+            "h": 44
+          },
+          {
+            "id": "service",
+            "w": 256,
+            "h": 44
+          },
+          {
+            "id": "quantity",
+            "w": 63.46875,
+            "h": 44
+          },
+          {
+            "id": "rate",
+            "w": 99.171875,
+            "h": 44
+          },
+          {
+            "id": "tax",
+            "w": 79.359375,
+            "h": 44
+          },
+          {
+            "id": "prepare",
+            "w": 256,
+            "h": 52
+          }
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Calcul initial",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "#total",
+          "action": "read nominal value"
+        }
+      ],
+      "observations": {
+        "total": "2 040,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Action principale",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": ".hero-actions [data-start]",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "active": "client",
+        "rect": {
+          "x": 32,
+          "y": 283.890625,
+          "width": 256,
+          "height": 44,
+          "top": 283.890625,
+          "right": 288,
+          "bottom": 327.890625,
+          "left": 32
+        },
+        "height": 844
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Erreurs et saisie conservée",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "#client,#service",
+          "action": "fill empty"
+        },
+        {
+          "selector": "#quantity",
+          "action": "fill 0"
+        },
+        {
+          "selector": "#rate",
+          "action": "fill -1"
+        },
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "focus": "client",
+        "errors": [
+          {
+            "id": "client-error",
+            "text": "Indiquez le nom de votre client."
+          },
+          {
+            "id": "service-error",
+            "text": "Décrivez votre prestation."
+          },
+          {
+            "id": "quantity-error",
+            "text": "Saisissez une quantité entre 0,1 et 999 jours."
+          },
+          {
+            "id": "rate-error",
+            "text": "Saisissez un prix entre 0,01 et 99 999 €."
+          }
+        ],
+        "values": [
+          {
+            "id": "client",
+            "value": "",
+            "invalid": "true"
+          },
+          {
+            "id": "service",
+            "value": "",
+            "invalid": "true"
+          },
+          {
+            "id": "quantity",
+            "value": "0",
+            "invalid": "true"
+          },
+          {
+            "id": "rate",
+            "value": "-1",
+            "invalid": "true"
+          }
+        ],
+        "dialog": false,
+        "total": "À compléter"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Reprise après erreur et recalcul",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "#client,#service,#quantity,#rate",
+          "action": "fill Atelier Horizon / Conception du site vitrine / 3 / 240"
+        },
+        {
+          "selector": "#tax",
+          "action": "select 20"
+        }
+      ],
+      "observations": {
+        "errors_visible": 0,
+        "subtotal": "720,00 €",
+        "vat": "144,00 €",
+        "total": "864,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Aperçu réussi",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "open": true,
+        "focus": "close-preview",
+        "client": "Atelier Horizon",
+        "service": "Conception du site vitrine",
+        "total": "Total TTC · 864,00 €",
+        "scroll": {
+          "client": 280,
+          "scroll": 280
+        }
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Sortie par Escape",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "#preview-dialog",
+          "action": "press Escape"
+        }
+      ],
+      "observations": {
+        "open": false,
+        "focus": "prepare"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "TVA illustrative nulle",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "#tax",
+          "action": "select 0"
+        }
+      ],
+      "observations": {
+        "total": "720,00 €"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Contenu long",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "#client,#service",
+          "action": "fill long French client and service"
+        },
+        {
+          "selector": "#prepare",
+          "action": "click"
+        }
+      ],
+      "observations": {
+        "client": 350,
+        "scroll": 350,
+        "height": 757,
+        "scrollHeight": 757,
+        "client_text": "Studio des projets et des collaborations indépendantes — Horizon et ses partenaires créatifs",
+        "service_text": "Conception et direction artistique du site, des supports éditoriaux et de la campagne de lancement — phase de validation finale"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Parcours Tab de la page",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "body",
+          "action": "reload, Tab through page until cycle or 27 steps"
+        }
+      ],
+      "observations": {
+        "stops": [
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Aller au contenu",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "sillage.\nNom de marque d’exemple",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Essayer la démo\n→",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Essayer la facture\n→",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Découvrir l’offre",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "id": "client",
+            "text": "client",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "id": "service",
+            "text": "service",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "id": "quantity",
+            "text": "quantity",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "id": "rate",
+            "text": "rate",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "SELECT",
+            "id": "tax",
+            "text": "20 %\n10 %\n5,5 %\n0 %",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "BUTTON",
+            "id": "prepare",
+            "text": "Préparer l’aperçu\n→",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Tester avec la facture d’exemple\n→",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "SUMMARY",
+            "id": "",
+            "text": "À qui s’adresse cette proposition ?",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "SUMMARY",
+            "id": "",
+            "text": "Que puis-je faire dans la démo ?",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "SUMMARY",
+            "id": "",
+            "text": "La facturation électronique est-elle prévue ?",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "SUMMARY",
+            "id": "",
+            "text": "Le prix et les fonctions sont-ils définitifs ?",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Essayer la démo\n→",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "sillage.",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Les détails de la démo",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": true
+          },
+          {
+            "tag": "BODY",
+            "id": "",
+            "text": "Aller au contenu\nsillage.\nNom de marque d’exemple\nEssayer la démo\n→\n\nL",
+            "outline": "rgb(23, 60, 50) none 3px",
+            "visible": false
+          },
+          {
+            "tag": "A",
+            "id": "",
+            "text": "Aller au contenu",
+            "outline": "rgb(36, 113, 90) solid 3px",
+            "visible": false
+          }
+        ],
+        "all_visible_and_outlined": false
+      },
+      "result": "FAIL"
+    },
+    {
+      "name": "FAQ au clavier",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "summary:nth(1)",
+          "action": "focus then Enter"
+        }
+      ],
+      "observations": {
+        "open": true,
+        "text": "Que puis-je faire dans la démo ?\n\nModifiez le client, la prestation, la quantité, le prix et le taux de TVA. Préparez ensuite un aperçu et téléchargez un récapitulatif d’exemple. Tout reste dans votre navigateur ; rien n’est envoyé à un client."
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Mouvement réduit",
+      "viewport": "390x844",
+      "steps": [
+        {
+          "selector": "html",
+          "action": "emulate reduced motion and read scroll-behavior"
+        }
+      ],
+      "observations": {
+        "preference": true,
+        "scroll": "auto"
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Texte de base à 200 %",
+      "viewport": "320x844",
+      "steps": [
+        {
+          "selector": "body",
+          "action": "set font-size 200%, measure page overflow"
+        }
+      ],
+      "observations": {
+        "width": 320,
+        "scroll": 320
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Contrastes textuels sur fonds unis",
+      "viewport": "1440x1000",
+      "steps": [
+        {
+          "selector": "visible direct text,input,select",
+          "action": "calculate WCAG relative luminance, nearest opaque ancestor background"
+        }
+      ],
+      "observations": {
+        "samples": 99,
+        "failures": []
+      },
+      "result": "PASS"
+    },
+    {
+      "name": "Autonomie et erreurs JS",
+      "viewport": "all tested viewports",
+      "steps": [
+        {
+          "selector": "page",
+          "action": "record pageerror and requests during executed journeys"
+        }
+      ],
+      "observations": {
+        "errors": [],
+        "external_requests": []
+      },
+      "result": "PASS"
+    }
+  ],
+  "limitations": [
+    "No screen reader, Firefox, Safari, real product, registration, fiscal conformity or real delivery tested.",
+    "The body font-size 200% probe does not establish browser zoom support: most typography uses explicit px sizes. Real browser zoom remains unverified."
+  ],
+  "contrast_samples": [
+    {
+      "tag": "A",
+      "id": "",
+      "class": "skip",
+      "text": "Aller au contenu",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "16px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "brand",
+      "text": "sillage.Nom de marque d’exemple",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "33px",
+      "weight": "750",
+      "ratio": 10.55,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": ".",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(232, 241, 237)",
+      "size": "33px",
+      "weight": "750",
+      "ratio": 5.21,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "brand-note",
+      "text": "Nom de marque d’exemple",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(232, 241, 237)",
+      "size": "10px",
+      "weight": "500",
+      "ratio": 5.21,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "nav-secondary",
+      "text": "Le fonctionnement",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "14px",
+      "weight": "650",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "nav-secondary",
+      "text": "L’offre",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "14px",
+      "weight": "650",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "nav-action",
+      "text": "Essayer la démo →",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "14px",
+      "weight": "650",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "arrow",
+      "text": "→",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "20px",
+      "weight": "650",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "eyebrow",
+      "text": "La facturation au rythme des indépendants",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "11px",
+      "weight": "750",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H1",
+      "id": "hero-title",
+      "class": "",
+      "text": "Le projet est livré.La facture aussi.",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "66px",
+      "weight": "650",
+      "ratio": 10.55,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "last",
+      "text": "La facture aussi.",
+      "color": "rgb(75, 112, 92)",
+      "background": "rgb(232, 241, 237)",
+      "size": "66px",
+      "weight": "650",
+      "ratio": 4.84,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "intro",
+      "text": "Votre travail mérite une suite simple. Préparez une facture clair",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "17px",
+      "weight": "400",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "primary",
+      "text": "Essayer la facture →",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(23, 60, 50)",
+      "size": "14px",
+      "weight": "700",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "arrow",
+      "text": "→",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(23, 60, 50)",
+      "size": "20px",
+      "weight": "700",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "text-link",
+      "text": "Découvrir l’offre",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "13px",
+      "weight": "700",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "micro",
+      "text": "Démo locale, sans compte. Rien n’est envoyé.",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(232, 241, 237)",
+      "size": "12px",
+      "weight": "400",
+      "ratio": 5.21,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": "01 / Votre prochaine facture",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(232, 241, 237)",
+      "size": "12px",
+      "weight": "650",
+      "ratio": 10.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "try",
+      "text": "Modifiez-la pour essayer ↓",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(232, 241, 237)",
+      "size": "11px",
+      "weight": "500",
+      "ratio": 5.21,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "class": "doc-word",
+      "text": "Facture",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "23px",
+      "weight": "750",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "class": "doc-ref",
+      "text": "EX-2026-001 · EXEMPLE",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "status",
+      "text": "Brouillon",
+      "color": "rgb(65, 87, 46)",
+      "background": "rgb(240, 243, 233)",
+      "size": "10px",
+      "weight": "700",
+      "ratio": 7.12,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": "Date de création10 octobre 2026",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "STRONG",
+      "id": "",
+      "class": "",
+      "text": "10 octobre 2026",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "12px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": "Échéance · exemple9 novembre 2026",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "STRONG",
+      "id": "",
+      "class": "",
+      "text": "9 novembre 2026",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "12px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LABEL",
+      "id": "",
+      "class": "",
+      "text": "Votre client",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "INPUT",
+      "id": "client",
+      "class": "",
+      "text": "Studio Rivage",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LABEL",
+      "id": "",
+      "class": "",
+      "text": "Votre prestation",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "INPUT",
+      "id": "service",
+      "class": "",
+      "text": "Direction artistique — lancement",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LABEL",
+      "id": "",
+      "class": "",
+      "text": "Quantité en jours",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "unit",
+      "text": "en jours",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "500",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "INPUT",
+      "id": "quantity",
+      "class": "",
+      "text": "2",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LABEL",
+      "id": "",
+      "class": "",
+      "text": "Prix unitaire € HT / jour",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "unit",
+      "text": "€ HT / jour",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "500",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "INPUT",
+      "id": "rate",
+      "class": "",
+      "text": "850",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LABEL",
+      "id": "",
+      "class": "",
+      "text": "TVA exemple",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "unit",
+      "text": "exemple",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "500",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SELECT",
+      "id": "tax",
+      "class": "",
+      "text": "20 %10 %5,5 %0 %",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": "Montant HT",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "12px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "subtotal",
+      "class": "",
+      "text": "1 700,00 €",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "12px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "tax-label",
+      "class": "",
+      "text": "TVA · 20 %",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "12px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "tax-total",
+      "class": "",
+      "text": "340,00 €",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "12px",
+      "weight": "400",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": "Total TTC",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "OUTPUT",
+      "id": "total",
+      "class": "",
+      "text": "2 040,00 €",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "31px",
+      "weight": "700",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "BUTTON",
+      "id": "prepare",
+      "class": "primary doc-action",
+      "text": "Préparer l’aperçu →",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(215, 237, 159)",
+      "size": "14px",
+      "weight": "700",
+      "ratio": 9.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "arrow",
+      "text": "→",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(215, 237, 159)",
+      "size": "20px",
+      "weight": "700",
+      "ratio": 9.55,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "demo-note",
+      "text": "Démonstration locale · données d’exempleAucun envoi, paiement ou ",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "section-kicker",
+      "text": "Un fil conducteur",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "700",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H2",
+      "id": "journey-title",
+      "class": "",
+      "text": "Votre activité avance.Vos factures suivent.",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "44px",
+      "weight": "600",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "section-description",
+      "text": "Un espace pour passer du travail réalisé au paiement suivi, sans ",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "15px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "step-num",
+      "text": "01",
+      "color": "rgb(96, 119, 106)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 4.83,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H3",
+      "id": "",
+      "class": "step-title",
+      "text": "Posez les bons montants.",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "22px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "step-copy",
+      "text": "Une prestation, une quantité, un prix. Le total suit vos modifica",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "STRONG",
+      "id": "",
+      "class": "",
+      "text": "Direction artistique",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(245, 247, 242)",
+      "size": "12px",
+      "weight": "650",
+      "ratio": 11.26,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SMALL",
+      "id": "",
+      "class": "",
+      "text": "2 jours × 850,00 € HT",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(245, 247, 242)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 5.57,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "state-label",
+      "text": "Brouillon",
+      "color": "rgb(65, 87, 46)",
+      "background": "rgb(228, 237, 219)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 6.64,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "step-num",
+      "text": "02",
+      "color": "rgb(96, 119, 106)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 4.83,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H3",
+      "id": "",
+      "class": "step-title",
+      "text": "Gardez une vue claire.",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "22px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "step-copy",
+      "text": "Retrouvez le client, l’échéance et le montant sur un même documen",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "STRONG",
+      "id": "",
+      "class": "",
+      "text": "Studio Rivage",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(245, 247, 242)",
+      "size": "12px",
+      "weight": "650",
+      "ratio": 11.26,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SMALL",
+      "id": "",
+      "class": "",
+      "text": "Échéance : 9 novembre 2026",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(245, 247, 242)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 5.57,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "state-label await",
+      "text": "À régler",
+      "color": "rgb(108, 84, 24)",
+      "background": "rgb(247, 239, 210)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 6.25,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "step-num",
+      "text": "03",
+      "color": "rgb(96, 119, 106)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 4.83,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H3",
+      "id": "",
+      "class": "step-title",
+      "text": "Passez au projet suivant.",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "22px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "step-copy",
+      "text": "Un suivi des règlements pensé pour savoir où en est chaque factur",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "STRONG",
+      "id": "",
+      "class": "",
+      "text": "EX-2026-001",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(245, 247, 242)",
+      "size": "12px",
+      "weight": "650",
+      "ratio": 11.26,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SMALL",
+      "id": "",
+      "class": "",
+      "text": "2 040,00 € TTC · scénario d’exemple",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(245, 247, 242)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 5.57,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "state-label done",
+      "text": "Réglée",
+      "color": "rgb(23, 87, 66)",
+      "background": "rgb(224, 238, 233)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 7.09,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "process-note",
+      "text": "Parcours produit illustratif. Le calcul et l’aperçu se testent ic",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "section-kicker",
+      "text": "Une offre lisible",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(242, 243, 231)",
+      "size": "11px",
+      "weight": "700",
+      "ratio": 5.36,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H2",
+      "id": "offer-title",
+      "class": "",
+      "text": "Moins de gestion.Plus de placepour votre métier.",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "48px",
+      "weight": "600",
+      "ratio": 10.85,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "offer-description",
+      "text": "Une proposition d’abonnement pour les indépendants qui veulent ré",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(242, 243, 231)",
+      "size": "15px",
+      "weight": "400",
+      "ratio": 5.36,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": "L’essentiel, au même endroit",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "13px",
+      "weight": "650",
+      "ratio": 10.85,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "example",
+      "text": "Offre d’exemple",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "10px",
+      "weight": "500",
+      "ratio": 10.85,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "STRONG",
+      "id": "",
+      "class": "",
+      "text": "12 €",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "67px",
+      "weight": "650",
+      "ratio": 10.85,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "",
+      "text": "HT / mois",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 10.85,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "price-note",
+      "text": "Prix et conditions illustratifs, à confirmer.",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(242, 243, 231)",
+      "size": "11px",
+      "weight": "400",
+      "ratio": 5.36,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "class": "",
+      "text": "Création de devis et de factures",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 10.85,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "class": "",
+      "text": "Répertoire de clients et de prestations",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 10.85,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "class": "",
+      "text": "Vue des échéances et des règlements",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(242, 243, 231)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 10.85,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "primary",
+      "text": "Tester avec la facture d’exemple →",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(23, 60, 50)",
+      "size": "14px",
+      "weight": "700",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "arrow",
+      "text": "→",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(23, 60, 50)",
+      "size": "20px",
+      "weight": "700",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "micro",
+      "text": "La démo est locale. Aucune souscription.",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(242, 243, 231)",
+      "size": "12px",
+      "weight": "400",
+      "ratio": 5.36,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "section-kicker",
+      "text": "Avant de commencer",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "11px",
+      "weight": "700",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H2",
+      "id": "faq-title",
+      "class": "",
+      "text": "Les choses à savoir.",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "38px",
+      "weight": "600",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "SUMMARY",
+      "id": "",
+      "class": "",
+      "text": "À qui s’adresse cette proposition ?",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "14px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "",
+      "text": "Nous avons imaginé Sillage pour les indépendants et petits studio",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SUMMARY",
+      "id": "",
+      "class": "",
+      "text": "Que puis-je faire dans la démo ?",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "14px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "",
+      "text": "Modifiez le client, la prestation, la quantité, le prix et le tau",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SUMMARY",
+      "id": "",
+      "class": "",
+      "text": "La facturation électronique est-elle prévue ?",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "14px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "",
+      "text": "Les capacités du véritable produit devront être précisées. Cette ",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SUMMARY",
+      "id": "",
+      "class": "",
+      "text": "Le prix et les fonctions sont-ils définitifs ?",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(255, 255, 255)",
+      "size": "14px",
+      "weight": "650",
+      "ratio": 12.15,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "",
+      "text": "Non. L’offre à 12 € HT par mois et le parcours de suivi servent à",
+      "color": "rgb(82, 104, 93)",
+      "background": "rgb(255, 255, 255)",
+      "size": "13px",
+      "weight": "400",
+      "ratio": 6.01,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "H2",
+      "id": "closing-title",
+      "class": "",
+      "text": "Une facture au clair.Et la suite devant vous.",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(23, 60, 50)",
+      "size": "44px",
+      "weight": "600",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "primary",
+      "text": "Essayer la démo →",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(215, 237, 159)",
+      "size": "14px",
+      "weight": "700",
+      "ratio": 9.55,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "SPAN",
+      "id": "",
+      "class": "arrow",
+      "text": "→",
+      "color": "rgb(23, 60, 50)",
+      "background": "rgb(215, 237, 159)",
+      "size": "20px",
+      "weight": "700",
+      "ratio": 9.55,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "brand",
+      "text": "sillage.",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(23, 60, 50)",
+      "size": "27px",
+      "weight": "750",
+      "ratio": 12.15,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "tag": "P",
+      "id": "",
+      "class": "",
+      "text": "Première proposition · marque, offre et données d’exemple.Fonctio",
+      "color": "rgb(201, 215, 207)",
+      "background": "rgb(23, 60, 50)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 8.16,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "tag": "A",
+      "id": "",
+      "class": "",
+      "text": "Les détails de la démo",
+      "color": "rgb(201, 215, 207)",
+      "background": "rgb(23, 60, 50)",
+      "size": "10px",
+      "weight": "400",
+      "ratio": 8.16,
+      "minimum": 4.5,
+      "pass": true
+    }
+  ],
+  "console_errors": [],
+  "requests": [
+    "http://127.0.0.1:43853/index.html"
+  ],
+  "passed": 32,
+  "failed": 1
+}

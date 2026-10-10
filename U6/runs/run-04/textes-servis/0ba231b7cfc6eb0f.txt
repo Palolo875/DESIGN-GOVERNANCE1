@@ -1,0 +1,10 @@
+SOMMAIRE — ACTION/GATE-B : 8 sous-section(s)
+- B1 — Comparaison relationnelle  (0.6 k)  → ACTION/GATE-B/B1
+- B1b — Discrimination sur capture, requise dans son scope  (4.7 k)  → ACTION/GATE-B/B1b
+  - Atelier d’édition — opération observable  (3.6 k)
+- B2 — Familles de preuve  (1.1 k)  → ACTION/GATE-B/B2
+- B3 — Regard externe  (1.9 k)  → ACTION/GATE-B/B3
+- B4 — Corrections ancrées  (0.5 k)  → ACTION/GATE-B/B4
+- B5 — Trace d’assets et statut de direction  (0.6 k)  → ACTION/GATE-B/B5
+- B6 — Format de sortie compact  (0.4 k)  → ACTION/GATE-B/B6
+Lire la route entière : python3 scripts/read_route.py ACTION/GATE-B

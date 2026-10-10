@@ -1,0 +1,25 @@
+TROUVER (mots entiers) : « frame » — 17 ligne(s) normative(s), 11 route(s) ; 0 ligne(s) de guide
+SOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)
+DIRECTION/DOMAIN-FRAME             3 ligne(s)  · direction/cadrer#domaine
+    agent/chemins.md:80    ### DIRECTION/DOMAIN-FRAME — adapter le design au domaine
+    agent/chemins.md:103   …opriétés de `gouvernance/schemas/domain_frame.schema.json`. Toute projection machine doit utiliser ces clés et compléter…
+SAVOIR/FRAME                       1 ligne(s)  · savoir/fondements
+    design/savoir/fondements.md:6     # SAVOIR/FRAME — fondations et cadrage
+BIBLIOTHEQUE/SUPPORT               1 ligne(s)  · formes/catalogue#supports
+    design/formes/catalogue.md:20    ### `SUPPORT/ARCHITECTED_FRAME`
+DIRECTION/CHARGE                   2 ligne(s)  · agent/chemins#quoi-lire
+    agent/chemins.md:157   (noyau) …OFF`), `ACTION/GATE-B` ciblé. | `SAVOIR/FRAME` si le cadrage est ambigu ; `DIRECTION/DOMAIN-FRAME` si la demande est nou…
+    agent/chemins.md:158   (noyau) …nt modifier la première scène ; `SAVOIR/FRAME`, `SAVOIR/CRAFT`, `SAVOIR/SOURCE` et `BIBLIOTHEQUE/SELECT` si nécessaires …
+SAVOIR/STYLE                       2 ligne(s)  · savoir/styles
+    design/savoir/styles.md:10    …arcours est : `DIRECTION/START → SAVOIR/FRAME si le cadrage est à éclaircir → SAVOIR/STYLE si nécessaire → ACTION/RUN-*`…
+    design/savoir/styles.md:82    …erdicts. Ils sont choisis après `DOMAIN-FRAME` et `CREATIVE-BOOT`, seulement s’ils changent une décision ; une position …
+ACTION/GATE-A                      1 ligne(s)  · produit/plancher
+    design/produit/plancher.md:20    …budget pertinente : load/INP, lancement/frame rate/mémoire, confort motion, encre/contraste ou équivalent déclaré.
+SAVOIR/ROUTING                     1 ligne(s)  · guides/designer#routes
+    SAVOIR.md:40    …ic, JTBD, décision, compromis | `SAVOIR/FRAME` | `ACTION` pour preuve et sortie. |
+SAVOIR/SOURCE                      1 ligne(s)  · savoir/images-et-sources
+    design/savoir/images-et-sources.md:34    Lorsque le `DOMAIN-FRAME`, le risque ou l’ambition déclenche une recherche, ne collecte pas des liens pour décorer la tr…
+… 3 autre(s) route(s) : ajouter --tout
+(hors route)                       agent/chemins.md:222   | Cadrage ambigu | `SAVOIR/FRAME`. |
+(hors route)                       SAVOIR.md:11    …er le prochain artefact ou sa preuve : `FRAME` pour le problème, le public et le compromis ; `CRAFT` pour la composition…
+Lire une route : python3 scripts/read_route.py LOCATOR ; ses sous-sections : --sommaire LOCATOR ; (noyau) : passage déjà chargé avec la skill

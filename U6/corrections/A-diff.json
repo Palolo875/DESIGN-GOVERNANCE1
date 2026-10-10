@@ -1,0 +1,7 @@
+{
+  "original_sha256": "e6d5ed677986691617d1d3314a12c33990e62b79ec8eaf82337440dc3960e45a",
+  "corrected_sha256": "89299922dd5542418ec36d3202feea7fbdfae18ec50e8f0d4004fb44f74936f7",
+  "change": "Dynamic keyboard wrap uses only currently visible and enabled controls. Handles form and success states.",
+  "scope": "Manual repair, outside the frozen comparison and outside measured producer cost.",
+  "raw_artifact_unchanged": true
+}

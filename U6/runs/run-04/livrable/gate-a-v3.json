@@ -1,0 +1,490 @@
+{
+  "provenance": {
+    "artifact_locator": "/workspace/remesure-phase5/runs/run-04/livrable/index.html",
+    "artifact_version": "f35e3cb4d267",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-10T13:35:46Z",
+    "scope": "état initial, largeurs 320,390,1440 px",
+    "external_requests_blocked": 0,
+    "browser": {
+      "engine": "chromium",
+      "version": "151.0.7922.173",
+      "executable": "/usr/bin/chromium"
+    },
+    "local_server": "127.0.0.1, temporaire"
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 320, 390, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 320 px : 76 texte(s) évalué(s), 119 candidat(s), 36 exclu(s) ; 390 px : 79 texte(s) évalué(s), 119 candidat(s), 33 exclu(s) ; 1440 px : 83 texte(s) évalué(s), 119 candidat(s), 29 exclu(s) ; 320 px : texte non évalué : li (contenu ::before), li (contenu ::before), li (contenu ::before), summary (contenu ::after), summary (contenu ::after), summary (contenu ::after) ; 390 px : texte non évalué : li (contenu ::before), li (contenu ::before), li (contenu ::before), summary (contenu ::after), summary (contenu ::after), summary (contenu ::after) ; 1440 px : texte non évalué : li (contenu ::before), li (contenu ::before), li (contenu ::before), summary (contenu ::after), summary (contenu ::after), summary (contenu ::after)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "15 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié ; candidat hors couverture : summary"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "12 arrêt(s) à 320 px ; 320 px : page, fin=end, 12 candidat(s) ; 12 arrêt(s) à 390 px ; 390 px : page, fin=end, 12 candidat(s) ; 15 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 15 candidat(s) ; style observé, visibilité et contraste du focus à vérifier"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation active"
+    },
+    {
+      "check": "Objet de preuve au premier écran (.sheet)",
+      "status": "PASS",
+      "detail": "320 px : intersection verticale 245.6875 px sur 553.21875, horizontale 266 px sur 266; 390 px : intersection verticale 290.90625 px sur 519.625, horizontale 322 px sur 322; 1440 px : intersection verticale 548.46875 px sur 548.46875, horizontale 559.828125 px sur 559.828125 ; rectangle et CSS observés, pixels et occlusion non vérifiés"
+    }
+  ],
+  "keyboard_coverage": {
+    "320": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "button"
+        },
+        {
+          "key": "control-3",
+          "id": "#primary-cta"
+        },
+        {
+          "key": "control-4",
+          "id": "#edit-example"
+        },
+        {
+          "key": "control-5",
+          "id": "button"
+        },
+        {
+          "key": "control-6",
+          "id": "summary"
+        },
+        {
+          "key": "control-7",
+          "id": "summary"
+        },
+        {
+          "key": "control-8",
+          "id": "summary"
+        },
+        {
+          "key": "control-9",
+          "id": "summary"
+        },
+        {
+          "key": "control-10",
+          "id": "button"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "#download",
+        "#close-dialog",
+        "#client",
+        "#service",
+        "#hours",
+        "#rate",
+        "#tax",
+        "#cancel",
+        "#submit-invoice"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 12
+    },
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "button"
+        },
+        {
+          "key": "control-3",
+          "id": "#primary-cta"
+        },
+        {
+          "key": "control-4",
+          "id": "#edit-example"
+        },
+        {
+          "key": "control-5",
+          "id": "button"
+        },
+        {
+          "key": "control-6",
+          "id": "summary"
+        },
+        {
+          "key": "control-7",
+          "id": "summary"
+        },
+        {
+          "key": "control-8",
+          "id": "summary"
+        },
+        {
+          "key": "control-9",
+          "id": "summary"
+        },
+        {
+          "key": "control-10",
+          "id": "button"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "#download",
+        "#close-dialog",
+        "#client",
+        "#service",
+        "#hours",
+        "#rate",
+        "#tax",
+        "#cancel",
+        "#submit-invoice"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 12
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "button"
+        },
+        {
+          "key": "control-6",
+          "id": "#primary-cta"
+        },
+        {
+          "key": "control-7",
+          "id": "#edit-example"
+        },
+        {
+          "key": "control-8",
+          "id": "button"
+        },
+        {
+          "key": "control-9",
+          "id": "summary"
+        },
+        {
+          "key": "control-10",
+          "id": "summary"
+        },
+        {
+          "key": "control-11",
+          "id": "summary"
+        },
+        {
+          "key": "control-12",
+          "id": "summary"
+        },
+        {
+          "key": "control-13",
+          "id": "button"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "#download",
+        "#close-dialog",
+        "#client",
+        "#service",
+        "#hours",
+        "#rate",
+        "#tax",
+        "#cancel",
+        "#submit-invoice"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 15
+    }
+  },
+  "contrast_coverage": {
+    "320": {
+      "method": "dom-text-bounded",
+      "candidates": 119,
+      "evaluated": 76,
+      "excluded": 36,
+      "unmeasured": [
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        }
+      ]
+    },
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 119,
+      "evaluated": 79,
+      "excluded": 33,
+      "unmeasured": [
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        }
+      ]
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 119,
+      "evaluated": 83,
+      "excluded": 29,
+      "unmeasured": [
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        },
+        {
+          "sel": "summary",
+          "kind": "contenu ::after"
+        }
+      ]
+    }
+  },
+  "proof_observations": {
+    "320": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 266,
+      "h": 553.21875,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 266,
+      "visible": 245.6875,
+      "limits": []
+    },
+    "390": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 322,
+      "h": 519.625,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 322,
+      "visible": 290.90625,
+      "limits": []
+    },
+    "1440": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 559.828125,
+      "h": 548.46875,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 559.828125,
+      "visible": 548.46875,
+      "limits": []
+    }
+  }
+}

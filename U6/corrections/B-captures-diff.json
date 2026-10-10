@@ -1,0 +1,19 @@
+{
+  "raw": {
+    "1440-complete.png": "ee171e0f6f59c8e2a83a04e77ffaa75cdfaff67385b4da97cf0a7aadd24e1888",
+    "1440-premiere.png": "ba492500bd64d52fbf46093721af24d2d50379870c6157c1cd5f75f3a2894323",
+    "320-complete.png": "57bd4f757a6c5e4b09b1ab961f60e549947904b11125ea999348ed48c4df6e94",
+    "320-premiere.png": "5ee410f91e1e0c9e114cb104719255d682eecc43f27adc381771bd86d198e8ec",
+    "390-complete.png": "015c8f6f73751d1ae6b11be033264064e6c66a6a2c89b106b55fb096b6ae49ab",
+    "390-premiere.png": "3b274d39181b45d7a1f0cb2de66c5fb83e4943213103c3463d26a25adc8d9ca2"
+  },
+  "corrected": {
+    "1440-complete.png": "ee171e0f6f59c8e2a83a04e77ffaa75cdfaff67385b4da97cf0a7aadd24e1888",
+    "1440-premiere.png": "ba492500bd64d52fbf46093721af24d2d50379870c6157c1cd5f75f3a2894323",
+    "320-complete.png": "51143efff7d6119fffc8ff5629a9d7870a2b7eb1b6396f0d9e85869e12482234",
+    "320-premiere.png": "5ee410f91e1e0c9e114cb104719255d682eecc43f27adc381771bd86d198e8ec",
+    "390-complete.png": "cd1670276dbad5fbbe64acd3dd56749bcc442290cbe6ded6a70cf623e5d541ee",
+    "390-premiere.png": "3b274d39181b45d7a1f0cb2de66c5fb83e4943213103c3463d26a25adc8d9ca2"
+  },
+  "note": "Les captures complètes mobiles changent pour la correction de la mention de prix ; première scène et vues desktop conservées."
+}

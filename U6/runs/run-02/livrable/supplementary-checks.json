@@ -1,0 +1,142 @@
+{
+  "observed_at": "2026-10-10T12:56:42.763367+00:00",
+  "artifact_sha256": "e6d5ed677986691617d1d3314a12c33990e62b79ec8eaf82337440dc3960e45a",
+  "method": "Calcul sRGB et inspection DOM dans Chromium",
+  "contrast": [
+    {
+      "role": "texte principal",
+      "foreground": "#172d2b",
+      "background": "#f7f8f2",
+      "ratio": 13.593,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "texte secondaire",
+      "foreground": "#52625c",
+      "background": "#f7f8f2",
+      "ratio": 6.031,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "facture secondaire",
+      "foreground": "#52625c",
+      "background": "#ffffff",
+      "ratio": 6.441,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "texte champ de preuve",
+      "foreground": "#172d2b",
+      "background": "#e4ecce",
+      "ratio": 11.881,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "texte de section sombre",
+      "foreground": "#c8d3ca",
+      "background": "#172d2b",
+      "ratio": 9.419,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "action sombre",
+      "foreground": "#f7f8f2",
+      "background": "#172d2b",
+      "ratio": 13.593,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "statut",
+      "foreground": "#d5ea7d",
+      "background": "#264440",
+      "ratio": 8.014,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "message d’erreur",
+      "foreground": "#972c25",
+      "background": "#ffebe6",
+      "ratio": 6.762,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "erreur locale",
+      "foreground": "#972c25",
+      "background": "#f7f8f2",
+      "ratio": 7.275,
+      "threshold": 4.5,
+      "result": "PASS"
+    },
+    {
+      "role": "focus clair",
+      "foreground": "#426339",
+      "background": "#f7f8f2",
+      "ratio": 6.394,
+      "threshold": 3,
+      "result": "PASS"
+    },
+    {
+      "role": "focus champ de preuve",
+      "foreground": "#426339",
+      "background": "#e4ecce",
+      "ratio": 5.589,
+      "threshold": 3,
+      "result": "PASS"
+    },
+    {
+      "role": "focus sombre",
+      "foreground": "#d5ea7d",
+      "background": "#172d2b",
+      "ratio": 10.987,
+      "threshold": 3,
+      "result": "PASS"
+    },
+    {
+      "role": "frontière input",
+      "foreground": "#76887a",
+      "background": "#ffffff",
+      "ratio": 3.768,
+      "threshold": 3,
+      "result": "PASS"
+    }
+  ],
+  "limits": [
+    "Ces paires couvrent les principaux rôles opaques ; aucune certification exhaustive.",
+    "Pseudo-contenus et opacité de numéros restent hors mesure de recette.",
+    "Lecture humaine non réalisée."
+  ],
+  "fonts": {
+    "manrope": true,
+    "instrument": true,
+    "main_count": 1,
+    "main_sections": 5
+  },
+  "error_focus": {
+    "id": "amount",
+    "outline": "rgb(66, 99, 57)",
+    "rect": {
+      "x": 39,
+      "y": 506.359375,
+      "width": 150,
+      "height": 49.09375,
+      "top": 506.359375,
+      "right": 189,
+      "bottom": 555.453125,
+      "left": 39
+    }
+  },
+  "dark_focus": {
+    "outline": "rgb(213, 234, 125)",
+    "outline_width": "3px",
+    "outline_style": "solid",
+    "active": true
+  }
+}

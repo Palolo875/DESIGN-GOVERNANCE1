@@ -1,0 +1,33 @@
+ROUTE: DIRECTION/DOMAIN-FRAME (adresse : direction/cadrer#domaine)
+OWNER: agent/chemins.md
+HEADING: ### DIRECTION/DOMAIN-FRAME — adapter le design au domaine
+---
+### DIRECTION/DOMAIN-FRAME — adapter le design au domaine
+
+Pour une demande multi-domaines, nouvelle ou ambiguë, complète le cadrage avec les variables qui peuvent changer la structure, l’expression, la preuve ou la profondeur de recherche :
+
+```text
+domain: domaine, catégorie et sous-contexte
+audience: public et situation d’usage
+expertise: niveau de connaissance attendu
+jtbd: tâche principale et résultat attendu
+trust_model: ce qui doit inspirer confiance et ce qui pourrait la détruire
+critical_actions: gestes, décisions, permissions ou récupérations sensibles
+domain_conventions: conventions utiles, contraintes et conventions à contester
+cultural_context: langue, codes, références et risques de mauvaise lecture
+originality_tolerance: `low`, `medium`, `high` ou `unknown`, selon la marge d’écart compatible avec la tâche et le risque
+proof_requirements: ce qui doit être compris, démontré, mesuré ou testé
+domain_risks: risques propres au domaine et conséquences d’erreur
+required_research: recherches nécessaires avant décision ou build
+critical_states: états, erreurs, permissions et récupérations critiques
+design_constraints: contraintes de conception, contenu, plateforme ou gouvernance
+evidence_plan: méthode, scope, artefact, limite et prochaine preuve
+policy_profile: `risk_triggers`, `required_controls`, `risk_coverage`, `depth_rules` et `contraindications`
+```
+
+Ce gabarit reprend exactement les propriétés de `gouvernance/schemas/domain_frame.schema.json`. Toute projection machine doit utiliser ces clés et compléter les champs requis ; aucune clé abrégée telle que `DEPTH-TRIGGER` ne doit être sérialisée. `policy_profile.depth_rules` porte les conditions qui justifient une recherche, une variante, un prototype ou une preuve supplémentaire.
+
+Le `DOMAIN-FRAME` n’est ni un nouveau mode ni une taxonomie de secteurs. Il sert à décider ce qui mérite d’être recherché et ce qui doit être adapté. Ne déduis pas l’expression du domaine par stéréotype : un produit financier n’est pas minimaliste par défaut, un produit culturel n’est pas maximaliste par défaut et un outil technique n’est pas cyberpunk par défaut. Le domaine contraint la décision ; il ne fournit pas à lui seul la direction.
+
+La profondeur augmente lorsqu’un élément peut modifier la décision : public ou JTBD incertain, confiance critique, contexte culturel sensible, convention inconnue, forte conséquence d’erreur, contenu réel indisponible, ou écart créatif nécessitant une calibration. Lorsque ces déclencheurs sont absents et que le périmètre est stable, reste sur le chemin court. Lorsque plusieurs déclencheurs sont actifs, recherche, structure, UI/UX et preuve doivent être renforcés ensemble plutôt que compensés par une couche esthétique.
+

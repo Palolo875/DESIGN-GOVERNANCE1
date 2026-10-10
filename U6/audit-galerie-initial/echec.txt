@@ -1,0 +1,1 @@
+Premier contrôle interrompu : Locator.select_option Timeout 30000ms, get_by_label("Pages", exact=True). Le label englobait les options du select. Correction : labels explicites associés par for/id, mêmes captures et même ordre. Serveur fermé par finally. Aucun livrable producteur modifié.

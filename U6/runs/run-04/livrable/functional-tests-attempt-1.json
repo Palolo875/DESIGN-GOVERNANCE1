@@ -1,0 +1,570 @@
+{
+  "artifact": "index.html",
+  "sha256": "db4246ddbd643213c49f5e817bba506a05d0b99ad3f90fb5985ec87b1245bdc2",
+  "observed_at": "2026-10-10T13:33:42.246788+00:00",
+  "runtime": "Chromium /usr/bin/chromium, Python Playwright 1.56.0",
+  "method": "Browser actions and DOM assertions, no real user or assistive technology",
+  "cases": [
+    {
+      "name": "Initial layout and coherent calculation",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "html, .sheet, #grand-total",
+          "action": "load initial page and inspect document width/amount",
+          "observation": {
+            "scrollWidth": 1440,
+            "viewportWidth": 1440,
+            "amount": "720,00 €",
+            "fontStatus": "loaded",
+            "pageErrors": []
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Primary action and error state",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "#primary-cta",
+          "action": "click",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#client",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill",
+          "observation": {
+            "value": "0"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill",
+          "observation": {
+            "value": "-1"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "click with empty text, zero hours and negative rate",
+          "observation": {
+            "invalidFields": [
+              "client",
+              "service",
+              "hours",
+              "rate"
+            ],
+            "activeElement": "client",
+            "hoursRetained": "0",
+            "rateRetained": "-1",
+            "total": "À vérifier",
+            "alert": "4 champs à corriger. Les valeurs ont été conservées.",
+            "capture": "captures-states/error-1440.png"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Recovery, recalculation, long content and download",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Collectif des artisans indépendants — nom de client très long pour vérifier le retour à la ligne"
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Conception et accompagnement de la nouvelle identité visuelle, atelier de cadrage et préparation des livrables"
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "10.5"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "80.25"
+          }
+        },
+        {
+          "selector": "#tax",
+          "action": "select option 5.5",
+          "observation": {
+            "previewTotal": "888,97 €"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "submit corrected and long content",
+          "observation": {
+            "dialogVisible": false,
+            "activeElement": "success",
+            "subtotal": "842,63 €",
+            "tax": "46,34 €",
+            "total": "888,97 €",
+            "scrollWidth": 1440,
+            "capture": "captures-states/success-long-1440.png"
+          }
+        },
+        {
+          "selector": "#download",
+          "action": "click and read actual downloaded file",
+          "observation": {
+            "suggestedFilename": "pli-brouillon-exemple.txt",
+            "path": "download-test-1440.txt",
+            "lineCount": 13,
+            "containsUpdatedTotal": true,
+            "containsExampleWarning": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Keyboard trap, Escape, cancel and focus recovery",
+      "viewport": 1440,
+      "steps": [
+        {
+          "selector": "#edit-example",
+          "action": "focus and press Enter",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        }
+      ],
+      "result": "FAIL",
+      "failure": "['service', 'hours', 'rate', 'tax', 'cancel', 'submit-invoice', '', 'close-dialog']",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 21, in case\n    try:fn(step);entry['result']='PASS'\n        ^^^^^^^^\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 67, in keyboard\n    assert order==['service','hours','rate','tax','cancel','submit-invoice','close-dialog','client'],order\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['service', 'hours', 'rate', 'tax', 'cancel', 'submit-invoice', '', 'close-dialog']\n"
+    },
+    {
+      "name": "FAQ keyboard disclosure",
+      "viewport": 1440,
+      "steps": [],
+      "result": "FAIL",
+      "failure": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 21, in case\n    try:fn(step);entry['result']='PASS'\n        ^^^^^^^^\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 79, in faq\n    item=page.locator('details').nth(i);summary=item.locator('summary');summary.focus();page.keyboard.press('Enter');assert item.get_attribute('open') is not None\n                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "Initial layout and coherent calculation",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "html, .sheet, #grand-total",
+          "action": "load initial page and inspect document width/amount",
+          "observation": {
+            "scrollWidth": 390,
+            "viewportWidth": 390,
+            "amount": "720,00 €",
+            "fontStatus": "loaded",
+            "pageErrors": []
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Primary action and error state",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#primary-cta",
+          "action": "click",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#client",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill",
+          "observation": {
+            "value": "0"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill",
+          "observation": {
+            "value": "-1"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "click with empty text, zero hours and negative rate",
+          "observation": {
+            "invalidFields": [
+              "client",
+              "service",
+              "hours",
+              "rate"
+            ],
+            "activeElement": "client",
+            "hoursRetained": "0",
+            "rateRetained": "-1",
+            "total": "À vérifier",
+            "alert": "4 champs à corriger. Les valeurs ont été conservées.",
+            "capture": "captures-states/error-390.png"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Recovery, recalculation, long content and download",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Collectif des artisans indépendants — nom de client très long pour vérifier le retour à la ligne"
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Conception et accompagnement de la nouvelle identité visuelle, atelier de cadrage et préparation des livrables"
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "10.5"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "80.25"
+          }
+        },
+        {
+          "selector": "#tax",
+          "action": "select option 5.5",
+          "observation": {
+            "previewTotal": "888,97 €"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "submit corrected and long content",
+          "observation": {
+            "dialogVisible": false,
+            "activeElement": "success",
+            "subtotal": "842,63 €",
+            "tax": "46,34 €",
+            "total": "888,97 €",
+            "scrollWidth": 390,
+            "capture": "captures-states/success-long-390.png"
+          }
+        },
+        {
+          "selector": "#download",
+          "action": "click and read actual downloaded file",
+          "observation": {
+            "suggestedFilename": "pli-brouillon-exemple.txt",
+            "path": "download-test-390.txt",
+            "lineCount": 13,
+            "containsUpdatedTotal": true,
+            "containsExampleWarning": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Keyboard trap, Escape, cancel and focus recovery",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#edit-example",
+          "action": "focus and press Enter",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        }
+      ],
+      "result": "FAIL",
+      "failure": "['service', 'hours', 'rate', 'tax', 'cancel', 'submit-invoice', '', 'close-dialog']",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 21, in case\n    try:fn(step);entry['result']='PASS'\n        ^^^^^^^^\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 67, in keyboard\n    assert order==['service','hours','rate','tax','cancel','submit-invoice','close-dialog','client'],order\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['service', 'hours', 'rate', 'tax', 'cancel', 'submit-invoice', '', 'close-dialog']\n"
+    },
+    {
+      "name": "FAQ keyboard disclosure",
+      "viewport": 390,
+      "steps": [],
+      "result": "FAIL",
+      "failure": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 21, in case\n    try:fn(step);entry['result']='PASS'\n        ^^^^^^^^\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 79, in faq\n    item=page.locator('details').nth(i);summary=item.locator('summary');summary.focus();page.keyboard.press('Enter');assert item.get_attribute('open') is not None\n                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "Initial layout and coherent calculation",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "html, .sheet, #grand-total",
+          "action": "load initial page and inspect document width/amount",
+          "observation": {
+            "scrollWidth": 320,
+            "viewportWidth": 320,
+            "amount": "720,00 €",
+            "fontStatus": "loaded",
+            "pageErrors": []
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Primary action and error state",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "#primary-cta",
+          "action": "click",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        },
+        {
+          "selector": "#client",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill",
+          "observation": {
+            "value": ""
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill",
+          "observation": {
+            "value": "0"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill",
+          "observation": {
+            "value": "-1"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "click with empty text, zero hours and negative rate",
+          "observation": {
+            "invalidFields": [
+              "client",
+              "service",
+              "hours",
+              "rate"
+            ],
+            "activeElement": "client",
+            "hoursRetained": "0",
+            "rateRetained": "-1",
+            "total": "À vérifier",
+            "alert": "4 champs à corriger. Les valeurs ont été conservées.",
+            "capture": "captures-states/error-320.png"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Recovery, recalculation, long content and download",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "#client",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Collectif des artisans indépendants — nom de client très long pour vérifier le retour à la ligne"
+          }
+        },
+        {
+          "selector": "#service",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "Conception et accompagnement de la nouvelle identité visuelle, atelier de cadrage et préparation des livrables"
+          }
+        },
+        {
+          "selector": "#hours",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "10.5"
+          }
+        },
+        {
+          "selector": "#rate",
+          "action": "fill after validation error",
+          "observation": {
+            "value": "80.25"
+          }
+        },
+        {
+          "selector": "#tax",
+          "action": "select option 5.5",
+          "observation": {
+            "previewTotal": "888,97 €"
+          }
+        },
+        {
+          "selector": "#submit-invoice",
+          "action": "submit corrected and long content",
+          "observation": {
+            "dialogVisible": false,
+            "activeElement": "success",
+            "subtotal": "842,63 €",
+            "tax": "46,34 €",
+            "total": "888,97 €",
+            "scrollWidth": 320,
+            "capture": "captures-states/success-long-320.png"
+          }
+        },
+        {
+          "selector": "#download",
+          "action": "click and read actual downloaded file",
+          "observation": {
+            "suggestedFilename": "pli-brouillon-exemple.txt",
+            "path": "download-test-320.txt",
+            "lineCount": 13,
+            "containsUpdatedTotal": true,
+            "containsExampleWarning": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Keyboard trap, Escape, cancel and focus recovery",
+      "viewport": 320,
+      "steps": [
+        {
+          "selector": "#edit-example",
+          "action": "focus and press Enter",
+          "observation": {
+            "dialogVisible": true,
+            "activeElement": "client"
+          }
+        }
+      ],
+      "result": "FAIL",
+      "failure": "['service', 'hours', 'rate', 'tax', 'cancel', 'submit-invoice', '', 'editor']",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 21, in case\n    try:fn(step);entry['result']='PASS'\n        ^^^^^^^^\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 67, in keyboard\n    assert order==['service','hours','rate','tax','cancel','submit-invoice','close-dialog','client'],order\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['service', 'hours', 'rate', 'tax', 'cancel', 'submit-invoice', '', 'editor']\n"
+    },
+    {
+      "name": "FAQ keyboard disclosure",
+      "viewport": 320,
+      "steps": [],
+      "result": "FAIL",
+      "failure": "",
+      "traceback": "Traceback (most recent call last):\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 21, in case\n    try:fn(step);entry['result']='PASS'\n        ^^^^^^^^\n  File \"/workspace/remesure-phase5/runs/run-04/livrable/test-functional.py\", line 79, in faq\n    item=page.locator('details').nth(i);summary=item.locator('summary');summary.focus();page.keyboard.press('Enter');assert item.get_attribute('open') is not None\n                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "Reduced movement preference",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "html",
+          "action": "load with reduced_motion=reduce",
+          "observation": {
+            "reduce": true,
+            "scrollBehavior": "auto"
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "Fresh session has no saved draft",
+      "viewport": 390,
+      "steps": [
+        {
+          "selector": "#client-output, #success",
+          "action": "load a fresh page after previous draft tests",
+          "observation": {
+            "client": "Studio Lundi",
+            "successVisible": false,
+            "noPersistedDraft": true
+          }
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "name": "No external network requests",
+      "viewport": null,
+      "steps": [
+        {
+          "selector": "network request events",
+          "action": "inspect requests observed during all functional cases",
+          "observation": {
+            "externalRequests": [],
+            "observedRequests": 3
+          }
+        }
+      ],
+      "result": "PASS"
+    }
+  ],
+  "summary": {
+    "executed": 18,
+    "passed": 12,
+    "failed": 6
+  }
+}
