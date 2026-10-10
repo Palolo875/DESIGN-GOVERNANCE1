@@ -15,23 +15,66 @@
   "pr": {
     "number": 2,
     "url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2",
-    "draft": true,
-    "merged": false
+    "draft": false,
+    "merged": true,
+    "merge_commit": "5a5f56357d829150ac5a1863c3c40f35c4c3bafa"
   },
   "hosted_ci": {
-    "observed_at": "2026-10-10T23:47:01.825326+00:00",
-    "state": "IN_PROGRESS",
-    "runs": [
-      {
-        "number": 57,
-        "id": 38096160922,
-        "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1"
-      },
-      {
-        "number": 58,
-        "id": 38096163445,
-        "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1"
-      }
-    ]
+    "observed_at": "2026-10-10T23:57:22.077927+00:00",
+    "tested_commit": {
+      "sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1",
+      "result": "PASS",
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "pull_request",
+          "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1",
+          "html_url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38096163445",
+          "id": 38096163445,
+          "run_number": 58,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "event": "push",
+          "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1",
+          "html_url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38096160922",
+          "id": 38096160922,
+          "run_number": 57,
+          "status": "completed"
+        }
+      ]
+    },
+    "integration_commit": {
+      "sha": "5a5f56357d829150ac5a1863c3c40f35c4c3bafa",
+      "runs": [
+        {
+          "conclusion": null,
+          "event": "push",
+          "head_sha": "5a5f56357d829150ac5a1863c3c40f35c4c3bafa",
+          "html_url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38096660032",
+          "id": 38096660032,
+          "run_number": 59,
+          "status": "in_progress"
+        }
+      ],
+      "tree_identical_to_tested": true
+    },
+    "previous_observation": {
+      "observed_at": "2026-10-10T23:47:01.825326+00:00",
+      "state": "IN_PROGRESS",
+      "runs": [
+        {
+          "number": 57,
+          "id": 38096160922,
+          "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1"
+        },
+        {
+          "number": 58,
+          "id": 38096163445,
+          "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1"
+        }
+      ]
+    }
   }
 }

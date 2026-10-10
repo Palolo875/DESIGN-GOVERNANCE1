@@ -1,0 +1,31 @@
+{
+  "runs": [
+    {
+      "conclusion": null,
+      "event": "push",
+      "head_sha": "5a5f56357d829150ac5a1863c3c40f35c4c3bafa",
+      "html_url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38096660032",
+      "id": 38096660032,
+      "run_number": 59,
+      "status": "in_progress"
+    },
+    {
+      "conclusion": "success",
+      "event": "pull_request",
+      "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1",
+      "html_url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38096163445",
+      "id": 38096163445,
+      "run_number": 58,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "event": "push",
+      "head_sha": "b3e071b24bd67a71c9438779eaf8f6810aa8b3a1",
+      "html_url": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38096160922",
+      "id": 38096160922,
+      "run_number": 57,
+      "status": "completed"
+    }
+  ]
+}

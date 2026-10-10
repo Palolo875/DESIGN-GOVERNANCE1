@@ -17,8 +17,12 @@ Les remarques ont été confrontées à `main` (`4e1f9cc`) et à PR 2 (`213cfba`
 
 U6 comparait `99caa027` à `6e5a8c2`, sur deux briefs et six productions. Les lectures anticipées ne démontrent pas l’amélioration de `3b79b3a`, ni un comportement robuste chez un agent pressé ou installé sans le paquet. La skill dit explicitement que le repli sans sources ne constitue pas un run conforme. Une comparaison ciblée actuelle reste distincte de ces observations : aucun nouvel essai indépendant n’est attribué à cette relecture. Concurrents et anglais restent reportés.
 
-Les originaux des fichiers modifiés sont dans `avant/`. Le lot de présentation précédent et ses captures complètes restent dans `SUPPORTS-V1/lot-02/` sur `refonte`. Les preuves de distributions et de CI sont enregistrées après leur exécution, avec le SHA précis. La PR reste révisable et aucune fusion n’est effectuée par ces correctifs.
+Les originaux des fichiers modifiés sont dans `avant/`. Le lot de présentation précédent et ses captures complètes restent dans `SUPPORTS-V1/lot-02/` sur `refonte`. Les preuves de distributions et de CI sont enregistrées après leur exécution, avec le SHA précis. La PR 2 a été fusionnée après les CI 57 et 58 réussies. Le commit de fusion est suivi séparément.
 
 ## Résultat local final
 
 La validation complète avec navigateur passe, y compris les deux constructions et leur reproductibilité. Les 42 captures comparées gardent les mêmes dimensions ; les différences affectent au plus 0,025 % des pixels dans cet échantillon (`differences-pixels.json`). Les archives et le paquet Local exact sont conservés ici.
+
+## Intégration observée
+
+La [PR 2](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2) est fusionnée sur `main`, commit `5a5f56357d829150ac5a1863c3c40f35c4c3bafa`. Son arbre est exactement celui de `b3e071b24bd67a71c9438779eaf8f6810aa8b3a1`, vérifié par Git et consigné dans `integration.json`. Les CI 57 et 58 sont réussies sur le commit testé. La CI du commit de fusion est suivie séparément dans `ci-hebergee.json` ; elle n’est pas déclarée réussie tant que son résultat n’est pas observé. Le brouillon des instructions de l’environnement a aussi été complété et testé ; sa publication relève des paramètres de l’environnement.

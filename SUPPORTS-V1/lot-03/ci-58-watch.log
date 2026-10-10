@@ -1,0 +1,129 @@
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+* validate (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  * Run package audit
+  * Post Set up Python
+  * Post Checkout
+✓ feat/presentation-v1 Validate Design Governance Palolo875/DESIGN-GOVERNANCE1#2 · 38096163445
+Triggered via pull_request about 8 minutes ago
+
+JOBS
+✓ validate in 8m8s (ID 114342378867)
+  ✓ Set up job
+  ✓ Checkout
+  ✓ Set up Python
+  ✓ Install browser for render tests
+  ✓ Run package audit
+  ✓ Post Set up Python
+  ✓ Post Checkout
+  ✓ Complete job
+
+ANNOTATIONS
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+validate: .github#1
