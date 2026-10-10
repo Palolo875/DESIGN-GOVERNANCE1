@@ -27,3 +27,5 @@ Clôture exploratoire : les supports et le paquet sont présentables, les contra
 ## Livraison révisable
 
 Le lot est enregistré au commit `213cfbaf8867142eb834c834311adb0fa626d8fe` et proposé dans la [PR 2](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2), en brouillon. Les deux CI ont démarré sur ce SHA. Aucune fusion ni publication de version n’est effectuée. Le dossier complet est conservé sur `refonte` dans `SUPPORTS-V1/lot-02/`.
+
+**Observation hébergée finale, 2026-10-10T22:57:58.118645+00:00 :** CI 55 (push) et CI 56 (PR) réussies sur `213cfbaf8867142eb834c834311adb0fa626d8fe`. Le relevé des étapes de CI 56 confirme la réussite de l’audit du paquet. La PR reste en brouillon et sans fusion.
