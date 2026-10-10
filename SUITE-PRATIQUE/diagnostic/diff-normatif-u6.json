@@ -1,0 +1,95 @@
+{
+  "old_version": "99caa027",
+  "new_version": "6e5a8c2",
+  "normative_sources": [
+    {
+      "source": "design/direction/premier-objet.md",
+      "identique_entre_versions_u6": true,
+      "ancien_sha256": "5d6b6e5bfeeb7c431379d11aeae66f48c6d8333ff277dc8799fcfd5066db06f3",
+      "nouveau_sha256": "5d6b6e5bfeeb7c431379d11aeae66f48c6d8333ff277dc8799fcfd5066db06f3"
+    },
+    {
+      "source": "design/direction/diriger.md",
+      "identique_entre_versions_u6": true,
+      "ancien_sha256": "163a0ee3dde9c2a2efae9f7acd4a823fcd7bddeb16d4d185b2677976f4f97003",
+      "nouveau_sha256": "163a0ee3dde9c2a2efae9f7acd4a823fcd7bddeb16d4d185b2677976f4f97003"
+    },
+    {
+      "source": "design/produit/premier-rendu.md",
+      "identique_entre_versions_u6": true,
+      "ancien_sha256": "8c7d326ed71159f910229fdce866744da86b01e7c27c317a60287f44f9cd54f9",
+      "nouveau_sha256": "8c7d326ed71159f910229fdce866744da86b01e7c27c317a60287f44f9cd54f9"
+    },
+    {
+      "source": "design/savoir/typographie.md",
+      "identique_entre_versions_u6": true,
+      "ancien_sha256": "ffacc5a6d74f76f03cf4189ba6ab35dcb2297a7f87f8cef381ae07674432c722",
+      "nouveau_sha256": "ffacc5a6d74f76f03cf4189ba6ab35dcb2297a7f87f8cef381ae07674432c722"
+    },
+    {
+      "source": "design/savoir/qualite-creative.md",
+      "identique_entre_versions_u6": true,
+      "ancien_sha256": "8471f25a822c64979e09dcdee4129e0c4f075dfb387cebd8a9c7b076b3f99598",
+      "nouveau_sha256": "8471f25a822c64979e09dcdee4129e0c4f075dfb387cebd8a9c7b076b3f99598"
+    },
+    {
+      "source": "design/formes/choisir.md",
+      "identique_entre_versions_u6": true,
+      "ancien_sha256": "bed20e1a3e49798abed35f2e33699c12764de4d4d6f7c43feb72ba2a904b56b9",
+      "nouveau_sha256": "bed20e1a3e49798abed35f2e33699c12764de4d4d6f7c43feb72ba2a904b56b9"
+    }
+  ],
+  "protected_blocks_old": 42,
+  "protected_blocks_new": 43,
+  "identical_blocks": [
+    "MOY-PLAFOND",
+    "SORTIE",
+    "TRACE",
+    "BOUCLE-ATELIER",
+    "ROLE",
+    "POSTURE",
+    "VER-FAUX-ASSET",
+    "BOUCLE-REPASSE",
+    "CHECKPOINT",
+    "STRUCT-OU",
+    "COMP-SINGULARITE",
+    "COMP-GRAMMAIRE",
+    "BOUCLE-REVUE",
+    "COMP-FORME",
+    "BOUCLE-AXE",
+    "COMP-CONTROLES",
+    "COMP-TEXTE-IMAGE",
+    "COMP-COULEUR",
+    "COMP-CONVERGENCE",
+    "COMP-VOCABULAIRE",
+    "COMP-TYPO",
+    "COMP-TITRE",
+    "COMP-VAGUES",
+    "MOY-CARTE",
+    "MOY-CALIBRATION",
+    "MOY-ASSETS",
+    "BOUCLE",
+    "BOUCLE-DIAGNOSTIC",
+    "BOUCLE-QUESTIONS",
+    "PREMIER-OBJET",
+    "ANCRE",
+    "BRIEF",
+    "CONTENU",
+    "VER-SCENE",
+    "VER-AUDIENCE",
+    "STRUCT-EXPRESSION",
+    "STRUCT-TENSION",
+    "STRUCT-ACTIVATION",
+    "STRUCT-SIGNAUX"
+  ],
+  "modified_blocks": [
+    "CHARGE-REGLE",
+    "CHARGE-TABLE",
+    "CHARGE-FIN"
+  ],
+  "missing_blocks": [],
+  "added_blocks": [
+    "CHARGE-DETAILS"
+  ],
+  "limit": "Conservation textuelle, pas mesure de compréhension ni de causalité sur les préférences."
+}

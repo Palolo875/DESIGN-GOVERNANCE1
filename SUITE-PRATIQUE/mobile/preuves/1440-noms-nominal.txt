@@ -1,0 +1,38 @@
+- link "Aller au brouillon":
+  - /url: "#document"
+- banner: folio Un brouillon local
+- main:
+  - region "Votre prochaine facture.":
+    - paragraph: De la prestation au document.
+    - heading "Votre prochaine facture." [level=1]
+    - paragraph: Changez les heures ou le tarif. Le montant suit, le document reste au clair.
+    - paragraph: Votre total TTC
+    - strong: 720,00 €
+    - paragraph: TVA illustrative · 20 %
+    - button "Télécharger le brouillon"
+    - paragraph: Brouillon enregistré sur cet appareil.
+  - region "Brouillon de facture d’exemple":
+    - text: EX-010 · 10 octobre 2026 Données d’exemple
+    - article:
+      - text: Votre studio
+      - heading "Facture" [level=2]
+      - text: Pour
+      - paragraph: Studio Horizon
+      - text: État
+      - paragraph: Brouillon d’exemple
+      - text: Prestation Montant HT
+      - paragraph: Direction artistique
+      - text: 600,00 €
+      - group "Heures de prestation":
+        - button "Retirer une demi-heure": −
+        - text: 8 h
+        - button "Ajouter une demi-heure": +
+      - paragraph: × 75,00 € / heure
+      - button "Modifier cette prestation"
+      - paragraph: "Client, heures, tarif et TVA : le total suit."
+      - text: Total HT 600,00 € TVA · 20 % 120,00 € Total TTC 720,00 €
+      - paragraph: Document illustratif, sans valeur comptable. Les mentions légales de votre activité restent à définir.
+    - status
+- contentinfo:
+  - paragraph: Démo locale · Aucun compte, aucun envoi.
+  - paragraph: Un outil d’exemple pour préparer et relire.

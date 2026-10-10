@@ -1,0 +1,343 @@
+{
+  "provenance": {
+    "artifact_locator": "/workspace/suite-design-2026-10-10/mobile/index.html",
+    "artifact_version": "c64a95a4d429",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-10T19:08:07Z",
+    "scope": "état initial, largeurs 320,390,768,1440 px",
+    "external_requests_blocked": 0,
+    "browser": {
+      "engine": "chromium",
+      "version": "151.0.7922.173",
+      "executable": "/usr/bin/chromium"
+    },
+    "local_server": "127.0.0.1, temporaire"
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 320, 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 320 px : 37 texte(s) évalué(s), 54 candidat(s), 17 exclu(s) ; 390 px : 37 texte(s) évalué(s), 54 candidat(s), 17 exclu(s) ; 768 px : 41 texte(s) évalué(s), 54 candidat(s), 13 exclu(s) ; 1440 px : 41 texte(s) évalué(s), 54 candidat(s), 13 exclu(s)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "5 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "5 arrêt(s) à 320 px ; 320 px : page, fin=end, 5 candidat(s) ; 5 arrêt(s) à 390 px ; 390 px : page, fin=end, 5 candidat(s) ; 5 arrêt(s) à 768 px ; 768 px : page, fin=end, 5 candidat(s) ; 5 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 5 candidat(s) ; style observé, visibilité et contraste du focus à vérifier"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation active"
+    },
+    {
+      "check": "Objet de preuve au premier écran (#document)",
+      "status": "PASS",
+      "detail": "320 px : intersection verticale 581.25 px sur 607.1875, horizontale 292 px sur 292; 390 px : intersection verticale 578.109375 px sur 614.5, horizontale 350 px sur 350; 768 px : intersection verticale 672.59375 px sur 672.59375, horizontale 418 px sur 418; 1440 px : intersection verticale 678.59375 px sur 678.59375, horizontale 694 px sur 694 ; rectangle et CSS observés, pixels et occlusion non vérifiés"
+    }
+  ],
+  "keyboard_coverage": {
+    "320": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "#minus"
+        },
+        {
+          "key": "control-2",
+          "id": "#plus"
+        },
+        {
+          "key": "control-3",
+          "id": "#edit"
+        },
+        {
+          "key": "control-4",
+          "id": "#export-mobile"
+        }
+      ],
+      "excluded": [
+        "#export-desktop",
+        "#handle",
+        "#close",
+        "#input-client",
+        "#input-service",
+        "#input-quantity",
+        "#input-rate",
+        "#input-vat",
+        "button"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 5
+    },
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "#minus"
+        },
+        {
+          "key": "control-2",
+          "id": "#plus"
+        },
+        {
+          "key": "control-3",
+          "id": "#edit"
+        },
+        {
+          "key": "control-4",
+          "id": "#export-mobile"
+        }
+      ],
+      "excluded": [
+        "#export-desktop",
+        "#handle",
+        "#close",
+        "#input-client",
+        "#input-service",
+        "#input-quantity",
+        "#input-rate",
+        "#input-vat",
+        "button"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 5
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "#export-desktop"
+        },
+        {
+          "key": "control-2",
+          "id": "#minus"
+        },
+        {
+          "key": "control-3",
+          "id": "#plus"
+        },
+        {
+          "key": "control-4",
+          "id": "#edit"
+        }
+      ],
+      "excluded": [
+        "#export-mobile",
+        "#handle",
+        "#close",
+        "#input-client",
+        "#input-service",
+        "#input-quantity",
+        "#input-rate",
+        "#input-vat",
+        "button"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 5
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "#export-desktop"
+        },
+        {
+          "key": "control-2",
+          "id": "#minus"
+        },
+        {
+          "key": "control-3",
+          "id": "#plus"
+        },
+        {
+          "key": "control-4",
+          "id": "#edit"
+        }
+      ],
+      "excluded": [
+        "#export-mobile",
+        "#handle",
+        "#close",
+        "#input-client",
+        "#input-service",
+        "#input-quantity",
+        "#input-rate",
+        "#input-vat",
+        "button"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 5
+    }
+  },
+  "contrast_coverage": {
+    "320": {
+      "method": "dom-text-bounded",
+      "candidates": 54,
+      "evaluated": 37,
+      "excluded": 17,
+      "unmeasured": []
+    },
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 54,
+      "evaluated": 37,
+      "excluded": 17,
+      "unmeasured": []
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 54,
+      "evaluated": 41,
+      "excluded": 13,
+      "unmeasured": []
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 54,
+      "evaluated": 41,
+      "excluded": 13,
+      "unmeasured": []
+    }
+  },
+  "proof_observations": {
+    "320": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 292,
+      "h": 607.1875,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 292,
+      "visible": 581.25,
+      "limits": []
+    },
+    "390": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 350,
+      "h": 614.5,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 350,
+      "visible": 578.109375,
+      "limits": []
+    },
+    "768": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 418,
+      "h": 672.59375,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 418,
+      "visible": 672.59375,
+      "limits": []
+    },
+    "1440": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 694,
+      "h": 678.59375,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 694,
+      "visible": 678.59375,
+      "limits": []
+    }
+  }
+}

@@ -72,6 +72,12 @@ Les deux juges préfèrent F à A, E à C et D à B, avec une confiance moyenne 
 
 Le tour D termine sur une limite d’usage alors que les fichiers finaux existent déjà. Ils sont contrôlés à la reprise sans nouveau tour producteur. Sa durée murale entière de 145,1 minutes est conservée, sans comparaison. Les premières captures d’A ont été écrasées par le producteur ; des sources et rapports intermédiaires restent, sans prétendre reconstituer les PNG perdus. Les runs 04, 05 et 06 déclarent la lecture de la skill cloud héritée. Les restrictions entre agents sont des consignes, pas des sandboxes distincts. Voir les [notes](../U6/notes-coordinateur.md).
 
+## Suite pratique après U6
+
+Le propriétaire reporte concurrents et anglais. Le [nouveau lot](../SUITE-PRATIQUE/resultats.md) analyse les raisons des juges, précise le moment des lectures et les gestes de mobile/mouvement, puis construit Folio hors expérience U6. Produit `3b79b3a10d2344a52db76f6e6239cf0a91c056c7`, noyau compilé 18 960 octets ; validation complète locale réussie, CI 52 et 53 en cours. 41 blocs protégés restent identiques, deux consignes changent, aucun bloc absent ou ajouté. Ces chiffres suivent ceux de la révision PHASE5, sans remplacer son état historique.
+
+Folio passe 53 parcours finaux, après trois échecs initiaux conservés et corrigés. La comparaison à contenu constant retient une entrée réduite pour garder le total visible sur petit écran. L’auteur connaît U6 : aucun gain esthétique causal, aucune réduction de coût API et aucun comportement natif ne sont établis. Voir le [diagnostic](../SUITE-PRATIQUE/diagnostic/diagnostic-u6.md), la [galerie](../SUITE-PRATIQUE/galerie.html), la [trace mobile](../SUITE-PRATIQUE/mobile/trace.md) et la [livraison](../SUITE-PRATIQUE/livraison.md). Les originaux U6 restent inchangés.
+
 ## État final et suites
 
 La suite technique a une compilation, une activation et des distributions vérifiables. Les six productions et la comparaison visuelle indépendante U6 sont livrées ; elles décrivent un petit échantillon, sans prouver une efficacité générale. La décision du propriétaire, les jetons API, la charge cognitive et les cibles initiales de lecture restent ouverts. La phase 6 conserve son périmètre minimal ; la phase 7 reste reportée. La PR du produit reste ouverte vers `main`.

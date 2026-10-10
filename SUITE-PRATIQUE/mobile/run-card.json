@@ -1,0 +1,154 @@
+{
+  "run_card": {
+    "id": "suite-pratique-folio-mobile",
+    "owner": "Demandeur pour la décision produit ; coordinateur pour la fabrication et les preuves",
+    "date_version": "2026-10-10 / c64a95a4d429",
+    "mode": "DIRECTION",
+    "decision": "Conserver un document de travail expressif tout en rendant sa modification et son montant immédiatement visibles sur mobile.",
+    "decision_intent": "Éprouver la relation objet, geste et conséquence ainsi qu’un mouvement annulable.",
+    "risk": {
+      "level": "important",
+      "statement": "Une entrée trop ample masque le résultat ; un effet interrompu peut montrer un état périmé. Le contexte métier reste hypothétique.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START/TREE",
+      "DIRECTION/CHARGE",
+      "DIRECTION/VISUAL_TARGET",
+      "DIRECTION/FIRST-OBJECT",
+      "DIRECTION/RUN-DIRECTION",
+      "SAVOIR/TYPE",
+      "SAVOIR/TECH",
+      "SAVOIR/STATE",
+      "SAVOIR/CRAFT/CFT-02",
+      "BIBLIOTHEQUE/SELECT",
+      "ACTION/GATE-A",
+      "ACTION/GATE-B",
+      "ACTION/GATE-C",
+      "ACTION/HANDOFF",
+      "ACTION/CLOSE-PACKAGE"
+    ],
+    "direction": {
+      "thesis": "La qualité du document et son mécanisme de calcul se comprennent par un geste local dont le résultat est visible.",
+      "anti_direction": [
+        "Éviter une entrée éditoriale qui éloigne le total du premier viewport mobile.",
+        "Éviter une animation qui décide de la donnée ou rend une action indisponible."
+      ],
+      "first_object": "Facture illustrative modifiable, heures et tarif visibles, total et brouillon local.",
+      "identity_stake": "normal",
+      "constraint": "Web autonome en français, fontes OFL existantes, aucune identité réelle ni service de facturation."
+    },
+    "anchors": [],
+    "artifact": {
+      "locator": "index.html",
+      "scope": "Web 1440×1000, 390×844 et 320×844 ; Gate A aussi à 768 px ; calcul, saisie, erreur, interruption, clavier, hauteur réduite et contenu extrême.",
+      "rights_status": "cleared",
+      "version": "c64a95a4d429c18dad774405d3173e39cef52a9613a5ba16bb57f581959a727c"
+    },
+    "trace_locator": "trace.md",
+    "next_proof": "Observer une tâche avec un indépendant représentatif et contrôler le clavier logiciel, Safari et la fluidité sur téléphone physique.",
+    "capability_profile": {
+      "available": [
+        "HTML autonome",
+        "Chromium 151 et captures",
+        "DOM, clavier et pointeur émulé",
+        "Contrastes ciblés"
+      ],
+      "unavailable": [
+        "Participant représentatif",
+        "Téléphone physique",
+        "Safari",
+        "Observation de lecteur d’écran",
+        "Identité et offre réelles"
+      ],
+      "not_required": [
+        "Paiement",
+        "Backend de facturation"
+      ],
+      "basis": [
+        {
+          "capability": "HTML autonome",
+          "kind": "tool_result",
+          "detail": "construire.py reconstruit index.html à empreinte identique depuis les fontes et licences locales."
+        },
+        {
+          "capability": "Chromium 151 et captures",
+          "kind": "tool_result",
+          "detail": "preuves/parcours.json et preuves/comparaison/comparaison.json consignent version, empreinte et arrêt du serveur."
+        },
+        {
+          "capability": "DOM, clavier et pointeur émulé",
+          "kind": "tool_result",
+          "detail": "53 parcours isolés réussis ; premier passage 50 réussites et trois échecs conservé séparément."
+        },
+        {
+          "capability": "Contrastes ciblés",
+          "kind": "tool_result",
+          "detail": "preuves/complement-qualite.json mesure les champs construits et le focus."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "53 parcours réussis, zéro échec ; état et calcul conservés quand les animations sont absentes ou interrompues.",
+        "Captures finales 320 px nominal et 390 px éditeur/focus et facture modifiée inspectées.",
+        "Comparaison à contenu constant : total visible au premier viewport mobile avec entrée réduite, sous le viewport avec entrée ample.",
+        "Contrastes ciblés des champs, border et focus ; huit cibles de l’éditeur au moins égales à 44 pixels CSS."
+      ],
+      "not_verified": [
+        "Compréhension et préférence d’un utilisateur représentatif.",
+        "Clavier logiciel, Safari, gestes système, lecteur d’écran et fluidité sur téléphone réel.",
+        "Conformité comptable, backend, identité réelle et accessibilité exhaustive.",
+        "Gain général de qualité, de variété ou de coût du système."
+      ]
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "Réduire la masse de l’entrée pour conserver le total dans le premier viewport à 390 et 320 px.",
+      "evidence": "preuves/comparaison/comparaison.json et captures ample/réduite ; inspection du coordinateur à 390 px."
+    },
+    "creative_close": {
+      "presence": "La feuille et son total restent visibles sur petit écran ; preuves/320-premiere.png.",
+      "signature": "La prestation modifiable produit son montant dans le document ; preuves/390-apres-modification.png.",
+      "craft_detail": "Les modifications rapides, fermeture et mouvement réduit gardent un état juste ; preuves/parcours.json.",
+      "dominant_defect": "Le contexte métier, la préférence utilisateur et le comportement matériel restent hypothétiques.",
+      "next_polish_action": "STOP — observer une tâche réelle et le comportement sur téléphone avant de poursuivre la forme."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "direction_status": "PARTIALLY-HELD",
+      "issue": "EXPLORATORY",
+      "verdict": "EXPLORATORY",
+      "limitations": [
+        "Auteur informé d’U6 ; cette fabrication ne constitue pas un nouvel essai indépendant.",
+        "Émulation Web et mesures ciblées, pas acceptation d’identité ni certification exhaustive."
+      ],
+      "axes": {
+        "V": "PASS-WITH-RESERVATION",
+        "U": "NOT-VERIFIED",
+        "A": "PASS-WITH-RESERVATION",
+        "T": "PASS-WITH-RESERVATION"
+      },
+      "reservations": [
+        {
+          "owner": "Demandeur et coordinateur",
+          "scope": "Public réel et expérience mobile matérielle",
+          "date_version": "2026-10-10 / c64a95a4d429",
+          "impact": "Les parcours automatisés ne prouvent ni la compréhension réelle ni la fluidité matérielle.",
+          "next_proof": "Une tâche représentative sur téléphone physique et contrôle Safari/clavier/lecteur d’écran.",
+          "exit_condition": "Comportement et compréhension observés, réserves réévaluées sur ce périmètre.",
+          "review_date": "2026-10-17"
+        }
+      ],
+      "b1b": {
+        "status": "DONE",
+        "pair": {
+          "before_locator": "preuves/comparaison/390-entree-ample.png",
+          "after_locator": "preuves/comparaison/390-entree-reduite.png",
+          "decision": "Masse de l’entrée et visibilité du montant pour une tâche mobile.",
+          "outcome": "modified"
+        }
+      }
+    }
+  }
+}

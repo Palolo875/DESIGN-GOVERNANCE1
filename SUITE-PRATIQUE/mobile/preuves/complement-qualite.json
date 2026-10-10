@@ -1,0 +1,241 @@
+{
+  "artifact_sha256": "c64a95a4d429c18dad774405d3173e39cef52a9613a5ba16bb57f581959a727c",
+  "browser_version": "151.0.7922.173",
+  "results": [
+    {
+      "width": 1440,
+      "checks": [
+        {
+          "pair": "valeur de champ / fond",
+          "ratio": 12.879563683556512,
+          "minimum": 4.5
+        },
+        {
+          "pair": "frontière de champ / fond",
+          "ratio": 3.3360808818622925,
+          "minimum": 3
+        },
+        {
+          "pair": "focus / surface",
+          "ratio": 6.310562842180288,
+          "minimum": 3
+        }
+      ],
+      "rendered_styles": {
+        "field": {
+          "color": "rgb(25, 55, 48)",
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(126, 146, 125)"
+        },
+        "focus": {
+          "color": "rgb(53, 98, 36)",
+          "width": "3px"
+        },
+        "paper": "rgb(243, 240, 233)",
+        "handle": "rgb(0, 0, 0)",
+        "targets": [
+          {
+            "id": "handle",
+            "width": 64,
+            "height": 44
+          },
+          {
+            "id": "close",
+            "width": 44,
+            "height": 44
+          },
+          {
+            "id": "input-client",
+            "width": 486,
+            "height": 48
+          },
+          {
+            "id": "input-service",
+            "width": 486,
+            "height": 48
+          },
+          {
+            "id": "input-quantity",
+            "width": 235,
+            "height": 48
+          },
+          {
+            "id": "input-rate",
+            "width": 235,
+            "height": 48
+          },
+          {
+            "id": "input-vat",
+            "width": 486,
+            "height": 48
+          },
+          {
+            "id": "Appliquer au brouillon",
+            "width": 486,
+            "height": 48.5
+          }
+        ]
+      },
+      "accessible_names": "Sélecteurs de rôle/nom et snapshots Playwright dans Chromium ; pas test de lecteur d’écran."
+    },
+    {
+      "width": 390,
+      "checks": [
+        {
+          "pair": "valeur de champ / fond",
+          "ratio": 12.879563683556512,
+          "minimum": 4.5
+        },
+        {
+          "pair": "frontière de champ / fond",
+          "ratio": 3.3360808818622925,
+          "minimum": 3
+        },
+        {
+          "pair": "focus / surface",
+          "ratio": 6.310562842180288,
+          "minimum": 3
+        }
+      ],
+      "rendered_styles": {
+        "field": {
+          "color": "rgb(25, 55, 48)",
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(126, 146, 125)"
+        },
+        "focus": {
+          "color": "rgb(53, 98, 36)",
+          "width": "3px"
+        },
+        "paper": "rgb(243, 240, 233)",
+        "handle": "rgb(0, 0, 0)",
+        "targets": [
+          {
+            "id": "handle",
+            "width": 72,
+            "height": 44
+          },
+          {
+            "id": "close",
+            "width": 44,
+            "height": 44
+          },
+          {
+            "id": "input-client",
+            "width": 310,
+            "height": 48
+          },
+          {
+            "id": "input-service",
+            "width": 310,
+            "height": 48
+          },
+          {
+            "id": "input-quantity",
+            "width": 149,
+            "height": 48
+          },
+          {
+            "id": "input-rate",
+            "width": 149,
+            "height": 48
+          },
+          {
+            "id": "input-vat",
+            "width": 310,
+            "height": 48
+          },
+          {
+            "id": "Appliquer au brouillon",
+            "width": 310,
+            "height": 48.5
+          }
+        ]
+      },
+      "accessible_names": "Sélecteurs de rôle/nom et snapshots Playwright dans Chromium ; pas test de lecteur d’écran."
+    },
+    {
+      "width": 320,
+      "checks": [
+        {
+          "pair": "valeur de champ / fond",
+          "ratio": 12.879563683556512,
+          "minimum": 4.5
+        },
+        {
+          "pair": "frontière de champ / fond",
+          "ratio": 3.3360808818622925,
+          "minimum": 3
+        },
+        {
+          "pair": "focus / surface",
+          "ratio": 6.310562842180288,
+          "minimum": 3
+        }
+      ],
+      "rendered_styles": {
+        "field": {
+          "color": "rgb(25, 55, 48)",
+          "background": "rgb(255, 255, 255)",
+          "border": "rgb(126, 146, 125)"
+        },
+        "focus": {
+          "color": "rgb(53, 98, 36)",
+          "width": "3px"
+        },
+        "paper": "rgb(243, 240, 233)",
+        "handle": "rgb(0, 0, 0)",
+        "targets": [
+          {
+            "id": "handle",
+            "width": 72,
+            "height": 44
+          },
+          {
+            "id": "close",
+            "width": 44,
+            "height": 44
+          },
+          {
+            "id": "input-client",
+            "width": 240,
+            "height": 48
+          },
+          {
+            "id": "input-service",
+            "width": 240,
+            "height": 48
+          },
+          {
+            "id": "input-quantity",
+            "width": 240,
+            "height": 48
+          },
+          {
+            "id": "input-rate",
+            "width": 240,
+            "height": 48
+          },
+          {
+            "id": "input-vat",
+            "width": 240,
+            "height": 48
+          },
+          {
+            "id": "Appliquer au brouillon",
+            "width": 240,
+            "height": 48.5
+          }
+        ]
+      },
+      "accessible_names": "Sélecteurs de rôle/nom et snapshots Playwright dans Chromium ; pas test de lecteur d’écran."
+    }
+  ],
+  "server_stopped": true,
+  "passed": true,
+  "limits": [
+    "Paires opaques sélectionnées ; aucun audit complet de contraste",
+    "Cibles mesurées dans le panneau ouvert, pas sur un téléphone physique",
+    "Sélecteurs accessibles et clavier ; aucun lecteur d’écran humain"
+  ]
+}

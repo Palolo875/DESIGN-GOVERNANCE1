@@ -1,0 +1,249 @@
+{
+  "artifact_sha256": "c64a95a4d429c18dad774405d3173e39cef52a9613a5ba16bb57f581959a727c",
+  "browser_version": "151.0.7922.173",
+  "server_stopped": true,
+  "comparison": "Réduction de la masse du titre et de son espace supérieur ; contenu, familles, palette et tâche conservés. Le test ne compare pas deux architectures complètes.",
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "title": "Votre prochaine facture.",
+      "client": "Studio Horizon",
+      "service": "Direction artistique",
+      "amount": "720,00 €",
+      "geometry": {
+        "title": {
+          "top": 210.5,
+          "bottom": 445.109375,
+          "height": 234.609375,
+          "fully_in_view": true
+        },
+        "edit": {
+          "top": 537.09375,
+          "bottom": 581.09375,
+          "height": 44,
+          "fully_in_view": true
+        },
+        "quantity": {
+          "top": 488.34375,
+          "bottom": 507.84375,
+          "height": 19.5,
+          "fully_in_view": true
+        },
+        "total": {
+          "top": 722.59375,
+          "bottom": 764.59375,
+          "height": 42,
+          "fully_in_view": true
+        }
+      },
+      "width": 1440,
+      "variant": "entree-ample",
+      "screenshot": "1440-entree-ample.png",
+      "screenshot_sha256": "e893b7e0fd60a7fb3369e5bc8ae2f13360068712c5078e497c4d534737f294c0"
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "title": "Votre prochaine facture.",
+      "client": "Studio Horizon",
+      "service": "Direction artistique",
+      "amount": "720,00 €",
+      "geometry": {
+        "title": {
+          "top": 194.5,
+          "bottom": 303.375,
+          "height": 108.875,
+          "fully_in_view": true
+        },
+        "edit": {
+          "top": 537.09375,
+          "bottom": 581.09375,
+          "height": 44,
+          "fully_in_view": true
+        },
+        "quantity": {
+          "top": 488.34375,
+          "bottom": 507.84375,
+          "height": 19.5,
+          "fully_in_view": true
+        },
+        "total": {
+          "top": 722.59375,
+          "bottom": 764.59375,
+          "height": 42,
+          "fully_in_view": true
+        }
+      },
+      "width": 1440,
+      "variant": "entree-reduite",
+      "screenshot": "1440-entree-reduite.png",
+      "screenshot_sha256": "1e755223f2964a0393023c6bb4f1376233fb5eadb611ef4f8102404a678988e8"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "title": "Votre prochaine facture.",
+      "client": "Studio Horizon",
+      "service": "Direction artistique",
+      "amount": "720,00 €",
+      "geometry": {
+        "title": {
+          "top": 135,
+          "bottom": 264.34375,
+          "height": 129.34375,
+          "fully_in_view": true
+        },
+        "edit": {
+          "top": 677.34375,
+          "bottom": 721.34375,
+          "height": 44,
+          "fully_in_view": true
+        },
+        "quantity": {
+          "top": 629.34375,
+          "bottom": 647.34375,
+          "height": 18,
+          "fully_in_view": true
+        },
+        "total": {
+          "top": 858.84375,
+          "bottom": 897.84375,
+          "height": 39,
+          "fully_in_view": false
+        }
+      },
+      "width": 390,
+      "variant": "entree-ample",
+      "screenshot": "390-entree-ample.png",
+      "screenshot_sha256": "18201e069f595deb2cb175505e58f1e5824a895ea3ca2a7434c28e3762e31406"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "title": "Votre prochaine facture.",
+      "client": "Studio Horizon",
+      "service": "Direction artistique",
+      "amount": "720,00 €",
+      "geometry": {
+        "title": {
+          "top": 119,
+          "bottom": 158.890625,
+          "height": 39.890625,
+          "fully_in_view": true
+        },
+        "edit": {
+          "top": 562.890625,
+          "bottom": 606.890625,
+          "height": 44,
+          "fully_in_view": true
+        },
+        "quantity": {
+          "top": 514.890625,
+          "bottom": 532.890625,
+          "height": 18,
+          "fully_in_view": true
+        },
+        "total": {
+          "top": 744.390625,
+          "bottom": 783.390625,
+          "height": 39,
+          "fully_in_view": true
+        }
+      },
+      "width": 390,
+      "variant": "entree-reduite",
+      "screenshot": "390-entree-reduite.png",
+      "screenshot_sha256": "5d22f253450121468695d600f99c2459d1609c06e6e394ce841718a68c556a36"
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "title": "Votre prochaine facture.",
+      "client": "Studio Horizon",
+      "service": "Direction artistique",
+      "amount": "720,00 €",
+      "geometry": {
+        "title": {
+          "top": 135,
+          "bottom": 329.015625,
+          "height": 194.015625,
+          "fully_in_view": true
+        },
+        "edit": {
+          "top": 736.703125,
+          "bottom": 780.703125,
+          "height": 44,
+          "fully_in_view": true
+        },
+        "quantity": {
+          "top": 688.703125,
+          "bottom": 706.703125,
+          "height": 18,
+          "fully_in_view": true
+        },
+        "total": {
+          "top": 918.203125,
+          "bottom": 957.203125,
+          "height": 39,
+          "fully_in_view": false
+        }
+      },
+      "width": 320,
+      "variant": "entree-ample",
+      "screenshot": "320-entree-ample.png",
+      "screenshot_sha256": "959bc60813b8fc3c130f03c7e01acce069beaa4b1d61c702bcba5b9a780dde5b"
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "title": "Votre prochaine facture.",
+      "client": "Studio Horizon",
+      "service": "Direction artistique",
+      "amount": "720,00 €",
+      "geometry": {
+        "title": {
+          "top": 119,
+          "bottom": 155.75,
+          "height": 36.75,
+          "fully_in_view": true
+        },
+        "edit": {
+          "top": 554.4375,
+          "bottom": 598.4375,
+          "height": 44,
+          "fully_in_view": true
+        },
+        "quantity": {
+          "top": 506.4375,
+          "bottom": 524.4375,
+          "height": 18,
+          "fully_in_view": true
+        },
+        "total": {
+          "top": 735.9375,
+          "bottom": 774.9375,
+          "height": 39,
+          "fully_in_view": true
+        }
+      },
+      "width": 320,
+      "variant": "entree-reduite",
+      "screenshot": "320-entree-reduite.png",
+      "screenshot_sha256": "6a52155ef50ec4a1da07c6d78709d4739adb03d95c3fa9f3acc970644e8eaf77"
+    }
+  ],
+  "verdict": "Après inspection des captures 390 px, le coordinateur retient l’entrée réduite : elle garde le total dans le premier viewport mobile (390 et 320 px), au prix d’une présence éditoriale moindre. Le desktop garde le total dans les deux variantes. Mesure géométrique et appréciation de l’auteur, sans juge aveugle ni participant."
+}

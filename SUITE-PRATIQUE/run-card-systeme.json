@@ -1,0 +1,126 @@
+{
+  "run_card": {
+    "id": "suite-pratique-systeme",
+    "owner": "Coordinateur pour les modifications et les contrôles ; demandeur pour le choix esthétique",
+    "date_version": "2026-10-10 / 3b79b3a10d23",
+    "mode": "SYSTÈME",
+    "decision": "Préciser le moment utile des lectures et les gestes techniques sans ajouter un processus ni retirer une protection.",
+    "decision_intent": "Corriger les fragilités observées dans U6 et documenter une mise en pratique bornée.",
+    "risk": {
+      "level": "important",
+      "statement": "Une simplification du chargement pourrait faire omettre une contrainte critique ou une preuve nécessaire.",
+      "critical_protection": null
+    },
+    "sources": [
+      "DIRECTION/START/TREE",
+      "ACTION/RUN-SYSTEM",
+      "DIRECTION/CHARGE",
+      "SAVOIR/TECH",
+      "SAVOIR/CRAFT/CFT-02",
+      "DIRECTION/FIRST-OBJECT",
+      "ACTION/GATE-B",
+      "ACTION/CLOSE-PACKAGE"
+    ],
+    "artifact": {
+      "locator": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/3b79b3a10d2344a52db76f6e6239cf0a91c056c7",
+      "scope": "11 fichiers produit du commit ; diagnostic, prototype et preuves livrés séparément sur refonte.",
+      "version": "3b79b3a10d2344a52db76f6e6239cf0a91c056c7"
+    },
+    "trace_locator": "resultats.md",
+    "next_proof": "Observer les nouvelles séquences de lecture et une tâche mobile représentative ; qualité et coût généraux restent ouverts.",
+    "capability_profile": {
+      "available": [
+        "Validation Python et Chromium",
+        "Git et comparaison SHA256"
+      ],
+      "unavailable": [
+        "Mesure de jetons API",
+        "Utilisateur représentatif",
+        "Téléphone physique"
+      ],
+      "not_required": [
+        "Comparaison concurrentielle",
+        "Traduction anglaise"
+      ],
+      "basis": [
+        {
+          "capability": "Validation Python et Chromium",
+          "kind": "tool_result",
+          "detail": "validation/systeme.log : FULL VALIDATION PASSED, navigateur obligatoire et archives reproductibles."
+        },
+        {
+          "capability": "Git et comparaison SHA256",
+          "kind": "tool_result",
+          "detail": "diagnostic/conservation-suite.json : 41 corps protégés identiques, deux consignes adaptées, aucun bloc absent ou ajouté."
+        }
+      ]
+    },
+    "proof": {
+      "observed": [
+        "Validation complète locale avec navigateur, contrôles de références et distributions reproductibles.",
+        "41 blocs protégés identiques et deux consignes de chargement modifiées ; aucun bloc absent ou ajouté.",
+        "53 parcours Web mobile finaux réussis ; les trois premiers échecs restent conservés.",
+        "1 344 empreintes des originaux U6 inchangées."
+      ],
+      "not_verified": [
+        "Effet causal du chargement sur l’attention et la qualité.",
+        "Supériorité esthétique générale, coût API, objectifs initiaux de lecture et comportement sur téléphone physique."
+      ],
+      "provenance": {
+        "artifact_locator": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/3b79b3a10d2344a52db76f6e6239cf0a91c056c7",
+        "artifact_version": "3b79b3a10d2344a52db76f6e6239cf0a91c056c7",
+        "method": "Validation automatisée Python/Chromium ; diff de sources et empreintes ; inspection manuelle de captures.",
+        "observed_at": "2026-10-10T19:19:17.484617+00:00",
+        "capability": "Validation Python et Chromium"
+      }
+    },
+    "decision_change": {
+      "outcome": "CHANGED",
+      "value": "La table sépare lancement, fabrication/observation et clôture ; le savoir précise alternatives plausibles et mobile/mouvement.",
+      "evidence": "Commit produit exact et diagnostic/conservation-suite.json."
+    },
+    "closure": {
+      "state": "CLOSED",
+      "verdict": "ACCEPTED-WITH-RESERVATION",
+      "limitations": [
+        "Acceptation technique du lot dans le périmètre des contrôles ; aucune préférence esthétique ou efficacité générale acceptée."
+      ],
+      "axes": {
+        "V": "NOT-VERIFIED",
+        "U": "NOT-VERIFIED",
+        "A": "NOT-VERIFIED",
+        "T": "PASS"
+      },
+      "reservations": [
+        {
+          "owner": "Coordinateur et demandeur",
+          "scope": "Effet sur les lectures, la qualité et l’expérience réelle",
+          "date_version": "2026-10-10 / 3b79b3a10d23",
+          "impact": "Les contrôles techniques ne démontrent pas le bénéfice comportemental et esthétique général.",
+          "next_proof": "Trace d’usage des étapes et observation d’une tâche mobile représentative.",
+          "review_date": "2026-10-17",
+          "exit_condition": "Résultats d’usage observés, réserves réévaluées sans confondre échantillon et preuve générale."
+        }
+      ],
+      "system_package": {
+        "consumers": [
+          "Agents utilisant la ligne DIRECTION et le savoir technique mobile"
+        ],
+        "impact": "Consignes de moment de lecture ; techniques chargées à la demande ; aucun mode, gate, statut ou schéma supplémentaire.",
+        "owner": "Coordinateur pour ce lot, demandeur pour les décisions produit",
+        "migration": "Recompiler et réinstaller la skill du commit exact ; anciens codes et adresses restent compatibles.",
+        "rollback": "Revenir à 6e5a8c2a9016b31969051499b1c895a116fd75b4 et reconstruire les distributions ; conserver les preuves séparées.",
+        "changelog_ref": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/blob/3b79b3a10d2344a52db76f6e6239cf0a91c056c7/maintenance/versions.md",
+        "non_regression": {
+          "claim": "Responsabilités de preuve conservées, routes et compilation valides, distributions reproductibles.",
+          "baseline": {
+            "locator": "https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/6e5a8c2a9016b31969051499b1c895a116fd75b4",
+            "version": "6e5a8c2a9016b31969051499b1c895a116fd75b4",
+            "state": "Validation complète et CI 50/51 réussies."
+          }
+        }
+      },
+      "issue": null
+    }
+  }
+}

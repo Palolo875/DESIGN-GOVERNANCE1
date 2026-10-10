@@ -1,0 +1,950 @@
+{
+  "recorded_at_utc": "2026-10-10T19:06:58.019901+00:00",
+  "artifact_sha256": "c64a95a4d429c18dad774405d3173e39cef52a9613a5ba16bb57f581959a727c",
+  "browser_executable": "/usr/bin/chromium",
+  "browser_version": "151.0.7922.173",
+  "server_bound": "127.0.0.1",
+  "server_stopped": true,
+  "cases": [
+    {
+      "case": "nominal",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "total": "720,00 €",
+        "geometry": {
+          "viewport": 1440,
+          "page": 1440,
+          "boxes": [
+            {
+              "name": "document",
+              "left": 562,
+              "right": 1256,
+              "scroll": 692,
+              "width": 692
+            },
+            {
+              "name": "service-row",
+              "left": 598,
+              "right": 1220,
+              "scroll": 622,
+              "width": 622
+            },
+            {
+              "name": "mechanism",
+              "left": 598,
+              "right": 1220,
+              "scroll": 622,
+              "width": 622
+            },
+            {
+              "name": "total-row total-final",
+              "left": 598,
+              "right": 1220,
+              "scroll": 622,
+              "width": 622
+            }
+          ]
+        },
+        "selectors": [
+          "#quantity",
+          "#total",
+          "#edit"
+        ]
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "actions-rapides",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "actions": "20 ajouts et 2 retraits sans attendre les animations",
+        "heures": 17,
+        "total": "1530,00 €",
+        "animations_finales": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "erreurs-et-reprise",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "erreurs_liees": 5,
+        "saisie_conservee": "abc",
+        "calcul": "10,5 × 80,25 => 842,63 HT ; TVA 5,5 % => 46,34 ; TTC 888,97",
+        "focus_retour": "#edit"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "annulation",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "modifications_annulees": true,
+        "fermetures": [
+          "bouton",
+          "Escape"
+        ],
+        "total": "720,00 €"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "clavier",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "boucle": [
+          "Shift+Tab premier vers dernier",
+          "Tab dernier vers premier"
+        ],
+        "retour_focus": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "fermeture-interrompue",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "ouvertures_fermetures_rapides": 8,
+        "reouverture_tardive": false,
+        "animations_finales": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "glissement",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "petit_glissement": "retour sans fermer",
+        "grand_glissement": "fermeture et focus restauré",
+        "scope": "pointeur Chromium, pas geste système natif"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "pointeur-annule",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "annulation": "pointercancel injecté après pointeur réel",
+        "panneau": "ouvert, position restaurée",
+        "donnée": "inchangée"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "hauteur-reduite",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "hauteur": 420,
+        "action_visible": {
+          "x": 477,
+          "y": 328.31793212890625,
+          "width": 486,
+          "height": 48.5
+        },
+        "limite": "réduction de viewport, pas clavier logiciel physique"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "contenu-long-et-bornes",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "valeurs_limites": "1000 h, 100000 €, 100 %",
+        "réouverture_sans_perte": true,
+        "geometry": {
+          "viewport": 1440,
+          "page": 1440,
+          "boxes": [
+            {
+              "name": "document",
+              "left": 562,
+              "right": 1256,
+              "scroll": 692,
+              "width": 692
+            },
+            {
+              "name": "service-row",
+              "left": 598,
+              "right": 1220,
+              "scroll": 622,
+              "width": 622
+            },
+            {
+              "name": "mechanism",
+              "left": 598,
+              "right": 1220,
+              "scroll": 622,
+              "width": 622
+            },
+            {
+              "name": "total-row total-final",
+              "left": 598,
+              "right": 1220,
+              "scroll": 622,
+              "width": 622
+            }
+          ]
+        }
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "reprise-locale",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "rechargement": "brouillon retrouvé",
+        "total": "888,97 €",
+        "scope": "stockage du contexte de navigateur"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "telechargement",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "fichier": "1440-brouillon.txt",
+        "limites_presentes": true,
+        "sha256": "e9e20fe625ddd72dfa62707eb56324b4fa7dfb2ff1e3af66fb87eb562eee5dba"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "mouvement-reduit",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "préférence": "reduce",
+        "calcul": "810,00 €",
+        "animations": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "reduce-pendant-animation",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "animation_observée_avant": 1,
+        "après_reduce": 0,
+        "état_conservé": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "API-animation-absente",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "API": "Element.animate indisponible",
+        "état_final_correct": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "stockage-absent",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "stockage": "indisponible et annoncé",
+        "calcul": "810,00 €"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "sans-JavaScript",
+      "width": 1440,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "état": "document statique, actions désactivées et limite annoncée"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "nominal",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "total": "720,00 €",
+        "geometry": {
+          "viewport": 390,
+          "page": 390,
+          "boxes": [
+            {
+              "name": "document",
+              "left": 20,
+              "right": 370,
+              "scroll": 348,
+              "width": 348
+            },
+            {
+              "name": "service-row",
+              "left": 41,
+              "right": 349,
+              "scroll": 308,
+              "width": 308
+            },
+            {
+              "name": "mechanism",
+              "left": 41,
+              "right": 349,
+              "scroll": 308,
+              "width": 308
+            },
+            {
+              "name": "total-row total-final",
+              "left": 41,
+              "right": 349,
+              "scroll": 308,
+              "width": 308
+            }
+          ]
+        },
+        "selectors": [
+          "#quantity",
+          "#total",
+          "#edit"
+        ]
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "actions-rapides",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "actions": "20 ajouts et 2 retraits sans attendre les animations",
+        "heures": 17,
+        "total": "1530,00 €",
+        "animations_finales": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "erreurs-et-reprise",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "erreurs_liees": 5,
+        "saisie_conservee": "abc",
+        "calcul": "10,5 × 80,25 => 842,63 HT ; TVA 5,5 % => 46,34 ; TTC 888,97",
+        "focus_retour": "#edit"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "annulation",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "modifications_annulees": true,
+        "fermetures": [
+          "bouton",
+          "Escape"
+        ],
+        "total": "720,00 €"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "clavier",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "boucle": [
+          "Shift+Tab premier vers dernier",
+          "Tab dernier vers premier"
+        ],
+        "retour_focus": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "fermeture-interrompue",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "ouvertures_fermetures_rapides": 8,
+        "reouverture_tardive": false,
+        "animations_finales": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "glissement",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "petit_glissement": "retour sans fermer",
+        "grand_glissement": "fermeture et focus restauré",
+        "scope": "pointeur Chromium, pas geste système natif"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "pointeur-annule",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "annulation": "pointercancel injecté après pointeur réel",
+        "panneau": "ouvert, position restaurée",
+        "donnée": "inchangée"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "hauteur-reduite",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "hauteur": 420,
+        "action_visible": {
+          "x": 22,
+          "y": 344.2958984375,
+          "width": 310,
+          "height": 48.5
+        },
+        "limite": "réduction de viewport, pas clavier logiciel physique"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "contenu-long-et-bornes",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "valeurs_limites": "1000 h, 100000 €, 100 %",
+        "réouverture_sans_perte": true,
+        "geometry": {
+          "viewport": 390,
+          "page": 390,
+          "boxes": [
+            {
+              "name": "document",
+              "left": 20,
+              "right": 370,
+              "scroll": 348,
+              "width": 348
+            },
+            {
+              "name": "service-row",
+              "left": 41,
+              "right": 349,
+              "scroll": 308,
+              "width": 308
+            },
+            {
+              "name": "mechanism",
+              "left": 41,
+              "right": 349,
+              "scroll": 308,
+              "width": 308
+            },
+            {
+              "name": "total-row total-final",
+              "left": 41,
+              "right": 349,
+              "scroll": 308,
+              "width": 308
+            }
+          ]
+        }
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "reprise-locale",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "rechargement": "brouillon retrouvé",
+        "total": "888,97 €",
+        "scope": "stockage du contexte de navigateur"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "telechargement",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "fichier": "390-brouillon.txt",
+        "limites_presentes": true,
+        "sha256": "e9e20fe625ddd72dfa62707eb56324b4fa7dfb2ff1e3af66fb87eb562eee5dba"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "mouvement-reduit",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "préférence": "reduce",
+        "calcul": "810,00 €",
+        "animations": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "reduce-pendant-animation",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "animation_observée_avant": 1,
+        "après_reduce": 0,
+        "état_conservé": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "API-animation-absente",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "API": "Element.animate indisponible",
+        "état_final_correct": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "stockage-absent",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "stockage": "indisponible et annoncé",
+        "calcul": "810,00 €"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "sans-JavaScript",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "état": "document statique, actions désactivées et limite annoncée"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "tap-mobile",
+      "width": 390,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "action": "tap tactile émulé sur Ajouter une demi-heure",
+        "total": "765,00 €",
+        "cible": {
+          "x": 130,
+          "y": 501.890625,
+          "width": 44,
+          "height": 44
+        }
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "nominal",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "total": "720,00 €",
+        "geometry": {
+          "viewport": 320,
+          "page": 320,
+          "boxes": [
+            {
+              "name": "document",
+              "left": 14,
+              "right": 306,
+              "scroll": 290,
+              "width": 290
+            },
+            {
+              "name": "service-row",
+              "left": 30,
+              "right": 290,
+              "scroll": 260,
+              "width": 260
+            },
+            {
+              "name": "mechanism",
+              "left": 30,
+              "right": 290,
+              "scroll": 260,
+              "width": 260
+            },
+            {
+              "name": "total-row total-final",
+              "left": 30,
+              "right": 290,
+              "scroll": 260,
+              "width": 260
+            }
+          ]
+        },
+        "selectors": [
+          "#quantity",
+          "#total",
+          "#edit"
+        ]
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "actions-rapides",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "actions": "20 ajouts et 2 retraits sans attendre les animations",
+        "heures": 17,
+        "total": "1530,00 €",
+        "animations_finales": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "erreurs-et-reprise",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "erreurs_liees": 5,
+        "saisie_conservee": "abc",
+        "calcul": "10,5 × 80,25 => 842,63 HT ; TVA 5,5 % => 46,34 ; TTC 888,97",
+        "focus_retour": "#edit"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "annulation",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "modifications_annulees": true,
+        "fermetures": [
+          "bouton",
+          "Escape"
+        ],
+        "total": "720,00 €"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "clavier",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "boucle": [
+          "Shift+Tab premier vers dernier",
+          "Tab dernier vers premier"
+        ],
+        "retour_focus": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "fermeture-interrompue",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "ouvertures_fermetures_rapides": 8,
+        "reouverture_tardive": false,
+        "animations_finales": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "glissement",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "petit_glissement": "retour sans fermer",
+        "grand_glissement": "fermeture et focus restauré",
+        "scope": "pointeur Chromium, pas geste système natif"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "pointeur-annule",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "annulation": "pointercancel injecté après pointeur réel",
+        "panneau": "ouvert, position restaurée",
+        "donnée": "inchangée"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "hauteur-reduite",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "hauteur": 420,
+        "action_visible": {
+          "x": 22,
+          "y": 327.8126220703125,
+          "width": 240,
+          "height": 48.5
+        },
+        "limite": "réduction de viewport, pas clavier logiciel physique"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "contenu-long-et-bornes",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "valeurs_limites": "1000 h, 100000 €, 100 %",
+        "réouverture_sans_perte": true,
+        "geometry": {
+          "viewport": 320,
+          "page": 320,
+          "boxes": [
+            {
+              "name": "document",
+              "left": 14,
+              "right": 306,
+              "scroll": 290,
+              "width": 290
+            },
+            {
+              "name": "service-row",
+              "left": 30,
+              "right": 290,
+              "scroll": 260,
+              "width": 260
+            },
+            {
+              "name": "mechanism",
+              "left": 30,
+              "right": 290,
+              "scroll": 260,
+              "width": 260
+            },
+            {
+              "name": "total-row total-final",
+              "left": 30,
+              "right": 290,
+              "scroll": 260,
+              "width": 260
+            }
+          ]
+        }
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "reprise-locale",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "rechargement": "brouillon retrouvé",
+        "total": "888,97 €",
+        "scope": "stockage du contexte de navigateur"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "telechargement",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "fichier": "320-brouillon.txt",
+        "limites_presentes": true,
+        "sha256": "e9e20fe625ddd72dfa62707eb56324b4fa7dfb2ff1e3af66fb87eb562eee5dba"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "mouvement-reduit",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "préférence": "reduce",
+        "calcul": "810,00 €",
+        "animations": 0
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "reduce-pendant-animation",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "animation_observée_avant": 1,
+        "après_reduce": 0,
+        "état_conservé": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "API-animation-absente",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "API": "Element.animate indisponible",
+        "état_final_correct": true
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "stockage-absent",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "stockage": "indisponible et annoncé",
+        "calcul": "810,00 €"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "sans-JavaScript",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "état": "document statique, actions désactivées et limite annoncée"
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    },
+    {
+      "case": "tap-mobile",
+      "width": 320,
+      "method": "Playwright/Chromium ; contexte neuf",
+      "status": "PASS",
+      "observations": {
+        "action": "tap tactile émulé sur Ajouter une demi-heure",
+        "total": "765,00 €",
+        "cible": {
+          "x": 112,
+          "y": 493.4375,
+          "width": 44,
+          "height": 44
+        }
+      },
+      "javascript_errors": [],
+      "external_requests": []
+    }
+  ],
+  "passed": 53,
+  "failed": 0,
+  "limitations": [
+    "Web mobile émulé ; aucun téléphone physique ni build natif",
+    "Aucun lecteur d’écran, utilisateur représentatif ou audit WCAG exhaustif",
+    "Mouvements testés comme transitions d’état ; fluidité sur appareil non établie"
+  ]
+}

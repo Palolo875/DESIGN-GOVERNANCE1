@@ -1,0 +1,59 @@
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 18960 / 46000 octets UTF-8
+VALIDATION PASSED — GitHub, 108 fichiers attendus, liens, références opérationnelles, sources, vocabulaire et convention contrôlés
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 0.422s
+
+OK
+CORE BUDGET TESTS PASSED — 18 cas
+...............................................F....................................
+======================================================================
+FAIL: test_each_mode_reads_exactly_its_canonical_row (__main__.SearchAndSummaryTests.test_each_mode_reads_exactly_its_canonical_row) (mode='DIRECTION')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/test_read_route.py", line 528, in test_each_mode_reads_exactly_its_canonical_row
+    self.assertEqual(r.stdout.count("| **"), 1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 84 tests in 21.354s
+
+FAILED (failures=1)
+READ_ROUTE TESTS FAILED — 84 cas
++ /workspace/cloud-setup/design-governance/venv/bin/python -m py_compile gouvernance/outils/validate_contracts.py gouvernance/outils/validate_run_card.py scripts/build_core.py scripts/check_render.py scripts/preparer_livraison.py scripts/read_route.py scripts/test_audit_regressions.py scripts/test_check_render.py scripts/test_core_budget.py scripts/test_preparer_livraison.py scripts/test_read_route.py scripts/validate_all.py scripts/validate_design_governance.py scripts/validate_reading_map.py scripts/validate_structure.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/build_core.py --check
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_design_governance.py
++ /workspace/cloud-setup/design-governance/venv/bin/python gouvernance/outils/validate_run_card.py
++ /workspace/cloud-setup/design-governance/venv/bin/python gouvernance/outils/validate_contracts.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_reading_map.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_structure.py
+CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés
+MOVE REGRESSION PASSED — route déplacée avec son bloc de noyau : lecteur, noyau et validateurs suivent la table LIEUX ; sans elle, le déplacement est détecté ; un locator porté par deux fichiers est refusé
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/test_core_budget.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/test_read_route.py
+Traceback (most recent call last):
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 288, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 209, in main
+    run([sys.executable, "scripts/test_read_route.py"])
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 18, in run
+    subprocess.run(command, cwd=ROOT, check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/cloud-setup/design-governance/venv/bin/python', 'scripts/test_read_route.py']' returned non-zero exit status 1.

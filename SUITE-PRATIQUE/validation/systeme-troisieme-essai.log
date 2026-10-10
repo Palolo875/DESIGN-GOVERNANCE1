@@ -1,0 +1,215 @@
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 18960 / 46000 octets UTF-8
+VALIDATION PASSED — GitHub, 108 fichiers attendus, liens, références opérationnelles, sources, vocabulaire et convention contrôlés
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
+READING MAP VALIDATION PASSED — carte dérivée, propriétaires, locators, liens et conditions de façade contrôlés
+STRUCTURE VALIDATION PASSED — 26 concepts, 9 renvois, 37 vocabulaire(s) retiré(s), 65 résumé(s) fidèle(s), 16 termes de glossaire, lignes de table uniques, registre des façades, noyau compilé, chargement unique
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 0.297s
+
+OK
+CORE BUDGET TESTS PASSED — 18 cas
+....................................................................................
+----------------------------------------------------------------------
+Ran 84 tests in 20.611s
+
+OK
+READ_ROUTE TESTS PASSED — 84 cas
+....................................................................
+----------------------------------------------------------------------
+Ran 68 tests in 1.063s
+
+OK
+AUDIT REGRESSIONS PASSED — 68 cas
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.199s
+
+OK
+PREPARATION TESTS PASSED — 9 cas
+  [ok] A01 navigateur explicitement configuré : /browser/configure
+  [ok] A02 option navigateur prioritaire sur la configuration : /browser/choisi
+  [ok] A03 serveur local : nom encodé et contenu servi : ['127.0.0.1', 200, b'<h1>Local</h1>']
+  [ok] A04 serveur fermé après interruption de la mesure : ('127.0.0.1', 39235)
+Partie A — interprétation (sans navigateur)
+  [ok] A05 page propre : aucun RETURN : False
+  [ok] A06 sans sélecteur, objet de preuve NOT-VERIFIED : NOT-VERIFIED
+  [ok] A07 objet introuvable : RETURN
+  [ok] A08 objet de hauteur nulle : RETURN
+  [ok] A09 objet masqué : RETURN
+  [ok] A10 objet sous la ligne de flottaison : PASS-WITH-RESERVATION
+  [ok] A11 objet : CSS et rectangle couverts : PASS
+  [ok] A12 objet transparent : RETURN
+  [ok] A13 objet hors écran horizontal : PASS-WITH-RESERVATION
+  [ok] A14 objet faible bande horizontale : PASS-WITH-RESERVATION
+  [ok] A15 objet opacité partielle : PASS-WITH-RESERVATION
+  [ok] A16 objet découpe inconnue : PASS-WITH-RESERVATION
+  [ok] A17 objet ancienne mesure : PASS-WITH-RESERVATION
+  [ok] A18 couleur non convertible : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A19 texte SVG non mesuré : réserve explicite : PASS-WITH-RESERVATION
+  [ok] A20 fond en dégradé : jamais PASS : PASS-WITH-RESERVATION
+  [ok] A21 contraste insuffisant : RETURN
+  [ok] A22 petite cible espacée : PASS
+  [ok] A23 petites cibles serrées : réserve, pas RETURN : PASS-WITH-RESERVATION
+  [ok] A24 focus sans changement de style : PASS-WITH-RESERVATION
+  [ok] A25 feuille ouverte qui défile : RETURN
+  [ok] A26 conteneur défilant voulu ou non : PASS-WITH-RESERVATION
+  [ok] A27 animation infinie en mouvement réduit : RETURN
+  [ok] A28 débordement du document : RETURN
+  [ok] A29 contrôle sans nom : RETURN
+  [ok] A30 opacité de groupe : réserve : PASS-WITH-RESERVATION
+  [ok] A31 opacité non couverte et défaut ailleurs : retour conservé : RETURN
+  [ok] A32 candidat DOM présent : nom calculé non prouvé : PASS-WITH-RESERVATION
+  [ok] A33 aucun contrôle DOM applicable : PASS
+  [ok] A34 ancienne mesure sans méthode de nom : PASS-WITH-RESERVATION
+  [ok] A35 zéro arrêt sans couverture : PASS-WITH-RESERVATION
+  [ok] A36 parcours terminé et candidats atteints : PASS
+  [ok] A37 borne atteinte malgré tous les candidats vus : PASS-WITH-RESERVATION
+  [ok] A38 interactif candidat et zéro arrêt : PASS-WITH-RESERVATION
+  [ok] A39 absence justifiée de candidat et parcours fini : PASS
+  [ok] A40 cycle complet : PASS
+  [ok] A41 une largeur tronquée suffit à réserver : PASS-WITH-RESERVATION
+  [ok] A42 arrêt hors inventaire : réserve : PASS-WITH-RESERVATION
+  [ok] A43 nom inconnu ne promet pas un candidat présent : True
+  [ok] A44 texte opaque évalué : PASS
+  [ok] A45 aucun texte applicable : PASS
+  [ok] A46 candidat non évalué : PASS-WITH-RESERVATION
+  [ok] A47 placeholder non évalué : PASS-WITH-RESERVATION
+  [ok] A48 ancienne mesure de contraste : réserve : PASS-WITH-RESERVATION
+  [ok] A49 une largeur non couverte suffit à réserver le contraste : PASS-WITH-RESERVATION
+  [ok] A50 sortie JSON simulée sans navigateur : 0
+  [ok] A51 JSON conserve couverture contraste et observation de preuve : [{'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}, {'found': True, 'method': 'css-rectangle-bounded', 'w': 300, 'h': 600, 'hidden': False, 'visible': 300, 'intersectionWidth': 300, 'opacity': 1, 'limits': []}]
+  [ok] A52 JSON conserve couverture clavier : end
+  [ok] A53 captures listées dans la provenance : ['/tmp/tmp1k053eof/v1/capture-390px.png']
+  [ok] A54 navigateur observé conservé dans la provenance : {'engine': 'chromium', 'version': 'version-test', 'executable': '/browser/choisi'}
+  [ok] A55 capture existante : refus avant toute mesure, rien écrasé : [2, b'avant']
+Partie C — fonctions JavaScript livrées sur DOM simulés, sans navigateur
+  [ok] C01 bouton dont seul le texte masqué fournit le nom : 
+  [ok] C02 descendant display none exclu : 
+  [ok] C03 texte visible conservé : Valider
+  [ok] C04 aria label : Fermer
+  [ok] C05 référence masquée explicite : Fermer
+  [ok] C06 référence avant aria label : Confirmer
+  [ok] C07 label natif masqué référencé : Prénom
+  [ok] C08 image avec alternative : Exporter
+  [ok] C09 référence inexistante : repli aria label : Valider
+  [ok] C10 référence à soi : Supprimer
+  [ok] C11 référence masquée par un ancêtre : Fermer
+  [ok] C12 pseudo contenu : cas non couvert : True
+  [ok] C13 valeur native implicite : cas non couvert : True
+  [ok] C14 opacité sur le texte et son fond : reserve
+  [ok] C15 opacité d’un ancêtre : reserve
+  [ok] C16 texte opaque conforme : pass
+  [ok] C17 texte opaque insuffisant : return
+  [ok] C18 inventaire de deux boutons sans identifiant : ['control-0', 'control-1']
+  [ok] C19 arrêts homonymes gardent deux identités : ['control-0', 'control-1']
+  [ok] C20 un seul bouton répété clôt le cycle : True
+  [ok] C21 retour à la page : raison de fin observable : True
+  [ok] C22 contrôle masqué hors inventaire actif : [1, 1]
+  [ok] C23 valeur input ignorée auparavant : PASS-WITH-RESERVATION
+  [ok] C24 placeholder ignoré auparavant : PASS-WITH-RESERVATION
+  [ok] C25 textarea courant sans childNode : PASS-WITH-RESERVATION
+  [ok] C26 textarea vide avec ancienne valeur HTML : PASS
+  [ok] C27 placeholder non affiché derrière une valeur espace : PASS-WITH-RESERVATION
+  [ok] C28 input vide sans texte : PASS
+  [ok] C29 placeholder masqué : PASS
+  [ok] C30 select natif : PASS-WITH-RESERVATION
+  [ok] C31 mot de passe : valeur jamais publiée : PASS-WITH-RESERVATION
+  [ok] C32 valeur sensible absente du relevé : False
+  [ok] C33 texte opaque conforme : PASS
+  [ok] C34 texte opaque insuffisant : RETURN
+  [ok] C35 aria hidden ne dispense pas le texte visible de contraste : RETURN
+  [ok] C36 opacité très faible non nulle : PASS-WITH-RESERVATION
+  [ok] C37 texte pseudo détecté : PASS-WITH-RESERVATION
+  [ok] C38 défaut connu prioritaire sur placeholder non évalué : RETURN
+  [ok] C39 texte directement dans body couvert : RETURN
+  [ok] C40 dénominateur de couverture : {'method': 'dom-text-bounded', 'candidates': 1, 'evaluated': 1, 'excluded': 0, 'unmeasured': []}
+  [ok] C41 objet opaque dans écran : PASS
+  [ok] C42 objet transparent : RETURN
+  [ok] C43 ancêtre transparent : RETURN
+  [ok] C44 ancêtre display none : RETURN
+  [ok] C45 visibilité masquée : RETURN
+  [ok] C46 objet hors écran à gauche : PASS-WITH-RESERVATION
+  [ok] C47 visibilité rétablie sur le descendant : PASS
+  [ok] C48 objet hors écran à droite : PASS-WITH-RESERVATION
+  [ok] C49 objet sous écran : PASS-WITH-RESERVATION
+  [ok] C50 découpe ancêtre : PASS-WITH-RESERVATION
+  [ok] C51 masque objet : PASS-WITH-RESERVATION
+Partie B — pages pièges (navigateur)
+Traceback (most recent call last):
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/test_check_render.py", line 448, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/test_check_render.py", line 437, in main
+    b = 'NOT-VERIFIED : navigateur écarté explicitement' if args.skip_browser else part_b(args.require_browser)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/test_check_render.py", line 361, in part_b
+    _, c = measure(str(d / "oklch.html"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/test_check_render.py", line 338, in measure
+    raw = cr.measure(args)
+          ^^^^^^^^^^^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/check_render.py", line 320, in measure
+    return measure_url(args, url)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/check_render.py", line 376, in measure_url
+    ctx, page, errs = open_page(w)
+                      ^^^^^^^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/check_render.py", line 360, in open_page
+    page.goto(url, wait_until="load")
+  File "/workspace/cloud-setup/design-governance/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9019, in goto
+    self._sync(
+  File "/workspace/cloud-setup/design-governance/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/workspace/cloud-setup/design-governance/venv/lib/python3.12/site-packages/playwright/_impl/_page.py", line 555, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cloud-setup/design-governance/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 153, in goto
+    await self._channel.send(
+  File "/workspace/cloud-setup/design-governance/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cloud-setup/design-governance/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///tmp/tmpmoj9139t/oklch.html
+Call log:
+  - navigating to "file:///tmp/tmpmoj9139t/oklch.html", waiting until "load"
+
++ /workspace/cloud-setup/design-governance/venv/bin/python -m py_compile gouvernance/outils/validate_contracts.py gouvernance/outils/validate_run_card.py scripts/build_core.py scripts/check_render.py scripts/preparer_livraison.py scripts/read_route.py scripts/test_audit_regressions.py scripts/test_check_render.py scripts/test_core_budget.py scripts/test_preparer_livraison.py scripts/test_read_route.py scripts/validate_all.py scripts/validate_design_governance.py scripts/validate_reading_map.py scripts/validate_structure.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/build_core.py --check
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_design_governance.py
++ /workspace/cloud-setup/design-governance/venv/bin/python gouvernance/outils/validate_run_card.py
++ /workspace/cloud-setup/design-governance/venv/bin/python gouvernance/outils/validate_contracts.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_reading_map.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_structure.py
+CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés
+MOVE REGRESSION PASSED — route déplacée avec son bloc de noyau : lecteur, noyau et validateurs suivent la table LIEUX ; sans elle, le déplacement est détecté ; un locator porté par deux fichiers est refusé
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/test_core_budget.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/test_read_route.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/test_audit_regressions.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/test_preparer_livraison.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/test_check_render.py --require-browser
+Traceback (most recent call last):
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 288, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 213, in main
+    run([sys.executable, "scripts/test_check_render.py", *(["--require-browser"] if args.require_browser else [])])
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 18, in run
+    subprocess.run(command, cwd=ROOT, check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/cloud-setup/design-governance/venv/bin/python', 'scripts/test_check_render.py', '--require-browser']' returned non-zero exit status 1.

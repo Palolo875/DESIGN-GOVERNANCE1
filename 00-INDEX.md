@@ -130,3 +130,10 @@ On peut les supprimer sans perte, puisque leurs résultats sont dans les livrabl
 | Fiche n°7 : « 5 versions du parcours » | Au moins 6 (RELEASE_NOTES) |
 | Synthèse, motif M2 : « points de départ annoncés et non tenus » | Choix assumé (DIRECTION l. 137), pas une promesse |
 | « Haiku 5.5 n'existe pas » | Sorti le 7 octobre 2026 (`claude-haiku-5-5`) ; vérifié après ta remarque |
+
+## Suite pratique après U6
+
+- [Résultats, changements et limites](SUITE-PRATIQUE/resultats.md)
+- [Pourquoi les juges préfèrent F et E](SUITE-PRATIQUE/diagnostic/diagnostic-u6.md)
+- [Prototype Folio](SUITE-PRATIQUE/mobile/index.html) et [galerie comparée](SUITE-PRATIQUE/galerie.html)
+- [Livraison et intégration](SUITE-PRATIQUE/livraison.md)

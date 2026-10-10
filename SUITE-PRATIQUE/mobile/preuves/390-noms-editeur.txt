@@ -1,0 +1,18 @@
+- dialog "Le détail compte.":
+  - button "Fermer l’éditeur, ou glisser vers le bas"
+  - heading "Le détail compte." [level=2]
+  - paragraph: Modifiez la prestation. Le brouillon suivra.
+  - button "Fermer sans appliquer": ×
+  - text: Votre client
+  - textbox "Votre client": Studio Horizon
+  - text: La prestation
+  - textbox "La prestation": Direction artistique
+  - text: Nombre d’heures
+  - textbox "Nombre d’heures": "8"
+  - text: Tarif HT / heure (€)
+  - textbox "Tarif HT / heure (€)": 75,00
+  - text: TVA d’exemple (%)
+  - textbox "TVA d’exemple (%)": "20"
+  - paragraph: Taux illustratif de 0 à 100 %, à confirmer pour votre activité.
+  - button "Appliquer au brouillon"
+  - paragraph: Fermer annule ces modifications. Rien n’est envoyé.

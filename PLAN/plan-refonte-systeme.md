@@ -1,7 +1,7 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** plan validé ; suite de la phase 5 autorisée par la demande « on va tout corriger ». Les phases 6 et 8 ont livré leur périmètre minimal ; la phase 7 reste reportée. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire ne sont pas établies. Les essais nécessaires à cette suite sont autorisés ; les limites de leur protocole sont déclarées.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié :** `6e5a8c2a9016b31969051499b1c895a116fd75b4` (révision `R2026-10-10-PHASE5`). Validation complète avec navigateur et archives reproductibles ; CI 50 et 51 vertes sur ce SHA ; [bilan de la suite](phase5-suite.md).
+**Statut :** comparaison concurrentielle et anglais reportés par le propriétaire ; diagnostic U6 et essai Web mobile livrés dans la [suite pratique](../SUITE-PRATIQUE/resultats.md). Plan validé ; suite de la phase 5 autorisée par la demande « on va tout corriger ». Les phases 6 et 8 ont livré leur périmètre minimal ; la phase 7 reste reportée. La comparaison indépendante U6 est exécutée et documentée ; l’efficacité générale et la décision du propriétaire ne sont pas établies. Les essais nécessaires à cette suite sont autorisés ; les limites de leur protocole sont déclarées.
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié localement :** `3b79b3a10d2344a52db76f6e6239cf0a91c056c7` (révision `R2026-10-10-PRATIQUE`). Validation complète avec navigateur et archives reproductibles ; CI 52 et 53 en cours sur ce SHA. Les CI 50 et 51 restent les preuves de la révision précédente, sans les réattribuer ; [livraison suivie](../SUITE-PRATIQUE/livraison.md).
 
 ---
 
@@ -14,7 +14,7 @@
 | 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
 | 3 — Rangement | **faite : lots 0 à 7c** | Voir le détail ci-dessous |
 | 4 — Langue claire (réduite, choix A) | **faite** | README `e13b8f3` ; sommaires `34cfd3a` ; guide designer `7bc881e` ; glossaire `3c13742` ; guide d’équipe `5ddf769` ; libellés hérités `715075a`. Les adresses lisibles remplacent les codes ; les contrôles les relisent en codes (`rr.en_codes`) et restent identiques sur le fond. Reportés à la phase 5 : le `design/` lu par l’agent, l’exemple complet du guide d’équipe ; la gouvernance a depuis été clarifiée comme adaptée et utile (`df5aa46`), puis sa règle de trace fusionnée (`795e713`) |
-| 5 — Chemin de l’agent | **suite technique faite ; U6 exécutée ; choix du propriétaire ouvert** | Convergence et exemples traités `6e3e2ab`, `7f12fe5` ; Gate B adaptée `eda7d94` ; noyau commun et détails activés `6e5a8c2` (44 437 → 18 852 octets). Conservation, mutations, navigateur et deux distributions vérifiés. Trois pilotes exploratoires, mesure du lecteur puis six créations séparées et deux juges aveugles ([U6](../U6/resultats.md)). Durées et lecture observées, sans baisse nette de l’union sur les créations complètes. Qualité et variété générales, jetons API, charge cognitive, cibles initiales et décision du propriétaire restent ouverts |
+| 5 — Chemin de l’agent | **suite technique et pratique livrée ; choix esthétique du propriétaire ouvert** | Convergence et exemples traités `6e3e2ab`, `7f12fe5` ; Gate B adaptée `eda7d94` ; noyau commun et détails activés `6e5a8c2` (44 437 → 18 852 octets). Conservation, mutations, navigateur et deux distributions vérifiés. Trois pilotes exploratoires, mesure du lecteur puis six créations séparées et deux juges aveugles ([U6](../U6/resultats.md)). Durées et lecture observées, sans baisse nette de l’union sur les créations complètes. Suite pratique `3b79b3a` : lectures par moment, alternatives plausibles, techniques de mobile/mouvement ; noyau 18 960 octets ; 53 parcours réussis. Qualité et variété générales, jetons API, charge cognitive, cibles initiales et décision du propriétaire restent ouverts |
 | 6 — Visuel (minimal) | **faite** | Deux schémas Mermaid (double boucle, carte des parties) `52be4b9` ; rien de décoratif |
 | 7 — Anglais | **reportée** | À reprendre sur les textes clairs |
 | 8 — Emballage (minimal) | **faite** | Arborescence unique GitHub/Local `67f6fa4` ; copie Markdown retirée `f4e37ec` ; révision R2026-10-09-REFONTE `657aca5` ; paquets livrés |
@@ -59,6 +59,18 @@ La suite a établi une référence de lecture, rendu les détails disponibles au
 La [comparaison U6](../U6/resultats.md) ajoute six producteurs en contextes neufs et deux juges aveugles. Les faits, préférences et limites sont séparés : pas de baisse nette des caractères uniques sur ces créations complètes, un défaut de focus sur A réparé dans une copie hors expérience, et un tour interrompu dont la durée n’est pas comparée. Le jugement du propriétaire reste attendu.
 
 Les cibles de lecture de l’architecture restent provisoires ; une condition de qualité peut justifier une lecture supplémentaire. Les phases 4, 6 et 8 marquées « réduite » ou « minimal » ne signifient pas que tous leurs objectifs initiaux sont réalisés. L’anglais et une identité complète des supports restent hors de cette suite.
+
+---
+
+## Suite pratique — comprendre U6 et éprouver les gestes
+
+Le propriétaire met la comparaison concurrentielle et l’anglais de côté. Les autres axes continuent : consolidation, lectures utiles, choix de direction et mise en pratique Web mobile. Le [diagnostic des juges](../SUITE-PRATIQUE/diagnostic/diagnostic-u6.md) relève surtout la compréhension visible du mécanisme et du prochain geste dans F et E ; D gagne aussi sur la nouvelle version. Il ne conclut ni à une perte de savoir ni à une supériorité générale de l’ancienne version.
+
+Le lot produit `3b79b3a` distingue les moments de lecture dans l’unique ligne DIRECTION, renforce les alternatives plausibles et détaille les transitions annulables et le mobile dans le savoir activé. La conservation compare 41 corps protégés identiques et deux consignes de chargement adaptées, aucun bloc absent ou ajouté. Les gates, statuts et schémas sont conservés.
+
+Le [prototype Folio](../SUITE-PRATIQUE/mobile/index.html), fabriqué par le coordinateur informé d’U6, passe 53 parcours après trois échecs initiaux corrigés et conservés. Une paire à contenu constant montre que l’entrée réduite garde le total dans le premier viewport à 390 et 320 px. C’est une preuve de comportement et un choix d’auteur ; pas un nouveau benchmark indépendant, un test utilisateur ou une acceptation d’identité. Clavier logiciel, Safari et téléphone réel restent ouverts. Les 1 344 empreintes originales U6 sont inchangées.
+
+La [trace de livraison](../SUITE-PRATIQUE/livraison.md) porte le commit, la CI et l’intégration observés. Le [bilan](../SUITE-PRATIQUE/resultats.md) conserve les résultats et limites. La prochaine preuve utile est une tâche représentative sur téléphone réel, puis l’observation du moment des lectures ; aucune campagne d’agents supplémentaire n’est présumée.
 
 ---
 

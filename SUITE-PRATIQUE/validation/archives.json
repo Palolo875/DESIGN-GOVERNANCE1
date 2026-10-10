@@ -1,0 +1,8 @@
+{
+  "product_commit": "3b79b3a10d2344a52db76f6e6239cf0a91c056c7",
+  "reproducibility": "Deux builds comparés par validate_all.py ; code de sortie 0 et FULL VALIDATION PASSED.",
+  "sha256": {
+    "Design_Governance_V1_GITHUB.zip": "29a88519233d208b99131fd08f243a2173f9ed3687d8661754b51c2b37b85dbd",
+    "Design_Governance_V1_LOCAL.zip": "8cbc2a2e511788c62080fa47f3a425333f6789bf14db26512080ee4ae8a55b5d"
+  }
+}

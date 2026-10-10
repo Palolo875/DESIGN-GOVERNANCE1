@@ -1,0 +1,34 @@
+NOYAU : skill conforme à sa compilation
+CORE BUDGET PASSED — SKILL.md complet 18960 / 46000 octets UTF-8
+VALIDATION PASSED — GitHub, 108 fichiers attendus, liens, références opérationnelles, sources, vocabulaire et convention contrôlés
++ fixtures déclarées : 25/25
++ cas unitaires : 87/87
++ locators admis en profil strict : 10/10
++ mot-clé de schéma non pris en charge refusé : 1/1
+RUN_CARD VALIDATION PASSED — projection validée contre le schéma et fixtures contrôlés
++ domain_frame: valid
++ research_brief: valid
++ production_contracts: valid
++ cas unitaires : 25/25
++ cardinalité conditionnelle : 3/3
++ clés répétées refusées : 1/1
+CONTRACT VALIDATION PASSED — domain, research, creative, UI/UX and evaluation contracts
+READING MAP VALIDATION FAILED
+- connexions situées : révision des connexions différente du CHANGELOG ; réexaminer les sources
++ /workspace/cloud-setup/design-governance/venv/bin/python -m py_compile gouvernance/outils/validate_contracts.py gouvernance/outils/validate_run_card.py scripts/build_core.py scripts/check_render.py scripts/preparer_livraison.py scripts/read_route.py scripts/test_audit_regressions.py scripts/test_check_render.py scripts/test_core_budget.py scripts/test_preparer_livraison.py scripts/test_read_route.py scripts/validate_all.py scripts/validate_design_governance.py scripts/validate_reading_map.py scripts/validate_structure.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/build_core.py --check
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_design_governance.py
++ /workspace/cloud-setup/design-governance/venv/bin/python gouvernance/outils/validate_run_card.py
++ /workspace/cloud-setup/design-governance/venv/bin/python gouvernance/outils/validate_contracts.py
++ /workspace/cloud-setup/design-governance/venv/bin/python scripts/validate_reading_map.py
+Traceback (most recent call last):
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 288, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 204, in main
+    run([sys.executable, "scripts/validate_reading_map.py"])
+  File "/workspace/DESIGN-GOVERNANCE1/scripts/validate_all.py", line 18, in run
+    subprocess.run(command, cwd=ROOT, check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/cloud-setup/design-governance/venv/bin/python', 'scripts/validate_reading_map.py']' returned non-zero exit status 1.

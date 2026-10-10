@@ -1,0 +1,359 @@
+{
+  "baseline": "6e5a8c2a9016b31969051499b1c895a116fd75b4",
+  "scope": "Corps entre marqueurs noyau dans les sources suivies, hors copie compilée.",
+  "before": {
+    "CHECKPOINT": {
+      "path": "V1/sections/ACTION.md",
+      "sha256": "3bf8418d6272667f90e3b28f0ce48693d17f83980eed8906f7e479d3c8c23a56"
+    },
+    "STRUCT-OU": {
+      "path": "V1/sections/BIBLIOTHEQUE.md",
+      "sha256": "298c27f02d131d7a58a0d763474f84bd716a213f23714e725cdc1af243a9761a"
+    },
+    "ROLE": {
+      "path": "V1/sections/DIRECTION.md",
+      "sha256": "72b8b49811cde029e7de92be7263f6401d66bc0a67c72c2be5eea2bacd4d9222"
+    },
+    "POSTURE": {
+      "path": "V1/sections/DIRECTION.md",
+      "sha256": "df07007ea10db045429ea8b169ab1e6a18029c14becb904b35243c7538314343"
+    },
+    "VER-FAUX-ASSET": {
+      "path": "V1/sections/SAVOIR.md",
+      "sha256": "c9e6770c0e1bce1bf902ad70883120621e8d87a3cc705250d71e107808c97aa7"
+    },
+    "BOUCLE-REPASSE": {
+      "path": "V1/sections/SAVOIR.md",
+      "sha256": "234eaf4b93958f91e6a96b7828aecb76f9590942e5ba2bc40c8ef20019b3afe5"
+    },
+    "MOY-PLAFOND": {
+      "path": "agent/chemins.md",
+      "sha256": "cf74bbd5f5f46040970580a085421a543af26500665bddfdee51e022379eba47"
+    },
+    "CHARGE-REGLE": {
+      "path": "agent/chemins.md",
+      "sha256": "c6d8cb9de3545d41b8907e8fdaf26b5f085388e86b8be2a3d605447b5c4a44f7"
+    },
+    "CHARGE-TABLE": {
+      "path": "agent/chemins.md",
+      "sha256": "f9083b5d7ea7a7e10297d5f9433d30e7bc4dc828ef65a5c1904d1034b89b1404"
+    },
+    "CHARGE-FIN": {
+      "path": "agent/chemins.md",
+      "sha256": "09c035dc9eb9ed8333ee7e2cf0c396aaba812adef064d2023a9b9bbef54aa52b"
+    },
+    "CHARGE-DETAILS": {
+      "path": "agent/chemins.md",
+      "sha256": "58ab7de6e5db544b3c4f71f21343a4c2512897cf35dda2f686f2bf58df0a9a9d"
+    },
+    "SORTIE": {
+      "path": "agent/repondre.md",
+      "sha256": "3b989c96e866dea14ef2a70f9f5a3901fb68f4d781eb699921afccf4fafafaa4"
+    },
+    "TRACE": {
+      "path": "agent/repondre.md",
+      "sha256": "a35c17d24ee69b5a6b9f6ef0327b5d6d8502ae3a7b05dd2eba893049a9a4f897"
+    },
+    "BOUCLE": {
+      "path": "design/direction/boucle.md",
+      "sha256": "36733879e408de1164a46281880bbd299e927f25bfddbf992bc28d934ac77f8a"
+    },
+    "BOUCLE-DIAGNOSTIC": {
+      "path": "design/direction/boucle.md",
+      "sha256": "d19b0f887e8620dacf44ff936eec294f63711d51b050b03fb56d916eb82c10a0"
+    },
+    "BOUCLE-QUESTIONS": {
+      "path": "design/direction/boucle.md",
+      "sha256": "e058a67c75bf0e24e4c1fc9e0fe54b3b22ce13dfb60b25a147a6406745ea584b"
+    },
+    "BRIEF": {
+      "path": "design/direction/cadrer.md",
+      "sha256": "3f73ff2b8401551a6ceec04732cdee5bbaa7858d26ef77705fe573b3541f6e5c"
+    },
+    "CONTENU": {
+      "path": "design/direction/cadrer.md",
+      "sha256": "785e736e50ba664f5e5bc3dcc5e2b7812aad4cb26ca1b5399bf97d61f1a6e94c"
+    },
+    "VER-SCENE": {
+      "path": "design/direction/diriger.md",
+      "sha256": "417aa2cacb7b5281b6b8ad5c832aa757c6b2828bc05b952febe50418cb580b30"
+    },
+    "VER-AUDIENCE": {
+      "path": "design/direction/diriger.md",
+      "sha256": "e6c4a32a0923cb8e195e2c9af935d061caf904842e53a17de6d04d0f99df916b"
+    },
+    "PREMIER-OBJET": {
+      "path": "design/direction/premier-objet.md",
+      "sha256": "4318b1fc1820834e6f1d1bd708997a054ae9865ddef31928ff135dac982df679"
+    },
+    "ANCRE": {
+      "path": "design/direction/standard.md",
+      "sha256": "af7983394492425a71b705be91df12a292211066302bbd668ee2e914d890d244"
+    },
+    "STRUCT-EXPRESSION": {
+      "path": "design/formes/choisir.md",
+      "sha256": "71f2bb82fe9c01b3899fee8b11c3a422aa25e28dde46b786f065a63e6d6d2df7"
+    },
+    "STRUCT-TENSION": {
+      "path": "design/formes/choisir.md",
+      "sha256": "f271a22f9e769424b34b8c334afb3b5f6d0a7e2857c1c8cb81cee946f834dd23"
+    },
+    "STRUCT-ACTIVATION": {
+      "path": "design/formes/choisir.md",
+      "sha256": "f956c478c7c3e60493328cecdcb148c98e416c62ffdaa701146acc7d9f5dedc5"
+    },
+    "STRUCT-SIGNAUX": {
+      "path": "design/formes/choisir.md",
+      "sha256": "57e2e1d9ded788989d1fa350894604a67576200b7520ed1acc6c384ecda18ce8"
+    },
+    "BOUCLE-ATELIER": {
+      "path": "design/produit/finition.md",
+      "sha256": "847bdf0660aa1863a996dc36563d8220bafb419fd99ff06c75b5b0e1b653e326"
+    },
+    "COMP-VOCABULAIRE": {
+      "path": "design/savoir/composition.md",
+      "sha256": "5fef5b20f4f58dc7c461b32d3a9b9a7b1d31ed968cc8a4d0d353f58868c1f48f"
+    },
+    "COMP-SINGULARITE": {
+      "path": "design/savoir/fondements.md",
+      "sha256": "e61c9c3ad0314340578abe71e9effb8c33b89a5ec737019dff13f5ef1c88c57f"
+    },
+    "COMP-GRAMMAIRE": {
+      "path": "design/savoir/fondements.md",
+      "sha256": "42e4f4c7d9709005b5a56472370852adfdf01304e7379a2a1301d07784a20738"
+    },
+    "COMP-VAGUES": {
+      "path": "design/savoir/gout-et-tendances.md",
+      "sha256": "a77101c1c9e534579647f570c2df9b62e92bda0040f812e7ded873dbbe454082"
+    },
+    "MOY-CARTE": {
+      "path": "design/savoir/gout-et-tendances.md",
+      "sha256": "d5f0c1101ce4248a61f96b81f3f85383e76aad9a97c26db894459e1df71c2513"
+    },
+    "MOY-CALIBRATION": {
+      "path": "design/savoir/images-et-sources.md",
+      "sha256": "e3f131b0680d4065a6b250cc356d524b072e32df918326dece575fc8111bc1f0"
+    },
+    "MOY-ASSETS": {
+      "path": "design/savoir/images-et-sources.md",
+      "sha256": "9a6f0e43e44cdb029b42859055be4b3124dcb00f55a9976aa0f98a48a6913e1e"
+    },
+    "BOUCLE-REVUE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "fc75a2b81ee7e06973697266cdb6dccf17e0453c2052d5bf5f67d32b896c243c"
+    },
+    "COMP-FORME": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "dbdea8e23ac65ccfa400b610d7a423f97ca47835999b227babc231f22e69f2b7"
+    },
+    "BOUCLE-AXE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "bf29f440502f2a502bc74cf2f1e93256fe5a3fe51e3be788f8fe328e375714c0"
+    },
+    "COMP-CONTROLES": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "ab8e41134f29109ea48a9308167c8d6aa077451821279d90447383610470365b"
+    },
+    "COMP-TEXTE-IMAGE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "8f4a1ee3fdce6d9bce10110862f0de5204b8cdcce3f0fde5b889c594908ac56c"
+    },
+    "COMP-COULEUR": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "65a77f3956bb6cd2022a9ffc9596daab2c8d58e7bde1d9684fe3caf5178f4e55"
+    },
+    "COMP-CONVERGENCE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "4a339df3560e76dec94af5433187aa23ee644f2f78ceabde485db5b1cab5ea76"
+    },
+    "COMP-TYPO": {
+      "path": "design/savoir/typographie.md",
+      "sha256": "6979810ad9beb5d2a114b073edce668976e755e4c77b4746680b6c86d63cdaa6"
+    },
+    "COMP-TITRE": {
+      "path": "design/savoir/typographie.md",
+      "sha256": "6be4c7b31ca7b3422ab7e0bed0df6728669c707700cf73510e51b181e602b9b5"
+    }
+  },
+  "after": {
+    "CHECKPOINT": {
+      "path": "V1/sections/ACTION.md",
+      "sha256": "3bf8418d6272667f90e3b28f0ce48693d17f83980eed8906f7e479d3c8c23a56"
+    },
+    "STRUCT-OU": {
+      "path": "V1/sections/BIBLIOTHEQUE.md",
+      "sha256": "298c27f02d131d7a58a0d763474f84bd716a213f23714e725cdc1af243a9761a"
+    },
+    "ROLE": {
+      "path": "V1/sections/DIRECTION.md",
+      "sha256": "72b8b49811cde029e7de92be7263f6401d66bc0a67c72c2be5eea2bacd4d9222"
+    },
+    "POSTURE": {
+      "path": "V1/sections/DIRECTION.md",
+      "sha256": "df07007ea10db045429ea8b169ab1e6a18029c14becb904b35243c7538314343"
+    },
+    "VER-FAUX-ASSET": {
+      "path": "V1/sections/SAVOIR.md",
+      "sha256": "c9e6770c0e1bce1bf902ad70883120621e8d87a3cc705250d71e107808c97aa7"
+    },
+    "BOUCLE-REPASSE": {
+      "path": "V1/sections/SAVOIR.md",
+      "sha256": "234eaf4b93958f91e6a96b7828aecb76f9590942e5ba2bc40c8ef20019b3afe5"
+    },
+    "MOY-PLAFOND": {
+      "path": "agent/chemins.md",
+      "sha256": "cf74bbd5f5f46040970580a085421a543af26500665bddfdee51e022379eba47"
+    },
+    "CHARGE-REGLE": {
+      "path": "agent/chemins.md",
+      "sha256": "a67e3670f8533ab009a863fe43fdf6f74aecff97dc5cf372fa89c4d8a265ca3b"
+    },
+    "CHARGE-TABLE": {
+      "path": "agent/chemins.md",
+      "sha256": "e5f07316832759ed7536e3a806e6560cacfe5965410b36cd7849eca19cb31972"
+    },
+    "CHARGE-FIN": {
+      "path": "agent/chemins.md",
+      "sha256": "09c035dc9eb9ed8333ee7e2cf0c396aaba812adef064d2023a9b9bbef54aa52b"
+    },
+    "CHARGE-DETAILS": {
+      "path": "agent/chemins.md",
+      "sha256": "58ab7de6e5db544b3c4f71f21343a4c2512897cf35dda2f686f2bf58df0a9a9d"
+    },
+    "SORTIE": {
+      "path": "agent/repondre.md",
+      "sha256": "3b989c96e866dea14ef2a70f9f5a3901fb68f4d781eb699921afccf4fafafaa4"
+    },
+    "TRACE": {
+      "path": "agent/repondre.md",
+      "sha256": "a35c17d24ee69b5a6b9f6ef0327b5d6d8502ae3a7b05dd2eba893049a9a4f897"
+    },
+    "BOUCLE": {
+      "path": "design/direction/boucle.md",
+      "sha256": "36733879e408de1164a46281880bbd299e927f25bfddbf992bc28d934ac77f8a"
+    },
+    "BOUCLE-DIAGNOSTIC": {
+      "path": "design/direction/boucle.md",
+      "sha256": "d19b0f887e8620dacf44ff936eec294f63711d51b050b03fb56d916eb82c10a0"
+    },
+    "BOUCLE-QUESTIONS": {
+      "path": "design/direction/boucle.md",
+      "sha256": "e058a67c75bf0e24e4c1fc9e0fe54b3b22ce13dfb60b25a147a6406745ea584b"
+    },
+    "BRIEF": {
+      "path": "design/direction/cadrer.md",
+      "sha256": "3f73ff2b8401551a6ceec04732cdee5bbaa7858d26ef77705fe573b3541f6e5c"
+    },
+    "CONTENU": {
+      "path": "design/direction/cadrer.md",
+      "sha256": "785e736e50ba664f5e5bc3dcc5e2b7812aad4cb26ca1b5399bf97d61f1a6e94c"
+    },
+    "VER-SCENE": {
+      "path": "design/direction/diriger.md",
+      "sha256": "417aa2cacb7b5281b6b8ad5c832aa757c6b2828bc05b952febe50418cb580b30"
+    },
+    "VER-AUDIENCE": {
+      "path": "design/direction/diriger.md",
+      "sha256": "e6c4a32a0923cb8e195e2c9af935d061caf904842e53a17de6d04d0f99df916b"
+    },
+    "PREMIER-OBJET": {
+      "path": "design/direction/premier-objet.md",
+      "sha256": "4318b1fc1820834e6f1d1bd708997a054ae9865ddef31928ff135dac982df679"
+    },
+    "ANCRE": {
+      "path": "design/direction/standard.md",
+      "sha256": "af7983394492425a71b705be91df12a292211066302bbd668ee2e914d890d244"
+    },
+    "STRUCT-EXPRESSION": {
+      "path": "design/formes/choisir.md",
+      "sha256": "71f2bb82fe9c01b3899fee8b11c3a422aa25e28dde46b786f065a63e6d6d2df7"
+    },
+    "STRUCT-TENSION": {
+      "path": "design/formes/choisir.md",
+      "sha256": "f271a22f9e769424b34b8c334afb3b5f6d0a7e2857c1c8cb81cee946f834dd23"
+    },
+    "STRUCT-ACTIVATION": {
+      "path": "design/formes/choisir.md",
+      "sha256": "f956c478c7c3e60493328cecdcb148c98e416c62ffdaa701146acc7d9f5dedc5"
+    },
+    "STRUCT-SIGNAUX": {
+      "path": "design/formes/choisir.md",
+      "sha256": "57e2e1d9ded788989d1fa350894604a67576200b7520ed1acc6c384ecda18ce8"
+    },
+    "BOUCLE-ATELIER": {
+      "path": "design/produit/finition.md",
+      "sha256": "847bdf0660aa1863a996dc36563d8220bafb419fd99ff06c75b5b0e1b653e326"
+    },
+    "COMP-VOCABULAIRE": {
+      "path": "design/savoir/composition.md",
+      "sha256": "5fef5b20f4f58dc7c461b32d3a9b9a7b1d31ed968cc8a4d0d353f58868c1f48f"
+    },
+    "COMP-SINGULARITE": {
+      "path": "design/savoir/fondements.md",
+      "sha256": "e61c9c3ad0314340578abe71e9effb8c33b89a5ec737019dff13f5ef1c88c57f"
+    },
+    "COMP-GRAMMAIRE": {
+      "path": "design/savoir/fondements.md",
+      "sha256": "42e4f4c7d9709005b5a56472370852adfdf01304e7379a2a1301d07784a20738"
+    },
+    "COMP-VAGUES": {
+      "path": "design/savoir/gout-et-tendances.md",
+      "sha256": "a77101c1c9e534579647f570c2df9b62e92bda0040f812e7ded873dbbe454082"
+    },
+    "MOY-CARTE": {
+      "path": "design/savoir/gout-et-tendances.md",
+      "sha256": "d5f0c1101ce4248a61f96b81f3f85383e76aad9a97c26db894459e1df71c2513"
+    },
+    "MOY-CALIBRATION": {
+      "path": "design/savoir/images-et-sources.md",
+      "sha256": "e3f131b0680d4065a6b250cc356d524b072e32df918326dece575fc8111bc1f0"
+    },
+    "MOY-ASSETS": {
+      "path": "design/savoir/images-et-sources.md",
+      "sha256": "9a6f0e43e44cdb029b42859055be4b3124dcb00f55a9976aa0f98a48a6913e1e"
+    },
+    "BOUCLE-REVUE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "fc75a2b81ee7e06973697266cdb6dccf17e0453c2052d5bf5f67d32b896c243c"
+    },
+    "COMP-FORME": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "dbdea8e23ac65ccfa400b610d7a423f97ca47835999b227babc231f22e69f2b7"
+    },
+    "BOUCLE-AXE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "bf29f440502f2a502bc74cf2f1e93256fe5a3fe51e3be788f8fe328e375714c0"
+    },
+    "COMP-CONTROLES": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "ab8e41134f29109ea48a9308167c8d6aa077451821279d90447383610470365b"
+    },
+    "COMP-TEXTE-IMAGE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "8f4a1ee3fdce6d9bce10110862f0de5204b8cdcce3f0fde5b889c594908ac56c"
+    },
+    "COMP-COULEUR": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "65a77f3956bb6cd2022a9ffc9596daab2c8d58e7bde1d9684fe3caf5178f4e55"
+    },
+    "COMP-CONVERGENCE": {
+      "path": "design/savoir/qualite-creative.md",
+      "sha256": "4a339df3560e76dec94af5433187aa23ee644f2f78ceabde485db5b1cab5ea76"
+    },
+    "COMP-TYPO": {
+      "path": "design/savoir/typographie.md",
+      "sha256": "6979810ad9beb5d2a114b073edce668976e755e4c77b4746680b6c86d63cdaa6"
+    },
+    "COMP-TITRE": {
+      "path": "design/savoir/typographie.md",
+      "sha256": "6be4c7b31ca7b3422ab7e0bed0df6728669c707700cf73510e51b181e602b9b5"
+    }
+  },
+  "unchanged": 41,
+  "changed": [
+    "CHARGE-REGLE",
+    "CHARGE-TABLE"
+  ],
+  "missing": [],
+  "added": []
+}

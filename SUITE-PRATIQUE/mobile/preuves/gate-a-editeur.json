@@ -1,0 +1,407 @@
+{
+  "provenance": {
+    "artifact_locator": "/workspace/suite-design-2026-10-10/mobile/index.html",
+    "artifact_version": "c64a95a4d429",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-10T19:08:09Z",
+    "scope": "état initial puis #edit, largeurs 320,390,768,1440 px",
+    "external_requests_blocked": 0,
+    "browser": {
+      "engine": "chromium",
+      "version": "151.0.7922.173",
+      "executable": "/usr/bin/chromium"
+    },
+    "local_server": "127.0.0.1, temporaire"
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 320, 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 320 px : 48 texte(s) évalué(s), 59 candidat(s), 6 exclu(s) ; 390 px : 48 texte(s) évalué(s), 59 candidat(s), 6 exclu(s) ; 768 px : 52 texte(s) évalué(s), 59 candidat(s), 2 exclu(s) ; 1440 px : 52 texte(s) évalué(s), 59 candidat(s), 2 exclu(s) ; 320 px : texte non évalué : #input-client (valeur courante de contrôle), #input-service (valeur courante de contrôle), #input-quantity (valeur courante de contrôle), #input-rate (valeur courante de contrôle), #input-vat (valeur courante de contrôle) ; 390 px : texte non évalué : #input-client (valeur courante de contrôle), #input-service (valeur courante de contrôle), #input-quantity (valeur courante de contrôle), #input-rate (valeur courante de contrôle), #input-vat (valeur courante de contrôle) ; 768 px : texte non évalué : #input-client (valeur courante de contrôle), #input-service (valeur courante de contrôle), #input-quantity (valeur courante de contrôle), #input-rate (valeur courante de contrôle), #input-vat (valeur courante de contrôle) ; 1440 px : texte non évalué : #input-client (valeur courante de contrôle), #input-service (valeur courante de contrôle), #input-quantity (valeur courante de contrôle), #input-rate (valeur courante de contrôle), #input-vat (valeur courante de contrôle)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "13 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "8 arrêt(s) à 320 px ; 320 px : dialogue modal, fin=cycle, 8 candidat(s) ; 8 arrêt(s) à 390 px ; 390 px : dialogue modal, fin=cycle, 8 candidat(s) ; 8 arrêt(s) à 768 px ; 768 px : dialogue modal, fin=cycle, 8 candidat(s) ; 8 arrêt(s) à 1440 px ; 1440 px : dialogue modal, fin=cycle, 8 candidat(s) ; style observé, visibilité et contraste du focus à vérifier"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation active"
+    },
+    {
+      "check": "Objet de preuve au premier écran",
+      "status": "NOT-VERIFIED",
+      "detail": "aucun sélecteur fourni (--proof) : à juger à la main"
+    }
+  ],
+  "keyboard_coverage": {
+    "320": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#handle"
+        },
+        {
+          "key": "control-1",
+          "id": "#close"
+        },
+        {
+          "key": "control-2",
+          "id": "#input-client"
+        },
+        {
+          "key": "control-3",
+          "id": "#input-service"
+        },
+        {
+          "key": "control-4",
+          "id": "#input-quantity"
+        },
+        {
+          "key": "control-5",
+          "id": "#input-rate"
+        },
+        {
+          "key": "control-6",
+          "id": "#input-vat"
+        },
+        {
+          "key": "control-7",
+          "id": "button"
+        }
+      ],
+      "excluded": [],
+      "scope": "dialogue modal",
+      "reason": "cycle",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 8
+    },
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#handle"
+        },
+        {
+          "key": "control-1",
+          "id": "#close"
+        },
+        {
+          "key": "control-2",
+          "id": "#input-client"
+        },
+        {
+          "key": "control-3",
+          "id": "#input-service"
+        },
+        {
+          "key": "control-4",
+          "id": "#input-quantity"
+        },
+        {
+          "key": "control-5",
+          "id": "#input-rate"
+        },
+        {
+          "key": "control-6",
+          "id": "#input-vat"
+        },
+        {
+          "key": "control-7",
+          "id": "button"
+        }
+      ],
+      "excluded": [],
+      "scope": "dialogue modal",
+      "reason": "cycle",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 8
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#handle"
+        },
+        {
+          "key": "control-1",
+          "id": "#close"
+        },
+        {
+          "key": "control-2",
+          "id": "#input-client"
+        },
+        {
+          "key": "control-3",
+          "id": "#input-service"
+        },
+        {
+          "key": "control-4",
+          "id": "#input-quantity"
+        },
+        {
+          "key": "control-5",
+          "id": "#input-rate"
+        },
+        {
+          "key": "control-6",
+          "id": "#input-vat"
+        },
+        {
+          "key": "control-7",
+          "id": "button"
+        }
+      ],
+      "excluded": [],
+      "scope": "dialogue modal",
+      "reason": "cycle",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 8
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#handle"
+        },
+        {
+          "key": "control-1",
+          "id": "#close"
+        },
+        {
+          "key": "control-2",
+          "id": "#input-client"
+        },
+        {
+          "key": "control-3",
+          "id": "#input-service"
+        },
+        {
+          "key": "control-4",
+          "id": "#input-quantity"
+        },
+        {
+          "key": "control-5",
+          "id": "#input-rate"
+        },
+        {
+          "key": "control-6",
+          "id": "#input-vat"
+        },
+        {
+          "key": "control-7",
+          "id": "button"
+        }
+      ],
+      "excluded": [],
+      "scope": "dialogue modal",
+      "reason": "cycle",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 8
+    }
+  },
+  "contrast_coverage": {
+    "320": {
+      "method": "dom-text-bounded",
+      "candidates": 59,
+      "evaluated": 48,
+      "excluded": 6,
+      "unmeasured": [
+        {
+          "sel": "#input-client",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-service",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-quantity",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-rate",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-vat",
+          "kind": "valeur courante de contrôle"
+        }
+      ]
+    },
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 59,
+      "evaluated": 48,
+      "excluded": 6,
+      "unmeasured": [
+        {
+          "sel": "#input-client",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-service",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-quantity",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-rate",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-vat",
+          "kind": "valeur courante de contrôle"
+        }
+      ]
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 59,
+      "evaluated": 52,
+      "excluded": 2,
+      "unmeasured": [
+        {
+          "sel": "#input-client",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-service",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-quantity",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-rate",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-vat",
+          "kind": "valeur courante de contrôle"
+        }
+      ]
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 59,
+      "evaluated": 52,
+      "excluded": 2,
+      "unmeasured": [
+        {
+          "sel": "#input-client",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-service",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-quantity",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-rate",
+          "kind": "valeur courante de contrôle"
+        },
+        {
+          "sel": "#input-vat",
+          "kind": "valeur courante de contrôle"
+        }
+      ]
+    }
+  },
+  "proof_observations": {
+    "320": null,
+    "390": null,
+    "768": null,
+    "1440": null
+  }
+}
