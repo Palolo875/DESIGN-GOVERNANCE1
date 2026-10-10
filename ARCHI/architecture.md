@@ -1,9 +1,9 @@
 # Architecture cible du système
 
-**Statut :** proposition, phase 2, le 9 octobre 2026. Elle attend ta validation avant la phase 3.
+**Statut :** architecture validée, rangement réalisé ; exigences actualisées pour la suite de la phase 5.
 **Documents liés :**
 - [`vocabulaire.md`](vocabulaire.md) : des codes aux noms clairs ;
-- [`correspondance.md`](correspondance.md) et `correspondance.csv` : la place de chacune des 388 sections actuelles ;
+- [`correspondance.md`](correspondance.md) et `correspondance.csv` : la table historique des 388 sections ; [complément de phase 5](correspondance-phase5.csv) pour les blocs désormais activés à la demande ;
 - [charte](../PLAN/charte.md) ;
 - [synthèse de l’audit](../AUDIT2/synthese.md).
 
@@ -13,13 +13,15 @@
 
 | # | Question | Choix | Pourquoi |
 |---|---|---|---|
-| 1 | Séparer design et gouvernance | **Oui**, dans DIRECTION, ACTION, BIBLIOTHEQUE et la part concernée de SAVOIR | C’est la condition pour que le design soit au cœur et la gouvernance facultative (charte 2) |
-| 2 | Deux distributions ou une | **Une seule arborescence**, identique dans le dépôt et dans le zip. Le zip ne retire que la configuration de CI | Deux arborescences imposent de réécrire les chemins, rendent six scripts conditionnels et doublent la validation. Le seul gain était un export plus compact, que la nouvelle structure apporte d’elle-même |
+| 1 | Séparer design et gouvernance | **Oui**, dans DIRECTION, ACTION, BIBLIOTHEQUE et la part concernée de SAVOIR | C’est la condition pour que le design soit au cœur et la gouvernance adaptée au travail (charte 2) |
+| 2 | Deux distributions ou une | **Une seule arborescence**, identique dans le dépôt et les exports. Le Local retire la configuration Git/CI et les outils de préparation : 103 fichiers contre 108 pour GitHub | Deux arborescences imposaient de réécrire les chemins et rendaient les outils conditionnels. Le manifest déclare les cinq différences de distribution |
 | 3 | Connexions C01 à C09 | **Ce sont du savoir.** Elles deviennent un chapitre du savoir (« quand plusieurs domaines se croisent »), gardé entier et consultable avec `--connexions` | Les répartir entre propriétaires romprait leur nature transversale ; les laisser dans une « carte » les cache |
 | 4 | Copie Markdown de l’outil de livraison | **Retirée.** En phase 8, une version en un seul fichier, générée et lisible, pourra la remplacer pour les agents sans accès aux fichiers | Elle embarque un script de restauration complexe et double la maintenance |
 | 5 | Corrections de fond en phase 5 | **Oui**, sans exception : convergence, exemples, valeurs recopiables, et mon ajout récent des « signaux de page » (examiné en premier) | La charte interdit de changer le fond pendant le rangement |
 
-## 1. L’arborescence cible
+## 1. L’arborescence livrée
+
+Cet arbre décrit `R2026-10-10-PHASE5`. Les fichiers de la cible initiale qui n’ont pas été créés séparément ne sont pas présentés comme existants ; leur matière reste accessible par les routes propriétaires et les sections conservées.
 
 ```text
 README.md                      Accueil : ce que c’est, les quatre portes, installer, limites (court)
@@ -38,9 +40,9 @@ design/                        LE CŒUR
     standard.md                    standard de qualité visuelle, les cinq règles essentielles, invariants de jugement
   savoir/                        le livre de référence
     README.md                      préface, règles d’or, comment lire
-    fondements.md  qualite-creative.md  composition.md  couleur.md  typographie.md
+    fondements.md  qualite-creative.md  composition.md  typographie.md
     images-et-sources.md  styles.md  systeme-de-design.md  contexte.md  techniques.md
-    gout-et-tendances.md  pieges.md  connexions.md
+    gout-et-tendances.md  connexions.md
   formes/                        les structures
     README.md
     choisir.md                     lire une structure, tension, signature, sélection, dérivation, signaux de convergence
@@ -56,26 +58,27 @@ agent/                         Pour l’agent
   skill/                         la skill (SKILL.md compilé + références), à copier dans .claude/skills/
   chemins.md                     classer, choisir le chemin, quoi lire
   repondre.md                    la réponse à la personne, trace courte, checkpoint, droits et confidentialité
-gouvernance/                   MODULE FACULTATIF : livraison, audit, équipe
+gouvernance/                   CONTRÔLES ET TRACE ADAPTÉS AU RISQUE ET AU TRAVAIL
   README.md                      quand l’activer et ce qu’il apporte
-  principes.md  statuts.md  travail.md  verification.md  cloture.md  structure.md  integrite.md
-  projection-machine.md
+  principes.md  statuts.md  travail.md  verification.md  cloture.md  structure.md
   schemas/                       schémas, exemples et fichiers de test
   outils/                        validation des fiches et des contrats
 maintenance/                   Faire évoluer le système
   README.md                      source de vérité, validation, distributions
   evolution.md                   règles d’évolution, cycle de vie des routes, budget
   versions.md                    journal des versions, court
-outils/                        lecteur, vérification du rendu, construction de la skill, contrôles, tests
+V1/sections/                   sections conservées et carte dérivée ; même autorité que les sections déplacées
+  DIRECTION.md  ACTION.md  SAVOIR.md  BIBLIOTHEQUE.md  READING_MAP.md  README.md
+scripts/                       lecteur, vérification du rendu, construction de la skill, contrôles, tests
 ```
 
 **Pourquoi cette forme.**
 - **Cinq parties visibles à la racine, dans l’ordre d’importance.** Les guides et le design viennent d’abord. L’agent, la gouvernance et la maintenance suivent.
 - **Le design est un dossier et non un fichier.** On voit tout de suite ses quatre familles : direction, savoir, formes, produit.
-- **La gouvernance est un dossier qu’on peut ignorer.** Aucun fichier du design ou de l’agent n’en exige la lecture (critère S9, contrôlé).
-- **Des fichiers plus petits.** On passe de 4 fichiers de 80 000 à 118 000 caractères à environ 50 fichiers. La plupart font moins de 15 000 caractères. Les plus gros font 22 000 à 34 000 : le chemin de l’agent, deux fichiers du module, le catalogue des formes ; ils restent découpés en sections que le lecteur sert une à une. Chacun a un seul rôle et peut s’ouvrir seul. C’est plus de fichiers, mais chaque dossier a son sommaire, et le lecteur sert les sections sans qu’on ait à connaître les fichiers.
+- **La gouvernance se charge selon le besoin.** Les vérifications applicables restent dues ; la trace complète est chargée pour un travail persistant, partagé, audité ou soumis à acceptation. Une exploration conserve une trace légère (critère S9).
+- **Des fichiers découpés par usage.** Les gros fichiers restent servis section par section. Le chemin de l’agent fait 42 570 caractères ; il n’est pas chargé intégralement. La skill commune fait 18 241 caractères. Le rangement augmente le nombre de fichiers et réduit ce qu’il faut lire d’un coup ; le lecteur n’exige pas de connaître leur emplacement.
 
-**Répartition approximative après rangement** (d’après la table de correspondance) :
+**Estimation historique de la répartition après rangement**, d’après la table de correspondance initiale ; ce tableau n’est pas une mesure de la révision actuelle :
 
 | Partie | Caractères |
 |---|---|
@@ -87,7 +90,7 @@ outils/                        lecteur, vérification du rendu, construction de 
 | Hors produit (historique) | ~13 000 |
 | Retiré pour redite | ~10 000 |
 
-La phase 4 réduira les redites et le jargon.
+La phase 4 réduite a clarifié les portes et les guides ; le bilan de phase 5 donne la mesure actuelle de la skill et des recettes de lecture.
 
 ## 2. Les quatre portes
 
@@ -98,11 +101,11 @@ La phase 4 réduira les redites et le jargon.
 | Équipe | `guides/equipe.md` | Quand activer la gouvernance, qui décide, ce qui est tracé, comment livrer | `gouvernance/` |
 | Agent | `agent/skill/SKILL.md` | Le noyau, puis « quoi lire » selon le chemin | `agent/chemins.md`, puis les routes |
 
-Le README de la racine présente les quatre portes en quatre lignes, puis l’installation et les limites. Il fait environ 4 000 caractères, contre 22 000 aujourd’hui.
+Le README de la racine présente les quatre portes, l’installation et les limites. La révision livrée compte 7 774 caractères ; l’objectif initial d’environ 4 000 n’est pas déclaré atteint.
 
 ## 3. Les chemins selon l’effort
 
-Les noms en clair remplacent les modes, qui restent internes à l’agent. Les cibles sont **provisoires** : elles seront vérifiées en phase 5 par la petite mesure.
+Les noms en clair remplacent les modes, qui restent internes à l’agent. Les cibles sont **provisoires** et portent sur la lecture avant production. Les chiffres de départ ci-dessous sont historiques ; les recettes mesurées après la suite de phase 5 sont décrites dans [le bilan](../PLAN/phase5-suite.md).
 
 | Chemin | Modes actuels | Ce que l’agent lit avant de produire | Aujourd’hui | Cible provisoire |
 |---|---|---|---|---|
@@ -111,7 +114,7 @@ Les noms en clair remplacent les modes, qui restent internes à l’agent. Les c
 | Produit livré | `DIRECTION` en trace complète | la page, plus les parties utiles du module | ~138 000 | ≤ 110 000 |
 | Système de design | `SYSTÈME` | la skill, plus système de design et composants | à mesurer | à fixer après mesure |
 
-**Jusqu’à la phase 5, le chemin réel de l’agent ne change pas.** La skill reste identique et la table de chargement pointe vers les nouvelles adresses. Les cibles demandent de réécrire la skill (phase 5).
+**Pendant le rangement, le chemin réel de l’agent est resté identique.** La suite de phase 5 compile désormais vingt blocs communs et active les vingt-trois autres dans leurs routes propriétaires. La table reste unique ; le lecteur sert seulement la ligne du mode classé. Les cibles initiales ne sont pas déclarées atteintes à partir d’une mesure qui inclut aussi les contrôles après production. On ne retire pas une protection pour atteindre un nombre.
 
 ## 4. Le module de gouvernance
 
@@ -137,10 +140,10 @@ Les noms en clair remplacent les modes, qui restent internes à l’agent. Les c
 
 **La règle de séparation, vérifiée par un contrôle :**
 - les fichiers de `design/`, `agent/` et `guides/` (sauf `equipe.md`) peuvent citer le module (« pour aller plus loin ») ;
-- ils ne doivent jamais en exiger la lecture ;
-- la table de chargement de l’agent ne charge le module que pour le chemin « produit livré ».
+- ils exigent seulement les parties nécessaires au risque, à la décision, à la reprise ou à l’acceptation ;
+- la table de chargement distingue la preuve applicable, la trace légère et la trace complète, quel que soit le mode.
 
-**Les six points du cœur qui supposent aujourd’hui le module** (relevés dans la fiche 07) deviennent conditionnels. Si `gouvernance/` est absent, les outils du cœur fonctionnent et le disent.
+**Le paquet entier reste nécessaire aux routes qu’il active.** Une dépendance requise absente devient une limite explicite ; elle n’est jamais remplacée par une promesse de conformité. Le rangement séparé des dossiers n’implique pas que l’on puisse retirer physiquement le module sans vérifier les dépendances.
 
 ## 5. Le modèle de section
 
@@ -185,11 +188,11 @@ Chaque fichier commence par une phrase sur son rôle et son public, puis par un 
 | Groupe | Aujourd’hui | Cible | Contrôles |
 |---|---|---|---|
 | Structure utile | ~112 | gardés, adaptés aux nouveaux chemins | liens ; skill compilée (identique à l’octet près en phases 3 et 4) ; budget de la skill ; adresses et alias résolvables ; lecteur ; vérification du rendu |
-| Phrases verrouillées | ~252 | ~60 à 80 **règles protégées** | Chaque règle importante reçoit un marqueur invisible `<!-- règle:… -->`. Le contrôle vérifie que la règle est présente, à sa place, avec deux à quatre termes clés, et non plus mot pour mot. On peut alors réécrire sans perdre la règle. Les verrous qui ne protègent qu’une formulation sont retirés |
-| Gouvernance | ~122 | gardés dans le module ; 22 fichiers de test redondants réduits à ~7 | schémas, fiches, contrats ; ne tournent que si le module est présent |
+| Phrases verrouillées | ~252 à l’audit initial | protéger le sens sans figer la formulation | Chaque règle importante garde un propriétaire et un contrôle avec une mutation rouge. Les verrous qui ne protègent qu’une formulation peuvent être retirés avec une raison ; aucun quota de retrait |
+| Gouvernance | ~122 à l’audit initial | conserver les invariants utiles, réduire les doublons prouvés | schémas, fiches, contrats ; leur validation protège le paquet livré, leur activation dans un run dépend du besoin |
 | Nouveaux | — | ~6 | correspondance complète ; rien de perdu (chaque paragraphe ancien retrouvé ou retiré avec sa raison) ; séparation du module ; parité des langues (phase 7) ; mode lecture seule ; installation depuis le zip |
 
-Au total, on passe d’environ 490 contrôles à environ 300, dont environ 120 dans le module facultatif. **C’est une estimation**, à préciser au lot de conversion des verrous. Chaque contrôle gardé ou adapté garde sa preuve d’efficacité : on le casse volontairement et il doit échouer.
+L’ancienne estimation de 490 à 300 contrôles n’est plus une cible. Le nombre de fichiers de test n’établit pas une redondance. Chaque contrôle gardé ou adapté protège un défaut identifié ; une mutation doit faire échouer la protection correspondante. Le coût se mesure séparément.
 
 ## 9. Le rangement (phase 3), précisé par l’audit
 
@@ -221,6 +224,4 @@ Chaque lot est un commit annulable.
 
 ## 11. Ce qui vient ensuite
 
-- **Ta validation.** Sur l’arborescence, les portes, le module, les adresses en français, les contrôles cibles et l’ordre des lots.
-- **La carte visuelle de l’architecture.** Je la dessine une fois l’arborescence validée, pour ne pas dessiner deux fois. Elle servira aussi de première pièce de l’identité visuelle (phase 6).
-- **La phase 3, lot 0.**
+L’architecture et le rangement sont réalisés. La suite de phase 5 a son [bilan et ses limites](../PLAN/phase5-suite.md). La comparaison indépendante de qualité et de variété reste ouverte ; elle doit conserver les mêmes briefs, capacités et critères, puis faire juger les rendus sans révéler la version du système. La phase 6 conserve son périmètre minimal et l’anglais reste reporté. La PR du produit attend sa fusion vers `main`.

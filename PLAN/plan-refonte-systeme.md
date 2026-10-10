@@ -1,7 +1,7 @@
 # Plan de refonte du système — nettoyer, structurer, rendre pro
 
-**Statut :** plan validé, en cours d’exécution. Mis à jour le 9 octobre 2026, après les phases 5 (partielle), 6 et 8 minimales ; paquets livrés (révision R2026-10-09-REFONTE). Aucun run n’est prévu sans ton accord explicite.
-**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit :** `52be4b9`.
+**Statut :** plan validé ; suite de la phase 5 autorisée par la demande « on va tout corriger ». Les phases 6 et 8 ont livré leur périmètre minimal ; la phase 7 reste reportée. Aucun résultat de comparaison n’est présumé. Les essais nécessaires à cette suite sont autorisés ; les limites de leur protocole sont déclarées.
+**Point de départ :** commit `9681d4e` sur `claude/repo-analysis-g87gag` (révision `R2026-10-08-ACCES-MATIERE`). **Dernier commit produit vérifié :** `6e5a8c2a9016b31969051499b1c895a116fd75b4` (révision `R2026-10-10-PHASE5`). Validation complète avec navigateur et archives reproductibles ; CI 50 et 51 vertes sur ce SHA ; [bilan de la suite](phase5-suite.md).
 
 ---
 
@@ -13,8 +13,8 @@
 | 1 — Audit | **faite** | 8 fiches, mesures, second jeu de recherche, synthèse et dispositions (`AUDIT2/`) |
 | 2 — Architecture | **faite** | Arborescence, quatre portes, module de gouvernance, vocabulaire, table de 388 sections, carte visuelle (`ARCHI/`) |
 | 3 — Rangement | **faite : lots 0 à 7c** | Voir le détail ci-dessous |
-| 4 — Langue claire (réduite, choix A) | **faite** | README `e13b8f3` ; sommaires `34cfd3a` ; guide designer `7bc881e` ; glossaire `3c13742` ; guide d’équipe `5ddf769` ; libellés hérités `715075a`. Les adresses lisibles remplacent les codes ; les contrôles les relisent en codes (`rr.en_codes`) et restent identiques sur le fond. Reportés à la phase 5 : le `design/` lu par l’agent, l’exemple complet du guide d’équipe ; la gouvernance reste telle quelle |
-| 5 — Chemin de l’agent | **partielle** | Sources de convergence retirées `6e3e2ab` ; exemples recopiables neutralisés `7f12fe5` ; écran cadré : Gate B complète en trace complète seulement `eda7d94` (79 500 → 70 700 caractères lus). Reste : réécriture de la skill pour les cibles de coût, convergence avec une petite mesure |
+| 4 — Langue claire (réduite, choix A) | **faite** | README `e13b8f3` ; sommaires `34cfd3a` ; guide designer `7bc881e` ; glossaire `3c13742` ; guide d’équipe `5ddf769` ; libellés hérités `715075a`. Les adresses lisibles remplacent les codes ; les contrôles les relisent en codes (`rr.en_codes`) et restent identiques sur le fond. Reportés à la phase 5 : le `design/` lu par l’agent, l’exemple complet du guide d’équipe ; la gouvernance a depuis été clarifiée comme adaptée et utile (`df5aa46`), puis sa règle de trace fusionnée (`795e713`) |
+| 5 — Chemin de l’agent | **suite technique faite ; comparaison indépendante ouverte** | Convergence et exemples traités `6e3e2ab`, `7f12fe5` ; Gate B adaptée `eda7d94` ; noyau commun et détails activés `6e5a8c2` (44 437 → 18 852 octets). Conservation, mutations, navigateur et deux distributions vérifiés. Trois pilotes exploratoires et mesure du lecteur ; qualité générale, variété, jetons, durée et cibles initiales encore non établis |
 | 6 — Visuel (minimal) | **faite** | Deux schémas Mermaid (double boucle, carte des parties) `52be4b9` ; rien de décoratif |
 | 7 — Anglais | **reportée** | À reprendre sur les textes clairs |
 | 8 — Emballage (minimal) | **faite** | Arborescence unique GitHub/Local `67f6fa4` ; copie Markdown retirée `f4e37ec` ; révision R2026-10-09-REFONTE `657aca5` ; paquets livrés |
@@ -50,6 +50,16 @@
 
 ---
 
+## Suite autorisée — corrections après la livraison minimale
+
+Les commits `df5aa46`, `d2c4d01`, `795e713` et `99caa027` ont clarifié l’autorité des sections, adapté la gouvernance, corrigé les références opérationnelles et renommé les sections conservées. La [PR 1](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/1) porte le produit vers `main`. Les CI 48 et 49 sont vertes sur `99caa027`.
+
+La suite a établi une référence de lecture, rendu les détails disponibles au bon moment, limité le repli au contenu réellement présent dans la skill et conservé la classification et les protections applicables. Les mesures distinguent les octets du fichier, les caractères servis, les jetons, la durée et le jugement sur le rendu. Le [bilan](phase5-suite.md) et la [correspondance complémentaire](../ARCHI/correspondance-phase5.csv) rendent les changements vérifiables. Le savoir complet demeure dans ses sections propriétaires.
+
+Les cibles de lecture de l’architecture restent provisoires ; une condition de qualité peut justifier une lecture supplémentaire. Les phases 4, 6 et 8 marquées « réduite » ou « minimal » ne signifient pas que tous leurs objectifs initiaux sont réalisés. L’anglais et une identité complète des supports restent hors de cette suite.
+
+---
+
 ## 1. Ce que l’on veut obtenir
 
 Un système de design :
@@ -66,7 +76,7 @@ Un système de design :
 
 ## 2. Charte : les dix principes qui guident chaque décision
 
-1. **Le design au cœur.** La gouvernance est un module qu’on active quand il sert : livraison client, audit, travail en équipe.
+1. **Le design au cœur.** La gouvernance s’adapte au risque, à la décision, à la reprise et à l’acceptation ; chaque contrôle et chaque élément de trace doit servir le travail.
 2. **Beau, varié, pro.** La variété vient de ce qui est propre à chaque demande, pas du hasard. La qualité vient du métier : finition, typographie, rendu vérifié.
 3. **L’effort proportionné.** On dépense là où ça change le résultat et on coupe ailleurs. L’agent choisit le chemin ; personne n’a à comprendre les modes.
 4. **Une porte par public.** Un seul contenu, des entrées différentes, et d’abord seulement ce qui sert.
@@ -127,8 +137,8 @@ Un système de design :
 1. **Une table de correspondance tenue à jour.** Chaque section, règle ou élément de savoir de l’ancien système reçoit une nouvelle adresse, ou une raison de retrait que tu as validée. Un contrôle automatique vérifie que rien ne manque.
 2. **Le fond n’est pas touché pendant le rangement.** Les phases 3 et 4 changent la place, la forme et la langue. Elles ne changent pas ce que le savoir enseigne. Un changement de fond est un lot à part, annoncé comme tel.
 3. **Un cycle fixe pour chaque lot.** Diagnostic écrit, proposition, ton accord, application, contrôles, commit annulable avec sa fiche de changement.
-4. **Ce qui pilote l’agent passe en dernier.** La skill, la liste de chargement et les chemins changent son comportement : on les retouche en phase 5 seulement, avec une petite mesure si tu l’acceptes.
-5. **Moins de contrôles, mais solides.** Chaque contrôle conservé garde sa preuve d’efficacité : on le casse volontairement et il doit échouer. Chaque contrôle retiré est noté avec sa raison. Le total doit baisser.
+4. **Ce qui pilote l’agent passe en dernier.** La skill, la liste de chargement et les chemins changent son comportement : on les retouche en phase 5 seulement, avec les essais nécessaires autorisés dans la suite actuelle.
+5. **Moins de contrôles, mais solides.** Chaque contrôle conservé garde sa preuve d’efficacité : on le casse volontairement et il doit échouer. Chaque contrôle retiré est noté avec sa raison. Le nombre total n’est pas un objectif : retirer les doublons, conserver une protection utile et ajouter un contrôle seulement pour un défaut identifié.
 6. **Ce que l’on garde.** Les décisions déjà prises (gouvernance proportionnée, honnêteté sur la preuve, pas d’exemples qui figent), le lecteur de routes, la construction de la skill depuis les sources, la vérification du rendu.
 7. **Le travail reste séparé du produit.** Les documents de travail vont sur `refonte` ; le système, sur la branche de développement.
 
@@ -206,7 +216,7 @@ Chaque phase indique son but, son contenu, ce qu’elle produit, la condition po
 - **Hérité du rangement :**
   - libellés de liens qui disent encore l’ancien nom (« DIRECTION.md », « QUICKSTART.md », « README à la racine ») alors que le lien mène au bon fichier ;
   - doublon provisoire entre « Par où entrer » et « Pour les agents et les opérateurs » au README ; « Fiche de version » et limites à fusionner ;
-  - ce qui reste dans `V1/official/` : préambules (« Responsabilité », « Rôle », « Posture »…), sections à fusionner ou à scinder, la table des locators de `READING_MAP` (retrait prévu en phase 5, le lecteur s’en sert encore).
+  - ce qui reste dans `V1/sections/` : préambules (« Responsabilité », « Rôle », « Posture »…), sections à fusionner ou à scinder ; la table des locators de `READING_MAP` reste la projection utilisée par les outils. Son retrait, envisagé initialement en phase 5, n’est pas réalisé : il demanderait un remplacement unique testé, sans ajouter une deuxième autorité.
 - **Fin :** tous les fichiers passent la grille de la phase 0 sur la langue.
 - **Risque :** perdre une nuance en simplifiant. Parade : la relecture d’échantillons, et les règles à forte conséquence relues une à une.
 
@@ -216,15 +226,16 @@ C’est la seule phase qui change le comportement de l’agent.
 
 - **But :** produire des résultats plus variés et plus pro, pour moins cher.
 - **Contenu :**
-  - **découper les sections mêlées** (design, produit, gouvernance) relevées par la table de correspondance (« scinder »), pour que le chemin de design ne lise plus la gouvernance ; mettre à jour la table de lecture en conséquence ;
+  - **découper les sections mêlées** (design, produit, gouvernance) relevées par la table de correspondance (« scinder »), pour que le chemin lise seulement la preuve et la trace nécessaires au travail ; mettre à jour la table de lecture en conséquence ;
   - **traiter la convergence des résultats** en premier : usage de la liste des tendances (effet de liste noire), mots et valeurs d’exemple recopiés, exemples recopiables ; examiner d’abord l’effet de mon ajout « signaux de page » ;
   - réécrire la skill : plus courte, organisée par chemin d’effort, avec la consigne « réponds dans la langue de la demande » ;
   - rendre systématiques et légères les étapes qui changent le résultat : direction, typographie, style, palette, retouche sur capture ;
-  - ajouter les **mécanismes de variété** : envisager plusieurs directions distinctes avant de choisir, repérer ses propres choix par défaut, et remonter à ce que la demande a de propre ;
+  - utiliser les **mécanismes de variété existants** : distinguer les alternatives plausibles, repérer les choix par défaut et remonter aux particularités de la demande ; n’ajouter un mécanisme que pour un défaut observé ;
   - intégrer la **barre produit** dans le chemin par défaut : rendu vérifié sur ordinateur et sur mobile, états, interactions, contenu crédible, accessibilité de base, composants cohérents ;
   - ajouter un mode dégradé explicite : sans navigateur, sans assets, avec un autre agent.
-- **Mesure, si tu l’acceptes :** un run par demande (facturation, natation) pour la qualité, et deux runs sur une même demande pour la variété. Soit trois ou quatre runs, au lieu des quatre runs plus juges qu’on avait envisagés.
-- **Fin :** skill réécrite, contrôles verts, et mesure faite ou explicitement reportée.
+- **Mesure envisagée à l’origine :** un run par demande (facturation, natation) pour la qualité, et deux runs sur une même demande pour la variété. Soit trois ou quatre runs, au lieu des quatre runs plus juges qu’on avait envisagés. La suite actuelle ajoute trois pilotes sur Lisière et une comparaison reproductible du lecteur ; ce protocole exploratoire ne remplace pas les runs indépendants ni le jugement à l’aveugle.
+- **Fin technique :** skill réécrite, activation des détails conservée, chemins de lecture documentés, contrôles et distributions verts.
+- **Fin expérimentale :** comparaison avant/après sur des demandes identiques et une demande nouvelle, avec mêmes capacités, observations et limites ; trois ou quatre essais repèrent une régression et ne prouvent pas une efficacité générale. Une mesure reportée reste un point ouvert, distinct de la fin technique.
 - **Risque :** une skill plus courte qui active moins. Parade : la mesure, et le retour arrière possible en un commit.
 
 ### Phase 6 — Identité visuelle et supports

@@ -1,0 +1,25 @@
+bloc_protege,charge_avant,charge_apres,route_proprietaire,fichier_actuel,raison
+CHARGE-TABLE,noyau commun,detail active,DIRECTION/CHARGE,agent/chemins.md,bloc complet conserve ; activation testee
+BRIEF,noyau commun,detail active,DIRECTION/EXTERNAL-START,design/direction/cadrer.md,bloc complet conserve ; activation testee
+PREMIER-OBJET,noyau commun,detail active,DIRECTION/FIRST-OBJECT,design/direction/premier-objet.md,bloc complet conserve ; activation testee
+MOY-PLAFOND,noyau commun,detail active,DIRECTION/CREATIVE-BOOT,agent/chemins.md,bloc complet conserve ; activation testee
+MOY-ASSETS,noyau commun,detail active,SAVOIR/SOURCE,design/savoir/images-et-sources.md,bloc complet conserve ; activation testee
+MOY-CALIBRATION,noyau commun,detail active,SAVOIR/SOURCE,design/savoir/images-et-sources.md,bloc complet conserve ; activation testee
+STRUCT-EXPRESSION,noyau commun,detail active,BIBLIOTHEQUE/READ,design/formes/choisir.md,bloc complet conserve ; activation testee
+STRUCT-TENSION,noyau commun,detail active,BIBLIOTHEQUE/TENSION,design/formes/choisir.md,bloc complet conserve ; activation testee
+STRUCT-ACTIVATION,noyau commun,detail active,BIBLIOTHEQUE/SELECT,design/formes/choisir.md,bloc complet conserve ; activation testee
+STRUCT-SIGNAUX,noyau commun,detail active,BIBLIOTHEQUE/SELECT,design/formes/choisir.md,bloc complet conserve ; activation testee
+COMP-GRAMMAIRE,noyau commun,detail active,SAVOIR/FRAME/COMPOSITION,design/savoir/fondements.md,bloc complet conserve ; activation testee
+COMP-SINGULARITE,noyau commun,detail active,SAVOIR/FRAME/SINGULARITE,design/savoir/fondements.md,bloc complet conserve ; activation testee
+COMP-FORME,noyau commun,detail active,SAVOIR/CRAFT/CFT-01,design/savoir/qualite-creative.md,bloc complet conserve ; activation testee
+COMP-CONTROLES,noyau commun,detail active,SAVOIR/CRAFT/CFT-03,design/savoir/qualite-creative.md,bloc complet conserve ; activation testee
+COMP-TITRE,noyau commun,detail active,SAVOIR/TYPE,design/savoir/typographie.md,bloc complet conserve ; activation testee
+COMP-TEXTE-IMAGE,noyau commun,detail active,SAVOIR/CRAFT/CFT-03,design/savoir/qualite-creative.md,bloc complet conserve ; activation testee
+COMP-VOCABULAIRE,noyau commun,detail active,SAVOIR/STATE,design/savoir/composition.md,bloc complet conserve ; activation testee
+COMP-CONVERGENCE,noyau commun,detail active,SAVOIR/CRAFT/CFT-05,design/savoir/qualite-creative.md,bloc complet conserve ; activation testee
+BOUCLE-ATELIER,noyau commun,detail active,ACTION/ATELIER-EDITION,design/produit/finition.md,bloc complet conserve ; activation testee
+BOUCLE-REVUE,noyau commun,detail active,SAVOIR/CRAFT/CFT-00,design/savoir/qualite-creative.md,bloc complet conserve ; activation testee
+BOUCLE-QUESTIONS,noyau commun,detail active,DIRECTION/DOUBLE-LOOP,design/direction/boucle.md,bloc complet conserve ; activation testee
+BOUCLE-REPASSE,noyau commun,detail active,SAVOIR/INTEGRITY/REPASSE,V1/sections/SAVOIR.md,bloc complet conserve ; activation testee
+BOUCLE-AXE,noyau commun,detail active,SAVOIR/CRAFT/CFT-02,design/savoir/qualite-creative.md,bloc complet conserve ; activation testee
+CHARGE-DETAILS,absent,noyau commun,DIRECTION/CHARGE,agent/chemins.md,relais explicites vers les details ; aucune nouvelle obligation de schema

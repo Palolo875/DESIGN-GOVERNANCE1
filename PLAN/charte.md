@@ -1,6 +1,6 @@
 # Charte de la refonte
 
-**Statut :** proposition, phase 0, le 9 octobre 2026. Elle devient la référence quand tu la valides. Toute décision des phases suivantes doit pouvoir s’y rattacher ; en cas de conflit entre deux principes, l’ordre de la section 3 tranche.
+**Statut :** charte validée ; actualisée pour la suite de la phase 5. Toute décision des phases suivantes doit pouvoir s’y rattacher ; en cas de conflit entre deux principes, l’ordre de la section 3 tranche.
 
 ---
 
@@ -22,12 +22,12 @@ Un même contenu sert les quatre. Ce qui change, c’est la porte d’entrée et
 ## 3. Principes, par ordre de priorité
 
 1. **Vrai et prudent.** Le système ne perd rien sans décision écrite et n’affirme pas ce qu’il n’a pas vérifié. Chaque changement passe par le même cycle : diagnostic, proposition, accord, commit annulable. *Passe avant tout le reste : un système plus beau mais qui a perdu du savoir ou qui ment sur ses preuves est un recul.*
-2. **Le design au cœur.** Le savoir, la direction et les formes sont le produit. La gouvernance est un module qui aide ou renforce, activé quand il sert : livraison, audit, équipe. Le chemin de design ne dépend pas d’elle.
+2. **Le design au cœur.** Le savoir, la direction et les formes sont le produit. La gouvernance aide à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Le niveau de trace et les contrôles suivent le travail : une exploration garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
 3. **Des résultats beaux, variés et pro.**
    - *Beau* : une direction visible, une finition soignée, une typographie et une couleur choisies.
    - *Varié* : deux demandes différentes donnent deux résultats différents. La variété vient de ce que chaque demande a de propre, pas du hasard ni d’un catalogue.
    - *Pro* : un produit qu’on pourrait mettre en ligne. Rendu vérifié sur ordinateur et sur mobile, états et interactions qui marchent, contenu crédible, accessibilité de base, composants cohérents.
-4. **L’effort proportionné.** L’effort suit la demande : une petite correction prend un chemin court, une page le chemin de direction, un produit livré y ajoute la gouvernance. On dépense là où ça change le résultat ; on coupe la lecture et les formalités qui ne changent rien. L’agent choisit le chemin ; personne n’a à comprendre les modes.
+4. **L’effort proportionné.** L’effort suit la demande : une petite correction prend un chemin court, une page le chemin de direction, un travail persistant, partagé, audité ou soumis à acceptation y ajoute les éléments formels nécessaires. On dépense là où ça change le résultat ; on coupe la lecture et les formalités qui ne changent rien. L’agent choisit le chemin ; personne n’a à comprendre les modes.
 5. **Clair pour chaque public.** Aucun code interne dans ce que lit un humain. Des phrases courtes. Un terme technique n’est gardé que s’il appartient au métier du design, et il est défini à sa première apparition.
 6. **Bien structuré et peu chargé.** Chaque fichier a un rôle, un public et une structure prévisible. Chaque chose est dite une fois, à un seul endroit. On montre d’abord l’essentiel, puis le détail sur demande.
 7. **Flexible et opérable partout.** Avec ou sans navigateur, avec ou sans assets, avec Claude Code ou un autre agent. Quand un moyen manque, le système continue et dit ce qu’il n’a pas pu vérifier.
@@ -63,4 +63,4 @@ Les critères vérifiables sont dans [`grilles.md`](grilles.md) :
 
 - la **grille d’un fichier**, appliquée à chaque fichier ;
 - la **grille du système**, appliquée à l’ensemble ;
-- la **grille d’un résultat**, appliquée à ce que le système produit, lors de la mesure de la phase 5 si tu l’acceptes.
+- la **grille d’un résultat**, appliquée à ce que le système produit lors des essais de phase 5 autorisés, avec leurs limites déclarées.

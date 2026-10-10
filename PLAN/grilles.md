@@ -1,6 +1,6 @@
 # Grilles de qualité
 
-**Statut :** proposition, phase 0, le 9 octobre 2026. Elles mettent la [charte](charte.md) en critères vérifiables.
+**Statut :** grilles validées ; actualisées pour la suite de la phase 5. Elles mettent la [charte](charte.md) en critères vérifiables.
 
 Chaque critère dit comment on le vérifie :
 - **outil** : un script le mesure ;
@@ -45,14 +45,14 @@ Elle s’applique à l’ensemble : à l’audit, à la fin de chaque phase et a
 | # | Critère | Question | Vérification | Valeur de départ |
 |---|---|---|---|---|
 | S1 | Portes | Chaque public a-t-il une entrée unique, à un clic du README ? | lecture | une seule entrée, commune |
-| S2 | Charge de l’agent | Combien de caractères l’agent lit-il avant de produire, pour une petite correction, une page, un produit livré ? Aucun chemin ne s’alourdit ; la petite correction et la page s’allègent. | outil | page en direction : environ 80 000 ; les autres sont mesurés en phase 1 |
+| S2 | Charge de l’agent | Combien de caractères l’agent lit-il avant de produire, pour une petite correction, une page, un produit livré ? Le noyau commun et la lecture inutile s’allègent sans retirer une activation utile. Les caractères lus, les jetons et la durée sont des mesures distinctes ; toute augmentation est expliquée avec son effet attendu. | outil | page en direction : environ 80 000 ; les autres sont mesurés en phase 1 |
 | S3 | Entrée débutant | Se lit-elle en cinq minutes, soit environ 6 000 caractères (indicatif) ? Sans code interne ? | outil et lecture | à mesurer |
 | S4 | Trouvabilité | Le lecteur trouve-t-il la bonne route ? Testé sur le jeu actuel et sur un second jeu bâti avant les changements, à partir du vocabulaire d’un humain et non des alias. | outil | 98 termes sur 121, rang médian 1 ; second jeu à créer |
 | S5 | Navigation | Toutes les routes sont-elles atteignables depuis l’entrée ? En combien d’étapes au plus ? | outil | 71 sur 71 ; étapes à mesurer |
 | S6 | Vocabulaire | Un terme a-t-il un seul sens, et une notion un seul terme ? | outil (table du vocabulaire) et lecture | à établir en phase 2 |
 | S7 | Rien de perdu | Chaque élément est-il placé, ou son retrait validé ? Cible : 100 %. | outil | à construire en phase 2 |
-| S8 | Contrôles | Le nombre total baisse-t-il ? Chaque contrôle gardé échoue-t-il quand on casse ce qu’il protège ? | outil | à inventorier en phase 1 |
-| S9 | Gouvernance séparable | Le chemin de design se lit-il en entier sans ouvrir le module de gouvernance ? | outil (suivi des renvois) | non : les deux sont mêlés |
+| S8 | Contrôles | Chaque contrôle protège-t-il un défaut identifié et échoue-t-il quand on le réintroduit ? Les doublons sont retirés ; le nombre total n’est pas un objectif. | outil | à inventorier en phase 1 |
+| S9 | Gouvernance adaptée | Les contrôles et la trace suivent-ils le risque, la décision et les besoins de reprise ou d’acceptation, sans imposer une formalité inutile ? | outil (suivi des renvois) | non : les deux sont mêlés |
 | S10 | Opérable | Fonctionne-t-il sans navigateur, en le disant ? Sans réseau ? Avec Python seul ? Installé depuis le zip ? | outil (installation de test) | Python seul : oui ; installation depuis le zip : à tester |
 | S11 | Deux langues | Les deux versions ont-elles les mêmes sections, routes et liens ? | outil | français seul |
 | S12 | Supports | Chaque support suit-il l’identité visuelle, en clair et en sombre, lisible sur mobile, avec un équivalent écrit ? | toi et outil | carte v3 externe ; un diagramme Mermaid |
@@ -60,13 +60,13 @@ Elle s’applique à l’ensemble : à l’audit, à la fin de chaque phase et a
 
 ## 3. Grille d’un résultat
 
-Elle s’applique à ce que le système produit, lors de la petite mesure de la phase 5 si tu l’acceptes. Ton jugement décide pour R1 à R4 et R9.
+Elle s’applique à ce que le système produit, lors des essais de phase 5 autorisés. Ton jugement décide pour R1 à R4 et R9 ; des tests techniques réussis ne décident pas de ces critères.
 
 | # | Critère | Question | Vérification |
 |---|---|---|---|
 | R1 | Direction | Peut-on dire en une phrase le parti pris de la page ? | toi |
 | R2 | Propre à la demande | Sans le nom, reconnaît-on le métier et le public ? | toi |
-| R3 | Variété | Deux runs sur la même demande donnent-ils deux pages vraiment différentes, pour de bonnes raisons ? Deux demandes différentes, encore plus ? | toi, et outil (palettes, polices et enchaînement des sections comparés) |
+| R3 | Variété | Les choix d’identité et la composition répondent-ils aux particularités de chaque demande ? Sur une même demande, les alternatives sont-elles distinctes et justifiées, sans exiger la différence pour elle-même ? | toi, et outil (palettes, polices et enchaînement des sections comparés) |
 | R4 | Finition | La hiérarchie, la typographie, les espacements et les détails sont-ils soignés ? | toi |
 | R5 | Mobile | Pas de débordement ? Zones tactiles suffisantes ? Lecture confortable ? | outil (vérification du rendu) |
 | R6 | Produit | Les états, interactions, liens et formulaires marchent-ils ? Rien ne mène nulle part sans le dire ? | outil et lecture |
