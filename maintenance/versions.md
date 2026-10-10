@@ -3,7 +3,7 @@
 **Version expérimentale :** `V1.0.0`
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
 **Version initiale :** 1 octobre 2026.  
-**Révision :** `R2026-10-10-PRESENTATION`, 10 octobre 2026.  
+**Révision :** `R2026-10-11-CORRECTIFS`, 11 octobre 2026.  
 **Usage recommandé :** pilote avec revue humaine et preuves adaptées au risque.
 
 ## V1.0.0 — présentation expérimentale
@@ -16,7 +16,23 @@ Les codes historiques et les adresses lisibles restent compatibles. Le journal e
 
 **Efficacité : `NOT-VERIFIED`.** Les créations et jugements exploratoires orientent le travail ; aucune mesure comparative n’établit une amélioration générale de qualité, de variété ou de coût. Une validation du paquet ne remplace ni une observation du rendu ni une tâche utilisateur.
 
-L’historique des révisions et les preuves de fabrication sont conservés dans la branche documentaire `refonte`, hors du paquet produit. Ce nettoyage ne les supprime pas.
+Les révisions restent résumées ci-dessous pour les personnes qui ne disposent que du paquet. Le détail du chantier et les preuves de fabrication sont conservés dans la branche documentaire `refonte`.
+
+## Révisions en bref
+
+| Révision | Changement principal |
+|---|---|
+| `R2026-10-11-CORRECTIFS` | Police réduite, lecture Markdown et images adaptées au thème sur GitHub, alias SYSTEME, titres du noyau précisés et historique succinct rétabli. |
+| `R2026-10-10-PRESENTATION` | Trois cartes générées, journal et notes publics nettoyés, travaux conservés hors produit. |
+| `R2026-10-10-PRATIQUE` | Moments de lecture, premier objet, alternatives situées et techniques de mobile/mouvement précisés ; skill de 18 960 octets. |
+| `R2026-10-10-PHASE5` | Noyau commun et détails chargés au moment utile ; skill de 18 852 octets. |
+| `R2026-10-09-COHERENCE` | Autorité clarifiée, références corrigées, gouvernance adaptée et sections conservées renommées. |
+| `R2026-10-09-REFONTE` | Entrées par public, rangement du système et arborescence GitHub/Local unifiée. |
+| `R2026-10-08-ACCES-MATIERE` | Activation du savoir, lecteur de routes et structure d’une page renforcés après U5. |
+| `R2026-10-08-CORRECTIONS` | Corrections de l’audit complet, sans nouvelle mesure de rendu. |
+| `R2026-10-04-AUDIT2-FIXES` | Corrections du second audit interne, constats F07 à F10 et R01 à R04. |
+| `R2026-10-04-AUDIT-FIXES` | Corrections du premier audit interne, constats F01 à F06. |
+| `V1.0.0`, 1 octobre 2026 | Version initiale expérimentale. |
 
 ## Contrats de maintenance conservés
 

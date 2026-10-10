@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -19,11 +20,20 @@ def check() -> list[str]:
         spec = importlib.util.spec_from_file_location('dg_supports_generator', SUPPORTS / 'generer.py')
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
+        coverage = json.loads((SUPPORTS / 'fonts/couverture.json').read_text(encoding='utf-8'))
+        if coverage['requested_characters'] != module.used_characters():
+            errors.append('police : couverture périmée ; régénérer la police puis les supports')
+        for key, name in [('source_sha256', 'manrope.ttf'), ('font_sha256', 'manrope-supports.woff2')]:
+            if coverage[key] != hashlib.sha256((SUPPORTS / 'fonts' / name).read_bytes()).hexdigest():
+                errors.append('police : empreinte différente : ' + name)
         expected = module.render_outputs()
         for name, text in expected.items():
             path = SUPPORTS / name
             if not path.is_file() or path.read_text(encoding='utf-8') != text:
                 errors.append(name + ' : sortie absente ou périmée ; régénérer les supports')
+            limit = 100_000 if name.endswith('.html') else 50_000 if name.endswith('.svg') else None
+            if limit and len(text.encode('utf-8')) > limit:
+                errors.append(name + ' : budget de poids dépassé (' + str(limit) + ' octets)')
         for name in ['systeme', 'parcours', 'boucle']:
             data = json.loads((SUPPORTS / (name + '.json')).read_text(encoding='utf-8'))
             ids = [node['id'] for node in data['nodes']]

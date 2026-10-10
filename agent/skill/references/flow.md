@@ -2,9 +2,14 @@
 
 Le flux suivant est une vue de lecture, pas une route supplémentaire :
 
-[![Parcours d’un travail](../../../supports/parcours-clair.svg)](../../../supports/parcours.html)
+<a href="../../../supports/parcours.md">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../../../supports/parcours-sombre.svg">
+    <img src="../../../supports/parcours-clair.svg" alt="Parcours d’un travail : cadrer, diriger, fabriquer, observer, vérifier et présenter">
+  </picture>
+</a>
 
-[Version consultable](../../../supports/parcours.html) · [Équivalent écrit](../../../supports/parcours.md).
+[Lire le parcours](../../../supports/parcours.md) · [Tous les supports](../../../supports/README.md).
 
 En texte : **classer et protéger le run, cultiver et diriger la décision, composer et construire l’artefact, polir et observer le rendu, vérifier et corriger ce qui est observable, puis présenter la proposition (trace légère ; la première proposition vaut checkpoint) ou décider et fermer avec ses limites (trace complète)**. Un risque critique ramène au classement (reclassification) ; une preuve absente reste `NOT-VERIFIED`, avec owner et prochaine preuve. La boucle créative élève le résultat ; la boucle de gouvernance protège le risque, la preuve et la vérité de ce qui peut être affirmé.
 

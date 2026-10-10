@@ -15,9 +15,14 @@ Ces fichiers reprennent des sections des anciennes sources (`DIRECTION.md`, `SAV
 
 Le système fait travailler deux boucles qui se répondent : l’une crée, l’autre observe et corrige.
 
-[![Créer puis apprendre](../supports/boucle-clair.svg)](../supports/boucle.html)
+<a href="../supports/boucle.md">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../supports/boucle-sombre.svg">
+    <img src="../supports/boucle-clair.svg" alt="Créer puis apprendre : observer, corriger, comparer et décider">
+  </picture>
+</a>
 
-[Version consultable](../supports/boucle.html) · [Équivalent écrit](../supports/boucle.md).
+[Lire le parcours](../supports/boucle.md) · [Tous les supports](../supports/README.md).
 
 | Créer | Observer et corriger |
 |---|---|

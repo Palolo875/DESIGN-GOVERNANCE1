@@ -4,15 +4,22 @@ import base64
 import hashlib
 import html
 import json
+from html.parser import HTMLParser
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / 'systeme.json').read_text())
 BASE = '../'
-FONT = base64.b64encode((ROOT / 'fonts/manrope.ttf').read_bytes()).decode('ascii')
 NS = 'http://www.w3.org/2000/svg'
 ET.register_namespace('', NS)
+
+
+def font_css(embed_font=True):
+    if not embed_font:
+        return ''
+    font = base64.b64encode((ROOT / 'fonts/manrope-supports.woff2').read_bytes()).decode('ascii')
+    return '@font-face{font-family:Manrope;src:url(data:font/woff2;base64,' + font + ') format("woff2");font-weight:200 800;font-style:normal}'
 
 def el(parent, tag, **attrs):
     return ET.SubElement(parent, '{' + NS + '}' + tag, {k.rstrip('_').replace('_', '-'): str(v) for k, v in attrs.items()})
@@ -32,12 +39,12 @@ def box(parent, x, y, w, h, color, radius=8, cls=''):
     return node
 
 
-def svg(theme):
+def svg(theme, embed_font=True):
     root = ET.Element('{' + NS + '}svg', {'viewBox':'0 0 1104 920', 'width':'1104', 'height':'920', 'role':'img', 'aria-labelledby':'map-title map-desc', 'data-theme':theme, 'id':'responsibility-map'})
     el(root, 'title', id='map-title').text = 'Design Governance V1 — carte des responsabilités'
     el(root, 'desc', id='map-desc').text = ' '.join(n['title'] + ' : ' + ' '.join(n['lines'] + n.get('conditions', [])) for n in DATA['nodes']) + ' ' + DATA['authority']['rule'] + ' ' + DATA['authority']['retained'] + ' ' + DATA['scope']
     el(root, 'metadata', id='font-license').text = (ROOT / 'fonts/OFL-manrope.txt').read_text()
-    css = '@font-face{font-family:Manrope;src:url(data:font/ttf;base64,' + FONT + ') format("truetype");font-weight:200 800;font-style:normal}'
+    css = font_css(embed_font)
     for name, palette in DATA['themes'].items():
         css += 'svg[data-theme="' + name + '"]{' + ''.join('--' + k + ':' + v + ';' for k,v in palette.items()) + '}'
     css += 'text{font-family:Manrope,Arial,sans-serif}.ink{fill:var(--text)}.muted{fill:var(--muted)}.accent{fill:var(--accent)}.highlighted>rect{stroke:var(--accent);stroke-width:3}.edge{stroke:var(--line);stroke-width:1.8;fill:none}'
@@ -99,14 +106,14 @@ def cards():
     return ''.join(out)
 
 
-def sequence_svg(data, theme):
+def sequence_svg(data, theme, embed_font=True):
     start = 264 if data['id'] == 'boucle' else 80
     height = start + 6 * 120 + 152
     root = ET.Element('{' + NS + '}svg', {'viewBox': f'0 0 1104 {height}', 'width': '1104', 'height': str(height), 'role': 'img', 'aria-labelledby': 'map-title map-desc', 'data-theme': theme, 'id': 'responsibility-map'})
     el(root, 'title', id='map-title').text = data['title'].replace('\n', ' ')
     el(root, 'desc', id='map-desc').text = ' '.join(n['title'] + ' : ' + ' '.join(n['lines']) for n in data['nodes']) + ' ' + data['scope']
     el(root, 'metadata', id='font-license').text = (ROOT / 'fonts/OFL-manrope.txt').read_text()
-    style = svg(theme)
+    style = svg(theme, embed_font)
     original = ET.fromstring(style)
     root.append(original.find('{' + NS + '}style'))
     root.append(original.find('{' + NS + '}defs'))
@@ -182,7 +189,7 @@ def equivalent(data):
     return '\n'.join(out) + '\n'
 
 
-def render_outputs():
+def render_outputs(embed_font=True):
     global DATA
     DATA = json.loads((ROOT / 'systeme.json').read_text())
     palettes = DATA['themes']
@@ -191,9 +198,9 @@ def render_outputs():
     outputs = {}
     for data in collection:
         ident = data['id']; entry = data['entries'][0]
-        drawing = {theme: (svg(theme) if ident == 'systeme' else sequence_svg(data, theme)) for theme in palettes}
+        drawing = {theme: (svg(theme, embed_font) if ident == 'systeme' else sequence_svg(data, theme, embed_font)) for theme in palettes}
         for theme, value in drawing.items(): outputs[ident + '-' + theme + '.svg'] = value + '\n'
-        css = '@font-face{font-family:Manrope;src:url(data:font/ttf;base64,' + FONT + ') format("truetype");font-weight:200 800;font-style:normal}'
+        css = font_css(embed_font)
         for name, palette in palettes.items(): css += 'html[data-theme="' + name + '"]{' + ''.join('--' + k + ':' + v + ';' for k, v in palette.items()) + '}'
         nodes = text_sections(data)
         roles = ''.join('<li><strong>' + html.escape(n['title']) + '</strong> — ' + html.escape(' '.join(n['lines'] + n.get('conditions', []))) + ('<ul>' + ''.join('<li><strong>' + html.escape(c['title']) + '</strong> — ' + html.escape(' '.join(c['lines'])) + '</li>' for c in n['children']) + '</ul>' if n.get('children') else '') + '</li>' for n in nodes)
@@ -219,6 +226,39 @@ def render_outputs():
         outputs[data['file']] = page
         outputs[ident + '.md'] = equivalent(data)
     return outputs
+
+
+def used_characters():
+    """Textes des pages et des SVG, plus tous les choix affichables après sélection."""
+    class TextReader(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.hidden = 0
+            self.texts = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag in ('style', 'script', 'metadata'):
+                self.hidden += 1
+
+        def handle_endtag(self, tag):
+            if tag in ('style', 'script', 'metadata'):
+                self.hidden -= 1
+
+        def handle_data(self, data):
+            if not self.hidden:
+                self.texts.append(data)
+
+    reader = TextReader()
+    for name, page in render_outputs(embed_font=False).items():
+        if name.endswith('.html'):
+            reader.feed(page)
+    for name in ('systeme', 'parcours', 'boucle'):
+        data = json.loads((ROOT / (name + '.json')).read_text())
+        for entry in data['entries']:
+            reader.texts.extend(entry[key] for key in ('label', 'title', 'description', 'link'))
+    # Le bouton change son texte au basculement de thème.
+    reader.texts.append('Thème clair Thème sombre')
+    return ''.join(sorted(set(''.join(reader.texts)) - set('\n\r\t')))
 
 
 def main():
