@@ -6,6 +6,7 @@ Pour qui fait évoluer le système : d’où vient chaque distribution, comment 
 |---|---|
 | [`evolution.md`](evolution.md) | Recette d’une modification, promotion et dépréciation des routes, cycle de vie, anciens alias |
 | [`versions.md`](versions.md) | Version, révision et contenu de la version |
+| [`revue-systeme.md`](revue-systeme.md) | Carnet de lecture : utilité des fichiers, constats vérifiés et points à préciser ; les recommandations ne créent aucune règle |
 
 <!-- origine:README.md -->
 ## Source de vérité et distributions
