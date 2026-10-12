@@ -1,5 +1,7 @@
 # Branche `refonte` : plan et preuves de travail
 
+La [revue progressive du système](REVUE/revue-systeme.md) conserve la lecture des fichiers, les constats vérifiés et les adaptations proposées : installation de la skill, guides, état factuel des documents et proportion des briefs, runs et réserves. Les propositions y sont distinguées des changements intégrés au produit.
+
 Le [plan courant](PLAN/plan-refonte-systeme.md) indique l'avancement réel des phases. Le [bilan technique de phase 5](PLAN/phase5-suite.md) documente la conservation, la lecture et les contrôles du paquet. La [comparaison U6](U6/resultats.md) conserve les productions séparées, leurs parcours, les jugements et les limites.
 
 La [suite pratique](SUITE-PRATIQUE/resultats.md) explique les préférences des juges et livre un prototype Web mobile avec mouvement, ses 53 parcours et ses limites. Concurrents et anglais sont reportés.

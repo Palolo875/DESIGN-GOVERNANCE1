@@ -1,6 +1,8 @@
 # Entrée de la refonte Design Governance
 
-**État courant au 11 octobre 2026.** Cette branche `refonte` conserve le plan et les preuves. Le produit est sur `main`, commit de fusion `5a5f56357d829150ac5a1863c3c40f35c4c3bafa`, avec un arbre identique au commit testé `b3e071b24bd67a71c9438779eaf8f6810aa8b3a1`. La [PR 2](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2) est fusionnée après les CI 57 et 58 réussies. L’état du commit de fusion est suivi séparément dans [la livraison du lot 03](SUPPORTS-V1/lot-03/livraison.json).
+La [revue progressive du système](REVUE/revue-systeme.md) conserve la lecture des fichiers, les constats vérifiés et les adaptations proposées : installation de la skill, guides, état factuel des documents et proportion des briefs, runs et réserves. Les propositions y sont distinguées des changements intégrés au produit.
+
+**État documentaire au 13 octobre 2026.** Cette branche `refonte` conserve le plan et les preuves. Le produit est sur `main`, commit de fusion `5a5f56357d829150ac5a1863c3c40f35c4c3bafa`, avec un arbre identique au commit testé `b3e071b24bd67a71c9438779eaf8f6810aa8b3a1`. La [PR 2](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/2) est fusionnée après les CI 57 et 58 réussies. L’état du commit de fusion est suivi séparément dans [la livraison du lot 03](SUPPORTS-V1/lot-03/livraison.json).
 
 Pour l'état actuel, lire le [plan de refonte](PLAN/plan-refonte-systeme.md), le [bilan technique de phase 5](PLAN/phase5-suite.md), puis la [comparaison indépendante U6](U6/resultats.md). Les mesures de lecture, les parcours, les jugements visuels et la décision du propriétaire y sont distingués. Les phases réduites, les objectifs ouverts et l'anglais reporté restent explicites.
 
