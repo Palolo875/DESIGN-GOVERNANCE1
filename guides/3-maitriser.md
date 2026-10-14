@@ -99,9 +99,10 @@ Pour lire seulement une section, utilisez le lecteur :
 python3 scripts/read_route.py agent/chemins#classer
 python3 scripts/read_route.py agent/chemins#retouche
 python3 scripts/read_route.py --trouver "cohérence de rayon"
+python3 scripts/read_route.py --trouver "le titre écrase la photo"
 ```
 
-`--trouver` cherche un terme en mots entiers (sans tenir compte de la casse ni des accents, avec quelques synonymes) et classe les sections qui en parlent ; `--tout` les montre toutes. Il ne comprend pas le sens : sans résultat, reformulez, car l’absence d’occurrence ne prouve pas l’absence du savoir. `--sommaire` liste les sections et leur rôle. Les passages déjà présents dans le noyau de la skill sont remplacés par un renvoi et marqués « (noyau) » ; `--complet` les affiche. `--guides` ajoute aux résultats les guides, le README et les références de la skill, séparés de ce qui fait foi.
+`--trouver` cherche un terme en mots entiers (sans tenir compte de la casse ni des accents, avec quelques synonymes) et classe les sections qui en parlent ; `--tout` les montre toutes. Une phrase qui décrit un défaut vu à l’écran est cherchée mot par mot, avec le vocabulaire des sources qui le traitent (« écrase » trouve aussi « lutte », « photo » trouve « image ») ; les sections où ces mots se décrivent ensemble passent en tête, au niveau de la sous-section précise. Il ne comprend pas le sens : sans résultat, reformulez, car l’absence d’occurrence ne prouve pas l’absence du savoir. `--sommaire` liste les sections et leur rôle. Les passages déjà présents dans le noyau de la skill sont remplacés par un renvoi et marqués « (noyau) » ; `--complet` les affiche. `--guides` ajoute aux résultats les guides, le README et les références de la skill, séparés de ce qui fait foi.
 
 Le mode strict du validateur rejette les champs laissés en gabarit et vérifie que les fichiers cités existent : rendu, trace et captures avant/après de la comparaison sur capture. Remplacez les chemins d’exemple par les vôtres :
 

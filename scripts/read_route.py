@@ -16,8 +16,10 @@ est servie comme le locator qu'elle désigne ; l'ancien locator reste accepté.
 
 Recherche de routes par terme : `--trouver TERME` cherche le terme en mots entiers, avec ses alias
 (synonymes et traductions stricts d'ALIAS_GROUPS), puis en correspondance partielle, puis mot à mot sur
-une même ligne ; enfin, pour une phrase (« quelle police choisir »), mot par mot avec racines et alias, les routes
-classées par la rareté des mots qu'elles portent. Les routes sont classées et les premières affichées (`--tout` pour toutes).
+une même ligne ; enfin, pour une phrase (« quelle police choisir », « le titre écrase la photo »), mot par mot avec
+racines, alias et rapprochements de symptômes (SYMPTOM_GROUPS), les routes classées par la rareté des mots qu'elles
+portent et par leur proximité sur une même ligne. Une ligne est rattachée à la sous-route la plus précise
+(SAVOIR/CRAFT/CFT-03). Les routes sont classées et les premières affichées (`--tout` pour toutes).
 La casse et les accents sont ignorés, pas le sens. `--sommaire [LOCATOR]` liste les routes et leur rôle,
 ou les sous-sections d'une route. `--guides` ajoute les documents d'orientation
 (guides du corpus, README racine, références de la skill), identifiés séparément. Les marqueurs internes sont exclus. Aucun résultat ne prouve l'absence du savoir.
@@ -649,22 +651,43 @@ def find(term: str, include_guides: bool = False) -> list[tuple[str | None, str,
     return _scan(lambda folded: query in folded, include_guides)
 
 
-def _scan(match, include_guides: bool = False) -> list[tuple[str | None, str, int, str]]:
-    """Lignes dont la forme repliée satisfait match, avec la route la plus précise qui les sert."""
-    routes = parse_routes(carte())
-    locators = set(routes)
-    for path in sources_normatives():
+_BLOCS: dict[tuple, list[tuple[Path, set[int], str]]] = {}
+
+
+def sous_routes(routes: dict[str, tuple[str, list[str]]]) -> set[str]:
+    """Sous-locators lisibles des routes (SAVOIR/CRAFT/CFT-03…), pour rattacher une ligne à la section la plus précise."""
+    return {sub for locator in routes for _, _, sub, _ in outline(locator) if sub}
+
+
+def route_blocks() -> list[tuple[Path, set[int], str]]:
+    """(fichier, lignes servies, locator) de chaque route, sous-route et section titrée par un locator.
+    Mémorisés tant que la carte et les sources normatives sont inchangées."""
+    text = carte()
+    sources = sources_normatives()
+    for path in sources:
         if not path.is_file():
             raise RouteError(f"propriétaire absent : {nom(path)}")
-        for _, _, text in headings(path.read_text(encoding="utf-8").splitlines()):
-            found = heading_locator(text)
-            if found:
-                locators.add(found)
-    blocks = []
-    for locator in sorted(locators):
-        path, lines, index = resolve(locator, routes)
-        indices = {i for i, text in served_lines(lines, index) if text == lines[i]}
-        blocks.append((path, indices, locator))
+    key = (text,) + tuple((str(p), p.stat().st_mtime_ns, p.stat().st_size) for p in sources)
+    if key not in _BLOCS:
+        routes = parse_routes(text)
+        locators = set(routes) | sous_routes(routes)
+        for path in sources:
+            for _, _, heading in headings(path.read_text(encoding="utf-8").splitlines()):
+                found = heading_locator(heading)
+                if found:
+                    locators.add(found)
+        blocks = []
+        for locator in sorted(locators):
+            path, lines, index = resolve(locator, routes)
+            indices = {i for i, line in served_lines(lines, index) if line == lines[i]}
+            blocks.append((path, indices, locator))
+        _BLOCS[key] = blocks
+    return _BLOCS[key]
+
+
+def _scan(match, include_guides: bool = False) -> list[tuple[str | None, str, int, str]]:
+    """Lignes dont la forme repliée satisfait match, avec la route la plus précise qui les sert."""
+    blocks = route_blocks()
     results = []
     sources = sources_normatives()
     if include_guides:
@@ -740,6 +763,21 @@ ALIAS_GROUPS = (
     ("réponse", "answer", "compte rendu"),
     ("chargement", "charger", "load"),
 )
+# Rapprochements de symptômes : mots courants d'un défaut perçu et vocabulaire des sources qui le traite.
+# Plus larges que des synonymes, ils servent seulement la recherche par phrase, jamais la recherche d'un terme.
+# Chaque groupe garde au moins un terme présent dans les sources (test_read_route).
+SYMPTOM_GROUPS = (
+    ("écrase", "étouffe", "noie", "lutte", "concurrence", "rivalise", "dispute", "réclame"),
+    ("photo", "photographie", "image", "illustration", "visuel"),
+    ("collé", "serré", "tassé", "disloqué", "éparpillé"),
+    ("décentré", "décalé", "désaligné"),
+    ("pâle", "délavé", "terne", "disparaît"),
+    ("coupé", "tronqué", "rogné", "déborde"),
+    ("saute", "bouge", "tremble"),
+    ("saccadé", "haché"),
+    ("générique", "banal", "fade", "interchangeable"),
+    ("ressort", "émerge"),
+)
 STOPWORDS = {"le", "la", "les", "un", "une", "des", "de", "du", "d", "l", "et", "ou", "en", "a", "au", "aux", "sur",
              "pour", "par", "avec", "dans", "the", "of", "and", "to", "for"}
 TOP_ROUTES = 8
@@ -801,26 +839,63 @@ PHRASE_STOPWORDS = STOPWORDS | {
     "should", "can", "with", "without", "on", "in", "from", "into", "use", "using", "make", "best", "this", "that"}
 
 
-def phrase_words(term: str) -> list[tuple[str, object]]:
-    """Mots significatifs d'une phrase, chacun avec son test de ligne : ses alias en mots entiers, sinon sa racine
-    (pluriel retiré, fin de mot longue tronquée) en début de mot. Vide si la phrase a moins de deux mots significatifs."""
+def phrase_patterns(term: str) -> list[tuple[str, list[re.Pattern]]]:
+    """Mots significatifs d'une phrase, chacun avec ses motifs : sa racine (pluriel retiré, fin de mot longue
+    tronquée) en début de mot, ses alias en mots entiers et ses rapprochements de symptômes.
+    Vide si la phrase a moins de deux mots significatifs."""
     words = [w for w in re.split(r"[^a-z0-9]+", _fold(term)) if len(w) > 2 and w not in PHRASE_STOPWORDS]
     words = list(dict.fromkeys(words))
     if len(words) < 2:
         return []
     out = []
     for w in words:
-        root = w[:-1] if w.endswith(("s", "x")) and len(w) > 4 else w
-        if len(root) > 6:  # racine : fin de mot retirée (choisir → chois, lisibilité → lisibili)
-            root = root[:max(5, len(root) - 3)]
-        patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(root))] + [_word(a) for a in aliases(w)[1:]]
-        out.append((w, lambda folded, ps=patterns: any(p.search(folded) for p in ps)))
+        patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(_root(w)))] + [_word(a) for a in aliases(w)[1:]]
+        patterns += [re.compile(r"(?<![a-z0-9])" + re.escape(_root(_fold(m)))) for m in symptoms(w)]
+        out.append((w, patterns))
     return out
+
+
+def phrase_words(term: str) -> list[tuple[str, object]]:
+    """Mots significatifs d'une phrase, chacun avec son test de ligne (voir phrase_patterns)."""
+    return [(w, lambda folded, ps=ps: any(p.search(folded) for p in ps)) for w, ps in phrase_patterns(term)]
+
+
+NEAR = 60  # caractères : deux mots de la phrase aussi proches décrivent ensemble un même fait
+
+
+def together(line: str, patterns: list[tuple[str, list[re.Pattern]]]) -> int:
+    """Plus grand nombre de mots distincts de la phrase réunis dans une fenêtre de NEAR caractères de la ligne."""
+    folded = _fold(line)
+    hits = sorted((m.start(), w) for w, ps in patterns for p in ps for m in p.finditer(folded))
+    best = 0
+    for i, (start, _) in enumerate(hits):
+        best = max(best, len({w for pos, w in hits[i:] if pos - start <= NEAR}))
+    return best
+
+
+def _root(word: str) -> str:
+    """Racine d'un mot replié : pluriel retiré, fin de mot longue tronquée (choisir → chois, lisibilité → lisibili)."""
+    root = word[:-1] if word.endswith(("s", "x")) and len(word) > 4 else word
+    if len(root) > 6:
+        root = root[:max(5, len(root) - 3)]
+    return root
+
+
+def symptoms(word: str) -> list[str]:
+    """Autres membres des groupes de symptômes dont un membre partage la racine du mot (écrasent → écrase)."""
+    root = _root(_fold(word))
+    found = []
+    for group in SYMPTOM_GROUPS:
+        roots = [_root(_fold(m)) for m in group]
+        if any(root.startswith(r) or r.startswith(root) for r in roots if min(len(r), len(root)) >= 4):
+            found += [m for m, r in zip(group, roots) if r != root and m not in found]
+    return found
 
 
 def rank_phrase(results: list[tuple[str | None, str, int, str]], term: str) -> list[tuple[str, list[tuple[str | None, str, int, str]]]]:
     """Routes classées pour une phrase : somme, sur les mots de la phrase présents dans la route, de leur rareté
-    (un mot présent dans peu de routes compte plus) ; au moins la moitié des mots requise."""
+    (un mot présent dans peu de routes compte plus), accrue quand plusieurs mots sont réunis de près sur une ligne ;
+    au moins la moitié des mots requise."""
     phrase = phrase_words(term)
     grouped: dict[str, list] = {}
     for r in results:
@@ -837,9 +912,12 @@ def rank_phrase(results: list[tuple[str | None, str, int, str]], term: str) -> l
     titled = {loc: {w for w, m in phrase if any(line.lstrip().startswith("#") and m(_fold(line)) for _, _, _, line in lines)}
               for loc, lines in kept}
 
-    def score(item):
+    patterns = phrase_patterns(term)
+
+    def score(item):  # mots réunis de près sur une ligne : le symptôme y est décrit, pas seulement cité
         loc, lines = item
         weight = sum(math.log(1 + total / df[w]) * (2.5 if w in titled[loc] else 1) for w in present[loc])
+        weight *= 1 + 0.5 * (max(together(line, patterns) for _, _, _, line in lines) - 1)
         return (-round(weight, 6), -len(present[loc]), -min(len(lines), 5), loc)
     return sorted(kept, key=score)
 
@@ -1074,8 +1152,11 @@ def main(argv: list[str] | None = None) -> int:
                   + (f" ; voir aussi : {', '.join(topic[2])}" if topic[2] else ""))
         if shown or outside:
             print("SOURCES NORMATIVES — routes classées (nom ou titre, noyau, nombre de lignes)")
+            patterns = phrase_patterns(args.trouver) if mode == "mots de la phrase" else []
             for locator, lines in shown:
                 print(f"{locator:<34} {len(lines)} ligne(s)" + (f"  · {ADRESSE_DE[locator]}" if locator in ADRESSE_DE else ""))
+                if patterns:  # d'abord les lignes qui réunissent le plus de mots de la phrase
+                    lines = sorted(lines, key=lambda r: -together(r[3], patterns))
                 for _, name, number, line in lines[:2]:
                     mark = " (noyau)" if number - 1 in core_index.get(name, {}) else ""
                     print(f"    {name}:{number:<5}{mark} {_excerpt_any(line, terms)}")
