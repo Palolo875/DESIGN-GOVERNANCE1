@@ -56,6 +56,17 @@ Une recherche de domaine et une recherche de calibration visuelle peuvent se com
 
 La profondeur de recherche augmente par déclencheur : confiance ou erreur coûteuse, public ou JTBD incertain, contexte culturel sensible, convention inconnue, matériau ou asset directeur à calibrer, ou écart créatif qui ne peut être défendu par le seul jugement interne. La recherche doit ensuite revenir dans le premier objet, la structure, le contenu, le geste ou la preuve ; sinon elle reste une archive et non un levier de production.
 
+### Chercher le monde du sujet dans des collections ouvertes
+
+[MÉTHODE] Lorsque le client n’a pas d’images propres, ce que son monde donne à voir se trouve souvent dans des collections ouvertes d’archives et de musées : carte postale du quartier, vieille carte, gravure du métier, matière en gros plan, objet de musée du même genre. Procédure reprise et adaptée de Taste Skill v2 (fichier imagery.md, §3, licence MIT, lu le 2026-10-14), en `PILOT` (`maintenance/versions.md`). Les collections se nomment dans `SAVOIR/TOOLS/MOYENS` ; leur accès n’est pas une capacité acquise tant qu’il n’a pas été atteint depuis l’environnement du run.
+
+- **Requêtes.** Pars de l’inventaire du sujet (`SAVOIR/CRAFT/CFT-01`), non de la catégorie : « boulangerie » ramène les boulangeries des autres. Cherche dans les mots du lieu (le nom local, pas une description générique), ajoute un médium (carte postale, gravure, vieille carte, lithographie, vue aérienne) ou une décennie ; deux ou trois requêtes par idée. Les collections de musées répondent mieux à un ou deux mots.
+- **Choisir.** Une trouvaille convient si elle appartient au monde de ce sujet et n’irait pas chez son voisin ; si elle tient au recadrage voulu (regarde l’image elle-même : une légende n’est pas une image) ; si elle est assez grande (le double de la largeur d’affichage pour une image pleine largeur) ; si elle appartient à la même famille que les autres images de la page (lot d’assets) ; si elle est sans filigrane, sans texte incrusté, sans bord de numérisation impossible à recadrer et sans personne reconnaissable qui pourrait passer pour l’équipe ou la clientèle du client.
+- **Honnêteté.** Une image trouvée montre le monde autour du client, jamais son produit, sa salle, son plat, une personne ou son équipe. Sa légende reprend ce que dit la source et ne la lie pas au client.
+- **Droits.** La licence se lit sur la page de la source, image par image ; ce n’est pas un avis juridique. Un usage commercial est requis pour un site de client ; une obligation de crédit ou de partage à l’identique se respecte dans la page ; une licence sans usage commercial est écartée ; une licence sans dérivation demande de montrer l’image entière et inchangée. Les crédits (intitulé, auteur, source, licence, lien) s’enregistrent à côté du fichier, l’image se copie dans le projet plutôt que d’être liée, et la réponse la liste (`RIGHTS / UNCERTAINTY` de la fiche de source).
+
+Si deux ou trois requêtes sérieuses ne donnent rien d’honnête, dessine le sujet (`CODE-NATIVE`) ou retiens `SANS-ASSET`, et dis-le (`DIRECTION/VISUAL_TARGET`).
+
 ### Curer, produire et intégrer
 
 Le point de départ n’est pas « quelle image produire ? », mais « quelle relation manque à la promesse, à la preuve ou à l’action ? ».
