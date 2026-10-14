@@ -46,7 +46,7 @@ import read_route as rr  # noqa: E402
 import build_core as bc  # noqa: E402
 
 OFFICIAL = rr.OFFICIAL
-SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT  # le paquet est la skill : SKILL.md à la racine, références dans references/
 MARKER = re.compile(r"^\s*<!-- concept:([A-Z0-9][A-Z0-9\-]*) -->\s*$")
 LOCATOR = re.compile(r"`((?:DIRECTION|ACTION|SAVOIR|BIBLIOTHEQUE)/[A-Z0-9_\-]+(?:/[A-Z0-9_\-]+)?)`")
 MIN_WORDS = 12
@@ -389,7 +389,7 @@ def lignes(name: str) -> list[str]:
 
 
 def texts() -> dict[Path, list[str]]:
-    files = rr.fichiers_officiels() + sorted(SKILL_DIR.rglob("*.md"))
+    files = rr.fichiers_officiels() + [SKILL_DIR / "SKILL.md", *sorted((SKILL_DIR / "references").glob("*.md"))]
     readme = ROOT / "README.md"
     if readme.is_file():
         files.append(readme)

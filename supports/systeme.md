@@ -16,7 +16,7 @@ Carte de responsabilités, pas un ordre fixe d’exécution.
 **Agent**. Un noyau commun, puis les lectures utiles. Le chemin, la fabrication et la réponse.
 
 
-[Section propriétaire](../agent/skill/SKILL.md).
+[Section propriétaire](../SKILL.md).
 
 ## Concevoir
 

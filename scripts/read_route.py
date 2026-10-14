@@ -573,7 +573,7 @@ def core_blocks(lines: list[str]) -> dict[int, str]:
     son texte est périmé, le lecteur sert le texte propriétaire en entier.
     """
     compiled = ""
-    for skill in (ROOT / "agent" / "skill" / "SKILL.md", ROOT / "skill" / "SKILL.md"):
+    for skill in (ROOT / "SKILL.md",):
         if skill.is_file():
             text = skill.read_text(encoding="utf-8")
             begin, end = text.find("<!-- noyau:compilé début -->"), text.find("<!-- noyau:compilé fin -->")
@@ -610,7 +610,7 @@ def mode_row(mode: str) -> list[str]:
 
 def core_section(first_line: str) -> str | None:
     """Section de la skill compilée (« 7. Gestes de finition ») qui contient cette ligne de bloc."""
-    for skill in (ROOT / "agent" / "skill" / "SKILL.md", ROOT / "skill" / "SKILL.md"):
+    for skill in (ROOT / "SKILL.md",):
         if skill.is_file():
             section = None
             for line in skill.read_text(encoding="utf-8").splitlines():
@@ -872,9 +872,7 @@ def topic_for(term: str) -> tuple[str, str, list[str]] | None:
 
 def rank_routes(results: list[tuple[str | None, str, int, str]], terms: list[str]) -> list[tuple[str, list[tuple[str | None, str, int, str]]]]:
     """Routes classées : terme dans le nom ou un titre de la route, puis citation dans le noyau, puis nombre de lignes."""
-    skill = ROOT / "agent" / "skill" / "SKILL.md"
-    if not skill.is_file():
-        skill = ROOT / "skill" / "SKILL.md"
+    skill = ROOT / "SKILL.md"
     core = _fold(skill.read_text(encoding="utf-8")) if skill.is_file() else ""
     folded_terms = [_fold(t) for t in terms]
     grouped: dict[str, list] = {}
@@ -953,7 +951,7 @@ def outline(locator: str) -> list[tuple[int, str, str | None, int]]:
 def guide_extras() -> list[Path]:
     """Guides hors du corpus : README racine et références de la skill (dispositions GitHub et Local)."""
     extras = [ROOT / "README.md"] if (ROOT / "README.md").is_file() else []
-    for pattern in ("agent/skill/references/*.md", "skill/references/*.md"):
+    for pattern in ("references/*.md",):
         extras += sorted(ROOT.glob(pattern))
     return extras
 

@@ -16,7 +16,8 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 | Partie | Contenu |
 |---|---|
 | `design/` | Direction (cadrer, diriger, boucle d’édition, cinq règles), savoir (composition, typographie, couleur, styles, images et sources, contexte, techniques, qualité créative), formes (supports, grilles, scènes, composants) et qualité du produit (premier rendu, plancher, finition, preuve visuelle, interface). |
-| `agent/` | La skill (noyau commun et références), les chemins de l’agent par mode et la forme de sa réponse. |
+| `SKILL.md`, `references/` | La skill : point d’entrée de l’agent (noyau commun) et ses références. Le paquet entier est le dossier de la skill. |
+| `agent/` | Les chemins de l’agent par mode et la forme de sa réponse. |
 | `gouvernance/` | Trace, statuts, vérification, clôture et structure ; schémas `RUN_CARD` et contrats de production, exemples, fixtures et validateurs. |
 | `guides/` | Trois niveaux de maîtrise (utiliser, comprendre, maîtriser) et un glossaire. |
 | `supports/` | Trois cartes du système (responsabilités, parcours d’un travail, boucle créer/apprendre) en HTML, SVG clair et sombre, et texte. |

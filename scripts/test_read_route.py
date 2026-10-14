@@ -99,13 +99,12 @@ class SearchTests(unittest.TestCase):
 
     def test_guides_include_root_readme_and_skill_references(self):
         (self.root / "README.md").write_text("Cohérence de rayon à l’entrée.\n", encoding="utf-8")
-        for refs in (self.root / "agent" / "skill" / "references", self.root / "skill" / "references"):
-            refs.mkdir(parents=True)
-            (refs / "examples.md").write_text("Cohérence de rayon en exemple.\n", encoding="utf-8")
+        refs = self.root / "references"
+        refs.mkdir(parents=True)
+        (refs / "examples.md").write_text("Cohérence de rayon en exemple.\n", encoding="utf-8")
         self.assertEqual(len(reader.find("cohérence de rayon")), 1)
         self.assertEqual([r[1] for r in reader.find("cohérence de rayon", True)],
-                         ["SAVOIR.md", "QUICKSTART.md", "README.md",
-                          "agent/skill/references/examples.md", "skill/references/examples.md"])
+                         ["SAVOIR.md", "QUICKSTART.md", "README.md", "references/examples.md"])
 
     def test_no_semantic_match(self):
         self.assertEqual(reader.find("courbure concentrique"), [])
@@ -555,8 +554,7 @@ class FoldingTruthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             if body is not None:
-                skill = root / "agent/skill/SKILL.md"
-                skill.parent.mkdir(parents=True)
+                skill = root / "SKILL.md"
                 skill.write_text("<!-- noyau:compilé début -->\n### 1. Test\n" + body + "\n<!-- noyau:compilé fin -->")
             with patch.object(reader, "ROOT", root):
                 return "\n".join(reader.fold_core(self.lines, 0))
@@ -576,8 +574,8 @@ class FoldingTruthTests(unittest.TestCase):
 
     def test_text_outside_compiled_section_does_not_count(self):
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp); (root / "skill").mkdir()
-            (root / "skill/SKILL.md").write_text("Première phrase.\nTexte complet requis.\n<!-- noyau:compilé début -->\nAutre texte.\n<!-- noyau:compilé fin -->")
+            root = Path(tmp)
+            (root / "SKILL.md").write_text("Première phrase.\nTexte complet requis.\n<!-- noyau:compilé début -->\nAutre texte.\n<!-- noyau:compilé fin -->")
             with patch.object(reader, "ROOT", root):
                 self.assertIn("Texte complet requis.", "\n".join(reader.fold_core(self.lines, 0)))
 

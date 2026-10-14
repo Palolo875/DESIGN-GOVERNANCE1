@@ -19,42 +19,44 @@ D’autres entrées servent des besoins précis :
 | Besoin | Entrée | Contenu |
 |---|---|---|
 | Relire ce qui a été prouvé | [`gouvernance/README.md`](gouvernance/README.md) | Preuves, limites, clôture |
-| Brancher un agent | [`agent/skill/SKILL.md`](agent/skill/SKILL.md) | Le noyau, puis quoi lire selon le chemin |
+| Brancher un agent | [`SKILL.md`](SKILL.md) | Le noyau, puis quoi lire selon le chemin |
 | Faire évoluer le système | [`maintenance/README.md`](maintenance/README.md) | Distributions, validation, contenu de la version |
 
 Le vocabulaire est expliqué dans [`guides/glossaire.md`](guides/glossaire.md).
 
 ## Installer la skill dans un agent
 
-La skill ne contient que le noyau ; ses routes, ses scripts et ses schémas restent dans le paquet. Gardez donc le paquet entier, puis :
+Le paquet entier est la skill : `SKILL.md` est à sa racine, avec à côté les sources, les scripts et les références qu’elle lit au moment utile. On installe donc le dossier complet, sous le nom `design-governance-practice` (le format [Agent Skills](https://agentskills.io/specification) exige que le dossier porte le nom de la skill).
 
-1. **Rendre la skill visible.** Avec Claude Code, copiez le *contenu* de `agent/skill` dans un dossier `design-governance-practice`, sous `.claude/skills/` du projet ou sous `~/.claude/skills/`. Depuis la racine de votre projet :
+**Avec l’outil `skills`**, depuis la racine de votre projet :
 
-   ```bash
-   mkdir -p .claude/skills/design-governance-practice
-   cp -R /chemin/du/paquet/agent/skill/. .claude/skills/design-governance-practice/
-   ```
+```bash
+npx skills add Palolo875/DESIGN-GOVERNANCE1 --skill design-governance-practice
+```
 
-   La même commande met la skill à jour : elle remplace les fichiers sans créer de sous-dossier. Si une mise à jour retire des fichiers de référence, supprimez d’abord le dossier installé. La skill suit le format ouvert [Agent Skills](https://agentskills.io/specification) ; d’autres agents la lisent dans leurs propres dossiers :
+L’outil demande pour quels agents installer (Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot…) et où : dans le projet ou dans votre dossier personnel. `npx skills update` met la skill à jour. Cette commande a été vérifiée depuis une copie locale du paquet, pour Claude Code et Codex.
 
-   | Agent | Dossier du projet | Dossier personnel |
-   |---|---|---|
-   | Claude Code (vérifié) | `.claude/skills/` | `~/.claude/skills/` |
-   | Codex | `.agents/skills/` | `~/.agents/skills/` |
-   | Cursor, Gemini CLI, GitHub Copilot | `.agents/skills/` | `~/.cursor/skills/`, `~/.gemini/skills/`, `~/.copilot/skills/` |
+**Sans cet outil**, clonez le paquet dans le dossier de skills de votre agent :
 
-   Dans tous les cas, le dossier installé s’appelle `design-governance-practice`, comme le champ `name` de la skill (le format l’exige). Seul Claude Code a été vérifié ici ; les autres dossiers suivent la documentation de ces outils. Un agent sans gestion de skills reçoit `SKILL.md` comme instructions. Évitez d’activer dans le même projet une autre skill générale de design : deux skills se déclencheraient sur la même demande avec des consignes différentes.
-2. **Donner accès au paquet.** Les commandes de la skill (`python3 scripts/read_route.py …`) et les fichiers qu’elle cite s’entendent depuis la racine du paquet : travaillez dans ce dossier, ou indiquez son chemin à l’agent (« Design Governance est dans /chemin/du/paquet ; lance ses scripts depuis ce dossier »). Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium.
-3. **Vérifier.** La copie est correcte si le fichier principal est à la racine du dossier installé, sans sous-dossier `skill/` ; l’accès au paquet l’est si la route s’affiche :
+```bash
+git clone https://github.com/Palolo875/DESIGN-GOVERNANCE1 .claude/skills/design-governance-practice
+```
 
-   ```bash
-   ls .claude/skills/design-governance-practice/SKILL.md
-   cd /chemin/du/paquet && python3 scripts/read_route.py DIRECTION/START
-   ```
+| Agent | Dossier du projet | Dossier personnel |
+|---|---|---|
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Codex | `.agents/skills/` | `~/.agents/skills/` |
+| Cursor, Gemini CLI, GitHub Copilot | `.agents/skills/` | `~/.cursor/skills/`, `~/.gemini/skills/`, `~/.copilot/skills/` |
 
-   Ces deux contrôles ne prouvent pas que l’agent a chargé la skill : demandez-lui quelles skills sont actives, ou consultez la liste de skills de l’hôte.
+Pour mettre à jour un clone : `git -C .claude/skills/design-governance-practice pull`. Un agent sans gestion de skills reçoit `SKILL.md` comme instructions et travaille depuis le dossier du paquet. Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium. Évitez d’activer dans le même projet une autre skill générale de design : deux skills se déclencheraient sur la même demande avec des consignes différentes.
 
-Sans accès au paquet, l’agent n’a que le noyau. Après une mise à jour du paquet, relancez la copie. Le noyau commun active la ligne du mode et les détails au moment utile ; un détail marqué « noyau » dans sa source n’est pas nécessairement embarqué dans la skill.
+**Vérifier.** Le fichier principal est à la racine du dossier installé, et le lecteur y affiche une route :
+
+```bash
+cd .claude/skills/design-governance-practice && python3 scripts/read_route.py DIRECTION/START
+```
+
+Ce contrôle ne prouve pas que l’agent a chargé la skill : demandez-lui quelles skills sont actives, ou consultez la liste de skills de l’hôte.
 
 ## Comment ça marche
 
@@ -75,7 +77,8 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 |---|---|---|
 | **Guides** | `guides/` | Trois niveaux de maîtrise (utiliser, comprendre, maîtriser) et un glossaire. |
 | **Design** | `design/` | Le cœur : direction, savoir, formes, qualité du produit. |
-| **Agent** | `agent/` | La skill (`agent/skill/`), le chemin de l’agent et sa réponse. |
+| **Skill** | `SKILL.md`, `references/` | Le point d’entrée de l’agent (noyau commun) et ses références. |
+| **Agent** | `agent/` | Le chemin de l’agent par mode et la forme de sa réponse. |
 | **Gouvernance** (selon le besoin) | `gouvernance/` | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
 | **Supports** | `supports/` | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
 | **Maintenance** | `maintenance/` | Ce que contient la version, évolution du système, distributions et validation. |

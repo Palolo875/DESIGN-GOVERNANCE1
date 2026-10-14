@@ -115,7 +115,7 @@ def check_manifest(errors: list[str]) -> None:
 
 # Dossier d'installation d'un agent (copie de la skill, réglages) : il peut vivre dans le dossier du package
 # sans en faire partie, comme le README le propose ; ni inventaire, ni liens, ni valeurs n'y sont contrôlés.
-INSTALL_ROOT = {".claude"}
+INSTALL_ROOT = {".claude", ".agents"}
 
 
 def in_package(path: Path) -> bool:
@@ -217,21 +217,6 @@ def check_links(errors: list[str]) -> None:
                 linked_text = resolved.read_text(encoding="utf-8")
                 if fragment and fragment not in markdown_anchors(linked_text):
                     fail(errors, f"fragment Markdown introuvable : {path.relative_to(ROOT)} -> {raw_target}")
-
-
-def check_skill_portability(errors: list[str]) -> None:
-    """La skill se copie hors du paquet (README, installation) : aucun lien ni image ne doit sortir de son dossier."""
-    skill = ROOT / "agent" / "skill"
-    target_pattern = re.compile(r"\]\(([^)]+)\)|(?:href|src|srcset)=\"([^\"]+)\"")
-    for path in sorted(skill.rglob("*.md")):
-        for match in target_pattern.finditer("\n".join(non_code_lines(path.read_text(encoding="utf-8")))):
-            raw = (match[1] or match[2]).strip()
-            target = unquote(raw.split()[0].split("#", 1)[0]) if raw else ""
-            if not target or target.startswith(("http://", "https://", "mailto:")):
-                continue
-            if not (path.parent / target).resolve().is_relative_to(skill.resolve()):
-                fail(errors, f"lien qui sort de la skill, cassé après copie : {path.relative_to(ROOT)} -> {target} "
-                             "(citer le chemin depuis la racine du paquet entre accents graves)")
 
 
 def check_source_locations(errors: list[str]) -> None:
@@ -495,7 +480,6 @@ def main() -> int:
     check_manifest(errors)
     check_expected_files(errors)
     check_links(errors)
-    check_skill_portability(errors)
     check_source_locations(errors)
     check_inline_references(errors)
     check_action_projection_source(errors)

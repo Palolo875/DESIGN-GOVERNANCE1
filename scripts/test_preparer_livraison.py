@@ -151,7 +151,7 @@ class PreparationTests(unittest.TestCase):
                 path.write_bytes((prep.ROOT / name).read_bytes())
             # Le bloc CHARGE-REGLE est cherché là où il vit aujourd’hui (rangement : il a pu changer de fichier).
             source = next(root / n for n in manifest["github"] if n.endswith(".md") and "<!-- noyau:fin CHARGE-REGLE -->" in (root / n).read_text())
-            skill = root / "agent/skill/SKILL.md"
+            skill = root / "SKILL.md"
             extra = 46_001 - skill.stat().st_size
             self.assertGreater(extra, 2)
             source.write_text(source.read_text().replace("<!-- noyau:fin CHARGE-REGLE -->", "x" * (extra - 2) + "\n\n<!-- noyau:fin CHARGE-REGLE -->", 1))

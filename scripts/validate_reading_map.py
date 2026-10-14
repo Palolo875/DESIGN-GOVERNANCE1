@@ -24,7 +24,7 @@ import read_route as rr  # noqa: E402
 
 ROOT = rr.ROOT
 OFFICIAL = rr.OFFICIAL
-SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT  # le paquet est la skill : SKILL.md à la racine, références dans references/
 REQUIRED = (
     "Statut :** guide dérivé non normatif",
     "## Chemin canonique de démarrage",

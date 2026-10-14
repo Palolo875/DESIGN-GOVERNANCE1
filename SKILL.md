@@ -1,12 +1,12 @@
 ---
 name: design-governance-practice
 description: "Produire avec Design Governance V1 un travail de design de niveau designer senior (projet, interface, application, identité ou scène), beau, vrai et situé, même à partir d’un brief flou : gestes de fabrication, prise de brief minimale, plafond déclaré et trace proportionnée au risque. Utiliser pour toute demande de design à construire, corriger ou juger ; charger les sources progressivement, sans créer de règles concurrentes."
-compatibility: "Nécessite le paquet Design Governance complet (lecteur scripts/read_route.py et sources), utilisé depuis sa racine, et Python 3.10 ou plus récent ; la recette de rendu demande Playwright et Chromium."
+compatibility: "Le dossier de la skill est le paquet Design Governance complet ; ses commandes s’exécutent depuis ce dossier. Nécessite Python 3.10 ou plus récent ; la recette de rendu demande Playwright et Chromium."
 ---
 
 # Design Governance V1 — pratique
 
-Cette skill active Design Governance V1. Son **noyau commun** est compilé depuis les sections propriétaires et lu à chaque run ; la ligne du mode et les détails de fabrication se chargent ensuite au moment utile. Le savoir complet reste dans ses sources : réduire le noyau ne retire aucune règle. Les modes, gates, statuts et preuves appartiennent aux sections propriétaires, qui font foi. Si les sources sont indisponibles, le dire et s’appuyer sur [references/canonical_minimum.md](references/canonical_minimum.md) ; une proposition reste alors une hypothèse, pas un run conforme.
+Cette skill active Design Governance V1. Son dossier est le paquet complet : les commandes (`python3 scripts/read_route.py …`) et les fichiers cités s’entendent depuis ce dossier, celui qui contient ce fichier. Son **noyau commun** est compilé depuis les sections propriétaires et lu à chaque run ; la ligne du mode et les détails de fabrication se chargent ensuite au moment utile. Le savoir complet reste dans ses sources : réduire le noyau ne retire aucune règle. Les modes, gates, statuts et preuves appartiennent aux sections propriétaires, qui font foi. Si les sources sont indisponibles, le dire et s’appuyer sur [references/canonical_minimum.md](references/canonical_minimum.md) ; une proposition reste alors une hypothèse, pas un run conforme.
 
 ## Noyau de fabrication
 

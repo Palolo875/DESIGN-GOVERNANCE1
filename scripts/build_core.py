@@ -24,7 +24,7 @@ from read_route import source_directory
 
 ROOT = Path(__file__).resolve().parents[1]
 OFFICIAL = source_directory(ROOT)
-SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT  # le paquet est la skill : SKILL.md à la racine, références dans references/
 SKILL = SKILL_DIR / "SKILL.md"
 BEGIN, END = "<!-- noyau:compilé début -->", "<!-- noyau:compilé fin -->"
 BLOCK = re.compile(r"^<!-- noyau:(début|fin) ([A-Z0-9\-]+) -->$")

@@ -292,4 +292,4 @@ Si une étape, une variante, une référence ou une étiquette ne change aucune 
 | Trace, statuts, vérification, clôture | [`gouvernance/`](../gouvernance/README.md) |
 | Version et évolution du système | [`maintenance/`](../maintenance/README.md) |
 
-Ne lisez une section détaillée que si elle peut changer une décision, un rendu, une preuve, une limite ou la prochaine action. Pour des exemples, le déroulé et le format des fiches, voir les références de la skill quand c’est utile : `agent/skill/references/examples.md`, `agent/skill/references/flow.md` et `agent/skill/references/machine_projection.md`.
+Ne lisez une section détaillée que si elle peut changer une décision, un rendu, une preuve, une limite ou la prochaine action. Pour des exemples, le déroulé et le format des fiches, voir les références de la skill quand c’est utile : `references/examples.md`, `references/flow.md` et `references/machine_projection.md`.

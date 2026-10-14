@@ -51,6 +51,8 @@ mkdir -p "$STAGE/github" "$STAGE/local" "$ARCHIVES"
 # GitHub : distribution canonique versionnée.
 cp -a "$ROOT/README.md" "$STAGE/github/README.md"
 cp -a "$ROOT/RELEASE_NOTES.md" "$STAGE/github/RELEASE_NOTES.md"
+cp -a "$ROOT/SKILL.md" "$STAGE/github/SKILL.md"
+cp -a "$ROOT/references" "$STAGE/github/references"
 cp -a "$ROOT/supports" "$STAGE/github/supports"
 cp -a "$ROOT/.gitignore" "$STAGE/github/.gitignore"
 cp -a "$ROOT/V1" "$STAGE/github/V1"

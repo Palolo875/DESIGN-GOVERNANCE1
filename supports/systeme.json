@@ -19,7 +19,7 @@
       "role": "Agir",
       "title": "Agent",
       "path": "agent/",
-      "target": "agent/skill/SKILL.md",
+      "target": "SKILL.md",
       "lines": [
         "Un noyau commun, puis les lectures utiles.",
         "Le chemin, la fabrication et la réponse."
@@ -192,7 +192,7 @@
       "label": "Je suis un agent",
       "title": "Lisez le noyau, puis ce qui sert la décision.",
       "description": "La skill active le classement et les lectures utiles. Les sections propriétaires restent la source de la règle.",
-      "target": "agent/skill/SKILL.md",
+      "target": "SKILL.md",
       "link": "Ouvrir la skill",
       "focus": [
         "agent",

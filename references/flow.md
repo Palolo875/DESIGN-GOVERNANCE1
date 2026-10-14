@@ -2,7 +2,7 @@
 
 Le flux suivant est une vue de lecture, pas une route supplémentaire :
 
-La skill peut être copiée hors du paquet : les fichiers cités ci-dessous se lisent depuis la racine du paquet. Parcours d’un travail, en texte : `supports/parcours.md` ; toutes les cartes et leurs images : `supports/README.md`.
+Les fichiers cités ci-dessous se lisent depuis le dossier de la skill, qui est la racine du paquet. Parcours d’un travail, en texte : `supports/parcours.md` ; toutes les cartes et leurs images : `supports/README.md`.
 
 En texte : **classer et protéger le run, cultiver et diriger la décision, composer et construire l’artefact, polir et observer le rendu, vérifier et corriger ce qui est observable, puis présenter la proposition (trace légère ; la première proposition vaut checkpoint) ou décider et fermer avec ses limites (trace complète)**. Un risque critique ramène au classement (reclassification) ; une preuve absente reste `NOT-VERIFIED`, avec owner et prochaine preuve. La boucle créative élève le résultat ; la boucle de gouvernance protège le risque, la preuve et la vérité de ce qui peut être affirmé.
 
