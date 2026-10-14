@@ -205,6 +205,19 @@ def part_a() -> None:
             expect("A", f"mesures {'demandées' if present else 'non demandées'} : JSON et affichage cohérents",
                    ["mesures" in json.loads(out.read_text()), "Mesures de composition" in buf.getvalue(), code], [present, present, 0])
     expect("A", "contrôle sans nom", status(cr.interpret(raw_case(audit={"names": [{"sel": "button.x"}]})), "Nom accessible"), RETURN)
+    pal = {"fond": {"hex": "#f6f1e7", "L": 0.96, "C": 0.02, "H": 85}, "fonds": [{"hex": "#f6f1e7", "L": 0.96, "C": 0.02, "H": 85}, {"hex": "#10201a", "L": 0.22, "C": 0.03, "H": 170}],
+           "fonds_non_evalues": 1, "ecarts": [{"dL": 0.74, "dH": 85}],
+           "encres": [{"hex": "#1a1a1a", "L": 0.22, "C": 0.0, "H": 90, "part": 92}],
+           "chromatiques": [{"hex": "#0b6b4f", "L": 0.47, "C": 0.094, "H": 167, "surface": 3.1, "caracteres": 4}], "teintes": 1}
+    with_p = raw_case(); with_p["per_width"][390]["mesures"] = dict(sample, palette=pal)
+    out_p = cr.format_mesures(with_p["per_width"])
+    expect("A", "palette : une ligne de plus, la première inchangée", [len(out_p), out_p[0] == cr.format_mesures(with_m["per_width"])[0]], [2, True])
+    expect("A", "palette : fond, écart de luminosité, encre et couleur chromatique relevés",
+           all(x in out_p[1] for x in ("fond #f6f1e7 (L 0.96, C 0.02, H 85°)", "écart de luminosité entre voisins 0.74", "1 en image ou en dégradé", "#1a1a1a (L 0.22, C 0.0, teinte négligeable) 92 % des caractères",
+                                     "#0b6b4f (L 0.47, C 0.094, H 167°) 3.1 % du premier écran, 4 % des caractères", "1 teinte(s) à 1 % ou plus")), True)
+    expect("A", "palette : aucun verdict ni seuil dans la ligne", any(w in out_p[1] for w in (PASS, RESERVE, RETURN, "trop", "insuffisant")), False)
+    expect("A", "palette : relevé ancien sans palette, une seule ligne", len(cr.format_mesures(with_m["per_width"])), 1)
+    expect("A", "palette : aucun statut modifié", cr.interpret(with_p) == cr.interpret(raw_case()), True)
     def focus_case(*cues):
         d = raw_case(); d["per_width"][390]["focus_cues"] = [{"id": f"#c{i}", **c} for i, c in enumerate(cues)]; return d
     ring = lambda ratio, kind="contour": {"cues": [{"kind": kind, "fg": "#bbbbbb", "bg": "#ffffff", "ratio": ratio}], "other": False, "ua": False}
@@ -472,6 +485,8 @@ PAGES = {
     "texte_voile.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:transparent}</style><div class="v"></div>',
     "haut_rogne.html": ('<style>.w{overflow:hidden;margin-top:100px}.t{font-size:60px;line-height:1;margin:0;position:relative;top:-30px}</style>'
                         '<div class="w"><p class="t">Titre</p></div>'),
+    "palette.html": ('<style>body{margin:0;background:#ffffff;color:#1a1a1a}h1{margin:0}.r{background:#ff0000;color:#ffffff;height:300px}.g{background:#f2f2f2;height:200px}</style>'
+                     '<section class="g">Un fond neutre clair</section><section class="r">Un champ rouge</section>'),
     "focus_faible.html": '<style>:focus{outline:2px solid #bbbbbb;outline-offset:2px}</style><a href="#x">Lien</a>',
     "focus_net.html": '<style>:focus{outline:2px solid #1a1a1a;outline-offset:2px}</style><a href="#x">Lien</a>',
     "focus_anneau.html": '<style>button{border:0;outline:none}button:focus{box-shadow:0 0 0 3px rgba(59,130,246,.5)}</style><button>Valider</button>',
@@ -574,6 +589,12 @@ def part_b(require: bool) -> str:
             raw, _ = measure(str(d / 'petittexte.html'), '--mesures')
             expect('B', 'mesures : plus petit texte relevé (10 px, 10 % des caractères), corps resté à 16 px',
                    [raw['per_width'][390]['mesures']['plus_petit'], raw['per_width'][390]['mesures']['corps']], [{'taille': 10.0, 'part': 10}, 16.0])
+            pal = measure(str(d / 'palette.html'), '--mesures')[0]['per_width'][390]['mesures']['palette']
+            red = next((x for x in pal['fonds'] if x['hex'] == '#ff0000'), None)
+            expect('B', 'palette : fond blanc relevé en OKLCH (L 1, C 0)', [pal['fond']['hex'], pal['fond']['L'], pal['fond']['C']], ['#ffffff', 1.0, 0.0])
+            expect('B', 'palette : champ rouge relevé (L 0,63, C 0,258, H 29)', red is not None and [red['L'], red['C'], red['H']] == [0.63, 0.258, 29], True)
+            expect('B', 'palette : fonds voisins, écart de luminosité entre le gris clair et le rouge', [x['dL'] for x in pal['ecarts']], [0.33])
+            expect('B', 'palette : le rouge est la couleur chromatique relevée', [x['hex'] for x in pal['chromatiques']][:1], ['#ff0000'])
             for filename, want in [('focus_faible.html', RESERVE), ('focus_net.html', PASS), ('focus_anneau.html', RESERVE),
                                    ('focus_navigateur.html', PASS), ('focus_fond.html', PASS), ('focus_transition.html', PASS)]:
                 _, c = measure(str(d / filename)); expect('B', filename + ' : contraste de l’indicateur de focus', status(c, 'Contraste de l’indicateur de focus'), want)

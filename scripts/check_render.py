@@ -27,7 +27,7 @@ Usage :
 
 Mesures (--mesures) : relevés chiffrés de la page par largeur (titre d'accueil, corps, plus petit texte et sa part, tailles et familles,
 longueur de ligne, images, texte centré, fonds de section, bords gauches, gros textes du premier écran couverts par un autre élément
-ou au haut rogné). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie, aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
+ou au haut rogné, palette en OKLCH : fond, fonds voisins, encres, couleurs chromatiques). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie, aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
 
 Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
 (état et largeurs) et avec les mêmes réglages (--proof, --tab-stops, --allow-external, --wait-ms). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
@@ -261,6 +261,41 @@ AUDIT_JS = AUDIT_JS.replace('__NAME_JS__', NAME_JS)
 
 # Référence de style hors focus, prise avant toute tabulation : un indicateur est un CHANGEMENT de style au focus,
 # pas la simple présence d'un contour ou d'une ombre (une ombre décorative permanente ne compte pas).
+# Brique couleur partagée par la mesure du focus et les relevés : conversion de toute couleur CSS en sRGB par le canvas (une couleur
+# non convertible est déclarée, jamais ignorée), composition sur un fond, rapport de contraste WCAG, fond uni effectif et OKLCH.
+# AUDIT_JS garde sa propre copie : ses tests de DOM simulés l'évaluent tel quel.
+COLOR_JS = r"""
+  const cv = document.createElement('canvas'); cv.width = cv.height = 1;
+  const cx = cv.getContext('2d', {willReadFrequently: true}); const SENT = '#123457';
+  const color = c => {
+    if (!c) return null;
+    const m = c.match(/^rgba?\(([^)]+)\)$/);
+    if (m) { const p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
+      if (p.length >= 3 && p.every(v => !isNaN(v))) return [p[0], p[1], p[2], p.length > 3 ? p[3] : 1]; }
+    cx.fillStyle = SENT; cx.fillStyle = c;
+    if (cx.fillStyle === SENT && c.replace(/\s/g, '').toLowerCase() !== SENT) return null;
+    cx.clearRect(0, 0, 1, 1); cx.fillRect(0, 0, 1, 1);
+    const d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2], d[3] / 255];
+  };
+  const over = (f, b) => { const a = f[3]; return [f[0]*a + b[0]*(1-a), f[1]*a + b[1]*(1-a), f[2]*a + b[2]*(1-a), 1]; };
+  const lin = v => { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  const lum = c => 0.2126 * lin(c[0]) + 0.7152 * lin(c[1]) + 0.0722 * lin(c[2]);
+  const ratio = (a, b) => { const l1 = lum(a), l2 = lum(b); return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05); };
+  const hex = c => '#' + c.slice(0, 3).map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+  const oklch = c => { const r = lin(c[0]), g = lin(c[1]), b = lin(c[2]);
+    const l = Math.cbrt(0.4122214708*r + 0.5363325363*g + 0.0514459929*b), m = Math.cbrt(0.2119034982*r + 0.6806995451*g + 0.1073969566*b),
+          s = Math.cbrt(0.0883024619*r + 0.2817188376*g + 0.6299787005*b);
+    const L = 0.2104542553*l + 0.7936177850*m - 0.0040720468*s, A = 1.9779984951*l - 2.4285922050*m + 0.4505937099*s, B = 0.0259040371*l + 0.7827717662*m - 0.8086757660*s;
+    return {L, C: Math.hypot(A, B), H: (Math.atan2(B, A) * 180 / Math.PI + 360) % 360}; };
+  const effBg = e0 => { const layers = [];
+    for (let e = e0; e && e.nodeType === 1; e = e.parentElement) { const s = getComputedStyle(e);
+      if (s.backgroundImage !== 'none') return {kind: 'image'};
+      const c = color(s.backgroundColor); if (!c) return {kind: 'unknown'};
+      if (c[3] > 0) { layers.push(c); if (c[3] >= 1) break; } }
+    let base = [255, 255, 255, 1]; for (let i = layers.length - 1; i >= 0; i--) base = over(layers[i], base);
+    return {kind: 'solid', c: base}; };
+"""
+
 BASELINE_JS = r"""
 (FOC) => {
   const snap = e => { const s = getComputedStyle(e);
@@ -311,30 +346,7 @@ FOCUS_CUE_JS = r"""
 () => { const el = document.activeElement;
   if (!el || el === document.body || el === document.documentElement) return null;
   try { for (const a of el.getAnimations()) if (a.constructor.name === 'CSSTransition') a.finish(); } catch (e) {}
-  const cv = document.createElement('canvas'); cv.width = cv.height = 1;
-  const cx = cv.getContext('2d', {willReadFrequently: true}); const SENT = '#123457';
-  const color = c => {
-    if (!c) return null;
-    const m = c.match(/^rgba?\(([^)]+)\)$/);
-    if (m) { const p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
-      if (p.length >= 3 && p.every(v => !isNaN(v))) return [p[0], p[1], p[2], p.length > 3 ? p[3] : 1]; }
-    cx.fillStyle = SENT; cx.fillStyle = c;
-    if (cx.fillStyle === SENT && c.replace(/\s/g, '').toLowerCase() !== SENT) return null;
-    cx.clearRect(0, 0, 1, 1); cx.fillRect(0, 0, 1, 1);
-    const d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2], d[3] / 255];
-  };
-  const over = (f, b) => { const a = f[3]; return [f[0]*a + b[0]*(1-a), f[1]*a + b[1]*(1-a), f[2]*a + b[2]*(1-a), 1]; };
-  const lum = c => { const s = c.slice(0, 3).map(v => { v /= 255; return v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4); });
-    return 0.2126*s[0] + 0.7152*s[1] + 0.0722*s[2]; };
-  const ratio = (a, b) => { const l1 = lum(a), l2 = lum(b); return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05); };
-  const hex = c => '#' + c.slice(0, 3).map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
-  const effBg = e0 => { const layers = [];
-    for (let e = e0; e && e.nodeType === 1; e = e.parentElement) { const s = getComputedStyle(e);
-      if (s.backgroundImage !== 'none') return {kind: 'image'};
-      const c = color(s.backgroundColor); if (!c) return {kind: 'unknown'};
-      if (c[3] > 0) { layers.push(c); if (c[3] >= 1) break; } }
-    let base = [255, 255, 255, 1]; for (let i = layers.length - 1; i >= 0; i--) base = over(layers[i], base);
-    return {kind: 'solid', c: base}; };
+__COLOR_JS__
   const before = (window.__crBase.get(el) || '').split('|'), cs = getComputedStyle(el);
   const now = [cs.outlineStyle, cs.outlineWidth, cs.outlineColor, cs.boxShadow, cs.borderTopColor, cs.borderBottomColor,
                cs.borderTopWidth, cs.backgroundColor, cs.color, cs.textDecorationLine];
@@ -360,6 +372,8 @@ FOCUS_CUE_JS = r"""
   if (changed[4] || changed[5] || changed[6] || changed[7] || changed[8] || changed[9] || !changed.some(Boolean)) other = true;
   return {cues, other, ua}; }
 """
+
+FOCUS_CUE_JS = FOCUS_CUE_JS.replace('__COLOR_JS__', COLOR_JS)
 
 PROOF_JS = r"""
 s => { const el = document.querySelector(s); if (!el) return {found: false};
@@ -422,6 +436,7 @@ MOTION_REPORT_JS = "() => window.__dgMotion ? window.__dgMotion() : []"
 MESURES_JS = r"""
 () => {
   const W = innerWidth, H = innerHeight, r1 = v => Math.round(v * 10) / 10;
+__COLOR_JS__
   const shown = el => { const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false;
     for (let e = el; e && e.nodeType === 1; e = e.parentElement) { const s = getComputedStyle(e);
       if (s.display === 'none' || s.visibility === 'hidden' || parseFloat(s.opacity) === 0) return false; } return true; };
@@ -438,7 +453,7 @@ MESURES_JS = r"""
             graisse: s.fontWeight, famille: familyOf(s)}; };
   // Recensement du texte visible, pondéré par le nombre de caractères.
   const cache = new Map(), isShown = el => { if (!cache.has(el)) cache.set(el, shown(el)); return cache.get(el); };
-  const sizes = new Map(), fams = new Map(), weights = [];
+  const sizes = new Map(), fams = new Map(), inks = new Map(), weights = [];
   let chars = 0, centered = 0, total = 0;
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   for (let n = walker.nextNode(), seen = 0; n && seen < 6000; n = walker.nextNode(), seen++) {
@@ -446,7 +461,7 @@ MESURES_JS = r"""
     const t = n.textContent.replace(/\s+/g, ' ').trim(); if (t.length < 1) continue;
     const s = getComputedStyle(p), size = Math.round(parseFloat(s.fontSize) * 2) / 2;
     chars += t.length; total += words(t);
-    sizes.set(size, (sizes.get(size) || 0) + t.length); const f = familyOf(s); fams.set(f, (fams.get(f) || 0) + t.length);
+    sizes.set(size, (sizes.get(size) || 0) + t.length); inks.set(s.color, (inks.get(s.color) || 0) + t.length); const f = familyOf(s); fams.set(f, (fams.get(f) || 0) + t.length);
     if (s.textAlign === 'center') centered += t.length;
     weights.push([size, t.length]);
   }
@@ -521,13 +536,53 @@ MESURES_JS = r"""
     }
   } finally { stl.remove(); }
   gros.couverts = gros.couverts.slice(0, 5); gros.hauts_rognes = gros.hauts_rognes.slice(0, 5);
-  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, plus_petit: petit ? {taille: petit[0], part: Math.round(petit[1] / chars * 100)} : null, gros_textes: gros, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
+  // Palette, mesurée en OKLCH (L luminosité de 0 à 1, C chroma, H teinte en degrés) : fond, fonds de section voisins et leurs écarts de
+  // luminosité, encres par part des caractères, couleurs chromatiques (C de 0,06 ou plus) par part du premier écran et des caractères.
+  // Un relevé, aucun seuil : les fonds en image ou en dégradé et les textes translucides sur fond inconnu ne sont pas évalués.
+  const rd = (v, d) => Math.round(v * 10 ** d) / 10 ** d;
+  const desc = c => { const o = oklch(c); return {hex: hex(c), L: rd(o.L, 2), C: rd(o.C, 3), H: Math.round(o.H)}; };
+  const groundBox = effBg(document.body), ground = groundBox.kind === 'solid' ? groundBox.c : null;
+  const palette = {fond: ground ? desc(ground) : null, fonds: [], fonds_non_evalues: 0, ecarts: [], encres: [], chromatiques: [], teintes: 0};
+  const cand = [...document.querySelectorAll('body > *, main > *, section')].filter(el => { if (!isShown(el)) return false;
+    const r = el.getBoundingClientRect(); return r.width >= W * 0.5 && r.height >= 120; });
+  const leaves = cand.filter(el => !cand.some(o => o !== el && el.contains(o)));
+  const runs = [];
+  for (const el of leaves.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)) { const box = effBg(el);
+    if (box.kind !== 'solid') { palette.fonds_non_evalues++; continue; }
+    const hx = hex(box.c); if (!runs.length || runs[runs.length - 1].hex !== hx) runs.push({hex: hx, c: box.c}); }
+  palette.fonds = runs.slice(0, 12).map(x => desc(x.c));
+  const hueGap = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
+  for (let i = 1; i < palette.fonds.length; i++) { const a = palette.fonds[i - 1], b = palette.fonds[i];
+    palette.ecarts.push({dL: rd(Math.abs(a.L - b.L), 2), dH: a.C >= 0.03 && b.C >= 0.03 ? Math.round(hueGap(a.H, b.H)) : null}); }
+  const tally = new Map();   // hex -> {c, caracteres, surface}
+  const entry = c => { const k = hex(c); if (!tally.has(k)) tally.set(k, {c, caracteres: 0, surface: 0}); return tally.get(k); };
+  const inkTotal = [...inks.values()].reduce((a, b) => a + b, 0);
+  for (const [str, n] of inks) { let c = color(str); if (!c) continue; if (c[3] < 1) { if (!ground) continue; c = over(c, ground); }
+    entry(c).caracteres += n; }
+  const chromatic = c => oklch(c).C >= 0.06;
+  let seen = 0;
+  for (const el of document.querySelectorAll('body *')) { if (++seen > 4000) break;
+    const r = el.getBoundingClientRect(); if (r.bottom <= 0 || r.top >= H || r.width < 2 || r.height < 2) continue;
+    const bg = color(getComputedStyle(el).backgroundColor); if (!bg || bg[3] < 0.9 || !chromatic(bg) || !isShown(el)) continue;
+    const parent = el.parentElement ? effBg(el.parentElement) : null; if (parent && parent.kind === 'solid' && hex(parent.c) === hex(bg)) continue;
+    const x = Math.max(0, Math.min(r.right, W) - Math.max(r.left, 0)), y = Math.max(0, Math.min(r.bottom, H) - Math.max(r.top, 0));
+    entry(bg).surface += x * y / (W * H); }
+  const all = [...tally.values()];
+  palette.encres = all.filter(e => e.caracteres > 0 && !chromatic(e.c)).sort((a, b) => b.caracteres - a.caracteres).slice(0, 3)
+    .map(e => ({...desc(e.c), part: Math.round(e.caracteres / Math.max(1, inkTotal) * 100)}));
+  const chroma = all.filter(e => chromatic(e.c)).map(e => ({...desc(e.c), surface: rd(Math.min(1, e.surface) * 100, 1), caracteres: Math.round(e.caracteres / Math.max(1, inkTotal) * 100)}))
+    .sort((a, b) => (b.surface + b.caracteres) - (a.surface + a.caracteres));
+  palette.chromatiques = chroma.slice(0, 4);
+  palette.teintes = new Set(chroma.filter(e => e.surface >= 1 || e.caracteres >= 1).map(e => Math.round(e.H / 30) % 12)).size;
+  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, plus_petit: petit ? {taille: petit[0], part: Math.round(petit[1] / chars * 100)} : null, gros_textes: gros, palette, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
           mesure_mediane: mesures.length ? mesures[Math.floor(mesures.length / 2)] : null,
           images: {raster: rasters.length, video: videos.length, canvas: canvases.length, svg: svgs.length}, media_premier_ecran: Math.round(part * 100),
           centre_pour_cent: chars ? Math.round(centered / chars * 100) : 0, fonds_distincts: fonds.size, bords_gauches: bords.size,
           mots: total, ecrans: r1(document.documentElement.scrollHeight / H)};
 }
 """
+
+MESURES_JS = MESURES_JS.replace('__COLOR_JS__', COLOR_JS)
 
 
 def format_mesures(per: dict) -> list[str]:
@@ -555,6 +610,17 @@ def format_mesures(per: dict) -> list[str]:
         parts.append(f"images : {im.get('raster', 0)} raster, {im.get('video', 0)} vidéo, {im.get('canvas', 0)} canvas, {im.get('svg', 0)} svg ; média dominant {m.get('media_premier_ecran')} % du premier écran")
         parts.append(f"texte centré {m.get('centre_pour_cent')} % ; {m.get('fonds_distincts')} fond(s) de section distinct(s) ; {m.get('bords_gauches')} bord(s) gauche(s) de texte ; {m.get('mots')} mots sur {m.get('ecrans')} écran(s)")
         lines.append(f"  {w} px : " + " ; ".join(parts))
+        p = m.get("palette")
+        if p:
+            col = lambda x: f"{x['hex']} (L {x['L']}, C {x['C']}" + (f", H {x['H']}°)" if x['C'] >= 0.02 else ", teinte négligeable)")
+            q = [f"fond {col(p['fond'])}" if p.get("fond") else "fond non évalué"]
+            q.append(f"{len(p.get('fonds', []))} fond(s) de section de couleurs distinctes"
+                     + (f", écart de luminosité entre voisins {', '.join(str(e['dL']) for e in p.get('ecarts', []))}" if p.get("ecarts") else "")
+                     + (f" ; {p['fonds_non_evalues']} en image ou en dégradé, non évalué(s)" if p.get("fonds_non_evalues") else ""))
+            q.append("encres " + (", ".join(f"{col(e)} {e['part']} % des caractères" for e in p.get("encres", [])) or "aucune mesurée"))
+            q.append("couleurs chromatiques " + (", ".join(f"{col(e)} {e['surface']} % du premier écran, {e['caracteres']} % des caractères" for e in p.get("chromatiques", [])) or "aucune")
+                     + f" ; {p.get('teintes', 0)} teinte(s) à 1 % ou plus")
+            lines.append(f"  {w} px, palette : " + " ; ".join(q))
     return lines
 
 
