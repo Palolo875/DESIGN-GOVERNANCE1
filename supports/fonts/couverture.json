@@ -4,8 +4,8 @@
     "brotli": "1.1.0"
   },
   "source_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
-  "font_sha256": "4905039739808f650fb2a50c58e039dcc12209ff28b4bbe2df728976c59f0324",
-  "requested_characters": " ,./0123456:;ABCDEFGIJLMNOPQRSTUVabcdefghijklmnopqrstuvxyz·Éàçèéêôœ—’",
+  "font_sha256": "6c129fc06d90e59c588e67147160afe1dacbdf95f595398abc5a56860fbd06e1",
+  "requested_characters": " ,./0123456:;ABCDEFGIJLMNOPQRSTUVabcdefghijklmnopqrstuvxyz·Éàèéêîôùœ—’",
   "supported_codepoints": [
     32,
     44,
@@ -68,11 +68,12 @@
     183,
     201,
     224,
-    231,
     232,
     233,
     234,
+    238,
     244,
+    249,
     339,
     8212,
     8217

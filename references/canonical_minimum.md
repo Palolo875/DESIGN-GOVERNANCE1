@@ -1,4 +1,4 @@
-# Aide-mémoire canonique minimal
+# Références — aide-mémoire minimal
 
 Cet aide-mémoire ne remplace pas les fichiers V1. Il rappelle uniquement les séparations qui ne doivent jamais être inventées ou fusionnées lorsque les sources canoniques ne sont pas disponibles.
 

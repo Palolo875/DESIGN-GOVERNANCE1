@@ -102,7 +102,7 @@ def check_manifest(errors: list[str]) -> None:
         return
     if VERSION != match.group(1):
         fail(errors, f"version du manifeste divergente : {VERSION} (CHANGELOG : {match.group(1)})")
-    titles = [("README.md", ROOT / "README.md"), ("README.md (sources)", None), ("QUICKSTART.md", None),
+    titles = [("README.md", ROOT / "README.md"), ("README.md (sources)", None),
               ("RELEASE_NOTES.md", ROOT / "RELEASE_NOTES.md")]
     for label, path in titles:
         if path == ROOT / "RELEASE_NOTES.md" and not path.is_file():
@@ -115,7 +115,7 @@ def check_manifest(errors: list[str]) -> None:
 
 # Dossier d'installation d'un agent (copie de la skill, réglages) : il peut vivre dans le dossier du package
 # sans en faire partie, comme le README le propose ; ni inventaire, ni liens, ni valeurs n'y sont contrôlés.
-INSTALL_ROOT = {".claude"}
+INSTALL_ROOT = {".claude", ".agents"}
 
 
 def in_package(path: Path) -> bool:
@@ -256,8 +256,8 @@ def check_inline_references(errors: list[str]) -> None:
         by_name.setdefault(Path(relative).name, []).append(ROOT / relative)
     resolved_routes: dict[str, str | None] = {}
     file_pattern = re.compile(r"[\w./-]+\.(?:md|markdown|py|json|sh|bash|yml|yaml|html|htm|css|js|mjs|cjs|ts|tsx|jsx|toml|txt)(?:#[\w-]+)?", re.I)
-    retired_names = {"QUICKSTART": "guides/equipe.md", "GLOSSAIRE": "guides/glossaire.md",
-                     "ORCHESTRATION_MAP": "V1/sections/READING_MAP.md"}
+    retired_names = {"QUICKSTART": "guides/3-maitriser.md", "GLOSSAIRE": "guides/glossaire.md",
+                     "ORCHESTRATION_MAP": "sections/READING_MAP.md"}
 
     def file_reference(doc: Path, value: str, distribution: str | None = None) -> None:
         name, _, fragment = value.partition("#")

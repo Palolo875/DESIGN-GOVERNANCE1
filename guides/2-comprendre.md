@@ -1,8 +1,22 @@
-# Guide du designer
+# Niveau 2 — Comprendre
 
-Pour qui connaît le design et veut aller droit au sujet. Ce guide sert à trois choses : trouver où un sujet est traité, combiner plusieurs savoirs selon le résultat cherché, et savoir quand s’arrêter de lire. Les liens entre domaines sont dans [`design/savoir/connexions.md`](../design/savoir/connexions.md).
+Ce niveau montre comment le système raisonne, où se trouve chaque savoir et comment combiner plusieurs savoirs selon le résultat cherché ; il dit aussi quand s’arrêter de lire. Il suppose le [niveau 1](1-utiliser.md), pas une expertise en design : chaque sujet se consulte seul. Pour piloter un travail de bout en bout, passez au [niveau 3](3-maitriser.md). Les liens entre domaines sont dans [`design/savoir/connexions.md`](../design/savoir/connexions.md).
 
 Les adresses entre accents graves, comme `savoir/couleur`, se lisent avec le lecteur : `python3 scripts/read_route.py savoir/couleur`.
+
+<!-- origine:GLOSSAIRE.md -->
+## Comment le système travaille
+
+À chaque demande, l’agent (ou la personne qui pilote) suit ces étapes ; pour utiliser le système, vous n’avez pas à les faire vous-même ni à choisir un mode ([niveau 1](1-utiliser.md#commencer)).
+
+1. Il classe la demande avec `DIRECTION/START` : mode et risque dominant ; il note la décision à changer, la prochaine preuve et l’owner.
+2. Il charge la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement la section utile.
+3. Il produit ou modifie l’artefact, puis l’observe dans le périmètre déclaré.
+4. Il isole le défaut dominant, corrige l’artefact lorsque c’est nécessaire, observe à nouveau et sépare ce qui a été observé de ce qui reste non vérifié.
+
+La direction est la position globale ; la direction artistique en est l’expression visuelle située. Le craft décrit la qualité de fabrication, le polish sa résolution cohérente, et la spécificité le lien non interchangeable avec le produit et le contexte.
+
+Si deux lecteurs raisonnables choisissent des modes très différents, il faut clarifier le périmètre ou le risque au lieu de masquer le désaccord derrière le vocabulaire.
 
 <!-- origine:READING_MAP.md -->
 ## Carte des sujets

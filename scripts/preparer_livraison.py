@@ -57,12 +57,13 @@ def main() -> int:
     ap.add_argument("--log", "--journal", dest="log", default=".logs/preparer_livraison.log", metavar="CHEMIN", help="conserver la sortie détaillée des contrôles (--journal est un alias)")
     ap.add_argument("--require-browser", action="store_true", help="exiger l’exécution des tests navigateur, sinon échouer")
     args = ap.parse_args()
-    if not (ROOT / "scripts/build_distributions.sh").is_file() or not (ROOT / "V1/sections").is_dir():
+    if not (ROOT / "scripts/build_distributions.sh").is_file() or not (ROOT / "sections").is_dir():
         raise SystemExit("PRÉPARATION ÉCHOUÉE — commande réservée à la distribution GitHub. "
                          "Dans l’export Local, utiliser python3 scripts/validate_all.py.")
     journal = Path(args.log).resolve()
-    if journal.is_relative_to(ROOT / ".build") or journal.is_relative_to(ROOT / "dist"):
-        ap.error("le journal doit être hors des répertoires de construction .build et dist")
+    # Dans le paquet, seul .logs/ échappe à l'inventaire contrôlé : ailleurs, le journal ferait échouer la validation qui le suit.
+    if journal.is_relative_to(ROOT) and not journal.is_relative_to(ROOT / ".logs"):
+        ap.error("le journal doit être sous .logs/ ou hors du paquet (un autre fichier du paquet ferait échouer l’inventaire)")
     if journal == ROOT or journal.suffix != ".log":
         ap.error("le journal doit être un fichier .log")
     journal.parent.mkdir(parents=True, exist_ok=True)

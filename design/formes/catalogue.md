@@ -29,7 +29,7 @@ Zone active encadrée dans un espace plus calme ; bordures, axes, lignes ou seui
 
 ### `SUPPORT/OPERATIONAL_CANVAS`
 
-Surface continue, dense et instrumentée ; contrôles, contexte et données forment la première lecture.
+Surface continue et instrumentée ; contrôles, contexte et données forment la première lecture. Sa densité se règle sur la tâche et le public : elle se justifie quand il faut lire, comparer ou manipuler plusieurs informations à la fois, et reste calme sinon.
 
 **Choisir lorsque :** le travail consiste à observer, analyser, comparer, administrer ou décider.
 
@@ -41,11 +41,11 @@ Surface continue, dense et instrumentée ; contrôles, contexte et données form
 
 Pièces, archives ou preuves mises en scène dans un vide généreux et des proportions d’objet.
 
-**Choisir lorsque :** collection, portfolio, cas d’usage ou média doivent être mémorisés comme pièces distinctes.
+**Choisir lorsque :** collection, portfolio, cas d’usage ou média doivent se distinguer et être retenus comme pièces distinctes.
 
 **Éviter lorsque :** les éléments doivent être comparés à grande vitesse ou manipulés avec forte densité.
 
-**Preuve :** chaque pièce conserve identité, métadonnées et relation à l’action.
+**Preuve :** chaque pièce conserve identité, métadonnées et relation à l’action. Cette inspection montre la différenciation et l’accès, pas ce qu’une personne retient : une amélioration de mémorisation revendiquée demande une observation de lecteurs.
 
 ### Test de support
 
@@ -241,7 +241,7 @@ Une page de plusieurs sections est une séquence de scènes. La scène règle ch
 
 ### Structure mobile
 
-Sur petit écran, la séquence se recompose au lieu de se comprimer (`SAVOIR/CONTEXT`). Pour une interface, une décision par écran : un champ, un choix ou une action, l’action principale dans la zone du pouce ; une feuille posée sur le contexte garde l’objet visible au-dessus. Une relation entre plans (mot devant ou dans l’image, élément qui chevauche deux sections) se recompose aussi : vérifie sur capture mobile qu’elle ne coupe ni le texte ni l’objet.
+Sur petit écran, la séquence se recompose au lieu de se comprimer (`SAVOIR/CONTEXT`). Pour un parcours guidé (inscription, paiement, réglage pas à pas), une décision par écran : un champ, un choix ou une action, l’action principale dans la zone du pouce. Un formulaire court, une comparaison ou un outil dense gardent ensemble ce qui se décide ensemble, avec une priorité lisible ; une feuille posée sur le contexte garde l’objet visible au-dessus. Une relation entre plans (mot devant ou dans l’image, élément qui chevauche deux sections) se recompose aussi : vérifie sur capture mobile qu’elle ne coupe ni le texte ni l’objet.
 
 ---
 

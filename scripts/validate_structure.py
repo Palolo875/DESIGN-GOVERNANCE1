@@ -21,10 +21,10 @@ Gardes :
      les façades y renvoient ; la ligne `DIRECTION` garde le build et l'ordre cible → premier objet ;
      Gate B n'y est chargée qu'en trace complète ; la carte de lecture d'ACTION renvoie à CHARGE (D2).
  12. LOCATORS DU VALIDATEUR — un message de `validate_run_card.py` cite un lieu nommé, jamais un numéro de ligne.
- 13. ENTRÉE HUMAINE — une seule entrée balisée (guide pour commencer, lié depuis le README), quatre questions,
+ 13. ENTRÉE HUMAINE — une seule entrée balisée (niveau 1 des guides, lié depuis le README), quatre questions,
      aucun mode demandé, vouvoiement ; une seule constitution minimale (ENT-01, CST-01).
  15. PRÉAMBULE DE BIBLIOTHEQUE — ni catégories de lecture ni contrat de promotion avant les routes (MNT-01).
- 16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » (SKL-01).
+ 16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » ou serait lue comme nul, booléen, nombre ou date (SKL-01).
  17. DÉCLENCHEUR UI/UX — `CHARGE` appelle `ACTION/UI-UX-REALITY` en STANDARD et DIRECTION avant fabrication, pas en LITE (UIX-01).
  18. FAÇADES — trace légère et proposition dans les guides, glossaire et carte ; exemple hors domaine de référence ; liens vers « Commencer » (FAC-01).
 
@@ -46,7 +46,7 @@ import read_route as rr  # noqa: E402
 import build_core as bc  # noqa: E402
 
 OFFICIAL = rr.OFFICIAL
-SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT  # le paquet est la skill : SKILL.md à la racine, références dans references/
 MARKER = re.compile(r"^\s*<!-- concept:([A-Z0-9][A-Z0-9\-]*) -->\s*$")
 LOCATOR = re.compile(r"`((?:DIRECTION|ACTION|SAVOIR|BIBLIOTHEQUE)/[A-Z0-9_\-]+(?:/[A-Z0-9_\-]+)?)`")
 MIN_WORDS = 12
@@ -279,7 +279,7 @@ FIDELITY: list[tuple[str, str, str]] = [
     ("test de masquage : dépendance porteuse recevable", r"Si texte, données et images sont masqués", "dépendance est recevable"),
 ]
 
-# 13. Entrée humaine : une seule entrée, balisée dans le guide pour commencer (guides/commencer.md), vers lequel
+# 13. Entrée humaine : une seule entrée, balisée dans le niveau 1 des guides (guides/1-utiliser.md), vers lequel
 #     renvoient le README du package ; quatre questions ; aucun mode interne demandé ; vouvoiement.
 #     Une seule constitution minimale, balisée dans le README du package.
 ENTRY = re.compile(r"<!-- entree:début -->(.*?)<!-- entree:fin -->", re.S)
@@ -290,14 +290,14 @@ CONSTITUTION_SIGNATURE = "le réel et le beau sont cadrés ensemble"
 
 
 def check_entry(corpus: dict[Path, list[str]], errors: list[str]) -> None:
-    readme, guide = ROOT / "README.md", ROOT / "guides" / "commencer.md"
+    readme, guide = ROOT / "README.md", ROOT / "guides" / "1-utiliser.md"
     if not readme.is_file():
         errors.append("[ENT-01] README.md absent à la racine du package")
         return
     text = readme.read_text(encoding="utf-8")
     entries = ENTRY.findall(guide.read_text(encoding="utf-8")) if guide.is_file() else []
     if len(entries) != 1:
-        errors.append(f"[ENT-01] entrée humaine balisée {len(entries)} fois dans guides/commencer.md (attendu : 1)")
+        errors.append(f"[ENT-01] entrée humaine balisée {len(entries)} fois dans guides/1-utiliser.md (attendu : 1)")
     else:
         block = entries[0]
         for question in QUESTIONS:
@@ -324,7 +324,7 @@ def check_entry(corpus: dict[Path, list[str]], errors: list[str]) -> None:
 # 15. Préambule de BIBLIOTHEQUE : ni instrumentation de lecture ni contrat de promotion avant les routes.
 def check_preamble(errors: list[str]) -> None:
     # Le préambule va de « Responsabilité » à la première route de BIBLIOTHEQUE qui suit, dans le même texte :
-    # les routes peuvent avoir changé de fichier (rangement), le préambule lu en premier reste celui-ci.
+    # les routes peuvent avoir changé de fichier, le préambule lu en premier reste celui-ci.
     text = texte("BIBLIOTHEQUE.md")
     start = text.find("## Responsabilité")
     end = text.find("\n## BIBLIOTHEQUE/", start) if start >= 0 else -1
@@ -389,7 +389,7 @@ def lignes(name: str) -> list[str]:
 
 
 def texts() -> dict[Path, list[str]]:
-    files = rr.fichiers_officiels() + sorted(SKILL_DIR.rglob("*.md"))
+    files = rr.fichiers_officiels() + [SKILL_DIR / "SKILL.md", *sorted((SKILL_DIR / "references").glob("*.md"))]
     readme = ROOT / "README.md"
     if readme.is_file():
         files.append(readme)
@@ -645,40 +645,90 @@ def check_core_floor(errors: list[str]) -> None:
 # Sous-ensemble contrôlé : une paire « clé: valeur » par ligne ; une valeur non citée ne porte ni « : », ni « # »
 # précédé d'une espace, ni indicateur initial ; une valeur citée est décodée (doubles : échappements JSON ; simples : '').
 SKILL_KEYS = ("name", "description")
+# Format ouvert Agent Skills (agentskills.io/specification) : champs connus et contraintes de longueur et de nom.
+SKILL_ALLOWED_KEYS = {"name", "description", "license", "compatibility", "allowed-tools", "metadata"}
+SKILL_LIMITS = {"name": 64, "description": 1024, "compatibility": 500}
 PLAIN_FORBIDDEN_START = tuple("[]{}#&*!|>'\"%@`,") + ("- ", "? ", ": ")
+# Scalaires non cités qu'un parseur YAML (1.1 ou 1.2) ne lit pas comme une chaîne : nul, booléen, nombre, date.
+PLAIN_NON_STRING = re.compile(
+    r"(?:~|null|Null|NULL|true|True|TRUE|false|False|FALSE|yes|Yes|YES|no|No|NO|on|On|ON|off|Off|OFF"
+    r"|[-+]?(?:\d[\d_]*)?\.?\d+(?:[eE][-+]?\d+)?|0x[0-9a-fA-F]+|0o[0-7]+|[-+]?\.(?:inf|Inf|INF)|\.(?:nan|NaN|NAN)"
+    r"|[-+]?\d+(?::[0-5]?\d)+(?:\.\d*)?|\d{4}-\d\d?-\d\d?(?:[Tt ].*)?)")
+
+
+def _scalar(key: str, raw: str, problems: list[str]) -> str | None:
+    """Valeur scalaire textuelle du sous-ensemble YAML contrôlé ; None si refusée (problème noté)."""
+    if raw.startswith('"'):
+        try:
+            value = json.loads(raw)
+        except json.JSONDecodeError:
+            problems.append(f"{key} : chaîne entre guillemets doubles mal formée")
+            return None
+        if not isinstance(value, str):
+            problems.append(f"{key} : chaîne entre guillemets doubles mal formée")
+            return None
+        return value
+    if raw.startswith("'"):
+        if len(raw) < 2 or not raw.endswith("'") or "'" in raw[1:-1].replace("''", ""):
+            problems.append(f"{key} : chaîne entre guillemets simples mal formée")
+            return None
+        return raw[1:-1].replace("''", "'")
+    if raw.startswith(PLAIN_FORBIDDEN_START) or ": " in raw or " #" in raw or raw.endswith(":"):
+        problems.append(f"{key} : valeur non citée contenant « : », « # » ou un indicateur YAML (citer la valeur)")
+        return None
+    if PLAIN_NON_STRING.fullmatch(raw):
+        problems.append(f"{key} : valeur non citée lue en YAML comme nul, booléen, nombre ou date, pas comme texte (citer la valeur)")
+        return None
+    return raw
 
 
 def skill_header(text: str) -> tuple[dict[str, str], list[str]]:
+    """Champs de l'en-tête. `metadata` (table de textes, format Agent Skills) est admis en style bloc
+    (clés indentées) ou en ligne (`{clé: valeur, …}`) ; ses entrées textuelles sont vérifiées."""
     lines = text.splitlines()
     if not lines or lines[0] != "---" or "---" not in lines[1:]:
         return {}, ["en-tête YAML absent (--- en première ligne, puis ---)"]
     values: dict[str, str] = {}
     problems: list[str] = []
+    metadata: dict[str, str] | None = None  # table en cours de lecture (style bloc)
     for number, line in enumerate(lines[1:lines.index("---", 1)], start=2):
+        if line.startswith("  ") and metadata is not None:
+            key, sep, raw = line.strip().partition(":")
+            if not sep or not re.fullmatch(r"[A-Za-z0-9_.-]+", key) or not raw.startswith(" "):
+                problems.append(f"ligne {number} : entrée « clé: valeur » attendue dans metadata")
+                continue
+            value = _scalar(f"metadata.{key}", raw[1:].rstrip(), problems)
+            if value is not None:
+                metadata[key] = value
+            continue
+        metadata = None
         key, sep, raw = line.partition(":")
-        if not sep or not re.fullmatch(r"[a-z][a-z0-9_-]*", key) or not raw.startswith(" "):
+        if not sep or not re.fullmatch(r"[a-z][a-z0-9_-]*", key) or not (raw.startswith(" ") or (key == "metadata" and not raw)):
             problems.append(f"ligne {number} : paire « clé: valeur » attendue")
             continue
-        raw = raw[1:].rstrip()
-        if raw.startswith('"'):
-            try:
-                value = json.loads(raw)
-            except json.JSONDecodeError:
-                problems.append(f"{key} : chaîne entre guillemets doubles mal formée")
-                continue
-        elif raw.startswith("'"):
-            if len(raw) < 2 or not raw.endswith("'") or "'" in raw[1:-1].replace("''", ""):
-                problems.append(f"{key} : chaîne entre guillemets simples mal formée")
-                continue
-            value = raw[1:-1].replace("''", "'")
-        else:
-            if raw.startswith(PLAIN_FORBIDDEN_START) or ": " in raw or " #" in raw or raw.endswith(":"):
-                problems.append(f"{key} : valeur non citée contenant « : », « # » ou un indicateur YAML (citer la valeur)")
-                continue
-            value = raw
+        raw = raw[1:].rstrip() if raw else ""
         if key in values:
             problems.append(f"{key} : clé répétée")
-        values[key] = value
+        if key == "metadata":
+            entries: dict[str, str] = {}
+            if not raw:
+                metadata = entries
+            elif raw.startswith("{") and raw.endswith("}"):
+                for item in filter(None, (part.strip() for part in raw[1:-1].split(","))):
+                    name, sep, val = item.partition(":")
+                    if not sep or not re.fullmatch(r"[A-Za-z0-9_.-]+", name.strip()) or not val.startswith(" "):
+                        problems.append(f"metadata : entrée « clé: valeur » attendue ({item})")
+                        continue
+                    value = _scalar(f"metadata.{name.strip()}", val[1:].strip(), problems)
+                    if value is not None:
+                        entries[name.strip()] = value
+            else:
+                problems.append("metadata : table de textes attendue (clés indentées ou {clé: valeur})")
+            values[key] = "table"
+            continue
+        value = _scalar(key, raw, problems)
+        if value is not None:
+            values[key] = value
     return values, problems
 
 
@@ -695,6 +745,13 @@ def check_skill_header(errors: list[str]) -> None:
             errors.append(f"[SKL-01] en-tête de la skill : champ {key} absent ou vide")
     if values.get("name") and values["name"] != "design-governance-practice":
         errors.append(f"[SKL-01] en-tête de la skill : name « {values['name']} » ≠ design-governance-practice")
+    if values.get("name") and not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", values["name"]):
+        errors.append("[SKL-01] en-tête de la skill : name hors du format Agent Skills (minuscules, chiffres, tirets simples)")
+    for key in sorted(set(values) - SKILL_ALLOWED_KEYS):
+        errors.append(f"[SKL-01] en-tête de la skill : champ {key} inconnu du format Agent Skills")
+    for key, limit in SKILL_LIMITS.items():
+        if key in values and len(values[key]) > limit:
+            errors.append(f"[SKL-01] en-tête de la skill : {key} dépasse {limit} caractères ({len(values[key])})")
 
 
 # 17. Déclencheur UI/UX () : dans DIRECTION/CHARGE, la colonne « Charger d'abord » des lignes
@@ -735,7 +792,7 @@ ROW_NEEDLES = [  # (fichier, début de ligne, mot attendu, constat)
     ("ACTION.md", "| Token, composant ou blast radius |", "si un composant change", "C26"),
 ]
 EXAMPLE_SECTION = "## DIRECTION — fabrication depuis un brief flou"
-COMMENCER = re.compile(r"\]\((?:\.\./)*(?:guides/)?commencer\.md#commencer\)")
+COMMENCER = re.compile(r"\]\((?:\.\./)*(?:guides/)?1-utiliser\.md#commencer\)")
 
 
 def check_facades(errors: list[str]) -> None:
@@ -757,10 +814,10 @@ def check_facades(errors: list[str]) -> None:
     for name in ("README.md", "QUICKSTART.md"):
         paths = [p for p in rr.lieu(name) if p.is_file()]
         if paths and not COMMENCER.search(texte(name)):
-            errors.append(f"[FAC-01] {name} : la section « Commencer » du guide pour commencer n'est pas liée")
-    guide = ROOT / "guides" / "commencer.md"
+            errors.append(f"[FAC-01] {name} : la section « Commencer » du niveau 1 des guides n'est pas liée")
+    guide = ROOT / "guides" / "1-utiliser.md"
     if not guide.is_file() or "## Commencer" not in guide.read_text(encoding="utf-8"):
-        errors.append("[FAC-01] guide pour commencer : titre « Commencer » absent, cible des liens")
+        errors.append("[FAC-01] niveau 1 des guides : titre « Commencer » absent, cible des liens")
     notes = ROOT / "RELEASE_NOTES.md"
     if notes.is_file():
         body = notes.read_text(encoding="utf-8")

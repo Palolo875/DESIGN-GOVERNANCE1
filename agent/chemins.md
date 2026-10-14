@@ -1,6 +1,6 @@
 # Agent — chemins
 
-Comment l’agent classe une demande, choisit son chemin et décide quoi lire. La skill (`agent/skill/SKILL.md`) en porte le noyau ; ce fichier en est la version complète.
+Comment l’agent classe une demande, choisit son chemin et décide quoi lire. La skill (`SKILL.md`, à la racine du paquet) en porte le noyau ; ce fichier en est la version complète.
 
 <!-- origine:DIRECTION.md -->
 ## DIRECTION/START — classer avant d’agir
@@ -142,7 +142,7 @@ Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité con
 
 **Retrouver un savoir utile.** Route inconnue, notion apparemment absente ou finesse sans geste concret : `python3 scripts/read_route.py --trouver "terme"`. La recherche couvre les sections normatives à leurs emplacements actuels : mots entiers, quelques synonymes et traductions, puis correspondances partielles ; routes classées, `--tout` pour tout afficher. Elle ne comprend pas le sens : sans résultat, reformule puis déclare la limite, sans conclure à l’absence du savoir. `python3 scripts/read_route.py --sommaire` liste les routes ; `--sommaire LOCATOR`, leurs sous-sections. `SAVOIR/READ` guide le chargement et `SAVOIR/ROUTING` le jugement. Lis la route utile en entier avec `scripts/read_route.py LOCATOR`, puis applique-la à la décision. Les blocs déjà dans le noyau sont repliés (`--complet` les affiche). Lecteur indisponible : cherche dans la source propriétaire avec son contexte. Respecte la ligne du mode : ni lecture exhaustive, ni direction supplémentaire.
 
-Si plusieurs propriétaires peuvent éclairer une relation ouverte, consulte les connexions situées de `V1/sections/READING_MAP.md` avec `python3 scripts/read_route.py --connexions`. Cette aide dérivée conserve les conditions et limites ; elle ne remplace ni la ligne de CHARGE ni les sources.
+Si plusieurs propriétaires peuvent éclairer une relation ouverte, consulte les connexions situées de `sections/READING_MAP.md` avec `python3 scripts/read_route.py --connexions`. Cette aide dérivée conserve les conditions et limites ; elle ne remplace ni la ligne de CHARGE ni les sources.
 <!-- noyau:fin CHARGE-REGLE -->
 
 Une intention perceptuelle encore sans levier de construction active la traduction de `BIBLIOTHEQUE/SELECT` dans le périmètre du mode ; une route connue se lit directement. Si seule sa fabrication reste ouverte, utilise la calibration de `BIBLIOTHEQUE/CONTRACTS`. Ce passage relie direction, structure et gestes de SAVOIR sans charger le catalogue entier ni ajouter une seconde liste de chargement.
@@ -160,7 +160,7 @@ Une intention perceptuelle encore sans levier de construction active la traducti
 <!-- noyau:fin CHARGE-TABLE -->
 
 <!-- noyau:début CHARGE-FIN -->
-Les codes du noyau et les adresses lisibles servent les mêmes sections : une seule lecture suffit. Réponds dans la langue de la demande. La clôture de chaque mode est `ACTION/CLOSE-PACKAGE`, en trace complète ; en trace légère, le run s’arrête à la proposition (`ACTION/HANDOFF`). Pour l’agent, seuls les blocs effectivement compilés dans la skill sont déjà lus ; les autres restent servis par leur route propriétaire. Le lecteur ne replie un bloc que si son texte complet est présent dans la skill ; `README.md`, `guides/equipe.md` et `guides/designer.md` sont des lectures d’orientation pour les humains ; l’agent n’interroge READING_MAP que par `--connexions`. Tags du noyau : `[REQUIS PAR LE MODULE — scope]`, obligation dans ce scope (sinon `NOT-VERIFIED`, ou `N/A-JUSTIFIED` motivé) ; `[MÉTHODE]`, procédure à adapter.
+Les codes du noyau et les adresses lisibles servent les mêmes sections : une seule lecture suffit. Réponds dans la langue de la demande. La clôture de chaque mode est `ACTION/CLOSE-PACKAGE`, en trace complète ; en trace légère, le run s’arrête à la proposition (`ACTION/HANDOFF`). Pour l’agent, seuls les blocs effectivement compilés dans la skill sont déjà lus ; les autres restent servis par leur route propriétaire. Le lecteur ne replie un bloc que si son texte complet est présent dans la skill ; `README.md`, `guides/3-maitriser.md` et `guides/2-comprendre.md` sont des lectures d’orientation pour les humains ; l’agent n’interroge READING_MAP que par `--connexions`. Tags du noyau : `[REQUIS PAR LE MODULE — scope]`, obligation dans ce scope (sinon `NOT-VERIFIED`, ou `N/A-JUSTIFIED` motivé) ; `[MÉTHODE]`, procédure à adapter.
 <!-- noyau:fin CHARGE-FIN -->
 
 <!-- noyau:début CHARGE-DETAILS -->

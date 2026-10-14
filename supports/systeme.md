@@ -6,17 +6,17 @@ Carte de responsabilités, pas un ordre fixe d’exécution.
 
 ## Entrer
 
-**Guides**. Des repères pour les personnes. Commencer, concevoir, travailler en équipe.
+**Guides**. Des repères pour les personnes. Trois niveaux : utiliser, comprendre, maîtriser.
 
 
-[Section propriétaire](../guides/commencer.md).
+[Section propriétaire](../guides/1-utiliser.md).
 
 ## Agir
 
 **Agent**. Un noyau commun, puis les lectures utiles. Le chemin, la fabrication et la réponse.
 
 
-[Section propriétaire](../agent/skill/SKILL.md).
+[Section propriétaire](../SKILL.md).
 
 ## Concevoir
 
@@ -53,4 +53,4 @@ La maintenance entretient toutes les parties.
 
 ## Ce qui fait foi
 
-La section propriétaire, à son emplacement actuel. V1/sections/ conserve des sections de même autorité. Guides, carte et noyau généré orientent ou projettent les sources.
+La section propriétaire, à son emplacement actuel. sections/ conserve des sections de même autorité. Guides, carte et noyau généré orientent ou projettent les sources.

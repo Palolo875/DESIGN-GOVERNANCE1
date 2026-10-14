@@ -1,5 +1,4 @@
 {
-  "version": "V1.0.0 expérimentale",
   "title": "Le design au cœur.\nUn chemin pour chaque besoin.",
   "intro": "Choisir une entrée, comprendre les responsabilités, retrouver les sections qui font foi.",
   "scope": "Carte de responsabilités, pas un ordre fixe d’exécution.",
@@ -9,10 +8,10 @@
       "role": "Entrer",
       "title": "Guides",
       "path": "guides/",
-      "target": "guides/commencer.md",
+      "target": "guides/1-utiliser.md",
       "lines": [
         "Des repères pour les personnes.",
-        "Commencer, concevoir, travailler en équipe."
+        "Trois niveaux : utiliser, comprendre, maîtriser."
       ]
     },
     {
@@ -20,7 +19,7 @@
       "role": "Agir",
       "title": "Agent",
       "path": "agent/",
-      "target": "agent/skill/SKILL.md",
+      "target": "SKILL.md",
       "lines": [
         "Un noyau commun, puis les lectures utiles.",
         "Le chemin, la fabrication et la réponse."
@@ -126,9 +125,9 @@
   "authority": {
     "title": "Ce qui fait foi",
     "rule": "La section propriétaire, à son emplacement actuel.",
-    "retained": "V1/sections/ conserve des sections de même autorité.",
+    "retained": "sections/ conserve des sections de même autorité.",
     "derived": "Guides, carte et noyau généré orientent ou projettent les sources.",
-    "target": "V1/sections/README.md"
+    "target": "sections/README.md"
   },
   "entries": [
     {
@@ -141,36 +140,36 @@
       "focus": []
     },
     {
-      "id": "beginner",
-      "label": "Je découvre",
+      "id": "niveau-1",
+      "label": "Niveau 1 · Utiliser",
       "title": "Commencez par votre demande.",
-      "description": "Le guide pour commencer explique quoi demander, quoi fournir, ce que vous recevez et comment poursuivre.",
-      "target": "guides/commencer.md",
-      "link": "Ouvrir le guide pour commencer",
+      "description": "Le niveau 1 explique quoi demander, quoi fournir, ce que vous recevez et comment poursuivre, sans apprendre le système.",
+      "target": "guides/1-utiliser.md",
+      "link": "Ouvrir le niveau 1",
       "focus": [
         "guides",
         "design"
       ]
     },
     {
-      "id": "designer",
-      "label": "Je conçois",
-      "title": "Entrez par le savoir et les formes.",
-      "description": "Le guide du designer relie les sujets, leurs combinaisons et les gestes de fabrication.",
-      "target": "guides/designer.md",
-      "link": "Ouvrir le guide du designer",
+      "id": "niveau-2",
+      "label": "Niveau 2 · Comprendre",
+      "title": "Comprenez et exploitez le savoir.",
+      "description": "Le niveau 2 montre comment le système raisonne, où se trouve chaque sujet et comment combiner les savoirs.",
+      "target": "guides/2-comprendre.md",
+      "link": "Ouvrir le niveau 2",
       "focus": [
         "guides",
         "design"
       ]
     },
     {
-      "id": "team",
-      "label": "Je travaille en équipe",
-      "title": "Organisez le travail et sa reprise.",
-      "description": "Le guide d’équipe relie le pilotage, les preuves, la trace et la livraison, selon les besoins du travail.",
-      "target": "guides/equipe.md",
-      "link": "Ouvrir le guide d’équipe",
+      "id": "niveau-3",
+      "label": "Niveau 3 · Maîtriser",
+      "title": "Pilotez le travail de bout en bout.",
+      "description": "Le niveau 3 relie le pilotage, les preuves, la trace et la transmission, seul avec un agent ou à plusieurs.",
+      "target": "guides/3-maitriser.md",
+      "link": "Ouvrir le niveau 3",
       "focus": [
         "guides",
         "design",
@@ -193,7 +192,7 @@
       "label": "Je suis un agent",
       "title": "Lisez le noyau, puis ce qui sert la décision.",
       "description": "La skill active le classement et les lectures utiles. Les sections propriétaires restent la source de la règle.",
-      "target": "agent/skill/SKILL.md",
+      "target": "SKILL.md",
       "link": "Ouvrir la skill",
       "focus": [
         "agent",
@@ -246,9 +245,9 @@
     "README.md",
     "design/README.md",
     "gouvernance/README.md",
-    "V1/sections/README.md",
-    "guides/designer.md",
-    "guides/equipe.md",
+    "sections/README.md",
+    "guides/2-comprendre.md",
+    "guides/3-maitriser.md",
     "maintenance/README.md"
   ],
   "id": "systeme",

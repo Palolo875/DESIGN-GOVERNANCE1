@@ -19,7 +19,7 @@ Un rendu peut rester `EXPLORATORY` lorsqu’une preuve manque, mais ce statut ne
 
 ### ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble
 
-Pour une surface UI/UX nouvelle ou substantiellement modifiée, le premier objet doit rendre observables, dans la proportion du mode et du risque : hiérarchie de contenu, premier geste, feedback, états `loading`, `empty`, `error`, `unavailable`, `disabled` et succès partiel lorsque pertinents, contenu long ou multilingue, responsive recomposé, focus et récupération. Une capture de l’état nominal ne suffit pas lorsque l’état, la tâche ou la récupération fait partie de la décision. L’état qui ouvre la page est rempli, avec des valeurs marquées comme exemple si besoin ; l’état vide se conçoit pour l’usage réel, il n’accueille pas le visiteur.
+Pour une surface UI/UX nouvelle ou substantiellement modifiée, le premier objet doit rendre observables, dans la proportion du mode et du risque : hiérarchie de contenu, premier geste, feedback, états `loading`, `empty`, `error`, `unavailable`, `disabled` et succès partiel lorsque pertinents, contenu long ou multilingue, responsive recomposé, focus et récupération. Une capture de l’état nominal ne suffit pas lorsque l’état, la tâche ou la récupération fait partie de la décision. Pour présenter la proposition, l’état qui ouvre la page est rempli, avec des valeurs marquées comme exemple si besoin ; l’état vide se conçoit pour l’usage réel. Lorsque la première utilisation réelle commence sans données (nouvel espace de travail, premier projet), cet état vide conçu est l’accueil du produit : l’état rempli de démonstration se montre à côté, marqué comme tel, sans le remplacer.
 
 Le contrat de production relie :
 
@@ -35,7 +35,7 @@ EXPECTED-SCOPE: scope attendu — surface, état, viewport, données, population
 OBSERVED-SCOPE: scope observé — surface, état, viewport, données, population ou runtime réellement observé (après observation)
 ```
 
-La couverture de chaque exigence emploie `OBSERVED`, `NOT-VERIFIED` ou `N/A-JUSTIFIED` avec sa raison. `OBSERVED` n’est pas `PASS` : une observation peut être négative, et son résultat vit dans `EVALUATION_CASE` ou dans la trace. `NOT-OBSERVED` n’y est pas employé : il qualifie une conséquence de décision (`ACTION/STATUS`).
+La couverture de chaque exigence emploie `OBSERVED`, `NOT-VERIFIED` ou `N/A-JUSTIFIED` avec sa raison. `OBSERVED` n’est pas `PASS` : une observation peut être négative, et son résultat vit dans `EVALUATION_CASE` ou dans la trace. `NOT-OBSERVED` n’y est pas employé : il qualifie une conséquence de décision (`ACTION/STATUS`). Une exigence porte un seul statut par locator ; deux contextes distincts (état, largeur, version) se déclarent par deux locators distincts.
 
 Ces lignes décrivent les décisions de construction et la couverture attendue ; elles ne créent pas un nouveau gate ni un formulaire universel. `ACTION` garde les preuves, les limites et le verdict ; `SAVOIR/CONTEXT` et `SAVOIR/TECH` sont chargés seulement lorsque leurs questions peuvent changer la décision, la preuve ou la limite. Lorsque la capacité nécessaire manque, déclare `NOT-VERIFIED` ou l’issue appropriée au lieu de réduire silencieusement l’ambition de protection.
 

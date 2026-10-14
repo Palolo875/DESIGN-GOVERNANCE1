@@ -1,10 +1,10 @@
-# Guide d’équipe — Design Governance V1.0.0
+# Niveau 3 — Maîtriser
 
-Pour qui pilote un travail de design avec un agent ou en équipe : opérateur, designer, responsable. Design Governance V1.0.0 est une expérimentation maintenue, pensée pour un usage supervisé ; elle ne prouve pas son efficacité en production.
+Ce niveau sert à piloter un travail de bout en bout : cadrer, confier à un agent, vérifier, décider, conserver et transmettre, seul avec un agent ou à plusieurs. Il suppose les niveaux [1](1-utiliser.md) et [2](2-comprendre.md). Design Governance V1.0.0 est une expérimentation maintenue, pensée pour un usage supervisé.
 
 > **Ce que fait ce guide :** il oriente la lecture et l’action, sans ajouter aucune règle. Ce sont les sections citées qui font foi.
 
-> **Pour faire simplement une demande,** le [guide pour commencer](commencer.md#commencer) suffit : vous n’avez pas à choisir de mode.
+> **Pour faire simplement une demande,** le [niveau 1](1-utiliser.md#commencer) suffit : vous n’avez pas à choisir de mode.
 
 Le but : transformer une demande en **décision adaptée au projet, rendu réel, observation utile et trace honnête**. Le système ne promet ni beauté automatique, ni réussite universelle, ni usage validé sans preuve adaptée. Il vise pourtant haut : quand la décision visuelle est ouverte et que les moyens sont là, le premier rendu doit déjà être composé, spécifique, crédible, présentable et assez abouti pour être jugé comme un vrai objet.
 
@@ -32,7 +32,7 @@ Soit : le chemin choisi, la décision, le risque, la prochaine preuve, le respon
 
 ## Où trouver la suite
 
-Si la demande est déjà claire, le [guide du designer](designer.md) indique quoi combiner, quels angles examiner et quand s’arrêter. Si le brief est vague, commencez par `agent/chemins#classer`.
+Si la demande est déjà claire, le [niveau 2](2-comprendre.md) indique quoi combiner, quels angles examiner et quand s’arrêter. Si le brief est vague, commencez par `agent/chemins#classer`.
 
 Une sortie de run a deux formes : la **réponse visible**, par défaut, et la trace de reprise, pour un travail qui sera repris ou conservé (voir `agent/repondre`). Le niveau de trace ne dépend pas du mode : sans conservation, partage, audit ni acceptation demandée, la **trace légère** suffit (six lignes au plus, à côté du rendu ou sous « Trace » après la réponse) ; sinon, la **trace complète** s’impose. Écrivez `N/A-JUSTIFIED` (« sans objet, justifié ») quand un champ ou un angle ne s’applique pas.
 
@@ -89,7 +89,7 @@ Il comporte deux boucles liées :
 
 Après observation, choisissez la suite avec la table de diagnostic de la boucle d’édition (`direction/boucle`).
 
-Une justification seule ne corrige rien. Quand la perception, l’usage, l’accessibilité ou la robustesse font partie de la décision, la boucle doit conduire à une vraie modification du rendu, puis à une nouvelle observation. Si l’observation invalide l’hypothèse, la tâche visée ou la cible, notez dans la trace existante l’observation, son effet sur l’hypothèse, la décision touchée, le recadrage et la prochaine preuve ; cette note ne crée ni statut, ni vérification, ni troisième boucle.
+Une justification seule ne corrige rien. Quand la perception, l’usage, l’accessibilité ou la robustesse font partie de la décision, la boucle observe le rendu réel ; si l’observation révèle un défaut qu’une correction peut réduire, elle conduit à une vraie modification du rendu, puis à une nouvelle observation. Sinon, on s’arrête en notant pourquoi aucune nouvelle passe ne promet de gain. Si l’observation invalide l’hypothèse, la tâche visée ou la cible, notez dans la trace existante l’observation, son effet sur l’hypothèse, la décision touchée, le recadrage et la prochaine preuve ; cette note ne crée ni statut, ni vérification, ni troisième boucle.
 
 ### Lire une section et vérifier une fiche de travail
 
@@ -127,7 +127,7 @@ Examinez les situations dans cet ordre :
 | Correctif ou changement local qui garde la direction déjà tranchée | retouche (`LITE`) |
 | Retouche qui demande de rappeler et réévaluer une direction retrouvable dans son périmètre | itération (`ITER`) |
 | Nouvelle page ou nouveau parcours sans identité propre ; un craft exigeant se traite par une finition ciblée, pas par le mode | écran cadré (`STANDARD`) |
-| Brief flou ou risque impossible à classer | Clarifier, ou partir d’une demande vague (`direction/cadrer#demande-vague`), avant le mode |
+| Brief flou ou risque impossible à classer | Si le mode ou le risque reste indécidable, une question ciblée avant de classer ; une fois classée une décision visuelle ouverte, la prise de brief de la demande vague (`direction/cadrer#demande-vague`) |
 | Identité, premier contact ou direction visuelle autonome | direction ouverte (`DIRECTION`) |
 | Token, composant, pattern, convention ou format partagé | système de design (`SYSTÈME`) |
 
@@ -260,7 +260,7 @@ Regardez le rendu ou le comportement réel dans le périmètre déclaré. Toute 
 
 Une capture prouve un rendu dans son périmètre ; à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle. Une mesure d’accessibilité limitée ne certifie pas toute l’expérience. Une revue experte du craft ne remplace pas un test d’usage.
 
-Pour une décision créative, appliquez les six questions de revue de la boucle d’édition (`direction/boucle`).
+Pour une décision créative, appliquez la revue en six points (`savoir/qualite-creative#ambition`, Creative Quality Review), puis notez avec la boucle d’édition (`direction/boucle`) le changement observé et les régressions.
 
 Le polish est l’aboutissement cohérent de la structure, du contenu, de la typographie, de la matière, de l’action et des états. Ce n’est pas une couche automatique de dégradés, d’ombres, de flou ou de grands arrondis.
 
@@ -292,4 +292,4 @@ Si une étape, une variante, une référence ou une étiquette ne change aucune 
 | Trace, statuts, vérification, clôture | [`gouvernance/`](../gouvernance/README.md) |
 | Version et évolution du système | [`maintenance/`](../maintenance/README.md) |
 
-Ne lisez une section détaillée que si elle peut changer une décision, un rendu, une preuve, une limite ou la prochaine action. Pour des exemples, le déroulé et le format des fiches, voir les références de la skill quand c’est utile : `agent/skill/references/examples.md`, `agent/skill/references/flow.md` et `agent/skill/references/machine_projection.md`.
+Ne lisez une section détaillée que si elle peut changer une décision, un rendu, une preuve, une limite ou la prochaine action. Pour des exemples, le déroulé et le format des fiches, voir les références de la skill quand c’est utile : `references/examples.md`, `references/flow.md` et `references/machine_projection.md`.

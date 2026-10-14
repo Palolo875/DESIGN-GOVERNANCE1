@@ -1,11 +1,11 @@
-# Maintenance
+# Maintenance — faire évoluer le système
 
 Pour qui fait évoluer le système : d’où vient chaque distribution, comment la préparer et la valider. Ce module se charge quand une règle ou une route doit évoluer, être promue ou dépréciée ; il ne fait pas partie du chargement ordinaire d’une proposition.
 
 | Fichier | Contenu |
 |---|---|
 | [`evolution.md`](evolution.md) | Recette d’une modification, promotion et dépréciation des routes, cycle de vie, anciens alias |
-| [`versions.md`](versions.md) | Version, révision et contenu de la version |
+| [`versions.md`](versions.md) | Ce que contient le système : version, contenu, capacités, compatibilité et vérifications |
 
 <!-- origine:README.md -->
 ## Source de vérité et distributions
@@ -23,14 +23,14 @@ Cette commande compile le noyau, exécute les contrôles du package et construit
 | Option | Résultat |
 |---|---|
 | `--empreintes` | Affiche les empreintes SHA256 des archives. |
-| `--log CHEMIN` ou `--journal CHEMIN` | Conserve la sortie détaillée des contrôles dans un fichier `.log` ; les deux options sont équivalentes. Par défaut : `.logs/preparer_livraison.log`. |
+| `--log CHEMIN` ou `--journal CHEMIN` | Conserve la sortie détaillée des contrôles dans un fichier `.log` ; les deux options sont équivalentes. Par défaut : `.logs/preparer_livraison.log`. Dans le paquet, le journal doit rester sous `.logs/` ; ailleurs, choisir un chemin hors du paquet. |
 | `--require-browser` | Exige l’exécution des tests de pages et fait échouer la préparation si le navigateur est indisponible. |
 
 Sans navigateur, les tests de pages restent `NOT-VERIFIED`. Les limites des contrôles restent visibles même lorsque la préparation réussit.
 
 Dans l’export Local, utilisez `python3 scripts/validate_all.py`, avec `--require-browser` si ces essais sont exigés. Cet export ne contient pas la commande de préparation.
 
-Le budget décrit dans `maintenance/versions.md` concerne le fichier `SKILL.md` complet, mesuré en octets UTF-8. Le même contrôle est exécuté lors de la compilation et de la validation des distributions. Il borne la taille chargée ; il ne mesure ni la charge cognitive ni le coût complet d’un run.
+Le budget décrit dans `maintenance/evolution.md` (contrats de maintenance) concerne le fichier `SKILL.md` complet, mesuré en octets UTF-8. Le même contrôle est exécuté lors de la compilation et de la validation des distributions. Il borne la taille chargée ; il ne mesure ni la charge cognitive ni le coût complet d’un run.
 
 ### Noyau commun et détails
 
@@ -90,7 +90,7 @@ La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`
 | `python3 scripts/read_route.py --connexions` | Affiche le sommaire des connexions situées ; ajouter un identifiant comme `C03` pour lire condition, contributions, limites et sources résolues. |
 | `python3 scripts/test_audit_regressions.py` | Exécute les régressions de navigation, de capacités et de conditions de façade ; ne mesure ni la compréhension utilisateur ni la qualité esthétique. |
 | `python3 scripts/validate_all.py` | Exécute les contrôles documentaires, machine, CLI, fixtures négatives, compilation et reproductibilité des distributions. |
-| `python3 scripts/validate_all.py --lecture-seule` | Exécute les mêmes contrôles sans construire ni écrire : `dist/` et les archives ne sont pas touchés ; build et reproductibilité restent `NOT-VERIFIED`. |
+| `python3 scripts/validate_all.py --lecture-seule` | Exécute les mêmes contrôles sans construire ni remplacer les distributions : `dist/`, `.build/` et les archives ne sont pas touchés (le runner le vérifie). Des caches Python et des copies temporaires de test peuvent être écrits ailleurs. Build et reproductibilité restent `NOT-VERIFIED`. |
 
 Les chemins `exemple: chemin/run.json` et `exemple: chemin/contrat.json` sont des exemples à remplacer par ceux de vos fichiers. Pour exécuter les contrôles intégrés du package :
 
@@ -107,7 +107,7 @@ Une `RUN_CARD` validée atteste la forme de la projection et les invariants de l
 <!-- origine:READING_MAP.md -->
 ## Résolution des routes
 
-Les noms de route sont des locators documentaires. Les résoudre avec `python3 scripts/read_route.py LOCATOR` : le lecteur retrouve la section propriétaire à son emplacement actuel via le registre `LIEUX`. En lecture manuelle, suivre le [sommaire des sources](../V1/sections/README.md), puis le titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
+Les noms de route sont des locators documentaires. Les résoudre avec `python3 scripts/read_route.py LOCATOR` : le lecteur retrouve la section propriétaire à son emplacement actuel via le registre `LIEUX`. En lecture manuelle, suivre le [sommaire des sources](../sections/README.md), puis le titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
 
 | Code ou adresse | Propriétaire actuel |
 |---|---|
@@ -115,7 +115,7 @@ Les noms de route sont des locators documentaires. Les résoudre avec `python3 s
 | `ACTION/*` | Section ACTION retrouvée par le lecteur, dans l’un des emplacements déclarés. |
 | `SAVOIR/*` | Section SAVOIR retrouvée par le lecteur, dans l’un des emplacements déclarés. |
 | `BIBLIOTHEQUE/*` | Section BIBLIOTHEQUE retrouvée par le lecteur, dans l’un des emplacements déclarés. |
-| `maintenance/versions` ou `CHANGELOG` | Journal `maintenance/versions.md` ; les règles de cycle de vie sont dans `maintenance/evolution.md`. |
+| `maintenance/versions` ou `CHANGELOG` | Fiche `maintenance/versions.md` (état courant) ; les règles de cycle de vie sont dans `maintenance/evolution.md`. |
 | `RUN_CARD` | `gouvernance/schemas/run_card.schema.json`, exemple et validateur |
 
 `RUN_CARD` est un **adaptateur machine**, pas un locator Markdown résolvable par `scripts/read_route.py`. Pour l’inspecter ou le valider, utiliser le schéma, l’exemple et `gouvernance/outils/validate_run_card.py`; ne pas l’invoquer comme une route documentaire.

@@ -1,4 +1,4 @@
-# READING_MAP — carte dérivée de lecture et d’activation
+# Sections d’origine — carte de lecture (READING_MAP)
 
 **Statut :** guide dérivé non normatif. Les sources normatives sont leurs sections propriétaires à leurs emplacements actuels ; le schéma `RUN_CARD` et les validateurs propriétaires font foi en cas de divergence.
 
@@ -6,12 +6,12 @@
 
 Cette carte réduit la recomposition mentale du lecteur. Elle ne crée ni mode, ni gate, ni axe, ni statut, ni verdict, ni owner de décision supplémentaire. Elle indique seulement où commencer, quoi charger, ce qui doit sortir et quand transmettre.
 
-Pour composer plusieurs capacités selon un résultat recherché — direction, beauté située, créativité, usage, preuve, vitesse ou système — voir la section [« Combinaisons par résultat recherché »](../../guides/designer.md#combinaisons-par-résultat-recherché) du guide du designer : elle aide à ajuster la combinaison et l’intensité sans remplacer les propriétaires normatifs.
+Pour composer plusieurs capacités selon un résultat recherché — direction, beauté située, créativité, usage, preuve, vitesse ou système — voir la section [« Combinaisons par résultat recherché »](../guides/2-comprendre.md#combinaisons-par-résultat-recherché) du niveau 2 des guides (Comprendre) : elle aide à ajuster la combinaison et l’intensité sans remplacer les propriétaires normatifs.
 
 ## Chemin canonique de démarrage
 
 1. Localiser la version V1 réellement fournie.
-2. Lire `guides/equipe.md` ou cette carte si le besoin est déjà identifiable.
+2. Lire `guides/3-maitriser.md` ou cette carte si le besoin est déjà identifiable.
 3. Ouvrir `DIRECTION/START` pour classer le mode et le risque dominant.
 4. Charger la ligne du mode dans `DIRECTION/CHARGE`, puis approfondir seulement le propriétaire capable de modifier la prochaine décision.
 5. Ouvrir `ACTION` dès qu’un artefact, une observation, une preuve, un état ou une clôture est concerné.
@@ -21,7 +21,7 @@ Pour composer plusieurs capacités selon un résultat recherché — direction, 
 
 ## Constitution minimale
 
-Les cinq absolus de `DIRECTION` protègent chaque run : résumé dans la section « Les cinq règles essentielles » du README du package, formulation canonique dans [standard de qualité](../../design/direction/standard.md#les-cinq-règles-absolues).
+Les cinq absolus de `DIRECTION` protègent chaque run : résumé dans la section « Les cinq règles essentielles » du README du package, formulation canonique dans [standard de qualité](../design/direction/standard.md#les-cinq-règles-absolues).
 
 ## Routage minimal par décision
 

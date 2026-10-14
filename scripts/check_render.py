@@ -22,6 +22,11 @@ Usage :
     python3 scripts/check_render.py http://127.0.0.1:8000/page.html          # même origine autorisée
     python3 scripts/check_render.py page.html --click "#ouvrir"               # observer un autre état
     python3 scripts/check_render.py page.html --captures captures/v1          # une capture pleine page par largeur
+    python3 scripts/check_render.py page.html --baseline avant.json            # comparer à une mesure --json antérieure
+
+Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
+(état et largeurs) et avec les mêmes réglages (--proof, --tab-stops, --allow-external, --wait-ms). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
+code de sortie : un défaut préexistant reste un défaut.
 """
 from __future__ import annotations
 
@@ -52,10 +57,11 @@ NAME_JS = r"""
 (el) => {
   const clean = t => (t || '').replace(/\s+/g, ' ').trim();
   let uncertain = false;
-  const hidden = e => { for (let n = e; n && n.nodeType === 1; n = n.parentElement) {
-    const s = getComputedStyle(n);
-    if (n.getAttribute('aria-hidden') === 'true' || n.hasAttribute('hidden') || s.display === 'none' ||
-        s.visibility === 'hidden' || s.visibility === 'collapse') return true;
+  // aria-hidden, hidden et display:none d'un ancêtre sont irréversibles ; visibility est héritée mais peut être
+  // rétablie sur un descendant : seule la valeur calculée de l'élément lui-même compte.
+  const hidden = e => { const v = getComputedStyle(e).visibility; if (v === 'hidden' || v === 'collapse') return true;
+    for (let n = e; n && n.nodeType === 1; n = n.parentElement) {
+    if (n.getAttribute('aria-hidden') === 'true' || n.hasAttribute('hidden') || getComputedStyle(n).display === 'none') return true;
   } return false; };
   const content = (n, includeHidden = false, referenced = false, ancestors = new Set()) => {
     if (n.nodeType === 3) return n.textContent || '';
@@ -161,8 +167,16 @@ AUDIT_JS = r"""
     coverage.candidates++;
     if (excluded) { coverage.excluded++; continue; }
     if (el instanceof SVGElement || el.closest('svg')) { const k = sel(el); if (!seenNs.has('svg:' + k)) { seenNs.add('svg:' + k); res.svgText.push({sel: k}); } continue; }
-    const cs = getComputedStyle(el), fg = color(cs.color);
-    if (!fg) { if (!seenUk.has(k)) { seenUk.add(k); res.unknown.push({sel: k, value: cs.color}); } continue; }
+    const cs = getComputedStyle(el), base = color(cs.color);
+    if (!base) { if (!seenUk.has(k)) { seenUk.add(k); res.unknown.push({sel: k, value: cs.color}); } continue; }
+    // La couleur qui remplit le texte peut différer de color (-webkit-text-fill-color) : c'est elle qui est peinte.
+    const fill = cs.webkitTextFillColor ? color(cs.webkitTextFillColor) : null;
+    let fg = base;
+    if (fill && fill.join() !== base.join()) {
+      // Remplissage transparent : le texte est peint par un fond (background-clip:text), non évalué.
+      if (fill[3] === 0) { if (!seenNs.has(k)) { seenNs.add(k); res.nonSolid.push({sel: k}); } continue; }
+      fg = fill;
+    }
     const opacity = opac(el);
     if (opacity !== 1) { res.groupOpacity.push({sel: k, opacity}); continue; }
     const bg = effBg(el);
@@ -573,6 +587,51 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     return checks
 
 
+RANK = {PASS: 0, RESERVE: 1, RETURN: 2}
+
+
+def measurement_settings(args: argparse.Namespace) -> dict:
+    """Réglages qui changent les contrôles sans changer le périmètre : ils doivent être identiques pour comparer."""
+    return {"proof": args.proof, "tab_stops": args.tab_stops, "allow_external": args.allow_external, "wait_ms": args.wait_ms}
+
+
+def check_baseline_shape(baseline: object) -> None:
+    if not isinstance(baseline, dict) or not isinstance(baseline.get("checks"), list) or not isinstance(baseline.get("provenance"), dict):
+        raise ValueError("référence illisible : JSON produit par --json attendu (provenance et checks)")
+
+
+def compare_baseline(checks: list[tuple[str, str, str]], scope: str, baseline: dict, settings: dict | None = None) -> dict:
+    """Rapproche chaque contrôle de la mesure de référence (même périmètre et mêmes réglages) ; ne modifie aucun statut."""
+    check_baseline_shape(baseline)
+    before_scope = baseline["provenance"].get("scope")
+    if before_scope != scope:
+        return {"comparable": False, "reason": f"périmètre différent (référence : {before_scope} ; mesure : {scope})"}
+    before_settings = baseline["provenance"].get("settings")
+    if settings is not None and before_settings != settings:
+        return {"comparable": False, "reason": f"réglages différents (référence : {before_settings} ; mesure : {settings})"}
+    before = {c.get("check"): (c.get("status"), c.get("detail")) for c in baseline["checks"] if isinstance(c, dict)}
+    rows = []
+    for title, status, detail in checks:
+        old_status, old_detail = before.pop(title, (None, None))
+        if old_status is None:
+            change = "nouveau contrôle en RETURN" if status == RETURN else "nouveau contrôle"
+        elif status == RETURN and old_status == RETURN:
+            change = "RETURN préexistant, inchangé" if detail == old_detail else "RETURN préexistant, détail modifié : à examiner"
+        elif status == RETURN:
+            change = "RETURN introduit"
+        elif old_status == RETURN:
+            change = "RETURN disparu"
+        elif status in RANK and old_status in RANK and RANK[status] != RANK[old_status]:
+            change = "dégradé" if RANK[status] > RANK[old_status] else "amélioré"
+        else:
+            change = "inchangé" if status == old_status else f"{old_status} → {status}"
+        rows.append({"check": title, "before": old_status, "after": status, "change": change})
+    rows += [{"check": title, "before": s, "after": None, "change": "contrôle absent de la mesure"} for title, (s, _) in before.items()]
+    introduced = [r["check"] for r in rows if r["change"] in ("RETURN introduit", "nouveau contrôle en RETURN",
+                                                              "RETURN préexistant, détail modifié : à examiner")]
+    return {"comparable": True, "rows": rows, "introduced_or_to_examine": introduced}
+
+
 def capture_paths(folder: str, widths: list[int]) -> list[Path]:
     return [Path(folder) / f"capture-{w}px.png" for w in widths]
 
@@ -589,6 +648,14 @@ def run(args: argparse.Namespace) -> int:
         if existing:  # une capture « avant » ne doit jamais être écrasée par la suivante
             print(f"{NOTVER} : capture déjà présente, choisir un autre dossier : {', '.join(existing)}", file=sys.stderr)
             return 2
+    baseline = None
+    if args.baseline:
+        try:
+            baseline = json.loads(Path(args.baseline).read_text(encoding="utf-8"))
+            check_baseline_shape(baseline)
+        except (OSError, ValueError) as exc:
+            print(f"{NOTVER} : référence illisible : {args.baseline} ({type(exc).__name__})", file=sys.stderr)
+            return 2
     try:
         raw = measure(args)
     except ImportError:
@@ -603,7 +670,7 @@ def run(args: argparse.Namespace) -> int:
     prov = {"artifact_locator": target, "artifact_version": sha12(path) if path else "url (non versionnée)",
             "method": "AUTOMATED", "observed_at": now,
             "scope": f"état initial{' puis ' + ' puis '.join(args.click) if args.click else ''}, largeurs {','.join(map(str, raw['widths']))} px",
-            "external_requests_blocked": raw["blocked"]}
+            "external_requests_blocked": raw["blocked"], "settings": measurement_settings(args)}
     if raw.get("captures"):
         prov["captures"] = raw["captures"]
     if raw.get("browser"):
@@ -622,12 +689,25 @@ def run(args: argparse.Namespace) -> int:
           "Le clavier porte sur les candidats du périmètre actif et les arrêts observés ; une borne atteinte conserve une réserve. "
           "Les captures montrent l'état observé ; elles ne jugent rien. "
           "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
+    comparison = None
+    if baseline is not None:
+        comparison = compare_baseline(checks, prov["scope"], baseline, prov["settings"])
+        print(f"\nComparaison avec la référence {args.baseline} :")
+        if not comparison["comparable"]:
+            print(f"  non comparable : {comparison['reason']}")
+        else:
+            for row in comparison["rows"]:
+                print(f"  {row['check']} : {row['change']}")
+            introduced = comparison["introduced_or_to_examine"]
+            print("  Défauts introduits ou à examiner : " + (", ".join(introduced) if introduced else "aucun")
+                  + ". Les statuts et le code de sortie restent ceux de la mesure : un RETURN préexistant reste un défaut.")
     if args.json:
         coverage = {str(w): {**d.get('keyboard', {}), 'observed_stops': len(d['stops'])} for w, d in raw['per_width'].items()}
         Path(args.json).write_text(json.dumps({"provenance": prov, "checks": [{"check": t, "status": s, "detail": d} for t, s, d in checks],
                                               'keyboard_coverage': coverage,
                                               'contrast_coverage': {str(w): d['audit'].get('contrastCoverage', {}) for w, d in raw['per_width'].items()},
-                                              'proof_observations': {str(w): d['proof'] for w, d in raw['per_width'].items()}},
+                                              'proof_observations': {str(w): d['proof'] for w, d in raw['per_width'].items()},
+                                              **({'baseline_comparison': comparison} if comparison is not None else {})},
                                               ensure_ascii=False, indent=2), encoding="utf-8")
     return 1 if any(s == RETURN for _, s, _ in checks) else 0
 
@@ -644,6 +724,8 @@ def parser() -> argparse.ArgumentParser:
     ap.add_argument("--json", default="", help="écrit les résultats et la provenance dans ce fichier")
     ap.add_argument("--captures", default="", metavar="DOSSIER",
                     help="écrit une capture pleine page par largeur (capture-<largeur>px.png), à l'état observé ; n'écrase rien")
+    ap.add_argument("--baseline", default="", metavar="JSON",
+                    help="comparer à une mesure --json antérieure du même périmètre (défauts introduits, préexistants ou disparus)")
     ap.add_argument("--browser-executable", default=os.environ.get("DG_BROWSER_EXECUTABLE", ""), metavar="CHEMIN",
                     help="Chromium installé à utiliser explicitement (ou DG_BROWSER_EXECUTABLE) ; sinon navigateur Playwright")
     ap.add_argument("--serve-local", action="store_true", default=os.environ.get("DG_RENDER_SERVE_LOCAL") == "1",

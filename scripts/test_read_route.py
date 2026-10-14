@@ -17,14 +17,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class SourceLayoutTests(unittest.TestCase):
     def test_historical_codes_read_current_and_legacy_layouts(self):
-        for folder in ("V1/sections", "V1/official", "official"):
+        for folder in ("sections", "V1/sections", "V1/official", "official"):
             with self.subTest(folder=folder), tempfile.TemporaryDirectory() as tmp:
                 root = Path(tmp)
                 source = root / folder / "SAVOIR.md"
                 source.parent.mkdir(parents=True)
                 source.write_text("# Savoir\n## SAVOIR/TYPE\nVoix conservée.\n")
                 chosen = reader.source_directory(root)
-                with patch.multiple(reader, ROOT=root, OFFICIAL=chosen, LIEUX={"SAVOIR.md": ("V1/sections/SAVOIR.md",)}):
+                with patch.multiple(reader, ROOT=root, OFFICIAL=chosen, LIEUX={"SAVOIR.md": ("sections/SAVOIR.md",)}):
                     path, lines, index = reader.resolve("SAVOIR/TYPE", routes={})
                     self.assertEqual(path, source)
                     self.assertIn("Voix conservée.", reader.extract(lines, index))
@@ -32,9 +32,9 @@ class SourceLayoutTests(unittest.TestCase):
     def test_current_sections_take_precedence_over_legacy_copies(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            for folder in ("V1/sections", "V1/official", "official"):
+            for folder in ("sections", "V1/sections", "V1/official", "official"):
                 (root / folder).mkdir(parents=True)
-            self.assertEqual(reader.source_directory(root), root / "V1/sections")
+            self.assertEqual(reader.source_directory(root), root / "sections")
 
 
 class CodeFenceTests(unittest.TestCase):
@@ -99,13 +99,12 @@ class SearchTests(unittest.TestCase):
 
     def test_guides_include_root_readme_and_skill_references(self):
         (self.root / "README.md").write_text("Cohérence de rayon à l’entrée.\n", encoding="utf-8")
-        for refs in (self.root / "agent" / "skill" / "references", self.root / "skill" / "references"):
-            refs.mkdir(parents=True)
-            (refs / "examples.md").write_text("Cohérence de rayon en exemple.\n", encoding="utf-8")
+        refs = self.root / "references"
+        refs.mkdir(parents=True)
+        (refs / "examples.md").write_text("Cohérence de rayon en exemple.\n", encoding="utf-8")
         self.assertEqual(len(reader.find("cohérence de rayon")), 1)
         self.assertEqual([r[1] for r in reader.find("cohérence de rayon", True)],
-                         ["SAVOIR.md", "QUICKSTART.md", "README.md",
-                          "agent/skill/references/examples.md", "skill/references/examples.md"])
+                         ["SAVOIR.md", "QUICKSTART.md", "README.md", "references/examples.md"])
 
     def test_no_semantic_match(self):
         self.assertEqual(reader.find("courbure concentrique"), [])
@@ -282,14 +281,14 @@ class CliTests(unittest.TestCase):
         r = self.cli("--trouver", "COHERENCE DE RAYON")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("SAVOIR/STATE", r.stdout)
-        self.assertNotIn("guides/equipe.md:", r.stdout)
+        self.assertNotIn("guides/3-maitriser.md:", r.stdout)
         self.assertIn("0 ligne(s) de guide", r.stdout)
 
     def test_guides_separated_from_normative_results(self):
         r = self.cli("--trouver", "cohérence de rayon", "--guides")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("GUIDES — orientation, sans autorité normative", r.stdout)
-        self.assertIn("guides/equipe.md:", r.stdout)
+        self.assertIn("guides/3-maitriser.md:", r.stdout)
 
     def test_missing_term_reports_search_limit(self):
         r = self.cli("--trouver", "zztermeabsentpourtestzz")
@@ -412,7 +411,7 @@ class SearchAndSummaryTests(unittest.TestCase):
                     self.assertIn(f"\n{locator} ", out)
 
     def test_shared_file_split_by_origin(self):
-        # Rangement, lot 4 : un fichier qui reçoit plusieurs sources marque l'origine de chaque section.
+        # Un fichier qui reçoit plusieurs sources marque l'origine de chaque section.
         with tempfile.TemporaryDirectory() as tmp:
             shared = Path(tmp) / "partage.md"
             shared.write_text("# Titre\n\nRôle.\n\n<!-- origine:ACTION.md -->\n## A\n\nTexte A.\n\n"
@@ -427,7 +426,7 @@ class SearchAndSummaryTests(unittest.TestCase):
             self.assertTrue(reader.CONCEPT_MARKER.match("<!-- origine:ACTION.md -->"))
 
     def test_every_route_has_a_readable_address(self):
-        # Rangement, lot 2 : chaque route a une adresse lisible qui la sert ; les anciennes restent servies.
+        # Chaque route a une adresse lisible qui la sert ; les anciennes restent servies.
         routes = {row[0] for row in reader.summary_rows()}
         self.assertEqual(sorted(routes - set(reader.ADRESSE_DE) - reader.SANS_ADRESSE), [])
         self.assertEqual(len(set(reader.ADRESSES.values())), len(reader.ADRESSES))
@@ -438,7 +437,7 @@ class SearchAndSummaryTests(unittest.TestCase):
         self.assertIn("ROUTE: SAVOIR/CRAFT/CFT-05 (adresse : savoir/couleur)", out)
 
     def test_phrase_search_reaches_the_owner(self):
-        # Rangement, lot 2 : une phrase d'humain trouve la route qui y répond, même si l'expression exacte n'existe pas.
+        # Une phrase d'humain trouve la route qui y répond, même si l'expression exacte n'existe pas.
         out = self.cli("--trouver", "quelle police choisir").stdout
         top = [l.split(" ")[0] for l in out.splitlines() if l.split(" ")[0].count("/") == 1 and "ligne(s)" in l][:3]
         self.assertIn("mots de la phrase", out)
@@ -555,8 +554,7 @@ class FoldingTruthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             if body is not None:
-                skill = root / "agent/skill/SKILL.md"
-                skill.parent.mkdir(parents=True)
+                skill = root / "SKILL.md"
                 skill.write_text("<!-- noyau:compilé début -->\n### 1. Test\n" + body + "\n<!-- noyau:compilé fin -->")
             with patch.object(reader, "ROOT", root):
                 return "\n".join(reader.fold_core(self.lines, 0))
@@ -576,8 +574,8 @@ class FoldingTruthTests(unittest.TestCase):
 
     def test_text_outside_compiled_section_does_not_count(self):
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp); (root / "skill").mkdir()
-            (root / "skill/SKILL.md").write_text("Première phrase.\nTexte complet requis.\n<!-- noyau:compilé début -->\nAutre texte.\n<!-- noyau:compilé fin -->")
+            root = Path(tmp)
+            (root / "SKILL.md").write_text("Première phrase.\nTexte complet requis.\n<!-- noyau:compilé début -->\nAutre texte.\n<!-- noyau:compilé fin -->")
             with patch.object(reader, "ROOT", root):
                 self.assertIn("Texte complet requis.", "\n".join(reader.fold_core(self.lines, 0)))
 

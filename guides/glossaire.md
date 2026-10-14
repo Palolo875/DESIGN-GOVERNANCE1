@@ -1,8 +1,8 @@
-# Glossaire — Design Governance V1
+# Glossaire
 
 Les mots du système, expliqués simplement. Le glossaire n’ajoute aucune règle : chaque terme renvoie à la section qui fait foi. Les adresses entre accents graves (`savoir/couleur`) se lisent avec `python3 scripts/read_route.py ADRESSE` ; les valeurs en capitales (`NOT-VERIFIED`) sont celles qu’écrivent les fiches de travail.
 
-Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-travail), [la trace et la vérification](#la-trace-et-la-vérification). Pour commencer sans aucun vocabulaire, lisez plutôt le [guide pour commencer](commencer.md).
+Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-travail), [la trace et la vérification](#la-trace-et-la-vérification). Le glossaire sert à tous les niveaux. Pour commencer sans aucun vocabulaire, lisez plutôt le [niveau 1](1-utiliser.md).
 
 ## Les mots du design
 
@@ -52,8 +52,8 @@ Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-trav
 | **Périmètre (scope)** | Ce que la construction ou la preuve couvre réellement : vues, états, appareils, utilisateurs, données ou tâches. |
 | **Limite** | Ce que le travail ne permet pas d’affirmer honnêtement. Une limite n’est pas un échec caché ; elle rend le niveau de confiance lisible. |
 | **Source propriétaire** | La section qui fait foi pour une règle. Un guide peut la résumer, jamais la remplacer. |
-| **Adresse (locator)** | Le repère qui permet de lire une section avec le lecteur : une adresse lisible (`savoir/couleur`) ou l’ancien code (`SAVOIR/CRAFT/CFT-05`), qui reste accepté. Par extension, tout repère stable vers un fichier, une trace ou un rendu. |
-| **Carte de lecture (`READING_MAP`)** | Les vues qui orientent la lecture : le [guide du designer](designer.md) (sujets, combinaisons, angles) et les [connexions](../design/savoir/connexions.md). Elles ne créent aucune règle. |
+| **Adresse (locator)** | Le repère qui permet de lire une section avec le lecteur : une adresse lisible (`savoir/couleur`) ou le code stable (`SAVOIR/CRAFT/CFT-05`), qui reste accepté. Par extension, tout repère stable vers un fichier, une trace ou un rendu. |
+| **Carte de lecture (`READING_MAP`)** | Les vues qui orientent la lecture : le [niveau 2](2-comprendre.md) (sujets, combinaisons, angles) et les [connexions](../design/savoir/connexions.md). Elles ne créent aucune règle. |
 
 ## La trace et la vérification
 
@@ -62,7 +62,7 @@ Ces mots servent surtout quand un travail doit être tracé, vérifié formellem
 | Terme | Signification simple |
 |---|---|
 | **Trace légère** | La trace par défaut d’un run ni persistant, ni partagé, ni audité : six lignes au plus (mode ; thèse ; modal, trame et parti ; plafond atteint et contenus marqués ; défaut dominant restant, rendu comme revue de présence lorsque la qualité perceptuelle est en jeu ; prochaine preuve). Le run livre une proposition, sans verdict ni clôture. |
-| **Trace complète** | La trace d’un run persistant, partagé, audité ou dont on demande l’acceptation : réponse et trace (`agent/repondre`), dossier de clôture, vérifications écrites et fiche selon `gouvernance/cloture`. La forme courte LITE définie par `agent/repondre` est complète sans RUN_CARD ; elle ne se confond pas avec la trace légère. |
+| **Trace complète** | La trace d’un run persistant, partagé, audité ou dont on demande l’acceptation : réponse et trace (`agent/repondre`), dossier de clôture, vérifications écrites et fiche selon `gouvernance/cloture`. La forme courte LITE définie par `agent/repondre` est complète sans RUN_CARD ; elle ne se confond pas avec la trace légère. Montrer ou envoyer une proposition pour avis ne suffit pas à rendre un run persistant ou partagé. |
 | **RUN_CARD** (fiche de travail) | La version structurée et persistante d’un run, produite quand les règles de `gouvernance/travail` exigent ce format. Son exigence dépend du niveau de trace et du mode ; une proposition en trace légère ne produit pas de RUN_CARD. Les formes de clôture restent définies par `gouvernance/cloture`. Elle porte décision, risque, rendu, preuve, limite et clôture. |
 | **Preuve** | Ce qui permet de confirmer ou d’infirmer une décision dans un périmètre déclaré : observation, capture, test, mesure, comparaison ou retour adapté. |
 | **Gate** | Une vérification ciblée, avec une preuve ou une condition adaptée. `A`, `B` et `C` désignent des familles de vérifications ; elles ne donnent pas une note globale. |

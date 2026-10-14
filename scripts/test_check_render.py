@@ -68,7 +68,50 @@ def raw_case(audit=None, proof=None, stops=None, missing=None, running=None, ove
     return {"widths": [390], "per_width": {390: pw}, "running": running or [], "blocked": 0}
 
 
+def part_a_baseline() -> None:
+    # Comparaison avec une mesure antérieure : défauts introduits, préexistants ou disparus ; aucun statut modifié.
+    scope = "état initial, largeurs 390 px"
+    def base(*checks, scope=scope):
+        return {"provenance": {"scope": scope}, "checks": [{"check": t, "status": s, "detail": d} for t, s, d in checks]}
+    def change(now, before, title="Contraste"):
+        rows = cr.compare_baseline(now, scope, before)["rows"]
+        return next(r["change"] for r in rows if r["check"] == title)
+    expect("A", "référence : RETURN introduit", change([("Contraste", RETURN, "a")], base(("Contraste", PASS, "ok"))), "RETURN introduit")
+    expect("A", "référence : RETURN préexistant inchangé", change([("Contraste", RETURN, "a")], base(("Contraste", RETURN, "a"))), "RETURN préexistant, inchangé")
+    expect("A", "référence : RETURN au détail modifié à examiner", change([("Contraste", RETURN, "b")], base(("Contraste", RETURN, "a"))),
+           "RETURN préexistant, détail modifié : à examiner")
+    expect("A", "référence : RETURN disparu", change([("Contraste", PASS, "ok")], base(("Contraste", RETURN, "a"))), "RETURN disparu")
+    expect("A", "référence : réserve apparue = dégradé", change([("Contraste", RESERVE, "r")], base(("Contraste", PASS, "ok"))), "dégradé")
+    expect("A", "référence : réserve levée = amélioré", change([("Contraste", PASS, "ok")], base(("Contraste", RESERVE, "r"))), "amélioré")
+    comparison = cr.compare_baseline([("Contraste", RETURN, "b"), ("Clavier", RETURN, "k")], scope,
+                                     base(("Contraste", RETURN, "a"), ("Clavier", RETURN, "k")))
+    expect("A", "référence : seuls les défauts introduits ou à examiner sont listés", comparison["introduced_or_to_examine"], ["Contraste"])
+    expect("A", "référence : périmètre différent non comparable",
+           cr.compare_baseline([("Contraste", PASS, "ok")], scope, base(("Contraste", PASS, "ok"), scope="état initial, largeurs 768 px"))["comparable"], False)
+    try:
+        cr.compare_baseline([], scope, {"checks": []}); refused = False
+    except ValueError:
+        refused = True
+    expect("A", "référence sans provenance refusée", refused, True)
+    comparison = cr.compare_baseline([("Contraste", PASS, "ok"), ("Objet de preuve #x", RETURN, "absent")], scope, base(("Contraste", PASS, "ok")))
+    expect("A", "référence : nouveau contrôle en RETURN listé comme introduit", comparison["introduced_or_to_examine"], ["Objet de preuve #x"])
+    settings = {"proof": "", "tab_stops": 60, "allow_external": False, "wait_ms": 1500}
+    before = base(("Contraste", PASS, "ok")); before["provenance"]["settings"] = settings
+    expect("A", "référence : mêmes réglages comparables",
+           cr.compare_baseline([("Contraste", PASS, "ok")], scope, before, dict(settings))["comparable"], True)
+    expect("A", "référence : réglages différents (--proof) non comparables",
+           cr.compare_baseline([("Contraste", PASS, "ok")], scope, before, {**settings, "proof": "#x"})["comparable"], False)
+    with tempfile.TemporaryDirectory() as tmp:
+        bad = Path(tmp) / "ref.json"; bad.write_text("[]", encoding="utf-8")
+        page = Path(tmp) / "p.html"; page.write_text("<p>x</p>", encoding="utf-8")
+        with patch.object(cr, "measure", side_effect=AssertionError("mesure lancée malgré une référence invalide")), \
+                contextlib.redirect_stderr(io.StringIO()):
+            code = cr.run(cr.parser().parse_args([str(page), "--baseline", str(bad)]))
+    expect("A", "référence au mauvais format refusée avant la mesure", code, 2)
+
+
 def part_a() -> None:
+    part_a_baseline()
     with patch.dict(os.environ, {"DG_BROWSER_EXECUTABLE": "/browser/configure"}):
         expect("A", "navigateur explicitement configuré", cr.parser().parse_args(["page.html"]).browser_executable, "/browser/configure")
         expect("A", "option navigateur prioritaire sur la configuration", cr.parser().parse_args(["page.html", "--browser-executable", "/browser/choisi"]).browser_executable, "/browser/choisi")
@@ -216,6 +259,8 @@ def part_c() -> str:
         ('référence inexistante : repli aria label',"node('BUTTON',{'aria-labelledby':'absent','aria-label':'Valider'})",'Valider'),
         ('référence à soi',"node('BUTTON',{id:'self','aria-labelledby':'self','aria-label':'Supprimer'})",'Supprimer'),
         ('référence masquée par un ancêtre',"(()=>{node('DIV',{hidden:''},[node('SPAN',{id:'lab'},[txt('Fermer')])]);return node('BUTTON',{'aria-labelledby':'lab'});})()",'Fermer'),
+        ('visibilité rétablie sur le contrôle',"(()=>{const b=node('BUTTON',{},[txt('Confirmer')],{visibility:'visible'});node('DIV',{},[b],{visibility:'hidden'});return b;})()",'Confirmer'),
+        ('descendant en visibility hidden exclu',"node('BUTTON',{},[node('SPAN',{},[txt('×')],{visibility:'hidden'})])",''),
     ]
     for title,expr,want in cases:
         got=js('process.stdout.write(JSON.stringify(candidate('+expr+').candidate));')
@@ -236,6 +281,15 @@ def part_c() -> str:
         const a=(AUDIT)('unused');process.stdout.write(JSON.stringify(a.groupOpacity.length?'reserve':a.contrast.length?'return':'pass'));"""
         body=body.replace('BG',json.dumps(bg)).replace('FG',json.dumps(fg)).replace('ANCESTOR',json.dumps(ancestor)).replace('OPACITY',json.dumps(str(opacity))).replace('AUDIT',cr.AUDIT_JS)
         expect('C',label,js(body),want)
+    for label,fill,want in [('remplissage du texte presque blanc malgré color noir','rgb(244, 244, 244)','return'),
+                            ('remplissage transparent : texte peint par le fond','rgba(0, 0, 0, 0)','reserve'),
+                            ('remplissage identique à color','rgb(0, 0, 0)','pass')]:
+        body="""global.SVGElement=class {};const body=node('BODY');
+        const e=node('DIV',{},[txt('Texte')],{backgroundColor:'rgb(255, 255, 255)',color:'rgb(0, 0, 0)',webkitTextFillColor:FILL});e.parentElement=body;
+        document.createElement=()=>({getContext:()=>({})});document.documentElement={lang:'fr'};document.title='test';
+        document.querySelectorAll=s=>s==='body *'?[e]:[];
+        const a=(AUDIT)('unused');process.stdout.write(JSON.stringify(a.nonSolid.length?'reserve':a.contrast.length?'return':'pass'));"""
+        expect('C',label,js(body.replace('FILL',json.dumps(fill)).replace('AUDIT',cr.AUDIT_JS)),want)
     keyboard_setup=r"""
     global.window={};const body=node('BODY');const a=node('BUTTON'),b=node('BUTTON');a.parentElement=b.parentElement=body;
     const controls=[a,b];body.querySelectorAll=()=>controls;body.insertBefore=()=>{};
@@ -320,6 +374,10 @@ PAGES = {
     "nomreference.html": '<span id="label" hidden>Fermer</span><button aria-labelledby="label"></button>',
     "dialogferme.html": '<dialog><label for="arrivee">Arrivée</label><input id="arrivee" type="date"><button>Continuer</button></dialog>',
     "ancetremasque.html": '<div style="display:none"><button></button></div>',
+    "visiblerestauree.html": '<div style="visibility:hidden"><button style="visibility:visible">Confirmer</button></div>',
+    "remplissage.html": '<p style="color:#000;background:#fff;-webkit-text-fill-color:#f4f4f4">Texte presque blanc par son remplissage</p>',
+    "remplissagefond.html": ('<p style="color:#000;background:linear-gradient(#000,#333);-webkit-background-clip:text;'
+                             'background-clip:text;-webkit-text-fill-color:transparent">Texte peint par son fond</p>'),
     "inatteignable.html": '<button tabindex="-1">Valider</button>',
     "sanscontrole.html": '<p>Texte sans interaction</p>',
     "valeur.html": '<input aria-label="Nom" value="Texte" style="color:#aaa;background:white">',
@@ -392,7 +450,9 @@ def part_b(require: bool) -> str:
             expect("B", "feuille modale : tabulation depuis son début", raw["per_width"][390]["stops"][:1], ["#close"])
             for filename,prefix,want in [('opacite.html','Contraste',RESERVE),('nommasque.html','Nom accessible',RETURN),
                                          ('nomreference.html','Nom accessible',RESERVE),('inatteignable.html','Parcours clavier',RESERVE),
-                                         ('sanscontrole.html','Parcours clavier',PASS)]:
+                                         ('sanscontrole.html','Parcours clavier',PASS),
+                                         ('visiblerestauree.html','Nom accessible',RESERVE),('remplissage.html','Contraste',RETURN),
+                                         ('remplissagefond.html','Contraste',RESERVE)]:
                 _,c=measure(str(d/filename));expect('B',filename,status(c,prefix),want)
             for filename in ('dialogferme.html', 'ancetremasque.html'):
                 raw,c=measure(str(d/filename))
@@ -412,6 +472,12 @@ def part_b(require: bool) -> str:
             expect("B", "JSON avec provenance AUTOMATED", json.loads(out.read_text(encoding="utf-8"))["provenance"]["method"], "AUTOMATED")
             code = subprocess.run([sys.executable, str(HERE / "check_render.py"), str(d / "oklch.html"), "--widths", "390"], capture_output=True, text=True).returncode
             expect("B", "page fautive : code de sortie", code, 1)
+            after = Path(tmp) / "apres.json"
+            code = subprocess.run([sys.executable, str(HERE / "check_render.py"), str(d / "oklch.html"), "--widths", "390",
+                                   "--baseline", str(out), "--json", str(after)], capture_output=True, text=True).returncode
+            comparison = json.loads(after.read_text(encoding="utf-8"))["baseline_comparison"]
+            expect("B", "référence : défaut introduit signalé, code de sortie inchangé",
+                   [comparison["introduced_or_to_examine"], code], [["Contraste du texte sur fond uni"], 1])
             _, c = measure(str(d / "revele.html"))
             expect("B", "contenu révélé au défilement : mesuré (contraste faible détecté)", status(c, "Contraste"), RETURN)
             raw, _ = measure(str(d / "propre.html"), "--captures", str(d / "captures"))

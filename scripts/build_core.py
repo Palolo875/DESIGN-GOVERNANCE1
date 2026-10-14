@@ -24,7 +24,7 @@ from read_route import source_directory
 
 ROOT = Path(__file__).resolve().parents[1]
 OFFICIAL = source_directory(ROOT)
-SKILL_DIR = ROOT / "agent" / "skill" if (ROOT / "agent" / "skill").is_dir() else ROOT / "skill"
+SKILL_DIR = ROOT  # le paquet est la skill : SKILL.md à la racine, références dans references/
 SKILL = SKILL_DIR / "SKILL.md"
 BEGIN, END = "<!-- noyau:compilé début -->", "<!-- noyau:compilé fin -->"
 BLOCK = re.compile(r"^<!-- noyau:(début|fin) ([A-Z0-9\-]+) -->$")
@@ -37,7 +37,7 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
     ("Rôle et posture", [("ROLE", "DIRECTION.md", None), ("POSTURE", "DIRECTION.md", None)]),
     ("Classer, puis charger", [("CHARGE-REGLE", "DIRECTION.md", None), ("CHARGE-TABLE", "DIRECTION.md", None),
                                ("CHARGE-FIN", "DIRECTION.md", None)]),
-    ("Prendre le brief et viser le premier objet", [("BRIEF", "DIRECTION.md", None), ("CONTENU", "DIRECTION.md", None),
+    ("Contenu réel et contenu d’exemple", [("BRIEF", "DIRECTION.md", None), ("CONTENU", "DIRECTION.md", None),
                                                     ("PREMIER-OBJET", "DIRECTION.md", None)]),
     ("Moyens et vérité", [("MOY-PLAFOND", "DIRECTION.md", None), ("ANCRE", "DIRECTION.md", None), ("MOY-CARTE", "SAVOIR.md", None),
                           ("MOY-ASSETS", "SAVOIR.md", None), ("MOY-CALIBRATION", "SAVOIR.md", None),
@@ -152,8 +152,8 @@ def lieu(fname: str) -> list[Path]:
     """Fichiers de la source historique `fname` (table LIEUX du lecteur ; sinon le fichier de OFFICIAL)."""
     sys.path.insert(0, str(ROOT / "scripts"))
     import read_route  # import tardif : read_route n'importe pas ce module
-    if fname in read_route.LIEUX:  # « V1/sections/ » désigne le dossier des sources de cette disposition
-        return [OFFICIAL / rel[len("V1/sections/"):] if rel.startswith("V1/sections/") else ROOT / rel
+    if fname in read_route.LIEUX:  # « sections/ » désigne le dossier des sources de cette disposition
+        return [OFFICIAL / rel[len("sections/"):] if rel.startswith("sections/") else ROOT / rel
                 for rel in read_route.LIEUX[fname]]
     return [OFFICIAL / fname]
 
