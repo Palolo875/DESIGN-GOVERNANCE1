@@ -38,6 +38,8 @@ Ces qualités ne constituent ni un score, ni un verdict automatique, ni une prom
 
 Une **proposition premium** se juge avec l’heuristique [« Premium perçu »](fondements.md#premium-perçu-comme-heuristique-de-jugement) (`SAVOIR/FRAME`), sa seule définition ; elle n’est pas définie par une palette sombre, une grande typographie, un espace vide, une matière riche ou un nom de style, et doit survivre au contenu réel, aux états, au mobile, aux contraintes du produit et au geste principal.
 
+**Substance.** La retenue n’est pas le vide. Signaux d’enquête, sans seuil ni score : un écran presque vide qui n’est pas un repos voulu ; une section demandée livrée en quelques mots ; un texte courant petit ou grisé sur toute la page ; une page qui a perdu ses motifs sans rien gagner à la place. Dans l’étude de Taste Skill v2, une page plus riche mais pleine de motifs-gabarits battait une page plus propre et mince en comparaison aveugle de modèles (hypothèse à revérifier). Réponse possible : agrandir ce qui compte, livrer le contenu complet à taille lisible (`CNT-01`), mettre une image ou un champ de couleur faits pour ce sujet, ou couper la section ; ne comble pas par un ornement (`FND-01`, retenue avant accumulation). Un vide placé qui porte une relation reste valable (`SAVOIR/CRAFT/CFT-03`, échelle et champ calme).
+
 ### Creative Quality Review
 
 <!-- noyau:début BOUCLE-REVUE -->
@@ -72,6 +74,26 @@ Un principe générateur remplace un interdit sans devenir une recette. La struc
 Un principe récité sans conséquence visible est du théâtre procédural.
 
 **Idée par rapprochement.** Une forme peut naître du rapprochement de deux registres qui ne vont pas ensemble (deux époques, deux matières, deux usages) ou d’un contresens assumé entre le mot et l’image. Elle vaut si le rapprochement dit quelque chose du produit et se comprend en une seconde ; sinon, c’est un clin d’œil gratuit.
+
+### Inventaire du sujet et phrase d’idée
+
+[MÉTHODE] Statut de route : `PILOT` (`maintenance/evolution.md`), avec le contrat réduit en fin de sous-section. Lorsque le sujet est un client, un lieu ou un objet réel et que l’idée est ouverte, dresse avant de choisir la forme l’**inventaire** de ce qui appartient à ce sujet et à aucun voisin : son nom et ce qu’il veut dire ; son adresse, sa rue, son quartier et ce que le lieu donne à voir (carreaux, enseignes, lumière, saisons) ; les nombres du brief (places, chambres, minutes, prix, année) ; la contrainte avec laquelle il vit (une seule fournée par mois, fermé l’hiver, sur rendez-vous) ; ses matières et ses couleurs ; ses rituels et ses horaires ; les objets imprimés de son monde (carte, ticket, étiquette, horaire, enseigne). Huit à douze éléments suffisent. Un élément que le brief ne donne pas reste inconnu : il n’est pas inventé (`CNT-01`, `TRUTH`).
+
+**Phrase d’idée.** Avant le build, complète : « Sur cette page, [un élément de l’inventaire] devient [le dispositif que la composition appelle]. » Le dispositif est une scène, un geste ou un objet de preuve (`DIRECTION/FIRST-OBJECT`), non un effet. Pour le premier blanc, cherche du côté de ce que le sujet produit (montré tel quel), de sa forme (agrandie, recadrée, devenue cadre ou motif), de son nom (des lettres qui contiennent une photographie, se découpent ou s’empilent), de son lieu, de son rituel (une séquence que la page rejoue en défilant), de l’objet imprimé de son monde, ou de son opposé (la catégorie voisine qui possède le sentiment qui lui manque). L’étude de Taste Skill v2 relève neuf moteurs chez les sites les mieux notés : le produit se démontre lui-même ; la page est un objet du monde du sujet ; le nom est le héros ; un motif du sujet porte tout ; le sujet déguisé en autre catégorie ; le lieu porte la page ; une scène fixe sous un contenu qui change ; une section, une couleur ; la retenue radicale. Ce sont des leviers à essayer sur l’inventaire, non un menu de styles : le `MODAL` nommé reste à écarter.
+
+**Test du concurrent.** Remplace le sujet de la phrase par son voisin le plus proche (la boulangerie d’à côté, un autre atelier). Si la phrase tient encore, l’idée appartient à la catégorie : reprends l’inventaire. « Propre et moderne » n’est pas une idée. La phrase se juge avec le test de singularité (`COMP-SINGULARITE`), sans le remplacer.
+
+**Une chose vivante.** Une seule, si elle sert la promesse : un geste ou un état qui change d’une visite à l’autre, fait avec le contenu réel du sujet (choisir un bois et voir la chaise ; régler un prêt et lire la mensualité). Elle se lit au pouce sur téléphone, garde un repli sans script et ne bloque pas la lecture. C’est le geste produit de `DIRECTION/DIRECTION-ATELIER`, codé.
+
+**Même liste, autre usage.** Chaque lieu, matière ou objet imprimé de l’inventaire est aussi une requête possible pour chercher des images (`SAVOIR/SOURCE`).
+
+| Champ du contrat réduit | Contenu |
+|---|---|
+| Décision | L’idée de la scène et le contenu du premier objet. |
+| Contre-indication | Brief sans particularité fournie (ne rien inventer, marquer l’exemple, `CNT-01`) ; surface fonctionnelle où l’idée retarderait la tâche, ou risque critique, dont la protection prévaut (`DIRECTION/START`) ; identité de marque existante qui fixe déjà la direction. |
+| Preuve attendue | Inventaire de huit à douze éléments, phrase d’idée et résultat du test du concurrent dans la trace ; capture du premier objet où l’élément du sujet est visible. Preuve de type perceptuel et expert. |
+| Limite | Une idée tirée du sujet n’est ni une garantie de qualité ni une préférence mesurée ; l’inventaire ne vaut que pour les faits du brief. |
+| Source et revue | Procédure reprise et adaptée de Taste Skill v2 (étapes 1 et 4 de son fichier SKILL.md et §3 de son fichier research.md, licence MIT, lus le 2026-10-14). Son étude s’appuie sur des tests en aveugle jugés par un modèle, un juré par brief, avec un bruit d’environ un demi-point et des briefs réutilisés : à traiter comme une hypothèse. À revoir avant 2027-04 ; passage en `ADOPTED` seulement avec un gain observé (`BIBLIOTHEQUE/EVOLUTION`, contrat de gain réel). |
 
 ### Dérivation bornée d’une forme située
 

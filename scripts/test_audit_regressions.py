@@ -431,6 +431,16 @@ class CoreResourceActivationTests(unittest.TestCase):
         self.assertEqual(routes.adresse('savoir/gout-et-tendances#points-de-depart'), 'SAVOIR/TOOLS/POINTS-DE-DEPART')
         self.assertEqual(routes.adresse('savoir/qualite-creative#ecriture'), 'SAVOIR/CRAFT/CFT-06')
 
+    def test_subject_inventory_pilot_and_substance_signal_are_served_by_their_routes(self):
+        # Inventaire du sujet : sous-section de CFT-01 en PILOT, source datée ; substance : signal d'enquête de CFT-00, sans score.
+        for locator, expected in [('SAVOIR/CRAFT/CFT-01', ('Inventaire du sujet et phrase d’idée', 'Test du concurrent', 'PILOT', 'Contre-indication', 'ADOPTED', '2026-10-14')),
+                                  ('SAVOIR/CRAFT/CFT-00', ('Substance', 'sans seuil ni score', 'La retenue n’est pas le vide'))]:
+            with self.subTest(locator=locator):
+                _, lines, index = routes.resolve(locator)
+                served = '\n'.join(routes.extract(lines, index))
+                for fragment in expected:
+                    self.assertIn(fragment, served)
+
 
 class ReviewFindingsTests(unittest.TestCase):
     """Témoins des défauts reproduits par la revue du système (carnet de revue, branche refonte)."""

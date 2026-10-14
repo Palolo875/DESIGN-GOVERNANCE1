@@ -15,7 +15,7 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 
 | Partie | Contenu |
 |---|---|
-| `design/` | Direction (cadrer, diriger, boucle d’édition, cinq règles), savoir (composition, typographie, couleur, styles, images et sources, contexte, techniques, qualité créative, écriture et contenu, points de départ mesurés), formes (supports, grilles, scènes, composants) et qualité du produit (premier rendu, plancher, finition, preuve visuelle, interface). |
+| `design/` | Direction (cadrer, diriger, boucle d’édition, cinq règles), savoir (composition, typographie, couleur, styles, images et sources, contexte, techniques, qualité créative, écriture et contenu, points de départ mesurés, inventaire du sujet), formes (supports, grilles, scènes, composants) et qualité du produit (premier rendu, plancher, finition, preuve visuelle, interface). |
 | `SKILL.md`, `references/` | La skill : point d’entrée de l’agent (noyau commun) et ses références. Le paquet entier est le dossier de la skill. |
 | `agent/` | Les chemins de l’agent par mode et la forme de sa réponse. |
 | `gouvernance/` | Trace, statuts, vérification, clôture et structure ; schémas `RUN_CARD` et contrats de production, exemples, fixtures et validateurs. |
@@ -47,6 +47,7 @@ Ajouts de cette révision, suivis comme candidats (`maintenance/evolution.md`, c
 | Ajout | Statut | Périmètre et limite | Preuve exigée avant adoption | Retour arrière |
 |---|---|---|---|---|
 | `SAVOIR/CRAFT/CFT-06` — écriture et contenu | `PILOT` | Forme et spécificité du texte (budget de titre, formes de titre, actions, micro-typographie française) ; ne juge ni la justesse commerciale, ni la conformité légale, ni la conversion. | Contrat de gain réel (`BIBLIOTHEQUE/EVOLUTION`) : plusieurs runs contrastés avec et sans la route, baseline, observation et limite. | Retirer la section et son adresse lisible ; le noyau de la skill n’est pas touché. |
+| `SAVOIR/CRAFT/CFT-01` — sous-section « Inventaire du sujet et phrase d’idée » | `PILOT` | Procédure pour trouver l’idée dans ce que le sujet a de propre (inventaire de huit à douze éléments, phrase d’idée, test du concurrent, une chose vivante) ; ne garantit ni la qualité ni une préférence ; ne remplace ni `MODAL` ni le test de singularité. | Contrat de gain réel (`BIBLIOTHEQUE/EVOLUTION`) : plusieurs runs contrastés avec et sans la procédure, baseline, observation et limite. | Retirer la sous-section ; le noyau de la skill n’est pas touché. |
 | `SAVOIR/TOOLS/POINTS-DE-DEPART` — mesures d’observation datées | Veille `[VEILLE 2026-10]`, claims `À REVÉRIFIER` | Ordres de grandeur tirés d’une étude de galeries notée par des modèles (source, limites et date dans la section) ; guident un essai local, n’imposent aucun seuil. | Remesure sur des rendus du paquet comparés à des rendus jugés par plusieurs personnes ; sans elle, ils restent des hypothèses de départ. | Retirer la section et son adresse lisible. |
 | `scripts/check_render.py --mesures` | Option facultative | Relevés chiffrés de composition ; aucun statut, aucun code de sortie, aucun seuil. | Usage sur des runs réels avant de les lier à une règle ; leur concordance avec un autre outil de mesure a été vérifiée sur deux pages de test. | Retirer l’option, sa sonde et ses tests. |
 
