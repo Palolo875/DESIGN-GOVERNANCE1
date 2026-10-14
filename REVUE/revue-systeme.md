@@ -2,11 +2,71 @@
 
 Ce carnet est conservé sur la branche documentaire `refonte`. Les [sources de la première revue](https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/6e5a8c2) et les [sources des compléments CORRECTIFS](https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/5a5f56357d829150ac5a1863c3c40f35c4c3bafa) identifient les états examinés. Les chemins /workspace désignent les emplacements locaux utilisés pendant la revue.
 
-Début de revue : 11 octobre 2026. Dernière mise à jour : 12 octobre 2026. Dépôt examiné : DESIGN-GOVERNANCE1, base de revue : commit `6e5a8c2`.
+Début de revue : 11 octobre 2026. Dernière mise à jour : 14 octobre 2026. Dépôt examiné : DESIGN-GOVERNANCE1, base de revue : commit `6e5a8c2`.
 
-Ce carnet conserve les observations de notre lecture progressive. Il ne crée aucune règle et ne remplace aucune source du système. Les recommandations restent à discuter ; aucune correction du paquet n'a été appliquée.
+Ce carnet conserve les observations de notre lecture progressive. Il ne crée aucune règle et ne remplace aucune source du système. Les corrections intégrées depuis au paquet sont résumées dans le [suivi des corrections](#suivi-des-corrections) ; le reste du carnet garde les observations telles qu'elles ont été faites.
 
 La base des premières revues est le checkout 6e5a8c2. Les compléments « Supports de présentation », « README principal », « Notes de version », « Agent : contenu et installation », « Guides : noms, niveaux et publics », « Maintenance, versions et V1 de référence », « Supports : état courant et actualisation », « README : entrée et état courant », « Release notes : livraison et faits vérifiés » et « Réserves répétées, briefs et runs » examinent une copie distincte et plus récente, R2026-10-11-CORRECTIFS, dans /workspace/presentation-v1-corrigee. Leurs constats et vérifications sont rattachés explicitement à cette copie ; ils ne revalident pas les observations antérieures sur une nouvelle version.
+
+## Suivi des corrections
+
+État au 14 octobre 2026, sur `main` après la fusion de la [PR 4](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/4) (commit [`1bcc273`](https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/1bcc273)). Les constats des outils ont chacun un test de régression ; la validation complète, navigateur compris, et la CI passent sur ce commit.
+
+**Bilan : 31 constats sur 33 corrigés, 1 corrigé en partie (AG-01), 1 ouvert (ACC-01).**
+
+Les chemins cités dans le corps du carnet sont ceux des états examinés. Sur `main`, la skill est à la racine du paquet (`SKILL.md`, `references/`), les sections d’origine sont dans `sections/`, et les guides `commencer`, `designer` et `equipe` sont devenus `1-utiliser`, `2-comprendre` et `3-maitriser`.
+
+### Constats
+
+| Point | Statut du carnet | État sur `main` | Où |
+|---|---|---|---|
+| SK-01 | Vérifié | Corrigé. Le paquet entier est la skill : ses renvois ne dépendent plus d’un emplacement d’installation, et un contrôle refuse tout lien qui sortirait du dossier. | `SKILL.md`, `references/flow.md`, `scripts/validate_design_governance.py` |
+| SK-02 | À préciser | Corrigé. Un jugement ou une analyse se conclut sans nouvelle scène imposée ; l’alternative n’est présentée que si elle peut changer la décision ; une rubrique sans contenu est omise. | `sections/ACTION.md`, `agent/repondre.md`, `SKILL.md` recompilée |
+| SK-03 | À préciser | Corrigé. Montrer ou enregistrer une proposition ne rend pas le run persistant ; la trace complète sert la reprise, l’adoption, l’audit ou l’acceptation. | `agent/repondre.md`, `gouvernance/travail.md`, `SKILL.md` |
+| SK-04 | Éditorial | Corrigé. La section 3 du noyau s’intitule « Contenu réel et contenu d’exemple » ; les titres 5 et 6 l’étaient déjà. | `scripts/build_core.py`, `SKILL.md` |
+| ACC-01 | Vérifié | **Ouvert.** `--trouver 'le titre écrase la photo'` propose toujours SAVOIR/STYLE et SAVOIR/CRAFT, sans SAVOIR/STATE. C’est une amélioration de la recherche, pas un défaut de contenu. | `scripts/read_route.py` |
+| DI-01 | Vérifié | Corrigé. Les renvois de finition désignent des routes existantes ; un troisième titre mort, « Structure », a aussi été retiré. | `design/produit/finition.md` |
+| DI-02 | Vérifié | Corrigé. Les indications d’emplacement désignent les fichiers séparés. | `design/savoir/README.md`, `design/savoir/connexions.md`, `design/savoir/qualite-creative.md` |
+| DI-03 | À préciser | Corrigé. L’état vide conçu peut accueillir une première utilisation réelle. | `design/produit/premier-rendu.md` |
+| DI-04 | À préciser | Corrigé. L’arrêt d’un one-shot DIRECTION vient après le tour d’atelier. | `design/direction/boucle.md` |
+| DI-05 | À préciser | Corrigé. « Une décision par écran » vaut pour un parcours guidé ; un formulaire court ou un outil dense gardent ensemble ce qui se décide ensemble. | `design/formes/catalogue.md` |
+| GV-01 | Vérifié | Corrigé. `?`, `inconnu` et les autres gabarits sont refusés comme adresse d’artefact en profil strict. | `gouvernance/outils/validate_run_card.py` |
+| GV-02 | Vérifié | Corrigé. Fragment et requête sont retirés avant le contrôle du fichier ; un `file://` sans chemin est refusé. | `gouvernance/outils/validate_run_card.py` |
+| GV-03 | Vérifié | Corrigé. Deux statuts pour une même exigence au même locator sont refusés. | `gouvernance/outils/validate_contracts.py` |
+| GU-01 | À préciser | Corrigé. La boucle modifie le rendu seulement quand un défaut le justifie. | `guides/3-maitriser.md` |
+| GU-02 | À préciser | Corrigé. L’ordre de classement d’un brief flou est explicite. | `guides/3-maitriser.md`, `guides/glossaire.md` |
+| GU-03 | Éditorial | Corrigé. Le renvoi aux six points de revue est direct. | `guides/3-maitriser.md` |
+| MA-01 | Vérifié | Corrigé. Le journal doit être sous `.logs/` ou hors du paquet. | `scripts/preparer_livraison.py` |
+| MA-02 | Éditorial | Corrigé. La portée de « lecture seule » et de « sans écrire » est précisée. | `maintenance/README.md` |
+| SC-01 | Vérifié (DOM simulé) | Confirmé dans Chromium, puis corrigé. Un élément rendu visible sous un parent masqué garde son nom. | `scripts/check_render.py` |
+| SC-02 | Vérifié (DOM simulé) | Confirmé dans Chromium, puis corrigé. La couleur de remplissage réelle est évaluée ; un remplissage transparent met le contraste en réserve. | `scripts/check_render.py` |
+| SC-03 | Vérifié | Corrigé et élargi. Les valeurs YAML lues comme nul, booléen, nombre, date ou heure sont refusées ; l’en-tête accepte les champs du format Agent Skills, dont `metadata`. | `scripts/validate_structure.py` |
+| SP-01 | À préciser | Corrigé. La densité d’un canevas opérationnel suit la tâche. | `design/formes/catalogue.md` |
+| SP-02 | À préciser | Corrigé. La mémorisation des pièces d’une collection est distinguée de sa preuve spatiale. | `design/formes/catalogue.md` |
+| SV-01 | Vérifié | Corrigé. Une relation qui ne correspond plus au dessin est refusée. | `supports/generer.py` |
+| SV-02 | Éditorial | Corrigé. | `supports/generer.py` |
+| SV-03 | Vérifié | Corrigé. La version des cartes vient du manifeste du paquet. | `supports/generer.py`, `supports/systeme.json` |
+| RM-01 | Vérifié | Corrigé. L’installation passe par `npx skills add` ou un `git clone` dans le dossier de skills, qui crée les dossiers. | `README.md` |
+| RM-02 | Vérifié | Corrigé. Mise à jour par `npx skills update` ou `git pull` ; plus de copie imbriquée. | `README.md` |
+| RM-03 | Vérifié | Corrigé avec SK-01. | `SKILL.md`, `references/` |
+| RN-01 | À préciser | Corrigé. La reproductibilité est vérifiée dans le dépôt GitHub ; l’export Local contrôle le paquet exporté. | `RELEASE_NOTES.md` |
+| RN-02 | Éditorial | Corrigé. Le résultat de la CI se lit sur le commit livré. | `RELEASE_NOTES.md` |
+| AG-01 | À préciser | **Corrigé en partie.** Une seule skill au format Agent Skills, un tableau des dossiers par agent et le champ `compatibility`. L’installation n’est vérifiée que pour Claude Code et Codex ; Cursor, Gemini CLI et GitHub Copilot restent à vérifier. | `README.md`, `SKILL.md` |
+| AG-02 | Vérifié | Corrigé. Le README sépare le contrôle du paquet de celui de l’hôte : lire une route ne prouve pas que l’agent a chargé la skill. | `README.md` |
+
+### Discussions
+
+| Discussion | Suite donnée sur `main` |
+|---|---|
+| Guides : noms, niveaux et publics | Trois niveaux de maîtrise plutôt que trois publics : `guides/1-utiliser.md`, `2-comprendre.md`, `3-maitriser.md`, avec un sommaire `guides/README.md`. |
+| Maintenance, versions et V1 de référence | `maintenance/versions.md` présente ce que contient le système et ce qui en est vérifié, sans table des révisions ; les règles de cycle de vie sont dans `maintenance/evolution.md`. |
+| Supports : état courant et actualisation | Cartes régénérées sur les niveaux et l’arborescence actuels ; version tirée du manifeste (SV-03). |
+| README : entrée et état courant | README réorganisé : statut, niveaux, installation, fonctionnement, contenu, règles et limites. |
+| Release notes : livraison et faits vérifiés | Notes centrées sur la version livrée et ses contrôles, sans liste de changements. |
+| Réserves répétées, briefs et runs | Traité dans les consignes (SK-02, SK-03) : une analyse peut être une réponse complète, et la réponse ne cite que les limites qui touchent la demande. Les pages d’entrée gardent un statut court, chacune devant pouvoir se lire seule. |
+
+Ajouts hors carnet : comparaison de la recette de rendu à une mesure antérieure (`check_render.py --baseline`), qui distingue les défauts introduits des défauts préexistants.
+
 
 ## Méthode et portée
 
