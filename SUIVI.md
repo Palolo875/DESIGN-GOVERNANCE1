@@ -1,14 +1,14 @@
 # Suivi : Design Governance (DG) × Taste Skill v2 (TS)
 
 > **Statut du fichier.** Document de travail, **hors paquet**. Il vit sur la branche orpheline `suivi-comparaison-taste-skill`, qui ne contient que ces notes (aucun fichier du paquet, aucun workflow : pas de CI). Il n'est pas dans `scripts/package_manifest.json` et n'a pas vocation à être fusionné dans le système. Raison de la branche orpheline : voir F4 en 4.2.
-> **Créé le** 2026-10-14. **Dernière mise à jour :** 2026-10-14 (après la manche 3).
+> **Créé le** 2026-10-14. **Dernière mise à jour :** 2026-10-14 (après la manche 4 : gouvernance, fichiers non équivalents, améliorations livrées sur `ccr-38b0a56f-t8xdo8`).
 > **But :** garder le fil de la comparaison (capacité esthétique et design), ses résultats concrets et ce qu'il faut faire ensuite, sans divaguer.
 
 ## 0. Règles de ce fichier
 
 1. Tout résultat porte sa preuve : un fichier lu, une commande exécutée ou un chiffre mesuré.
 2. Ce qui n'a pas été lu est écrit comme tel (section 2). Aucun verdict sur un fichier non lu.
-3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 6).
+3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 7).
 4. Les chiffres de l'étude de TS viennent d'un panel de **modèles**, pas de personnes : à traiter comme des claims « à revérifier ».
 5. Le dépôt TS est sous licence MIT (Copyright 2026 Leonxlnx) : toute reprise de valeurs ou de données cite la source.
 
@@ -28,9 +28,13 @@
 
 **Lu (DG).** `README`, `SKILL.md`, `maintenance/versions`, `references/examples` (début), tout `design/` (direction, produit, savoir) sauf la fin de `formes/catalogue.md` (modificateurs, compatibilités) ; `scripts/check_render.py` (en-tête, `open_page`, contrôle du mouvement réduit). Les `sections/` sont essentiellement des fichiers d'orientation (je n'en ai lu que `SAVOIR.md` en tête et la liste des titres de `ACTION.md` ; le contenu normatif porté par les marqueurs `origine:` est dans `design/` et `gouvernance/`).
 
-**Non lu (à ne pas juger).**
-- TS : `image-to-code`, `gpt-taste`, `soft`, `brutalist`, `stitch` en entier ; `research.md` §1 à §10 (méthode de l'étude) ; `probe.mjs`, `draw.mjs` et `assets.mjs` en entier ; `base.css`, `base.js` ; l'essentiel de `library/`.
-- DG : `gouvernance/*` (statuts, vérification, clôture, schémas, fixtures), `guides/*`, `agent/*`, `references/*` sauf `examples`, `scripts/read_route.py` hors usage, reste de `check_render.py`.
+**Lu à la manche 4 (fichiers non équivalents).**
+- TS : `research.md` §1 à §11 en entier (méthode et résultats de l'étude) ; `gpt-taste` (mécanisme d'aléa), `image-to-code` et `stitch` (parties qui servent la comparaison, pas en entier).
+- DG : `gouvernance/*` (statuts, vérification, clôture, schémas, `production_contracts.schema.json`, fixtures), `agent/repondre`, `maintenance/evolution`, `design/formes/catalogue.md` en entier.
+
+**Toujours non lu (à ne pas juger).**
+- TS : `image-to-code` et `stitch` en entier ; `soft` et `brutalist` au-delà du début ; `probe.mjs`, `assets.mjs` et `draw.mjs` en entier ; `base.css`, `base.js` ; l'essentiel de `library/`.
+- DG : `guides/*`, `agent/chemins`, `references/*` sauf `examples`, `scripts/read_route.py` hors usage.
 
 ## 3. Manches 1 et 2 : comparaison par catégorie
 
@@ -98,8 +102,8 @@ Les 2 FAIL de TS sur la page « saine » sont légitimes selon ses règles : tit
 
 ### 4.2 Trouvailles sur `check_render.py` (à transmettre au mainteneur)
 
-- **F1 (vérifié par test).** Le contrôle « Mouvement réduit respecté » ne compte que les animations encore `running` après chargement + attente (`--wait-ms`) + défilement complet (`scripts/check_render.py:375` et `:433`). Une animation d'entrée de **0,8 s** qui ignore `prefers-reduced-motion` donne **PASS**, avec `--wait-ms 1500` comme avec `--wait-ms 100` ; la même animation à **8 s** donne `PASS-WITH-RESERVATION`. Piste : enregistrer les animations dès le début du chargement sous émulation `reduce` (écouteur `animationstart` injecté avant la page), comme le fait le `MOTION_RECORDER` de TS (`inspect.mjs:67`).
-- **F2 (à discuter, choix de conception).** Un bouton sans texte, sans `aria-label` ni `title`, contenant un SVG sans `<title>` donne une réserve (« candidat hors couverture »), pas un RETURN, parce que tout SVG rend le candidat incertain. Un cas négatif conclusif pourrait être un RETURN.
+- **F1 (vérifié par test ; corrigé en manche 4, voir 5.3).** Le contrôle « Mouvement réduit respecté » ne compte que les animations encore `running` après chargement + attente (`--wait-ms`) + défilement complet (`scripts/check_render.py:375` et `:433`). Une animation d'entrée de **0,8 s** qui ignore `prefers-reduced-motion` donne **PASS**, avec `--wait-ms 1500` comme avec `--wait-ms 100` ; la même animation à **8 s** donne `PASS-WITH-RESERVATION`. Piste : enregistrer les animations dès le début du chargement sous émulation `reduce` (écouteur `animationstart` injecté avant la page), comme le fait le `MOTION_RECORDER` de TS (`inspect.mjs:67`).
+- **F2 (à discuter, choix de conception).** Un bouton sans texte, sans `aria-label` ni `title`, contenant un SVG sans `<title>` donne une réserve (« candidat hors couverture »), pas un RETURN, parce que tout SVG rend le candidat incertain. Un cas négatif conclusif pourrait être un RETURN. **Traité en manche 4** (voir 5.3).
 - **F3 (observation sur TS, pas sur DG).** `inspect.mjs` n'a pas vu le débordement à 390 px (`horizontalOverflow=0`) alors que `check_render.py` le voit. Cause probable, **non vérifiée** : l'émulation mobile avec `width=device-width` laisse Chromium élargir la fenêtre de mise en page pour contenir le bloc de 900 px.
 
 - **F4 (vérifié par test).** `scripts/validate_design_governance.py` refuse tout fichier absent de `scripts/package_manifest.json` (`fichier inattendu dans le package : …`), et la CI exécute ce contrôle à chaque push de n'importe quelle branche (`on: push`). Ajouter un simple fichier de notes au dépôt fait donc échouer `validate_all.py` (testé avec `--require-browser`). D'où la branche orpheline sans fichier du paquet.
@@ -122,19 +126,78 @@ Lecture : à contexte comparable, **DG charge environ 2,4 fois moins que TS** (7
 
 `draw.mjs --sector other --brief "Atelier de réparation de vélos à Gand" --seed 42 --options 3` propose `borrowed-category`, `one-motif` et `dense-tiles`. La fiche `one-motif` (176 lignes) fixe : le héros « Striped card beside the room », Libre Franklin / Source Serif 4, la palette « Swapping pastels », 5 sections avec leurs plans, mouvement « Slow crossfade », jeu de photos « Mountain ». À noter : la police, décrite comme adaptée aux « essais, rapports annuels, archives et finance », tombe sur un atelier de vélos. Le tirage est aléatoire dans le secteur ; avec `other` (secteur vague) l'adéquation n'est pas garantie, et la règle de TS interdit de re-tirer un créneau « pour le confort » (`--redraw` seulement pour une contrainte de marque ou un asset absent). Fichiers : `essais/resultats/ts_draw_*.txt`.
 
-## 5. À garder en tête pour la suite
+## 5. Manche 4 : gouvernance, fichiers non équivalents, améliorations
+
+### 5.1 Gouvernance : DG contre le rapport final et les contrôles de TS
+
+Sources : DG `gouvernance/*`, `agent/repondre`, `production_contracts.schema.json` ; TS `SKILL.md` étapes 5 et 10, `critique.md`, `draw.mjs`, `credits.json`, `history.json`.
+
+**Équivalent des deux côtés.**
+- Déclarer ce qui n'a pas été exécuté (TS : rapport des contrôles non exécutés ; DG : `NOT-VERIFIED`, capacités déclarées).
+- Rapport final avec limites et contenu d'exemple à remplacer.
+- Règles d'arrêt (TS : plafonds et passes ; DG : sorties `RETURN`).
+- Réserve sur l'auto-évaluation (TS : note avec plafonds ; DG : la revue indépendante B3 est étiquetée, jamais présumée).
+
+**Seulement dans DG.**
+Quatre registres (observation, interprétation, décision, persistance) ; statuts STATE ×7, ISSUE ×6, VERDICT ×6, DIRECTION-STATUS ×4 ; cycle de vie des réserves (7 attributs) ; fraîcheur des preuves ; protection du critique ; droits ; étiquettes d'indépendance du relecteur (B3) ; profil de capacité ; schéma `RUN_CARD` avec 20 fixtures ; frontière de validation ; cycle de vie des routes (SEED, PILOT, ADOPTED, DEPRECATED, ABANDONED) ; recette `ACTION/MAINTENANCE` (sans quota, avec « échappatoire théâtrale », « run réel », propriétaire, revue, retour arrière).
+
+**Seulement dans TS.**
+Porte de sortie appliquée par un outil (code de retour, pas un conseil) ; graine et journal de re-tirage ; `credits.json` pour les images ; `history.json` contre la répétition entre projets ; un test publié, défavorable à TS.
+
+**Faiblesses de DG relevées.**
+- Vocabulaire lourd (beaucoup de statuts et de registres à retenir).
+- Automatisation limitée à la porte A : B et C reposent sur le jugement du modèle.
+- Bénéfice non démontré : aucun test comparatif. Et le contrat d'évaluation ne le permet pas encore : `EVALUATION_CASE` (dans `production_contracts.schema.json`) a `brief, domain, available_capabilities, expected_depth, artifact, observations, task_results, accessibility_results, visual_review, corrections, final_limits`, mais **aucun champ de bras de comparaison, de référence sans skill ni de relecture à l'aveugle**. Un protocole A/B demande donc d'abord d'étendre ce contrat (ou de le tenir hors paquet).
+
+Lecture : la gouvernance de DG est plus riche et plus honnête sur ce qu'elle ne sait pas ; celle de TS est plus **exécutoire** (un outil refuse de conclure). Les deux idées ne s'excluent pas, mais seule la seconde manque à DG hors porte A.
+
+### 5.2 Fichiers non équivalents : ce que chacun apporte
+
+| Fichier | Ce qu'il fait | Équivalent / apport pour DG |
+|---|---|---|
+| TS `research.md` §1 à §11 | Étude sur 247 sites de galerie, 21 relecteurs modèles ; parmi les critères mesurables, 82 classés « high » et 23 « weak » ; panel 90 / 29 (chiffres repris de `research.md`, non recalculés) | Source des valeurs de départ importées (voir 5.3). Limite : panel de modèles, sites de galerie (biais de sélection) |
+| TS `image-to-code` | Image d'abord, puis code ; lutte contre la dérive entre la maquette et le code | Proche de `LOST-IN-BUILD` et `ANCHOR-GENERATED` de DG ; rien à importer, DG est plus fin sur la perte |
+| TS `stitch` | Fichier `DESIGN.md` comme source de vérité du style | Pourrait nourrir les 4 champs de `REUSE-CHALLENGE` ; à étudier, pas fait |
+| TS `gpt-taste` | Demande de « simuler » un script avec une graine déduite du texte | À ne pas imiter : faux aléa, contraire à N2 |
+| DG `gouvernance/*` | Voir 5.1 | Aucun équivalent chez TS |
+| DG `maintenance/evolution` | Cycle de vie des routes, recette de maintenance | Aucun équivalent chez TS (TS versionne par CHANGELOG) |
+
+### 5.3 Améliorations livrées sur `ccr-38b0a56f-t8xdo8`
+
+Deux commits, poussés, **sans pull request** (non demandée) : `8d91faf` (contrôleur) et `e0ab48b` (savoir). `SKILL.md` inchangé (20 246 octets sur un budget de 46 000), aucun bloc `noyau` modifié.
+
+| Réf. | Changement | Statut | Preuve |
+|---|---|---|---|
+| F1 | `check_render.py` enregistre les animations dès le début du chargement sous mouvement réduit (`MOTION_RECORDER_JS`) ; infinie → RETURN, finie → réserve avec nombre et déplacements, aucune → « aucune animation démarrée » | corrigé | pages de test `animcourte`, `animgardee`, `animopacite`, `animinfinie`, `transitionjs` |
+| F2 | Nom accessible des SVG : `<title>` lu ; forme seule sans autre nom → candidat vide, non incertain → RETURN ; `text`, `tspan`, `textpath`, `use`, `image`, `foreignobject`, `a`, ARIA interne et `canvas` restent incertains (réserve) | corrigé (choix de conception à valider) | pages `iconesvg`, `iconesvgtitre`, `iconesvgtexte` |
+| B3 partiel | Option `--mesures` : relevés de composition (lignes et taille du titre, corps, tailles et familles distinctes, mesure, médias, centrage, fonds de sections, mots, écrans), **sans seuil ni verdict**, jamais lus par `interpret`, hors du résultat par défaut | livré, optionnel | page `mesures.html`, cas A47 à A52 |
+| N1 partiel | `POINTS-DE-DEPART` (dans `design/savoir/gout-et-tendances.md`) : 16 lignes (typographie, composition, couleur, motifs, mouvement), marquées `[VEILLE 2026-10]`, avec source commune (étude TS v2.0.0, MIT, lue le 2026-10-14, n = 248 / 247, 21 relecteurs modèles), limites et ligne de revue (avant 2027-04) | livré en veille, pas en règle | `test_starting_points_and_writing_routes_are_reachable_and_dated` |
+| N3 | `CFT-06 — écriture et contenu` : argument avant page, budget de titre (caractères par ligne ≈ largeur ÷ (taille × k), k ≈ 0,40 / 0,50 / 0,58), formes de titre, proposition d'appui et actions, preuve sans invention, formules génériques comme « signaux d'enquête », micro-typographie française, contrat réduit | **PILOT** | accessible par `read_route.py` (`SAVOIR/CRAFT/CFT-06`) |
+| N5 | = F1 | corrigé | voir F1 |
+
+**Validation (rejouée le 2026-10-14 sur `e0ab48b`).** `python scripts/validate_all.py --require-browser` : « FULL VALIDATION PASSED — package, RUN_CARD, build et reproductibilité » ; membres des archives = manifeste (GitHub et Local) ; arbre propre. Tests de `check_render` : A 79 / C 65 / B 51 = **195** (161 avant : +12 mouvement, +12 SVG, +10 mesures).
+
+**Limites déclarées (aussi dans `maintenance/versions.md`, « Pilotes en cours »).** Les deux routes et l'option `--mesures` ont été exercées sur des pages de test seulement, jamais sur un vrai brief. Aucun gain n'est démontré : `ADOPTED` exige un gain observé. Les valeurs de `POINTS-DE-DEPART` viennent de modèles relecteurs sur des sites de galerie. Aucune interdiction ni aucun quota n'a été ajouté (D1 à D4 restent ouverts).
+
+### 5.4 Bilan : où en est la capacité esthétique, où en est la gouvernance
+
+- **Capacité esthétique.** L'écart de **méthode** se réduit (valeurs de départ datées, écriture, relevés mesurables). L'écart de **matière** reste entier : TS a ~540 entrées concrètes et un tirage ; DG a ~32 routes courtes. Aucun des deux n'a prouvé qu'il fait mieux qu'un modèle sans skill (TS l'a testé et perd ; DG ne l'a pas testé).
+- **Gouvernance.** DG est plus complète et plus prudente ; TS est plus exécutoire. Ce qui manque à DG : une porte de sortie appliquée par un outil au-delà de la porte A, et un contrat d'évaluation comparatif.
+- **Contrôleurs.** Quasi disjoints (4.1) ; les corrections F1 et F2 comblent deux trous de DG, `--mesures` prépare le troisième sans y toucher.
+
+## 6. À garder en tête pour la suite
 
 **Nécessaire**
-- **N1.** Valeurs de départ en typographie, couleur, mise en page et mouvement, étiquetées « point de départ adaptable », importées avec le format de claim de `SAVOIR/TOOLS` (source, date, limite) et non comme règles.
+- **N1.** *(partiel, voir 5.3)* Valeurs de départ en typographie, couleur, mise en page et mouvement, étiquetées « point de départ adaptable », importées avec le format de claim de `SAVOIR/TOOLS` (source, date, limite) et non comme règles.
 - **N2.** Vrai tirage externe de directions, par script avec historique anti-répétition. Jamais simulé dans le prompt (leçon de `gpt-taste`). Un script Python irait avec votre pile.
-- **N3.** Un fichier d'écriture (absent de DG).
-- **N4.** Mesurer : protocole A/B de TS `research.md` §11 (6 briefs, rendus anonymisés, version figée), TS comme troisième bras, juges humains.
-- **N5 (nouveau, manche 3).** Corriger F1 (mouvement réduit invisible pour les animations courtes).
+- **N3.** *(fait en PILOT, voir 5.3)* Un fichier d'écriture (absent de DG).
+- **N4.** *(bloqué : `EVALUATION_CASE` sans bras de comparaison, voir 5.1)* Mesurer : protocole A/B de TS `research.md` §11 (6 briefs, rendus anonymisés, version figée), TS comme troisième bras, juges humains.
+- **N5 (manche 3).** *(fait, voir 5.3)* Corriger F1 (mouvement réduit invisible pour les animations courtes).
 
 **Bon**
 - **B1.** Inventaire du sujet, test du concurrent, « élément vivant », branchés sur `FIRST-OBJECT`.
 - **B2.** Plans (géométrie desktop et mobile) pour les scènes et objets de DG, en gardant « choisir, éviter, preuve ».
-- **B3.** Signaux esthétiques dans le contrôleur, en réserve (jamais RETURN) : lignes de titre, nombre de tailles, taille du corps, mesure, vraies images, écrans vides, texte couvert, point focal, familles de teinte « vague ». Les mesures de manche 3 montrent que les deux contrôleurs sont quasi disjoints : l'ajout comblerait un vrai trou.
+- **B3.** *(partiel : `--mesures`, sans réserve ni seuil, voir 5.3)* Signaux esthétiques dans le contrôleur, en réserve (jamais RETURN) : lignes de titre, nombre de tailles, taille du corps, mesure, vraies images, écrans vides, texte couvert, point focal, familles de teinte « vague ». Les mesures de manche 3 montrent que les deux contrôleurs sont quasi disjoints : l'ajout comblerait un vrai trou.
 - **B4.** Outil d'images libres de droits avec crédits enregistrés.
 - **B5.** Les 14 passes de TS comme consignes d'observation dans CFT-00, sans note.
 - **B6.** Jetons et recettes de mouvement, par profil de surface (vitrine contre application).
@@ -149,7 +212,7 @@ Lecture : à contexte comparable, **DG charge environ 2,4 fois moins que TS** (7
 
 **À ne pas importer :** la note avec plafonds comme verdict ; le quota d'éléments animés hors vitrine ; les listes de polices « à utiliser » (elles deviennent la vague suivante) ; les personas (« agence à 150 k$ »).
 
-## 6. Journal des corrections
+## 7. Journal des corrections
 
 | Quand | J'avais dit | Réalité | Preuve |
 |---|---|---|---|
@@ -160,12 +223,16 @@ Lecture : à contexte comparable, **DG charge environ 2,4 fois moins que TS** (7
 | Manche 2 | Tous les rendus de TS ont un air de famille | Les interdits sont communs, mais le tirage varie direction, palette, typographie | `draw.mjs`, `library/` |
 | Manche 2 | TS ne couvre ni états ni applications | La v2 non ; `redesign` oui (mais contredit la v2) | `redesign-skill` |
 | Manche 3 | (hypothèse de travail, non publiée) le PASS du mouvement réduit vient du délai d'attente `--wait-ms` | Faux : `--wait-ms 100` donne aussi PASS ; c'est la durée de l'animation face au moment de la mesure (la page est chargée, attendue, entièrement défilée, puis seules les animations encore `running` comptent) | test 0,8 s / 8 s |
+| Manche 4 | Message de commit : « 7 / 9 / 7 tests ajoutés » | 12 / 12 / 10 (161 → 195) | comptage sur `test_check_render.py` ; recommit (reset doux, `--force-with-lease` sur ma propre branche) |
+| Manche 4 | Texte de `POINTS-DE-DEPART` avec le mot « violet » et l'expression « question de convergence » | Refusé par `validate_reading_map` (LCF-46, vocabulaire de vague hors lignes `[VEILLE 20…]`) et `validate_structure` (FIDELITY : « question de convergence » exige « police de titre ») | reformulé en « marqueurs de vague » |
+| Manche 4 | Chemins d'outils externes entre accents graves dans le texte ajouté | `validate_design_governance` exige que tout chemin opérationnel en accents graves existe | passé en texte brut |
+| Manche 4 | Borne de mesure de ligne de ma page de test | écart d'un cran, la mesure réelle de la page est de 48 caractères | assertion corrigée sur la valeur mesurée |
 
-## 7. Prochaines étapes (par ordre)
+## 8. Prochaines étapes (par ordre)
 
-1. **Gouvernance contre rapport final** : lire `gouvernance/*` (statuts, vérification, clôture, schémas) et comparer à l'étape 10 de TS. C'est la partie de DG sans équivalent chez TS et la moins lue.
-2. **Lire les skills de TS non lus** (`image-to-code`, `gpt-taste`, `soft`, `brutalist`, `stitch`) en entier.
-3. **Lire `research.md` §1 à §10** pour fonder N1 (extraire les claims au format `SAVOIR/TOOLS`).
-4. **Trancher D1 à D4** avec l'utilisateur.
-5. **Protocole A/B (N4)** : briefs, grille de notation à l'aveugle, script de rendu. Comparer DG, TS et la référence.
-6. Seulement ensuite : prototypes (tirage N2, signaux B3, correctif F1).
+1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (2 commits, CI-équivalent vert) : ouvrir une PR, la relire d'abord, ou la laisser telle quelle. Aucune PR n'est ouverte.
+2. **Trancher D1 à D4** (interdits et quotas ; mouvement obligatoire ou non ; image réelle d'abord ; style maison). Rien n'a été ajouté sur ces points.
+3. **Gagner le statut `ADOPTED`** : faire tourner `CFT-06`, `POINTS-DE-DEPART` et `--mesures` sur de vrais briefs, avec le gain observé que la recette exige ; sinon laisser en PILOT / VEILLE, ou retirer (retour arrière documenté).
+4. **Étendre `EVALUATION_CASE`** (ou un contrat parallèle hors paquet) avec bras de comparaison, référence sans skill et relecture à l'aveugle ; puis seulement le protocole A/B (N4) : DG, TS, référence ; juges humains.
+5. **Prototypes restants, un par un et seulement si l'étape 2 le permet** : tirage N2 (script Python, historique anti-répétition) ; plans B2 ; images libres B4 ; passes B5 ; jetons de mouvement B6 ; style maison B7 ; signaux esthétiques en réserve dans `check_render` (suite de B3).
+6. **Lire ce qui reste non lu** (section 2) avant tout jugement sur ces fichiers.
