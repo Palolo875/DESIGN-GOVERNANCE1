@@ -40,6 +40,8 @@ Une **proposition premium** se juge avec l’heuristique [« Premium perçu »](
 
 **Substance.** La retenue n’est pas le vide. Signaux d’enquête, sans seuil ni score : un écran presque vide qui n’est pas un repos voulu ; une section demandée livrée en quelques mots ; un texte courant petit ou grisé sur toute la page ; une page qui a perdu ses motifs sans rien gagner à la place. Dans l’étude de Taste Skill v2, une page plus riche mais pleine de motifs-gabarits battait une page plus propre et mince en comparaison aveugle de modèles (hypothèse à revérifier). Réponse possible : agrandir ce qui compte, livrer le contenu complet à taille lisible (`CNT-01`), mettre une image ou un champ de couleur faits pour ce sujet, ou couper la section ; ne comble pas par un ornement (`FND-01`, retenue avant accumulation). Un vide placé qui porte une relation reste valable (`SAVOIR/CRAFT/CFT-03`, échelle et champ calme).
 
+**Mouvement.** Question de revue, sans quota : qu’est-ce qui bouge sur cette surface, et pourquoi ? Une page faite pour se montrer (lancement, récit, présentation d’une activité) où rien ne répond au regard ni au geste appelle l’enquête ; une page d’outil ou de lecture qui reste fixe n’a rien à justifier. La réponse peut être une apparition, un changement d’état, un défilement qui révèle, ou rien, avec sa raison. Aucun nombre d’éléments animés n’est attendu. Durées et courbes de départ : `SAVOIR/CONTEXT`, « Durées et courbes, points de départ » ; l’alternative sous mouvement réduit reste due (`ACTION/GATE-A`).
+
 ### Creative Quality Review
 
 <!-- noyau:début BOUCLE-REVUE -->

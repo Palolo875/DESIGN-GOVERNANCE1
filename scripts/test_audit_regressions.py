@@ -455,7 +455,8 @@ class CoreResourceActivationTests(unittest.TestCase):
     def test_subject_inventory_pilot_and_substance_signal_are_served_by_their_routes(self):
         # Inventaire du sujet : sous-section de CFT-01 en PILOT, source datée ; substance : signal d'enquête de CFT-00, sans score.
         for locator, expected in [('SAVOIR/CRAFT/CFT-01', ('Inventaire du sujet et phrase d’idée', 'Test du concurrent', 'PILOT', 'Contre-indication', 'ADOPTED', '2026-10-14')),
-                                  ('SAVOIR/CRAFT/CFT-00', ('Substance', 'sans seuil ni score', 'La retenue n’est pas le vide'))]:
+                                  ('SAVOIR/CRAFT/CFT-00', ('Substance', 'sans seuil ni score', 'La retenue n’est pas le vide',
+                                                           'qu’est-ce qui bouge sur cette surface', 'Aucun nombre d’éléments animés'))]:
             with self.subTest(locator=locator):
                 _, lines, index = routes.resolve(locator)
                 served = '\n'.join(routes.extract(lines, index))
