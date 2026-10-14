@@ -431,6 +431,16 @@ class CoreResourceActivationTests(unittest.TestCase):
         self.assertEqual(routes.adresse('savoir/gout-et-tendances#points-de-depart'), 'SAVOIR/TOOLS/POINTS-DE-DEPART')
         self.assertEqual(routes.adresse('savoir/qualite-creative#ecriture'), 'SAVOIR/CRAFT/CFT-06')
 
+    def test_starting_templates_are_served_with_their_limits_on_two_routes_only(self):
+        # Gabarits de départ : deux routes seulement, valeurs [À ADAPTER], source datée, contre-indications, preuve et test de retrait.
+        for locator in ('BIBLIOTHEQUE/GRID', 'BIBLIOTHEQUE/SCENE'):
+            with self.subTest(locator=locator):
+                _, lines, index = routes.resolve(locator)
+                served = '\n'.join(routes.extract(lines, index))
+                for fragment in ('Gabarit de départ', 'À ADAPTER', 'Contre-indications', 'test de retrait', '2026-10-14', 'non validées'):
+                    self.assertIn(fragment, served)
+                self.assertEqual(served.count('**Gabarit de départ'), 1)
+
     def test_setting_values_and_image_search_pilots_are_served_with_their_limits(self):
         # Valeurs de réglage `[À ADAPTER]` (grand texte, durées) et procédure d'images libres : servies par leur route, limites et source datée présentes.
         for locator, expected in [('SAVOIR/TYPE', ('Réglage d’un grand texte', 'À ADAPTER', 'non des mesures', 'Contre-indications', '2026-10-14')),
