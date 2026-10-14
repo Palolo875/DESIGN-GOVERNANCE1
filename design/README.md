@@ -4,12 +4,12 @@ Tout ce qui sert à décider, savoir, construire et finir un design de qualité 
 
 | Dossier | Ce qu’on y trouve |
 |---|---|
-| `direction/` | Décider ce que la page doit être : [cadrer](direction/cadrer.md), [diriger](direction/diriger.md), [premier objet](direction/premier-objet.md), [la boucle](direction/boucle.md), [le standard](direction/standard.md) |
+| [`direction/`](direction/README.md) | Décider ce que la page doit être : [cadrer](direction/cadrer.md), [diriger](direction/diriger.md), [premier objet](direction/premier-objet.md), [la boucle](direction/boucle.md), [le standard](direction/standard.md) |
 | [`savoir/`](savoir/README.md) | Le savoir de référence : fondements, qualité créative, typographie, composition, images, styles, contexte, techniques, goût |
 | [`formes/`](formes/README.md) | Les structures : choisir une structure, catalogue des formes |
 | [`produit/`](produit/README.md) | Ce qui fait un vrai produit : premier rendu, plancher, finition, preuve visuelle, interface |
 
-Ces fichiers reprennent des sections des anciennes sources (`DIRECTION.md`, `SAVOIR.md`, `BIBLIOTHEQUE.md`, `ACTION.md`) ; leurs anciennes adresses restent valables.
+Chaque section se lit par son adresse lisible (`savoir/couleur`) ou par son code stable (`SAVOIR/CRAFT/CFT-05`) ; les deux désignent la même section.
 
 ## Créer puis apprendre
 

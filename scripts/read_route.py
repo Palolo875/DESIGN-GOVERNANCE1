@@ -139,10 +139,6 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
 # son contenu. Un nom absent de la table désigne le fichier du même nom dans OFFICIAL. Le rangement déplace le
 # texte puis met à jour cette table, et elle seule : lecteur, compilation du noyau et validateurs passent par elle.
 LIEUX: dict[str, tuple[str, ...]] = {
-    # Rangement, lot 4 : la gouvernance formelle part dans le module gouvernance/ (texte inchangé).
-    # Rangement, lot 5 : le cœur du design part dans design/ (direction, savoir, formes, produit ; texte inchangé).
-    # Rangement, lot 6 : le chemin de l'agent (classer, quoi lire) et sa réponse partent dans agent/ (texte inchangé).
-    # Rangement, lot 7a : l'évolution du système et le journal des versions partent dans maintenance/ (texte inchangé).
     "DIRECTION.md": ("V1/sections/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
                      "design/direction/cadrer.md", "design/direction/premier-objet.md", "design/direction/diriger.md",
                      "design/direction/boucle.md", "design/direction/standard.md", "design/produit/interface.md"),
@@ -165,7 +161,7 @@ LIEUX: dict[str, tuple[str, ...]] = {
 }
 
 
-# Adresses lisibles (architecture cible, branche refonte : ARCHI/architecture.md §6) → locator actuel.
+# Adresses lisibles → locator actuel.
 # On peut les donner au lecteur dès maintenant ; l'ancien locator reste accepté pendant toute la V1.
 # Le préfixe « design/ » est facultatif. Quand une route change de titre (phase de langue), seule cette table change.
 ADRESSES: dict[str, str] = {
@@ -725,7 +721,7 @@ ALIAS_GROUPS = (
     ("état vide", "empty state", "empty"),
     ("tabulaire", "tabular", "chiffres tabulaires"),
     ("densité", "density"),
-    # Ajouts du lot 2 du rangement : vocabulaire courant d'un débutant, d'un designer ou en anglais (moitié de réglage
+    # Vocabulaire courant d'un débutant, d'un designer ou en anglais (moitié de réglage
     # du second jeu de trouvabilité ; l'autre moitié sert de témoin).
     ("accessibilité", "accessible", "accessibility", "handicap", "wcag", "a11y"),
     ("erreur", "erreurs", "error", "plante"),

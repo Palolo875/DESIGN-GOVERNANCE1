@@ -149,7 +149,7 @@ class PreparationTests(unittest.TestCase):
             for name in manifest["github"]:
                 path = root / name; path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes((prep.ROOT / name).read_bytes())
-            # Le bloc CHARGE-REGLE est cherché là où il vit aujourd’hui (rangement : il a pu changer de fichier).
+            # Le bloc CHARGE-REGLE est cherché là où il vit aujourd’hui (il a pu changer de fichier).
             source = next(root / n for n in manifest["github"] if n.endswith(".md") and "<!-- noyau:fin CHARGE-REGLE -->" in (root / n).read_text())
             skill = root / "SKILL.md"
             extra = 46_001 - skill.stat().st_size

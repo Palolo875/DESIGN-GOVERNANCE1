@@ -1,6 +1,6 @@
 # Design Governance V1.0.0 — expérimental
 
-Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu ; il sert aussi à juger et analyser un existant. Quand un travail doit être livré ou audité, le système garde aussi la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
+Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu ; il sert aussi à juger et analyser un existant. Quand un travail doit être livré ou audité, le système garde la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
 
 > **Statut :** V1.0.0, révision `R2026-10-14-REVUE`. Expérimentation maintenue, pensée pour un usage avec revue humaine ; son effet sur la qualité des rendus n’est pas encore mesuré (`NOT-VERIFIED`). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
 
@@ -58,7 +58,7 @@ cd .claude/skills/design-governance-practice && python3 scripts/read_route.py DI
 
 Ce contrôle ne prouve pas que l’agent a chargé la skill : demandez-lui quelles skills sont actives, ou consultez la liste de skills de l’hôte.
 
-## Comment ça marche
+## Fonctionnement
 
 Deux boucles se répondent. La première **crée** : cadrer le produit et son public, chercher des références quand elles peuvent changer la décision, choisir une direction, construire une scène complète, polir. La seconde **apprend** : regarder le rendu réel, nommer le défaut principal, corriger, regarder à nouveau, décider. Le détail est dans [`design/README.md`](design/README.md). Le [parcours d’un travail](supports/parcours.md) et la [boucle créer/apprendre](supports/boucle.md) en donnent deux vues complémentaires.
 
@@ -75,17 +75,17 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 
 | Partie | Chemin | Contenu |
 |---|---|---|
-| **Guides** | `guides/` | Trois niveaux de maîtrise (utiliser, comprendre, maîtriser) et un glossaire. |
-| **Design** | `design/` | Le cœur : direction, savoir, formes, qualité du produit. |
-| **Skill** | `SKILL.md`, `references/` | Le point d’entrée de l’agent (noyau commun) et ses références. |
-| **Agent** | `agent/` | Le chemin de l’agent par mode et la forme de sa réponse. |
-| **Gouvernance** (selon le besoin) | `gouvernance/` | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
-| **Supports** | `supports/` | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
-| **Maintenance** | `maintenance/` | Ce que contient la version, évolution du système, distributions et validation. |
-| **Sections d’origine** | `V1/sections/` | Sections restées à leur emplacement d’origine et carte de lecture ; même autorité que les autres. |
+| **Guides** | [`guides/`](guides/README.md) | Trois niveaux de maîtrise (utiliser, comprendre, maîtriser) et un glossaire. |
+| **Design** | [`design/`](design/README.md) | Le cœur : direction, savoir, formes, qualité du produit. |
+| **Skill** | [`SKILL.md`](SKILL.md), `references/` | Le point d’entrée de l’agent (noyau commun) et ses références. |
+| **Agent** | [`agent/`](agent/README.md) | Le chemin de l’agent par mode et la forme de sa réponse. |
+| **Gouvernance** (selon le besoin) | [`gouvernance/`](gouvernance/README.md) | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
+| **Supports** | [`supports/`](supports/README.md) | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
+| **Maintenance** | [`maintenance/`](maintenance/README.md) | Ce que contient la version, évolution du système, distributions et validation. |
+| **Sections d’origine** | [`V1/sections/`](V1/sections/README.md) | Sections restées à leur emplacement d’origine et carte de lecture ; même autorité que les autres. |
 | **Outils** | `scripts/` | Lecteur, contrôles et construction des distributions. |
 
-La gouvernance s'adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
+La gouvernance s’adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
 
 Les guides orientent ; ils ne créent aucune règle. Une règle fait foi dans sa section propriétaire, à son emplacement actuel, décrit dans le [sommaire des sources](V1/sections/README.md). Les codes historiques et les adresses lisibles désignent les mêmes sections.
 

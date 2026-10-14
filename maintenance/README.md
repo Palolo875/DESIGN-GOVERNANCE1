@@ -1,4 +1,4 @@
-# Maintenance
+# Maintenance — faire évoluer le système
 
 Pour qui fait évoluer le système : d’où vient chaque distribution, comment la préparer et la valider. Ce module se charge quand une règle ou une route doit évoluer, être promue ou dépréciée ; il ne fait pas partie du chargement ordinaire d’une proposition.
 

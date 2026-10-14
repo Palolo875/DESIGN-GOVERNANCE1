@@ -411,7 +411,7 @@ class SearchAndSummaryTests(unittest.TestCase):
                     self.assertIn(f"\n{locator} ", out)
 
     def test_shared_file_split_by_origin(self):
-        # Rangement, lot 4 : un fichier qui reçoit plusieurs sources marque l'origine de chaque section.
+        # Un fichier qui reçoit plusieurs sources marque l'origine de chaque section.
         with tempfile.TemporaryDirectory() as tmp:
             shared = Path(tmp) / "partage.md"
             shared.write_text("# Titre\n\nRôle.\n\n<!-- origine:ACTION.md -->\n## A\n\nTexte A.\n\n"
@@ -426,7 +426,7 @@ class SearchAndSummaryTests(unittest.TestCase):
             self.assertTrue(reader.CONCEPT_MARKER.match("<!-- origine:ACTION.md -->"))
 
     def test_every_route_has_a_readable_address(self):
-        # Rangement, lot 2 : chaque route a une adresse lisible qui la sert ; les anciennes restent servies.
+        # Chaque route a une adresse lisible qui la sert ; les anciennes restent servies.
         routes = {row[0] for row in reader.summary_rows()}
         self.assertEqual(sorted(routes - set(reader.ADRESSE_DE) - reader.SANS_ADRESSE), [])
         self.assertEqual(len(set(reader.ADRESSES.values())), len(reader.ADRESSES))
@@ -437,7 +437,7 @@ class SearchAndSummaryTests(unittest.TestCase):
         self.assertIn("ROUTE: SAVOIR/CRAFT/CFT-05 (adresse : savoir/couleur)", out)
 
     def test_phrase_search_reaches_the_owner(self):
-        # Rangement, lot 2 : une phrase d'humain trouve la route qui y répond, même si l'expression exacte n'existe pas.
+        # Une phrase d'humain trouve la route qui y répond, même si l'expression exacte n'existe pas.
         out = self.cli("--trouver", "quelle police choisir").stdout
         top = [l.split(" ")[0] for l in out.splitlines() if l.split(" ")[0].count("/") == 1 and "ligne(s)" in l][:3]
         self.assertIn("mots de la phrase", out)

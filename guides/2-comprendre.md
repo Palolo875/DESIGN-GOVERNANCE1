@@ -9,10 +9,10 @@ Les adresses entre accents graves, comme `savoir/couleur`, se lisent avec le lec
 
 À chaque demande, l’agent (ou la personne qui pilote) suit ces étapes ; pour utiliser le système, vous n’avez pas à les faire vous-même ni à choisir un mode ([niveau 1](1-utiliser.md#commencer)).
 
-1. Classez la demande avec `DIRECTION/START` : mode et risque dominant ; notez la décision à changer, la prochaine preuve et l’owner.
-2. Chargez la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement le propriétaire normatif utile.
-3. Produisez ou modifiez l’artefact, puis observez-le dans le scope déclaré.
-4. Isolez le défaut dominant, corrigez l’artefact lorsque c’est nécessaire, observez à nouveau et séparez ce qui a été observé de ce qui reste non vérifié.
+1. Il classe la demande avec `DIRECTION/START` : mode et risque dominant ; il note la décision à changer, la prochaine preuve et l’owner.
+2. Il charge la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement la section utile.
+3. Il produit ou modifie l’artefact, puis l’observe dans le périmètre déclaré.
+4. Il isole le défaut dominant, corrige l’artefact lorsque c’est nécessaire, observe à nouveau et sépare ce qui a été observé de ce qui reste non vérifié.
 
 La direction est la position globale ; la direction artistique en est l’expression visuelle située. Le craft décrit la qualité de fabrication, le polish sa résolution cohérente, et la spécificité le lien non interchangeable avec le produit et le contexte.
 

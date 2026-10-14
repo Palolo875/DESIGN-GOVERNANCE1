@@ -1,4 +1,4 @@
-# Flux de décision V1
+# Références — flux de décision
 
 Le flux suivant est une vue de lecture, pas une route supplémentaire :
 

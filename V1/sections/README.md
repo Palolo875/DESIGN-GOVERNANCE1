@@ -1,4 +1,4 @@
-# Design Governance V1.0.0
+# Sections d’origine — Design Governance V1.0.0
 
 Ce dossier contient des sections du système restées à leur emplacement d’origine et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Leur autorité suit la section propriétaire, comme dans les autres dossiers. Le sommaire reste le point d’entrée vers toutes les responsabilités historiques.
 
@@ -18,7 +18,7 @@ L’autorité appartient à la **section propriétaire à son emplacement actuel
 
 Les marqueurs de provenance ne rendent pas un guide normatif : une section de règle fait foi, un guide ou une carte l’oriente. Le noyau de la skill est une projection générée ; les archives sont des distributions dérivées. En cas de divergence, corriger la projection ou le guide depuis la section propriétaire, puis régénérer et valider.
 
-Les anciens codes et les adresses lisibles sont deux noms pour une même section. L’agent utilise les codes stables du noyau ; une personne peut utiliser les adresses lisibles. Aucune seconde lecture n’est requise. Les noms historiques de fichiers conservés dans le registre et les marqueurs servent à la provenance, pas de chemins à ouvrir.
+Les codes stables et les adresses lisibles sont deux noms pour une même section. L’agent utilise les codes stables du noyau ; une personne peut utiliser les adresses lisibles. Aucune seconde lecture n’est requise. Les noms historiques de fichiers conservés dans le registre et les marqueurs servent à la provenance, pas de chemins à ouvrir.
 
 Le README et les guides (`guides/`) sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`V1/sections/READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
 

@@ -1,4 +1,4 @@
-# Projection machine-readable
+# Références — projection machine
 
 Cette projection sert au transport entre agents, scripts ou handoffs. Elle ne crée pas de contrat concurrent : `ACTION.md` reste la source d’autorité. La forme courte LITE sans RUN_CARD reste une trace complète selon `ACTION/HANDOFF` et `ACTION/CLOSE-PACKAGE` ; elle est hors de cette projection. Une demande de projection structurée conserve le schéma et le validateur.
 

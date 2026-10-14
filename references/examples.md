@@ -1,4 +1,4 @@
-# Exemples de runs
+# Références — exemples de runs
 
 > Ces exemples sont des aides non canoniques. Reprendre la séquence, pas le style, les valeurs, les composants ou les décisions visuelles. Les cas sont `ILLUSTRATIVE` et `SIMULATED` sauf mention contraire. Les champs affichés varient volontairement selon le mode : une omission dans une condensation n’est pas une suppression de la règle correspondante et ces blocs ne constituent pas un formulaire universel de `RUN_CARD`. Les champs affichés respectent les contrats d’ACTION ; un champ omis reste dû dans la `RUN_CARD`.
 >

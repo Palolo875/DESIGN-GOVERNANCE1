@@ -6,7 +6,7 @@ Carte de responsabilités, pas un ordre fixe d’exécution.
 
 ## Entrer
 
-**Guides**. Des repères pour les personnes. Commencer, concevoir, travailler en équipe.
+**Guides**. Des repères pour les personnes. Trois niveaux : utiliser, comprendre, maîtriser.
 
 
 [Section propriétaire](../guides/1-utiliser.md).

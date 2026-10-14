@@ -324,7 +324,7 @@ def check_entry(corpus: dict[Path, list[str]], errors: list[str]) -> None:
 # 15. Préambule de BIBLIOTHEQUE : ni instrumentation de lecture ni contrat de promotion avant les routes.
 def check_preamble(errors: list[str]) -> None:
     # Le préambule va de « Responsabilité » à la première route de BIBLIOTHEQUE qui suit, dans le même texte :
-    # les routes peuvent avoir changé de fichier (rangement), le préambule lu en premier reste celui-ci.
+    # les routes peuvent avoir changé de fichier, le préambule lu en premier reste celui-ci.
     text = texte("BIBLIOTHEQUE.md")
     start = text.find("## Responsabilité")
     end = text.find("\n## BIBLIOTHEQUE/", start) if start >= 0 else -1

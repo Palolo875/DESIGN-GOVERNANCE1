@@ -11,7 +11,7 @@ Ce module aide à vérifier une affirmation, protéger un risque, permettre une 
 
 Le niveau de trace suit [la règle propriétaire](../agent/repondre.md). Alléger la formalité ne supprime aucune preuve applicable. Montrer une proposition ne vaut pas accepter un produit.
 
-Les sections de ce module viennent d’`ACTION.md`, de `DIRECTION.md` et de `BIBLIOTHEQUE.md` ; leurs anciennes adresses restent valables.
+Ses sections se lisent aussi par leurs codes stables (`ACTION/…`, `DIRECTION/…`, `BIBLIOTHEQUE/…`), comme les adresses lisibles (`gouvernance/statuts`).
 
 | Fichier | Contenu |
 |---|---|

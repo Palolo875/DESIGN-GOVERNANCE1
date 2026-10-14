@@ -102,7 +102,7 @@ def check_manifest(errors: list[str]) -> None:
         return
     if VERSION != match.group(1):
         fail(errors, f"version du manifeste divergente : {VERSION} (CHANGELOG : {match.group(1)})")
-    titles = [("README.md", ROOT / "README.md"), ("README.md (sources)", None), ("QUICKSTART.md", None),
+    titles = [("README.md", ROOT / "README.md"), ("README.md (sources)", None),
               ("RELEASE_NOTES.md", ROOT / "RELEASE_NOTES.md")]
     for label, path in titles:
         if path == ROOT / "RELEASE_NOTES.md" and not path.is_file():
