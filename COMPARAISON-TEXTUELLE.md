@@ -201,18 +201,42 @@ Seule DG couvre le sujet : `STATE` (états pertinents, récupération d'erreur `
 
 ## 5. Contradictions de fond entre TS et DG
 
-| # | Sujet | TS | DG | Qui décide |
+| # | Sujet | TS | DG | Décision (manche 11) |
 |---|---|---|---|---|
-| 1 | Interdits | 15 règles de maison appliquées par `lint` et `inspect` (`SKILL.md`) | « jamais pour interdire » (`COMP-VAGUES`), signaux d'enquête | D1 |
-| 2 | Mouvement | obligatoire, plancher de 8 éléments (`SKILL.md` étape 9) | justifié ou supprimé (`CONTEXT`) | D2 |
-| 3 | Images | plancher de 4 réelles, vidéo conseillée | `SANS-ASSET` à égalité, jamais de faux asset | D3 |
-| 4 | Traitements d'image | duotone et grain « pas des traitements » (`imagery.md` §6) | duotone, grain ou trame possibles si la thèse les justifie (`MOY-ASSETS`) ; la tension interne de DG avec ses marqueurs de vague est alignée depuis la manche 8 | à trancher |
-| 5 | Note | score chiffré avec plafonds (`critique.md`) | aucun score (`CFT-00`, `DOUBLE-LOOP`) | à trancher |
-| 6 | Accent | un seul, sous 5 % | palette plurielle recevable, ne pas réduire par réflexe | à trancher |
-| 7 | Polices fréquentes | « par défaut » signalées (lint) | « pas un problème en soi » | à trancher |
-| 8 | Repères de coin, filets | bannis (`layout.md` §2, `tells.md` §4) | cités comme geste possible (`CFT-03`) | à trancher |
-| 9 | Réglages | absents de la v2 par défaut | 9 réglages qualitatifs (`styles.md`) | D4 |
-| 10 | Style maison | un parti unique, sans ornements | pluralité esthétique (`FND-01`, « Pluralité esthétique et goût situé ») | D4 |
+| 1 | Interdits | 15 règles de maison appliquées par `lint` et `inspect` (`SKILL.md`) | « jamais pour interdire » (`COMP-VAGUES`), signaux d'enquête | D1 : **recommandé** côté DG (non tranché par l'utilisateur) ; planchers seulement pour les défauts objectifs (porte A) |
+| 2 | Mouvement | obligatoire, plancher de 8 éléments (`SKILL.md` étape 9) | justifié ou supprimé (`CONTEXT`) | D2 : côté DG, appliqué à la demande de l'utilisateur ; question « qu'est-ce qui bouge, et pourquoi ? » dans `CFT-00`, sans quota (livrée) |
+| 3 | Images | plancher de 4 réelles, vidéo conseillée | `SANS-ASSET` à égalité, jamais de faux asset | D3 : **recommandé** côté DG (non tranché) ; plafond déclaré à écrire, route d'images libres livrée en U6 |
+| 4 | Traitements d'image | duotone et grain « pas des traitements » (`imagery.md` §6) | duotone, grain ou trame possibles si la thèse les justifie (`MOY-ASSETS`) ; la tension interne de DG avec ses marqueurs de vague est alignée depuis la manche 8 | **tranché : côté DG**, déjà aligné (U7) |
+| 5 | Note | score chiffré avec plafonds (`critique.md`) | aucun score (`CFT-00`, `DOUBLE-LOOP`) | **tranché : côté DG** ; les plafonds de TS ont presque tous un pendant (5.1) |
+| 6 | Accent | un seul, sous 5 % | palette plurielle recevable, ne pas réduire par réflexe | **tranché : côté DG** ; le schéma « monochrome plus un accent » est le plus fréquent du panel de TS (23 %) mais aucun écart entre hauts et faibles n'est publié |
+| 7 | Polices fréquentes | « par défaut » signalées (lint) | « pas un problème en soi » | **tranché : côté DG** ; la liste de TS est un choix de maison |
+| 8 | Repères de coin, filets | bannis (`layout.md` §2, `tells.md` §4) | cités comme geste possible (`CFT-03`) | **tranché : côté DG**, avec test de retrait (U7) ; TS avoue que les filets fins sont bannis par choix, non par les données (61 % chez les hauts contre 52 %) |
+| 9 | Réglages | absents de la v2 par défaut | 9 réglages qualitatifs (`styles.md`) | D4 : **recommandé** côté DG (non tranché ; la skill expérimentale de TS a aussi trois réglages) |
+| 10 | Style maison | un parti unique, sans ornements | pluralité esthétique (`FND-01`, « Pluralité esthétique et goût situé ») | D4 : **recommandé** côté DG (non tranché) ; le style de TS reste possible comme profil `STYLE`, sur demande |
+
+### 5.1 Les plafonds de TS et leur pendant dans DG (manche 11)
+
+La note de TS (`critique.md` §2-3) est une grille à quatre critères avec treize plafonds qui l'emportent sur l'arithmétique. Chaque plafond, rapproché de DG après les manches 4 à 10 :
+
+| Plafond de TS | Pendant dans DG |
+|---|---|
+| Un `FAIL` de l'inspecteur : 6,0 au plus | Un `RETURN` de la porte A : le verdict n'est pas accepté |
+| Titre de 3 lignes ou plus, étiquette, monospace, numérotation 01/02, dégradé, ombre, filet : 6,5 au plus | Aucun, **par choix** (D1) : questions de convergence et relevés |
+| La page pourrait appartenir à n'importe qui : créativité 6 au plus | Test de singularité et `MODAL` (`SAVOIR/FRAME/SINGULARITE`, `CFT-02`) |
+| L'idée vaut pour le concurrent le plus proche : 7 au plus | Test du concurrent (`CFT-01`, U1) |
+| Moins de 4 images réelles : design 6,5 au plus | Aucun (D3) : plafond déclaré, images libres (U6) |
+| Une page qui bouge à peine : 7 au plus | Question sur le mouvement (`CFT-00`, D2) |
+| Aucune chose vivante : créativité 7,5 au plus | « Une chose vivante » (`CFT-01`, U1) |
+| Un emplacement vide (boîte grise, lorem) : contenu 5 au plus | Contenu d'exemple marqué, jamais d'emplacement vide (noyau) |
+| Deux écrans de bureau presque vides ou texte courant petit et grisé : 6,5 au plus | Signal de substance (`CFT-00`, U2) ; plus petit texte relevé (`--mesures`) |
+| Section demandée absente ou réduite à quelques mots : contenu 6 au plus | Signal de substance (`CFT-00`, U2) |
+| Pas de vrai bouton d'action au premier écran : utilisabilité 7 au plus | **Aucun contrôle équivalent** ; l'objet de preuve (`--proof`) ne vise pas l'action |
+| Un élément couvre un titre à une position de défilement : utilisabilité 6 au plus | Relevé du premier écran (`--mesures`, U8), sans plafond ; défilement non parcouru |
+| Bande vide où une révélation ne s'est pas déclenchée, ou contenu rogné hors écran : utilisabilité 5 au plus | La recette fait défiler toute la page avant de mesurer ; haut de titre rogné relevé (U8) ; reste partiel |
+
+**Lecture.** Sur treize plafonds, huit ont un pendant dans DG (cinq ajoutés par les changements de cette série, trois qui existaient), deux sont des refus assumés (les motifs de galerie, le plancher d'images réelles), deux sont partiels (recouvrement d'un titre, bande vide ou rognage) et un manque (action principale au premier écran). TS exprime en note ce que DG exprime en geste, en plafond déclaré ou en `RETURN`. Le désaccord de fond porte sur la **forme** (un nombre contre une description de l'écart), non sur ce qui est regardé. La seule absence réelle est le contrôle de l'action principale au premier écran, qui relèverait d'un relevé (`--mesures`) plutôt que d'un verdict.
+
+**Données de TS à garder en tête pour trancher.** `research.md` écrit lui-même que les étiquettes monospace, la numérotation d'index et les grilles à filets sont « exclues par choix du propriétaire, non par les données » (plus fréquentes chez les hauts : 44 % contre 24 %, 38 % contre 21 %), et que les filets fins ne montrent aucun écart (61 % contre 52 %). Ses interdits de maison sont donc un style, pas une mesure de qualité.
 
 ## 6. Tensions internes à chaque système (vues à la lecture)
 

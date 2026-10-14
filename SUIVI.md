@@ -353,7 +353,7 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 
 **Limites déclarées.** Valeurs reprises de TS, observées sur des sites de galerie notés par des modèles ; aucun gain n'est démontré ; aucune n'a été exercée sur un run de design. `ADOPTED` exige des runs contrastés avec et sans.
 
-## 11. Manche 10 : fin des lectures, B9, mesures de recouvrement (U8), protocole A/B préparé
+## 11. Manches 10 et 11 : lectures, mesures, protocole, puis principes D et contradictions
 
 « A toi le choix. » : j'ai choisi, dans l'ordre, de finir les lectures encore ouvertes (`probe.mjs`, B9), de combler le trou que `probe.mjs` montre, et de préparer le protocole A/B **sans le lancer**.
 
@@ -409,6 +409,25 @@ Commit `1978466`. `check_render.py` n'avait aucun contrôle des images qui ne se
 
 Document : **`PROTOCOLE-AB.md`** (non exécuté). À retenir : quatre bras (rien, DG avant, DG après, TS v2), huit briefs figés d'avance (le brief « atelier de vélos » est écarté : il a servi à orienter des changements), journal d'exposition obligatoire, rendus anonymisés, relecture humaine par paires, **le brief est l'unité d'analyse**. Chiffres posés : 7 briefs sur 8 donnent p = 0,035, 8 sur 8 p = 0,004 ; si le vrai taux de préférence est de 70 %, la probabilité d'atteindre 7 sur 8 est d'environ 25 % : **le dispositif confirme un gain net et manque un gain modeste**. Particularité de DG : `SKILL.md` est identique avant et après (20 246 octets), la différence ne passe que par les routes lues et le script, donc **si l'agent ne lit pas les routes ajoutées, A1 et A2 sont le même système** ; l'exposition se mesure. L'extension de `EVALUATION_CASE` est spécifiée dans le document, pas écrite dans DG.
 
+### 11.6 Manche 11 : D1 à D4 et contradictions tranchées
+
+Demande de l'utilisateur : l'avis de l'assistant sur les principes D et sur l'état du système, puis « 2 et les 6 autres contradictions ». **Lecture retenue** : « 2 » = la concession de D2 ; les six autres = les lignes 4 à 9 du tableau 5 de `COMPARAISON-TEXTUELLE.md`. Le contraste non textuel du focus (proposé en même temps) n'a **pas** été fait.
+
+| Principe | Avis de l'assistant | Statut |
+|---|---|---|
+| D1 interdits et planchers | Côté DG : les défauts objectifs sont des planchers de la porte A, les signaux esthétiques restent des relevés ou des questions de retrait | recommandé, **non tranché par l'utilisateur** |
+| **D2 mouvement** | Côté DG, avec une question de revue sans quota dans `CFT-00` | **appliqué** (commit `a474ac5`, `PILOT`-like : ligne dans « Pilotes en cours ») |
+| D3 images réelles | Côté DG, avec plafond déclaré et route d'images libres (U6) | recommandé ; le plafond déclaré n'est **pas** écrit |
+| D4 style maison | Côté DG ; le style de TS comme profil `STYLE` sur demande | recommandé, non tranché |
+
+**D2 livré.** Paragraphe « Mouvement » dans `CFT-00` : « qu'est-ce qui bouge sur cette surface, et pourquoi ? » ; une page faite pour se montrer où rien ne répond au regard appelle l'enquête, une page d'outil ou de lecture fixe n'a rien à justifier ; « aucun nombre d'éléments animés n'est attendu » ; renvois vers `SAVOIR/CONTEXT` (durées de départ) et la porte A (alternative sous mouvement réduit). Aucun renvoi à `SAVOIR/STATE` (leçon de la manche 8). `SKILL.md` inchangé (20 246 octets). `test_audit_regressions` : 78 cas (le test de `CFT-00` couvre le nouveau paragraphe). Validation complète `--require-browser` passée.
+
+**Les six autres contradictions (4 à 9) : toutes tranchées côté DG** (détail dans `COMPARAISON-TEXTUELLE.md` 5 et 5.1). Raisons : (4) traitements d'image et (8) repères de coin sont déjà alignés par U7 ; (5) la note de TS a treize plafonds dont huit ont un pendant dans DG, le désaccord est de forme (nombre contre description) ; (6) le schéma « monochrome plus un accent » est le plus fréquent du panel de TS (23 %), mais `research.md` ne publie aucun écart entre hauts et faibles ; (7) la liste de polices « par défaut » est un choix de maison ; (9) la skill expérimentale de TS a aussi trois réglages. **Donnée utile** : `research.md` dit lui-même que les étiquettes monospace, la numérotation d'index et les grilles à filets sont exclues « par choix du propriétaire, non par les données » (plus fréquentes chez les hauts) et que les filets fins ne montrent aucun écart (61 % contre 52 %).
+
+**Un manque trouvé en chemin** : aucun contrôle de l'action principale au premier écran (TS : plafond d'utilisabilité à 7, avertissement `first-action`). Si cela vaut la peine, ce serait un relevé de `--mesures`, pas un verdict.
+
+**Aucun changement de code** dans cette manche en dehors de D2 (un paragraphe).
+
 ## 12. À garder en tête pour la suite
 
 **Nécessaire**
@@ -429,10 +448,10 @@ Document : **`PROTOCOLE-AB.md`** (non exécuté). À retenir : quatre bras (rien
 - **B8 (nouveau).** Rendre la charge de contexte visible : DG a déjà une ligne de mode de 115 à 292 mots ; garder cet avantage (environ 2,4 fois moins de lecture que TS) en important de la matière **par route**, pas dans le noyau.
 
 **Principes à trancher (décision de l'utilisateur)**
-- **D1.** Interdits et planchers mesurés (TS) contre « aucun quota, aucun interdit universel » (DG). Proposition : par profil de surface, en réserve.
-- **D2.** Mouvement obligatoire (quota de 8 éléments, TS) contre mouvement seulement s'il sert (DG). La page « saine » de la manche 3 reçoit un WARN de TS pour un mouvement mesuré. **Manche 5 : TS ne contrôle jamais le repli `prefers-reduced-motion` ; DG ne contrôle jamais l'immobilité. Les deux choix sont cohérents avec leurs principes, mais une page qui suit `stitch` passe chez TS et échoue chez DG (6.4, point 3).**
-- **D3.** Image réelle d'abord (TS : plancher de 4) contre `SANS-ASSET` à égalité (DG).
-- **D4.** Style maison contre pluralité esthétique.
+- **D1.** Interdits et planchers mesurés (TS) contre « aucun quota, aucun interdit universel » (DG). **Avis (11.6) : côté DG, planchers seulement pour les défauts objectifs ; l'idée « par profil de surface » est abandonnée.**
+- **D2 (appliqué en manche 11, commit `a474ac5`).** Mouvement obligatoire (quota de 8 éléments, TS) contre mouvement seulement s'il sert (DG). La page « saine » de la manche 3 reçoit un WARN de TS pour un mouvement mesuré. **Manche 5 : TS ne contrôle jamais le repli `prefers-reduced-motion` ; DG ne contrôle jamais l'immobilité. Les deux choix sont cohérents avec leurs principes, mais une page qui suit `stitch` passe chez TS et échoue chez DG (6.4, point 3).**
+- **D3.** Image réelle d'abord (TS : plancher de 4) contre `SANS-ASSET` à égalité (DG). **Avis (11.6) : côté DG avec plafond déclaré ; non appliqué.**
+- **D4.** Style maison contre pluralité esthétique. **Avis (11.6) : côté DG ; style de TS en profil `STYLE` sur demande ; non appliqué.**
 
 - **B9 (nouveau, manche 5).** Une note de compatibilité avec d'autres skills de design chargées en même temps : quand une prescription externe (boucles infinies, accent à 4,2:1, microtexte de 10 px) heurte un contrôle de la porte A, la porte A prévaut et l'écart se déclare. **Vérifié en manche 10 (11.2)** : `SAVOIR/INTEGRITY` n'a pas de clause explicite, mais la délégation et la porte A mesurant le rendu couvrent le cas par analogie ; aucun ajout.
 
@@ -444,6 +463,7 @@ Document : **`PROTOCOLE-AB.md`** (non exécuté). À retenir : quatre bras (rien
 
 | Quand | J'avais dit | Réalité | Preuve |
 |---|---|---|---|
+| Manche 11 | (COMPARAISON-TEXTUELLE 5, lignes 4 à 9) « à trancher » | Tranchées côté DG ; avec les treize plafonds de la note de TS rapprochés de DG (huit pendants, deux refus assumés, deux partiels, un manque) | `COMPARAISON-TEXTUELLE.md` 5 et 5.1 ; `critique.md` §3 de TS ; `research.md` §6 et §7 |
 | Manche 10 | (SUIVI 12, B9) « à vérifier s'il n'existe pas déjà dans `SAVOIR/INTEGRITY` » | Vérifié : aucune clause explicite sur une autre skill de design, et le corpus ne mentionne nulle part d'autres skills chargées en même temps ; couvert par analogie (délégation, porte A qui mesure le rendu) | `read_route.py SAVOIR/INTEGRITY` en entier ; recherche des mots « autre skill », « instructions concurrentes » dans `sections/`, `agent/`, `gouvernance/`, `SKILL.md` : aucune occurrence |
 | Manche 10 | (SUIVI 8, manche 7) « `probe.mjs` : en-têtes lus » | Lu en entier : la fonction `frame()` mesure en plus le texte couvert, le haut de titre rogné, le titre épinglé sur une image, l'occupation de l'écran et l'énoncé répété ; ce sont des trous de `check_render.py`, dont l'occlusion que le script déclare lui-même non vérifiée | `taste_v2/scripts/lib/probe.mjs` lignes 466 à 552 |
 | Manche 1 | Taste Skill v2 a trois « dials » | Les dials sont dans `taste-skill-v2-experimental` ; la v2 par défaut n'en a pas | CHANGELOG, README |
@@ -473,10 +493,11 @@ Document : **`PROTOCOLE-AB.md`** (non exécuté). À retenir : quatre bras (rien
 
 ## 14. Prochaines étapes (par ordre)
 
-1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (10 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
-2. **Trancher D1 à D4** et les six autres contradictions du tableau 5 de `COMPARAISON-TEXTUELLE.md`.
+1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (11 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
+2. **Trancher D1, D3 et D4** (avis donné en 11.6, non tranchés) ; D2 est appliqué ; les six autres contradictions sont tranchées côté DG (à confirmer ou à renverser).
 3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans. **Le protocole est prêt (`PROTOCOLE-AB.md`) ; il demande des sessions d'agent, des relecteurs et l'accord de l'utilisateur.**
 4. **Étendre `EVALUATION_CASE`** selon la spécification de `PROTOCOLE-AB.md` section 9, avec le premier run réel et pas avant.
-5. **Écran vide et même énoncé écran après écran** (le reste de `frame()` de TS) : non repris ; demanderait de parcourir le défilement et un seuil, donc plus proche d'un verdict. À reprendre seulement si un run réel montre le défaut.
+5. **Contraste non textuel du focus** (WCAG 1.4.11) dans la porte A : proposé, non fait ; 13 palettes sur 56 de TS ont un accent sous 3:1 contre le sol avec un focus peint à cette couleur, et `check_render.py` déclare ne pas mesurer le contraste non textuel.
+5bis. **Écran vide et même énoncé écran après écran** (le reste de `frame()` de TS) : non repris ; demanderait de parcourir le défilement et un seuil, donc plus proche d'un verdict. À reprendre seulement si un run réel montre le défaut.
 6. **Prototypes restants** (N2 avec sélecteur et historique, B5, B7) seulement si l'étape 2 le permet. Le gabarit sur deux routes (B2) a été fait ; l'étendre dépend de son essai.
 7. **Fait en manche 10** : lecture de `probe.mjs` en entier ; vérification de B9 (pas d'ajout) ; U8 ; F3 ; protocole A/B préparé.
