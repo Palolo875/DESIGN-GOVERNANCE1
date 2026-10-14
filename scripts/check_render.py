@@ -25,8 +25,8 @@ Usage :
     python3 scripts/check_render.py page.html --baseline avant.json            # comparer à une mesure --json antérieure
     python3 scripts/check_render.py page.html --mesures                        # relevés de composition, sans seuil ni verdict
 
-Mesures (--mesures) : relevés chiffrés de la page par largeur (titre d'accueil, corps, tailles et familles, longueur de ligne,
-images, texte centré, fonds de section, bords gauches). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie,
+Mesures (--mesures) : relevés chiffrés de la page par largeur (titre d'accueil, corps, plus petit texte et sa part, tailles et familles,
+longueur de ligne, images, texte centré, fonds de section, bords gauches). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie,
 aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
 
 Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
@@ -389,6 +389,7 @@ MESURES_JS = r"""
   weights.sort((a, b) => a[0] - b[0]);
   let acc = 0, corps = null; for (const [size, c] of weights) { acc += c; if (acc >= chars / 2) { corps = size; break; } }
   const familles = [...fams.entries()].filter(([, c]) => c / chars >= 0.02).map(([f]) => f);
+  const petit = sizes.size ? [...sizes.entries()].sort((a, b) => a[0] - b[0])[0] : null;
   // Titres visibles et titre d'accueil : le premier h1 visible, sinon le plus grand texte du premier écran.
   const heads = [...document.querySelectorAll('h1,h2,h3,h4,h5,h6')].filter(isShown).slice(0, 8);
   const info = el => { const t = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim();
@@ -414,7 +415,7 @@ MESURES_JS = r"""
     if (r.width < W * 0.5 || r.height < 120) continue; const c = getComputedStyle(el).backgroundColor; if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') fonds.add(c); }
   const bords = new Set(); for (const el of document.querySelectorAll('p,h1,h2,h3,h4,h5,h6,li,dt,dd,blockquote')) { if (!isShown(el) || (el.innerText || '').trim().length < 20) continue;
     bords.add(Math.round(el.getBoundingClientRect().left / 8) * 8); }
-  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
+  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, plus_petit: petit ? {taille: petit[0], part: Math.round(petit[1] / chars * 100)} : null, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
           mesure_mediane: mesures.length ? mesures[Math.floor(mesures.length / 2)] : null,
           images: {raster: rasters.length, video: videos.length, canvas: canvases.length, svg: svgs.length}, media_premier_ecran: Math.round(part * 100),
           centre_pour_cent: chars ? Math.round(centered / chars * 100) : 0, fonds_distincts: fonds.size, bords_gauches: bords.size,
@@ -437,6 +438,8 @@ def format_mesures(per: dict) -> list[str]:
         else:
             parts.append("aucun titre visible")
         parts.append(f"corps {m.get('corps')} px, {m.get('tailles_distinctes')} taille(s) distincte(s), {len(m.get('familles', []))} famille(s) ({', '.join(m.get('familles', [])[:3])})")
+        if m.get("plus_petit"):
+            parts.append(f"plus petit texte {m['plus_petit']['taille']} px ({m['plus_petit']['part']} % des caractères)")
         parts.append(f"ligne de texte {m.get('mesure_mediane')} car. en médiane, {m.get('mesure_max')} au plus" if m.get("mesure_max") is not None else "aucun paragraphe long")
         im = m.get("images", {})
         parts.append(f"images : {im.get('raster', 0)} raster, {im.get('video', 0)} vidéo, {im.get('canvas', 0)} canvas, {im.get('svg', 0)} svg ; média dominant {m.get('media_premier_ecran')} % du premier écran")

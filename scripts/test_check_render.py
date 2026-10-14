@@ -174,13 +174,16 @@ def part_a() -> None:
     expect("A", "débordement du document", status(cr.interpret(raw_case(overflow=(510, 390))), "Débordement horizontal"), RETURN)
     sample = {"viewport": 390, "titre": {"texte": "Un titre", "mots": 2, "caracteres": 8, "lignes": 3, "taille": 50.0, "vw": 12.8, "interligne": 1.0,
                                           "approche": -0.02, "graisse": "700", "famille": "X", "balise": "h1"},
-              "corps": 16.0, "tailles_distinctes": 4, "familles": ["X"], "mesure_max": 70, "mesure_mediane": 60,
+              "corps": 16.0, "tailles_distinctes": 4, "familles": ["X"], "plus_petit": {"taille": 10.0, "part": 4}, "mesure_max": 70, "mesure_mediane": 60,
               "images": {"raster": 2, "video": 0, "canvas": 0, "svg": 1}, "media_premier_ecran": 40, "centre_pour_cent": 10,
               "fonds_distincts": 2, "bords_gauches": 3, "mots": 120, "ecrans": 2.5}
     with_m = raw_case(); with_m["per_width"][390]["mesures"] = sample
     expect("A", "mesures : aucun statut modifié", cr.interpret(with_m) == cr.interpret(raw_case()), True)
     line = cr.format_mesures(with_m["per_width"])[0]
     expect("A", "mesures : titre, lignes et vw relevés", all(x in line for x in ("3 ligne(s)", "50.0 px (12.8 vw)", "corps 16.0 px", "2 raster", "40 % du premier écran")), True)
+    expect("A", "mesures : plus petit texte et sa part relevés", "plus petit texte 10.0 px (4 % des caractères)" in line, True)
+    old = raw_case(); old["per_width"][390]["mesures"] = {k: v for k, v in sample.items() if k != "plus_petit"}
+    expect("A", "mesures : relevé ancien sans plus petit texte, aucune erreur ni mention", "plus petit" in cr.format_mesures(old["per_width"])[0], False)
     expect("A", "mesures : aucun seuil ni verdict dans la ligne", any(w in line for w in (PASS, RESERVE, RETURN, "trop", "insuffisant")), False)
     expect("A", "mesures : sans relevé, aucune ligne", cr.format_mesures(raw_case()["per_width"]), [])
     with tempfile.TemporaryDirectory() as tmp:
@@ -435,6 +438,7 @@ PAGES = {
     "mesures.html": ('<style>h1{font-size:50px;line-height:1;letter-spacing:-.02em;margin:0}p{font-size:16px;margin:0;max-width:20em}</style>'
                      '<p>Un paragraphe suffisamment long pour compter plus de soixante caractères et passer sur plusieurs lignes dans la colonne étroite qui le contient.</p>'
                      '<img alt="x" width="120" height="80" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">'),
+    "petittexte.html": '<p style="font-size:16px;margin:0">' + 'a' * 90 + '</p><p style="font-size:10px;margin:0">' + 'b' * 10 + '</p>',
     "transitionjs.html": ('<style>.t{transition:transform .2s;transform:none}.t.on{transform:translateX(30px)}</style><p class="t">Transition</p>'
                           '<script>requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(".t").classList.add("on")))</script>'),
 }
@@ -523,6 +527,9 @@ def part_b(require: bool) -> str:
             expect('B', 'mesures : image raster comptée, svg non', [m['images']['raster'], m['images']['svg']], [1, 0])
             _, c0 = measure(str(d / 'mesures.html'))
             expect('B', 'mesures : statuts identiques avec et sans l’option', c == c0, True)
+            raw, _ = measure(str(d / 'petittexte.html'), '--mesures')
+            expect('B', 'mesures : plus petit texte relevé (10 px, 10 % des caractères), corps resté à 16 px',
+                   [raw['per_width'][390]['mesures']['plus_petit'], raw['per_width'][390]['mesures']['corps']], [{'taille': 10.0, 'part': 10}, 16.0])
             for filename in ('dialogferme.html', 'ancetremasque.html'):
                 raw,c=measure(str(d/filename))
                 expect('B',filename+' aucun faux nom manquant',status(c,'Nom accessible'),PASS)
