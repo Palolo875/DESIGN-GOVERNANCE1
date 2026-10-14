@@ -26,8 +26,8 @@ Usage :
     python3 scripts/check_render.py page.html --mesures                        # relevés de composition, sans seuil ni verdict
 
 Mesures (--mesures) : relevés chiffrés de la page par largeur (titre d'accueil, corps, plus petit texte et sa part, tailles et familles,
-longueur de ligne, images, texte centré, fonds de section, bords gauches). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie,
-aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
+longueur de ligne, images, texte centré, fonds de section, bords gauches, gros textes du premier écran couverts par un autre élément
+ou au haut rogné). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie, aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
 
 Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
 (état et largeurs) et avec les mêmes réglages (--proof, --tab-stops, --allow-external, --wait-ms). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
@@ -415,7 +415,49 @@ MESURES_JS = r"""
     if (r.width < W * 0.5 || r.height < 120) continue; const c = getComputedStyle(el).backgroundColor; if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') fonds.add(c); }
   const bords = new Set(); for (const el of document.querySelectorAll('p,h1,h2,h3,h4,h5,h6,li,dt,dd,blockquote')) { if (!isShown(el) || (el.innerText || '').trim().length < 20) continue;
     bords.add(Math.round(el.getBoundingClientRect().left / 8) * 8); }
-  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, plus_petit: petit ? {taille: petit[0], part: Math.round(petit[1] / chars * 100)} : null, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
+  // Gros texte du premier écran couvert ou rogné. Sur chaque ligne de texte de 24 px ou plus, huit points sont testés avec
+  // elementFromPoint (pointer-events forcé le temps du relevé) : un point est couvert si un autre élément qui peint (média,
+  // fond, texte) se trouve dessus. Le haut est rogné si un ancêtre à débordement masqué ou à clip-path coupe la ligne dans sa
+  // partie haute. Premier écran seulement : le défilement et les états d'interaction ne sont pas parcourus.
+  const gros = {testes: 0, couverts: [], hauts_rognes: []};
+  const stl = document.createElement('style'); stl.textContent = '*,*::before,*::after{pointer-events:auto!important}';
+  (document.head || document.documentElement).appendChild(stl);
+  try {
+    const MEDIA = /^(IMG|VIDEO|CANVAS|PICTURE|IFRAME|svg)$/;
+    const paints = (h, el) => { for (let p = h; p && p !== document.body && !p.contains(el); p = p.parentElement) {
+        if (MEDIA.test(p.tagName) || p.closest('svg')) return true;
+        const s = getComputedStyle(p); if (s.backgroundImage !== 'none') return true;
+        const m = s.backgroundColor.match(/rgba?\(([^)]+)\)/), parts = m ? m[1].split(/[,\s/]+/).filter(Boolean) : [];
+        if (parts.length && (parts.length < 4 || parseFloat(parts[3]) > 0.05)) return true;
+        if (p === h && [...p.childNodes].some(n => n.nodeType === 3 && n.nodeValue.trim())) return true; }
+      return false; };
+    const rg = document.createRange();
+    for (const el of document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,blockquote,li,a,button,span,div')) {
+      let direct = ''; for (const n of el.childNodes) if (n.nodeType === 3) direct += n.nodeValue;
+      if (direct.trim().length < 3) continue;
+      const cs = getComputedStyle(el), size = parseFloat(cs.fontSize);
+      if (size < 24 || !isShown(el) || el.getBoundingClientRect().top >= H) continue;
+      gros.testes++;
+      const unit = el.closest('h1,h2,h3,h4,h5,h6,p,blockquote'), clips = [];
+      for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) { const s = getComputedStyle(p);
+        if (s.overflowX !== 'visible' || s.overflowY !== 'visible' || s.clipPath !== 'none') clips.push(p.getBoundingClientRect()); }
+      let total = 0, hidden = 0, cut = false;
+      for (const node of el.childNodes) { if (node.nodeType !== 3 || !node.nodeValue.trim()) continue;
+        rg.selectNodeContents(node);
+        for (const r of rg.getClientRects()) { if (r.width < 6 || r.bottom < 0 || r.top > H) continue;
+          const lh = parseFloat(cs.lineHeight), band = Math.min(r.height, Number.isFinite(lh) ? lh : r.height);
+          for (const dy of [-0.2, 0.2]) for (const fx of [0.12, 0.37, 0.63, 0.88]) {
+            const x = r.left + r.width * fx, y = r.top + r.height * 0.55 + band * dy; if (x < 0 || x >= W || y < 0 || y >= H) continue;
+            total++; const h = document.elementFromPoint(x, y);
+            if (h && h !== el && !el.contains(h) && !h.contains(el) && !(unit && unit.contains(h) && !MEDIA.test(h.tagName) && !h.closest('svg')) && paints(h, el)) hidden++; }
+          if (size >= 40 && r.top >= -4 && clips.some(c => c.top > r.top + r.height * 0.3 && c.top < r.bottom - r.height * 0.2)) cut = true; } }
+      const texte = (el.innerText || direct).replace(/\s+/g, ' ').trim().slice(0, 48);
+      if (total >= 4 && hidden / total >= 0.2) gros.couverts.push({texte, part: Math.round(hidden / total * 100)});
+      if (cut) gros.hauts_rognes.push(texte);
+    }
+  } finally { stl.remove(); }
+  gros.couverts = gros.couverts.slice(0, 5); gros.hauts_rognes = gros.hauts_rognes.slice(0, 5);
+  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, plus_petit: petit ? {taille: petit[0], part: Math.round(petit[1] / chars * 100)} : null, gros_textes: gros, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
           mesure_mediane: mesures.length ? mesures[Math.floor(mesures.length / 2)] : null,
           images: {raster: rasters.length, video: videos.length, canvas: canvases.length, svg: svgs.length}, media_premier_ecran: Math.round(part * 100),
           centre_pour_cent: chars ? Math.round(centered / chars * 100) : 0, fonds_distincts: fonds.size, bords_gauches: bords.size,
@@ -440,6 +482,10 @@ def format_mesures(per: dict) -> list[str]:
         parts.append(f"corps {m.get('corps')} px, {m.get('tailles_distinctes')} taille(s) distincte(s), {len(m.get('familles', []))} famille(s) ({', '.join(m.get('familles', [])[:3])})")
         if m.get("plus_petit"):
             parts.append(f"plus petit texte {m['plus_petit']['taille']} px ({m['plus_petit']['part']} % des caractères)")
+        g = m.get("gros_textes")
+        if g:
+            found = [f"couvert à {c['part']} % « {c['texte']} »" for c in g.get("couverts", [])] + [f"haut rogné « {x} »" for x in g.get("hauts_rognes", [])]
+            parts.append(f"gros textes du premier écran ({g.get('testes', 0)} testé(s)) : " + (", ".join(found) if found else "aucun couvert ni rogné"))
         parts.append(f"ligne de texte {m.get('mesure_mediane')} car. en médiane, {m.get('mesure_max')} au plus" if m.get("mesure_max") is not None else "aucun paragraphe long")
         im = m.get("images", {})
         parts.append(f"images : {im.get('raster', 0)} raster, {im.get('video', 0)} vidéo, {im.get('canvas', 0)} canvas, {im.get('svg', 0)} svg ; média dominant {m.get('media_premier_ecran')} % du premier écran")

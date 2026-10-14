@@ -185,6 +185,15 @@ def part_a() -> None:
     old = raw_case(); old["per_width"][390]["mesures"] = {k: v for k, v in sample.items() if k != "plus_petit"}
     expect("A", "mesures : relevé ancien sans plus petit texte, aucune erreur ni mention", "plus petit" in cr.format_mesures(old["per_width"])[0], False)
     expect("A", "mesures : aucun seuil ni verdict dans la ligne", any(w in line for w in (PASS, RESERVE, RETURN, "trop", "insuffisant")), False)
+    expect("A", "mesures : relevé ancien sans gros textes, aucune erreur ni mention", "gros textes" in cr.format_mesures(old["per_width"])[0], False)
+    clear = dict(sample, gros_textes={"testes": 2, "couverts": [], "hauts_rognes": []})
+    with_g = raw_case(); with_g["per_width"][390]["mesures"] = clear
+    expect("A", "mesures : gros textes testés, rien de couvert", "gros textes du premier écran (2 testé(s)) : aucun couvert ni rogné" in cr.format_mesures(with_g["per_width"])[0], True)
+    hit = dict(sample, gros_textes={"testes": 3, "couverts": [{"texte": "Le titre", "part": 60}], "hauts_rognes": ["Autre titre"]})
+    with_h = raw_case(); with_h["per_width"][390]["mesures"] = hit
+    expect("A", "mesures : texte couvert et haut rogné relevés avec leur part",
+           all(x in cr.format_mesures(with_h["per_width"])[0] for x in ("couvert à 60 % « Le titre »", "haut rogné « Autre titre »")), True)
+    expect("A", "mesures : texte couvert, aucun statut modifié", cr.interpret(with_h) == cr.interpret(raw_case()), True)
     expect("A", "mesures : sans relevé, aucune ligne", cr.format_mesures(raw_case()["per_width"]), [])
     with tempfile.TemporaryDirectory() as tmp:
         for flag, present in (([], False), (["--mesures"], True)):
@@ -439,6 +448,10 @@ PAGES = {
                      '<p>Un paragraphe suffisamment long pour compter plus de soixante caractères et passer sur plusieurs lignes dans la colonne étroite qui le contient.</p>'
                      '<img alt="x" width="120" height="80" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">'),
     "petittexte.html": '<p style="font-size:16px;margin:0">' + 'a' * 90 + '</p><p style="font-size:10px;margin:0">' + 'b' * 10 + '</p>',
+    "texte_couvert.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:#c00}</style><div class="v"></div>',
+    "texte_voile.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:transparent}</style><div class="v"></div>',
+    "haut_rogne.html": ('<style>.w{overflow:hidden;margin-top:100px}.t{font-size:60px;line-height:1;margin:0;position:relative;top:-30px}</style>'
+                        '<div class="w"><p class="t">Titre</p></div>'),
     "transitionjs.html": ('<style>.t{transition:transform .2s;transform:none}.t.on{transform:translateX(30px)}</style><p class="t">Transition</p>'
                           '<script>requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(".t").classList.add("on")))</script>'),
 }
@@ -530,6 +543,17 @@ def part_b(require: bool) -> str:
             raw, _ = measure(str(d / 'petittexte.html'), '--mesures')
             expect('B', 'mesures : plus petit texte relevé (10 px, 10 % des caractères), corps resté à 16 px',
                    [raw['per_width'][390]['mesures']['plus_petit'], raw['per_width'][390]['mesures']['corps']], [{'taille': 10.0, 'part': 10}, 16.0])
+            gros = lambda page: measure(str(d / page), '--mesures')[0]['per_width'][390]['mesures']['gros_textes']
+            g = gros('texte_couvert.html')
+            expect('B', 'mesures : gros titre recouvert par un aplat relevé (100 %)', [g['couverts'], g['hauts_rognes']], [[{'texte': 'Test', 'part': 100}], []])
+            g = gros('texte_voile.html')
+            expect('B', 'mesures : calque transparent sur le titre, rien de relevé', [g['testes'] >= 1, g['couverts'], g['hauts_rognes']], [True, [], []])
+            g = gros('haut_rogne.html')
+            expect('B', 'mesures : haut du titre coupé par un ancêtre à débordement masqué', [g['couverts'], g['hauts_rognes']], [[], ['Titre']])
+            g = gros('mesures.html')
+            expect('B', 'mesures : page sans recouvrement ni rognage, rien de relevé', [g['testes'] >= 1, g['couverts'], g['hauts_rognes']], [True, [], []])
+            _, c = measure(str(d / 'texte_couvert.html'), '--mesures'); _, c0 = measure(str(d / 'texte_couvert.html'))
+            expect('B', 'mesures : le recouvrement relevé ne change aucun statut', c == c0, True)
             for filename in ('dialogferme.html', 'ancetremasque.html'):
                 raw,c=measure(str(d/filename))
                 expect('B',filename+' aucun faux nom manquant',status(c,'Nom accessible'),PASS)
