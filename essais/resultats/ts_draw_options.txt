@@ -1,0 +1,17 @@
+# 3 directions dealt for this brief
+
+Choose the one whose way of composing can best carry an idea from your inventory (SKILL.md steps 1 and 4), not the
+most familiar one. Then deal it in full with the same command plus `--direction <id>` (and without --options).
+
+## `borrowed-category` — Dressed as something else
+Idea engine: Art-direct the subject as if it belonged to a different, more vivid category. A money app is sold like a streetwear drop.
+Composition: Depends on the borrowed category, so decide it explicitly and write it in your notes. Fashion drop: one shouted condensed headline across the full width, a single cropped image under it, then product facts as a blunt list.
+
+## `one-motif` — One motif
+Idea engine: Take one shape from the subject and let it run the whole system. A drilling tool's octagonal cross-section becomes the buttons, the image masks and the loader.
+Composition: Hero: the motif appears once at enormous scale as a flat filled shape, cropped by the viewport (a circle 120vh across entering from the right, a chamfered block filling the lower half), with a short headline at 6–8vw and one supporting sentence set on the remaining ground, left-aligned on a shared margin. Through the page the motif returns as: the mask for every photograph (via `clip-path` or `border-radius` made from the same geometry), the shape of the primary button, the bullet beside list items at text size, and one full-width band that separates the two halves of the page.
+
+## `dense-tiles` — The well-kept board
+Idea engine: The whole page is a board of tiles fitted edge to edge with narrow gaps, like a tidy desk seen from above. Each tile is one thing: the name, a statement, a photograph, a number, a link, a short list.
+Composition: A 12-column grid with 8px gaps and 8–12px outer margins, filled completely, no empty cells. Tiles use only four sizes (for example 6×4, 6×2, 3×2, 3×4 in column × row units of about 90px).
+

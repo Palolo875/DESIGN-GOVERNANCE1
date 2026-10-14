@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Rouleau, réparation de vélos à Gand</title>
+<style>
+:root{--bg:#ffffff;--surface:#eef3f1;--ink:#101a17;--muted:#3d4a45;--accent:#0b6b4f;--accent-ink:#ffffff;--margin:clamp(1rem,2.2vw,2rem)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px var(--margin)}
+.nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.hero{display:grid;grid-template-columns:5fr 7fr;gap:var(--margin);padding:0 var(--margin);min-height:80svh;align-items:end}
+h1{font-size:clamp(2.6rem,7vw,7rem);line-height:.95;letter-spacing:-.035em;margin:0 0 24px;max-width:11ch;text-wrap:balance}
+.lead{font-size:1.35rem;max-width:34ch;margin:0 0 24px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600}
+.hero img{width:100%;height:80svh;object-fit:cover;display:block}
+.list{background:var(--surface);padding:120px var(--margin)}
+.list h2{font-size:clamp(2rem,4vw,4rem);margin:0 0 40px;max-width:16ch;line-height:1}
+.list dl{display:grid;grid-template-columns:1fr 2fr;gap:16px var(--margin);margin:0;max-width:900px}
+.list dt{font-weight:700}
+.list dd{margin:0;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:2fr 1fr;gap:var(--margin);padding:120px var(--margin)}
+.gallery img{width:100%;height:60svh;object-fit:cover;display:block}
+.gallery .stack{display:grid;gap:var(--margin)}
+.gallery .stack img{height:calc(30svh - 8px)}
+.contact{background:var(--ink);color:#fff;padding:120px var(--margin)}
+.contact a{color:#fff}
+.contact p{font-size:clamp(2rem,6vw,6rem);line-height:1;margin:0;letter-spacing:-.03em}
+.close{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--surface);border:0;cursor:pointer}
+@media (prefers-reduced-motion:no-preference){
+  [data-rise]{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(var(--i,0)*90ms + 120ms)}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+@media (max-width:800px){.hero,.gallery{grid-template-columns:1fr}.list dl{grid-template-columns:1fr}.hero img{height:50svh}}
+</style>
+</head>
+<body>
+<header class="nav" data-rise style="--i:0">
+  <a href="#" aria-label="Atelier Rouleau, accueil"><strong>Atelier Rouleau</strong></a>
+  <nav aria-label="Principal"><ul><li><a href="#tarifs">Tarifs</a></li><li><a href="#atelier">L’atelier</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+  <button class="close" aria-label="Fermer le bandeau d’annonce" data-rise style="--i:1"><svg width="14" height="14" aria-hidden="true"><path d="M1 1L13 13M13 1L1 13" stroke="#101a17" stroke-width="2"/></svg></button>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <h1 data-rise style="--i:2">Votre vélo repart ce soir</h1>
+    <p class="lead" data-rise style="--i:3">Réparation en moins de 24 heures, rue des Tanneurs, à Gand. Exemple de texte à confirmer.</p>
+    <a class="btn" href="tel:+3290000000" data-rise style="--i:4">Appeler l’atelier</a>
+  </div>
+  <img src="photo1.png" width="1200" height="800" alt="Vue d’ensemble de l’atelier, exemple à remplacer" data-rise style="--i:5">
+</section>
+<section class="list" id="tarifs">
+  <h2 data-rise style="--i:0">Ce que nous réparons</h2>
+  <dl>
+    <dt data-rise style="--i:1">Crevaison</dt><dd data-rise style="--i:1">12 € la chambre à air posée, exemple.</dd>
+    <dt data-rise style="--i:2">Freins</dt><dd data-rise style="--i:2">À partir de 25 €, réglage compris, exemple.</dd>
+    <dt data-rise style="--i:3">Révision complète</dt><dd data-rise style="--i:3">85 €, contrôle de 30 points, exemple.</dd>
+  </dl>
+</section>
+<section class="gallery" id="atelier">
+  <img src="photo2.png" width="1200" height="800" alt="L’établi principal, exemple à remplacer">
+  <div class="stack">
+    <img src="photo3.png" width="1200" height="800" alt="Un vélo en cours de révision, exemple à remplacer">
+    <img src="photo4.png" width="1200" height="800" alt="Les outils au mur, exemple à remplacer">
+  </div>
+</section>
+<section class="contact" id="contact">
+  <p>Rue des Tanneurs 12, Gand.<br><a href="tel:+3290000000">+32 9 000 00 00</a></p>
+</section>
+</main>
+</body>
+</html>

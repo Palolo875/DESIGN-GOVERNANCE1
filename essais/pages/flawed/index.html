@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#f5ecd9;--ink:#3b2f2a;--accent:#c8553d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 "Inter",system-ui,sans-serif}
+.nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);display:flex;gap:16px;padding:8px 18px;border-radius:999px;background:rgba(255,255,255,.5);backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.15);z-index:5}
+.nav a{color:var(--ink);text-decoration:none;font-size:12px}
+.hero{max-width:720px;margin:0 auto;padding:120px 20px 60px;text-align:center}
+.eyebrow{font:11px/1 monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:56px;line-height:1.1;margin:16px 0}
+.cta{background:linear-gradient(135deg,#c8553d,#e08a5a);color:#fff;border:0;border-radius:12px;padding:14px 22px;font-size:14px;box-shadow:0 8px 24px rgba(200,85,61,.4);outline:none}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:40px auto;padding:0 20px}
+.card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.card .ico{font-size:24px}
+.card .n{font-family:monospace;color:#999}
+hr{border:0;border-top:1px solid #d9cdb4;max-width:960px}
+.muted{color:#aaa}
+.icon-btn{width:20px;height:20px;border:0;background:#ddd;outline:none}
+.wide{width:900px;background:#eee;height:20px}
+.fade{animation:up .8s ease both}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav class="nav"><a href="#a">Home</a><a href="#b">Services</a><a href="#c">Contact</a></nav>
+<section class="hero fade">
+<p class="eyebrow">Introducing the new platform</p>
+<h1>We build the most seamless all-in-one platform that helps modern teams unlock their full potential</h1>
+<p class="muted">Supercharge your workflow today with a robust, cutting-edge solution.</p>
+<button class="cta">Get started</button>
+<button class="icon-btn"><svg width="12" height="12"><path d="M0 0L12 12M12 0L0 12" stroke="#333"/></svg></button>
+</section>
+<hr>
+<section class="grid fade">
+<div class="card"><div class="ico">🚀</div><p class="n">01</p><h3>Fast</h3><p>Lightning fast results.</p></div>
+<div class="card"><div class="ico">🔒</div><p class="n">02</p><h3>Secure</h3><p>Enterprise-grade security.</p></div>
+<div class="card"><div class="ico">⚡</div><p class="n">03</p><h3>Simple</h3><p>Effortless to use.</p></div>
+</section>
+<div class="wide"></div>
+<img src="photo1.png" width="300" height="200">
+</body>
+</html>
