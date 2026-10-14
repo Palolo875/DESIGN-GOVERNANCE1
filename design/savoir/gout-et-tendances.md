@@ -90,4 +90,33 @@ Distingue :
 
 Le terme `same-energy` peut indexer un risque de convergence, mais ne remplace jamais une description causale de l’échec.
 
+### POINTS-DE-DEPART — mesures d’observation datées
+
+[VEILLE 2026-10] **Points de départ chiffrés**, pour caler un premier essai de typographie, de composition, de couleur ou de mouvement sur des ordres de grandeur observés ; jamais pour valider un rendu, imposer un seuil ou interdire un motif. Chaque ligne est un claim `À REVÉRIFIER` : il guide un essai local, se confronte au rendu réel et ne justifie seul ni règle universelle, ni obligation de livraison. Une ligne utilisée dans un run est copiée dans la trace locale au format de claim ci-dessus (type, portée, source, date, limite, usage prévu, owner, date de revue, prochaine preuve).
+
+**Source commune.** Étude de Taste Skill v2.0.0 (dépôt Leonxlnx/taste-skill, licence MIT, fichier research.md des références du skill taste-skill, lue le 2026-10-14) : 248 sites réunis le 2026-10-05 (156 de One Page Love, 92 Awwwards Sites of the Day), 247 chargés, capturés à 1440×900 et 390×844, décrits et notés par 21 modèles. Pour les mesures, « haut » désigne une note de panel de 7,5 ou plus (82 sites mesurables) et « faible » une note sous 6,5 (23 sites mesurables) ; pour les classements du panel, 90 sites hauts et 29 faibles.
+
+**Limites communes.** Notes de modèles d’après des images fixes, ni jurés humains ni notes Awwwards ; une capture par site et par jour ; l’étude dit elle-même que son échantillon est « la mode autant que la qualité » ; vitrines, portfolios et pages d’événements, non des produits ni des outils ; l’effectif « faible » est petit ; le mouvement est inféré des images, non observé. Une corrélation de galerie n’établit pas une cause.
+
+| Domaine | Observation | Usage à tester | Limite propre |
+|---|---|---|---|
+| Titre d’accueil, taille | Médiane 72 px, soit 5,0 vw ; 6,0 vw chez les sites hauts, 4,7 vw chez les faibles. Sur téléphone, médiane 40 px. | Point de départ d’un essai de hiérarchie : l’écart d’échelle est le levier mesuré. | Mesuré sur des vitrines ; un produit dense ou un outil appelle une échelle plus basse. |
+| Plus grand texte de la page | Médiane 6,4 vw ; 8,4 vw chez les hauts, 5,0 vw chez les faibles. | Tester un écart plus net entre le texte dominant et le reste avant d’ajouter un effet. | Corrélation, pas cause. |
+| Rapport titre sur corps | Médiane 4,3 ; 4,7 chez les hauts, 4,0 chez les faibles. | Repère de contraste d’échelle pour un titre d’accueil. | Un rapport isolé ne décrit pas une page à plusieurs niveaux. |
+| Corps et réglage du titre | Corps : médiane 16 px (moitié centrale 14 à 18). Titre : interlignage médian 1,0 (0,95 à 1,1), approche médiane -0,01 em (-0,03 à 0). | Point de départ avant réglage sur la police livrée. | Polices latines d’abord ; vérifier lisibilité, langue et reflow (`SAVOIR/TYPE`). |
+| Nombre de familles | 1 famille sur 31 % des sites, 2 sur 45 %, 3 sur 22 %. | Comparer deux voix sur le vrai titre avant d’en ajouter une troisième. | Une police mono-fonctionnelle pour la donnée n’est pas une voix de plus. |
+| Poids du titre | Régulier 48 %, moyen 18 %, gras ou plus 22 %. | Chercher la force dans l’échelle et l’espace avant le poids. | Observation de forme, non de lisibilité. |
+| Longueur du titre | Médiane 5 mots et 32 caractères ; 70 % tiennent sur deux lignes à 1440 px, 57 % à 390 px. | Budget de lecture d’un titre (`SAVOIR/CRAFT/CFT-06`). | La longueur ne sépare pas hauts et faibles dans l’étude (71 % contre 83 % sur deux lignes). |
+| Marges extérieures | 32 px ou moins sur environ 45 des 114 sites notés 7,3 ou plus ; 80 px ou plus sur environ 8. | Essayer des marges serrées avec de grandes masses à fleur de bord. | Comptes manuels approximatifs, tirés des notes du panel. |
+| Titre centré | 39 % des sites, 52 % chez les faibles. Énoncé centré avec média dessous : 7 % chez les hauts, 24 % chez les faibles. | Nommer la trame modale avant de la garder (`BIBLIOTHEQUE/SELECT`, test de trame). | Une trame conventionnelle peut être juste : la convergence de genre n’est pas un défaut en soi. |
+| Média au premier écran | Au moins la moitié du premier écran sur 60 % des sites (68 % des hauts, 48 % des faibles). Images par page : médiane 24 ; 37 chez les hauts, 5 chez les faibles. | Tester un média dominant quand la promesse est visuelle. | Suppose des assets réels (`SAVOIR/SOURCE`). |
+| Fonds de section | Médiane de 2 fonds distincts chez les hauts, 1 chez les faibles. | Essayer un changement de fond comme articulation avant un filet ou une carte. | Choix de composition, non preuve de lisibilité. |
+| Fond et boutons | Fond sombre 41 %, blanc pur 25 %, noir pur 12 %. Bouton principal neutre sur 52 %. Un site sur 246 a un bouton terracotta. | Situer une palette face aux marqueurs de vague (`SAVOIR/CRAFT/CFT-05`). | Corpus de 2026-10 ; la mode de galerie change. |
+| Motifs plus fréquents chez les faibles | Dégradés 52 % contre 22 % ; ombres sur éléments au repos 48 % contre 24 % ; petites capitales espacées, trois ou plus, 43 % contre 6 % ; cartes à icône 28 % contre 1 % ; pastille au-dessus d’un titre 26 % contre 5 %. | Signaux d’enquête pour une revue de convergence (`SAVOIR/CRAFT/CFT-01`), non des interdits : un motif motivé et construit reste légitime. | L’étude écarte aussi des motifs « par choix du propriétaire », non par les données. |
+| Motifs sans écart net | Flou d’arrière-plan 32 % contre 39 % ; filets fins 61 % contre 52 % ; mot de titre en italique serif 4 % contre 7 %. | Ne pas déduire un défaut de la seule présence. | Pas d’écart ne veut pas dire sans effet sur une page donnée. |
+| Motifs plus fréquents chez les hauts | Étiquettes monospace 44 % contre 24 % ; numérotation d’index 38 % contre 21 %. | Nommer la mode avant de la reprendre (`SAVOIR/TOOLS/CONVERGENCE`). | L’étude les écarte de sa propre pratique parce que les générateurs les copient d’abord. |
+| Mouvement | Vidéo présente sur 49 % ; environ 10 des 114 sites notés 7,3 ou plus montrent peu ou pas de mouvement ; survol et parallaxe rarement cités. | Un mouvement est un choix de scène, non un plancher (`SAVOIR/CONTEXT`). | Inféré des images ; vitrines seulement. |
+
+**Revue.** Owner : mainteneur du corpus. À revoir avant 2027-04, ou dès qu’une étude plus large ou à jurés humains est disponible. **Prochaine preuve.** Mesurer ces grandeurs sur des rendus du paquet et les comparer à des rendus jugés par plusieurs personnes ; sans cette mesure, ces lignes restent des hypothèses de départ.
+
 ---

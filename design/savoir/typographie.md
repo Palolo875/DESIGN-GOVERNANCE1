@@ -24,6 +24,8 @@ Une signature typographique ne tient pas si zoom, reflow, locale ou ajustement d
 **Équilibre d’un titre.** Quand un titre porte la scène (grand titre, accroche, chiffre mis en avant), règle-le sur le vrai texte, puis corrige ce que la capture montre. D’abord le sens : une coupe de ligne ne doit pas le casser, et un mot isolé en dernière ligne doit être voulu. Ensuite la forme : des lignes trop inégales gênent la lecture du bloc (`text-wrap: balance` peut aider si la cible le permet), et une approche trop lâche aux grandes tailles se resserre si la police le demande. Enfin la hiérarchie : si elle est aplatie, rétablis-la par l’écart d’échelle entre le titre et le texte qui suit, ou par le poids, la position ou l’espace. Un mot isolé, un déséquilibre ou un faible écart peut être le choix de composition : on le garde si la capture montre qu’il fonctionne. Observe sur capture, en desktop et en mobile, avec le contenu réel : la forme du bloc de titre reste lisible au flou.
 <!-- noyau:fin COMP-TITRE -->
 
+**Points de départ chiffrés.** Taille et rapport d’échelle d’un titre, réglage du corps, nombre de familles : observations datées `À REVÉRIFIER` dans `SAVOIR/TOOLS/POINTS-DE-DEPART` ; budget de longueur et formes d’un titre dans `SAVOIR/CRAFT/CFT-06`. Ils guident un essai sur le vrai contenu ; ils ne valident ni ne prescrivent une police.
+
 ### Preuve typographique
 
 La preuve est documentée dans `ACTION/STRUCTURED-PROOF` lorsque la typographie peut changer la décision. Sépare, lorsque nécessaire :

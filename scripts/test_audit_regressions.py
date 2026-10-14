@@ -419,6 +419,18 @@ class CoreResourceActivationTests(unittest.TestCase):
                 _, lines, index = routes.resolve(locator)
                 self.assertIn(expected, '\n'.join(routes.extract(lines, index)))
 
+    def test_starting_points_and_writing_routes_are_reachable_and_dated(self):
+        # Points de départ chiffrés : claims datés `À REVÉRIFIER`, source et limites nommées ; écriture : route PILOT à contrat réduit.
+        for locator, expected in [('SAVOIR/TOOLS/POINTS-DE-DEPART', ('À REVÉRIFIER', 'Limites communes', 'Revue.')),
+                                  ('SAVOIR/CRAFT/CFT-06', ('PILOT', 'Contre-indication', 'Limite', 'ADOPTED'))]:
+            with self.subTest(locator=locator):
+                _, lines, index = routes.resolve(locator)
+                served = '\n'.join(routes.extract(lines, index))
+                for fragment in expected:
+                    self.assertIn(fragment, served)
+        self.assertEqual(routes.adresse('savoir/gout-et-tendances#points-de-depart'), 'SAVOIR/TOOLS/POINTS-DE-DEPART')
+        self.assertEqual(routes.adresse('savoir/qualite-creative#ecriture'), 'SAVOIR/CRAFT/CFT-06')
+
 
 class ReviewFindingsTests(unittest.TestCase):
     """Témoins des défauts reproduits par la revue du système (carnet de revue, branche refonte)."""

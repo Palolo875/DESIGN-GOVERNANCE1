@@ -132,7 +132,7 @@ Les axes survivent aux tendances ; les étiquettes culturelles et les exemples d
 
 [REQUIS PAR LE MODULE — surface identitaire, hiérarchie complexe ou revue perceptuelle] La composition rend l’action et le contenu lisibles avant la couleur. Choisis grille, échelle, densité et hiérarchie selon le contenu ; une valeur de départ n’est jamais une validation universelle.
 
-Colonnes, tailles, espacements et breakpoints sont des diagnostics de cohérence. Adapte-les lorsque contenu, plateforme ou direction produisent une relation plus juste.
+Colonnes, tailles, espacements et breakpoints sont des diagnostics de cohérence. Adapte-les lorsque contenu, plateforme ou direction produisent une relation plus juste. Des ordres de grandeur observés (marges, média au premier écran, fonds de section) sont datés dans `SAVOIR/TOOLS/POINTS-DE-DEPART` ; ils guident un essai, ils ne remplacent pas le contenu réel.
 
 <!-- noyau:début COMP-CONTROLES -->
 Les contrôles principaux sont : alignements nets, compensation optique, proximité qui révèle les groupes, priorités lisibles, et responsive pensé comme recomposition. Une grille desktop peut devenir liste ; un panneau peut devenir écran ; un bloc dense peut devenir séquence progressive.
@@ -220,6 +220,32 @@ Le gamut élargi peut enrichir l’expression, mais ne porte jamais une informat
 
 Une relation de couleur peut exprimer un registre ou une hiérarchie, mais ne doit pas porter seule une information critique. Les impressions de statut, chaleur, sérieux ou premium restent des hypothèses de perception à vérifier dans leur contexte.
 
-Les claims sur chroma, statut perçu ou tendances de palette passent par `SAVOIR/TOOLS` et portent source, date, portée et limite dans la trace locale du run.
+Les claims sur chroma, statut perçu ou tendances de palette passent par `SAVOIR/TOOLS` et portent source, date, portée et limite dans la trace locale du run. Des proportions observées (fond, boutons neutres, fonds de section) sont datées dans `SAVOIR/TOOLS/POINTS-DE-DEPART` ; elles guident un essai, elles ne fixent aucune palette.
+
+## CFT-06 — écriture et contenu
+
+[MÉTHODE] La rédaction (copywriting, titres, microcopie, nom des actions) est une décision de design : un titre qui demande quatre lignes ne se rattrape pas par la typographie, et une page de slogans ne se rattrape pas par la mise en page. Statut de route : `PILOT` (`maintenance/evolution.md`), avec le contrat réduit en fin de section. Charge cette route lorsque le contenu, le titre, l’ordre des sections ou le nom des actions sont une décision du run ; pour une retouche locale, relis seulement le texte touché.
+
+**L’argument avant la page.** Réponds en une ligne chacune : qui lit et que sait-il déjà ; ce qu’est la chose, dite comme son auteur la dirait à un ami ; ce que la personne doit croire après un écran ; ce qui le lui fait croire (un objet, un chiffre, un nom, une démonstration) ; ce qu’elle fait ensuite. Écris ensuite la page comme des affirmations, chacune avec sa preuve. Une section sans affirmation est du remplissage ; l’ordre des affirmations devient l’ordre de la page, ce qui évite la trame modale (`BIBLIOTHEQUE/SELECT`, test de trame).
+
+**Budget d’un titre.** Un titre se tient en un regard. Point de départ de calcul, à mesurer sur la police livrée : caractères par ligne ≈ largeur de ligne ÷ (corps × k), avec k ≈ 0,40 pour une condensée, ≈ 0,50 pour une grotesque ou une serif en grand corps serré, ≈ 0,58 pour une large ou des capitales. Une ligne de 350 px à 44 px donne environ 16 caractères, soit environ 32 sur deux lignes. Calcule avant de t’attacher à une phrase, fixe la coupe sur le vrai texte, puis vérifie-la sur capture mobile (`TIT-01`, `SAVOIR/TYPE`). Réduire seulement le corps d’un titre trop long affaiblit la hiérarchie : coupe d’abord des mots, puis place le détail dans la ligne d’appui.
+
+**Formes de titre.** Cinq formes se retrouvent dans les titres forts : le nom, ce que c’est, l’affirmation qu’un concurrent ne pourrait pas signer, l’instruction à l’impératif, le lieu ou le moment. Choisis la plus simple qui soit vraie. Signaux d’enquête, dans la logique de `SAVOIR/TOOLS/CONVERGENCE` et jamais des interdits : la formule « la plateforme X pour équipes modernes », le tricolon (« Rapide. Simple. Sûr. »), la correction (« pas seulement un outil, un… »), « Bienvenue » ou « Découvrez » sans objet, la question que personne ne se posait, un nom suivi de deux-points que la navigation porte déjà.
+
+**Ligne d’appui, corps et actions.** La ligne d’appui est une phrase concrète qui dit ce que c’est et pour qui ; elle reçoit le détail retiré du titre et ne le répète pas. Préfère le nom précis et le chiffre réel (« livré en une semaine », « 38 places ») au générique (« livraison rapide », « intime ») : une autre entreprise pourrait-elle imprimer la phrase telle quelle ? Si oui, précise-la ou coupe-la. Un bouton nomme l’action ou l’objet (« Réserver une table », « Voir les tarifs ») ; l’action principale garde le même nom sur la page, et un « Commencer » ou « En savoir plus » sans objet est un signal d’enquête.
+
+**Preuve sans l’inventer.** Sans preuve fournie, montre la chose elle-même (objet de preuve, `DIRECTION/FIRST-OBJECT`), dis comment elle fonctionne, utilise les faits du brief. Un témoignage, un logo, une note ou un chiffre d’usage inventé n’est jamais un décor (`CNT-01`). Des détails d’exemple (noms de plats, tarifs, chambres) sont attendus pour juger la page à sa vraie densité ; ils sont marqués dans l’interface et listés dans la réponse (`CNT-01`, `EXD-01`).
+
+**Formules du genre.** Verbes et adjectifs de la production générique (« libérez », « propulsez », « fluide », « sans effort », « tout-en-un »), étiquettes éditoriales de pure forme (« notes de terrain »), texte de mobilier (« Scroll », heure locale, coordonnées sans fonction), tiret cadratin en cadence (`SAVOIR/STYLE`), trois éléments parallèles partout. Ce sont des signaux d’enquête : un mot du genre reste valide s’il dit exactement ce que fait le produit, et cette liste vieillit avec les modèles.
+
+**Micro-typographie en français.** Guillemets typographiques « ainsi », apostrophe courbe, points de suspension en un seul caractère, demi-cadratin pour les plages (9–17 h), espace insécable avant « : ; ! ? », à l’intérieur des guillemets, entre un nombre et son unité (« 12 € », « 38 places ») et avant le dernier mot court d’un titre s’il resterait seul ; `font-variant-numeric: tabular-nums` pour les colonnes de chiffres, `text-wrap: balance` sur les titres et `text-wrap: pretty` sur les paragraphes. Pour une autre langue, suis les usages de cette langue.
+
+| Champ du contrat réduit | Contenu |
+|---|---|
+| Décision | Longueur et forme du titre, ordre des sections, nom des actions, texte d’appui. |
+| Contre-indication | Texte fourni ou validé par un tiers (mentions légales, santé, finance) ; voix de marque existante ; langue dont le calcul de longueur ne tient pas (écritures sans espaces, par exemple) ; sujet intime où la concision ferait perdre la juste distance. |
+| Preuve attendue | Capture du premier écran à 390 et 1440 px (lignes du titre, coupe) ; relecture « une autre entreprise pourrait-elle imprimer cette phrase ? » sur les titres et la ligne d’appui. Preuve de type perceptuel et expert. |
+| Limite | Juge la forme et la spécificité du texte, non sa justesse commerciale, sa conformité légale ni son effet sur la conversion ou la compréhension, qui demandent une tâche et un lecteur (`ACTION/GATE-B`). |
+| Source et revue | Budget de titre et formes de titre repris et adaptés de Taste Skill v2 (fichier copy.md de ses références, licence MIT, lu le 2026-10-14) ; formules du genre alignées sur `SAVOIR/TOOLS/CONVERGENCE`. À revoir avant 2027-04 ; passage en `ADOPTED` seulement avec un gain observé (`BIBLIOTHEQUE/EVOLUTION`, contrat de gain réel). |
 
 ---
