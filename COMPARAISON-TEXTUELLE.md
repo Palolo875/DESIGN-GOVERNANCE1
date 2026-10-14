@@ -206,7 +206,7 @@ Seule DG couvre le sujet : `STATE` (états pertinents, récupération d'erreur `
 | 1 | Interdits | 15 règles de maison appliquées par `lint` et `inspect` (`SKILL.md`) | « jamais pour interdire » (`COMP-VAGUES`), signaux d'enquête | D1 |
 | 2 | Mouvement | obligatoire, plancher de 8 éléments (`SKILL.md` étape 9) | justifié ou supprimé (`CONTEXT`) | D2 |
 | 3 | Images | plancher de 4 réelles, vidéo conseillée | `SANS-ASSET` à égalité, jamais de faux asset | D3 |
-| 4 | Traitements d'image | duotone et grain « pas des traitements » (`imagery.md` §6) | duotone, grain ou trame possibles si la thèse les justifie (`MOY-ASSETS`) | à trancher |
+| 4 | Traitements d'image | duotone et grain « pas des traitements » (`imagery.md` §6) | duotone, grain ou trame possibles si la thèse les justifie (`MOY-ASSETS`) ; la tension interne de DG avec ses marqueurs de vague est alignée depuis la manche 8 | à trancher |
 | 5 | Note | score chiffré avec plafonds (`critique.md`) | aucun score (`CFT-00`, `DOUBLE-LOOP`) | à trancher |
 | 6 | Accent | un seul, sous 5 % | palette plurielle recevable, ne pas réduire par réflexe | à trancher |
 | 7 | Polices fréquentes | « par défaut » signalées (lint) | « pas un problème en soi » | à trancher |
@@ -239,13 +239,13 @@ Règles : un seul changement à la fois ; `PILOT` avec contre-indication, preuve
 
 | # | Proposition | Source dans TS | Où dans DG | Coût | Risque |
 |---|---|---|---|---|---|
-| U1 | **Inventaire du sujet** (8 à 12 éléments propres au client) et **phrase d'idée** à deux blancs, reliés à `FIRST-OBJECT` et à la recherche d'images | `SKILL.md` étapes 1 et 4 | `CFT-01` (idée par rapprochement) ou un paragraphe de `FIRST-OBJECT` | un paragraphe, une ligne dans `maintenance/versions.md` | faible ; peut se confondre avec `DOMAIN-FRAME` : le dire |
-| U2 | **Test de page sous-construite** (écran presque vide, section demandée livrée en quelques mots) comme ligne de `CFT-00`, sans seuil ni score | `critique.md` passes 11 et 12 | `CFT-00`, ligne « Résolution » ou nouvelle ligne | une ligne | faible ; ne pas en faire un quota |
+| U1 **(fait en manche 8, PILOT : sous-section de `CFT-01`)** | **Inventaire du sujet** (8 à 12 éléments propres au client) et **phrase d'idée** à deux blancs, reliés à `FIRST-OBJECT` et à la recherche d'images | `SKILL.md` étapes 1 et 4 | `CFT-01` (idée par rapprochement) ou un paragraphe de `FIRST-OBJECT` | un paragraphe, une ligne dans `maintenance/versions.md` | faible ; peut se confondre avec `DOMAIN-FRAME` : le dire |
+| U2 **(fait en manche 8 : paragraphe « Substance » de `CFT-00`)** | **Test de page sous-construite** (écran presque vide, section demandée livrée en quelques mots) comme ligne de `CFT-00`, sans seuil ni score | `critique.md` passes 11 et 12 | `CFT-00`, ligne « Résolution » ou nouvelle ligne | une ligne | faible ; ne pas en faire un quota |
 | U3 | **Gabarit de départ** (une géométrie de bureau et une de mobile, `[À ADAPTER]`) pour quelques routes seulement (une scène, une grille) | `library/sections.json`, `heroes.json` | `catalogue.md`, sous « choisir lorsque / éviter lorsque » | moyen, à faire sur 2 routes d'abord | risque de recettes figées, d'où deux routes seulement |
 | U4 | **Jetons de mouvement et durées** en `[À ADAPTER]`, avec la contre-indication « mouvement utile seulement » | `motion.md` §2 et §3 | `CONTEXT` ou `POINTS-DE-DEPART` | une table | faible |
 | U5 | **Réglages de grand texte** (approche selon la taille, collisions d'interligne, espace 2 pour 1 autour d'un titre) | `type.md` §3 et §7 | `typographie.md` | quelques lignes | faible |
 | U6 | **Méthode de recherche d'images libres** (requêtes tirées de l'inventaire, mots du lieu) et la règle « une image trouvée n'est jamais celle du client » | `imagery.md` §3 | `SOURCE` | un paragraphe | à vérifier : DG a déjà une règle sur « image hors sujet » (`MOY-ASSETS`) |
-| U7 | **Aligner les signaux contraires** de la section 6 : une phrase par tension (traitements d'asset, repères de coin) | — | `MOY-ASSETS`, `CFT-03` | deux phrases | très faible |
+| U7 **(fait en manche 8 : deux phrases hors noyau)** | **Aligner les signaux contraires** de la section 6 : une phrase par tension (traitements d'asset, repères de coin) | — | `MOY-ASSETS`, `CFT-03` | deux phrases | très faible |
 
 Ordre conseillé : U7 (cohérence, quasi gratuit), U1 (le plus grand écart de méthode), U2 (corrige le biais de retrait), puis U5, U4, U6, U3.
 
