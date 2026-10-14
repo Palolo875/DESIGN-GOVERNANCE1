@@ -643,6 +643,8 @@ def check_strict_contract(document: Any, source_path: Path) -> None:
             raise ValidationError(f"strict : {label} URL de démonstration interdite : {locator}")
         # Le fragment et la requête désignent une section ou un état du fichier, pas son nom.
         path_part = re.split(r"[?#]", locator, maxsplit=1)[0]
+        if path_part.startswith("file://") and not path_part.removeprefix("file://"):
+            raise ValidationError(f"strict : {kinds[label]} local sans chemin de fichier : {locator}")
         if is_local_locator(path_part):
             candidate = Path(path_part.removeprefix("file://"))
             if not candidate.is_absolute():
@@ -846,6 +848,8 @@ UNIT_CASES: list[tuple[Any, ...]] = [
     ("GV01-2", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "inconnu"), "placeholder à la place de artifact.locator", True),
     ("GV02-1", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "absent.html#hero"), "artefact local absent", True),
     ("GV02-2", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "absent.html?state=empty"), "artefact local absent", True),
+    ("GV02-3", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "file://?state=empty"), "sans chemin de fichier", True),
+    ("GV02-4", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "file://#hero"), "sans chemin de fichier", True),
 ]
 
 # Locators que le profil strict admet (aucun refus involontaire). Chaque valeur remplace

@@ -93,6 +93,21 @@ def part_a_baseline() -> None:
     except ValueError:
         refused = True
     expect("A", "référence sans provenance refusée", refused, True)
+    comparison = cr.compare_baseline([("Contraste", PASS, "ok"), ("Objet de preuve #x", RETURN, "absent")], scope, base(("Contraste", PASS, "ok")))
+    expect("A", "référence : nouveau contrôle en RETURN listé comme introduit", comparison["introduced_or_to_examine"], ["Objet de preuve #x"])
+    settings = {"proof": "", "tab_stops": 60, "allow_external": False, "wait_ms": 1500}
+    before = base(("Contraste", PASS, "ok")); before["provenance"]["settings"] = settings
+    expect("A", "référence : mêmes réglages comparables",
+           cr.compare_baseline([("Contraste", PASS, "ok")], scope, before, dict(settings))["comparable"], True)
+    expect("A", "référence : réglages différents (--proof) non comparables",
+           cr.compare_baseline([("Contraste", PASS, "ok")], scope, before, {**settings, "proof": "#x"})["comparable"], False)
+    with tempfile.TemporaryDirectory() as tmp:
+        bad = Path(tmp) / "ref.json"; bad.write_text("[]", encoding="utf-8")
+        page = Path(tmp) / "p.html"; page.write_text("<p>x</p>", encoding="utf-8")
+        with patch.object(cr, "measure", side_effect=AssertionError("mesure lancée malgré une référence invalide")), \
+                contextlib.redirect_stderr(io.StringIO()):
+            code = cr.run(cr.parser().parse_args([str(page), "--baseline", str(bad)]))
+    expect("A", "référence au mauvais format refusée avant la mesure", code, 2)
 
 
 def part_a() -> None:

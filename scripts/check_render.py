@@ -25,7 +25,7 @@ Usage :
     python3 scripts/check_render.py page.html --baseline avant.json            # comparer à une mesure --json antérieure
 
 Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
-(état et largeurs). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
+(état et largeurs) et avec les mêmes réglages (--proof, --tab-stops, --allow-external, --wait-ms). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
 code de sortie : un défaut préexistant reste un défaut.
 """
 from __future__ import annotations
@@ -590,19 +590,31 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
 RANK = {PASS: 0, RESERVE: 1, RETURN: 2}
 
 
-def compare_baseline(checks: list[tuple[str, str, str]], scope: str, baseline: dict) -> dict:
-    """Rapproche chaque contrôle de la mesure de référence (même périmètre) ; ne modifie aucun statut."""
+def measurement_settings(args: argparse.Namespace) -> dict:
+    """Réglages qui changent les contrôles sans changer le périmètre : ils doivent être identiques pour comparer."""
+    return {"proof": args.proof, "tab_stops": args.tab_stops, "allow_external": args.allow_external, "wait_ms": args.wait_ms}
+
+
+def check_baseline_shape(baseline: object) -> None:
     if not isinstance(baseline, dict) or not isinstance(baseline.get("checks"), list) or not isinstance(baseline.get("provenance"), dict):
         raise ValueError("référence illisible : JSON produit par --json attendu (provenance et checks)")
+
+
+def compare_baseline(checks: list[tuple[str, str, str]], scope: str, baseline: dict, settings: dict | None = None) -> dict:
+    """Rapproche chaque contrôle de la mesure de référence (même périmètre et mêmes réglages) ; ne modifie aucun statut."""
+    check_baseline_shape(baseline)
     before_scope = baseline["provenance"].get("scope")
     if before_scope != scope:
         return {"comparable": False, "reason": f"périmètre différent (référence : {before_scope} ; mesure : {scope})"}
+    before_settings = baseline["provenance"].get("settings")
+    if settings is not None and before_settings != settings:
+        return {"comparable": False, "reason": f"réglages différents (référence : {before_settings} ; mesure : {settings})"}
     before = {c.get("check"): (c.get("status"), c.get("detail")) for c in baseline["checks"] if isinstance(c, dict)}
     rows = []
     for title, status, detail in checks:
         old_status, old_detail = before.pop(title, (None, None))
         if old_status is None:
-            change = "nouveau contrôle"
+            change = "nouveau contrôle en RETURN" if status == RETURN else "nouveau contrôle"
         elif status == RETURN and old_status == RETURN:
             change = "RETURN préexistant, inchangé" if detail == old_detail else "RETURN préexistant, détail modifié : à examiner"
         elif status == RETURN:
@@ -615,7 +627,8 @@ def compare_baseline(checks: list[tuple[str, str, str]], scope: str, baseline: d
             change = "inchangé" if status == old_status else f"{old_status} → {status}"
         rows.append({"check": title, "before": old_status, "after": status, "change": change})
     rows += [{"check": title, "before": s, "after": None, "change": "contrôle absent de la mesure"} for title, (s, _) in before.items()]
-    introduced = [r["check"] for r in rows if r["change"] in ("RETURN introduit", "RETURN préexistant, détail modifié : à examiner")]
+    introduced = [r["check"] for r in rows if r["change"] in ("RETURN introduit", "nouveau contrôle en RETURN",
+                                                              "RETURN préexistant, détail modifié : à examiner")]
     return {"comparable": True, "rows": rows, "introduced_or_to_examine": introduced}
 
 
@@ -639,6 +652,7 @@ def run(args: argparse.Namespace) -> int:
     if args.baseline:
         try:
             baseline = json.loads(Path(args.baseline).read_text(encoding="utf-8"))
+            check_baseline_shape(baseline)
         except (OSError, ValueError) as exc:
             print(f"{NOTVER} : référence illisible : {args.baseline} ({type(exc).__name__})", file=sys.stderr)
             return 2
@@ -656,7 +670,7 @@ def run(args: argparse.Namespace) -> int:
     prov = {"artifact_locator": target, "artifact_version": sha12(path) if path else "url (non versionnée)",
             "method": "AUTOMATED", "observed_at": now,
             "scope": f"état initial{' puis ' + ' puis '.join(args.click) if args.click else ''}, largeurs {','.join(map(str, raw['widths']))} px",
-            "external_requests_blocked": raw["blocked"]}
+            "external_requests_blocked": raw["blocked"], "settings": measurement_settings(args)}
     if raw.get("captures"):
         prov["captures"] = raw["captures"]
     if raw.get("browser"):
@@ -677,11 +691,7 @@ def run(args: argparse.Namespace) -> int:
           "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
     comparison = None
     if baseline is not None:
-        try:
-            comparison = compare_baseline(checks, prov["scope"], baseline)
-        except ValueError as exc:
-            print(f"{NOTVER} : {exc}", file=sys.stderr)
-            return 2
+        comparison = compare_baseline(checks, prov["scope"], baseline, prov["settings"])
         print(f"\nComparaison avec la référence {args.baseline} :")
         if not comparison["comparable"]:
             print(f"  non comparable : {comparison['reason']}")
