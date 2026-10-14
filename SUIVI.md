@@ -353,7 +353,7 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 
 **Limites déclarées.** Valeurs reprises de TS, observées sur des sites de galerie notés par des modèles ; aucun gain n'est démontré ; aucune n'a été exercée sur un run de design. `ADOPTED` exige des runs contrastés avec et sans.
 
-## 11. Manches 10 à 13 : lectures, mesures, protocole, principes D, contraste du focus, couleur
+## 11. Manches 10 à 14 : lectures, mesures, protocole, principes D, contraste du focus, couleur
 
 « A toi le choix. » : j'ai choisi, dans l'ordre, de finir les lectures encore ouvertes (`probe.mjs`, B9), de combler le trou que `probe.mjs` montre, et de préparer le protocole A/B **sans le lancer**.
 
@@ -464,6 +464,20 @@ Question de l'utilisateur : et si on introduisait la théorie des couleurs ? Avi
 
 **Limites.** Aucun gain démontré ; repères établis sur des neutres ; le relevé a été regardé sur trois pages seulement (propres à moi) ; l'accent est repéré par sa chroma, non par son rôle.
 
+### 11.9 Manche 14 : D1, D3 et D4 tranchés par l'assistant
+
+Après la discussion de l'utilisateur sur D1, D3 et D4 (avis, données de TS, argument contraire, questions), il a répondu : « Je te laisse le choix d'y répondre ». Les réponses ci-dessous sont donc **celles de l'assistant**, à confirmer ou à renverser.
+
+**Données de TS rappelées** (`research.md`). Dans son test publié, le skill n'a pas battu la base sans skill (6,6 contre 7,7 ; 7,1 contre 8,0 ; 7,5 contre 7,5 ; 6,9 contre 7,9 sur briefs neufs ; 7,7 contre 7,8 sur briefs déjà vus) alors que ses pages avaient 0 `FAIL` à l'inspecteur et les bases 8 à 13. Dans sa galerie, les sites hauts ont une médiane de 37 images contre 5, et un média couvrant au moins la moitié du premier écran sur 68 % contre 48 % ; son test utilisait des briefs sans photographies. Un juré par brief, ±0,5, trois à quatre briefs par manche, jurés modèles.
+
+| Principe | Décision de l'assistant | Suite |
+|---|---|---|
+| **D1** | Frontière acceptée : **un défaut observable devient un plancher ou un relevé, un goût reste une question.** | Livré (commit `37e39e5`) : relevé des **actions** et de la **navigation du premier écran** dans `--mesures` (sans seuil). Les défauts que les jurés de TS punissent sont maintenant couverts ou relevés, sauf l'écran vide (non repris, voir 14). |
+| **D3** | **Aucun changement.** L'égalité de `SANS-ASSET` est gardée. Vérifié : le noyau demande déjà de marquer le contenu manquant (photos comprises) et que la réponse « liste ce qu'il faut fournir » ; la route d'images libres (U6) existe. Ma proposition d'un « plafond déclaré » était redondante. | Rien. La question « qui fournit les images ? » reste utile à l'utilisateur, non bloquante. |
+| **D4** | **La pluralité est gardée ; pas de tirage externe pour l'instant.** Raison : un tirage ne vaut que par la bibliothèque qu'il tire (celle de TS compte 20 directions, 56 palettes, 44 systèmes typographiques) ; DG n'en a pas, et en écrire une ferait entrer un style maison par la porte de derrière. | La convergence est une question **empirique** : une mesure est ajoutée au protocole A/B (distance entre deux répétitions du même brief, dispersion entre briefs, lue sur le relevé de palette). Un tirage (point N2) ne devient défendable que si DG converge nettement plus que A0 et A3. Le style de TS en profil `STYLE` : non écrit, sans demande. |
+
+**Premier écran (D1), ce qui a été livré.** Actions : boutons, liens d'action et champs d'envoi de 28 à 84 px de haut portant un fond opaque ou une bordure, comptés et nommés ; **un lien d'action sans fond ni bordure n'est pas compté** (la page `brutalist` de la manche 5 donne 0 action pour cette raison). Navigation : liens, hauteur prise sur l'ancêtre fixe ou collant, part du premier écran, fixe ou non. Tests : A 104 → 108 ; B 72 → 75 ; C 65 (248 au total). Validation complète `--require-browser` passée.
+
 ## 12. À garder en tête pour la suite
 
 **Nécessaire**
@@ -484,10 +498,10 @@ Question de l'utilisateur : et si on introduisait la théorie des couleurs ? Avi
 - **B8 (nouveau).** Rendre la charge de contexte visible : DG a déjà une ligne de mode de 115 à 292 mots ; garder cet avantage (environ 2,4 fois moins de lecture que TS) en important de la matière **par route**, pas dans le noyau.
 
 **Principes à trancher (décision de l'utilisateur)**
-- **D1.** Interdits et planchers mesurés (TS) contre « aucun quota, aucun interdit universel » (DG). **Avis (11.6) : côté DG, planchers seulement pour les défauts objectifs ; l'idée « par profil de surface » est abandonnée.**
+- **D1.** Interdits et planchers mesurés (TS) contre « aucun quota, aucun interdit universel » (DG). **Tranché par l'assistant (11.9) : côté DG ; défaut observable = plancher ou relevé, goût = question ; relevés du premier écran livrés.**
 - **D2 (appliqué en manche 11, commit `a474ac5`).** Mouvement obligatoire (quota de 8 éléments, TS) contre mouvement seulement s'il sert (DG). La page « saine » de la manche 3 reçoit un WARN de TS pour un mouvement mesuré. **Manche 5 : TS ne contrôle jamais le repli `prefers-reduced-motion` ; DG ne contrôle jamais l'immobilité. Les deux choix sont cohérents avec leurs principes, mais une page qui suit `stitch` passe chez TS et échoue chez DG (6.4, point 3).**
-- **D3.** Image réelle d'abord (TS : plancher de 4) contre `SANS-ASSET` à égalité (DG). **Avis (11.6) : côté DG avec plafond déclaré ; non appliqué.**
-- **D4.** Style maison contre pluralité esthétique. **Avis (11.6) : côté DG ; style de TS en profil `STYLE` sur demande ; non appliqué.**
+- **D3.** Image réelle d'abord (TS : plancher de 4) contre `SANS-ASSET` à égalité (DG). **Tranché par l'assistant (11.9) : aucun changement (le noyau couvre déjà la liste de ce qu'il faut fournir).**
+- **D4.** Style maison contre pluralité esthétique. **Tranché par l'assistant (11.9) : pluralité gardée, pas de tirage externe ; la convergence est mesurée par le protocole A/B avant toute décision.**
 
 - **B9 (nouveau, manche 5).** Une note de compatibilité avec d'autres skills de design chargées en même temps : quand une prescription externe (boucles infinies, accent à 4,2:1, microtexte de 10 px) heurte un contrôle de la porte A, la porte A prévaut et l'écart se déclare. **Vérifié en manche 10 (11.2)** : `SAVOIR/INTEGRITY` n'a pas de clause explicite, mais la délégation et la porte A mesurant le rendu couvrent le cas par analogie ; aucun ajout.
 
@@ -530,8 +544,8 @@ Question de l'utilisateur : et si on introduisait la théorie des couleurs ? Avi
 
 ## 14. Prochaines étapes (par ordre)
 
-1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (14 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5`, `c5e60fd`, `cec0636`, `7dbfb2e` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
-2. **Trancher D1, D3 et D4** (avis donné en 11.6, non tranchés) ; D2 est appliqué ; les six autres contradictions sont tranchées côté DG (à confirmer ou à renverser).
+1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (15 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5`, `c5e60fd`, `cec0636`, `7dbfb2e`, `37e39e5` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
+2. **Confirmer ou renverser** les décisions de l'assistant : D1, D3, D4 (11.9), D2 (appliqué), les six autres contradictions (tranchées côté DG).
 3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-05` relations de couleur, question sur le mouvement de `CFT-00`, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans. **Le protocole est prêt (`PROTOCOLE-AB.md`) ; il demande des sessions d'agent, des relecteurs et l'accord de l'utilisateur.**
 4. **Étendre `EVALUATION_CASE`** selon la spécification de `PROTOCOLE-AB.md` section 9, avec le premier run réel et pas avant.
 5. **Contraste de l'indicateur de focus** : fait en manche 12 (11.7) pour les cas lisibles. Restent non mesurés : bordures de champs, icônes, indicateurs par changement de fond.

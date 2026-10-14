@@ -86,6 +86,7 @@ Trois sources, **jamais fondues en un seul nombre**.
   - retrait : A1 préféré ou ex æquo sur 5 briefs sur 8 ou plus, ou régression mécanique ;
   - entre les deux : prolongation, et on ne conclut pas.
 - Analyses secondaires, rapportées sans seuil : exposition par route, défauts mécaniques par bras, jetons et durée par bras, taux de dévoilement de l'aveugle.
+- **Convergence (principe D4).** Question : DG, qui compte sur la discipline du modèle pour ne pas converger, converge-t-il plus que le même modèle sans skill (A0) ou avec le tirage de TS (A3) ? Mesure objective, tirée du relevé `--mesures` de chaque rendu : pour chaque brief et chaque bras, la **distance entre les deux répétitions** (teinte chromatique dominante, luminosité du fond, famille de titre, nombre de fonds de section, nombre de bords gauches, ossature) et, entre briefs, la dispersion de la teinte et de la luminosité du fond. Une distance faible entre deux répétitions signifie que le bras donne la même réponse à chaque fois. **Lecture décidée d'avance** : si A1 et A2 convergent nettement plus que A0 et que A3, alors seulement un tirage externe avec historique (point N2 des notes) devient défendable ; sinon la pluralité par discipline suffit et on n'ajoute pas de script. Limites : deux répétitions seulement, une distance mesurée sur le premier écran, des briefs qui imposent eux-mêmes une partie de la palette (contenu fourni).
 
 ## 9. Extension de `EVALUATION_CASE` (spécification, **non écrite dans DG**)
 
