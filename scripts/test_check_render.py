@@ -205,6 +205,19 @@ def part_a() -> None:
             expect("A", f"mesures {'demandées' if present else 'non demandées'} : JSON et affichage cohérents",
                    ["mesures" in json.loads(out.read_text()), "Mesures de composition" in buf.getvalue(), code], [present, present, 0])
     expect("A", "contrôle sans nom", status(cr.interpret(raw_case(audit={"names": [{"sel": "button.x"}]})), "Nom accessible"), RETURN)
+    def focus_case(*cues):
+        d = raw_case(); d["per_width"][390]["focus_cues"] = [{"id": f"#c{i}", **c} for i, c in enumerate(cues)]; return d
+    ring = lambda ratio, kind="contour": {"cues": [{"kind": kind, "fg": "#bbbbbb", "bg": "#ffffff", "ratio": ratio}], "other": False, "ua": False}
+    expect("A", "focus : ancienne mesure sans relevé, contrôle absent", [t for t, _, _ in cr.interpret(raw_case()) if t.startswith("Contraste de l’indicateur")], [])
+    expect("A", "focus : contour à 1,9:1 : réserve", status(cr.interpret(focus_case(ring(1.9))), "Contraste de l’indicateur de focus"), RESERVE)
+    expect("A", "focus : contour à 3:1 : conforme", status(cr.interpret(focus_case(ring(3.0))), "Contraste de l’indicateur de focus"), PASS)
+    expect("A", "focus : le détail nomme l’arrêt, les couleurs et le ratio",
+           all(x in next(d for t, _, d in cr.interpret(focus_case(ring(1.9))) if t.startswith("Contraste de l’indicateur")) for x in ("#c0", "#bbbbbb sur #ffffff = 1.9:1", "1.4.11")), True)
+    expect("A", "focus : contour du navigateur, rien de mesuré : conforme", status(cr.interpret(focus_case({"cues": [], "other": False, "ua": True})), "Contraste de l’indicateur de focus"), PASS)
+    expect("A", "focus : indicateur faible mais un changement de fond le porte aussi : pas de réserve",
+           status(cr.interpret(focus_case(dict(ring(1.9), other=True))), "Contraste de l’indicateur de focus"), PASS)
+    expect("A", "focus : arrêt non mesurable nommé, sans réserve", "#c0" in next(d for t, _, d in cr.interpret(focus_case({"cues": [], "other": True, "ua": False})) if t.startswith("Contraste de l’indicateur")), True)
+    expect("A", "focus : un arrêt conforme n’annule pas un arrêt faible", status(cr.interpret(focus_case(ring(5.0), ring(1.4, "ombre"))), "Contraste de l’indicateur de focus"), RESERVE)
     ext_case = lambda blocked, ext=True: dict(raw_case(audit={"brokenImgs": [{"sel": "img.a", "external": ext}]}), blocked=blocked)
     expect("A", "image locale illisible : RETURN", status(cr.interpret(ext_case(0, ext=False)), "Images chargées"), RETURN)
     expect("A", "image locale illisible, requêtes externes bloquées par ailleurs : RETURN", status(cr.interpret(ext_case(3, ext=False)), "Images chargées"), RETURN)
@@ -459,6 +472,12 @@ PAGES = {
     "texte_voile.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:transparent}</style><div class="v"></div>',
     "haut_rogne.html": ('<style>.w{overflow:hidden;margin-top:100px}.t{font-size:60px;line-height:1;margin:0;position:relative;top:-30px}</style>'
                         '<div class="w"><p class="t">Titre</p></div>'),
+    "focus_faible.html": '<style>:focus{outline:2px solid #bbbbbb;outline-offset:2px}</style><a href="#x">Lien</a>',
+    "focus_net.html": '<style>:focus{outline:2px solid #1a1a1a;outline-offset:2px}</style><a href="#x">Lien</a>',
+    "focus_anneau.html": '<style>button{border:0;outline:none}button:focus{box-shadow:0 0 0 3px rgba(59,130,246,.5)}</style><button>Valider</button>',
+    "focus_navigateur.html": '<a href="#x">Lien</a>',
+    "focus_fond.html": '<style>button{background:#fff;border:1px solid #ccc;outline:none}button:focus{background:#222;color:#fff}</style><button>Valider</button>',
+    "focus_transition.html": '<style>a{outline:2px solid transparent;transition:outline-color .6s}a:focus{outline-color:#1a1a1a}</style><a href="#x">Lien</a>',
     "image_absente.html": '<img alt="x" width="100" height="60" src="absente.png">',
     "image_externe.html": '<img alt="x" width="100" height="60" src="https://exemple.invalid/a.png">',
     "image_ok.html": ('<img alt="x" width="100" height="60" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">'
@@ -555,6 +574,12 @@ def part_b(require: bool) -> str:
             raw, _ = measure(str(d / 'petittexte.html'), '--mesures')
             expect('B', 'mesures : plus petit texte relevé (10 px, 10 % des caractères), corps resté à 16 px',
                    [raw['per_width'][390]['mesures']['plus_petit'], raw['per_width'][390]['mesures']['corps']], [{'taille': 10.0, 'part': 10}, 16.0])
+            for filename, want in [('focus_faible.html', RESERVE), ('focus_net.html', PASS), ('focus_anneau.html', RESERVE),
+                                   ('focus_navigateur.html', PASS), ('focus_fond.html', PASS), ('focus_transition.html', PASS)]:
+                _, c = measure(str(d / filename)); expect('B', filename + ' : contraste de l’indicateur de focus', status(c, 'Contraste de l’indicateur de focus'), want)
+            focus_detail = lambda page: next(x for t, _, x in measure(str(d / page))[1] if t.startswith('Contraste de l’indicateur'))
+            expect('B', 'focus : contour pâle nommé avec son ratio', all(t in focus_detail('focus_faible.html') for t in ('#bbbbbb sur #ffffff', '1.92:1')), True)
+            expect('B', 'focus : changement de fond signalé non mesuré, sans réserve', 'non mesuré' in focus_detail('focus_fond.html'), True)
             for filename, want in [('image_absente.html', RETURN), ('image_externe.html', RESERVE), ('image_ok.html', PASS)]:
                 _, c = measure(str(d / filename)); expect('B', filename + ' : images chargées', status(c, 'Images chargées'), want)
             gros = lambda page: measure(str(d / page), '--mesures')[0]['per_width'][390]['mesures']['gros_textes']

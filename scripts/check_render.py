@@ -303,6 +303,64 @@ FOCUS_JS = r"""
   return {id, key: window.__crKeys.get(a), isNew: i < 0, indicator, count: stops.length}; }
 """
 
+# Contraste de l'indicateur de focus (WCAG 1.4.11), mesuré sur l'élément qui vient de recevoir le focus. Seuls les indicateurs dont
+# la couleur et la place sont lisibles dans le style calculé sont mesurés : un contour (hors contour du navigateur, déjà à deux tons)
+# et un anneau d'ombre sans flou ni décalage. Un changement de fond, de couleur, de bordure, une ombre floue ou intérieure,
+# un fond en dégradé ou en image : non mesuré. Les transitions en cours sont terminées avant la lecture.
+FOCUS_CUE_JS = r"""
+() => { const el = document.activeElement;
+  if (!el || el === document.body || el === document.documentElement) return null;
+  try { for (const a of el.getAnimations()) if (a.constructor.name === 'CSSTransition') a.finish(); } catch (e) {}
+  const cv = document.createElement('canvas'); cv.width = cv.height = 1;
+  const cx = cv.getContext('2d', {willReadFrequently: true}); const SENT = '#123457';
+  const color = c => {
+    if (!c) return null;
+    const m = c.match(/^rgba?\(([^)]+)\)$/);
+    if (m) { const p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
+      if (p.length >= 3 && p.every(v => !isNaN(v))) return [p[0], p[1], p[2], p.length > 3 ? p[3] : 1]; }
+    cx.fillStyle = SENT; cx.fillStyle = c;
+    if (cx.fillStyle === SENT && c.replace(/\s/g, '').toLowerCase() !== SENT) return null;
+    cx.clearRect(0, 0, 1, 1); cx.fillRect(0, 0, 1, 1);
+    const d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2], d[3] / 255];
+  };
+  const over = (f, b) => { const a = f[3]; return [f[0]*a + b[0]*(1-a), f[1]*a + b[1]*(1-a), f[2]*a + b[2]*(1-a), 1]; };
+  const lum = c => { const s = c.slice(0, 3).map(v => { v /= 255; return v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4); });
+    return 0.2126*s[0] + 0.7152*s[1] + 0.0722*s[2]; };
+  const ratio = (a, b) => { const l1 = lum(a), l2 = lum(b); return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05); };
+  const hex = c => '#' + c.slice(0, 3).map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+  const effBg = e0 => { const layers = [];
+    for (let e = e0; e && e.nodeType === 1; e = e.parentElement) { const s = getComputedStyle(e);
+      if (s.backgroundImage !== 'none') return {kind: 'image'};
+      const c = color(s.backgroundColor); if (!c) return {kind: 'unknown'};
+      if (c[3] > 0) { layers.push(c); if (c[3] >= 1) break; } }
+    let base = [255, 255, 255, 1]; for (let i = layers.length - 1; i >= 0; i--) base = over(layers[i], base);
+    return {kind: 'solid', c: base}; };
+  const before = (window.__crBase.get(el) || '').split('|'), cs = getComputedStyle(el);
+  const now = [cs.outlineStyle, cs.outlineWidth, cs.outlineColor, cs.boxShadow, cs.borderTopColor, cs.borderBottomColor,
+               cs.borderTopWidth, cs.backgroundColor, cs.color, cs.textDecorationLine];
+  const changed = now.map((v, i) => v !== before[i]);
+  const cues = []; let other = false, ua = false;
+  const measure = (fgStr, ground, kind) => { const fg = color(fgStr);
+    if (!fg || ground.kind !== 'solid') { other = true; return; }
+    const f = fg[3] < 1 ? over(fg, ground.c) : fg;
+    cues.push({kind, fg: hex(f), bg: hex(ground.c), ratio: Math.round(ratio(f, ground.c) * 100) / 100}); };
+  const outside = effBg(el.parentElement || el), inside = effBg(el);
+  if (changed[0] || changed[1] || changed[2]) {
+    if (cs.outlineStyle === 'auto') ua = true;
+    else if (cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0) measure(cs.outlineColor, parseFloat(cs.outlineOffset) < 0 ? inside : outside, 'contour');
+  }
+  if (changed[3]) {
+    const parts = v => (v || '').split(/,(?![^(]*\))/).map(x => x.trim()).filter(x => x && x !== 'none');
+    const had = new Set(parts(before[3]));
+    for (const sh of parts(cs.boxShadow)) { if (had.has(sh)) continue;
+      const len = (sh.match(/-?[\d.]+px/g) || []).map(parseFloat), colour = sh.replace(/-?[\d.]+px/g, '').replace('inset', '').trim();
+      if (/inset/.test(sh) || len.length < 4 || len[0] !== 0 || len[1] !== 0 || len[2] > 1 || len[3] <= 0) { other = true; continue; }
+      measure(colour, outside, 'ombre'); }
+  }
+  if (changed[4] || changed[5] || changed[6] || changed[7] || changed[8] || changed[9] || !changed.some(Boolean)) other = true;
+  return {cues, other, ua}; }
+"""
+
 PROOF_JS = r"""
 s => { const el = document.querySelector(s); if (!el) return {found: false};
   const r = el.getBoundingClientRect(); let hidden = ['hidden', 'collapse'].includes(getComputedStyle(el).visibility), opacity = 1; const limits = [];
@@ -610,6 +668,7 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             keyboard = page.evaluate(BASELINE_JS, FOC)
             stops: list[str] = []
             missing: list[str] = []
+            focus_cues: list[dict] = []
             unexpected: list[str] = []
             visited: set[str] = set()
             reason = 'limit'
@@ -627,10 +686,13 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
                         unexpected.append(f['id'])
                     if not f["indicator"]:
                         missing.append(f["id"])
+                    else:
+                        cue = page.evaluate(FOCUS_CUE_JS) or {"cues": [], "other": True, "ua": False}
+                        focus_cues.append({"id": f["id"], **cue})
             keyboard.update(reason=reason, tab_limit=args.tab_stops, visited=sorted(visited),
                             unreached=[e['id'] for e in keyboard['expected'] if e['key'] not in visited], unexpected=unexpected)
             raw["per_width"][w] = {"overflow": dims, "offenders": offenders, "errs": errs, "audit": audit, "proof": proof,
-                                   "stops": stops, "missing_ind": missing, "keyboard": keyboard}
+                                   "stops": stops, "missing_ind": missing, "focus_cues": focus_cues, "keyboard": keyboard}
             if mesures is not None:
                 raw["per_width"][w]["mesures"] = mesures
             ctx.close()
@@ -772,7 +834,30 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     if miss:
         keyboard_limits.append('aucun changement de style au focus sur : ' + ', '.join(miss[:6]))
     checks.append(("Parcours clavier : arrêts et indicateur de focus", RESERVE if keyboard_limits else PASS,
-                   ' ; '.join(keyboard_details + keyboard_limits) + ' ; style observé, visibilité et contraste du focus à vérifier'))
+                   ' ; '.join(keyboard_details + keyboard_limits) + ' ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant'))
+
+    # Contraste de l'indicateur de focus (WCAG 1.4.11, 3:1). Réserve si un indicateur mesuré est sous le seuil et qu'aucun autre
+    # signal de focus (fond, couleur, bordure, ombre non mesurée) ne peut le porter ; les arrêts non mesurables restent à juger.
+    if any("focus_cues" in d for d in per.values()):
+        low, good, unmeasured = {}, 0, set()
+        for d in per.values():
+            for c in d.get("focus_cues", []):
+                best = max((m["ratio"] for m in c.get("cues", [])), default=None)
+                if best is not None and best >= FOCUS_RATIO:
+                    good += 1
+                elif best is None and c.get("ua") and not c.get("other"):
+                    good += 1
+                elif best is not None and not c.get("other"):
+                    m = max(c["cues"], key=lambda x: x["ratio"])
+                    low[(c["id"], m["kind"], m["fg"], m["bg"], m["ratio"])] = None
+                else:
+                    unmeasured.add(c["id"])
+        lines = [f"{i} : {k} {fg} sur {bg} = {r}:1" for (i, k, fg, bg, r) in list(low)[:4]]
+        detail = ("indicateur sous le seuil de 3:1 (WCAG 1.4.11) : " + " ; ".join(lines) + (f" ; +{len(low)-4}" if len(low) > 4 else "") + " ; "
+                  if low else "") + f"{good} arrêt(s) mesuré(s) ou à contour du navigateur sans défaut"
+        if unmeasured:
+            detail += f" ; non mesuré (changement de fond, couleur, bordure, ombre floue ou fond en image) : {', '.join(sorted(unmeasured)[:6])}"
+        checks.append(("Contraste de l’indicateur de focus", RESERVE if low else PASS, detail))
 
     # `running` : animations démarrées sous préférence « mouvement réduit », même terminées à la mesure. Une entrée sans
     # `moves` (ancienne mesure) est traitée comme un déplacement, jamais écartée.
@@ -814,6 +899,7 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     return checks
 
 
+FOCUS_RATIO = 3.0
 RANK = {PASS: 0, RESERVE: 1, RETURN: 2}
 
 
@@ -916,7 +1002,7 @@ def run(args: argparse.Namespace) -> int:
     print("Limites : seules les fautes objectivables sont contrôlées, à l'état et aux largeurs observés. "
           f"{raw['blocked']} requête(s) externe(s) bloquée(s) : les mesures utilisent alors les polices de repli. "
           "Les fonds en dégradé ou en image, les opacités de groupe, le texte SVG, le texte natif des contrôles et des pseudo-éléments ne sont pas évalués ; leur présence détectée conserve une réserve. "
-          "La couverture du contraste est bornée au DOM inspecté ; le contraste non textuel (bordures, icônes, indicateur de focus) n'est pas mesuré et le ratio d'un texte qui passe n'est pas rapporté. L'objet de preuve mesure CSS et rectangle, sans vérifier les pixels ni l'occlusion. "
+          "La couverture du contraste est bornée au DOM inspecté ; le contraste non textuel des bordures et des icônes n'est pas mesuré ; celui de l'indicateur de focus ne l'est que pour un contour ou un anneau d'ombre net sur fond uni ; le ratio d'un texte qui passe n'est pas rapporté. L'objet de preuve mesure CSS et rectangle, sans vérifier les pixels ni l'occlusion. "
           "Les noms sont des candidats DOM, pas un calcul AccName ; leur présence conserve une réserve. "
           "Le clavier porte sur les candidats du périmètre actif et les arrêts observés ; une borne atteinte conserve une réserve. "
           "Le mouvement réduit enregistre les animations et transitions démarrées au chargement et au défilement, sur la première largeur ; "
