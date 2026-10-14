@@ -68,7 +68,35 @@ def raw_case(audit=None, proof=None, stops=None, missing=None, running=None, ove
     return {"widths": [390], "per_width": {390: pw}, "running": running or [], "blocked": 0}
 
 
+def part_a_baseline() -> None:
+    # Comparaison avec une mesure antérieure : défauts introduits, préexistants ou disparus ; aucun statut modifié.
+    scope = "état initial, largeurs 390 px"
+    def base(*checks, scope=scope):
+        return {"provenance": {"scope": scope}, "checks": [{"check": t, "status": s, "detail": d} for t, s, d in checks]}
+    def change(now, before, title="Contraste"):
+        rows = cr.compare_baseline(now, scope, before)["rows"]
+        return next(r["change"] for r in rows if r["check"] == title)
+    expect("A", "référence : RETURN introduit", change([("Contraste", RETURN, "a")], base(("Contraste", PASS, "ok"))), "RETURN introduit")
+    expect("A", "référence : RETURN préexistant inchangé", change([("Contraste", RETURN, "a")], base(("Contraste", RETURN, "a"))), "RETURN préexistant, inchangé")
+    expect("A", "référence : RETURN au détail modifié à examiner", change([("Contraste", RETURN, "b")], base(("Contraste", RETURN, "a"))),
+           "RETURN préexistant, détail modifié : à examiner")
+    expect("A", "référence : RETURN disparu", change([("Contraste", PASS, "ok")], base(("Contraste", RETURN, "a"))), "RETURN disparu")
+    expect("A", "référence : réserve apparue = dégradé", change([("Contraste", RESERVE, "r")], base(("Contraste", PASS, "ok"))), "dégradé")
+    expect("A", "référence : réserve levée = amélioré", change([("Contraste", PASS, "ok")], base(("Contraste", RESERVE, "r"))), "amélioré")
+    comparison = cr.compare_baseline([("Contraste", RETURN, "b"), ("Clavier", RETURN, "k")], scope,
+                                     base(("Contraste", RETURN, "a"), ("Clavier", RETURN, "k")))
+    expect("A", "référence : seuls les défauts introduits ou à examiner sont listés", comparison["introduced_or_to_examine"], ["Contraste"])
+    expect("A", "référence : périmètre différent non comparable",
+           cr.compare_baseline([("Contraste", PASS, "ok")], scope, base(("Contraste", PASS, "ok"), scope="état initial, largeurs 768 px"))["comparable"], False)
+    try:
+        cr.compare_baseline([], scope, {"checks": []}); refused = False
+    except ValueError:
+        refused = True
+    expect("A", "référence sans provenance refusée", refused, True)
+
+
 def part_a() -> None:
+    part_a_baseline()
     with patch.dict(os.environ, {"DG_BROWSER_EXECUTABLE": "/browser/configure"}):
         expect("A", "navigateur explicitement configuré", cr.parser().parse_args(["page.html"]).browser_executable, "/browser/configure")
         expect("A", "option navigateur prioritaire sur la configuration", cr.parser().parse_args(["page.html", "--browser-executable", "/browser/choisi"]).browser_executable, "/browser/choisi")
@@ -429,6 +457,12 @@ def part_b(require: bool) -> str:
             expect("B", "JSON avec provenance AUTOMATED", json.loads(out.read_text(encoding="utf-8"))["provenance"]["method"], "AUTOMATED")
             code = subprocess.run([sys.executable, str(HERE / "check_render.py"), str(d / "oklch.html"), "--widths", "390"], capture_output=True, text=True).returncode
             expect("B", "page fautive : code de sortie", code, 1)
+            after = Path(tmp) / "apres.json"
+            code = subprocess.run([sys.executable, str(HERE / "check_render.py"), str(d / "oklch.html"), "--widths", "390",
+                                   "--baseline", str(out), "--json", str(after)], capture_output=True, text=True).returncode
+            comparison = json.loads(after.read_text(encoding="utf-8"))["baseline_comparison"]
+            expect("B", "référence : défaut introduit signalé, code de sortie inchangé",
+                   [comparison["introduced_or_to_examine"], code], [["Contraste du texte sur fond uni"], 1])
             _, c = measure(str(d / "revele.html"))
             expect("B", "contenu révélé au défilement : mesuré (contraste faible détecté)", status(c, "Contraste"), RETURN)
             raw, _ = measure(str(d / "propre.html"), "--captures", str(d / "captures"))

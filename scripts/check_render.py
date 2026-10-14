@@ -22,6 +22,11 @@ Usage :
     python3 scripts/check_render.py http://127.0.0.1:8000/page.html          # même origine autorisée
     python3 scripts/check_render.py page.html --click "#ouvrir"               # observer un autre état
     python3 scripts/check_render.py page.html --captures captures/v1          # une capture pleine page par largeur
+    python3 scripts/check_render.py page.html --baseline avant.json            # comparer à une mesure --json antérieure
+
+Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
+(état et largeurs). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
+code de sortie : un défaut préexistant reste un défaut.
 """
 from __future__ import annotations
 
@@ -582,6 +587,38 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     return checks
 
 
+RANK = {PASS: 0, RESERVE: 1, RETURN: 2}
+
+
+def compare_baseline(checks: list[tuple[str, str, str]], scope: str, baseline: dict) -> dict:
+    """Rapproche chaque contrôle de la mesure de référence (même périmètre) ; ne modifie aucun statut."""
+    if not isinstance(baseline, dict) or not isinstance(baseline.get("checks"), list) or not isinstance(baseline.get("provenance"), dict):
+        raise ValueError("référence illisible : JSON produit par --json attendu (provenance et checks)")
+    before_scope = baseline["provenance"].get("scope")
+    if before_scope != scope:
+        return {"comparable": False, "reason": f"périmètre différent (référence : {before_scope} ; mesure : {scope})"}
+    before = {c.get("check"): (c.get("status"), c.get("detail")) for c in baseline["checks"] if isinstance(c, dict)}
+    rows = []
+    for title, status, detail in checks:
+        old_status, old_detail = before.pop(title, (None, None))
+        if old_status is None:
+            change = "nouveau contrôle"
+        elif status == RETURN and old_status == RETURN:
+            change = "RETURN préexistant, inchangé" if detail == old_detail else "RETURN préexistant, détail modifié : à examiner"
+        elif status == RETURN:
+            change = "RETURN introduit"
+        elif old_status == RETURN:
+            change = "RETURN disparu"
+        elif status in RANK and old_status in RANK and RANK[status] != RANK[old_status]:
+            change = "dégradé" if RANK[status] > RANK[old_status] else "amélioré"
+        else:
+            change = "inchangé" if status == old_status else f"{old_status} → {status}"
+        rows.append({"check": title, "before": old_status, "after": status, "change": change})
+    rows += [{"check": title, "before": s, "after": None, "change": "contrôle absent de la mesure"} for title, (s, _) in before.items()]
+    introduced = [r["check"] for r in rows if r["change"] in ("RETURN introduit", "RETURN préexistant, détail modifié : à examiner")]
+    return {"comparable": True, "rows": rows, "introduced_or_to_examine": introduced}
+
+
 def capture_paths(folder: str, widths: list[int]) -> list[Path]:
     return [Path(folder) / f"capture-{w}px.png" for w in widths]
 
@@ -597,6 +634,13 @@ def run(args: argparse.Namespace) -> int:
         existing = [str(p) for p in capture_paths(args.captures, [int(w) for w in args.widths.split(",") if w.strip()]) if p.exists()]
         if existing:  # une capture « avant » ne doit jamais être écrasée par la suivante
             print(f"{NOTVER} : capture déjà présente, choisir un autre dossier : {', '.join(existing)}", file=sys.stderr)
+            return 2
+    baseline = None
+    if args.baseline:
+        try:
+            baseline = json.loads(Path(args.baseline).read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            print(f"{NOTVER} : référence illisible : {args.baseline} ({type(exc).__name__})", file=sys.stderr)
             return 2
     try:
         raw = measure(args)
@@ -631,12 +675,29 @@ def run(args: argparse.Namespace) -> int:
           "Le clavier porte sur les candidats du périmètre actif et les arrêts observés ; une borne atteinte conserve une réserve. "
           "Les captures montrent l'état observé ; elles ne jugent rien. "
           "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
+    comparison = None
+    if baseline is not None:
+        try:
+            comparison = compare_baseline(checks, prov["scope"], baseline)
+        except ValueError as exc:
+            print(f"{NOTVER} : {exc}", file=sys.stderr)
+            return 2
+        print(f"\nComparaison avec la référence {args.baseline} :")
+        if not comparison["comparable"]:
+            print(f"  non comparable : {comparison['reason']}")
+        else:
+            for row in comparison["rows"]:
+                print(f"  {row['check']} : {row['change']}")
+            introduced = comparison["introduced_or_to_examine"]
+            print("  Défauts introduits ou à examiner : " + (", ".join(introduced) if introduced else "aucun")
+                  + ". Les statuts et le code de sortie restent ceux de la mesure : un RETURN préexistant reste un défaut.")
     if args.json:
         coverage = {str(w): {**d.get('keyboard', {}), 'observed_stops': len(d['stops'])} for w, d in raw['per_width'].items()}
         Path(args.json).write_text(json.dumps({"provenance": prov, "checks": [{"check": t, "status": s, "detail": d} for t, s, d in checks],
                                               'keyboard_coverage': coverage,
                                               'contrast_coverage': {str(w): d['audit'].get('contrastCoverage', {}) for w, d in raw['per_width'].items()},
-                                              'proof_observations': {str(w): d['proof'] for w, d in raw['per_width'].items()}},
+                                              'proof_observations': {str(w): d['proof'] for w, d in raw['per_width'].items()},
+                                              **({'baseline_comparison': comparison} if comparison is not None else {})},
                                               ensure_ascii=False, indent=2), encoding="utf-8")
     return 1 if any(s == RETURN for _, s, _ in checks) else 0
 
@@ -653,6 +714,8 @@ def parser() -> argparse.ArgumentParser:
     ap.add_argument("--json", default="", help="écrit les résultats et la provenance dans ce fichier")
     ap.add_argument("--captures", default="", metavar="DOSSIER",
                     help="écrit une capture pleine page par largeur (capture-<largeur>px.png), à l'état observé ; n'écrase rien")
+    ap.add_argument("--baseline", default="", metavar="JSON",
+                    help="comparer à une mesure --json antérieure du même périmètre (défauts introduits, préexistants ou disparus)")
     ap.add_argument("--browser-executable", default=os.environ.get("DG_BROWSER_EXECUTABLE", ""), metavar="CHEMIN",
                     help="Chromium installé à utiliser explicitement (ou DG_BROWSER_EXECUTABLE) ; sinon navigateur Playwright")
     ap.add_argument("--serve-local", action="store_true", default=os.environ.get("DG_RENDER_SERVE_LOCAL") == "1",

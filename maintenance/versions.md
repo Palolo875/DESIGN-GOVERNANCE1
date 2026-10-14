@@ -29,7 +29,7 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 - **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système) et ne charger que ce qui peut changer la décision.
 - **Diriger une proposition** : premier objet, cible visuelle, alternative située, direction lisible dans le rendu.
 - **Construire avec un contenu vrai** : exemples marqués plutôt qu’emplacements vides, sources et droits vérifiés au moment de l’intégration.
-- **Observer et corriger** : boucle d’édition sur capture, recette de rendu automatisée pour les fautes objectivables (débordement, contraste, noms accessibles, clavier, cibles, mouvement réduit).
+- **Observer et corriger** : boucle d’édition sur capture, recette de rendu automatisée pour les fautes objectivables (débordement, contraste, noms accessibles, clavier, cibles, mouvement réduit), avec comparaison à une mesure antérieure pour distinguer les défauts introduits.
 - **Tracer selon le besoin** : trace légère par défaut, trace complète et fiche `RUN_CARD` validable lorsqu’un travail est repris, partagé, audité ou accepté.
 - **Retrouver un savoir** : lecteur de routes par code, adresse lisible, recherche ou connexions entre domaines.
 

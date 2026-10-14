@@ -18,7 +18,7 @@ Avant la preuve, déclare le périmètre : viewport, états, scènes, contenu, d
 | État significatif | Loading, empty, error, focus, contenu long ou état dominant. | U/A/T `NOT-VERIFIED` sur l’état absent. |
 | Comparaison d’écarts | Spec/ancre face au build sur les axes touchés. | `EXPLORATORY` ou `RETURN-DIRECTION`. |
 
-Pour un rendu HTML, `python3 scripts/check_render.py page.html --captures DOSSIER` produit les captures entières, une par largeur (390, 768 et 1440 px par défaut), à l’état observé (`--click` pour un autre état). Chaque version va dans son propre dossier : la recette n’écrase jamais une capture existante, ce qui garde la paire avant/après de B1b. Vues de détail et de masses restent à produire autrement.
+Pour un rendu HTML, `python3 scripts/check_render.py page.html --captures DOSSIER` produit les captures entières, une par largeur (390, 768 et 1440 px par défaut), à l’état observé (`--click` pour un autre état). Chaque version va dans son propre dossier : la recette n’écrase jamais une capture existante, ce qui garde la paire avant/après de B1b. Vues de détail et de masses restent à produire autrement. Pour une non-régression, enregistrez la mesure de la version d’avant avec `--json`, puis mesurez la nouvelle avec `--baseline` suivi de ce fichier : chaque contrôle est dit inchangé, amélioré, dégradé, introduit ou disparu, sans changer les statuts ; un défaut préexistant reste un défaut.
 
 <!-- concept:HON-07 -->
 Une capture prouve le rendu, pas l’indépendance du jugement, l’accessibilité complète ou la réussite d’une tâche. Un regard humain ou externe prouve un avis situé, pas une mesure technique. Un asset généré est une ancre possible, jamais une preuve de rendu.
