@@ -452,6 +452,14 @@ class CoreResourceActivationTests(unittest.TestCase):
                 for fragment in expected:
                     self.assertIn(fragment, served)
 
+    def test_colour_relations_pilot_is_served_by_cft_05_with_its_limits(self):
+        # Relations de couleur : sous-section de CFT-05 en PILOT ; la roue reste un vocabulaire, jamais une recette.
+        _, lines, index = routes.resolve('SAVOIR/CRAFT/CFT-05')
+        served = '\n'.join(routes.extract(lines, index))
+        for fragment in ('Relations de couleur', 'PILOT', 'La valeur d’abord', 'OKLCH', 'niveaux de gris', 'Fonds voisins',
+                         'décrivent une palette ; elles n’en justifient pas une', 'Contre-indications', 'ADOPTED', '2026-10-14'):
+            self.assertIn(fragment, served)
+
     def test_subject_inventory_pilot_and_substance_signal_are_served_by_their_routes(self):
         # Inventaire du sujet : sous-section de CFT-01 en PILOT, source datée ; substance : signal d'enquête de CFT-00, sans score.
         for locator, expected in [('SAVOIR/CRAFT/CFT-01', ('Inventaire du sujet et phrase d’idée', 'Test du concurrent', 'PILOT', 'Contre-indication', 'ADOPTED', '2026-10-14')),

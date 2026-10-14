@@ -246,6 +246,24 @@ Une relation de couleur peut exprimer un registre ou une hiérarchie, mais ne do
 
 Les claims sur chroma, statut perçu ou tendances de palette passent par `SAVOIR/TOOLS` et portent source, date, portée et limite dans la trace locale du run. Des proportions observées (fond, boutons neutres, fonds de section) sont datées dans `SAVOIR/TOOLS/POINTS-DE-DEPART` ; elles guident un essai, elles ne fixent aucune palette.
 
+### Relations de couleur : construire et critiquer une palette
+
+[MÉTHODE] Statut de route : `PILOT` (`maintenance/evolution.md`). Les relations de couleur servent à fixer un rôle et à nommer ce sur quoi une palette repose ; elles ne fournissent pas de recette.
+
+**La valeur d’abord.** `[À ADAPTER]` Décide la luminosité de chaque rôle avant sa teinte : en OKLCH, fixe L, puis choisis la chroma C et la teinte H ; le contraste se lit alors dans l’écart de L. Pour des neutres, un écart de L d’environ 0,3 à 0,33 donne 3:1 et d’environ 0,37 à 0,43 donne 4,5:1 (sur un noir pur : environ 0,47 et 0,56). Une teinte saturée s’écarte de ces repères, surtout dans les bleus et les jaunes : le calcul d’`ACTION/GATE-A` tranche toujours. Un accent se règle sur ses trois usages, texte sur le fond, fond portant son texte, contour ou anneau de focus à 3:1 ; une seule valeur les tient rarement tous sur un fond clair comme sur un fond sombre, d’où souvent deux valeurs d’accent.
+
+**Nommer la relation.** Une palette repose sur un écart de valeur, de teinte, de chaleur (chaud contre froid), de saturation ou de surface (une couleur étendue, une autre rare) : dis lequel. Test en niveaux de gris : si les rôles ne se distinguent plus, la palette ne tenait que par la teinte et risque de vibrer ou de se confondre.
+
+**Fonds voisins.** Deux fonds de section voisins diffèrent par la luminosité, pas par la seule teinte ; l’écart de L se lit dans le relevé de palette (`scripts/check_render.py --mesures`, `ACTION/GATE-A`).
+
+**Neutres.** Teinter les neutres (fond, surface, texte atténué) d’une chroma faible, d’environ 0,005 à 0,02, vers la teinte dominante les met dans une même famille. Le noir et le blanc purs restent possibles quand la direction les veut.
+
+**Fond sombre.** Remonte la luminosité de l’accent, baisse un peu sa chroma, et fais l’élévation par pas de luminosité des surfaces plutôt que par des lueurs.
+
+**Roue chromatique.** Complémentaire, analogue ou triade décrivent une palette ; elles n’en justifient pas une. Une palette tirée de la roue sans raison propre au sujet relève du réflexe que la question ci-dessus fait nommer. Les effets de la couleur sur l’émotion ou la confiance restent des hypothèses de perception.
+
+Contre-indications : palette ou marque fournie (la conserver et noter les écarts) ; palette née d’un asset (« Couleur située ») ; contraste de teinte seule assumé par la direction (le déclarer et vérifier le contraste calculé). Preuve : contraste calculé par rôle et par fond, capture en niveaux de gris, relevé de palette, vrai contenu. Limite : repères perceptuels approchés, établis sur des neutres ; WCAG reste le critère de contraste et APCA un complément (`ACTION/GATE-A`) ; aucun gain démontré. Source et revue : OKLab (Ottosson, 2020), WCAG 2.2 (1.4.3 et 1.4.11), vocabulaire des contrastes de Johannes Itten, règle des fonds voisins de la référence couleur de Taste Skill v2 (licence MIT, lue le 2026-10-14). À revoir avant 2027-04 ; passage en `ADOPTED` seulement avec un gain observé (`BIBLIOTHEQUE/EVOLUTION`).
+
 ## CFT-06 — écriture et contenu
 
 [MÉTHODE] La rédaction (copywriting, titres, microcopie, nom des actions) est une décision de design : un titre qui demande quatre lignes ne se rattrape pas par la typographie, et une page de slogans ne se rattrape pas par la mise en page. Statut de route : `PILOT` (`maintenance/evolution.md`), avec le contrat réduit en fin de section. Charge cette route lorsque le contenu, le titre, l’ordre des sections ou le nom des actions sont une décision du run ; pour une retouche locale, relis seulement le texte touché.
