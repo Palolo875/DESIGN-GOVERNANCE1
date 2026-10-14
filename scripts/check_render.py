@@ -27,7 +27,7 @@ Usage :
 
 Mesures (--mesures) : relevés chiffrés de la page par largeur (titre d'accueil, corps, plus petit texte et sa part, tailles et familles,
 longueur de ligne, images, texte centré, fonds de section, bords gauches, gros textes du premier écran couverts par un autre élément
-ou au haut rogné, palette en OKLCH : fond, fonds voisins, encres, couleurs chromatiques). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie, aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
+ou au haut rogné, actions et navigation du premier écran, palette en OKLCH : fond, fonds voisins, encres, couleurs chromatiques). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie, aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
 
 Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
 (état et largeurs) et avec les mêmes réglages (--proof, --tab-stops, --allow-external, --wait-ms). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
@@ -536,6 +536,20 @@ __COLOR_JS__
     }
   } finally { stl.remove(); }
   gros.couverts = gros.couverts.slice(0, 5); gros.hauts_rognes = gros.hauts_rognes.slice(0, 5);
+  // Premier écran : actions et navigation. Une action est un bouton, un lien d'action ou un champ d'envoi d'une taille de bouton (28 à 84 px
+  // de haut, 64 px de large au moins) qui porte un fond opaque ou une bordure ; la navigation est le premier bloc de navigation ou d'en-tête,
+  // sa hauteur est prise sur l'ancêtre fixe ou collant s'il y en a un. Relevé seulement : aucun nombre d'actions ni de liens n'est attendu.
+  const actions = [...document.querySelectorAll('button, [role="button"], input[type="submit"], input[type="button"], a[href]')].filter(el => {
+    if (!isShown(el) || el.closest('footer')) return false; const r = el.getBoundingClientRect();
+    if (r.top >= H || r.bottom <= 0 || r.height < 28 || r.height > 84 || r.width < 64 || r.width > Math.min(W * 0.96, 900)) return false;
+    const st = getComputedStyle(el), bg = color(st.backgroundColor); return (bg && bg[3] >= 0.5) || (parseFloat(st.borderTopWidth) || 0) >= 1; });
+  const navEl = [...document.querySelectorAll('header nav, nav, header, [role="navigation"]')].find(isShown);
+  let navigation = null;
+  if (navEl) { let host = navEl, fixe = false;
+    for (let p = navEl, i = 0; i < 4 && p && p !== document.body; i++, p = p.parentElement) { const pos = getComputedStyle(p).position; if (pos === 'fixed' || pos === 'sticky') { fixe = true; host = p; break; } }
+    const hr = host.getBoundingClientRect(), liens = [...navEl.querySelectorAll('a')].filter(a => { const r = a.getBoundingClientRect(); return r.width > 0 && r.top < 140; }).length;
+    navigation = {liens, fixe, hauteur: Math.round(hr.height), part: Math.round(Math.min(hr.height, Math.max(0, H - Math.max(hr.top, 0))) / H * 100)}; }
+  const premier_ecran = {actions: actions.length, textes: actions.slice(0, 3).map(a => (a.innerText || a.value || '').replace(/\s+/g, ' ').trim().slice(0, 30)), navigation};
   // Palette, mesurée en OKLCH (L luminosité de 0 à 1, C chroma, H teinte en degrés) : fond, fonds de section voisins et leurs écarts de
   // luminosité, encres par part des caractères, couleurs chromatiques (C de 0,06 ou plus) par part du premier écran et des caractères.
   // Un relevé, aucun seuil : les fonds en image ou en dégradé et les textes translucides sur fond inconnu ne sont pas évalués.
@@ -574,7 +588,7 @@ __COLOR_JS__
     .sort((a, b) => (b.surface + b.caracteres) - (a.surface + a.caracteres));
   palette.chromatiques = chroma.slice(0, 4);
   palette.teintes = new Set(chroma.filter(e => e.surface >= 1 || e.caracteres >= 1).map(e => Math.round(e.H / 30) % 12)).size;
-  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, plus_petit: petit ? {taille: petit[0], part: Math.round(petit[1] / chars * 100)} : null, gros_textes: gros, palette, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
+  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, plus_petit: petit ? {taille: petit[0], part: Math.round(petit[1] / chars * 100)} : null, gros_textes: gros, palette, premier_ecran, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
           mesure_mediane: mesures.length ? mesures[Math.floor(mesures.length / 2)] : null,
           images: {raster: rasters.length, video: videos.length, canvas: canvases.length, svg: svgs.length}, media_premier_ecran: Math.round(part * 100),
           centre_pour_cent: chars ? Math.round(centered / chars * 100) : 0, fonds_distincts: fonds.size, bords_gauches: bords.size,
@@ -601,6 +615,11 @@ def format_mesures(per: dict) -> list[str]:
         parts.append(f"corps {m.get('corps')} px, {m.get('tailles_distinctes')} taille(s) distincte(s), {len(m.get('familles', []))} famille(s) ({', '.join(m.get('familles', [])[:3])})")
         if m.get("plus_petit"):
             parts.append(f"plus petit texte {m['plus_petit']['taille']} px ({m['plus_petit']['part']} % des caractères)")
+        pe = m.get("premier_ecran")
+        if pe:
+            nav = pe.get("navigation")
+            parts.append(f"premier écran : {pe.get('actions', 0)} action(s)" + (f" ({', '.join('« ' + t + ' »' for t in pe.get('textes', []) if t)})" if pe.get("actions") else "")
+                         + " ; " + (f"navigation {nav['liens']} lien(s), {nav['hauteur']} px ({nav['part']} % de la hauteur)" + (", fixe" if nav.get("fixe") else "") if nav else "aucune navigation repérée"))
         g = m.get("gros_textes")
         if g:
             found = [f"couvert à {c['part']} % « {c['texte']} »" for c in g.get("couverts", [])] + [f"haut rogné « {x} »" for x in g.get("hauts_rognes", [])]

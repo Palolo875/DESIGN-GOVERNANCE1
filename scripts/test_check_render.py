@@ -205,6 +205,16 @@ def part_a() -> None:
             expect("A", f"mesures {'demandées' if present else 'non demandées'} : JSON et affichage cohérents",
                    ["mesures" in json.loads(out.read_text()), "Mesures de composition" in buf.getvalue(), code], [present, present, 0])
     expect("A", "contrôle sans nom", status(cr.interpret(raw_case(audit={"names": [{"sel": "button.x"}]})), "Nom accessible"), RETURN)
+    pe = {"actions": 2, "textes": ["Réserver", "Appeler"], "navigation": {"liens": 5, "fixe": True, "hauteur": 72, "part": 8}}
+    with_e = raw_case(); with_e["per_width"][390]["mesures"] = dict(sample, premier_ecran=pe)
+    line_e = cr.format_mesures(with_e["per_width"])[0]
+    expect("A", "premier écran : actions nommées, navigation (liens, hauteur, part, fixe) relevées",
+           all(x in line_e for x in ("2 action(s) (« Réserver », « Appeler »)", "navigation 5 lien(s), 72 px (8 % de la hauteur), fixe")), True)
+    none_e = raw_case(); none_e["per_width"][390]["mesures"] = dict(sample, premier_ecran={"actions": 0, "textes": [], "navigation": None})
+    expect("A", "premier écran : aucune action, aucune navigation, dit sans verdict",
+           "0 action(s) ; aucune navigation repérée" in cr.format_mesures(none_e["per_width"])[0] and not any(w in cr.format_mesures(none_e["per_width"])[0] for w in (PASS, RESERVE, RETURN)), True)
+    expect("A", "premier écran : relevé ancien sans le champ, aucune mention", "premier écran :" in cr.format_mesures(with_m["per_width"])[0], False)
+    expect("A", "premier écran : aucun statut modifié", cr.interpret(with_e) == cr.interpret(raw_case()), True)
     pal = {"fond": {"hex": "#f6f1e7", "L": 0.96, "C": 0.02, "H": 85}, "fonds": [{"hex": "#f6f1e7", "L": 0.96, "C": 0.02, "H": 85}, {"hex": "#10201a", "L": 0.22, "C": 0.03, "H": 170}],
            "fonds_non_evalues": 1, "ecarts": [{"dL": 0.74, "dH": 85}],
            "encres": [{"hex": "#1a1a1a", "L": 0.22, "C": 0.0, "H": 90, "part": 92}],
@@ -485,6 +495,10 @@ PAGES = {
     "texte_voile.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:transparent}</style><div class="v"></div>',
     "haut_rogne.html": ('<style>.w{overflow:hidden;margin-top:100px}.t{font-size:60px;line-height:1;margin:0;position:relative;top:-30px}</style>'
                         '<div class="w"><p class="t">Titre</p></div>'),
+    "premier_ecran.html": ('<style>header{position:fixed;top:0;left:0;right:0;height:60px;background:#fff}header a{margin:0 8px}'
+                           '.b{display:block;margin:100px 0 0;width:160px;height:44px;background:#1a1a1a;color:#fff;border:0}</style>'
+                           '<header><nav><a href="#a">Un</a><a href="#b">Deux</a><a href="#c">Trois</a></nav></header><button class="b">Réserver</button>'),
+    "premier_ecran_vide.html": '<p>Un texte seul, sans bouton ni navigation.</p>',
     "palette.html": ('<style>body{margin:0;background:#ffffff;color:#1a1a1a}h1{margin:0}.r{background:#ff0000;color:#ffffff;height:300px}.g{background:#f2f2f2;height:200px}</style>'
                      '<section class="g">Un fond neutre clair</section><section class="r">Un champ rouge</section>'),
     "focus_faible.html": '<style>:focus{outline:2px solid #bbbbbb;outline-offset:2px}</style><a href="#x">Lien</a>',
@@ -589,6 +603,11 @@ def part_b(require: bool) -> str:
             raw, _ = measure(str(d / 'petittexte.html'), '--mesures')
             expect('B', 'mesures : plus petit texte relevé (10 px, 10 % des caractères), corps resté à 16 px',
                    [raw['per_width'][390]['mesures']['plus_petit'], raw['per_width'][390]['mesures']['corps']], [{'taille': 10.0, 'part': 10}, 16.0])
+            pe = measure(str(d / 'premier_ecran.html'), '--mesures')[0]['per_width'][390]['mesures']['premier_ecran']
+            expect('B', 'premier écran : un bouton rempli compté et nommé, les liens de navigation non', [pe['actions'], pe['textes']], [1, ['Réserver']])
+            expect('B', 'premier écran : navigation fixe de 3 liens et 60 px relevée', [pe['navigation']['liens'], pe['navigation']['fixe'], pe['navigation']['hauteur'], 0 < pe['navigation']['part'] <= 100], [3, True, 60, True])
+            pe = measure(str(d / 'premier_ecran_vide.html'), '--mesures')[0]['per_width'][390]['mesures']['premier_ecran']
+            expect('B', 'premier écran : page sans action ni navigation', [pe['actions'], pe['navigation']], [0, None])
             pal = measure(str(d / 'palette.html'), '--mesures')[0]['per_width'][390]['mesures']['palette']
             red = next((x for x in pal['fonds'] if x['hex'] == '#ff0000'), None)
             expect('B', 'palette : fond blanc relevé en OKLCH (L 1, C 0)', [pal['fond']['hex'], pal['fond']['L'], pal['fond']['C']], ['#ffffff', 1.0, 0.0])
