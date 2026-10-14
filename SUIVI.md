@@ -8,7 +8,7 @@
 
 1. Tout résultat porte sa preuve : un fichier lu, une commande exécutée ou un chiffre mesuré.
 2. Ce qui n'a pas été lu est écrit comme tel (section 2). Aucun verdict sur un fichier non lu.
-3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 12).
+3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 13).
 4. Les chiffres de l'étude de TS viennent d'un panel de **modèles**, pas de personnes : à traiter comme des claims « à revérifier ».
 5. Le dépôt TS est sous licence MIT (Copyright 2026 Leonxlnx) : toute reprise de valeurs ou de données cite la source.
 
@@ -353,7 +353,63 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 
 **Limites déclarées.** Valeurs reprises de TS, observées sur des sites de galerie notés par des modèles ; aucun gain n'est démontré ; aucune n'a été exercée sur un run de design. `ADOPTED` exige des runs contrastés avec et sans.
 
-## 11. À garder en tête pour la suite
+## 11. Manche 10 : fin des lectures, B9, mesures de recouvrement (U8), protocole A/B préparé
+
+« A toi le choix. » : j'ai choisi, dans l'ordre, de finir les lectures encore ouvertes (`probe.mjs`, B9), de combler le trou que `probe.mjs` montre, et de préparer le protocole A/B **sans le lancer**.
+
+### 11.1 `probe.mjs` lu en entier (569 lignes)
+
+C'est la sonde que TS exécute dans la page. Elle mesure ce qu'un relecteur de design regarde et les motifs que TS interdit. Face à `check_render.py` de DG :
+
+| Ce que mesure TS | DG avant la manche 10 | Après |
+|---|---|---|
+| Titre d'accueil : lignes, taille, vw, famille, position, alignement | `--mesures` : titre, lignes, taille, vw, interligne, approche, graisse (ni la position ni l'alignement) | inchangé |
+| Système typographique : familles et parts, monospace, capitales, micro-étiquettes, corps, mesure, tailles | `--mesures` : corps, tailles distinctes, familles, mesure de ligne, plus petit texte | inchangé |
+| Polices déclarées mais non chargées | non relevé ; DG bloque par défaut les hôtes externes et le déclare | inchangé |
+| Couleurs de fond et de texte, contraste | contrôle de contraste sur fond uni ; fonds distincts relevés | inchangé |
+| Boutons, ombres, dégradés (scrim distingué), filets, cartes, rayons, flou | rien, **par choix** : DG n'a pas de motif interdit mesurable | inchangé |
+| Numérotation décorative, étiquette au-dessus d'un titre, emoji | rien ; `POINTS-DE-DEPART` cite la numérotation d'index comme observation datée | inchangé |
+| Images : réelles contre SVG, vidéo | `--mesures` compte raster, vidéo, canvas, svg | inchangé |
+| **Images cassées** | **rien** | **F3** (11.4) : contrôle de la porte A |
+| Débordement : éléments responsables ; rangées qui défilent latéralement | contrôles « Débordement horizontal » (avec éléments) et « Défilement horizontal interne » | égal |
+| **Texte couvert par un autre élément ; haut d'un gros titre rogné par son conteneur ; titre épinglé sur une image ; occupation de l'écran ; même énoncé écran après écran** (`frame()`, à chaque position de défilement) | rien : `check_render.py` écrit lui-même « pixels et occlusion non vérifiés » | **U8** (11.3), premier écran, sans verdict |
+
+**Ce que TS en fait.** Il convertit `covered-text`, `clipped-text` et `broken-image` en `FAIL`, et un écran presque vide (moins de 20 % de surface occupée) aussi. DG ne convertit pas le recouvrement en verdict, pour une raison de fond : `CFT-03` (« Franchissement et ancrage ») admet qu'un élément passe volontairement devant ou derrière un texte ; un titre en partie couvert peut être voulu. Le relevé nomme la ligne et la part, la capture et le jugement tranchent. Pour l'image cassée, aucune intention de design ne l'explique : elle devient un contrôle (11.4).
+
+**Autres points de lecture.** (1) La sonde exclut le texte réservé aux lecteurs d'écran, les fragments d'interface marqués `data-ui`, les couches fixes ou collantes et le texte en mélange `difference` : des précautions contre les faux positifs que DG devra aussi prendre. (2) `frame()` force `pointer-events: auto` le temps de l'échantillonnage, parce qu'un titre épinglé l'a souvent à `none` et ferait paraître ce qui est dessous comme étant dessus. (3) `inspect.mjs` n'appelle jamais `focus` ni le mouvement réduit (déjà noté en manche 3).
+
+### 11.2 B9 : verdict
+
+`SAVOIR/INTEGRITY` (lu en entier) **n'a aucune clause sur le cas d'une autre skill de design qui prescrit ce que la porte A refuse**, et le corpus (`sections/`, `agent/`, `gouvernance/`, `SKILL.md`) ne parle nulle part d'autres skills chargées en même temps. Deux éléments le couvrent pourtant par analogie : (a) « Si une capacité a été déléguée, inspecte l'artefact et le résultat ; la délégation seule ne constitue jamais une validation » et la liste des champs d'une délégation ; (b) la porte A (`check_render.py`) mesure **le rendu**, quelle que soit la source des valeurs : un accent à 4,2:1 ou un microtexte de 10 px prescrit par un autre skill est mesuré comme n'importe quel autre. **Décision : aucun ajout.** Une phrase d'explicitation serait possible, mais elle n'ajouterait ni mesure ni geste ; je la signale sans l'écrire (pas d'obligation sans usage constaté).
+
+### 11.3 U8 : relevé des gros textes couverts ou au haut rogné
+
+Commit `d461b30` sur `ccr-38b0a56f-t8xdo8`. `check_render.py --mesures` relève, pour le premier écran de chaque largeur, les textes de 24 px et plus : huit points par ligne sont testés avec `elementFromPoint` (`pointer-events` forcé le temps du relevé) ; la ligne est **couverte** si au moins 20 % des points sont sous un élément qui peint (média, fond, texte) ; le **haut est rogné** pour un texte de 40 px et plus si un ancêtre à débordement masqué ou à `clip-path` coupe la ligne dans sa partie haute. Sortie : « gros textes du premier écran (N testé(s)) : aucun couvert ni rogné » ou la liste avec la part. Le seuil de 20 % est celui de la méthode d'échantillonnage (le même que celui de TS), non un seuil de qualité.
+
+**Sans verdict** : aucun statut, aucun code de sortie ; vérifié par un test (`recouvrement relevé ne change aucun statut`).
+
+**Tests.** A : 81 → 85 ; C : 65 ; B : 52 → 57 (207 au total). Validation complète `--require-browser` passée. Trois pages pièges (aplat opaque sur un titre : 100 % ; calque transparent : rien ; haut coupé par `overflow: hidden` : relevé) et une page propre. **Contrôle de faux positifs** sur cinq pages complètes déjà écrites (deux de la manche 3, trois de la manche 5) : aucun relevé à tort, 1 à 4 gros textes testés par page.
+
+**Limites déclarées** (aussi dans `plancher.md` et `maintenance/versions.md`) : premier écran seulement, pas de défilement parcouru ; pseudo-éléments non distingués de leur élément ; aucun état d'interaction ; quelques pages seulement pour les faux positifs. L'écran vide et le même énoncé écran après écran de `frame()` ne sont pas repris.
+
+### 11.4 F3 : le contrôle « Images chargées » (porte A)
+
+Commit `1978466`. `check_render.py` n'avait aucun contrôle des images qui ne se chargent pas ; la sonde de TS les classe en `FAIL`. Une URL d'image inventée est un défaut courant d'un rendu généré, et l'image cassée n'a pas de lecture « voulue » (contrairement au recouvrement).
+
+- Une `<img>` visible dont le chargement est terminé sans pixel (`complete` et `naturalWidth` à zéro, source non vide) est relevée.
+- **Même origine ou `data:`** : `RETURN`.
+- **Autre origine** : si la mesure a bloqué des requêtes externes (comportement par défaut), l'image n'est **pas vérifiée** : réserve, et `--allow-external` la charge ; si rien n'a été bloqué (option donnée), l'échec est réel : `RETURN`.
+- Non signalés : image masquée, source vide, image différée jamais chargée (la recette fait défiler toute la page avant de mesurer), SVG sans dimension intrinsèque (vérifié par une page piège).
+
+**Tests.** A : 85 → 91 ; B : 57 → 60 ; C : 65 (216 au total). Cinq pages complètes déjà écrites : toutes `PASS`. Validation complète `--require-browser` passée. Aucun statut existant ne change : c'est un contrôle de plus ; une mesure `--baseline` plus ancienne le verra comme « nouveau contrôle » (le comparateur le gère déjà).
+
+**Limites.** Image CSS en `background-image` non contrôlée ; image chargée mais sans rapport avec le sujet : non détectable ici.
+
+### 11.5 Protocole A/B préparé
+
+Document : **`PROTOCOLE-AB.md`** (non exécuté). À retenir : quatre bras (rien, DG avant, DG après, TS v2), huit briefs figés d'avance (le brief « atelier de vélos » est écarté : il a servi à orienter des changements), journal d'exposition obligatoire, rendus anonymisés, relecture humaine par paires, **le brief est l'unité d'analyse**. Chiffres posés : 7 briefs sur 8 donnent p = 0,035, 8 sur 8 p = 0,004 ; si le vrai taux de préférence est de 70 %, la probabilité d'atteindre 7 sur 8 est d'environ 25 % : **le dispositif confirme un gain net et manque un gain modeste**. Particularité de DG : `SKILL.md` est identique avant et après (20 246 octets), la différence ne passe que par les routes lues et le script, donc **si l'agent ne lit pas les routes ajoutées, A1 et A2 sont le même système** ; l'exposition se mesure. L'extension de `EVALUATION_CASE` est spécifiée dans le document, pas écrite dans DG.
+
+## 12. À garder en tête pour la suite
 
 **Nécessaire**
 - **N1.** *(partiel, voir 5.3)* Valeurs de départ en typographie, couleur, mise en page et mouvement, étiquetées « point de départ adaptable », importées avec le format de claim de `SAVOIR/TOOLS` (source, date, limite) et non comme règles.
@@ -365,7 +421,7 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 **Bon**
 - **B1.** Inventaire du sujet, test du concurrent, « élément vivant », branchés sur `FIRST-OBJECT`.
 - **B2.** Plans (géométrie desktop et mobile) pour les scènes et objets de DG, en gardant « choisir, éviter, preuve ».
-- **B3.** *(partiel : `--mesures`, y compris le plus petit texte ajouté en manche 5, sans réserve ni seuil, voir 5.3 et 6.4)* Signaux esthétiques dans le contrôleur, en réserve (jamais RETURN) : lignes de titre, nombre de tailles, taille du corps, mesure, vraies images, écrans vides, texte couvert, point focal, familles de teinte « vague ». Les mesures de manche 3 montrent que les deux contrôleurs sont quasi disjoints : l'ajout comblerait un vrai trou.
+- **B3.** *(partiel : `--mesures`, y compris le plus petit texte ajouté en manche 5 et les gros textes couverts ou rognés ajoutés en manche 10, sans réserve ni seuil, voir 5.3, 6.4 et 11.3)* Signaux esthétiques dans le contrôleur, en réserve (jamais RETURN) : lignes de titre, nombre de tailles, taille du corps, mesure, vraies images, écrans vides, texte couvert, point focal, familles de teinte « vague ». Les mesures de manche 3 montrent que les deux contrôleurs sont quasi disjoints : l'ajout comblerait un vrai trou.
 - **B4.** Outil d'images libres de droits avec crédits enregistrés.
 - **B5.** Les 14 passes de TS comme consignes d'observation dans CFT-00, sans note.
 - **B6.** Jetons et recettes de mouvement, par profil de surface (vitrine contre application).
@@ -378,16 +434,18 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 - **D3.** Image réelle d'abord (TS : plancher de 4) contre `SANS-ASSET` à égalité (DG).
 - **D4.** Style maison contre pluralité esthétique.
 
-- **B9 (nouveau, manche 5).** Une note de compatibilité avec d'autres skills de design chargées en même temps : quand une prescription externe (boucles infinies, accent à 4,2:1, microtexte de 10 px) heurte un contrôle de la porte A, la porte A prévaut et l'écart se déclare. À vérifier d'abord s'il n'existe pas déjà dans `SAVOIR/INTEGRITY` ; non fait.
+- **B9 (nouveau, manche 5).** Une note de compatibilité avec d'autres skills de design chargées en même temps : quand une prescription externe (boucles infinies, accent à 4,2:1, microtexte de 10 px) heurte un contrôle de la porte A, la porte A prévaut et l'écart se déclare. **Vérifié en manche 10 (11.2)** : `SAVOIR/INTEGRITY` n'a pas de clause explicite, mais la délégation et la porte A mesurant le rendu couvrent le cas par analogie ; aucun ajout.
 
-- **U1 à U7 : tous faits (manches 8 et 9, sections 9 et 10). Aucun n'est `ADOPTED`.** — **U1 à U7 (manche 6, mis à jour en manche 7 : U1 reprend aussi les neuf moteurs d'idée de `research.md` §3 ; U3 a maintenant un ordre de grandeur, une entrée de TS porte en médiane 13 valeurs en 194 mots).** Propositions issues de la lecture comparée, détail et ordre dans `COMPARAISON-TEXTUELLE.md` section 8 : U7 (aligner les signaux contraires), U1 (inventaire du sujet et phrase d'idée), U2 (test de page sous-construite), U5 (grand texte), U4 (jetons de mouvement), U6 (images libres), U3 (gabarit sur deux routes). Aucune n'est faite. U1 et U3 recoupent N2/B2 ; U4 recoupe B6 ; U6 recoupe B4.
+- **U1 à U7 : tous faits (manches 8 et 9, sections 9 et 10) ; U8 (relevé des gros textes couverts, section 11) s'y ajoute. Aucun n'est `ADOPTED`.** — **U1 à U7 (manche 6, mis à jour en manche 7 : U1 reprend aussi les neuf moteurs d'idée de `research.md` §3 ; U3 a maintenant un ordre de grandeur, une entrée de TS porte en médiane 13 valeurs en 194 mots).** Propositions issues de la lecture comparée, détail et ordre dans `COMPARAISON-TEXTUELLE.md` section 8 : U7 (aligner les signaux contraires), U1 (inventaire du sujet et phrase d'idée), U2 (test de page sous-construite), U5 (grand texte), U4 (jetons de mouvement), U6 (images libres), U3 (gabarit sur deux routes). Aucune n'est faite. U1 et U3 recoupent N2/B2 ; U4 recoupe B6 ; U6 recoupe B4.
 
 **À ne pas importer :** la note avec plafonds comme verdict ; les personas (`soft`) ; les réglages chiffrés par défaut (`image-to-code`, `stitch`) ; le quota d'éléments animés hors vitrine ; les listes de polices « à utiliser » (elles deviennent la vague suivante) ; les personas (« agence à 150 k$ »).
 
-## 12. Journal des corrections
+## 13. Journal des corrections
 
 | Quand | J'avais dit | Réalité | Preuve |
 |---|---|---|---|
+| Manche 10 | (SUIVI 12, B9) « à vérifier s'il n'existe pas déjà dans `SAVOIR/INTEGRITY` » | Vérifié : aucune clause explicite sur une autre skill de design, et le corpus ne mentionne nulle part d'autres skills chargées en même temps ; couvert par analogie (délégation, porte A qui mesure le rendu) | `read_route.py SAVOIR/INTEGRITY` en entier ; recherche des mots « autre skill », « instructions concurrentes » dans `sections/`, `agent/`, `gouvernance/`, `SKILL.md` : aucune occurrence |
+| Manche 10 | (SUIVI 8, manche 7) « `probe.mjs` : en-têtes lus » | Lu en entier : la fonction `frame()` mesure en plus le texte couvert, le haut de titre rogné, le titre épinglé sur une image, l'occupation de l'écran et l'énoncé répété ; ce sont des trous de `check_render.py`, dont l'occlusion que le script déclare lui-même non vérifiée | `taste_v2/scripts/lib/probe.mjs` lignes 466 à 552 |
 | Manche 1 | Taste Skill v2 a trois « dials » | Les dials sont dans `taste-skill-v2-experimental` ; la v2 par défaut n'en a pas | CHANGELOG, README |
 | Manche 1 | « Pas de preuve publiée » chez TS | Un test est publié, au résultat défavorable à TS | `research.md` §11 |
 | Manche 1 | TS manque de garde-fous sur la vérité du contenu | Faux : « Proof is never invented », crédits, rapport des contrôles non exécutés | `SKILL.md` étapes 5 et 10 |
@@ -413,12 +471,12 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 | Manche 5 | J'attendais que le contraste de 3,78:1 de ma page `soft` vienne de la skill | Le gris `#8a7f74` est mon choix ; `soft` ne fixe pas de gris. Seul le contraste de `brutalist` vient des valeurs de la skill | hex de `brutalist-skill.md` §4 |
 | Manche 4 | Borne de mesure de ligne de ma page de test | écart d'un cran, la mesure réelle de la page est de 48 caractères | assertion corrigée sur la valeur mesurée |
 
-## 13. Prochaines étapes (par ordre)
+## 14. Prochaines étapes (par ordre)
 
-1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (8 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf` ; validation complète rejouée sur le dernier). Aucune PR n'est ouverte.
+1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (10 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
 2. **Trancher D1 à D4** et les six autres contradictions du tableau 5 de `COMPARAISON-TEXTUELLE.md`.
-3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans.
-4. **Étendre `EVALUATION_CASE`** (bras de comparaison, référence sans skill, relecture à l'aveugle), puis le protocole A/B (N4) : seule étape qui peut dire si tout cela améliore les rendus. Elle demande un vrai run avec des juges, ce que l'utilisateur a écarté pour l'instant.
-5. **Vérifier B9** (`SAVOIR/INTEGRITY` couvre-t-il « une autre skill de design prescrit ce que la porte A refuse » ?).
+3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans. **Le protocole est prêt (`PROTOCOLE-AB.md`) ; il demande des sessions d'agent, des relecteurs et l'accord de l'utilisateur.**
+4. **Étendre `EVALUATION_CASE`** selon la spécification de `PROTOCOLE-AB.md` section 9, avec le premier run réel et pas avant.
+5. **Écran vide et même énoncé écran après écran** (le reste de `frame()` de TS) : non repris ; demanderait de parcourir le défilement et un seuil, donc plus proche d'un verdict. À reprendre seulement si un run réel montre le défaut.
 6. **Prototypes restants** (N2 avec sélecteur et historique, B5, B7) seulement si l'étape 2 le permet. Le gabarit sur deux routes (B2) a été fait ; l'étendre dépend de son essai.
-7. **Lire ce qui reste non lu** : `probe.mjs` en entier.
+7. **Fait en manche 10** : lecture de `probe.mjs` en entier ; vérification de B9 (pas d'ajout) ; U8 ; F3 ; protocole A/B préparé.
