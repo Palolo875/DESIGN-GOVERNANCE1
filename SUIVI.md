@@ -353,7 +353,7 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 
 **Limites déclarées.** Valeurs reprises de TS, observées sur des sites de galerie notés par des modèles ; aucun gain n'est démontré ; aucune n'a été exercée sur un run de design. `ADOPTED` exige des runs contrastés avec et sans.
 
-## 11. Manches 10 à 12 : lectures, mesures, protocole, principes D, contraste du focus
+## 11. Manches 10 à 13 : lectures, mesures, protocole, principes D, contraste du focus, couleur
 
 « A toi le choix. » : j'ai choisi, dans l'ordre, de finir les lectures encore ouvertes (`probe.mjs`, B9), de combler le trou que `probe.mjs` montre, et de préparer le protocole A/B **sans le lancer**.
 
@@ -442,6 +442,28 @@ Choix de l'assistant (« A toi le choix. ») : la seule amélioration objective 
 
 **Limites.** Premier arrêt par élément, un seul état de focus (pas `:hover` combiné), contraste « autour » calculé sur le fond uni le plus proche. Quelques pages seulement pour les faux positifs.
 
+### 11.8 Manche 13 : théorie des couleurs (relevé de palette et relations de couleur)
+
+Question de l'utilisateur : et si on introduisait la théorie des couleurs ? Avis de l'assistant : oui, **pour construire et critiquer une palette, pas pour la prescrire** ; puis « Allons-y avec tout ce que tu prends ». Commits `cec0636` (relevé) et `7dbfb2e` (sous-section) sur `ccr-38b0a56f-t8xdo8`. `SKILL.md` inchangé (20 246 octets).
+
+**Ce qui a été pris.**
+- La valeur d'abord : fixer la luminosité (L en OKLCH) de chaque rôle avant sa teinte, le contraste se lisant dans l'écart de L.
+- Nommer la relation sur laquelle repose la palette (valeur, teinte, chaleur, saturation, surface), avec un test en niveaux de gris.
+- Fonds de section voisins : différents par la luminosité, non par la seule teinte (règle de la référence couleur de TS, §5).
+- Neutres teintés (chroma d'environ 0,005 à 0,02) ; fond sombre recomposé ; vocabulaire des contrastes d'Itten comme moyen de **nommer**.
+
+**Ce qui n'a pas été pris.** Les harmonies de roue (complémentaire, analogue, triade) comme recette : elles décrivent une palette sans la justifier, un modèle les connaît déjà, et elles deviendraient un nouveau réflexe. La psychologie des couleurs : hypothèses de perception, déjà traitées comme telles par `CFT-05`.
+
+**Chiffres vérifiés par calcul indépendant** (Python, pas par le script) : pour des neutres, un écart de L (OKLab) de 0,33 donne 3:1 et de 0,43 donne 4,5:1 sur blanc ; de 0,29 à 0,32 et de 0,37 à 0,41 sur un fond sombre non noir ; de 0,47 et 0,56 sur noir pur. Rouge pur : L 0,628, C 0,258, H 29,2. La correspondance **dépend de la polarité et de la teinte** (bleus et jaunes s'écartent) : elle est écrite comme un ordre de grandeur, le calcul de la porte A tranchant. Elle explique la page « saine » de la manche 3 : accent L 0,47 sur un fond L 0,21 (écart 0,26 pour 2,73:1).
+
+**Relevé de palette** (`--mesures`, sans verdict) : fond, fonds de section voisins avec l'écart de luminosité (et de teinte quand les deux sont chromatiques), encres par part des caractères, couleurs chromatiques (chroma d'au moins 0,06) par part du premier écran et des caractères, nombre de teintes pesant 1 % ou plus. Les fonds en image ou en dégradé sont comptés et non évalués. Une brique couleur partagée (`COLOR_JS`) sert aussi la mesure du focus ; `AUDIT_JS` garde sa copie. **Tests** : A 99 → 104 ; B 68 → 72 ; C 65 (241 au total).
+
+**Sous-section « Relations de couleur » de `CFT-05`** : `PILOT`, valeurs `[À ADAPTER]` établies sur des neutres, contre-indications (palette fournie, palette née d'un asset, contraste de teinte seule assumé), preuve, limite, source (OKLab, WCAG 2.2, Itten, TS colour.md, MIT, lue le 2026-10-14), retour arrière. Ligne dans « Pilotes en cours ». Test d'itinéraire : `test_audit_regressions` 79 cas.
+
+**Incident.** `validate_structure` a refusé ma première rédaction : l'expression « question de convergence » exige « police de titre » dans la même phrase (garde FIDELITY, déjà rencontré en manche 4). Reformulé : « relève du réflexe que la question ci-dessus fait nommer ». Deuxième fois que ce garde-fou réagit à une expression ; il faut éviter les termes à propriétaire unique dans les textes ajoutés.
+
+**Limites.** Aucun gain démontré ; repères établis sur des neutres ; le relevé a été regardé sur trois pages seulement (propres à moi) ; l'accent est repéré par sa chroma, non par son rôle.
+
 ## 12. À garder en tête pour la suite
 
 **Nécessaire**
@@ -477,6 +499,7 @@ Choix de l'assistant (« A toi le choix. ») : la seule amélioration objective 
 
 | Quand | J'avais dit | Réalité | Preuve |
 |---|---|---|---|
+| Manche 13 | (avis de l'assistant) « la théorie des couleurs : un modèle la connaît déjà » | Vrai du vocabulaire, pas de l'opérationnalisation : l'écart de L qui donne un contraste donné n'est pas universel (polarité, teinte) ; mon chiffre d'abord attendu était trop net | calcul Python sur 8 fonds gris, rouge pur recoupé |
 | Manche 12 | (SUIVI 3 et 11.6) la page « saine » de la manche 3 est un témoin sans défaut | Elle a un contour de focus à 2,73:1 (accent sur fond sombre) ; elle passait tous les contrôles des deux systèmes parce qu'aucun ne mesurait ce contraste | `check_render.py` sur `essais/pages/clean/index.html`, contrôle « Contraste de l'indicateur de focus » |
 | Manche 11 | (COMPARAISON-TEXTUELLE 5, lignes 4 à 9) « à trancher » | Tranchées côté DG ; avec les treize plafonds de la note de TS rapprochés de DG (huit pendants, deux refus assumés, deux partiels, un manque) | `COMPARAISON-TEXTUELLE.md` 5 et 5.1 ; `critique.md` §3 de TS ; `research.md` §6 et §7 |
 | Manche 10 | (SUIVI 12, B9) « à vérifier s'il n'existe pas déjà dans `SAVOIR/INTEGRITY` » | Vérifié : aucune clause explicite sur une autre skill de design, et le corpus ne mentionne nulle part d'autres skills chargées en même temps ; couvert par analogie (délégation, porte A qui mesure le rendu) | `read_route.py SAVOIR/INTEGRITY` en entier ; recherche des mots « autre skill », « instructions concurrentes » dans `sections/`, `agent/`, `gouvernance/`, `SKILL.md` : aucune occurrence |
@@ -508,9 +531,9 @@ Choix de l'assistant (« A toi le choix. ») : la seule amélioration objective 
 
 ## 14. Prochaines étapes (par ordre)
 
-1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (12 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5`, `c5e60fd` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
+1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (14 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5`, `c5e60fd`, `cec0636`, `7dbfb2e` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
 2. **Trancher D1, D3 et D4** (avis donné en 11.6, non tranchés) ; D2 est appliqué ; les six autres contradictions sont tranchées côté DG (à confirmer ou à renverser).
-3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans. **Le protocole est prêt (`PROTOCOLE-AB.md`) ; il demande des sessions d'agent, des relecteurs et l'accord de l'utilisateur.**
+3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-05` relations de couleur, question sur le mouvement de `CFT-00`, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans. **Le protocole est prêt (`PROTOCOLE-AB.md`) ; il demande des sessions d'agent, des relecteurs et l'accord de l'utilisateur.**
 4. **Étendre `EVALUATION_CASE`** selon la spécification de `PROTOCOLE-AB.md` section 9, avec le premier run réel et pas avant.
 5. **Contraste de l'indicateur de focus** : fait en manche 12 (11.7) pour les cas lisibles. Restent non mesurés : bordures de champs, icônes, indicateurs par changement de fond.
 5bis. **Écran vide et même énoncé écran après écran** (le reste de `frame()` de TS) : non repris ; demanderait de parcourir le défilement et un seuil, donc plus proche d'un verdict. À reprendre seulement si un run réel montre le défaut.
