@@ -282,14 +282,14 @@ class CliTests(unittest.TestCase):
         r = self.cli("--trouver", "COHERENCE DE RAYON")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("SAVOIR/STATE", r.stdout)
-        self.assertNotIn("guides/equipe.md:", r.stdout)
+        self.assertNotIn("guides/3-maitriser.md:", r.stdout)
         self.assertIn("0 ligne(s) de guide", r.stdout)
 
     def test_guides_separated_from_normative_results(self):
         r = self.cli("--trouver", "cohérence de rayon", "--guides")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("GUIDES — orientation, sans autorité normative", r.stdout)
-        self.assertIn("guides/equipe.md:", r.stdout)
+        self.assertIn("guides/3-maitriser.md:", r.stdout)
 
     def test_missing_term_reports_search_limit(self):
         r = self.cli("--trouver", "zztermeabsentpourtestzz")

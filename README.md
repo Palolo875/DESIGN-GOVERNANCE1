@@ -10,9 +10,9 @@ Les guides suivent un niveau de maîtrise, pas un métier : chacun entre au nive
 
 | Niveau | Entrée | Ce que vous saurez faire |
 |---|---|---|
-| **1 — Utiliser** | [`guides/commencer.md`](guides/commencer.md) | Demander, fournir, recevoir une proposition et la faire évoluer, sans apprendre le système |
-| **2 — Comprendre et exploiter le savoir** | [`guides/designer.md`](guides/designer.md) | Savoir comment le système raisonne, trouver un sujet, combiner les savoirs selon le résultat, savoir quand s’arrêter |
-| **3 — Maîtriser le travail** | [`guides/equipe.md`](guides/equipe.md) | Piloter un travail, le confier à un agent, le vérifier, le décider, le conserver et le transmettre |
+| **1 — Utiliser** | [`guides/1-utiliser.md`](guides/1-utiliser.md) | Demander, fournir, recevoir une proposition et la faire évoluer, sans apprendre le système |
+| **2 — Comprendre** | [`guides/2-comprendre.md`](guides/2-comprendre.md) | Savoir comment le système raisonne, trouver un sujet, combiner les savoirs selon le résultat, savoir quand s’arrêter |
+| **3 — Maîtriser** | [`guides/3-maitriser.md`](guides/3-maitriser.md) | Piloter un travail, le confier à un agent, le vérifier, le décider, le conserver et le transmettre |
 
 D’autres entrées servent des besoins précis :
 
@@ -43,7 +43,7 @@ La skill ne contient que le noyau ; ses routes, ses scripts et ses schémas rest
    | Codex | `.agents/skills/` | `~/.agents/skills/` |
    | Cursor, Gemini CLI, GitHub Copilot | `.agents/skills/` | `~/.cursor/skills/`, `~/.gemini/skills/`, `~/.copilot/skills/` |
 
-   Dans tous les cas, le dossier installé s’appelle `design-governance-practice`, comme le champ `name` de la skill (le format l’exige). Seul Claude Code a été vérifié ici ; les autres dossiers suivent la documentation de ces outils. Un agent sans gestion de skills reçoit `SKILL.md` comme instructions. Évitez d’activer dans le même projet une autre skill générale de design (Taste Skill, Impeccable…) : deux skills se déclencheraient sur la même demande avec des consignes différentes.
+   Dans tous les cas, le dossier installé s’appelle `design-governance-practice`, comme le champ `name` de la skill (le format l’exige). Seul Claude Code a été vérifié ici ; les autres dossiers suivent la documentation de ces outils. Un agent sans gestion de skills reçoit `SKILL.md` comme instructions. Évitez d’activer dans le même projet une autre skill générale de design : deux skills se déclencheraient sur la même demande avec des consignes différentes.
 2. **Donner accès au paquet.** Les commandes de la skill (`python3 scripts/read_route.py …`) et les fichiers qu’elle cite s’entendent depuis la racine du paquet : travaillez dans ce dossier, ou indiquez son chemin à l’agent (« Design Governance est dans /chemin/du/paquet ; lance ses scripts depuis ce dossier »). Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium.
 3. **Vérifier.** La copie est correcte si le fichier principal est à la racine du dossier installé, sans sous-dossier `skill/` ; l’accès au paquet l’est si la route s’affiche :
 
@@ -73,7 +73,7 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 
 | Partie | Chemin | Contenu |
 |---|---|---|
-| **Guides** | `guides/` | Trois niveaux de maîtrise (utiliser, comprendre et exploiter le savoir, maîtriser le travail) et un glossaire. |
+| **Guides** | `guides/` | Trois niveaux de maîtrise (utiliser, comprendre, maîtriser) et un glossaire. |
 | **Design** | `design/` | Le cœur : direction, savoir, formes, qualité du produit. |
 | **Agent** | `agent/` | La skill (`agent/skill/`), le chemin de l’agent et sa réponse. |
 | **Gouvernance** (selon le besoin) | `gouvernance/` | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |

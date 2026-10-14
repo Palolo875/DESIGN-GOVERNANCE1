@@ -9,7 +9,7 @@ Carte de responsabilités, pas un ordre fixe d’exécution.
 **Guides**. Des repères pour les personnes. Commencer, concevoir, travailler en équipe.
 
 
-[Section propriétaire](../guides/commencer.md).
+[Section propriétaire](../guides/1-utiliser.md).
 
 ## Agir
 

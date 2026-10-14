@@ -215,7 +215,7 @@ class OperationalReferenceTests(unittest.TestCase):
         self.assertEqual(self.check("Lire `maintenance/versions.md`.", {"maintenance/versions.md": "# Versions"}), [])
 
     def test_relative_reference_and_unique_basename_are_supported(self):
-        self.assertEqual(self.check("Lire `guides/equipe.md` et `equipe.md`.", {"guides/equipe.md": "# Équipe"}), [])
+        self.assertEqual(self.check("Lire `guides/3-maitriser.md` et `3-maitriser.md`.", {"guides/3-maitriser.md": "# Équipe"}), [])
 
     def test_ambiguous_basename_is_rejected(self):
         self.assertTrue(self.check("Lire `aide.md`.", {"guides/aide.md": "# A", "design/aide.md": "# B"}))

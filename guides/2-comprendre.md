@@ -1,13 +1,13 @@
-# Niveau 2 — Comprendre et exploiter le savoir
+# Niveau 2 — Comprendre
 
-Ce niveau montre comment le système raisonne, où se trouve chaque savoir et comment combiner plusieurs savoirs selon le résultat cherché ; il dit aussi quand s’arrêter de lire. Il suppose le [niveau 1](commencer.md), pas une expertise en design : chaque sujet se consulte seul. Pour piloter un travail de bout en bout, passez au [niveau 3](equipe.md). Les liens entre domaines sont dans [`design/savoir/connexions.md`](../design/savoir/connexions.md).
+Ce niveau montre comment le système raisonne, où se trouve chaque savoir et comment combiner plusieurs savoirs selon le résultat cherché ; il dit aussi quand s’arrêter de lire. Il suppose le [niveau 1](1-utiliser.md), pas une expertise en design : chaque sujet se consulte seul. Pour piloter un travail de bout en bout, passez au [niveau 3](3-maitriser.md). Les liens entre domaines sont dans [`design/savoir/connexions.md`](../design/savoir/connexions.md).
 
 Les adresses entre accents graves, comme `savoir/couleur`, se lisent avec le lecteur : `python3 scripts/read_route.py savoir/couleur`.
 
 <!-- origine:GLOSSAIRE.md -->
 ## Comment le système travaille
 
-À chaque demande, l’agent (ou la personne qui pilote) suit ces étapes ; pour utiliser le système, vous n’avez pas à les faire vous-même ni à choisir un mode ([niveau 1](commencer.md#commencer)).
+À chaque demande, l’agent (ou la personne qui pilote) suit ces étapes ; pour utiliser le système, vous n’avez pas à les faire vous-même ni à choisir un mode ([niveau 1](1-utiliser.md#commencer)).
 
 1. Classez la demande avec `DIRECTION/START` : mode et risque dominant ; notez la décision à changer, la prochaine preuve et l’owner.
 2. Chargez la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement le propriétaire normatif utile.

@@ -1,10 +1,10 @@
-# Niveau 3 — Maîtriser le travail — Design Governance V1.0.0
+# Niveau 3 — Maîtriser — Design Governance V1.0.0
 
-Ce niveau sert à piloter un travail de bout en bout : cadrer, confier à un agent, vérifier, décider, conserver et transmettre, seul avec un agent ou à plusieurs. Il suppose les niveaux [1](commencer.md) et [2](designer.md). Design Governance V1.0.0 est une expérimentation maintenue, pensée pour un usage supervisé.
+Ce niveau sert à piloter un travail de bout en bout : cadrer, confier à un agent, vérifier, décider, conserver et transmettre, seul avec un agent ou à plusieurs. Il suppose les niveaux [1](1-utiliser.md) et [2](2-comprendre.md). Design Governance V1.0.0 est une expérimentation maintenue, pensée pour un usage supervisé.
 
 > **Ce que fait ce guide :** il oriente la lecture et l’action, sans ajouter aucune règle. Ce sont les sections citées qui font foi.
 
-> **Pour faire simplement une demande,** le [niveau 1](commencer.md#commencer) suffit : vous n’avez pas à choisir de mode.
+> **Pour faire simplement une demande,** le [niveau 1](1-utiliser.md#commencer) suffit : vous n’avez pas à choisir de mode.
 
 Le but : transformer une demande en **décision adaptée au projet, rendu réel, observation utile et trace honnête**. Le système ne promet ni beauté automatique, ni réussite universelle, ni usage validé sans preuve adaptée. Il vise pourtant haut : quand la décision visuelle est ouverte et que les moyens sont là, le premier rendu doit déjà être composé, spécifique, crédible, présentable et assez abouti pour être jugé comme un vrai objet.
 
@@ -32,7 +32,7 @@ Soit : le chemin choisi, la décision, le risque, la prochaine preuve, le respon
 
 ## Où trouver la suite
 
-Si la demande est déjà claire, le [niveau 2](designer.md) indique quoi combiner, quels angles examiner et quand s’arrêter. Si le brief est vague, commencez par `agent/chemins#classer`.
+Si la demande est déjà claire, le [niveau 2](2-comprendre.md) indique quoi combiner, quels angles examiner et quand s’arrêter. Si le brief est vague, commencez par `agent/chemins#classer`.
 
 Une sortie de run a deux formes : la **réponse visible**, par défaut, et la trace de reprise, pour un travail qui sera repris ou conservé (voir `agent/repondre`). Le niveau de trace ne dépend pas du mode : sans conservation, partage, audit ni acceptation demandée, la **trace légère** suffit (six lignes au plus, à côté du rendu ou sous « Trace » après la réponse) ; sinon, la **trace complète** s’impose. Écrivez `N/A-JUSTIFIED` (« sans objet, justifié ») quand un champ ou un angle ne s’applique pas.
 

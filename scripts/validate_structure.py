@@ -21,7 +21,7 @@ Gardes :
      les façades y renvoient ; la ligne `DIRECTION` garde le build et l'ordre cible → premier objet ;
      Gate B n'y est chargée qu'en trace complète ; la carte de lecture d'ACTION renvoie à CHARGE (D2).
  12. LOCATORS DU VALIDATEUR — un message de `validate_run_card.py` cite un lieu nommé, jamais un numéro de ligne.
- 13. ENTRÉE HUMAINE — une seule entrée balisée (guide pour commencer, lié depuis le README), quatre questions,
+ 13. ENTRÉE HUMAINE — une seule entrée balisée (niveau 1 des guides, lié depuis le README), quatre questions,
      aucun mode demandé, vouvoiement ; une seule constitution minimale (ENT-01, CST-01).
  15. PRÉAMBULE DE BIBLIOTHEQUE — ni catégories de lecture ni contrat de promotion avant les routes (MNT-01).
  16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » ou serait lue comme nul, booléen, nombre ou date (SKL-01).
@@ -279,7 +279,7 @@ FIDELITY: list[tuple[str, str, str]] = [
     ("test de masquage : dépendance porteuse recevable", r"Si texte, données et images sont masqués", "dépendance est recevable"),
 ]
 
-# 13. Entrée humaine : une seule entrée, balisée dans le guide pour commencer (guides/commencer.md), vers lequel
+# 13. Entrée humaine : une seule entrée, balisée dans le niveau 1 des guides (guides/1-utiliser.md), vers lequel
 #     renvoient le README du package ; quatre questions ; aucun mode interne demandé ; vouvoiement.
 #     Une seule constitution minimale, balisée dans le README du package.
 ENTRY = re.compile(r"<!-- entree:début -->(.*?)<!-- entree:fin -->", re.S)
@@ -290,14 +290,14 @@ CONSTITUTION_SIGNATURE = "le réel et le beau sont cadrés ensemble"
 
 
 def check_entry(corpus: dict[Path, list[str]], errors: list[str]) -> None:
-    readme, guide = ROOT / "README.md", ROOT / "guides" / "commencer.md"
+    readme, guide = ROOT / "README.md", ROOT / "guides" / "1-utiliser.md"
     if not readme.is_file():
         errors.append("[ENT-01] README.md absent à la racine du package")
         return
     text = readme.read_text(encoding="utf-8")
     entries = ENTRY.findall(guide.read_text(encoding="utf-8")) if guide.is_file() else []
     if len(entries) != 1:
-        errors.append(f"[ENT-01] entrée humaine balisée {len(entries)} fois dans guides/commencer.md (attendu : 1)")
+        errors.append(f"[ENT-01] entrée humaine balisée {len(entries)} fois dans guides/1-utiliser.md (attendu : 1)")
     else:
         block = entries[0]
         for question in QUESTIONS:
@@ -753,7 +753,7 @@ ROW_NEEDLES = [  # (fichier, début de ligne, mot attendu, constat)
     ("ACTION.md", "| Token, composant ou blast radius |", "si un composant change", "C26"),
 ]
 EXAMPLE_SECTION = "## DIRECTION — fabrication depuis un brief flou"
-COMMENCER = re.compile(r"\]\((?:\.\./)*(?:guides/)?commencer\.md#commencer\)")
+COMMENCER = re.compile(r"\]\((?:\.\./)*(?:guides/)?1-utiliser\.md#commencer\)")
 
 
 def check_facades(errors: list[str]) -> None:
@@ -775,10 +775,10 @@ def check_facades(errors: list[str]) -> None:
     for name in ("README.md", "QUICKSTART.md"):
         paths = [p for p in rr.lieu(name) if p.is_file()]
         if paths and not COMMENCER.search(texte(name)):
-            errors.append(f"[FAC-01] {name} : la section « Commencer » du guide pour commencer n'est pas liée")
-    guide = ROOT / "guides" / "commencer.md"
+            errors.append(f"[FAC-01] {name} : la section « Commencer » du niveau 1 des guides n'est pas liée")
+    guide = ROOT / "guides" / "1-utiliser.md"
     if not guide.is_file() or "## Commencer" not in guide.read_text(encoding="utf-8"):
-        errors.append("[FAC-01] guide pour commencer : titre « Commencer » absent, cible des liens")
+        errors.append("[FAC-01] niveau 1 des guides : titre « Commencer » absent, cible des liens")
     notes = ROOT / "RELEASE_NOTES.md"
     if notes.is_file():
         body = notes.read_text(encoding="utf-8")

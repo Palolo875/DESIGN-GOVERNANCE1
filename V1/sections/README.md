@@ -2,7 +2,7 @@
 
 Ce dossier contient des sections du système restées à leur emplacement d’origine et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Leur autorité suit la section propriétaire, comme dans les autres dossiers. Le sommaire reste le point d’entrée vers toutes les responsabilités historiques.
 
-Pour commencer, lisez le [niveau 1](../../guides/commencer.md#commencer) : vous n’avez pas à choisir de mode. Pour piloter un run, lisez le [niveau 3](../../guides/equipe.md) ; un agent entre par la skill `design-governance-practice`. Le vocabulaire est défini dans [`guides/glossaire.md`](../../guides/glossaire.md).
+Pour commencer, lisez le [niveau 1](../../guides/1-utiliser.md#commencer) : vous n’avez pas à choisir de mode. Pour piloter un run, lisez le [niveau 3](../../guides/3-maitriser.md) ; un agent entre par la skill `design-governance-practice`. Le vocabulaire est défini dans [`guides/glossaire.md`](../../guides/glossaire.md).
 
 ## Sources normatives
 

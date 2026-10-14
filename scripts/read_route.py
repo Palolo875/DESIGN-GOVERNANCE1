@@ -157,10 +157,10 @@ LIEUX: dict[str, tuple[str, ...]] = {
     "BIBLIOTHEQUE.md": ("V1/sections/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
                         "design/formes/catalogue.md", "maintenance/evolution.md"),
     "CHANGELOG.md": ("maintenance/versions.md", "maintenance/evolution.md"),
-    # Rangement, lot 7b : guides par public (équipe, designer, glossaire) et connexions du savoir (texte inchangé).
-    "QUICKSTART.md": ("guides/equipe.md",),
-    "GLOSSAIRE.md": ("guides/glossaire.md", "guides/designer.md"),  # « Comment le système travaille » vit au niveau 2 des guides
-    "READING_MAP.md": ("V1/sections/READING_MAP.md", "guides/designer.md", "design/savoir/connexions.md",
+    # Guides par niveau (1-utiliser, 2-comprendre, 3-maitriser), glossaire et connexions du savoir.
+    "QUICKSTART.md": ("guides/3-maitriser.md",),
+    "GLOSSAIRE.md": ("guides/glossaire.md", "guides/2-comprendre.md"),  # « Comment le système travaille » vit au niveau 2 des guides
+    "READING_MAP.md": ("V1/sections/READING_MAP.md", "guides/2-comprendre.md", "design/savoir/connexions.md",
                        "maintenance/README.md"),
 }
 
@@ -212,7 +212,7 @@ ADRESSES: dict[str, str] = {
     "gouvernance/structure": "BIBLIOTHEQUE/CONTRACTS", "gouvernance/structure#avant-selection": "BIBLIOTHEQUE/AVANT-SELECTION",
     "gouvernance/structure#controle": "BIBLIOTHEQUE/GATE", "gouvernance/integrite": "SAVOIR/INTEGRITY",
     "maintenance/evolution": "ACTION/MAINTENANCE", "maintenance/evolution#routes": "BIBLIOTHEQUE/EVOLUTION",
-    "guides/designer#routes": "SAVOIR/ROUTING",
+    "guides/2-comprendre#routes": "SAVOIR/ROUTING",
 }
 # Renvois sans contenu propre : pas d'adresse lisible, l'ancien locator reste servi.
 SANS_ADRESSE = {"DIRECTION/FAST-PATH"}
