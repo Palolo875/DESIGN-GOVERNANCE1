@@ -10,9 +10,9 @@ La base des premières revues est le checkout 6e5a8c2. Les compléments « Suppo
 
 ## Suivi des corrections
 
-État au 14 octobre 2026, sur `main` après la fusion de la [PR 4](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/4) (commit [`1bcc273`](https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/1bcc273)). Les constats des outils ont chacun un test de régression ; la validation complète, navigateur compris, et la CI passent sur ce commit.
+État au 14 octobre 2026, sur `main` après la fusion des PR [4](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/4) et [5](https://github.com/Palolo875/DESIGN-GOVERNANCE1/pull/5) (commit [`897ed35`](https://github.com/Palolo875/DESIGN-GOVERNANCE1/tree/897ed35)). Les constats des outils ont chacun un test de régression ; la validation complète, navigateur compris, et la CI passent sur ce commit.
 
-**Bilan : 31 constats sur 33 corrigés, 1 corrigé en partie (AG-01), 1 ouvert (ACC-01).**
+**Bilan : 32 constats sur 33 corrigés, 1 corrigé en partie (AG-01).**
 
 Les chemins cités dans le corps du carnet sont ceux des états examinés. Sur `main`, la skill est à la racine du paquet (`SKILL.md`, `references/`), les sections d’origine sont dans `sections/`, et les guides `commencer`, `designer` et `equipe` sont devenus `1-utiliser`, `2-comprendre` et `3-maitriser`.
 
@@ -24,7 +24,7 @@ Les chemins cités dans le corps du carnet sont ceux des états examinés. Sur `
 | SK-02 | À préciser | Corrigé. Un jugement ou une analyse se conclut sans nouvelle scène imposée ; l’alternative n’est présentée que si elle peut changer la décision ; une rubrique sans contenu est omise. | `sections/ACTION.md`, `agent/repondre.md`, `SKILL.md` recompilée |
 | SK-03 | À préciser | Corrigé. Montrer ou enregistrer une proposition ne rend pas le run persistant ; la trace complète sert la reprise, l’adoption, l’audit ou l’acceptation. | `agent/repondre.md`, `gouvernance/travail.md`, `SKILL.md` |
 | SK-04 | Éditorial | Corrigé. La section 3 du noyau s’intitule « Contenu réel et contenu d’exemple » ; les titres 5 et 6 l’étaient déjà. | `scripts/build_core.py`, `SKILL.md` |
-| ACC-01 | Vérifié | **Ouvert.** `--trouver 'le titre écrase la photo'` propose toujours SAVOIR/STYLE et SAVOIR/CRAFT, sans SAVOIR/STATE. C’est une amélioration de la recherche, pas un défaut de contenu. | `scripts/read_route.py` |
+| ACC-01 | Vérifié | Corrigé. `--trouver 'le titre écrase la photo'` donne SAVOIR/STATE (ligne « Image intégrée ») puis SAVOIR/CRAFT/CFT-03. Les mots courants d’un défaut sont rapprochés du vocabulaire des sources pour la seule recherche par phrase ; les mots réunis de près sur une ligne passent en tête ; les lignes sont rattachées à la sous-route précise. Sur 7 phrases témoins : 4 améliorées, 2 inchangées, 1 en recul (« le texte déborde du bouton » : ACTION/GATE-A passe de la 1re à la 5e place). La recherche reste une orientation. | `scripts/read_route.py`, `guides/3-maitriser.md` |
 | DI-01 | Vérifié | Corrigé. Les renvois de finition désignent des routes existantes ; un troisième titre mort, « Structure », a aussi été retiré. | `design/produit/finition.md` |
 | DI-02 | Vérifié | Corrigé. Les indications d’emplacement désignent les fichiers séparés. | `design/savoir/README.md`, `design/savoir/connexions.md`, `design/savoir/qualite-creative.md` |
 | DI-03 | À préciser | Corrigé. L’état vide conçu peut accueillir une première utilisation réelle. | `design/produit/premier-rendu.md` |
