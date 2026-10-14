@@ -449,6 +449,17 @@ class ReviewFindingsTests(unittest.TestCase):
                     structure.check_skill_header(errors)
                 self.assertTrue(any(expected in e for e in errors), errors)
 
+    def test_skill_header_accepts_agent_skills_metadata(self):
+        # Format Agent Skills : metadata est une table de textes, en style bloc ou en ligne.
+        accepted = ("metadata:\n  author: example-org\n  version: \"1.0\"", "metadata: {author: example-org, version: \"1.0\"}",
+                    "license: Apache-2.0")
+        for field in accepted:
+            with self.subTest(field=field):
+                _, problems = structure.skill_header(f"---\nname: design-governance-practice\ndescription: x\n{field}\n---\n")
+                self.assertEqual(problems, [])
+        _, problems = structure.skill_header("---\nname: design-governance-practice\ndescription: x\nmetadata:\n  version: 1.0\n---\n")
+        self.assertTrue(any("metadata.version" in p for p in problems), problems)
+
     def generator(self, root: Path):
         shutil.copytree(ROOT / "supports", root / "supports", ignore=shutil.ignore_patterns("__pycache__"))
         (root / "scripts").mkdir()

@@ -646,7 +646,7 @@ def check_core_floor(errors: list[str]) -> None:
 # précédé d'une espace, ni indicateur initial ; une valeur citée est décodée (doubles : échappements JSON ; simples : '').
 SKILL_KEYS = ("name", "description")
 # Format ouvert Agent Skills (agentskills.io/specification) : champs connus et contraintes de longueur et de nom.
-SKILL_ALLOWED_KEYS = {"name", "description", "license", "compatibility", "allowed-tools"}
+SKILL_ALLOWED_KEYS = {"name", "description", "license", "compatibility", "allowed-tools", "metadata"}
 SKILL_LIMITS = {"name": 64, "description": 1024, "compatibility": 500}
 PLAIN_FORBIDDEN_START = tuple("[]{}#&*!|>'\"%@`,") + ("- ", "? ", ": ")
 # Scalaires non cités qu'un parseur YAML (1.1 ou 1.2) ne lit pas comme une chaîne : nul, booléen, nombre, date.
@@ -656,40 +656,79 @@ PLAIN_NON_STRING = re.compile(
     r"|[-+]?\d+(?::[0-5]?\d)+(?:\.\d*)?|\d{4}-\d\d?-\d\d?(?:[Tt ].*)?)")
 
 
+def _scalar(key: str, raw: str, problems: list[str]) -> str | None:
+    """Valeur scalaire textuelle du sous-ensemble YAML contrôlé ; None si refusée (problème noté)."""
+    if raw.startswith('"'):
+        try:
+            value = json.loads(raw)
+        except json.JSONDecodeError:
+            problems.append(f"{key} : chaîne entre guillemets doubles mal formée")
+            return None
+        if not isinstance(value, str):
+            problems.append(f"{key} : chaîne entre guillemets doubles mal formée")
+            return None
+        return value
+    if raw.startswith("'"):
+        if len(raw) < 2 or not raw.endswith("'") or "'" in raw[1:-1].replace("''", ""):
+            problems.append(f"{key} : chaîne entre guillemets simples mal formée")
+            return None
+        return raw[1:-1].replace("''", "'")
+    if raw.startswith(PLAIN_FORBIDDEN_START) or ": " in raw or " #" in raw or raw.endswith(":"):
+        problems.append(f"{key} : valeur non citée contenant « : », « # » ou un indicateur YAML (citer la valeur)")
+        return None
+    if PLAIN_NON_STRING.fullmatch(raw):
+        problems.append(f"{key} : valeur non citée lue en YAML comme nul, booléen, nombre ou date, pas comme texte (citer la valeur)")
+        return None
+    return raw
+
+
 def skill_header(text: str) -> tuple[dict[str, str], list[str]]:
+    """Champs de l'en-tête. `metadata` (table de textes, format Agent Skills) est admis en style bloc
+    (clés indentées) ou en ligne (`{clé: valeur, …}`) ; ses entrées textuelles sont vérifiées."""
     lines = text.splitlines()
     if not lines or lines[0] != "---" or "---" not in lines[1:]:
         return {}, ["en-tête YAML absent (--- en première ligne, puis ---)"]
     values: dict[str, str] = {}
     problems: list[str] = []
+    metadata: dict[str, str] | None = None  # table en cours de lecture (style bloc)
     for number, line in enumerate(lines[1:lines.index("---", 1)], start=2):
+        if line.startswith("  ") and metadata is not None:
+            key, sep, raw = line.strip().partition(":")
+            if not sep or not re.fullmatch(r"[A-Za-z0-9_.-]+", key) or not raw.startswith(" "):
+                problems.append(f"ligne {number} : entrée « clé: valeur » attendue dans metadata")
+                continue
+            value = _scalar(f"metadata.{key}", raw[1:].rstrip(), problems)
+            if value is not None:
+                metadata[key] = value
+            continue
+        metadata = None
         key, sep, raw = line.partition(":")
-        if not sep or not re.fullmatch(r"[a-z][a-z0-9_-]*", key) or not raw.startswith(" "):
+        if not sep or not re.fullmatch(r"[a-z][a-z0-9_-]*", key) or not (raw.startswith(" ") or (key == "metadata" and not raw)):
             problems.append(f"ligne {number} : paire « clé: valeur » attendue")
             continue
-        raw = raw[1:].rstrip()
-        if raw.startswith('"'):
-            try:
-                value = json.loads(raw)
-            except json.JSONDecodeError:
-                problems.append(f"{key} : chaîne entre guillemets doubles mal formée")
-                continue
-        elif raw.startswith("'"):
-            if len(raw) < 2 or not raw.endswith("'") or "'" in raw[1:-1].replace("''", ""):
-                problems.append(f"{key} : chaîne entre guillemets simples mal formée")
-                continue
-            value = raw[1:-1].replace("''", "'")
-        else:
-            if raw.startswith(PLAIN_FORBIDDEN_START) or ": " in raw or " #" in raw or raw.endswith(":"):
-                problems.append(f"{key} : valeur non citée contenant « : », « # » ou un indicateur YAML (citer la valeur)")
-                continue
-            if PLAIN_NON_STRING.fullmatch(raw):
-                problems.append(f"{key} : valeur non citée lue en YAML comme nul, booléen, nombre ou date, pas comme texte (citer la valeur)")
-                continue
-            value = raw
+        raw = raw[1:].rstrip() if raw else ""
         if key in values:
             problems.append(f"{key} : clé répétée")
-        values[key] = value
+        if key == "metadata":
+            entries: dict[str, str] = {}
+            if not raw:
+                metadata = entries
+            elif raw.startswith("{") and raw.endswith("}"):
+                for item in filter(None, (part.strip() for part in raw[1:-1].split(","))):
+                    name, sep, val = item.partition(":")
+                    if not sep or not re.fullmatch(r"[A-Za-z0-9_.-]+", name.strip()) or not val.startswith(" "):
+                        problems.append(f"metadata : entrée « clé: valeur » attendue ({item})")
+                        continue
+                    value = _scalar(f"metadata.{name.strip()}", val[1:].strip(), problems)
+                    if value is not None:
+                        entries[name.strip()] = value
+            else:
+                problems.append("metadata : table de textes attendue (clés indentées ou {clé: valeur})")
+            values[key] = "table"
+            continue
+        value = _scalar(key, raw, problems)
+        if value is not None:
+            values[key] = value
     return values, problems
 
 
