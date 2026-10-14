@@ -353,7 +353,7 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 
 **Limites déclarées.** Valeurs reprises de TS, observées sur des sites de galerie notés par des modèles ; aucun gain n'est démontré ; aucune n'a été exercée sur un run de design. `ADOPTED` exige des runs contrastés avec et sans.
 
-## 11. Manches 10 et 11 : lectures, mesures, protocole, puis principes D et contradictions
+## 11. Manches 10 à 12 : lectures, mesures, protocole, principes D, contraste du focus
 
 « A toi le choix. » : j'ai choisi, dans l'ordre, de finir les lectures encore ouvertes (`probe.mjs`, B9), de combler le trou que `probe.mjs` montre, et de préparer le protocole A/B **sans le lancer**.
 
@@ -428,6 +428,20 @@ Demande de l'utilisateur : l'avis de l'assistant sur les principes D et sur l'é
 
 **Aucun changement de code** dans cette manche en dehors de D2 (un paragraphe).
 
+### 11.7 Manche 12 : contraste de l'indicateur de focus (porte A)
+
+Choix de l'assistant (« A toi le choix. ») : la seule amélioration objective restante qui ne demande pas de run, et la seule à avoir un danger montré par les données (13 palettes sur 56 de TS ont un accent sous 3:1 contre le sol, avec un focus peint à cette couleur). Commit `c5e60fd` sur `ccr-38b0a56f-t8xdo8`.
+
+**Ce que fait le contrôle** « Contraste de l'indicateur de focus » : sur chaque arrêt clavier qui a un changement de style au focus, il mesure l'indicateur quand il est lisible dans le style calculé : un contour (hors contour du navigateur, déjà à deux tons) ou un anneau d'ombre net (décalage nul, flou d'au plus 1 px, étendue positive), contre le fond uni qui l'entoure (fond de l'élément pour un contour décalé vers l'intérieur). Sous **3:1** (WCAG 1.4.11) et sans autre signal de focus (fond, couleur, bordure), il rend une **réserve** qui nomme l'arrêt, les couleurs et le ratio. Jamais `RETURN` : la mesure est approchée et d'autres signaux peuvent porter le focus.
+
+**Non mesuré, et dit comme tel** : changement de fond, de couleur ou de bordure ; ombre floue ou intérieure ; fond en image ou en dégradé. Les transitions en cours sont terminées (`Animation.finish()`) avant la lecture, sinon une couleur à mi-chemin fausserait le ratio. Le contraste des bordures et des icônes reste non mesuré (la phrase de limite de la recette est mise à jour).
+
+**Tests.** A : 91 → 99 ; B : 60 → 68 ; C : 65 (232 au total). Pages pièges : contour pâle (réserve), contour net (conforme), anneau à 50 % d'alpha (réserve : le motif classique), contour du navigateur (conforme), changement de fond seul (non mesuré, sans réserve), contour en transition (conforme). Validation complète `--require-browser` passée.
+
+**Résultat sur les pages déjà écrites.** Sur cinq pages complètes : quatre conformes, **une réserve : la page « saine » (`pages/clean`) écrite en manche 3, accent `#0b6b4f` sur un fond `#101a17` à 2,73:1.** Elle passait tous les autres contrôles des deux systèmes. C'est le même défaut que celui des palettes de TS, sur une page écrite dans l'esprit de DG : le danger ne tient pas à un système.
+
+**Limites.** Premier arrêt par élément, un seul état de focus (pas `:hover` combiné), contraste « autour » calculé sur le fond uni le plus proche. Quelques pages seulement pour les faux positifs.
+
 ## 12. À garder en tête pour la suite
 
 **Nécessaire**
@@ -463,6 +477,7 @@ Demande de l'utilisateur : l'avis de l'assistant sur les principes D et sur l'é
 
 | Quand | J'avais dit | Réalité | Preuve |
 |---|---|---|---|
+| Manche 12 | (SUIVI 3 et 11.6) la page « saine » de la manche 3 est un témoin sans défaut | Elle a un contour de focus à 2,73:1 (accent sur fond sombre) ; elle passait tous les contrôles des deux systèmes parce qu'aucun ne mesurait ce contraste | `check_render.py` sur `essais/pages/clean/index.html`, contrôle « Contraste de l'indicateur de focus » |
 | Manche 11 | (COMPARAISON-TEXTUELLE 5, lignes 4 à 9) « à trancher » | Tranchées côté DG ; avec les treize plafonds de la note de TS rapprochés de DG (huit pendants, deux refus assumés, deux partiels, un manque) | `COMPARAISON-TEXTUELLE.md` 5 et 5.1 ; `critique.md` §3 de TS ; `research.md` §6 et §7 |
 | Manche 10 | (SUIVI 12, B9) « à vérifier s'il n'existe pas déjà dans `SAVOIR/INTEGRITY` » | Vérifié : aucune clause explicite sur une autre skill de design, et le corpus ne mentionne nulle part d'autres skills chargées en même temps ; couvert par analogie (délégation, porte A qui mesure le rendu) | `read_route.py SAVOIR/INTEGRITY` en entier ; recherche des mots « autre skill », « instructions concurrentes » dans `sections/`, `agent/`, `gouvernance/`, `SKILL.md` : aucune occurrence |
 | Manche 10 | (SUIVI 8, manche 7) « `probe.mjs` : en-têtes lus » | Lu en entier : la fonction `frame()` mesure en plus le texte couvert, le haut de titre rogné, le titre épinglé sur une image, l'occupation de l'écran et l'énoncé répété ; ce sont des trous de `check_render.py`, dont l'occlusion que le script déclare lui-même non vérifiée | `taste_v2/scripts/lib/probe.mjs` lignes 466 à 552 |
@@ -493,11 +508,11 @@ Demande de l'utilisateur : l'avis de l'assistant sur les principes D et sur l'é
 
 ## 14. Prochaines étapes (par ordre)
 
-1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (11 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
+1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (12 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5`, `c5e60fd` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
 2. **Trancher D1, D3 et D4** (avis donné en 11.6, non tranchés) ; D2 est appliqué ; les six autres contradictions sont tranchées côté DG (à confirmer ou à renverser).
 3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans. **Le protocole est prêt (`PROTOCOLE-AB.md`) ; il demande des sessions d'agent, des relecteurs et l'accord de l'utilisateur.**
 4. **Étendre `EVALUATION_CASE`** selon la spécification de `PROTOCOLE-AB.md` section 9, avec le premier run réel et pas avant.
-5. **Contraste non textuel du focus** (WCAG 1.4.11) dans la porte A : proposé, non fait ; 13 palettes sur 56 de TS ont un accent sous 3:1 contre le sol avec un focus peint à cette couleur, et `check_render.py` déclare ne pas mesurer le contraste non textuel.
+5. **Contraste de l'indicateur de focus** : fait en manche 12 (11.7) pour les cas lisibles. Restent non mesurés : bordures de champs, icônes, indicateurs par changement de fond.
 5bis. **Écran vide et même énoncé écran après écran** (le reste de `frame()` de TS) : non repris ; demanderait de parcourir le défilement et un seuil, donc plus proche d'un verdict. À reprendre seulement si un run réel montre le défaut.
 6. **Prototypes restants** (N2 avec sélecteur et historique, B5, B7) seulement si l'étape 2 le permet. Le gabarit sur deux routes (B2) a été fait ; l'étendre dépend de son essai.
 7. **Fait en manche 10** : lecture de `probe.mjs` en entier ; vérification de B9 (pas d'ajout) ; U8 ; F3 ; protocole A/B préparé.
