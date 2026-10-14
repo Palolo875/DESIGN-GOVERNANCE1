@@ -149,7 +149,7 @@ Une vue peut avoir une priorité dominante ou un groupe de priorités liées. Ne
 
 **Échelle et champ calme.** Une seule opération poussée loin, par exemple un objet très petit face à un titre très grand, se lit dans un champ calme qui occupe la plus grande part de la surface. Ce champ n’est pas un vide à remplir : retire ce qui dispute le foyer avant d’ajouter.
 
-**Franchissement et ancrage.** Un élément qui chevauche deux zones, comme le bord d’une image ou la limite entre deux sections, relie ce que les boîtes séparent ; de petits repères placés aux coins peuvent tenir un grand champ sans cadre ni carte. Ces gestes demandent un ordre de plans explicite, un contraste mesuré à l’endroit du chevauchement et une recomposition mobile qui ne coupe ni texte ni objet.
+**Franchissement et ancrage.** Un élément qui chevauche deux zones, comme le bord d’une image ou la limite entre deux sections, relie ce que les boîtes séparent ; de petits repères placés aux coins peuvent tenir un grand champ sans cadre ni carte. Ces gestes demandent un ordre de plans explicite, un contraste mesuré à l’endroit du chevauchement et une recomposition mobile qui ne coupe ni texte ni objet. Les repères de coin figurent parmi les marqueurs de vague datés (`SAVOIR/TOOLS/CONVERGENCE`) : ils restent permis lorsqu’ils tiennent un champ réel. Test de retrait : sans eux, le champ tient-il encore et la composition perd-elle un point d’ancrage ? Sinon ils sont décoratifs (`DÉCORATIF-SANS-CONSEQUENCE`).
 
 ### Cohérence et harmonie
 
