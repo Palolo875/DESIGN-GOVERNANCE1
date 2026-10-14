@@ -162,7 +162,36 @@ def part_a() -> None:
     expect("A", "feuille ouverte qui défile", status(cr.interpret(raw_case(audit={"inner": [{"sel": "#d", "dialog": True, "sw": 580, "cw": 390}]})), "Défilement"), RETURN)
     expect("A", "conteneur défilant voulu ou non", status(cr.interpret(raw_case(audit={"inner": [{"sel": ".table", "dialog": False, "sw": 900, "cw": 390}]})), "Défilement"), RESERVE)
     expect("A", "animation infinie en mouvement réduit", status(cr.interpret(raw_case(running=[{"name": "spin", "infinite": True}])), "Mouvement"), RETURN)
+    expect("A", "aucune animation démarrée", status(cr.interpret(raw_case(running=[])), "Mouvement"), PASS)
+    expect("A", "animation finie avec déplacement : réserve",
+           status(cr.interpret(raw_case(running=[{"name": "up", "target": "p.a", "infinite": False, "moves": True}])), "Mouvement"), RESERVE)
+    expect("A", "animation finie sans déplacement : réserve conservatrice",
+           status(cr.interpret(raw_case(running=[{"name": "fade", "target": "p.a", "infinite": False, "moves": False}])), "Mouvement"), RESERVE)
+    expect("A", "ancienne mesure sans champ moves : traitée comme déplacement, jamais écartée",
+           status(cr.interpret(raw_case(running=[{"name": "up", "infinite": False}])), "Mouvement"), RESERVE)
+    detail = next(d for t, _, d in cr.interpret(raw_case(running=[{"name": "fade", "target": "p.a", "infinite": False, "moves": False}])) if t.startswith("Mouvement"))
+    expect("A", "fondu seul : le détail annonce zéro déplacement", "dont 0 avec déplacement" in detail, True)
     expect("A", "débordement du document", status(cr.interpret(raw_case(overflow=(510, 390))), "Débordement horizontal"), RETURN)
+    sample = {"viewport": 390, "titre": {"texte": "Un titre", "mots": 2, "caracteres": 8, "lignes": 3, "taille": 50.0, "vw": 12.8, "interligne": 1.0,
+                                          "approche": -0.02, "graisse": "700", "famille": "X", "balise": "h1"},
+              "corps": 16.0, "tailles_distinctes": 4, "familles": ["X"], "mesure_max": 70, "mesure_mediane": 60,
+              "images": {"raster": 2, "video": 0, "canvas": 0, "svg": 1}, "media_premier_ecran": 40, "centre_pour_cent": 10,
+              "fonds_distincts": 2, "bords_gauches": 3, "mots": 120, "ecrans": 2.5}
+    with_m = raw_case(); with_m["per_width"][390]["mesures"] = sample
+    expect("A", "mesures : aucun statut modifié", cr.interpret(with_m) == cr.interpret(raw_case()), True)
+    line = cr.format_mesures(with_m["per_width"])[0]
+    expect("A", "mesures : titre, lignes et vw relevés", all(x in line for x in ("3 ligne(s)", "50.0 px (12.8 vw)", "corps 16.0 px", "2 raster", "40 % du premier écran")), True)
+    expect("A", "mesures : aucun seuil ni verdict dans la ligne", any(w in line for w in (PASS, RESERVE, RETURN, "trop", "insuffisant")), False)
+    expect("A", "mesures : sans relevé, aucune ligne", cr.format_mesures(raw_case()["per_width"]), [])
+    with tempfile.TemporaryDirectory() as tmp:
+        for flag, present in (([], False), (["--mesures"], True)):
+            out = Path(tmp) / f"m{len(flag)}.json"
+            args = cr.parser().parse_args([str(Path(__file__).resolve()), "--json", str(out), *flag])
+            buf = io.StringIO()
+            with patch.object(cr, "measure", return_value=with_m), contextlib.redirect_stdout(buf):
+                code = cr.run(args)
+            expect("A", f"mesures {'demandées' if present else 'non demandées'} : JSON et affichage cohérents",
+                   ["mesures" in json.loads(out.read_text()), "Mesures de composition" in buf.getvalue(), code], [present, present, 0])
     expect("A", "contrôle sans nom", status(cr.interpret(raw_case(audit={"names": [{"sel": "button.x"}]})), "Nom accessible"), RETURN)
     expect("A", "opacité de groupe : réserve", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g','opacity':0.5}]})), 'Contraste'), RESERVE)
     expect("A", "opacité non couverte et défaut ailleurs : retour conservé", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g'}], 'contrast':[fail]})), 'Contraste'), RETURN)
@@ -261,12 +290,22 @@ def part_c() -> str:
         ('référence masquée par un ancêtre',"(()=>{node('DIV',{hidden:''},[node('SPAN',{id:'lab'},[txt('Fermer')])]);return node('BUTTON',{'aria-labelledby':'lab'});})()",'Fermer'),
         ('visibilité rétablie sur le contrôle',"(()=>{const b=node('BUTTON',{},[txt('Confirmer')],{visibility:'visible'});node('DIV',{},[b],{visibility:'hidden'});return b;})()",'Confirmer'),
         ('descendant en visibility hidden exclu',"node('BUTTON',{},[node('SPAN',{},[txt('×')],{visibility:'hidden'})])",''),
+        ('icône SVG en formes seules : aucun nom',"node('BUTTON',{},[node('svg',{},[node('path')])])",''),
+        ('icône SVG avec title',"node('BUTTON',{},[node('svg',{},[node('title',{},[txt('Fermer')]),node('path')])])",'Fermer'),
+        ('SVG décoratif masqué : le nom vient du contrôle',"node('BUTTON',{'aria-label':'Fermer'},[node('svg',{'aria-hidden':'true'},[node('path')])])",'Fermer'),
+        ('SVG avec aria label propre',"node('BUTTON',{},[node('svg',{'aria-label':'Fermer'},[node('path')])])",'Fermer'),
     ]
     for title,expr,want in cases:
         got=js('process.stdout.write(JSON.stringify(candidate('+expr+').candidate));')
         expect('C',title,got,want)
     expect('C','pseudo contenu : cas non couvert',js("process.stdout.write(JSON.stringify(candidate(node('BUTTON',{generated:'\"Fermer\"'})).uncertain));"),True)
     expect('C','valeur native implicite : cas non couvert',js("process.stdout.write(JSON.stringify(candidate(node('INPUT',{type:'submit'})).uncertain));"),True)
+    for title,expr,want in [('SVG en formes seules : cas conclusif',"node('svg',{},[node('path'),node('circle')])",False),
+                            ('SVG avec texte : cas non couvert',"node('svg',{},[node('text',{},[txt('OK')])])",True),
+                            ('SVG avec use : cas non couvert',"node('svg',{},[node('use')])",True),
+                            ('SVG avec nom ARIA interne : cas non couvert',"node('svg',{},[node('g',{'aria-label':'Fermer'},[node('path')])])",True),
+                            ('SVG avec foreignObject : cas non couvert',"node('svg',{},[node('foreignObject')])",True)]:
+        expect('C',title,js("process.stdout.write(JSON.stringify(candidate(node('BUTTON',{},["+expr+"])).uncertain));"),want)
     for label,opacity,bg,fg,ancestor,want in [
         ('opacité sur le texte et son fond',0.5,'rgb(0, 0, 0)','rgb(255, 255, 255)',False,'reserve'),
         ('opacité d’un ancêtre',0.5,'rgb(0, 0, 0)','rgb(255, 255, 255)',True,'reserve'),
@@ -384,6 +423,20 @@ PAGES = {
     "placeholder.html": '<style>input::placeholder{color:#aaa;opacity:1}</style><input aria-label="Nom" placeholder="Nom">',
     "transparent.html": '<div id="preuve" style="width:300px;height:100px;opacity:0">Objet</div>',
     "horscran.html": '<div id="preuve" style="position:absolute;left:-400px;width:300px;height:100px">Objet</div>',
+    # Mouvement réduit : une animation d'entrée courte, terminée à la mesure, doit rester observée.
+    "animcourte.html": '<style>@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}.a{animation:up .3s ease both}</style><p class="a">Entrée courte</p>',
+    "animgardee.html": ('<style>@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}'
+                        '@media (prefers-reduced-motion:no-preference){.a{animation:up .3s ease both}}</style><p class="a">Entrée gardée</p>'),
+    "animopacite.html": '<style>@keyframes fade{from{opacity:0}to{opacity:1}}.a{animation:fade .3s ease both}</style><p class="a">Fondu seul</p>',
+    "animinfinie.html": '<style>@keyframes spin{to{transform:rotate(360deg)}}.a{width:20px;height:20px;background:#000;animation:spin 1s linear infinite}</style><div class="a"></div>',
+    "iconesvg.html": '<button><svg width="12" height="12"><path d="M0 0L12 12M12 0L0 12" stroke="#000"/></svg></button>',
+    "iconesvgtitre.html": '<button><svg width="12" height="12"><title>Fermer</title><path d="M0 0L12 12M12 0L0 12" stroke="#000"/></svg></button>',
+    "iconesvgtexte.html": '<button><svg width="40" height="14"><text x="0" y="12">OK</text></svg></button>',
+    "mesures.html": ('<style>h1{font-size:50px;line-height:1;letter-spacing:-.02em;margin:0}p{font-size:16px;margin:0;max-width:20em}</style>'
+                     '<p>Un paragraphe suffisamment long pour compter plus de soixante caractères et passer sur plusieurs lignes dans la colonne étroite qui le contient.</p>'
+                     '<img alt="x" width="120" height="80" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">'),
+    "transitionjs.html": ('<style>.t{transition:transform .2s;transform:none}.t.on{transform:translateX(30px)}</style><p class="t">Transition</p>'
+                          '<script>requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(".t").classList.add("on")))</script>'),
 }
 
 
@@ -452,8 +505,24 @@ def part_b(require: bool) -> str:
                                          ('nomreference.html','Nom accessible',RESERVE),('inatteignable.html','Parcours clavier',RESERVE),
                                          ('sanscontrole.html','Parcours clavier',PASS),
                                          ('visiblerestauree.html','Nom accessible',RESERVE),('remplissage.html','Contraste',RETURN),
-                                         ('remplissagefond.html','Contraste',RESERVE)]:
+                                         ('remplissagefond.html','Contraste',RESERVE),
+                                         ('iconesvg.html','Nom accessible',RETURN),('iconesvgtitre.html','Nom accessible',RESERVE),
+                                         ('iconesvgtexte.html','Nom accessible',RESERVE)]:
                 _,c=measure(str(d/filename));expect('B',filename,status(c,prefix),want)
+            for filename, want in [('animcourte.html', RESERVE), ('animgardee.html', PASS), ('animopacite.html', RESERVE),
+                                   ('animinfinie.html', RETURN), ('transitionjs.html', RESERVE)]:
+                _, c = measure(str(d / filename)); expect('B', filename + ' sous mouvement réduit', status(c, 'Mouvement réduit'), want)
+            motion = lambda page: next(x for t, _, x in measure(str(d / page))[1] if t.startswith('Mouvement réduit'))
+            expect('B', 'animation courte : déplacement relevé', 'dont 1 avec déplacement' in motion('animcourte.html'), True)
+            expect('B', 'fondu seul : aucun déplacement relevé', 'dont 0 avec déplacement' in motion('animopacite.html'), True)
+            raw, c = measure(str(d / 'mesures.html'), '--mesures')
+            m = raw['per_width'][390]['mesures']
+            expect('B', 'mesures : titre relevé (taille, vw, lignes, interligne)',
+                   [m['titre']['taille'], m['titre']['vw'], m['titre']['lignes'], m['titre']['interligne']], [50.0, 12.8, 1, 1.0])
+            expect('B', 'mesures : corps et ligne de texte (144 car. sur 3 lignes)', [m['corps'], m['mesure_max']], [16.0, 48])
+            expect('B', 'mesures : image raster comptée, svg non', [m['images']['raster'], m['images']['svg']], [1, 0])
+            _, c0 = measure(str(d / 'mesures.html'))
+            expect('B', 'mesures : statuts identiques avec et sans l’option', c == c0, True)
             for filename in ('dialogferme.html', 'ancetremasque.html'):
                 raw,c=measure(str(d/filename))
                 expect('B',filename+' aucun faux nom manquant',status(c,'Nom accessible'),PASS)

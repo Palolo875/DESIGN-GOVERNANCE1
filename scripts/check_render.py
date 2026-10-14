@@ -23,6 +23,11 @@ Usage :
     python3 scripts/check_render.py page.html --click "#ouvrir"               # observer un autre état
     python3 scripts/check_render.py page.html --captures captures/v1          # une capture pleine page par largeur
     python3 scripts/check_render.py page.html --baseline avant.json            # comparer à une mesure --json antérieure
+    python3 scripts/check_render.py page.html --mesures                        # relevés de composition, sans seuil ni verdict
+
+Mesures (--mesures) : relevés chiffrés de la page par largeur (titre d'accueil, corps, tailles et familles, longueur de ligne,
+images, texte centré, fonds de section, bords gauches). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie,
+aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
 
 Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
 (état et largeurs) et avec les mêmes réglages (--proof, --tab-stops, --allow-external, --wait-ms). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
@@ -63,6 +68,18 @@ NAME_JS = r"""
     for (let n = e; n && n.nodeType === 1; n = n.parentElement) {
     if (n.getAttribute('aria-hidden') === 'true' || n.hasAttribute('hidden') || getComputedStyle(n).display === 'none') return true;
   } return false; };
+  // Nom d'un SVG : aria-label et aria-labelledby sont traités avant l'appel ; reste son <title> enfant. Des formes seules
+  // (path, circle, rect, g…) ne nomment rien : le candidat est alors vide, pas incertain, et une icône sans nom est un
+  // défaut conclusif. Texte, <use>, <image>, <foreignObject>, lien ou nom ARIA interne : calcul non couvert, donc incertain.
+  const svgName = s => {
+    const kids = e => [...(e.childNodes || [])].filter(c => c.nodeType === 1);
+    const title = kids(s).find(c => c.tagName.toLowerCase() === 'title');
+    if (title && clean(title.textContent)) return clean(title.textContent);
+    const unknown = e => kids(e).some(c => ['text', 'tspan', 'textpath', 'use', 'image', 'foreignobject', 'a'].includes(c.tagName.toLowerCase())
+      || clean(c.getAttribute('aria-label')) || clean(c.getAttribute('aria-labelledby')) || unknown(c));
+    if (unknown(s)) uncertain = true;
+    return '';
+  };
   const content = (n, includeHidden = false, referenced = false, ancestors = new Set()) => {
     if (n.nodeType === 3) return n.textContent || '';
     if (n.nodeType !== 1 || (!includeHidden && hidden(n)) || ancestors.has(n)) return '';
@@ -78,7 +95,8 @@ NAME_JS = r"""
       if (c && !['none', 'normal', '""', "''"].includes(c)) uncertain = true;
     }
     if (n.tagName === 'IMG') return n.getAttribute('alt') || n.getAttribute('title') || '';
-    if (['SVG', 'CANVAS'].includes(n.tagName.toUpperCase())) uncertain = true;
+    if (n.tagName.toLowerCase() === 'svg') return svgName(n);
+    if (n.tagName.toUpperCase() === 'CANVAS') uncertain = true;
     if (n.labels && n.labels.length) return [...n.labels].map(t => content(t, hidden(t), true, seen)).join(' ');
     if (n.tagName === 'INPUT') {
       if (n !== el) uncertain = true;  // valeur de contrôle imbriqué : calcul AccName non couvert
@@ -299,6 +317,134 @@ s => { const el = document.querySelector(s); if (!el) return {found: false};
 """
 
 
+# Enregistreur d'animations, injecté avant tout script de la page, sous préférence « mouvement réduit ». Un instantané
+# des animations « en cours » à la fin de la mesure ne voit pas une animation d'entrée qui s'est terminée entre-temps :
+# l'enregistreur note chaque animation ou transition dès son démarrage (CSS, Web Animations, `Element.animate`) et
+# relève les propriétés animées pour dire si elle déplace quelque chose. Les animations pilotées par script sans API
+# d'animation du navigateur (changements de style inline à chaque image) ne sont pas observées.
+MOTION_RECORDER_JS = r"""
+(() => {
+  if (window.__dgMotion) return;
+  const MOVE = /^(transform|translate|rotate|scale|top|left|right|bottom|inset(-.*)?|margin(-.*)?|offset(-.*)?|clip-path|object-position|background-position(-.*)?|perspective(-.*)?)$/;
+  const SKIP = new Set(['offset', 'easing', 'composite', 'computedOffset']);
+  const seen = new Map();
+  const sel = el => { if (!el || el.nodeType !== 1) return '?'; if (el.id) return '#' + el.id;
+    let s = el.tagName.toLowerCase(); if (el.classList && el.classList.length) s += '.' + [...el.classList].slice(0, 2).join('.'); return s; };
+  const props = a => { const p = new Set();
+    try { for (const k of (a.effect && a.effect.getKeyframes ? a.effect.getKeyframes() : [])) for (const n of Object.keys(k))
+      if (!SKIP.has(n)) p.add(n.replace(/[A-Z]/g, m => '-' + m.toLowerCase())); } catch (e) {}
+    return [...p]; };
+  const note = a => { try {
+    const target = sel(a.effect && a.effect.target), name = a.animationName || a.transitionProperty || 'anim', key = target + '|' + name;
+    if (seen.has(key)) return;
+    const p = props(a);
+    seen.set(key, {name, target, infinite: a.effect.getComputedTiming().iterations === Infinity, props: p, moves: p.some(n => MOVE.test(n))});
+  } catch (e) {} };
+  const scan = () => { try { for (const a of (document.getAnimations ? document.getAnimations() : [])) note(a); } catch (e) {} };
+  const hook = e => { try { for (const a of e.target.getAnimations()) note(a); } catch (x) {} };
+  addEventListener('animationstart', hook, true);
+  addEventListener('transitionrun', hook, true);
+  const orig = Element.prototype.animate;
+  if (orig) Element.prototype.animate = function (...args) { const r = orig.apply(this, args); note(r); return r; };
+  (function tick(n) { scan(); if (n < 120) requestAnimationFrame(() => tick(n + 1)); })(0);
+  window.__dgMotion = () => { scan(); return [...seen.values()]; };
+})();
+"""
+
+MOTION_REPORT_JS = "() => window.__dgMotion ? window.__dgMotion() : []"
+
+# Mesures de composition (option --mesures) : des relevés chiffrés de la page, sans seuil ni verdict. Elles ne passent pas par
+# `interpret` : aucun statut, aucun code de sortie. Elles se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`.
+MESURES_JS = r"""
+() => {
+  const W = innerWidth, H = innerHeight, r1 = v => Math.round(v * 10) / 10;
+  const shown = el => { const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false;
+    for (let e = el; e && e.nodeType === 1; e = e.parentElement) { const s = getComputedStyle(e);
+      if (s.display === 'none' || s.visibility === 'hidden' || parseFloat(s.opacity) === 0) return false; } return true; };
+  const lineCount = el => { const rg = document.createRange(); rg.selectNodeContents(el);
+    const rs = [...rg.getClientRects()].filter(r => r.width > 1 && r.height > 1).sort((a, b) => a.top - b.top), rows = [];
+    for (const r of rs) { const row = rows.find(x => r.top < x.bottom - (x.bottom - x.top) * 0.5 && r.bottom > x.top + (x.bottom - x.top) * 0.5);
+      if (row) { row.top = Math.min(row.top, r.top); row.bottom = Math.max(row.bottom, r.bottom); } else rows.push({top: r.top, bottom: r.bottom}); }
+    return Math.max(1, rows.length); };
+  const words = t => (t.trim().match(/\S+/g) || []).length;
+  const familyOf = s => (s.fontFamily.split(',')[0] || '').replace(/["']/g, '').trim();
+  const typo = el => { const s = getComputedStyle(el), size = parseFloat(s.fontSize), lh = s.lineHeight === 'normal' ? null : parseFloat(s.lineHeight) / size,
+    ls = s.letterSpacing === 'normal' ? 0 : parseFloat(s.letterSpacing) / size;
+    return {taille: r1(size), vw: r1(size / W * 100), interligne: lh === null ? 'normal' : r1(lh * 100) / 100, approche: r1(ls * 1000) / 1000,
+            graisse: s.fontWeight, famille: familyOf(s)}; };
+  // Recensement du texte visible, pondéré par le nombre de caractères.
+  const cache = new Map(), isShown = el => { if (!cache.has(el)) cache.set(el, shown(el)); return cache.get(el); };
+  const sizes = new Map(), fams = new Map(), weights = [];
+  let chars = 0, centered = 0, total = 0;
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let n = walker.nextNode(), seen = 0; n && seen < 6000; n = walker.nextNode(), seen++) {
+    const p = n.parentElement; if (!p || ['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(p.tagName) || !isShown(p)) continue;
+    const t = n.textContent.replace(/\s+/g, ' ').trim(); if (t.length < 1) continue;
+    const s = getComputedStyle(p), size = Math.round(parseFloat(s.fontSize) * 2) / 2;
+    chars += t.length; total += words(t);
+    sizes.set(size, (sizes.get(size) || 0) + t.length); const f = familyOf(s); fams.set(f, (fams.get(f) || 0) + t.length);
+    if (s.textAlign === 'center') centered += t.length;
+    weights.push([size, t.length]);
+  }
+  weights.sort((a, b) => a[0] - b[0]);
+  let acc = 0, corps = null; for (const [size, c] of weights) { acc += c; if (acc >= chars / 2) { corps = size; break; } }
+  const familles = [...fams.entries()].filter(([, c]) => c / chars >= 0.02).map(([f]) => f);
+  // Titres visibles et titre d'accueil : le premier h1 visible, sinon le plus grand texte du premier écran.
+  const heads = [...document.querySelectorAll('h1,h2,h3,h4,h5,h6')].filter(isShown).slice(0, 8);
+  const info = el => { const t = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim();
+    return {texte: t.slice(0, 60), mots: words(t), caracteres: t.length, lignes: lineCount(el), ...typo(el)}; };
+  const titres = heads.map(h => ({balise: h.tagName.toLowerCase(), ...info(h)}));
+  let accueil = titres.find(t => t.balise === 'h1') || null;
+  if (!accueil) { let best = null;
+    for (const el of document.querySelectorAll('body *')) { if (!isShown(el) || !el.childNodes.length || ![...el.childNodes].some(c => c.nodeType === 3 && c.textContent.trim())) continue;
+      const r = el.getBoundingClientRect(); if (r.top > H) continue; const size = parseFloat(getComputedStyle(el).fontSize); if (!best || size > best.size) best = {el, size}; }
+    if (best) accueil = {balise: best.el.tagName.toLowerCase(), ...info(best.el)}; }
+  // Mesure de ligne : caractères par ligne des paragraphes longs.
+  const mesures = [...document.querySelectorAll('p,li,blockquote,dd')].filter(isShown).map(el => ({c: (el.innerText || '').trim().length, l: lineCount(el)}))
+    .filter(x => x.c >= 60).map(x => Math.round(x.c / x.l)).sort((a, b) => a - b);
+  // Images : raster visibles (un SVG ne compte pas), vidéo, canvas ; part du premier écran du média le plus étendu.
+  const isSvg = u => /\.svg(\?|#|$)|^data:image\/svg/i.test(u || '');
+  const rasters = [...document.images].filter(i => i.naturalWidth > 0 && !isSvg(i.currentSrc || i.src) && isShown(i) && i.getBoundingClientRect().width >= 80);
+  const videos = [...document.querySelectorAll('video')].filter(isShown), canvases = [...document.querySelectorAll('canvas')].filter(isShown);
+  const svgs = [...document.querySelectorAll('svg')].filter(s => !s.parentElement.closest('svg') && isShown(s) && s.getBoundingClientRect().width >= 80);
+  let part = 0; for (const el of [...rasters, ...videos, ...canvases]) { const r = el.getBoundingClientRect();
+    const x = Math.max(0, Math.min(r.right, W) - Math.max(r.left, 0)), y = Math.max(0, Math.min(r.bottom, H) - Math.max(r.top, 0)); part = Math.max(part, x * y / (W * H)); }
+  // Fonds de section distincts et bords gauches des blocs de texte.
+  const fonds = new Set(); for (const el of document.querySelectorAll('body > *, main > *, section')) { if (!isShown(el)) continue; const r = el.getBoundingClientRect();
+    if (r.width < W * 0.5 || r.height < 120) continue; const c = getComputedStyle(el).backgroundColor; if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') fonds.add(c); }
+  const bords = new Set(); for (const el of document.querySelectorAll('p,h1,h2,h3,h4,h5,h6,li,dt,dd,blockquote')) { if (!isShown(el) || (el.innerText || '').trim().length < 20) continue;
+    bords.add(Math.round(el.getBoundingClientRect().left / 8) * 8); }
+  return {viewport: W, titre: accueil, titres, corps, tailles_distinctes: sizes.size, familles, mesure_max: mesures.length ? mesures[mesures.length - 1] : null,
+          mesure_mediane: mesures.length ? mesures[Math.floor(mesures.length / 2)] : null,
+          images: {raster: rasters.length, video: videos.length, canvas: canvases.length, svg: svgs.length}, media_premier_ecran: Math.round(part * 100),
+          centre_pour_cent: chars ? Math.round(centered / chars * 100) : 0, fonds_distincts: fonds.size, bords_gauches: bords.size,
+          mots: total, ecrans: r1(document.documentElement.scrollHeight / H)};
+}
+"""
+
+
+def format_mesures(per: dict) -> list[str]:
+    """Lignes lisibles des mesures de composition, une par largeur. Aucune lecture de seuil : des relevés seulement."""
+    lines = []
+    for w, d in per.items():
+        m = d.get("mesures")
+        if not m:
+            continue
+        t, parts = m.get("titre"), []
+        if t:
+            parts.append(f"titre « {t['texte']} » {t['mots']} mot(s), {t['lignes']} ligne(s), {t['taille']} px ({t['vw']} vw), "
+                         f"interligne {t['interligne']}, approche {t['approche']} em, graisse {t['graisse']}")
+        else:
+            parts.append("aucun titre visible")
+        parts.append(f"corps {m.get('corps')} px, {m.get('tailles_distinctes')} taille(s) distincte(s), {len(m.get('familles', []))} famille(s) ({', '.join(m.get('familles', [])[:3])})")
+        parts.append(f"ligne de texte {m.get('mesure_mediane')} car. en médiane, {m.get('mesure_max')} au plus" if m.get("mesure_max") is not None else "aucun paragraphe long")
+        im = m.get("images", {})
+        parts.append(f"images : {im.get('raster', 0)} raster, {im.get('video', 0)} vidéo, {im.get('canvas', 0)} canvas, {im.get('svg', 0)} svg ; média dominant {m.get('media_premier_ecran')} % du premier écran")
+        parts.append(f"texte centré {m.get('centre_pour_cent')} % ; {m.get('fonds_distincts')} fond(s) de section distinct(s) ; {m.get('bords_gauches')} bord(s) gauche(s) de texte ; {m.get('mots')} mots sur {m.get('ecrans')} écran(s)")
+        lines.append(f"  {w} px : " + " ; ".join(parts))
+    return lines
+
+
 def sha12(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 
@@ -357,6 +503,8 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
         def open_page(width: int, reduced: bool = False):
             ctx = browser.new_context(viewport={"width": width, "height": 844 if width < 700 else 900},
                                       reduced_motion="reduce" if reduced else "no-preference")
+            if reduced:  # avant tout script de la page : une animation d'entrée courte serait sinon terminée à la mesure
+                ctx.add_init_script(MOTION_RECORDER_JS)
             page = ctx.new_page()
             errs: list[str] = []
 
@@ -399,6 +547,7 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
                 const r = e.getBoundingClientRect(); return r.right > document.documentElement.clientWidth + 1 && getComputedStyle(e).position !== 'fixed'; })
                 .slice(0, 4).map(e => e.tagName.toLowerCase() + (e.className && e.className.baseVal === undefined ? '.' + String(e.className).split(' ')[0] : ''))""")
             audit = page.evaluate(AUDIT_JS, FOC)
+            mesures = page.evaluate(MESURES_JS) if args.mesures else None  # relevés seulement : jamais lus par interpret
             proof = None
             if args.proof:
                 page.evaluate("window.scrollTo(0, 0)")
@@ -427,11 +576,12 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
                             unreached=[e['id'] for e in keyboard['expected'] if e['key'] not in visited], unexpected=unexpected)
             raw["per_width"][w] = {"overflow": dims, "offenders": offenders, "errs": errs, "audit": audit, "proof": proof,
                                    "stops": stops, "missing_ind": missing, "keyboard": keyboard}
+            if mesures is not None:
+                raw["per_width"][w]["mesures"] = mesures
             ctx.close()
 
         ctx, page, _ = open_page(widths[0], reduced=True)
-        raw["running"] = page.evaluate("""() => document.getAnimations().filter(a => a.playState === 'running').map(a => ({
-            name: a.animationName || a.transitionProperty || 'anim', infinite: a.effect.getComputedTiming().iterations === Infinity}))""")
+        raw["running"] = page.evaluate(MOTION_REPORT_JS)
         ctx.close()
         browser.close()
     raw["blocked"] = state["blocked"]
@@ -553,11 +703,17 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     checks.append(("Parcours clavier : arrêts et indicateur de focus", RESERVE if keyboard_limits else PASS,
                    ' ; '.join(keyboard_details + keyboard_limits) + ' ; style observé, visibilité et contraste du focus à vérifier'))
 
+    # `running` : animations démarrées sous préférence « mouvement réduit », même terminées à la mesure. Une entrée sans
+    # `moves` (ancienne mesure) est traitée comme un déplacement, jamais écartée.
     running = raw.get("running", [])
     inf = [a for a in running if a["infinite"]]
+    moving = [a for a in running if a.get("moves", True)]
+    label = lambda a: (f"{a['target']} {a['name']}" if a.get("target") else a["name"])
     checks.append(("Mouvement réduit respecté", RETURN if inf else (RESERVE if running else PASS),
-                   (f"animation infinie encore active : {', '.join(a['name'] for a in inf)}" if inf else
-                    f"{len(running)} animation(s) finie(s) encore active(s)" if running else "aucune animation active")))
+                   (f"animation infinie sous mouvement réduit : {', '.join(label(a) for a in inf)}" if inf else
+                    f"{len(running)} animation(s) finie(s) démarrée(s) sous mouvement réduit, dont {len(moving)} avec déplacement"
+                    + (f" ({', '.join(label(a) for a in moving[:4])})" if moving else "")
+                    + " : vérifier qu'elles sont neutralisées pour cette préférence" if running else "aucune animation démarrée")))
 
     if proof_sel:
         parts, status = [], PASS
@@ -680,6 +836,11 @@ def run(args: argparse.Namespace) -> int:
     print(f"Recette AUTOMATED (GATE-A) — {target}\n")
     for title, status, detail in checks:
         print(f"[{status:<21}] {title} : {detail}")
+    if getattr(args, "mesures", False):
+        print("\nMesures de composition (relevés chiffrés, sans seuil ni verdict ; elles ne modifient ni les statuts ni le code de sortie) :")
+        for line in format_mesures(raw["per_width"]):
+            print(line)
+        print("  Repères datés, à confronter au rendu et non à imposer : SAVOIR/TOOLS/POINTS-DE-DEPART (À REVÉRIFIER).")
     print("\nProvenance : " + " · ".join(f"{k}={v}" for k, v in prov.items()))
     print("Limites : seules les fautes objectivables sont contrôlées, à l'état et aux largeurs observés. "
           f"{raw['blocked']} requête(s) externe(s) bloquée(s) : les mesures utilisent alors les polices de repli. "
@@ -687,6 +848,8 @@ def run(args: argparse.Namespace) -> int:
           "La couverture du contraste est bornée au DOM inspecté ; le contraste non textuel (bordures, icônes, indicateur de focus) n'est pas mesuré et le ratio d'un texte qui passe n'est pas rapporté. L'objet de preuve mesure CSS et rectangle, sans vérifier les pixels ni l'occlusion. "
           "Les noms sont des candidats DOM, pas un calcul AccName ; leur présence conserve une réserve. "
           "Le clavier porte sur les candidats du périmètre actif et les arrêts observés ; une borne atteinte conserve une réserve. "
+          "Le mouvement réduit enregistre les animations et transitions démarrées au chargement et au défilement, sur la première largeur ; "
+          "les animations pilotées par script sans API d'animation du navigateur ne sont pas observées. "
           "Les captures montrent l'état observé ; elles ne jugent rien. "
           "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
     comparison = None
@@ -707,6 +870,7 @@ def run(args: argparse.Namespace) -> int:
                                               'keyboard_coverage': coverage,
                                               'contrast_coverage': {str(w): d['audit'].get('contrastCoverage', {}) for w, d in raw['per_width'].items()},
                                               'proof_observations': {str(w): d['proof'] for w, d in raw['per_width'].items()},
+                                              **({'mesures': {str(w): d['mesures'] for w, d in raw['per_width'].items() if 'mesures' in d}} if getattr(args, 'mesures', False) else {}),
                                               **({'baseline_comparison': comparison} if comparison is not None else {})},
                                               ensure_ascii=False, indent=2), encoding="utf-8")
     return 1 if any(s == RETURN for _, s, _ in checks) else 0
@@ -724,6 +888,8 @@ def parser() -> argparse.ArgumentParser:
     ap.add_argument("--json", default="", help="écrit les résultats et la provenance dans ce fichier")
     ap.add_argument("--captures", default="", metavar="DOSSIER",
                     help="écrit une capture pleine page par largeur (capture-<largeur>px.png), à l'état observé ; n'écrase rien")
+    ap.add_argument("--mesures", action="store_true",
+                    help="relève des mesures de composition (titres, corps, familles, images, bords), sans seuil ni verdict : aucun statut, aucun code de sortie")
     ap.add_argument("--baseline", default="", metavar="JSON",
                     help="comparer à une mesure --json antérieure du même périmètre (défauts introduits, préexistants ou disparus)")
     ap.add_argument("--browser-executable", default=os.environ.get("DG_BROWSER_EXECUTABLE", ""), metavar="CHEMIN",
