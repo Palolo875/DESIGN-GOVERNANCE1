@@ -1,14 +1,14 @@
 # Suivi : Design Governance (DG) × Taste Skill v2 (TS)
 
 > **Statut du fichier.** Document de travail, **hors paquet**. Il vit sur la branche orpheline `suivi-comparaison-taste-skill`, qui ne contient que ces notes (aucun fichier du paquet, aucun workflow : pas de CI). Il n'est pas dans `scripts/package_manifest.json` et n'a pas vocation à être fusionné dans le système. Raison de la branche orpheline : voir F4 en 4.2.
-> **Créé le** 2026-10-14. **Dernière mise à jour :** 2026-10-14 (après la manche 8 : U7, U1 et U2 appliqués en pilotes sur `ccr-38b0a56f-t8xdo8` ; voir aussi `COMPARAISON-TEXTUELLE.md` et `COMPARAISON-COMPLEMENT.md`).
+> **Créé le** 2026-10-14. **Dernière mise à jour :** 2026-10-14 (après la manche 9 : U3 à U6 appliqués en pilotes ou en valeurs `[À ADAPTER]` sur `ccr-38b0a56f-t8xdo8` ; voir aussi `COMPARAISON-TEXTUELLE.md` et `COMPARAISON-COMPLEMENT.md`).
 > **But :** garder le fil de la comparaison (capacité esthétique et design), ses résultats concrets et ce qu'il faut faire ensuite, sans divaguer.
 
 ## 0. Règles de ce fichier
 
 1. Tout résultat porte sa preuve : un fichier lu, une commande exécutée ou un chiffre mesuré.
 2. Ce qui n'a pas été lu est écrit comme tel (section 2). Aucun verdict sur un fichier non lu.
-3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 11).
+3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 12).
 4. Les chiffres de l'étude de TS viennent d'un panel de **modèles**, pas de personnes : à traiter comme des claims « à revérifier ».
 5. Le dépôt TS est sous licence MIT (Copyright 2026 Leonxlnx) : toute reprise de valeurs ou de données cite la source.
 
@@ -338,7 +338,22 @@ Accord de l'utilisateur : « Allons-y. On poursuit. » après la proposition « 
 
 **Lectures complémentaires.** `gouvernance/structure.md` (`BIBLIOTHEQUE/CONTRACTS`) : contrat commun de route en 17 champs, dont « contribution expressive » et « risque de banalisation » (le pendant des `pitfalls` par direction de TS) ; « calibration locale » : les valeurs vivent dans la spec, les tokens ou le composant du projet, avec deux exemples seulement (`3:2` puis `1:1`) : confirme que DG **délègue** les valeurs au projet. `assets.mjs` de TS (plan lu) : 6 sources (Openverse, Wikimedia Commons, Art Institute of Chicago, Metropolitan Museum, Internet Archive, NASA), filtre de pertinence, vérification que chaque image se charge, étiquette, URL et notes de licence (droits de la personnalité, marque déposée signalés), enregistrement des crédits ; DG n'a aucun équivalent outillé.
 
-## 10. À garder en tête pour la suite
+## 10. Manche 9 : U3 à U6 appliqués (réglages, mouvement, images libres, gabarits)
+
+Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un à la fois ». Branche `ccr-38b0a56f-t8xdo8`, commits `a31afe4` (U5, U4, U6) et `60629bf` (U3). **Aucun bloc `noyau` modifié ; `SKILL.md` inchangé (20 246 octets) ; validation complète rejouée à chaque commit.** Tests : `test_audit_regressions` 78 cas (77 avant U3, 75 avant la manche 8).
+
+| Réf. | Changement | Statut | Où |
+|---|---|---|---|
+| U5 | « Réglage d'un grand texte » : interligne 0,85 à 1,05, approche de −0,02 à −0,05 em réglée par taille, capitales de 0 à +0,03 em, alignement optique d'environ 0,04 à 0,06 em, pas de césure, espace double au-dessus d'un titre ; ombre, contour ou dégradé posés en question de retrait, non en interdit ; contre-indications ; preuve | `[À ADAPTER]`, « non des mesures » | `typographie.md` |
+| U4 | « Durées et courbes, points de départ » : fréquence d'abord (centaines de fois : pas d'animation) ; 100 à 160 ms (appui), 150 à 200 (survol), 150 à 250 (menus), 250 à 450 (dialogues), 500 à 900 (révélations), sortie à environ 70 % ; décélération à l'entrée et à la sortie, accélération-décélération entre deux places, courbe douce pour couleur et opacité ; contre-indications ; preuve | `[À ADAPTER]`, « non des mesures » | `contexte.md` |
+| U6 | « Chercher le monde du sujet dans des collections ouvertes » : requêtes tirées de l'inventaire, dans les mots du lieu, avec un médium ou une décennie ; critères de choix ; honnêteté (une image trouvée n'est jamais celle du client) ; droits (lus sur la page de la source, « pas un avis juridique ») ; crédits enregistrés ; repli `CODE-NATIVE` ou `SANS-ASSET` ; `MOYENS` cite les collections | **PILOT** | `images-et-sources.md`, `gout-et-tendances.md` |
+| U3 | « Gabarit de départ » sur **deux routes seulement** : `GRID/HIERARCHICAL` (liste à l'échelle d'une affiche, depuis `features-capabilities-at-poster-scale`) et `SCENE/EDITORIAL_FIELD` (le nom sous une photographie, depuis `name-under-photograph`) ; géométrie de bureau et de mobile, contre-indications, preuve, test de retrait. **Le fondu à 35 % des lignes non survolées du modèle d'origine n'est pas repris** (il abaisserait leur contraste ; `adjustments()` de TS le corrige lui-même) | **PILOT** | `catalogue.md` |
+
+**Incidents.** (1) Un test de recherche par symptôme (`test_read_route`, « le titre écrase la photo ») a échoué : mon sous-titre « images » puis le mot « titre » dans une liste de crédits faisaient remonter `SAVOIR/SOURCE` devant `SAVOIR/STATE` et `CFT-03` ; reformulé (« intitulé », sous-titre sans mot d'image). (2) Après le contrôle de mutation de la manche 8, c'est le deuxième garde-fou du paquet sensible à des mots ajoutés : le classement de `read_route.py` pondère les mots d'un titre de section et leur rareté.
+
+**Limites déclarées.** Valeurs reprises de TS, observées sur des sites de galerie notés par des modèles ; aucun gain n'est démontré ; aucune n'a été exercée sur un run de design. `ADOPTED` exige des runs contrastés avec et sans.
+
+## 11. À garder en tête pour la suite
 
 **Nécessaire**
 - **N1.** *(partiel, voir 5.3)* Valeurs de départ en typographie, couleur, mise en page et mouvement, étiquetées « point de départ adaptable », importées avec le format de claim de `SAVOIR/TOOLS` (source, date, limite) et non comme règles.
@@ -365,11 +380,11 @@ Accord de l'utilisateur : « Allons-y. On poursuit. » après la proposition « 
 
 - **B9 (nouveau, manche 5).** Une note de compatibilité avec d'autres skills de design chargées en même temps : quand une prescription externe (boucles infinies, accent à 4,2:1, microtexte de 10 px) heurte un contrôle de la porte A, la porte A prévaut et l'écart se déclare. À vérifier d'abord s'il n'existe pas déjà dans `SAVOIR/INTEGRITY` ; non fait.
 
-- **U1, U2 et U7 : faits en manche 8 (section 9). Reste U3 à U6.** — **U1 à U7 (manche 6, mis à jour en manche 7 : U1 reprend aussi les neuf moteurs d'idée de `research.md` §3 ; U3 a maintenant un ordre de grandeur, une entrée de TS porte en médiane 13 valeurs en 194 mots).** Propositions issues de la lecture comparée, détail et ordre dans `COMPARAISON-TEXTUELLE.md` section 8 : U7 (aligner les signaux contraires), U1 (inventaire du sujet et phrase d'idée), U2 (test de page sous-construite), U5 (grand texte), U4 (jetons de mouvement), U6 (images libres), U3 (gabarit sur deux routes). Aucune n'est faite. U1 et U3 recoupent N2/B2 ; U4 recoupe B6 ; U6 recoupe B4.
+- **U1 à U7 : tous faits (manches 8 et 9, sections 9 et 10). Aucun n'est `ADOPTED`.** — **U1 à U7 (manche 6, mis à jour en manche 7 : U1 reprend aussi les neuf moteurs d'idée de `research.md` §3 ; U3 a maintenant un ordre de grandeur, une entrée de TS porte en médiane 13 valeurs en 194 mots).** Propositions issues de la lecture comparée, détail et ordre dans `COMPARAISON-TEXTUELLE.md` section 8 : U7 (aligner les signaux contraires), U1 (inventaire du sujet et phrase d'idée), U2 (test de page sous-construite), U5 (grand texte), U4 (jetons de mouvement), U6 (images libres), U3 (gabarit sur deux routes). Aucune n'est faite. U1 et U3 recoupent N2/B2 ; U4 recoupe B6 ; U6 recoupe B4.
 
 **À ne pas importer :** la note avec plafonds comme verdict ; les personas (`soft`) ; les réglages chiffrés par défaut (`image-to-code`, `stitch`) ; le quota d'éléments animés hors vitrine ; les listes de polices « à utiliser » (elles deviennent la vague suivante) ; les personas (« agence à 150 k$ »).
 
-## 11. Journal des corrections
+## 12. Journal des corrections
 
 | Quand | J'avais dit | Réalité | Preuve |
 |---|---|---|---|
@@ -383,6 +398,8 @@ Accord de l'utilisateur : « Allons-y. On poursuit. » après la proposition « 
 | Manche 4 | Message de commit : « 7 / 9 / 7 tests ajoutés » | 12 / 12 / 10 (161 → 195) | comptage sur `test_check_render.py` ; recommit (reset doux, `--force-with-lease` sur ma propre branche) |
 | Manche 4 | Texte de `POINTS-DE-DEPART` avec le mot « violet » et l'expression « question de convergence » | Refusé par `validate_reading_map` (LCF-46, vocabulaire de vague hors lignes `[VEILLE 20…]`) et `validate_structure` (FIDELITY : « question de convergence » exige « police de titre ») | reformulé en « marqueurs de vague » |
 | Manche 4 | Chemins d'outils externes entre accents graves dans le texte ajouté | `validate_design_governance` exige que tout chemin opérationnel en accents graves existe | passé en texte brut |
+| Manche 9 | J'ai pensé que renommer un sous-titre suffirait à garder `test_read_route` vert | Le mot « titre » dans une liste de crédits comptait aussi : il faut éviter les mots de la requête de symptôme (titre, image, photo, écrase) dans les routes qui ne les traitent pas | `scripts/read_route.py` (`rank_phrase`) |
+| Manche 9 | (modèle de TS repris tel quel) le fondu à 35 % des lignes non survolées | Contredit l'exigence de contraste de TS lui-même (`adjustments()`, « fades text ») : retiré du gabarit de DG | `library/sections.json`, `draw.mjs` |
 | Manche 8 | (SUIVI 7 et COMPARAISON-TEXTUELLE 6) « `MOY-ASSETS` propose duotone, grain ou trame alors que les marqueurs de vague les rangent » | Trop large : `CONVERGENCE` ne range ni le duotone ni le grain ; ses marqueurs voisins sont le tramage (vague 2) et le dithering (vague 3), et `STRUCT-SIGNAUX` pose une question de reprise pour « grain, trame, texture reprise d'un brief à l'autre ». La tension réelle est plus étroite ; elle est alignée par U7 | `gout-et-tendances.md`, `choisir.md` |
 | Manche 8 | Je pensais pouvoir citer `SAVOIR/STATE` dans le nouveau paragraphe de `CFT-00` | Le contrôle de régression `wrong_owner` de `validate_all.py` cesse alors de détecter sa mutation | `scripts/validate_all.py`, `check_craft_regressions` |
 | Manche 7 | (SUIVI 4.4) « Le tirage est aléatoire dans le secteur » | Incomplet : le tirage est contraint par le secteur, le ton, les actifs réels déclarés (`--have`), le mode d'images, un historique de 24 tirages et l'évitement de la forme de la section précédente ; il est suivi d'une fonction `adjustments()` qui corrige les modèles (35 % des sections, 58 % des héros) | `draw.mjs` lignes 95 à 395 |
@@ -396,13 +413,12 @@ Accord de l'utilisateur : « Allons-y. On poursuit. » après la proposition « 
 | Manche 5 | J'attendais que le contraste de 3,78:1 de ma page `soft` vienne de la skill | Le gris `#8a7f74` est mon choix ; `soft` ne fixe pas de gris. Seul le contraste de `brutalist` vient des valeurs de la skill | hex de `brutalist-skill.md` §4 |
 | Manche 4 | Borne de mesure de ligne de ma page de test | écart d'un cran, la mesure réelle de la page est de 48 caractères | assertion corrigée sur la valeur mesurée |
 
-## 12. Prochaines étapes (par ordre)
+## 13. Prochaines étapes (par ordre)
 
-1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (6 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e` ; validation complète rejouée sur le dernier). Aucune PR n'est ouverte.
+1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (8 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf` ; validation complète rejouée sur le dernier). Aucune PR n'est ouverte.
 2. **Trancher D1 à D4** et les six autres contradictions du tableau 5 de `COMPARAISON-TEXTUELLE.md`.
-3. **U3 à U6** (gabarit de départ sur deux routes, jetons de mouvement, réglages de grand texte, méthode de recherche d'images libres), un à la fois, en `PILOT`.
-4. **Gagner le statut `ADOPTED`** pour `CFT-06`, `CFT-01` (inventaire du sujet), `POINTS-DE-DEPART` et `--mesures` : runs contrastés sur de vrais briefs, avec et sans la route.
+3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans.
+4. **Étendre `EVALUATION_CASE`** (bras de comparaison, référence sans skill, relecture à l'aveugle), puis le protocole A/B (N4) : seule étape qui peut dire si tout cela améliore les rendus. Elle demande un vrai run avec des juges, ce que l'utilisateur a écarté pour l'instant.
 5. **Vérifier B9** (`SAVOIR/INTEGRITY` couvre-t-il « une autre skill de design prescrit ce que la porte A refuse » ?).
-6. **Étendre `EVALUATION_CASE`**, puis le protocole A/B (N4) : seule étape qui peut dire lequel produit de meilleurs rendus.
-7. **Prototypes restants** (N2 avec sélecteur et historique, B2, B4, B5, B6, B7) seulement si l'étape 2 le permet.
-8. **Lire ce qui reste non lu** : `probe.mjs` et `assets.mjs` en entier, `guides/glossaire`.
+6. **Prototypes restants** (N2 avec sélecteur et historique, B5, B7) seulement si l'étape 2 le permet. Le gabarit sur deux routes (B2) a été fait ; l'étendre dépend de son essai.
+7. **Lire ce qui reste non lu** : `probe.mjs` en entier.
