@@ -23,7 +23,7 @@ Cette commande compile le noyau, exécute les contrôles du package et construit
 | Option | Résultat |
 |---|---|
 | `--empreintes` | Affiche les empreintes SHA256 des archives. |
-| `--log CHEMIN` ou `--journal CHEMIN` | Conserve la sortie détaillée des contrôles dans un fichier `.log` ; les deux options sont équivalentes. Par défaut : `.logs/preparer_livraison.log`. |
+| `--log CHEMIN` ou `--journal CHEMIN` | Conserve la sortie détaillée des contrôles dans un fichier `.log` ; les deux options sont équivalentes. Par défaut : `.logs/preparer_livraison.log`. Dans le paquet, le journal doit rester sous `.logs/` ; ailleurs, choisir un chemin hors du paquet. |
 | `--require-browser` | Exige l’exécution des tests de pages et fait échouer la préparation si le navigateur est indisponible. |
 
 Sans navigateur, les tests de pages restent `NOT-VERIFIED`. Les limites des contrôles restent visibles même lorsque la préparation réussit.
@@ -90,7 +90,7 @@ La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`
 | `python3 scripts/read_route.py --connexions` | Affiche le sommaire des connexions situées ; ajouter un identifiant comme `C03` pour lire condition, contributions, limites et sources résolues. |
 | `python3 scripts/test_audit_regressions.py` | Exécute les régressions de navigation, de capacités et de conditions de façade ; ne mesure ni la compréhension utilisateur ni la qualité esthétique. |
 | `python3 scripts/validate_all.py` | Exécute les contrôles documentaires, machine, CLI, fixtures négatives, compilation et reproductibilité des distributions. |
-| `python3 scripts/validate_all.py --lecture-seule` | Exécute les mêmes contrôles sans construire ni écrire : `dist/` et les archives ne sont pas touchés ; build et reproductibilité restent `NOT-VERIFIED`. |
+| `python3 scripts/validate_all.py --lecture-seule` | Exécute les mêmes contrôles sans construire ni remplacer les distributions : `dist/`, `.build/` et les archives ne sont pas touchés (le runner le vérifie). Des caches Python et des copies temporaires de test peuvent être écrits ailleurs. Build et reproductibilité restent `NOT-VERIFIED`. |
 
 Les chemins `exemple: chemin/run.json` et `exemple: chemin/contrat.json` sont des exemples à remplacer par ceux de vos fichiers. Pour exécuter les contrôles intégrés du package :
 

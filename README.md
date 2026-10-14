@@ -21,11 +21,25 @@ Le vocabulaire est expliqué dans [`guides/glossaire.md`](guides/glossaire.md).
 
 La skill ne contient que le noyau ; ses routes, ses scripts et ses schémas restent dans le paquet. Gardez donc le paquet entier, puis :
 
-1. **Rendre la skill visible.** Avec Claude Code, copiez le dossier `agent/skill` sous le nom `design-governance-practice`, dans `.claude/skills/` du projet ou dans `~/.claude/skills/` (par exemple `cp -r agent/skill .claude/skills/design-governance-practice`). Avec un autre agent, donnez-lui `SKILL.md` comme instructions.
-2. **Donner accès au paquet.** Les commandes de la skill (`python3 scripts/read_route.py …`) s’exécutent depuis la racine du paquet : travaillez dans ce dossier, ou indiquez son chemin à l’agent (« Design Governance est dans /chemin/du/paquet ; lance ses scripts depuis ce dossier »). Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium.
-3. **Vérifier.** Depuis la racine du paquet, `python3 scripts/read_route.py DIRECTION/START` affiche la route.
+1. **Rendre la skill visible.** Avec Claude Code, copiez le *contenu* de `agent/skill` dans un dossier `design-governance-practice`, sous `.claude/skills/` du projet ou sous `~/.claude/skills/`. Depuis la racine de votre projet :
 
-Sans accès au paquet, l’agent n’a que le noyau. Après une mise à jour du paquet, recopiez la skill. Le noyau commun active la ligne du mode et les détails au moment utile ; un détail marqué « noyau » dans sa source n’est pas nécessairement embarqué dans la skill.
+   ```bash
+   mkdir -p .claude/skills/design-governance-practice
+   cp -R /chemin/du/paquet/agent/skill/. .claude/skills/design-governance-practice/
+   ```
+
+   La même commande met la skill à jour : elle remplace les fichiers sans créer de sous-dossier. Si une mise à jour retire des fichiers de référence, supprimez d’abord le dossier installé. Avec un autre agent, utilisez son mécanisme de skills selon sa documentation, ou donnez-lui `SKILL.md` comme instructions.
+2. **Donner accès au paquet.** Les commandes de la skill (`python3 scripts/read_route.py …`) et les fichiers qu’elle cite s’entendent depuis la racine du paquet : travaillez dans ce dossier, ou indiquez son chemin à l’agent (« Design Governance est dans /chemin/du/paquet ; lance ses scripts depuis ce dossier »). Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium.
+3. **Vérifier.** La copie est correcte si le fichier principal est à la racine du dossier installé, sans sous-dossier `skill/` ; l’accès au paquet l’est si la route s’affiche :
+
+   ```bash
+   ls .claude/skills/design-governance-practice/SKILL.md
+   cd /chemin/du/paquet && python3 scripts/read_route.py DIRECTION/START
+   ```
+
+   Ces deux contrôles ne prouvent pas que l’agent a chargé la skill : demandez-lui quelles skills sont actives, ou consultez la liste de skills de l’hôte.
+
+Sans accès au paquet, l’agent n’a que le noyau. Après une mise à jour du paquet, relancez la copie. Le noyau commun active la ligne du mode et les détails au moment utile ; un détail marqué « noyau » dans sa source n’est pas nécessairement embarqué dans la skill.
 
 <!-- constitution:début -->
 ## Les cinq règles essentielles
@@ -82,7 +96,7 @@ Ajoutez `--guides` pour chercher aussi dans les guides. Une recherche sans résu
 
 ## Limites
 
-- **Version.** V1.0.0, révision `R2026-10-11-CORRECTIFS` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
+- **Version.** V1.0.0, révision `R2026-10-14-REVUE` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
 - **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. Les preuves de CI hébergée, distinctes de cette efficacité, sont rattachées aux commits testés dans les [notes de version](RELEASE_NOTES.md#contrôles-inclus).
 - **Une validation confirme seulement les contrôles exécutés.** Une capture prouve un rendu, pas un usage : à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle.
 - **Séduisant n’est pas prouvé, conforme n’est pas réussi.** Le système demande de rendre cet écart visible et de corriger le défaut principal, sans le compenser par une autre preuve. Une étape ou une référence qui ne change rien est retirée.

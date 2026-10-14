@@ -69,5 +69,5 @@ Vue de lecture : les retours et protections adaptent le parcours.
 
 ## Un parcours peut revenir en arrière.
 
-**Un parcours peut revenir en arrière.**. Direction faible : rouvrir le choix. Risque ou périmètre changé : reclasser. Défaut local : corriger. Preuve insuffisante : déclarer la limite et la prochaine preuve.
+**Un parcours peut revenir en arrière.** Direction faible : rouvrir le choix. Risque ou périmètre changé : reclasser. Défaut local : corriger. Preuve insuffisante : déclarer la limite et la prochaine preuve.
 

@@ -52,10 +52,11 @@ NAME_JS = r"""
 (el) => {
   const clean = t => (t || '').replace(/\s+/g, ' ').trim();
   let uncertain = false;
-  const hidden = e => { for (let n = e; n && n.nodeType === 1; n = n.parentElement) {
-    const s = getComputedStyle(n);
-    if (n.getAttribute('aria-hidden') === 'true' || n.hasAttribute('hidden') || s.display === 'none' ||
-        s.visibility === 'hidden' || s.visibility === 'collapse') return true;
+  // aria-hidden, hidden et display:none d'un ancêtre sont irréversibles ; visibility est héritée mais peut être
+  // rétablie sur un descendant : seule la valeur calculée de l'élément lui-même compte.
+  const hidden = e => { const v = getComputedStyle(e).visibility; if (v === 'hidden' || v === 'collapse') return true;
+    for (let n = e; n && n.nodeType === 1; n = n.parentElement) {
+    if (n.getAttribute('aria-hidden') === 'true' || n.hasAttribute('hidden') || getComputedStyle(n).display === 'none') return true;
   } return false; };
   const content = (n, includeHidden = false, referenced = false, ancestors = new Set()) => {
     if (n.nodeType === 3) return n.textContent || '';
@@ -161,8 +162,16 @@ AUDIT_JS = r"""
     coverage.candidates++;
     if (excluded) { coverage.excluded++; continue; }
     if (el instanceof SVGElement || el.closest('svg')) { const k = sel(el); if (!seenNs.has('svg:' + k)) { seenNs.add('svg:' + k); res.svgText.push({sel: k}); } continue; }
-    const cs = getComputedStyle(el), fg = color(cs.color);
-    if (!fg) { if (!seenUk.has(k)) { seenUk.add(k); res.unknown.push({sel: k, value: cs.color}); } continue; }
+    const cs = getComputedStyle(el), base = color(cs.color);
+    if (!base) { if (!seenUk.has(k)) { seenUk.add(k); res.unknown.push({sel: k, value: cs.color}); } continue; }
+    // La couleur qui remplit le texte peut différer de color (-webkit-text-fill-color) : c'est elle qui est peinte.
+    const fill = cs.webkitTextFillColor ? color(cs.webkitTextFillColor) : null;
+    let fg = base;
+    if (fill && fill.join() !== base.join()) {
+      // Remplissage transparent : le texte est peint par un fond (background-clip:text), non évalué.
+      if (fill[3] === 0) { if (!seenNs.has(k)) { seenNs.add(k); res.nonSolid.push({sel: k}); } continue; }
+      fg = fill;
+    }
     const opacity = opac(el);
     if (opacity !== 1) { res.groupOpacity.push({sel: k, opacity}); continue; }
     const bg = effBg(el);

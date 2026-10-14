@@ -3,7 +3,7 @@
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.
 **Usage recommandé :** pilote avec revue humaine.  
 **Version initiale :** 1 octobre 2026.  
-**Révision :** `R2026-10-11-CORRECTIFS`, 11 octobre 2026.
+**Révision :** `R2026-10-14-REVUE`, 14 octobre 2026.
 
 ## Ce que permet la V1
 
@@ -11,16 +11,20 @@ Transformer une demande en proposition de design composée, crédible et observa
 
 L’agent lit un noyau commun, classe le travail puis charge les détails nécessaires au moment utile. Les sections propriétaires font foi à leur emplacement actuel ; guides et cartes les rendent plus faciles à trouver. La gouvernance sert le risque, la preuve, la décision et la reprise.
 
-## Ce qui change dans cette présentation
+## Ce qui change dans cette révision
 
-- Trois [cartes du système](supports/README.md) : responsabilités, parcours d’un travail et boucle créer/apprendre. HTML, SVG clair/sombre et équivalents écrits sont générés depuis les mêmes contenus.
-- Le journal public et cette fiche présentent la V1 et sa compatibilité. Le récit du chantier, les anciennes révisions et les preuves restent conservés sur `refonte`.
-- Le contrôle des supports refuse une sortie périmée ou une cible locale absente. Les supports sont livrés dans les deux distributions.
-- Manrope est réduite aux caractères des supports et compressée en WOFF2 ; les pages et les SVG restent autonomes. La couverture et le poids sont contrôlés.
-- Les entrées GitHub mènent aux textes Markdown ; les images suivent le thème clair ou sombre. Le journal garde une ligne par révision dans les deux paquets.
-- Le lecteur accepte `--mode SYSTEME` comme alias de `--mode SYSTÈME`. Les titres 5 et 6 du noyau deviennent « Situer l’interface » et « Typographie », sans changer leurs consignes.
+Cette révision traite les constats de la revue du système (carnet conservé sur `refonte`). Elle ne crée ni mode, ni gate, ni statut, ni champ de schéma.
 
-Les consignes du noyau restent identiques ; seuls deux titres sont précisés. La skill complète mesure 18 971 octets UTF-8 pour cette révision, contre 18 960 dans PRATIQUE et 18 852 dans PHASE5. Les règles de design, les modes, gates, statuts et schémas sont conservés. Le langage visuel des documents n’impose aucun style aux productions des agents.
+- **Installation.** La recette crée les dossiers, met la skill à jour sans sous-dossier imbriqué et distingue la copie, l’accès au paquet et le chargement par l’hôte. Les références de la skill citent des chemins depuis la racine du paquet ; un contrôle refuse tout lien qui sortirait de la skill copiée.
+- **Profil strict des fiches de travail.** `?` ou `inconnu` ne valent plus adresse d’artefact ; un fragment ou une requête (`exemple: page.html#hero`) ne masque plus un fichier absent.
+- **Contrats.** Une même exigence UI/UX ne peut plus porter deux statuts contradictoires au même locator.
+- **Recette de rendu.** Un contrôle remis visible sous un parent masqué garde son nom ; la couleur qui remplit réellement le texte (`-webkit-text-fill-color`) est évaluée, et un texte peint par son fond reste en réserve.
+- **Contrôles du paquet.** L’en-tête de la skill refuse une valeur lue en YAML comme nul, booléen, nombre ou date. Le journal de préparation reste sous `.logs/` ou hors du paquet.
+- **Cartes.** Leur version vient du manifeste ; une relation qui ne correspond plus au dessin est refusée ; la double ponctuation des pieds de carte disparaît.
+- **Consignes précisées.** La première scène et l’alternative écartée valent pour une demande de fabrication ; un jugement ou une analyse se conclut sans scène imposée, et la réponse omet les rubriques sans contenu. Montrer une proposition ne rend pas un run persistant ni partagé. L’état vide conçu peut accueillir une première utilisation réelle ; l’arrêt d’un one-shot `DIRECTION` suit le tour d’atelier ; « une décision par écran » vaut pour un parcours guidé ; la densité d’un canevas opérationnel suit la tâche ; la boucle d’équipe modifie le rendu quand un défaut le justifie.
+- **Renvois.** Les gestes de finition pointent vers leurs routes ; les emplacements du savoir, la revue en six points et le classement d’un brief flou sont précisés.
+
+La skill complète mesure 19 705 octets UTF-8 pour cette révision. Le langage visuel des documents n’impose aucun style aux productions des agents.
 
 ## Installer et utiliser
 
@@ -30,7 +34,7 @@ La première proposition oriente la suite ; la valider ne vaut pas l’accepter.
 
 ## Contrôles inclus
 
-La validation couvre inventaire, liens, références, noyau compilé, projections machine, carte de lecture, lecteur de routes, fraîcheur des supports et reproductibilité des distributions.
+La validation couvre inventaire, liens, références, noyau compilé, projections machine, carte de lecture, lecteur de routes et fraîcheur des supports. Dans le dépôt GitHub, elle reconstruit aussi les deux distributions et vérifie leur reproductibilité ; l’export Local contrôle le paquet exporté, sans les outils de construction.
 
 ```sh
 python3 scripts/validate_all.py --require-browser
@@ -38,7 +42,7 @@ python3 scripts/validate_all.py --require-browser
 
 Sans navigateur, les tests de pages restent non vérifiés ; l’option ci-dessus les exige. Les limites de la recette et de la validation documentaire restent explicites.
 
-Les [CI 55](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38092791148) et [56](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38092813117) ont réussi sur `213cfbaf8867142eb834c834311adb0fa626d8fe`, avant ces correctifs. Elles attestent ce commit précis. Cette révision exige ses propres contrôles ; une CI verte ne prouve pas une qualité esthétique générale. Le workflow GitHub exige les tests navigateur. <!-- références:github -->
+La [CI 59](https://github.com/Palolo875/DESIGN-GOVERNANCE1/actions/runs/38096660032) a réussi sur `5a5f56357d829150ac5a1863c3c40f35c4c3bafa`, la révision précédente. Elle n’atteste pas cette révision, qui a sa propre exécution sur son commit ; une CI verte ne prouve pas une qualité esthétique générale. Le workflow GitHub exige les tests navigateur. <!-- références:github -->
 
 ## Ce que le validateur atteste
 

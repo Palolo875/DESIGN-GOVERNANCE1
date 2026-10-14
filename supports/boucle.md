@@ -76,7 +76,7 @@ Boucle d’édition : aucun quota de retouches, aucune acceptation automatique.
 
 ## Créer et prouver restent deux responsabilités.
 
-**Créer et prouver restent deux responsabilités.**. DIRECTION choisit la relation visuelle et le défaut dominant. ACTION conserve les preuves, les gates, les verdicts et la clôture.
+**Créer et prouver restent deux responsabilités.** DIRECTION choisit la relation visuelle et le défaut dominant. ACTION conserve les preuves, les gates, les verdicts et la clôture.
 
 ## Retour au diagnostic
 

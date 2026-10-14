@@ -10,6 +10,10 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent
 DATA = json.loads((ROOT / 'systeme.json').read_text())
+# La version affichée vient du manifeste du paquet, source unique ; aucune carte ne déclare la sienne.
+VERSION_LABEL = 'V' + json.loads((ROOT.parent / 'scripts' / 'package_manifest.json').read_text())['version'] + ' expérimentale'
+# Le dessin de la carte système place ses flèches à des positions fixes : les relations du JSON doivent suivre cette topologie.
+DRAWN_RELATIONS = [('guides', 'design'), ('agent', 'design'), ('design', 'gouvernance')]
 BASE = '../'
 NS = 'http://www.w3.org/2000/svg'
 ET.register_namespace('', NS)
@@ -51,7 +55,7 @@ def svg(theme, embed_font=True):
     el(root, 'style').text=css
     defs=el(root,'defs');m=el(defs,'marker',id='arrow',viewBox='0 0 10 10',refX=8,refY=5,markerWidth=7,markerHeight=7,orient='auto-start-reverse');el(m,'path',d='M 1 1 L 8 5 L 1 9',fill='none',stroke='var(--line)',stroke_width=1.5)
     el(root,'rect',width=1104,height=920,fill='var(--page)')
-    text(root,32,26,'DESIGN GOVERNANCE / ' + DATA['version'],14,650,'muted')
+    text(root,32,26,'DESIGN GOVERNANCE / ' + VERSION_LABEL,14,650,'muted')
     text(root,1072,26,'CARTE DE LECTURE',14,650,'muted','end')
     nodes={n['id']:n for n in DATA['nodes']}
     for ident,x in [('guides',32),('agent',576)]:
@@ -118,7 +122,7 @@ def sequence_svg(data, theme, embed_font=True):
     root.append(original.find('{' + NS + '}style'))
     root.append(original.find('{' + NS + '}defs'))
     el(root, 'rect', width=1104, height=height, fill='var(--page)')
-    text(root, 32, 26, 'DESIGN GOVERNANCE / V1.0.0 expérimentale', 14, 650, 'muted')
+    text(root, 32, 26, 'DESIGN GOVERNANCE / ' + VERSION_LABEL, 14, 650, 'muted')
     text(root, 1072, 26, 'CARTE ' + data['number'], 14, 650, 'muted', 'end')
     if data.get('creation'):
         n = data['creation']; g = el(root, 'g'); box(g, 32, 60, 1040, 154, 'design')
@@ -178,7 +182,7 @@ def text_sections(data):
 def equivalent(data):
     out = ['# ' + data['title'].replace('\n', ' '), '', 'V1 expérimentale. Vue dérivée : les sections propriétaires font foi.', '', data['scope'], '']
     for n in text_sections(data):
-        out += ['## ' + n.get('role', n['title']), '', '**' + n['title'] + '**. ' + ' '.join(n['lines'] + n.get('conditions', [])), '']
+        out += ['## ' + n.get('role', n['title']), '', '**' + n['title'] + ('** ' if n['title'].rstrip()[-1:] in '.!?…' else '**. ') + ' '.join(n['lines'] + n.get('conditions', [])), '']
         for child in n.get('children', []):
             out.append('- **' + child['title'] + '** : ' + ' '.join(child['lines']) + ' [Source](' + BASE + child['target'] + ').')
         if n.get('target'): out += ['', '[Section propriétaire](' + BASE + n['target'] + ').', '']
@@ -192,6 +196,9 @@ def equivalent(data):
 def render_outputs(embed_font=True):
     global DATA
     DATA = json.loads((ROOT / 'systeme.json').read_text())
+    drawn = [(r['from'], r['to']) for r in DATA['relations']]
+    if drawn != DRAWN_RELATIONS:
+        raise ValueError('relations de systeme.json différentes du dessin fixe ' + str(DRAWN_RELATIONS) + ' : adapter le générateur')
     palettes = DATA['themes']
     collection = [DATA] + [json.loads((ROOT / (name + '.json')).read_text()) for name in ['parcours', 'boucle']]
     names = {'systeme': 'Carte du système', 'parcours': 'Parcours d’un travail', 'boucle': 'Créer puis apprendre'}

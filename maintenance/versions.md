@@ -3,16 +3,16 @@
 **Version expérimentale :** `V1.0.0`
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
 **Version initiale :** 1 octobre 2026.  
-**Révision :** `R2026-10-11-CORRECTIFS`, 11 octobre 2026.  
+**Révision :** `R2026-10-14-REVUE`, 14 octobre 2026.  
 **Usage recommandé :** pilote avec revue humaine et preuves adaptées au risque.
 
-## V1.0.0 — présentation expérimentale
+## V1.0.0 — état courant
 
-Cette révision rend le paquet plus facile à parcourir : trois cartes reliées aux sections propriétaires, un journal public court et des notes de version centrées sur l’usage. Les supports ont un équivalent écrit, des variantes claire et sombre, une lecture mobile et des sources régénérables.
+Le paquet se parcourt par trois cartes reliées aux sections propriétaires, un journal public court et des notes de version centrées sur l’usage. Les supports ont un équivalent écrit, des variantes claire et sombre, une lecture mobile et des sources régénérables.
 
 Le cœur conserve direction, savoir, formes et qualité du produit. L’agent lit le noyau, classe le travail, puis charge les détails utiles depuis l’unique table des modes. La gouvernance adapte la trace et les preuves au risque, à la décision et à la reprise. Aucun mode, gate, statut, schéma ou contrat d’acceptation n’est ajouté ou retiré par cette présentation.
 
-Les codes historiques et les adresses lisibles restent compatibles. Le journal est accessible par `maintenance/versions` et `CHANGELOG`. Les distributions GitHub et Local gardent la même arborescence ; Local est un export dérivé. Après mise à jour du paquet, recopier la skill dans l’agent.
+Les codes historiques et les adresses lisibles restent compatibles. Le journal est accessible par `maintenance/versions` et `CHANGELOG`. Les distributions GitHub et Local gardent la même arborescence ; Local est un export dérivé. Après mise à jour du paquet, relancer la copie de la skill (README, « Installer la skill »).
 
 **Efficacité : `NOT-VERIFIED`.** Les créations et jugements exploratoires orientent le travail ; aucune mesure comparative n’établit une amélioration générale de qualité, de variété ou de coût. Une validation du paquet ne remplace ni une observation du rendu ni une tâche utilisateur.
 
@@ -22,6 +22,7 @@ Les révisions restent résumées ci-dessous pour les personnes qui ne disposent
 
 | Révision | Changement principal |
 |---|---|
+| `R2026-10-14-REVUE` | Constats de la revue du système traités : installation, profil strict, contrats, recette de rendu, cartes et consignes précisées ; skill de 19 705 octets. |
 | `R2026-10-11-CORRECTIFS` | Police réduite, lecture Markdown et images adaptées au thème sur GitHub, alias SYSTEME, titres du noyau précisés et historique succinct rétabli. |
 | `R2026-10-10-PRESENTATION` | Trois cartes générées, journal et notes publics nettoyés, travaux conservés hors produit. |
 | `R2026-10-10-PRATIQUE` | Moments de lecture, premier objet, alternatives situées et techniques de mobile/mouvement précisés ; skill de 18 960 octets. |

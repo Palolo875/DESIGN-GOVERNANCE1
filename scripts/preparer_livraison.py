@@ -61,8 +61,9 @@ def main() -> int:
         raise SystemExit("PRÉPARATION ÉCHOUÉE — commande réservée à la distribution GitHub. "
                          "Dans l’export Local, utiliser python3 scripts/validate_all.py.")
     journal = Path(args.log).resolve()
-    if journal.is_relative_to(ROOT / ".build") or journal.is_relative_to(ROOT / "dist"):
-        ap.error("le journal doit être hors des répertoires de construction .build et dist")
+    # Dans le paquet, seul .logs/ échappe à l'inventaire contrôlé : ailleurs, le journal ferait échouer la validation qui le suit.
+    if journal.is_relative_to(ROOT) and not journal.is_relative_to(ROOT / ".logs"):
+        ap.error("le journal doit être sous .logs/ ou hors du paquet (un autre fichier du paquet ferait échouer l’inventaire)")
     if journal == ROOT or journal.suffix != ".log":
         ap.error("le journal doit être un fichier .log")
     journal.parent.mkdir(parents=True, exist_ok=True)

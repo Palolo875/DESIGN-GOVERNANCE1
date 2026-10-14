@@ -632,6 +632,8 @@ def check_strict_contract(document: Any, source_path: Path) -> None:
         if not isinstance(locator, str) or not locator.strip():
             continue  # l’exigence de trace suit le mode, comme en profil normal
         locator = locator.strip()
+        if locator.lower() in PLACEHOLDERS | exact_placeholders:
+            raise ValidationError(f"strict : placeholder à la place de {label} : {locator}")
         try:
             parsed = urlparse(locator)
             host = (parsed.hostname or '').lower().rstrip('.')
@@ -639,8 +641,10 @@ def check_strict_contract(document: Any, source_path: Path) -> None:
             raise ValidationError(f"strict : {label} illisible : {locator}") from exc
         if parsed.scheme.lower() in {"http", "https"} and any(host == domain or host.endswith('.' + domain) for domain in placeholder_hosts):
             raise ValidationError(f"strict : {label} URL de démonstration interdite : {locator}")
-        if is_local_locator(locator):
-            candidate = Path(locator.removeprefix("file://"))
+        # Le fragment et la requête désignent une section ou un état du fichier, pas son nom.
+        path_part = re.split(r"[?#]", locator, maxsplit=1)[0]
+        if is_local_locator(path_part):
+            candidate = Path(path_part.removeprefix("file://"))
             if not candidate.is_absolute():
                 candidate = base / candidate
             if not candidate.exists():
@@ -837,6 +841,11 @@ UNIT_CASES: list[tuple[Any, ...]] = [
     ("C02-1", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "absent.html"), "artefact local absent", True),
     ("C02-2", RETURNED, STRICT_LITE + [((RC, "trace_locator"), str(EXAMPLE))], ((RC, "trace_locator"), "trace-absente.md"),
      "trace local absent", True),
+    # Un placeholder reconnu ailleurs ne désigne pas un artefact ; un fragment ou une requête ne masque pas un fichier absent.
+    ("GV01-1", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "?"), "placeholder à la place de artifact.locator", True),
+    ("GV01-2", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "inconnu"), "placeholder à la place de artifact.locator", True),
+    ("GV02-1", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "absent.html#hero"), "artefact local absent", True),
+    ("GV02-2", RETURNED, STRICT_LITE, ((RC, "artifact", "locator"), "absent.html?state=empty"), "artefact local absent", True),
 ]
 
 # Locators que le profil strict admet (aucun refus involontaire). Chaque valeur remplace
@@ -844,6 +853,8 @@ UNIT_CASES: list[tuple[Any, ...]] = [
 STRICT_ADMITTED = [
     ("fichier nu présent", "run_card.example.json"),
     ("chemin relatif présent", "./run_card.example.json"),
+    ("fichier présent avec section", "./run_card.example.json#run_card"),
+    ("fichier présent avec état", "run_card.example.json?state=empty"),
     ("URL", "https://atelier.exemple.cm/runs/42"),
     ("ticket", "JIRA-142"),
     ("numéro de ticket", "#128"),

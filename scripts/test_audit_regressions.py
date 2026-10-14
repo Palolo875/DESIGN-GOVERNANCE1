@@ -6,6 +6,9 @@ Ces tests n'établissent ni une compréhension utilisateur ni un gain esthétiqu
 from __future__ import annotations
 
 import copy
+import importlib.util
+import json
+import shutil
 import sys
 import tempfile
 import unittest
@@ -415,6 +418,66 @@ class CoreResourceActivationTests(unittest.TestCase):
             with self.subTest(locator=locator):
                 _, lines, index = routes.resolve(locator)
                 self.assertIn(expected, '\n'.join(routes.extract(lines, index)))
+
+
+class ReviewFindingsTests(unittest.TestCase):
+    """Témoins des défauts reproduits par la revue du système (carnet de revue, branche refonte)."""
+
+    def test_skill_header_rejects_unquoted_non_string_scalars(self):
+        # SC-03 : un scalaire non cité lu comme nul, booléen, nombre ou date n'est pas une description textuelle.
+        for raw in ("null", "~", "true", "no", "123", "1.5", "0x1F", ".inf", "2026-10-14", "12:30"):
+            with self.subTest(raw=raw):
+                _, problems = structure.skill_header(f"---\nname: design-governance-practice\ndescription: {raw}\n---\n")
+                self.assertTrue(any("nul, booléen, nombre ou date" in p for p in problems), problems)
+        for raw in ('"null"', "v1.0", "1er octobre", "Produire un design situé"):
+            with self.subTest(raw=raw):
+                values, problems = structure.skill_header(f"---\nname: design-governance-practice\ndescription: {raw}\n---\n")
+                self.assertEqual(problems, [])
+                self.assertTrue(values["description"])
+
+    def generator(self, root: Path):
+        shutil.copytree(ROOT / "supports", root / "supports", ignore=shutil.ignore_patterns("__pycache__"))
+        (root / "scripts").mkdir()
+        shutil.copy(ROOT / "scripts" / "package_manifest.json", root / "scripts" / "package_manifest.json")
+        spec = importlib.util.spec_from_file_location("dg_supports_test", root / "supports" / "generer.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_support_relations_must_follow_the_drawing(self):
+        # SV-01 : le dessin a une topologie fixe ; une relation modifiée dans le JSON ne peut pas diverger en silence.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); module = self.generator(root)
+            source = root / "supports" / "systeme.json"
+            data = json.loads(source.read_text(encoding="utf-8"))
+            data["relations"][0]["to"] = "maintenance"
+            source.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "dessin fixe"):
+                module.render_outputs()
+
+    def test_support_version_comes_from_the_manifest(self):
+        # SV-03 : toutes les cartes affichent la version du manifeste ; aucune carte n'en déclare une autre.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            manifest = json.loads((ROOT / "scripts" / "package_manifest.json").read_text(encoding="utf-8"))
+            self.generator(root)
+            manifest["version"] = "9.9.9"
+            (root / "scripts" / "package_manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            spec = importlib.util.spec_from_file_location("dg_supports_test_v", root / "supports" / "generer.py")
+            module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+            outputs = module.render_outputs()
+            svgs = [text for name, text in outputs.items() if name.endswith(".svg")]
+            self.assertEqual(len(svgs), 6)
+            for text in svgs:
+                self.assertIn("V9.9.9 expérimentale", text)
+                self.assertNotIn("V1.0.0", text)
+        self.assertNotIn("version", json.loads((ROOT / "supports" / "systeme.json").read_text(encoding="utf-8")))
+
+    def test_equivalent_text_has_no_double_punctuation(self):
+        # SV-02 : un titre déjà ponctué ne reçoit pas un second point.
+        for name in ("systeme.md", "parcours.md", "boucle.md"):
+            with self.subTest(name=name):
+                self.assertNotIn(".**.", (ROOT / "supports" / name).read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

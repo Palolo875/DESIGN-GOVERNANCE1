@@ -24,7 +24,7 @@ Gardes :
  13. ENTRÉE HUMAINE — une seule entrée balisée (guide pour commencer, lié depuis le README), quatre questions,
      aucun mode demandé, vouvoiement ; une seule constitution minimale (ENT-01, CST-01).
  15. PRÉAMBULE DE BIBLIOTHEQUE — ni catégories de lecture ni contrat de promotion avant les routes (MNT-01).
- 16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » (SKL-01).
+ 16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » ou serait lue comme nul, booléen, nombre ou date (SKL-01).
  17. DÉCLENCHEUR UI/UX — `CHARGE` appelle `ACTION/UI-UX-REALITY` en STANDARD et DIRECTION avant fabrication, pas en LITE (UIX-01).
  18. FAÇADES — trace légère et proposition dans les guides, glossaire et carte ; exemple hors domaine de référence ; liens vers « Commencer » (FAC-01).
 
@@ -646,6 +646,11 @@ def check_core_floor(errors: list[str]) -> None:
 # précédé d'une espace, ni indicateur initial ; une valeur citée est décodée (doubles : échappements JSON ; simples : '').
 SKILL_KEYS = ("name", "description")
 PLAIN_FORBIDDEN_START = tuple("[]{}#&*!|>'\"%@`,") + ("- ", "? ", ": ")
+# Scalaires non cités qu'un parseur YAML (1.1 ou 1.2) ne lit pas comme une chaîne : nul, booléen, nombre, date.
+PLAIN_NON_STRING = re.compile(
+    r"(?:~|null|Null|NULL|true|True|TRUE|false|False|FALSE|yes|Yes|YES|no|No|NO|on|On|ON|off|Off|OFF"
+    r"|[-+]?(?:\d[\d_]*)?\.?\d+(?:[eE][-+]?\d+)?|0x[0-9a-fA-F]+|0o[0-7]+|[-+]?\.(?:inf|Inf|INF)|\.(?:nan|NaN|NAN)"
+    r"|[-+]?\d+(?::[0-5]?\d)+(?:\.\d*)?|\d{4}-\d\d?-\d\d?(?:[Tt ].*)?)")
 
 
 def skill_header(text: str) -> tuple[dict[str, str], list[str]]:
@@ -674,6 +679,9 @@ def skill_header(text: str) -> tuple[dict[str, str], list[str]]:
         else:
             if raw.startswith(PLAIN_FORBIDDEN_START) or ": " in raw or " #" in raw or raw.endswith(":"):
                 problems.append(f"{key} : valeur non citée contenant « : », « # » ou un indicateur YAML (citer la valeur)")
+                continue
+            if PLAIN_NON_STRING.fullmatch(raw):
+                problems.append(f"{key} : valeur non citée lue en YAML comme nul, booléen, nombre ou date, pas comme texte (citer la valeur)")
                 continue
             value = raw
         if key in values:

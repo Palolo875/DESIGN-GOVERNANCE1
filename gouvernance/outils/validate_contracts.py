@@ -267,12 +267,18 @@ def check_ui_ux_reality_pack(reality: dict[str, Any]) -> None:
         raise ValidationError("ui_ux_reality_pack.expected_scope vide ou placeholder")
     elements = {name: {norm(item) for item in reality[name]} for name in MATRICES}
     covered: dict[str, set[str]] = {name: set() for name in MATRICES}
+    status_at: dict[tuple[str, str, str], str] = {}
     for entry in reality["coverage_map"]:
         matrix, _, element = entry["requirement"].partition(":")
         matrix, element = matrix.strip(), norm(element)
         if matrix not in elements or element not in elements[matrix]:
             raise ValidationError(f"coverage_map : exigence absente des matrices déclarées : {entry['requirement']}")
         covered[matrix].add(element)
+        # Une exigence a un seul état courant par locator ; des contextes distincts se déclarent par des locators distincts.
+        key = (matrix, element, entry["artifact_locator"].strip())
+        if status_at.setdefault(key, entry["proof_status"]) != entry["proof_status"]:
+            raise ValidationError(f"coverage_map : statuts contradictoires pour une même exigence au même locator : "
+                                  f"{entry['requirement']} ({status_at[key]} et {entry['proof_status']})")
         if entry["proof_status"] == "N/A-JUSTIFIED" and not filled(entry.get("reason")):
             raise ValidationError(f"coverage_map : N/A-JUSTIFIED exige une raison ({entry['requirement']})")
         if entry["proof_status"] == "OBSERVED" and not filled(reality.get("observed_scope")):
@@ -324,6 +330,7 @@ UNIT_CASES: list[tuple[Any, ...]] = [
     ("C9-3", PC, [(UI + ("coverage_map", 0, "requirement"), "state_matrix: loading des données source")], "exigence absente des matrices"),
     ("C9-3b", PC, [(UI + ("coverage_map",), None)], "état non couvert"),
     ("C15-1", PC, [(UI + ("coverage_map",), None)], "exigence déclarée non couverte"),
+    ("GV03-1", PC, [(UI + ("coverage_map",), None)], "statuts contradictoires pour une même exigence au même locator"),
     ("C9-4", RB, [(("entries", 0, "source"), "?")], "source placeholder"),
     ("C9-4b", RB, [(("entries", 0, "source_status"), "verified_in_run"), (("entries", 0, "source_locator"), DELETE)], "exige un locator"),
     ("C9-4c", RB, [(("entries", 0, "source_date"), "septembre")], "source_date doit être ISO"),
@@ -344,6 +351,9 @@ DERIVED = {
     ("C9-1", 0): lambda d: d["domain_risks"] + ["exposition de données personnelles"],
     ("C9-3b", 0): lambda d: [e for e in d["ui_ux_reality_pack"]["coverage_map"] if not e["requirement"].startswith("state_matrix: loading")],
     ("C15-1", 0): lambda d: [e for e in d["ui_ux_reality_pack"]["coverage_map"] if not e["requirement"].startswith("robustness_basis: libellés longs")],
+    ("GV03-1", 0): lambda d: d["ui_ux_reality_pack"]["coverage_map"] + [
+        {**e, "proof_status": "OBSERVED" if e["proof_status"] != "OBSERVED" else "NOT-VERIFIED"}
+        for e in d["ui_ux_reality_pack"]["coverage_map"][:1]],
 }
 
 

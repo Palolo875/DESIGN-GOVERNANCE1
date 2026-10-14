@@ -216,6 +216,8 @@ def part_c() -> str:
         ('référence inexistante : repli aria label',"node('BUTTON',{'aria-labelledby':'absent','aria-label':'Valider'})",'Valider'),
         ('référence à soi',"node('BUTTON',{id:'self','aria-labelledby':'self','aria-label':'Supprimer'})",'Supprimer'),
         ('référence masquée par un ancêtre',"(()=>{node('DIV',{hidden:''},[node('SPAN',{id:'lab'},[txt('Fermer')])]);return node('BUTTON',{'aria-labelledby':'lab'});})()",'Fermer'),
+        ('visibilité rétablie sur le contrôle',"(()=>{const b=node('BUTTON',{},[txt('Confirmer')],{visibility:'visible'});node('DIV',{},[b],{visibility:'hidden'});return b;})()",'Confirmer'),
+        ('descendant en visibility hidden exclu',"node('BUTTON',{},[node('SPAN',{},[txt('×')],{visibility:'hidden'})])",''),
     ]
     for title,expr,want in cases:
         got=js('process.stdout.write(JSON.stringify(candidate('+expr+').candidate));')
@@ -236,6 +238,15 @@ def part_c() -> str:
         const a=(AUDIT)('unused');process.stdout.write(JSON.stringify(a.groupOpacity.length?'reserve':a.contrast.length?'return':'pass'));"""
         body=body.replace('BG',json.dumps(bg)).replace('FG',json.dumps(fg)).replace('ANCESTOR',json.dumps(ancestor)).replace('OPACITY',json.dumps(str(opacity))).replace('AUDIT',cr.AUDIT_JS)
         expect('C',label,js(body),want)
+    for label,fill,want in [('remplissage du texte presque blanc malgré color noir','rgb(244, 244, 244)','return'),
+                            ('remplissage transparent : texte peint par le fond','rgba(0, 0, 0, 0)','reserve'),
+                            ('remplissage identique à color','rgb(0, 0, 0)','pass')]:
+        body="""global.SVGElement=class {};const body=node('BODY');
+        const e=node('DIV',{},[txt('Texte')],{backgroundColor:'rgb(255, 255, 255)',color:'rgb(0, 0, 0)',webkitTextFillColor:FILL});e.parentElement=body;
+        document.createElement=()=>({getContext:()=>({})});document.documentElement={lang:'fr'};document.title='test';
+        document.querySelectorAll=s=>s==='body *'?[e]:[];
+        const a=(AUDIT)('unused');process.stdout.write(JSON.stringify(a.nonSolid.length?'reserve':a.contrast.length?'return':'pass'));"""
+        expect('C',label,js(body.replace('FILL',json.dumps(fill)).replace('AUDIT',cr.AUDIT_JS)),want)
     keyboard_setup=r"""
     global.window={};const body=node('BODY');const a=node('BUTTON'),b=node('BUTTON');a.parentElement=b.parentElement=body;
     const controls=[a,b];body.querySelectorAll=()=>controls;body.insertBefore=()=>{};
@@ -320,6 +331,10 @@ PAGES = {
     "nomreference.html": '<span id="label" hidden>Fermer</span><button aria-labelledby="label"></button>',
     "dialogferme.html": '<dialog><label for="arrivee">Arrivée</label><input id="arrivee" type="date"><button>Continuer</button></dialog>',
     "ancetremasque.html": '<div style="display:none"><button></button></div>',
+    "visiblerestauree.html": '<div style="visibility:hidden"><button style="visibility:visible">Confirmer</button></div>',
+    "remplissage.html": '<p style="color:#000;background:#fff;-webkit-text-fill-color:#f4f4f4">Texte presque blanc par son remplissage</p>',
+    "remplissagefond.html": ('<p style="color:#000;background:linear-gradient(#000,#333);-webkit-background-clip:text;'
+                             'background-clip:text;-webkit-text-fill-color:transparent">Texte peint par son fond</p>'),
     "inatteignable.html": '<button tabindex="-1">Valider</button>',
     "sanscontrole.html": '<p>Texte sans interaction</p>',
     "valeur.html": '<input aria-label="Nom" value="Texte" style="color:#aaa;background:white">',
@@ -392,7 +407,9 @@ def part_b(require: bool) -> str:
             expect("B", "feuille modale : tabulation depuis son début", raw["per_width"][390]["stops"][:1], ["#close"])
             for filename,prefix,want in [('opacite.html','Contraste',RESERVE),('nommasque.html','Nom accessible',RETURN),
                                          ('nomreference.html','Nom accessible',RESERVE),('inatteignable.html','Parcours clavier',RESERVE),
-                                         ('sanscontrole.html','Parcours clavier',PASS)]:
+                                         ('sanscontrole.html','Parcours clavier',PASS),
+                                         ('visiblerestauree.html','Nom accessible',RESERVE),('remplissage.html','Contraste',RETURN),
+                                         ('remplissagefond.html','Contraste',RESERVE)]:
                 _,c=measure(str(d/filename));expect('B',filename,status(c,prefix),want)
             for filename in ('dialogferme.html', 'ancetremasque.html'):
                 raw,c=measure(str(d/filename))

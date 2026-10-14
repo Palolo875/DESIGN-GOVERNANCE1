@@ -89,7 +89,7 @@ Il comporte deux boucles liées :
 
 Après observation, choisissez la suite avec la table de diagnostic de la boucle d’édition (`direction/boucle`).
 
-Une justification seule ne corrige rien. Quand la perception, l’usage, l’accessibilité ou la robustesse font partie de la décision, la boucle doit conduire à une vraie modification du rendu, puis à une nouvelle observation. Si l’observation invalide l’hypothèse, la tâche visée ou la cible, notez dans la trace existante l’observation, son effet sur l’hypothèse, la décision touchée, le recadrage et la prochaine preuve ; cette note ne crée ni statut, ni vérification, ni troisième boucle.
+Une justification seule ne corrige rien. Quand la perception, l’usage, l’accessibilité ou la robustesse font partie de la décision, la boucle observe le rendu réel ; si l’observation révèle un défaut qu’une correction peut réduire, elle conduit à une vraie modification du rendu, puis à une nouvelle observation. Sinon, on s’arrête en notant pourquoi aucune nouvelle passe ne promet de gain. Si l’observation invalide l’hypothèse, la tâche visée ou la cible, notez dans la trace existante l’observation, son effet sur l’hypothèse, la décision touchée, le recadrage et la prochaine preuve ; cette note ne crée ni statut, ni vérification, ni troisième boucle.
 
 ### Lire une section et vérifier une fiche de travail
 
@@ -127,7 +127,7 @@ Examinez les situations dans cet ordre :
 | Correctif ou changement local qui garde la direction déjà tranchée | retouche (`LITE`) |
 | Retouche qui demande de rappeler et réévaluer une direction retrouvable dans son périmètre | itération (`ITER`) |
 | Nouvelle page ou nouveau parcours sans identité propre ; un craft exigeant se traite par une finition ciblée, pas par le mode | écran cadré (`STANDARD`) |
-| Brief flou ou risque impossible à classer | Clarifier, ou partir d’une demande vague (`direction/cadrer#demande-vague`), avant le mode |
+| Brief flou ou risque impossible à classer | Si le mode ou le risque reste indécidable, une question ciblée avant de classer ; une fois classée une décision visuelle ouverte, la prise de brief de la demande vague (`direction/cadrer#demande-vague`) |
 | Identité, premier contact ou direction visuelle autonome | direction ouverte (`DIRECTION`) |
 | Token, composant, pattern, convention ou format partagé | système de design (`SYSTÈME`) |
 
@@ -260,7 +260,7 @@ Regardez le rendu ou le comportement réel dans le périmètre déclaré. Toute 
 
 Une capture prouve un rendu dans son périmètre ; à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle. Une mesure d’accessibilité limitée ne certifie pas toute l’expérience. Une revue experte du craft ne remplace pas un test d’usage.
 
-Pour une décision créative, appliquez les six questions de revue de la boucle d’édition (`direction/boucle`).
+Pour une décision créative, appliquez la revue en six points (`savoir/qualite-creative#ambition`, Creative Quality Review), puis notez avec la boucle d’édition (`direction/boucle`) le changement observé et les régressions.
 
 Le polish est l’aboutissement cohérent de la structure, du contenu, de la typographie, de la matière, de l’action et des états. Ce n’est pas une couche automatique de dégradés, d’ombres, de flou ou de grands arrondis.
 

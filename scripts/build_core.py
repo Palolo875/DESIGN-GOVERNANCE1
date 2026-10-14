@@ -37,7 +37,7 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
     ("Rôle et posture", [("ROLE", "DIRECTION.md", None), ("POSTURE", "DIRECTION.md", None)]),
     ("Classer, puis charger", [("CHARGE-REGLE", "DIRECTION.md", None), ("CHARGE-TABLE", "DIRECTION.md", None),
                                ("CHARGE-FIN", "DIRECTION.md", None)]),
-    ("Prendre le brief et viser le premier objet", [("BRIEF", "DIRECTION.md", None), ("CONTENU", "DIRECTION.md", None),
+    ("Contenu réel et contenu d’exemple", [("BRIEF", "DIRECTION.md", None), ("CONTENU", "DIRECTION.md", None),
                                                     ("PREMIER-OBJET", "DIRECTION.md", None)]),
     ("Moyens et vérité", [("MOY-PLAFOND", "DIRECTION.md", None), ("ANCRE", "DIRECTION.md", None), ("MOY-CARTE", "SAVOIR.md", None),
                           ("MOY-ASSETS", "SAVOIR.md", None), ("MOY-CALIBRATION", "SAVOIR.md", None),

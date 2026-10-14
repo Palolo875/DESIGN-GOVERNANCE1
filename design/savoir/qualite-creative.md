@@ -36,7 +36,7 @@ Ces qualités ne constituent ni un score, ni un verdict automatique, ni une prom
 | **Résolution** | Les détails sont-ils au niveau de l’idée ? | États, responsive, microcopie, transitions, assets et composants tiennent la direction. |
 | **Retenue** | Le design sait-il s’arrêter ? | Les effets, variantes et détails faibles ont été retirés lorsqu’ils n’ajoutent rien. |
 
-Une **proposition premium** se juge avec l’heuristique « Premium perçu » ci-dessus, sa seule définition ; elle n’est pas définie par une palette sombre, une grande typographie, un espace vide, une matière riche ou un nom de style, et doit survivre au contenu réel, aux états, au mobile, aux contraintes du produit et au geste principal.
+Une **proposition premium** se juge avec l’heuristique [« Premium perçu »](fondements.md#premium-perçu-comme-heuristique-de-jugement) (`SAVOIR/FRAME`), sa seule définition ; elle n’est pas définie par une palette sombre, une grande typographie, un espace vide, une matière riche ou un nom de style, et doit survivre au contenu réel, aux états, au mobile, aux contraintes du produit et au geste principal.
 
 ### Creative Quality Review
 

@@ -98,10 +98,31 @@ class PreparationTests(unittest.TestCase):
             (root / "V1/sections").mkdir(parents=True)
             for name in prep.ARCHIVES:
                 (root / name).touch()
-            journal = root / "audit.log"
+            journal = root / ".logs" / "audit.log"
             with patch.object(prep, "ROOT", root), patch.object(prep, "step") as step, patch.object(sys, "argv", ["preparer_livraison.py", "--require-browser", "--log", str(journal)]), contextlib.redirect_stdout(io.StringIO()):
                 self.assertEqual(prep.main(), 0)
                 self.assertIn("--require-browser", step.call_args_list[1].args[1])
+
+    def test_log_inside_package_must_use_logs_directory(self):
+        # Un journal créé parmi les fichiers du paquet ferait échouer l'inventaire contrôlé juste après (revue MA-01).
+        with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as outside:
+            root = Path(tmp); (root / "scripts").mkdir()
+            (root / "scripts/build_distributions.sh").touch()
+            (root / "V1/sections").mkdir(parents=True)
+            for name in prep.ARCHIVES:
+                (root / name).touch()
+            for refused in (root / "audit.log", root / "maintenance" / "audit.log", root / "dist" / "audit.log"):
+                with self.subTest(refused=refused), patch.object(prep, "ROOT", root), patch.object(prep, "step"), \
+                        patch.object(sys, "argv", ["preparer_livraison.py", "--log", str(refused)]), \
+                        contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                    with self.assertRaises(SystemExit):
+                        prep.main()
+                    self.assertFalse(refused.exists())
+            accepted = Path(outside) / "audit.log"
+            with patch.object(prep, "ROOT", root), patch.object(prep, "step"), \
+                    patch.object(sys, "argv", ["preparer_livraison.py", "--log", str(accepted)]), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(prep.main(), 0)
+            self.assertTrue(accepted.is_file())
 
     def test_log_and_journal_aliases_prepare_the_same_log(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -110,7 +131,7 @@ class PreparationTests(unittest.TestCase):
             (root / "V1/sections").mkdir(parents=True)
             for name in prep.ARCHIVES:
                 (root / name).touch()
-            log = root / "audit.log"
+            log = root / ".logs" / "audit.log"
             contents = []
             for option in ("--log", "--journal"):
                 with self.subTest(option=option), patch.object(prep, "ROOT", root), patch.object(prep, "step") as step, patch.object(sys, "argv", ["preparer_livraison.py", option, str(log)]), contextlib.redirect_stdout(io.StringIO()):

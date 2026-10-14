@@ -219,6 +219,21 @@ def check_links(errors: list[str]) -> None:
                     fail(errors, f"fragment Markdown introuvable : {path.relative_to(ROOT)} -> {raw_target}")
 
 
+def check_skill_portability(errors: list[str]) -> None:
+    """La skill se copie hors du paquet (README, installation) : aucun lien ni image ne doit sortir de son dossier."""
+    skill = ROOT / "agent" / "skill"
+    target_pattern = re.compile(r"\]\(([^)]+)\)|(?:href|src|srcset)=\"([^\"]+)\"")
+    for path in sorted(skill.rglob("*.md")):
+        for match in target_pattern.finditer("\n".join(non_code_lines(path.read_text(encoding="utf-8")))):
+            raw = (match[1] or match[2]).strip()
+            target = unquote(raw.split()[0].split("#", 1)[0]) if raw else ""
+            if not target or target.startswith(("http://", "https://", "mailto:")):
+                continue
+            if not (path.parent / target).resolve().is_relative_to(skill.resolve()):
+                fail(errors, f"lien qui sort de la skill, cassé après copie : {path.relative_to(ROOT)} -> {target} "
+                             "(citer le chemin depuis la racine du paquet entre accents graves)")
+
+
 def check_source_locations(errors: list[str]) -> None:
     """Un déplacement ne peut pas laisser une source absente ou une provenance hors registre."""
     for prefix in routes.PREFIXES:
@@ -480,6 +495,7 @@ def main() -> int:
     check_manifest(errors)
     check_expected_files(errors)
     check_links(errors)
+    check_skill_portability(errors)
     check_source_locations(errors)
     check_inline_references(errors)
     check_action_projection_source(errors)
