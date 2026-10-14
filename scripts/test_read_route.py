@@ -2,6 +2,7 @@
 """Régressions du lecteur : propriété, recherche (littérale, alias, classement), sommaire, périmètre et erreurs CLI."""
 from __future__ import annotations
 
+import re
 import subprocess
 import sys
 import tempfile
@@ -377,6 +378,33 @@ class SearchAndSummaryTests(unittest.TestCase):
         for group in reader.ALIAS_GROUPS:
             self.assertTrue(reader.search(group[0])[2], f"groupe d'alias sans occurrence : {group}")
 
+    def test_every_symptom_group_reaches_sources(self):
+        for group in reader.SYMPTOM_GROUPS:
+            roots = [re.compile(r"(?<![a-z0-9])" + re.escape(reader._root(reader._fold(m)))) for m in group]
+            self.assertTrue(reader._scan(lambda folded: any(r.search(folded) for r in roots)),
+                            f"groupe de symptômes sans occurrence : {group}")
+
+    def test_symptoms_widen_phrases_only(self):
+        # Un rapprochement de symptôme n'est pas un synonyme : la recherche d'un terme seul ne l'emploie pas.
+        self.assertEqual(reader.aliases("écrase"), ["écrase"])
+        self.assertIn("lutte", reader.symptoms("écrasent"))
+        self.assertIn("image", reader.symptoms("photos"))
+        self.assertEqual(reader.symptoms("typographie"), [])
+
+    def test_symptom_phrase_reaches_precise_routes(self):
+        # ACC-01 : un défaut décrit avec des mots courants mène aux sections qui le traitent.
+        out = self.cli("--trouver", "le titre écrase la photo").stdout
+        top = [l.split(" ")[0] for l in out.splitlines() if l.split(" ")[0].count("/") >= 1 and "ligne(s)" in l][:2]
+        self.assertEqual(set(top), {"SAVOIR/STATE", "SAVOIR/CRAFT/CFT-03"})
+        state = out.split("SAVOIR/STATE", 1)[1].split("\n")[1:3]
+        self.assertTrue(any("Image intégrée" in line for line in state), state)
+
+    def test_proximity_counts_words_described_together(self):
+        patterns = reader.phrase_patterns("le titre écrase la photo")
+        self.assertEqual(reader.together("Le titre lutte avec l’image.", patterns), 3)
+        far = "Le titre ouvre la page." + " x" * reader.NEAR + " Une image suit."
+        self.assertEqual(reader.together(far, patterns), 1)
+
     def test_whole_words_before_partial_match(self):
         # « ton » est aussi dans « bouton » ; seuls les mots entiers doivent revenir.
         mode, _, results = reader.search("ton")
@@ -388,7 +416,7 @@ class SearchAndSummaryTests(unittest.TestCase):
         mode, words, results = reader.search("image texte")
         self.assertEqual(mode, "mots séparés sur une même ligne")
         self.assertEqual(words, ["image", "texte"])
-        self.assertIn("SAVOIR/CRAFT", {r[0] for r in results})
+        self.assertIn("SAVOIR/CRAFT/CFT-03", {r[0] for r in results})  # la sous-route précise, pas la route entière
 
     def test_defining_route_ranked_first(self):
         routes = [l.split()[0] for l in self.cli("--trouver", "COHERENCE DE RAYON").stdout.splitlines() if l.startswith(("SAVOIR/", "ACTION/"))]
