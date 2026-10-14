@@ -82,12 +82,12 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 | **Gouvernance** (selon le besoin) | [`gouvernance/`](gouvernance/README.md) | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
 | **Supports** | [`supports/`](supports/README.md) | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
 | **Maintenance** | [`maintenance/`](maintenance/README.md) | Ce que contient la version, évolution du système, distributions et validation. |
-| **Sections d’origine** | [`V1/sections/`](V1/sections/README.md) | Sections restées à leur emplacement d’origine et carte de lecture ; même autorité que les autres. |
+| **Sections d’origine** | [`sections/`](sections/README.md) | Sections restées à leur emplacement d’origine et carte de lecture ; même autorité que les autres. |
 | **Outils** | `scripts/` | Lecteur, contrôles et construction des distributions. |
 
 La gouvernance s’adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
 
-Les guides orientent ; ils ne créent aucune règle. Une règle fait foi dans sa section propriétaire, à son emplacement actuel, décrit dans le [sommaire des sources](V1/sections/README.md). Les codes historiques et les adresses lisibles désignent les mêmes sections.
+Les guides orientent ; ils ne créent aucune règle. Une règle fait foi dans sa section propriétaire, à son emplacement actuel, décrit dans le [sommaire des sources](sections/README.md). Les codes historiques et les adresses lisibles désignent les mêmes sections.
 
 Pour lire une seule partie du système :
 

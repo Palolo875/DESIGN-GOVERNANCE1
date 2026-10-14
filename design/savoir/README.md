@@ -16,4 +16,4 @@ Le savoir de design, par sujet. Chaque fichier se lit seul ; le lecteur sert aus
 | [`gout-et-tendances.md`](gout-et-tendances.md) | Goût, références, tendances datées, ressources |
 | [`connexions.md`](connexions.md) | Quand plusieurs domaines se croisent |
 
-La façon de lire ce savoir (`SAVOIR/READ`) est dans [`agent/chemins.md`](../../agent/chemins.md) (adresse `agent/chemins#lire-le-savoir`). Le routage des questions de jugement, les règles d’or et l’intégrité restent dans [`V1/sections/SAVOIR.md`](../../V1/sections/SAVOIR.md).
+La façon de lire ce savoir (`SAVOIR/READ`) est dans [`agent/chemins.md`](../../agent/chemins.md) (adresse `agent/chemins#lire-le-savoir`). Le routage des questions de jugement, les règles d’or et l’intégrité restent dans [`sections/SAVOIR.md`](../../sections/SAVOIR.md).

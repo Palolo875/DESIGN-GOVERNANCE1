@@ -23,7 +23,7 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 | `supports/` | Trois cartes du système (responsabilités, parcours d’un travail, boucle créer/apprendre) en HTML, SVG clair et sombre, et texte. |
 | `scripts/` | Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau, contrôles du paquet et construction des distributions. |
 | `maintenance/` | Cette fiche, l’évolution du système et la préparation des livraisons. |
-| `V1/sections/` | Sections conservées à leur emplacement d’origine et carte de lecture ; même autorité que les sections rangées ailleurs. |
+| `sections/` | Sections conservées à leur emplacement d’origine et carte de lecture ; même autorité que les sections rangées ailleurs. |
 
 ## Ce que le système sait faire
 

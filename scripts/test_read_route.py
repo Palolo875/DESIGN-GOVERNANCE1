@@ -17,14 +17,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class SourceLayoutTests(unittest.TestCase):
     def test_historical_codes_read_current_and_legacy_layouts(self):
-        for folder in ("V1/sections", "V1/official", "official"):
+        for folder in ("sections", "V1/sections", "V1/official", "official"):
             with self.subTest(folder=folder), tempfile.TemporaryDirectory() as tmp:
                 root = Path(tmp)
                 source = root / folder / "SAVOIR.md"
                 source.parent.mkdir(parents=True)
                 source.write_text("# Savoir\n## SAVOIR/TYPE\nVoix conservée.\n")
                 chosen = reader.source_directory(root)
-                with patch.multiple(reader, ROOT=root, OFFICIAL=chosen, LIEUX={"SAVOIR.md": ("V1/sections/SAVOIR.md",)}):
+                with patch.multiple(reader, ROOT=root, OFFICIAL=chosen, LIEUX={"SAVOIR.md": ("sections/SAVOIR.md",)}):
                     path, lines, index = reader.resolve("SAVOIR/TYPE", routes={})
                     self.assertEqual(path, source)
                     self.assertIn("Voix conservée.", reader.extract(lines, index))
@@ -32,9 +32,9 @@ class SourceLayoutTests(unittest.TestCase):
     def test_current_sections_take_precedence_over_legacy_copies(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            for folder in ("V1/sections", "V1/official", "official"):
+            for folder in ("sections", "V1/sections", "V1/official", "official"):
                 (root / folder).mkdir(parents=True)
-            self.assertEqual(reader.source_directory(root), root / "V1/sections")
+            self.assertEqual(reader.source_directory(root), root / "sections")
 
 
 class CodeFenceTests(unittest.TestCase):

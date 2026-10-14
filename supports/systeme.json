@@ -125,9 +125,9 @@
   "authority": {
     "title": "Ce qui fait foi",
     "rule": "La section propriétaire, à son emplacement actuel.",
-    "retained": "V1/sections/ conserve des sections de même autorité.",
+    "retained": "sections/ conserve des sections de même autorité.",
     "derived": "Guides, carte et noyau généré orientent ou projettent les sources.",
-    "target": "V1/sections/README.md"
+    "target": "sections/README.md"
   },
   "entries": [
     {
@@ -245,7 +245,7 @@
     "README.md",
     "design/README.md",
     "gouvernance/README.md",
-    "V1/sections/README.md",
+    "sections/README.md",
     "guides/2-comprendre.md",
     "guides/3-maitriser.md",
     "maintenance/README.md"

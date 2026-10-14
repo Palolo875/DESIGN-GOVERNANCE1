@@ -41,8 +41,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def source_directory(root: Path) -> Path:
     """Sections courantes, puis anciennes dispositions pour lire les exports existants."""
-    return next((path for path in (root / "V1" / "sections", root / "V1" / "official", root / "official")
-                 if path.is_dir()), root / "V1" / "sections")
+    return next((path for path in (root / "sections", root / "V1" / "sections", root / "V1" / "official", root / "official")
+                 if path.is_dir()), root / "sections")
 
 
 OFFICIAL = source_directory(ROOT)
@@ -139,24 +139,24 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
 # son contenu. Un nom absent de la table désigne le fichier du même nom dans OFFICIAL. Le rangement déplace le
 # texte puis met à jour cette table, et elle seule : lecteur, compilation du noyau et validateurs passent par elle.
 LIEUX: dict[str, tuple[str, ...]] = {
-    "DIRECTION.md": ("V1/sections/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
+    "DIRECTION.md": ("sections/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
                      "design/direction/cadrer.md", "design/direction/premier-objet.md", "design/direction/diriger.md",
                      "design/direction/boucle.md", "design/direction/standard.md", "design/produit/interface.md"),
-    "ACTION.md": ("V1/sections/ACTION.md", "agent/chemins.md", "agent/repondre.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
+    "ACTION.md": ("sections/ACTION.md", "agent/chemins.md", "agent/repondre.md", "gouvernance/principes.md", "gouvernance/statuts.md", "gouvernance/travail.md",
                   "gouvernance/verification.md", "gouvernance/cloture.md", "design/produit/premier-rendu.md",
                   "design/produit/plancher.md", "design/produit/finition.md", "design/produit/preuve-visuelle.md",
                   "maintenance/evolution.md"),
-    "SAVOIR.md": ("V1/sections/SAVOIR.md", "agent/chemins.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
+    "SAVOIR.md": ("sections/SAVOIR.md", "agent/chemins.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
                   "design/savoir/typographie.md", "design/savoir/composition.md", "design/savoir/images-et-sources.md",
                   "design/savoir/styles.md", "design/savoir/systeme-de-design.md", "design/savoir/contexte.md",
                   "design/savoir/techniques.md", "design/savoir/gout-et-tendances.md"),
-    "BIBLIOTHEQUE.md": ("V1/sections/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
+    "BIBLIOTHEQUE.md": ("sections/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
                         "design/formes/catalogue.md", "maintenance/evolution.md"),
     "CHANGELOG.md": ("maintenance/versions.md", "maintenance/evolution.md"),
     # Guides par niveau (1-utiliser, 2-comprendre, 3-maitriser), glossaire et connexions du savoir.
     "QUICKSTART.md": ("guides/3-maitriser.md",),
     "GLOSSAIRE.md": ("guides/glossaire.md", "guides/2-comprendre.md"),  # « Comment le système travaille » vit au niveau 2 des guides
-    "READING_MAP.md": ("V1/sections/READING_MAP.md", "guides/2-comprendre.md", "design/savoir/connexions.md",
+    "READING_MAP.md": ("sections/READING_MAP.md", "guides/2-comprendre.md", "design/savoir/connexions.md",
                        "maintenance/README.md"),
 }
 
@@ -232,8 +232,8 @@ def adresse(locator: str) -> str:
 
 
 def chemin_lieu(rel: str) -> Path:
-    """Chemin d’une entrée de LIEUX ; « V1/sections/ » désigne le dossier des sources (OFFICIAL), quelle que soit la disposition."""
-    return OFFICIAL / rel[len("V1/sections/"):] if rel.startswith("V1/sections/") else ROOT / rel
+    """Chemin d’une entrée de LIEUX ; « sections/ » désigne le dossier des sources (OFFICIAL), quelle que soit la disposition."""
+    return OFFICIAL / rel[len("sections/"):] if rel.startswith("sections/") else ROOT / rel
 
 
 def lieu(name: str) -> list[Path]:

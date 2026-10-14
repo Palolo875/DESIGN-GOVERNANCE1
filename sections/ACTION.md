@@ -1,4 +1,4 @@
-# ACTION — Pipeline de livraison & preuves
+# Sections d’origine — ACTION : livraison et preuves
 
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. ACTION transforme une direction ou une décision produit en trace de run, artefacts observables, preuves adaptées, gates proportionnés et verdicts inspectables.
 

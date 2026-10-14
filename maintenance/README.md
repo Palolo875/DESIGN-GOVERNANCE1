@@ -107,7 +107,7 @@ Une `RUN_CARD` validée atteste la forme de la projection et les invariants de l
 <!-- origine:READING_MAP.md -->
 ## Résolution des routes
 
-Les noms de route sont des locators documentaires. Les résoudre avec `python3 scripts/read_route.py LOCATOR` : le lecteur retrouve la section propriétaire à son emplacement actuel via le registre `LIEUX`. En lecture manuelle, suivre le [sommaire des sources](../V1/sections/README.md), puis le titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
+Les noms de route sont des locators documentaires. Les résoudre avec `python3 scripts/read_route.py LOCATOR` : le lecteur retrouve la section propriétaire à son emplacement actuel via le registre `LIEUX`. En lecture manuelle, suivre le [sommaire des sources](../sections/README.md), puis le titre exact. Un renvoi qui ne résout pas doit être déclaré obsolète, conceptuel ou `NOT-VERIFIED`; il ne doit jamais être traité comme une instruction active par supposition.
 
 | Code ou adresse | Propriétaire actuel |
 |---|---|

@@ -53,4 +53,4 @@ La maintenance entretient toutes les parties.
 
 ## Ce qui fait foi
 
-La section propriétaire, à son emplacement actuel. V1/sections/ conserve des sections de même autorité. Guides, carte et noyau généré orientent ou projettent les sources.
+La section propriétaire, à son emplacement actuel. sections/ conserve des sections de même autorité. Guides, carte et noyau généré orientent ou projettent les sources.

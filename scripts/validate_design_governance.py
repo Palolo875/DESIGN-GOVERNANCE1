@@ -257,7 +257,7 @@ def check_inline_references(errors: list[str]) -> None:
     resolved_routes: dict[str, str | None] = {}
     file_pattern = re.compile(r"[\w./-]+\.(?:md|markdown|py|json|sh|bash|yml|yaml|html|htm|css|js|mjs|cjs|ts|tsx|jsx|toml|txt)(?:#[\w-]+)?", re.I)
     retired_names = {"QUICKSTART": "guides/3-maitriser.md", "GLOSSAIRE": "guides/glossaire.md",
-                     "ORCHESTRATION_MAP": "V1/sections/READING_MAP.md"}
+                     "ORCHESTRATION_MAP": "sections/READING_MAP.md"}
 
     def file_reference(doc: Path, value: str, distribution: str | None = None) -> None:
         name, _, fragment = value.partition("#")
