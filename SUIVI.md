@@ -1,14 +1,14 @@
 # Suivi : Design Governance (DG) × Taste Skill v2 (TS)
 
 > **Statut du fichier.** Document de travail, **hors paquet**. Il vit sur la branche orpheline `suivi-comparaison-taste-skill`, qui ne contient que ces notes (aucun fichier du paquet, aucun workflow : pas de CI). Il n'est pas dans `scripts/package_manifest.json` et n'a pas vocation à être fusionné dans le système. Raison de la branche orpheline : voir F4 en 4.2.
-> **Créé le** 2026-10-14. **Dernière mise à jour :** 2026-10-14 (après la manche 5 : prescriptions des skills TS non-v2 passées dans les deux contrôleurs, lecture des fichiers d'agent de DG).
+> **Créé le** 2026-10-14. **Dernière mise à jour :** 2026-10-14 (après la manche 6 : comparaison textuelle, sans exécution, de la capacité esthétique et design ; voir `COMPARAISON-TEXTUELLE.md`).
 > **But :** garder le fil de la comparaison (capacité esthétique et design), ses résultats concrets et ce qu'il faut faire ensuite, sans divaguer.
 
 ## 0. Règles de ce fichier
 
 1. Tout résultat porte sa preuve : un fichier lu, une commande exécutée ou un chiffre mesuré.
 2. Ce qui n'a pas été lu est écrit comme tel (section 2). Aucun verdict sur un fichier non lu.
-3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 8).
+3. Une affirmation corrigée n'est pas effacée : elle va dans le journal des corrections (section 9).
 4. Les chiffres de l'étude de TS viennent d'un panel de **modèles**, pas de personnes : à traiter comme des claims « à revérifier ».
 5. Le dépôt TS est sous licence MIT (Copyright 2026 Leonxlnx) : toute reprise de valeurs ou de données cite la source.
 
@@ -31,6 +31,8 @@
 **Lu à la manche 4 (fichiers non équivalents).**
 - TS : `research.md` §1 à §11 en entier (méthode et résultats de l'étude) ; `gpt-taste` (mécanisme d'aléa) ; **manche 5 : `image-to-code`, `stitch`, `soft` et `brutalist` en entier**.
 - DG : `gouvernance/*` (statuts, vérification, clôture, schémas, `production_contracts.schema.json`, fixtures), `agent/repondre`, `maintenance/evolution`, `design/formes/catalogue.md` en entier. **Manche 5 : `agent/chemins` en entier, `references/canonical_minimum` et `flow`, `guides/1-utiliser`, `guides/2-comprendre` (table des combinaisons), `guides/3-maitriser` §5 à §8.**
+
+**Manche 6 (lecture seule).** Liste exacte des fichiers lus dans `COMPARAISON-TEXTUELLE.md` section 0 : côté TS `type`, `colour`, `layout`, `imagery`, `motion`, `copy`, `critique`, `tells`, `SKILL.md` et des échantillons de `library/` ; côté DG `typographie`, `qualite-creative`, `composition`, `styles`, `images-et-sources`, `contexte`, `techniques`, `gout-et-tendances`, `fondements`, `premier-objet`, `diriger`, `boucle`, `cadrer`, `choisir`, `catalogue` (partiel).
 
 **Toujours non lu (à ne pas juger).**
 - TS : `probe.mjs`, `assets.mjs` et `draw.mjs` en entier ; `base.css`, `base.js` ; l'essentiel de `library/` ; `redesign`, `minimalist` et `output` ne sont pas relus depuis la manche 2.
@@ -272,7 +274,29 @@ Lecture : DG est plus fort sur le **cadrage et le risque** (modes, protection de
 - `stitch` : son `DESIGN.md` est une spécification prescriptive à donner à un générateur d'écrans. Il couvre trois des quatre champs d'antécédent de `REUSE-CHALLENGE` (palette, typographie, mise en page), pas l'objet de preuve. S'il était réemployé d'un projet à l'autre, `REUSE-CHALLENGE` s'appliquerait à lui.
 - `image-to-code` : la maquette générée devient la source de vérité et le code doit la copier. À rapprocher des routes `VISUAL_TARGET` et `LOST-IN-BUILD` de DG (non relues en détail cette manche) ; la différence de fond est que DG déclare ce que l'ancre ne permet pas d'affirmer, là où `image-to-code` demande la fidélité sans borne.
 
-## 7. À garder en tête pour la suite
+## 7. Manche 6 : comparaison textuelle de la capacité esthétique et design (lecture seule)
+
+Document complet : **`COMPARAISON-TEXTUELLE.md`** (11 catégories, chaque affirmation avec son fichier et sa section ; aucun outil exécuté). Résumé :
+
+**Lecture d'ensemble.**
+- TS dit **quoi mettre** (valeurs, géométrie, recettes, jeux de données) ; DG dit **comment décider et vérifier** (critères, gestes conditionnels, contrats de preuve). Deux couches, pas deux réponses à la même question.
+- Pour la typographie, la couleur, la mise en page et le mouvement, un agent applique TS tel quel ; avec DG seul il applique des questions et des gestes sans valeur de départ (les valeurs de DG viennent de TS, depuis `POINTS-DE-DEPART` et `CFT-06`).
+- Seule DG couvre états, récupération d'erreur, accessibilité comme plancher, supports non web, marquage de vérité de la scène, preuve typographique en cinq axes, table de 13 gestes de craft avec condition.
+- Seule TS a : la géométrie de chaque section avec variante mobile (172 sections, 48 héros), l'inventaire du sujet et la phrase d'idée, le tirage externe, la recherche d'images libres, les jetons et recettes de mouvement, les 14 passes avec leur garde-fou contre l'épure.
+
+**Verdict par catégorie.** Équivalent en grande partie : rédaction (depuis `CFT-06`), direction et idée (dans l'esprit), convergence (diagnostic). Non équivalent : styles, mouvement, interfaces. Plus exécutable chez TS : typographie, couleur, composition, images, mouvement, critique. Plus prudent chez DG : tout ce qui touche la preuve, la langue, le reflow, les droits, les états.
+
+**Contradictions de fond** (tableau 5 du document) : interdits ou noms (D1) ; mouvement obligatoire ou justifié (D2) ; plancher de 4 images réelles ou `SANS-ASSET` à égalité (D3) ; style maison ou pluralité (D4) ; et six autres : traitements d'image (duotone, grain), note chiffrée ou aucun score, accent unique ou palette plurielle, polices fréquentes signalées ou non, repères de coin et filets, réglages chiffrés.
+
+**Tensions internes trouvées à la lecture.**
+- **TS** : deux des 20 directions (`quiet-instrument`, `dense-tiles`) tirent le mouvement `stillness` (« ne pas ajouter d'animation de chargement ni de révélation au défilement ») alors que l'inspecteur fait échouer toute page à moins de 8 éléments mobiles (`MOTION_MIN = 8`) sauf `--allow still-page`. La fiche de tirage n'a pas été lue sur ce point.
+- **DG** : `MOY-ASSETS` propose « duotone, grain ou trame » alors que `CONVERGENCE` range tramage et dithering en vagues 2 et 3 ; `CFT-03` propose de petits repères de coin que `CONVERGENCE` range en vague 3 (« repères de recadrage ») ; aucun test explicite de page **sous-construite** (TS en a deux : plénitude et substance, critique.md passes 11 et 12).
+
+**Écart de méthode le plus net.** DG n'a aucun équivalent de l'**inventaire du sujet** (8 à 12 éléments qui appartiennent à ce client et à aucun concurrent) ni de la phrase d'idée (« Sur cette page, [élément du sujet] devient [dispositif] »). TS cite un test en aveugle où la page gagnante venait d'un élément de cet inventaire (`SKILL.md` §1).
+
+**Propositions U1 à U7** (section 8 du document, rien n'est fait) : U7 aligner les signaux contraires de DG (deux phrases) ; U1 inventaire du sujet et phrase d'idée ; U2 test de page sous-construite dans `CFT-00` ; U5 réglages de grand texte ; U4 jetons de mouvement ; U6 méthode de recherche d'images libres ; U3 gabarit de départ sur deux routes.
+
+## 8. À garder en tête pour la suite
 
 **Nécessaire**
 - **N1.** *(partiel, voir 5.3)* Valeurs de départ en typographie, couleur, mise en page et mouvement, étiquetées « point de départ adaptable », importées avec le format de claim de `SAVOIR/TOOLS` (source, date, limite) et non comme règles.
@@ -299,9 +323,11 @@ Lecture : DG est plus fort sur le **cadrage et le risque** (modes, protection de
 
 - **B9 (nouveau, manche 5).** Une note de compatibilité avec d'autres skills de design chargées en même temps : quand une prescription externe (boucles infinies, accent à 4,2:1, microtexte de 10 px) heurte un contrôle de la porte A, la porte A prévaut et l'écart se déclare. À vérifier d'abord s'il n'existe pas déjà dans `SAVOIR/INTEGRITY` ; non fait.
 
+- **U1 à U7 (manche 6).** Propositions issues de la lecture comparée, détail et ordre dans `COMPARAISON-TEXTUELLE.md` section 8 : U7 (aligner les signaux contraires), U1 (inventaire du sujet et phrase d'idée), U2 (test de page sous-construite), U5 (grand texte), U4 (jetons de mouvement), U6 (images libres), U3 (gabarit sur deux routes). Aucune n'est faite. U1 et U3 recoupent N2/B2 ; U4 recoupe B6 ; U6 recoupe B4.
+
 **À ne pas importer :** la note avec plafonds comme verdict ; les personas (`soft`) ; les réglages chiffrés par défaut (`image-to-code`, `stitch`) ; le quota d'éléments animés hors vitrine ; les listes de polices « à utiliser » (elles deviennent la vague suivante) ; les personas (« agence à 150 k$ »).
 
-## 8. Journal des corrections
+## 9. Journal des corrections
 
 | Quand | J'avais dit | Réalité | Preuve |
 |---|---|---|---|
@@ -315,18 +341,21 @@ Lecture : DG est plus fort sur le **cadrage et le risque** (modes, protection de
 | Manche 4 | Message de commit : « 7 / 9 / 7 tests ajoutés » | 12 / 12 / 10 (161 → 195) | comptage sur `test_check_render.py` ; recommit (reset doux, `--force-with-lease` sur ma propre branche) |
 | Manche 4 | Texte de `POINTS-DE-DEPART` avec le mot « violet » et l'expression « question de convergence » | Refusé par `validate_reading_map` (LCF-46, vocabulaire de vague hors lignes `[VEILLE 20…]`) et `validate_structure` (FIDELITY : « question de convergence » exige « police de titre ») | reformulé en « marqueurs de vague » |
 | Manche 4 | Chemins d'outils externes entre accents graves dans le texte ajouté | `validate_design_governance` exige que tout chemin opérationnel en accents graves existe | passé en texte brut |
+| Manche 6 | (SUIVI 3, ligne 6) « DG n'a aucun fichier sur l'art d'écrire » | Vrai jusqu'à la manche 4 ; `CFT-06` (PILOT) l'a ajouté, adapté de `copy.md` de TS | `design/savoir/qualite-creative.md` |
+| Manche 6 | (SUIVI 3, ligne 5) « DG demande au modèle de se reconnaître » comme seul mécanisme anti-convergence | Ajout : TS demande aussi un jugement du modèle à deux endroits (choisir une direction parmi les 3 tirées ; défendre un WARN « en une phrase devant un designer ») ; ce qui est externe chez TS est le tirage et la mesure, pas le choix | `SKILL.md` étape 3 |
 | Manche 5 | (SUIVI 5.2) « `stitch` : le `DESIGN.md` pourrait nourrir les 4 champs de `REUSE-CHALLENGE` » | Imprécis. Après lecture en entier : `DESIGN.md` est une spécification à donner à un générateur ; les 4 champs de l'antécédent de `REUSE-CHALLENGE` sont teinte dominante, paire typographique, ossature et objet de preuve, relus dans des traces ; `DESIGN.md` n'en couvre que trois | `stitch-skill.md` ; `design/direction/premier-objet.md` (« Où lire l'antécédent ») |
 | Manche 5 | (SUIVI 3) « les autres skills de TS contredisent la v2 » : `redesign`, `minimalist`, `gpt-taste` | Aussi `soft`, `brutalist`, `stitch`, `image-to-code`, et entre elles (6.2) ; confirmé par exécution des contrôleurs de la v2 (6.3) | essais de la manche 5 |
 | Manche 5 | (SUIVI 3, écrit en manche 2) « `redesign` recommande Geist/Outfit/Satoshi, flaggées “police par défaut” par le lint v2 » | Seule **Outfit** est dans la liste `default-font` du lint (avec Inter, Poppins, Montserrat, Roboto, Space Grotesk, Instrument Serif, Playfair Display, Plus Jakarta Sans, Sora…). Geist et Satoshi n'y sont pas ; Geist Mono est un FAIL `mono` | `taste_v2/scripts/lint.mjs:33` et `:50` |
 | Manche 5 | J'attendais que le contraste de 3,78:1 de ma page `soft` vienne de la skill | Le gris `#8a7f74` est mon choix ; `soft` ne fixe pas de gris. Seul le contraste de `brutalist` vient des valeurs de la skill | hex de `brutalist-skill.md` §4 |
 | Manche 4 | Borne de mesure de ligne de ma page de test | écart d'un cran, la mesure réelle de la page est de 48 caractères | assertion corrigée sur la valeur mesurée |
 
-## 9. Prochaines étapes (par ordre)
+## 10. Prochaines étapes (par ordre)
 
 1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (3 commits, validation complète rejouée sur `471bedb`) : ouvrir une PR, la relire d'abord, ou la laisser telle quelle. Aucune PR n'est ouverte.
-2. **Trancher D1 à D4** (interdits et quotas ; mouvement obligatoire ou non ; image réelle d'abord ; style maison). Rien n'a été ajouté sur ces points. La manche 5 donne un argument chiffré à D2 (6.4, point 3).
-3. **Gagner le statut `ADOPTED`** : faire tourner `CFT-06`, `POINTS-DE-DEPART` et `--mesures` sur de vrais briefs, avec le gain observé que la recette exige ; sinon laisser en PILOT / VEILLE, ou retirer.
-4. **Vérifier B9** : lire `SAVOIR/INTEGRITY` et `SAVOIR/TOOLS` pour savoir si le cas « une autre skill de design prescrit ce que la porte A refuse » est déjà couvert ; sinon, une phrase suffit.
-5. **Étendre `EVALUATION_CASE`** (ou un contrat parallèle hors paquet) avec bras de comparaison, référence sans skill et relecture à l'aveugle ; puis seulement le protocole A/B (N4).
-6. **Prototypes restants, un par un et seulement si l'étape 2 le permet** : tirage N2 avec historique (script Python), qui outillerait aussi `MODAL`/`PARTI` et `REUSE-CHALLENGE` ; plans B2 ; images libres B4 ; passes B5 ; jetons de mouvement B6 ; style maison B7 ; signaux esthétiques en réserve dans `check_render` (suite de B3).
-7. **Lire ce qui reste non lu** (section 2) avant tout jugement sur ces fichiers.
+2. **Trancher D1 à D4**, et les six autres contradictions du tableau 5 de `COMPARAISON-TEXTUELLE.md` (traitements d'image, note chiffrée, accent unique, polices fréquentes, repères de coin, réglages).
+3. **Choisir parmi U1 à U7** (même document, section 8). Ordre conseillé : U7, U1, U2, puis U5, U4, U6, U3. Chacun en `PILOT`, un à la fois, avec preuve et retour arrière.
+4. **Gagner le statut `ADOPTED`** : faire tourner `CFT-06`, `POINTS-DE-DEPART` et `--mesures` sur de vrais briefs ; sinon laisser en PILOT / VEILLE, ou retirer.
+5. **Vérifier B9** (une autre skill de design prescrit ce que la porte A refuse : déjà couvert par `SAVOIR/INTEGRITY` ?).
+6. **Étendre `EVALUATION_CASE`** (bras de comparaison, référence sans skill, relecture à l'aveugle), puis seulement le protocole A/B (N4).
+7. **Prototypes restants** (N2, B2, B4, B5, B6, B7) seulement si l'étape 2 le permet.
+8. **Lire ce qui reste non lu** (section 2) avant tout jugement sur ces fichiers.
