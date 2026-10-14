@@ -242,6 +242,12 @@ AUDIT_JS = r"""
   }
   for (const im of document.querySelectorAll('img')) { if (im.getAttribute('role') === 'presentation' || im.closest('[aria-hidden="true"]')) continue;
     if (!im.hasAttribute('alt')) res.imgs.push({sel: sel(im)}); }
+  // Image visible dont le chargement est terminé sans pixel : introuvable, illisible ou bloquée (autre origine sans --allow-external).
+  res.brokenImgs = [];
+  for (const im of document.querySelectorAll('img')) { const src = im.currentSrc || im.src;
+    if (!src || !im.complete || im.naturalWidth > 0 || !shown(im)) continue;
+    let external = false; try { const u = new URL(src, location.href); external = !/^(data|blob):$/.test(u.protocol) && u.origin !== location.origin; } catch (e) {}
+    res.brokenImgs.push({sel: sel(im), external}); }
   for (const el of document.querySelectorAll('dialog[open], body *')) {
     if (el.scrollWidth <= el.clientWidth + 1 || el.clientWidth === 0) continue;
     const isDlg = el.tagName === 'DIALOG', ox = getComputedStyle(el).overflowX;
@@ -729,6 +735,22 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
         struct.append("titre du document vide")
     checks.append(("Structure du document (alt, lang, titre)", RETURN if struct else PASS, "; ".join(struct) or "alt, lang et titre présents"))
     checks.append(("Un seul titre de premier niveau visible", PASS if a0["h1"] == 1 else RESERVE, f"{a0['h1']} h1 visible(s)"))
+
+    # Image cassée : aucune intention de design ne l'explique. Une image d'une autre origine, bloquée par la mesure
+    # (pas de --allow-external), n'est pas vérifiée : réserve ; si rien n'a été bloqué, elle est réellement introuvable.
+    broken = [(b["sel"], b["external"]) for d in per.values() for b in d["audit"].get("brokenImgs", [])]
+    local = sorted({s for s, ext in broken if not ext})
+    remote = sorted({s for s, ext in broken if ext})
+    blocked = raw.get("blocked", 0) > 0
+    if local or (remote and not blocked):
+        broken_status = RETURN
+    elif remote:
+        broken_status = RESERVE
+    else:
+        broken_status = PASS
+    broken_parts = ([f"image introuvable ou illisible : {', '.join(local[:4])}"] if local else []) + \
+                   ([f"image d'une autre origine non chargée : {', '.join(remote[:4])}" + (" ; requêtes externes bloquées, --allow-external les charge" if blocked else " ; introuvable ou illisible")] if remote else [])
+    checks.append(("Images chargées", broken_status, "; ".join(broken_parts) or "aucune image visible illisible"))
 
     miss = sorted({m for d in per.values() for m in d["missing_ind"]})
     keyboard_limits, keyboard_details = [], []

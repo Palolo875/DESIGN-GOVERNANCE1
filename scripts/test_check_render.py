@@ -205,6 +205,13 @@ def part_a() -> None:
             expect("A", f"mesures {'demandées' if present else 'non demandées'} : JSON et affichage cohérents",
                    ["mesures" in json.loads(out.read_text()), "Mesures de composition" in buf.getvalue(), code], [present, present, 0])
     expect("A", "contrôle sans nom", status(cr.interpret(raw_case(audit={"names": [{"sel": "button.x"}]})), "Nom accessible"), RETURN)
+    ext_case = lambda blocked, ext=True: dict(raw_case(audit={"brokenImgs": [{"sel": "img.a", "external": ext}]}), blocked=blocked)
+    expect("A", "image locale illisible : RETURN", status(cr.interpret(ext_case(0, ext=False)), "Images chargées"), RETURN)
+    expect("A", "image locale illisible, requêtes externes bloquées par ailleurs : RETURN", status(cr.interpret(ext_case(3, ext=False)), "Images chargées"), RETURN)
+    expect("A", "image d'une autre origine bloquée par la mesure : réserve, non vérifiée", status(cr.interpret(ext_case(1)), "Images chargées"), RESERVE)
+    expect("A", "image d'une autre origine, rien de bloqué (--allow-external) : RETURN", status(cr.interpret(ext_case(0)), "Images chargées"), RETURN)
+    expect("A", "aucune image illisible : PASS", status(cr.interpret(raw_case()), "Images chargées"), PASS)
+    expect("A", "image cassée : le détail la nomme", "img.a" in next(d for t, _, d in cr.interpret(ext_case(0, ext=False)) if t == "Images chargées"), True)
     expect("A", "opacité de groupe : réserve", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g','opacity':0.5}]})), 'Contraste'), RESERVE)
     expect("A", "opacité non couverte et défaut ailleurs : retour conservé", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g'}], 'contrast':[fail]})), 'Contraste'), RETURN)
     expect("A", "candidat DOM présent : nom calculé non prouvé", status(cr.interpret(raw_case(audit={'nameMethod':'dom-candidate','nameControls':1})), 'Nom accessible'), RESERVE)
@@ -452,6 +459,11 @@ PAGES = {
     "texte_voile.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:transparent}</style><div class="v"></div>',
     "haut_rogne.html": ('<style>.w{overflow:hidden;margin-top:100px}.t{font-size:60px;line-height:1;margin:0;position:relative;top:-30px}</style>'
                         '<div class="w"><p class="t">Titre</p></div>'),
+    "image_absente.html": '<img alt="x" width="100" height="60" src="absente.png">',
+    "image_externe.html": '<img alt="x" width="100" height="60" src="https://exemple.invalid/a.png">',
+    "image_ok.html": ('<img alt="x" width="100" height="60" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">'
+                      '<img alt="y" width="100" height="60" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 10 10%27%3E%3Crect width=%2710%27 height=%2710%27/%3E%3C/svg%3E">'
+                      '<img alt="z" width="100" height="60" src="absente.png" style="display:none">'),
     "transitionjs.html": ('<style>.t{transition:transform .2s;transform:none}.t.on{transform:translateX(30px)}</style><p class="t">Transition</p>'
                           '<script>requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(".t").classList.add("on")))</script>'),
 }
@@ -543,6 +555,8 @@ def part_b(require: bool) -> str:
             raw, _ = measure(str(d / 'petittexte.html'), '--mesures')
             expect('B', 'mesures : plus petit texte relevé (10 px, 10 % des caractères), corps resté à 16 px',
                    [raw['per_width'][390]['mesures']['plus_petit'], raw['per_width'][390]['mesures']['corps']], [{'taille': 10.0, 'part': 10}, 16.0])
+            for filename, want in [('image_absente.html', RETURN), ('image_externe.html', RESERVE), ('image_ok.html', PASS)]:
+                _, c = measure(str(d / filename)); expect('B', filename + ' : images chargées', status(c, 'Images chargées'), want)
             gros = lambda page: measure(str(d / page), '--mesures')[0]['per_width'][390]['mesures']['gros_textes']
             g = gros('texte_couvert.html')
             expect('B', 'mesures : gros titre recouvert par un aplat relevé (100 %)', [g['couverts'], g['hauts_rognes']], [[{'texte': 'Test', 'part': 100}], []])
