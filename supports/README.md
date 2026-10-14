@@ -32,6 +32,6 @@ python3 supports/preparer_police.py --check
 
 La police source, la licence, les versions des outils et le relevé de couverture restent livrés. Le contrôle courant utilise la bibliothèque standard Python : il vérifie couverture, empreintes, sorties et poids sans installer les outils de police. Les budgets techniques sont de 50 000 octets par SVG et 100 000 par page HTML ; ils empêchent le retour de la police complète dans chaque support.
 
-Le contrôle refuse une sortie périmée ou une cible absente. Il ne juge ni la lisibilité du rendu ni la compréhension par une personne. La validation visuelle, ses captures et l’historique de fabrication restent dans les travaux de la branche `refonte`, séparés du paquet produit.
+Le contrôle refuse une sortie périmée ou une cible absente. Il ne juge ni la lisibilité du rendu ni la compréhension par une personne.
 
 Le langage documentaire retenu sert ces supports. Il n’impose ni Manrope, ni ces couleurs, ni une structure aux productions que le système aide à créer. La V1 reste expérimentale.

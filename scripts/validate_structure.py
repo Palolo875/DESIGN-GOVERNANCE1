@@ -645,6 +645,9 @@ def check_core_floor(errors: list[str]) -> None:
 # Sous-ensemble contrôlé : une paire « clé: valeur » par ligne ; une valeur non citée ne porte ni « : », ni « # »
 # précédé d'une espace, ni indicateur initial ; une valeur citée est décodée (doubles : échappements JSON ; simples : '').
 SKILL_KEYS = ("name", "description")
+# Format ouvert Agent Skills (agentskills.io/specification) : champs connus et contraintes de longueur et de nom.
+SKILL_ALLOWED_KEYS = {"name", "description", "license", "compatibility", "allowed-tools"}
+SKILL_LIMITS = {"name": 64, "description": 1024, "compatibility": 500}
 PLAIN_FORBIDDEN_START = tuple("[]{}#&*!|>'\"%@`,") + ("- ", "? ", ": ")
 # Scalaires non cités qu'un parseur YAML (1.1 ou 1.2) ne lit pas comme une chaîne : nul, booléen, nombre, date.
 PLAIN_NON_STRING = re.compile(
@@ -703,6 +706,13 @@ def check_skill_header(errors: list[str]) -> None:
             errors.append(f"[SKL-01] en-tête de la skill : champ {key} absent ou vide")
     if values.get("name") and values["name"] != "design-governance-practice":
         errors.append(f"[SKL-01] en-tête de la skill : name « {values['name']} » ≠ design-governance-practice")
+    if values.get("name") and not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", values["name"]):
+        errors.append("[SKL-01] en-tête de la skill : name hors du format Agent Skills (minuscules, chiffres, tirets simples)")
+    for key in sorted(set(values) - SKILL_ALLOWED_KEYS):
+        errors.append(f"[SKL-01] en-tête de la skill : champ {key} inconnu du format Agent Skills")
+    for key, limit in SKILL_LIMITS.items():
+        if key in values and len(values[key]) > limit:
+            errors.append(f"[SKL-01] en-tête de la skill : {key} dépasse {limit} caractères ({len(values[key])})")
 
 
 # 17. Déclencheur UI/UX () : dans DIRECTION/CHARGE, la colonne « Charger d'abord » des lignes

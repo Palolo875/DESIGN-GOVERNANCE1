@@ -5,7 +5,7 @@ Pour qui fait évoluer le système : d’où vient chaque distribution, comment 
 | Fichier | Contenu |
 |---|---|
 | [`evolution.md`](evolution.md) | Recette d’une modification, promotion et dépréciation des routes, cycle de vie, anciens alias |
-| [`versions.md`](versions.md) | Version, révision et contenu de la version |
+| [`versions.md`](versions.md) | Ce que contient le système : version, contenu, capacités, compatibilité et vérifications |
 
 <!-- origine:README.md -->
 ## Source de vérité et distributions
@@ -30,7 +30,7 @@ Sans navigateur, les tests de pages restent `NOT-VERIFIED`. Les limites des cont
 
 Dans l’export Local, utilisez `python3 scripts/validate_all.py`, avec `--require-browser` si ces essais sont exigés. Cet export ne contient pas la commande de préparation.
 
-Le budget décrit dans `maintenance/versions.md` concerne le fichier `SKILL.md` complet, mesuré en octets UTF-8. Le même contrôle est exécuté lors de la compilation et de la validation des distributions. Il borne la taille chargée ; il ne mesure ni la charge cognitive ni le coût complet d’un run.
+Le budget décrit dans `maintenance/evolution.md` (contrats de maintenance) concerne le fichier `SKILL.md` complet, mesuré en octets UTF-8. Le même contrôle est exécuté lors de la compilation et de la validation des distributions. Il borne la taille chargée ; il ne mesure ni la charge cognitive ni le coût complet d’un run.
 
 ### Noyau commun et détails
 
@@ -115,7 +115,7 @@ Les noms de route sont des locators documentaires. Les résoudre avec `python3 s
 | `ACTION/*` | Section ACTION retrouvée par le lecteur, dans l’un des emplacements déclarés. |
 | `SAVOIR/*` | Section SAVOIR retrouvée par le lecteur, dans l’un des emplacements déclarés. |
 | `BIBLIOTHEQUE/*` | Section BIBLIOTHEQUE retrouvée par le lecteur, dans l’un des emplacements déclarés. |
-| `maintenance/versions` ou `CHANGELOG` | Journal `maintenance/versions.md` ; les règles de cycle de vie sont dans `maintenance/evolution.md`. |
+| `maintenance/versions` ou `CHANGELOG` | Fiche `maintenance/versions.md` (état courant) ; les règles de cycle de vie sont dans `maintenance/evolution.md`. |
 | `RUN_CARD` | `gouvernance/schemas/run_card.schema.json`, exemple et validateur |
 
 `RUN_CARD` est un **adaptateur machine**, pas un locator Markdown résolvable par `scripts/read_route.py`. Pour l’inspecter ou le valider, utiliser le schéma, l’exemple et `gouvernance/outils/validate_run_card.py`; ne pas l’invoquer comme une route documentaire.

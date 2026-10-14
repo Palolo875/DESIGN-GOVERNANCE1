@@ -6,7 +6,7 @@
 
 Cette carte réduit la recomposition mentale du lecteur. Elle ne crée ni mode, ni gate, ni axe, ni statut, ni verdict, ni owner de décision supplémentaire. Elle indique seulement où commencer, quoi charger, ce qui doit sortir et quand transmettre.
 
-Pour composer plusieurs capacités selon un résultat recherché — direction, beauté située, créativité, usage, preuve, vitesse ou système — voir la section [« Combinaisons par résultat recherché »](../../guides/designer.md#combinaisons-par-résultat-recherché) du guide du designer : elle aide à ajuster la combinaison et l’intensité sans remplacer les propriétaires normatifs.
+Pour composer plusieurs capacités selon un résultat recherché — direction, beauté située, créativité, usage, preuve, vitesse ou système — voir la section [« Combinaisons par résultat recherché »](../../guides/designer.md#combinaisons-par-résultat-recherché) du niveau 2 des guides : elle aide à ajuster la combinaison et l’intensité sans remplacer les propriétaires normatifs.
 
 ## Chemin canonique de démarrage
 

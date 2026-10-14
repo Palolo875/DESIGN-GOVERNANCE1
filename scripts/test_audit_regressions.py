@@ -435,6 +435,20 @@ class ReviewFindingsTests(unittest.TestCase):
                 self.assertEqual(problems, [])
                 self.assertTrue(values["description"])
 
+    def test_skill_header_follows_agent_skills_format(self):
+        # Format ouvert Agent Skills : nom en minuscules et tirets, champs connus, longueurs bornées.
+        cases = [("name: Design_Gov\ndescription: x", "hors du format Agent Skills"),
+                 ("name: design-governance-practice\ndescription: x\nauteur: moi", "champ auteur inconnu"),
+                 ("name: design-governance-practice\ndescription: " + "a" * 1100, "description dépasse 1024"),
+                 ("name: design-governance-practice\ndescription: x\ncompatibility: " + "b" * 600, "compatibility dépasse 500")]
+        for header, expected in cases:
+            with self.subTest(expected=expected), tempfile.TemporaryDirectory() as tmp:
+                (Path(tmp) / "SKILL.md").write_text(f"---\n{header}\n---\n", encoding="utf-8")
+                errors = []
+                with patch.object(structure, "SKILL_DIR", Path(tmp)):
+                    structure.check_skill_header(errors)
+                self.assertTrue(any(expected in e for e in errors), errors)
+
     def generator(self, root: Path):
         shutil.copytree(ROOT / "supports", root / "supports", ignore=shutil.ignore_patterns("__pycache__"))
         (root / "scripts").mkdir()

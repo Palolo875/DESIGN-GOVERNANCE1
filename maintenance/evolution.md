@@ -100,6 +100,18 @@ Les statuts de route décrivent la maintenance d’une route candidate ou canoni
 Les routes présentes dans le seed de la V1 ont le statut `SEED` : canoniques, sans gain mesuré. `ADOPTED` exige le contrat de gain réel (`BIBLIOTHEQUE/EVOLUTION`). Une route peut être dépréciée depuis tout état publié ou utilisé (`SEED`, `PILOT` avec consumers, `ADOPTED`) ; une dépréciation interdit les nouveaux usages, exige une migration et ne revendique aucun gain. Toute nouvelle route ou promotion doit indiquer son problème, sa décision, son owner, son contrat, sa preuve, sa limite, sa compatibilité et sa prochaine revue.
 
 <!-- origine:CHANGELOG.md -->
+## Contrats de maintenance
+
+**Budget de chargement.** Le fichier `SKILL.md` complet (métadonnées, noyau compilé et contenu hors noyau) est borné à 46 000 octets UTF-8. Le contrôle commun de `scripts/build_core.py` refuse une compilation excessive avant écriture et contrôle chaque distribution via la validation structurelle ; la construction directe contrôle aussi la source canonique avant staging. Au-delà du budget, retirer une redondance ou déplacer un détail vers une route en conservant son activation, sans supprimer un plancher protégé pour satisfaire la taille. Ce budget ne mesure ni la charge cognitive ni le coût complet d’un run.
+
+**Portée des contrôles.** La validation couvre la cohérence documentaire et technique, dont la liste close des conditions de façade. Une divergence hors de cette liste n’est pas détectée. Le contrôle des supports vérifie leur fraîcheur, leur version et leurs relations ; il ne juge pas le rendu. Les tests de pages exigent un navigateur et restent non vérifiés lorsqu’ils ne sont pas exécutés.
+
+**Autorité.** Une règle fait foi dans sa section propriétaire, à son emplacement actuel. DIRECTION, ACTION, SAVOIR, BIBLIOTHEQUE et CHANGELOG désignent les cinq responsabilités historiques réparties dans les dossiers du paquet, selon le registre `LIEUX` de `scripts/read_route.py`. Les guides et les cartes orientent la lecture sans créer de règle concurrente. Le schéma `RUN_CARD` et ses validateurs définissent les projections machine dans leur périmètre.
+
+**Identifiants structurels.** Le lecteur projette les identifiants structurels documentés vers leur titre ou leur section porteuse ; `LAYER/*` reste chez `BIBLIOTHEQUE/COMPONENTS`. Ce raccourci est compatible avec les locators existants, conserve le refus d’un nom absent ou ambigu et ne crée pas de route normative.
+
+**Évolution.** Toute évolution identifie une source normative unique, un propriétaire, le périmètre concerné, la compatibilité, la preuve attendue, la limite, la prochaine revue et la procédure de retour. Elle ne devient une règle transversale qu’après décision explicite du propriétaire du corpus. La fiche `maintenance/versions.md` décrit l’état courant du système ; l’historique de conception et de travail n’est pas livré avec le paquet.
+
 ## Migration des anciens aliases
 
 Les aliases suivants, issus des brouillons antérieurs à V1, ne sont pas des routes actives. Ils sont reclassés selon ce qu’ils établissent réellement ; l’ancien identifiant peut être conservé dans une trace de compatibilité.

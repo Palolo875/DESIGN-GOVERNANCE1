@@ -1,19 +1,26 @@
 # Design Governance V1.0.0 — expérimental
 
-Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu. Quand un travail doit être livré ou audité, le système garde aussi la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
+Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu ; il sert aussi à juger et analyser un existant. Quand un travail doit être livré ou audité, le système garde aussi la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
 
-> **Statut :** expérimentation maintenue, pensée pour un usage avec revue humaine. Son effet sur la qualité des rendus n’est pas encore mesuré (`NOT-VERIFIED`).
+> **Statut :** V1.0.0, révision `R2026-10-14-REVUE`. Expérimentation maintenue, pensée pour un usage avec revue humaine ; son effet sur la qualité des rendus n’est pas encore mesuré (`NOT-VERIFIED`). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
 
 ## Par où entrer
 
-| Vous êtes | Entrée | Ce que vous y trouvez |
+Les guides suivent un niveau de maîtrise, pas un métier : chacun entre au niveau 1 et monte quand il en a besoin.
+
+| Niveau | Entrée | Ce que vous saurez faire |
 |---|---|---|
-| Débutant : vous voulez un résultat, sans apprendre le système | [`guides/commencer.md`](guides/commencer.md) | Quoi demander, quoi fournir, ce que vous recevrez, comment poursuivre |
-| Designer | [`guides/designer.md`](guides/designer.md) | Où se trouve chaque sujet, comment combiner les capacités, quand s’arrêter |
-| Équipe ou opérateur | [`guides/equipe.md`](guides/equipe.md) | Piloter un travail, le tracer et le livrer |
-| Relecteur ou responsable | [`gouvernance/README.md`](gouvernance/README.md) | Ce qui a été prouvé, les limites, la clôture |
-| Agent | [`agent/skill/SKILL.md`](agent/skill/SKILL.md) | Le noyau, puis quoi lire selon le chemin |
-| Personne qui fait évoluer le système | [`maintenance/README.md`](maintenance/README.md) | Distributions, validation, versions |
+| **1 — Utiliser** | [`guides/commencer.md`](guides/commencer.md) | Demander, fournir, recevoir une proposition et la faire évoluer, sans apprendre le système |
+| **2 — Comprendre et exploiter le savoir** | [`guides/designer.md`](guides/designer.md) | Savoir comment le système raisonne, trouver un sujet, combiner les savoirs selon le résultat, savoir quand s’arrêter |
+| **3 — Maîtriser le travail** | [`guides/equipe.md`](guides/equipe.md) | Piloter un travail, le confier à un agent, le vérifier, le décider, le conserver et le transmettre |
+
+D’autres entrées servent des besoins précis :
+
+| Besoin | Entrée | Contenu |
+|---|---|---|
+| Relire ce qui a été prouvé | [`gouvernance/README.md`](gouvernance/README.md) | Preuves, limites, clôture |
+| Brancher un agent | [`agent/skill/SKILL.md`](agent/skill/SKILL.md) | Le noyau, puis quoi lire selon le chemin |
+| Faire évoluer le système | [`maintenance/README.md`](maintenance/README.md) | Distributions, validation, contenu de la version |
 
 Le vocabulaire est expliqué dans [`guides/glossaire.md`](guides/glossaire.md).
 
@@ -28,7 +35,15 @@ La skill ne contient que le noyau ; ses routes, ses scripts et ses schémas rest
    cp -R /chemin/du/paquet/agent/skill/. .claude/skills/design-governance-practice/
    ```
 
-   La même commande met la skill à jour : elle remplace les fichiers sans créer de sous-dossier. Si une mise à jour retire des fichiers de référence, supprimez d’abord le dossier installé. Avec un autre agent, utilisez son mécanisme de skills selon sa documentation, ou donnez-lui `SKILL.md` comme instructions.
+   La même commande met la skill à jour : elle remplace les fichiers sans créer de sous-dossier. Si une mise à jour retire des fichiers de référence, supprimez d’abord le dossier installé. La skill suit le format ouvert [Agent Skills](https://agentskills.io/specification) ; d’autres agents la lisent dans leurs propres dossiers :
+
+   | Agent | Dossier du projet | Dossier personnel |
+   |---|---|---|
+   | Claude Code (vérifié) | `.claude/skills/` | `~/.claude/skills/` |
+   | Codex | `.agents/skills/` | `~/.agents/skills/` |
+   | Cursor, Gemini CLI, GitHub Copilot | `.agents/skills/` | `~/.cursor/skills/`, `~/.gemini/skills/`, `~/.copilot/skills/` |
+
+   Dans tous les cas, le dossier installé s’appelle `design-governance-practice`, comme le champ `name` de la skill (le format l’exige). Seul Claude Code a été vérifié ici ; les autres dossiers suivent la documentation de ces outils. Un agent sans gestion de skills reçoit `SKILL.md` comme instructions. Évitez d’activer dans le même projet une autre skill générale de design (Taste Skill, Impeccable…) : deux skills se déclencheraient sur la même demande avec des consignes différentes.
 2. **Donner accès au paquet.** Les commandes de la skill (`python3 scripts/read_route.py …`) et les fichiers qu’elle cite s’entendent depuis la racine du paquet : travaillez dans ce dossier, ou indiquez son chemin à l’agent (« Design Governance est dans /chemin/du/paquet ; lance ses scripts depuis ce dossier »). Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium.
 3. **Vérifier.** La copie est correcte si le fichier principal est à la racine du dossier installé, sans sous-dossier `skill/` ; l’accès au paquet l’est si la route s’affiche :
 
@@ -40,20 +55,6 @@ La skill ne contient que le noyau ; ses routes, ses scripts et ses schémas rest
    Ces deux contrôles ne prouvent pas que l’agent a chargé la skill : demandez-lui quelles skills sont actives, ou consultez la liste de skills de l’hôte.
 
 Sans accès au paquet, l’agent n’a que le noyau. Après une mise à jour du paquet, relancez la copie. Le noyau commun active la ligne du mode et les détails au moment utile ; un détail marqué « noyau » dans sa source n’est pas nécessairement embarqué dans la skill.
-
-<!-- constitution:début -->
-## Les cinq règles essentielles
-
-Quel que soit le travail, cinq règles priment :
-
-1. **Une surface d’identité doit avoir une direction visible.** Être conforme (contraste, états, focus, performance) est un plancher, pas un résultat.
-2. **Une direction d’identité s’appuie sur une ancre** : une référence observée, ou fournie pour un produit réel. On peut explorer sans ancre, à condition de le dire.
-3. **Rien n’est livré sans les vérifications qui s’appliquent.**
-4. **Avant d’agir, on déclare** le chemin suivi, la décision principale, le risque principal, la vérification minimale et le moment où l’on s’arrête.
-5. **Pas de beauté hors sol.** Le produit, la tâche visée, les contraintes et les preuves font partie du design : le réel et le beau sont cadrés ensemble.
-
-Une conformité de surface ne vaut ni direction visible, ni preuve d’usage, ni qualité réelle. Ces règles résument [la direction de design](design/direction/standard.md#les-cinq-règles-absolues), qui fait foi ; elles ne remplacent pas les règles détaillées du design, du produit ou de la gouvernance.
-<!-- constitution:fin -->
 
 ## Comment ça marche
 
@@ -72,12 +73,13 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 
 | Partie | Chemin | Contenu |
 |---|---|---|
-| **Guides** | `guides/` | Les portes : commencer, designer, équipe, glossaire. |
+| **Guides** | `guides/` | Trois niveaux de maîtrise (utiliser, comprendre et exploiter le savoir, maîtriser le travail) et un glossaire. |
 | **Design** | `design/` | Le cœur : direction, savoir, formes, qualité du produit. |
 | **Agent** | `agent/` | La skill (`agent/skill/`), le chemin de l’agent et sa réponse. |
 | **Gouvernance** (selon le besoin) | `gouvernance/` | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
-| **Maintenance** | `maintenance/` | Faire évoluer le système : distributions, validation, versions. |
-| **Sections conservées** | `V1/sections/` | Sections conservées et carte dérivée ; les sections déplacées gardent la même autorité. |
+| **Supports** | `supports/` | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
+| **Maintenance** | `maintenance/` | Ce que contient la version, évolution du système, distributions et validation. |
+| **Sections d’origine** | `V1/sections/` | Sections restées à leur emplacement d’origine et carte de lecture ; même autorité que les autres. |
 | **Outils** | `scripts/` | Lecteur, contrôles et construction des distributions. |
 
 La gouvernance s'adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
@@ -94,10 +96,23 @@ python3 scripts/read_route.py --trouver "contraste" # chercher un terme
 
 Ajoutez `--guides` pour chercher aussi dans les guides. Une recherche sans résultat ne prouve pas que la notion manque : reformulez.
 
+<!-- constitution:début -->
+## Les cinq règles essentielles
+
+Quel que soit le travail, cinq règles priment :
+
+1. **Une surface d’identité doit avoir une direction visible.** Être conforme (contraste, états, focus, performance) est un plancher, pas un résultat.
+2. **Une direction d’identité s’appuie sur une ancre** : une référence observée, ou fournie pour un produit réel. On peut explorer sans ancre, à condition de le dire.
+3. **Rien n’est livré sans les vérifications qui s’appliquent.**
+4. **Avant d’agir, on déclare** le chemin suivi, la décision principale, le risque principal, la vérification minimale et le moment où l’on s’arrête.
+5. **Pas de beauté hors sol.** Le produit, la tâche visée, les contraintes et les preuves font partie du design : le réel et le beau sont cadrés ensemble.
+
+Une conformité de surface ne vaut ni direction visible, ni preuve d’usage, ni qualité réelle. Ces règles résument [la direction de design](design/direction/standard.md#les-cinq-règles-absolues), qui fait foi ; elles ne remplacent pas les règles détaillées du design, du produit ou de la gouvernance.
+<!-- constitution:fin -->
+
 ## Limites
 
-- **Version.** V1.0.0, révision `R2026-10-14-REVUE` : voir le [journal des versions](maintenance/versions.md) et les [notes de version](RELEASE_NOTES.md).
-- **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. Les preuves de CI hébergée, distinctes de cette efficacité, sont rattachées aux commits testés dans les [notes de version](RELEASE_NOTES.md#contrôles-inclus).
+- **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. La CI du dépôt exécute les contrôles sur chaque commit ([notes de version](RELEASE_NOTES.md#contrôles-inclus)) ; elle atteste la cohérence du paquet, pas cette efficacité.
 - **Une validation confirme seulement les contrôles exécutés.** Une capture prouve un rendu, pas un usage : à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle.
 - **Séduisant n’est pas prouvé, conforme n’est pas réussi.** Le système demande de rendre cet écart visible et de corriger le défaut principal, sans le compenser par une autre preuve. Une étape ou une référence qui ne change rien est retirée.
 - **Le système ne remplace** ni le jugement créatif, ni les tests utilisateurs, ni la responsabilité du projet. Toute conclusion dit ce qui a été observé, comment, sur quel périmètre et avec quelle limite.

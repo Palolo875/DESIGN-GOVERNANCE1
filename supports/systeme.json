@@ -141,11 +141,11 @@
     },
     {
       "id": "beginner",
-      "label": "Je découvre",
+      "label": "Niveau 1 · Utiliser",
       "title": "Commencez par votre demande.",
-      "description": "Le guide pour commencer explique quoi demander, quoi fournir, ce que vous recevez et comment poursuivre.",
+      "description": "Le niveau 1 explique quoi demander, quoi fournir, ce que vous recevez et comment poursuivre, sans apprendre le système.",
       "target": "guides/commencer.md",
-      "link": "Ouvrir le guide pour commencer",
+      "link": "Ouvrir le niveau 1",
       "focus": [
         "guides",
         "design"
@@ -153,11 +153,11 @@
     },
     {
       "id": "designer",
-      "label": "Je conçois",
-      "title": "Entrez par le savoir et les formes.",
-      "description": "Le guide du designer relie les sujets, leurs combinaisons et les gestes de fabrication.",
+      "label": "Niveau 2 · Comprendre",
+      "title": "Comprenez et exploitez le savoir.",
+      "description": "Le niveau 2 montre comment le système raisonne, où se trouve chaque sujet et comment combiner les savoirs.",
       "target": "guides/designer.md",
-      "link": "Ouvrir le guide du designer",
+      "link": "Ouvrir le niveau 2",
       "focus": [
         "guides",
         "design"
@@ -165,11 +165,11 @@
     },
     {
       "id": "team",
-      "label": "Je travaille en équipe",
-      "title": "Organisez le travail et sa reprise.",
-      "description": "Le guide d’équipe relie le pilotage, les preuves, la trace et la livraison, selon les besoins du travail.",
+      "label": "Niveau 3 · Maîtriser",
+      "title": "Pilotez le travail de bout en bout.",
+      "description": "Le niveau 3 relie le pilotage, les preuves, la trace et la transmission, seul avec un agent ou à plusieurs.",
       "target": "guides/equipe.md",
-      "link": "Ouvrir le guide d’équipe",
+      "link": "Ouvrir le niveau 3",
       "focus": [
         "guides",
         "design",

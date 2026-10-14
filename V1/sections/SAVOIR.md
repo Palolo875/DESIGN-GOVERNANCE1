@@ -17,7 +17,7 @@ SAVOIR ne remplace pas :
 | `DIRECTION.md` | Rôle, cinq absolus, classification, routage général et capacité. |
 | `ACTION.md` | Routes de run, preuves, gates, verdicts et maintenance. |
 | `BIBLIOTHEQUE.md` | Structures, supports, grilles, scènes, objets, micro-interfaces et composants. |
-| `maintenance/versions.md` | État de release, changements futurs, pilotes optionnels et décisions de gouvernance. |
+| `maintenance/versions.md` | État courant du système, modifié par les décisions de gouvernance retenues. |
 
 > Un principe SAVOIR guide une décision ; une méthode décrit comment formuler la raison ; une preuve ACTION établit ce qui a été observé ou mesuré. Aucun principe, ancre, profil ou texte de justification ne produit seul un `PASS` d’usage, d’accessibilité ou de qualité.
 

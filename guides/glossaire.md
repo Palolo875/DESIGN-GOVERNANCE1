@@ -2,7 +2,7 @@
 
 Les mots du système, expliqués simplement. Le glossaire n’ajoute aucune règle : chaque terme renvoie à la section qui fait foi. Les adresses entre accents graves (`savoir/couleur`) se lisent avec `python3 scripts/read_route.py ADRESSE` ; les valeurs en capitales (`NOT-VERIFIED`) sont celles qu’écrivent les fiches de travail.
 
-Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-travail), [la trace et la vérification](#la-trace-et-la-vérification). Pour commencer sans aucun vocabulaire, lisez plutôt le [guide pour commencer](commencer.md).
+Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-travail), [la trace et la vérification](#la-trace-et-la-vérification). Le glossaire sert à tous les niveaux. Pour commencer sans aucun vocabulaire, lisez plutôt le [niveau 1](commencer.md).
 
 ## Les mots du design
 
@@ -53,7 +53,7 @@ Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-trav
 | **Limite** | Ce que le travail ne permet pas d’affirmer honnêtement. Une limite n’est pas un échec caché ; elle rend le niveau de confiance lisible. |
 | **Source propriétaire** | La section qui fait foi pour une règle. Un guide peut la résumer, jamais la remplacer. |
 | **Adresse (locator)** | Le repère qui permet de lire une section avec le lecteur : une adresse lisible (`savoir/couleur`) ou l’ancien code (`SAVOIR/CRAFT/CFT-05`), qui reste accepté. Par extension, tout repère stable vers un fichier, une trace ou un rendu. |
-| **Carte de lecture (`READING_MAP`)** | Les vues qui orientent la lecture : le [guide du designer](designer.md) (sujets, combinaisons, angles) et les [connexions](../design/savoir/connexions.md). Elles ne créent aucune règle. |
+| **Carte de lecture (`READING_MAP`)** | Les vues qui orientent la lecture : le [niveau 2](designer.md) (sujets, combinaisons, angles) et les [connexions](../design/savoir/connexions.md). Elles ne créent aucune règle. |
 
 ## La trace et la vérification
 
