@@ -1,0 +1,37 @@
+sections : 172 entrées, 75 avec au moins une correction (44 %), médiane 0 correction(s) par entrée, maximum 4 ; dont 61 (35 %) avec une correction qui ne se réduit pas à une adaptation de couleur, de famille ou de coins
+    18  sets a sentence large over several lines
+    12  fades text
+    12  sets text at 12px
+    10  names a kind of typeface
+     9  names its own corners
+     9  draws lines or borders
+     8  names colours (white)
+     4  blends text with `difference`
+     3  pins something for three screens or more
+     3  sets text at 10px
+     2  mentions a shadow
+     1  names colours (black)
+     1  names colours (grey)
+     1  crops letters along their top
+     1  numbers things 01, 02
+héros : 48 entrées, 44 avec au moins une correction (92 %), médiane 2 correction(s) par entrée, maximum 4 ; dont 28 (58 %) avec une correction qui ne se réduit pas à une adaptation de couleur, de famille ou de coins
+    22  names a kind of typeface
+    11  sets a sentence large over several lines
+    10  Its action is a text link
+     9  names colours (white)
+     6  names its own corners
+     4  names colours (black)
+     3  blends text with `difference`
+     3  draws lines or borders
+     3  sets text at 12px
+     2  names colours (white, black)
+     2  sets running text at 15px
+     1  pins something for three screens or more
+     1  sets text at 10px, 12px
+     1  sets text at 10px
+     1  names colours (white, blue, grey)
+     1  crops letters along their top
+     1  names colours (black, white)
+     1  sets running text at 14px
+     1  numbers things 01, 02
+     1  names colours (grey)

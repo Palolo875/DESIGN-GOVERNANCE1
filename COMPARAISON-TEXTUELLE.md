@@ -217,7 +217,7 @@ Seule DG couvre le sujet : `STATE` (états pertinents, récupération d'erreur `
 ## 6. Tensions internes à chaque système (vues à la lecture)
 
 **TS.**
-- **`stillness` contre `still-page`.** Deux des 20 directions de la bibliothèque (`quiet-instrument`, `dense-tiles`) tirent le mouvement `stillness` : « pas de démonstration ; ne pas ajouter d'animation de chargement ni de révélation au défilement » (`motions.json`). L'inspecteur fait échouer toute page à moins de 8 éléments mobiles (`inspect.mjs`, `MOTION_MIN = 8`), sauf option `--allow still-page`. Je n'ai pas lu la fiche de tirage pour savoir si elle mentionne cette dérogation.
+- **`stillness` contre `still-page`.** Deux des 20 directions de la bibliothèque (`quiet-instrument`, `dense-tiles`) tirent le mouvement `stillness` : « pas de démonstration ; ne pas ajouter d'animation de chargement ni de révélation au défilement » (`motions.json`). L'inspecteur fait échouer toute page à moins de 8 éléments mobiles (`inspect.mjs`, `MOTION_MIN = 8`), sauf option `--allow still-page`. **Vérifié en manche 7** : aucune des 20 directions ne porte de dérogation `allow`, et la fiche imprime juste après la description du mouvement « The inspector fails a page that barely moves » (`draw.mjs` ligne 509 ; `COMPARAISON-COMPLEMENT.md` A6).
 - **Bans contre données.** Les motifs « de galerie » (mono, numérotation) sont plus fréquents chez les mieux notés ; ils sont bannis quand même (`SKILL.md`, « Why these, honestly »). Avoué.
 - **Skills voisines.** Voir `SUIVI.md` 6.2 : `soft`, `brutalist`, `stitch`, `image-to-code` contredisent la v2.
 

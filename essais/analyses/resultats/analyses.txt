@@ -1,0 +1,65 @@
+== A2 : systèmes typographiques contre les listes `default-font` et `mono` du lint de TS (lint.mjs:33 et :50)
+systèmes 44 | familles distinctes 49 | à une seule famille 27
+avec une famille de la liste default-font : []
+avec une famille monospace : []
+familles les plus dealées : [('Switzer', 5), ('Archivo', 4), ('General Sans', 3), ('Hanken Grotesk', 3), ('Work Sans', 3), ('EB Garamond', 3)]
+
+== A3 : motifs bannis par les règles de la maison dans la prose des directions, héros et sections (240 entrées)
+entrées lues 240 | occurrences 9
+   gradient direction colour-chapters (colour) négation … each with its assigned text colour. No tints, no gradients between them: the hard edge where two fields mee…
+   shadow direction hero-object (colour)  …r sing (its complement, or a tone darker than its shadow side). One field for the whole page, or a second …
+   shadow direction split-stage (colour)  …sen against the photograph: a tone taken from its shadows or its lightest area. One ink, optionally one ac…
+   shadow direction dark-room (imagery)  …grounds, one light source, subjects emerging from shadow. Their dark edges should blend into the page grou…
+   glass/blur héros single-object-on-plinth (blueprint)  …its width, with `mix-blend-mode: multiply` so its backdrop disappears into the page. It rests on a plinth, a…
+   glass/blur section showcase-close-up-with-column-card (blueprint) négation … width. The card is opaque, radius 0–6px, with no blur. When the section presents two or three items, ea…
+   shadow section cta-action-tile-row (blueprint) négation …ing the tile, the other a flat palette colour. No shadows, no outlines.…
+   eyebrow/kicker section contact-single-field (mobile)  …nd. The three label and value rows stack with the label above each value and 20px between them.…
+   shadow section cta-first-step-already-open (blueprint)  …nt the product's conventions apply, including the shadow its dialog normally casts. The field accepts typi…
+
+== A4 : couverture de la bibliothèque
+secteurs 22 | directions par secteur min..max 5 13 | secteurs à 5 directions ou moins {'real-estate': 5, 'architecture': 5}
+tons {'quiet': 9, 'bold': 11, 'warm': 6, 'technical': 6, 'playful': 6, 'luxury': 6, 'editorial': 10}
+rôles de section 16 {'features': 21, 'showcase': 19, 'how-it-works': 14, 'stats': 10, 'testimonial': 10, 'proof': 7, 'pricing': 9, 'faq': 8, 'cta': 10, 'footer': 10, 'intro': 10, 'about': 8, 'work': 11, 'gallery': 9, 'list': 9, 'contact': 7}
+héros par direction min/méd/max 4 5.0 9
+palettes par direction min/méd/max 9 24.0 44
+systèmes typographiques par direction min/méd/max 10 16.0 23
+combinaisons héros × palette × système, somme sur les 20 directions 48122
+jeux de photos 19 | tailles min..max 7 59
+sites étudiés 181 | notes 6.8 → 8.6 | ≥7,5 : 90 | 7,0 à 7,4 : 69 | 6,8 à 6,9 : 22
+
+== A5 : directions qui tirent le mouvement « stillness » et dérogations `allow`
+[('quiet-instrument', 'stillness', []), ('dense-tiles', 'stillness', [])] | directions avec un `allow` non vide : []
+description de stillness : No showpiece. The page is simply there, instantly, and the discipline is the statement. Motion is limited to exact feedback: a 140ms press on the button, a 180ms colour change on links, focus rings that appear without delay. Do not add a load animation or scroll reveals to this direction.
+
+== A6 : valeurs chiffrées prescrites (px, vw, vh, em, rem, ms, ch, fr, %, clamp(), cubic-bezier())
+TS SKILL + references : mots 23422, valeurs 434 (dont research.md : 164)
+DG design/** : mots 38803, valeurs 67 | hors section POINTS-DE-DEPART : mots 37755, valeurs 11 | POINTS-DE-DEPART seule : mots 1048, valeurs 56
+TS sections (blueprint + mobile)   entrées 172 | valeurs par entrée : médiane 13.0, total 2189 | mots par entrée : médiane 194
+TS héros (blueprint + mobile)      entrées  48 | valeurs par entrée : médiane 17.5, total 825 | mots par entrée : médiane 248
+DG catalogue SUPPORT/GRID/SCENE    entrées  16 | valeurs par entrée : médiane 0.0, total 0 | mots par entrée : médiane 59
+
+== A7 : termes à motif propre, occurrences (TS SKILL + references hors research ; DG design/** hors POINTS-DE-DEPART)
+terme                                                  TS   DG
+kerning / crénage                                       2    0
+police variable                                         0    1
+font-display / preconnect / chargement des polices      6    0
+OKLCH                                                   0    1
+gamut                                                   0    1
+hyphens / césure                                        1    0
+full-bleed / bord à bord                                8    0
+pas de teinte / tone step                               9    1
+inventaire du sujet                                     1    0
+interruption (animation)                                0   10
+WCAG                                                    0    6
+lecteur d'écran / screen reader                         0    2
+récupération après erreur                               0   18
+rollback / retour arrière                               0    3
+View Transitions / FLIP / Web Animations                0    3
+IntersectionObserver / scroll listener                  2    0
+text-wrap: balance                                      3    2
+tabular-nums                                            2    2
+clamp()                                                 9    0
+cubic-bezier                                            3    0
+prefers-reduced-motion (littéral)                       9    0
+crédits enregistrés (credits.json)                      2    0
+licences CC (CC BY, CC0)                                6    0
