@@ -1,0 +1,1118 @@
+{
+ "url": "index.html",
+ "at": "2026-10-14T17:31:05.531Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.4,
+    0.45,
+    0.14
+   ],
+   "motion": {
+    "elements": 5,
+    "css": 5,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2498,
+     "screens": 2.8,
+     "words": 52,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo1.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Votre vélo repart ce soir",
+     "words": 5,
+     "chars": 25,
+     "lines": 2,
+     "size": 112,
+     "vw": 7.8,
+     "font": "Georgia",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.73,
+     "top": 210,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Votre vélo repart ce soir",
+     "words": 5,
+     "lines": 2,
+     "size": 112,
+     "font": "Georgia"
+    },
+    "headings": [
+     {
+      "text": "Votre vélo repart ce soir",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 112,
+      "vw": 7.8,
+      "font": "Georgia",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.73,
+      "top": 210,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Ce que nous réparons",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Georgia",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.68,
+      "top": 1791,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Georgia",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      14,
+      16,
+      24,
+      32,
+      112
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 3.8
+     },
+     "measureChars": 56,
+     "max": {
+      "size": 112,
+      "vw": 7.8,
+      "font": "Georgia",
+      "text": "Votre vélo repart ce soir"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 3,
+     "microLabelShare": 0.099,
+     "microSamples": [
+      "Réparation à Gand",
+      "Tarifs",
+      "Contact"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0,
+     "smallText": 1
+    },
+    "eyebrows": [
+     {
+      "text": "Réparation à Gand",
+      "above": "Votre vélo repart ce soir",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 10,
+      "top": 162
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 637,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#8a7f74",
+       "share": 0.48
+      },
+      {
+       "color": "#2a211b",
+       "share": 0.41
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.06
+      },
+      {
+       "color": "#0000ee",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#2a211b",
+      "hsl": {
+       "h": 24,
+       "s": 0.22,
+       "l": 0.14
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "Réparation en moins de 24 heures, rue de",
+       "ratio": 3.8,
+       "need": 4.5,
+       "size": 16,
+       "fg": "#8a7f74",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Crevaison, freins, révision complète. Pr",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 16,
+       "fg": "#8a7f74",
+       "bg": "#ffffff"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Appeler l’atelier ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 2,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.shell.reveal → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
+      "div.shell → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 4,
+     "boxRadius": 32,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 24,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.17
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 42,
+     "floatingPill": true,
+     "blur": true
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.57,
+    0.14,
+    0.14
+   ],
+   "motion": {
+    "elements": 5,
+    "css": 5,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2114,
+     "screens": 2.1,
+     "words": 52,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo1.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Votre vélo repart ce soir",
+     "words": 5,
+     "chars": 25,
+     "lines": 1,
+     "size": 61.4,
+     "vw": 8,
+     "font": "Georgia",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.94,
+     "top": 210,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Votre vélo repart ce soir",
+     "words": 5,
+     "lines": 1,
+     "size": 61.4,
+     "font": "Georgia"
+    },
+    "headings": [
+     {
+      "text": "Votre vélo repart ce soir",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 61.4,
+      "vw": 8,
+      "font": "Georgia",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 210,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Ce que nous réparons",
+      "words": 4,
+      "chars": 20,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Georgia",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1407,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Georgia",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      14,
+      16,
+      24,
+      32,
+      61
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 3.8
+     },
+     "measureChars": 56,
+     "max": {
+      "size": 61.4,
+      "vw": 8,
+      "font": "Georgia",
+      "text": "Votre vélo repart ce soir"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 3,
+     "microLabelShare": 0.099,
+     "microSamples": [
+      "Réparation à Gand",
+      "Tarifs",
+      "Contact"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0,
+     "smallText": 1
+    },
+    "eyebrows": [
+     {
+      "text": "Réparation à Gand",
+      "above": "Votre vélo repart ce soir",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 10,
+      "top": 162
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 475,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#8a7f74",
+       "share": 0.48
+      },
+      {
+       "color": "#2a211b",
+       "share": 0.41
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.06
+      },
+      {
+       "color": "#0000ee",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#2a211b",
+      "hsl": {
+       "h": 24,
+       "s": 0.22,
+       "l": 0.14
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "Réparation en moins de 24 heures, rue de",
+       "ratio": 3.8,
+       "need": 4.5,
+       "size": 16,
+       "fg": "#8a7f74",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Crevaison, freins, révision complète. Pr",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 16,
+       "fg": "#8a7f74",
+       "bg": "#ffffff"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Appeler l’atelier ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 2,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.shell.reveal → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
+      "div.shell → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 4,
+     "boxRadius": 32,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 24,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.35
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 42,
+     "floatingPill": true,
+     "blur": true
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.46,
+    0.34,
+    0.33
+   ],
+   "motion": {
+    "elements": 5,
+    "css": 5,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2023,
+     "screens": 2.4,
+     "words": 52,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo1.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Votre vélo repart ce soir",
+     "words": 5,
+     "chars": 25,
+     "lines": 2,
+     "size": 48,
+     "vw": 12.3,
+     "font": "Georgia",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.88,
+     "top": 210,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Votre vélo repart ce soir",
+     "words": 5,
+     "lines": 2,
+     "size": 48,
+     "font": "Georgia"
+    },
+    "headings": [
+     {
+      "text": "Votre vélo repart ce soir",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Georgia",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 210,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Ce que nous réparons",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Georgia",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.67,
+      "top": 1190,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Rue des Tanneurs 12, Gand. +32 9 000 00 00",
+      "words": 10,
+      "chars": 42,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "system-ui",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 1763,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 10,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "system-ui",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Georgia",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      10,
+      14,
+      16,
+      24,
+      32,
+      48
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "system-ui",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 3.8
+     },
+     "measureChars": 43,
+     "max": {
+      "size": 48,
+      "vw": 12.3,
+      "font": "Georgia",
+      "text": "Votre vélo repart ce soir"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 3,
+     "microLabelShare": 0.099,
+     "microSamples": [
+      "Réparation à Gand",
+      "Tarifs",
+      "Contact"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0,
+     "smallText": 1
+    },
+    "eyebrows": [
+     {
+      "text": "Réparation à Gand",
+      "above": "Votre vélo repart ce soir",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 10,
+      "top": 162
+     },
+     {
+      "text": "Contact",
+      "above": "Rue des Tanneurs 12, Gand. +32 9 000 00 ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 10,
+      "top": 1715
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#8a7f74",
+       "share": 0.48
+      },
+      {
+       "color": "#2a211b",
+       "share": 0.41
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.06
+      },
+      {
+       "color": "#0000ee",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#2a211b",
+      "hsl": {
+       "h": 24,
+       "s": 0.22,
+       "l": 0.14
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "Réparation en moins de 24 heures, rue de",
+       "ratio": 3.8,
+       "need": 4.5,
+       "size": 16,
+       "fg": "#8a7f74",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Crevaison, freins, révision complète. Pr",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 16,
+       "fg": "#8a7f74",
+       "bg": "#ffffff"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 1,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Appeler l’atelier ↗"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 2,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.shell.reveal → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
+      "div.shell → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 4,
+     "boxRadius": 32,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 24,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.14
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": true,
+     "height": 42,
+     "floatingPill": true,
+     "blur": true
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Réparation à Gand\" (pill) above \"Votre vélo repart ce soir\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "3 tiny uppercase letter-spaced labels (e.g. \"Réparation à Gand\", \"Tarifs\", \"Contact\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "2 box-shadow(s) on elements at rest: div.shell.reveal → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px | div.shell → rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "pill-nav",
+   "width": 1440,
+   "message": "Floating rounded pill navigation.",
+   "fix": "Use a plain bar: wordmark left, a few links, one action.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #fdfbf7).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "default-link",
+   "width": 1440,
+   "message": "Browser-default blue/purple link colour is showing.",
+   "fix": "Style every link: inherit the text colour and mark it with weight, underline offset, or the accent.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"Réparation en moins de 24 heures, rue de\" 3.8:1 needs 4.5:1; \"Crevaison, freins, révision complète. Pr\" 3.9:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (3.8:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 1 picture(s) on the page (1 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "small-text",
+   "width": 1440,
+   "message": "1 text block(s) under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 5 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_soft/desktop-fold.jpg",
+   "pages": [
+    "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_soft/desktop-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_soft/tablet-fold.jpg",
+   "pages": [
+    "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_soft/tablet-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_soft/mobile-fold.jpg",
+   "pages": [
+    "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_soft/mobile-page-01.jpg"
+   ]
+  }
+ ]
+}

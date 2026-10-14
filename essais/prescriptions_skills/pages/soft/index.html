@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Rouleau, réparation de vélos à Gand</title>
+<style>
+/* Prescriptions de soft-skill.md : Editorial Luxury, Double-Bezel, Button-in-Button, Eyebrow Tags, Fluid Island nav, Scroll Interpolation */
+:root{--bg:#FDFBF7;--ink:#2a211b;--muted:#8a7f74}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.03;background:repeating-radial-gradient(circle at 30% 20%,#000 0 1px,transparent 1px 3px)}
+.nav{position:fixed;top:24px;left:50%;transform:translateX(-50%);width:max-content;border-radius:9999px;padding:10px 24px;display:flex;gap:28px;backdrop-filter:blur(24px);background:rgba(253,251,247,.8);box-shadow:0 0 0 1px rgba(0,0,0,.05);z-index:20}
+.nav a{color:var(--ink);text-decoration:none;font-size:14px}
+section{padding:160px 24px;max-width:1100px;margin:0 auto}
+.eyebrow{display:inline-block;border-radius:9999px;padding:4px 12px;font-size:10px;text-transform:uppercase;letter-spacing:.2em;font-weight:500;background:rgba(0,0,0,.05)}
+h1{font:600 clamp(3rem,8vw,7rem)/1 Georgia,serif;margin:24px 0;letter-spacing:-.02em}
+.sub{color:var(--muted);max-width:44ch}
+.shell{padding:8px;border-radius:2rem;background:rgba(0,0,0,.05);box-shadow:0 0 0 1px rgba(0,0,0,.05);margin-top:48px}
+.core{border-radius:calc(2rem - .375rem);background:#fff;padding:32px;box-shadow:inset 0 1px 1px rgba(255,255,255,.15)}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:9999px;padding:12px 24px;background:var(--ink);color:#fff;text-decoration:none;transition:all .7s cubic-bezier(.32,.72,0,1)}
+.btn .ic{display:inline-flex;width:32px;height:32px;border-radius:9999px;background:rgba(255,255,255,.15);align-items:center;justify-content:center}
+.btn:hover .ic{transform:translate(4px,-1px) scale(1.05)}
+.btn:active{transform:scale(.98)}
+.reveal{opacity:0;transform:translateY(64px);filter:blur(12px);animation:rise .9s cubic-bezier(.32,.72,0,1) forwards}
+@keyframes rise{to{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Principal"><a href="#tarifs">Tarifs</a><a href="#atelier">L’atelier</a><a href="#contact">Contact</a></nav>
+<main>
+<section>
+  <span class="eyebrow reveal">Réparation à Gand</span>
+  <h1 class="reveal">Votre vélo repart ce soir</h1>
+  <p class="sub reveal">Réparation en moins de 24 heures, rue des Tanneurs. Exemple de texte à confirmer.</p>
+  <a class="btn reveal" href="tel:+3290000000">Appeler l’atelier <span class="ic" aria-hidden="true">↗</span></a>
+  <div class="shell reveal"><div class="core"><img src="photo1.png" width="1200" height="800" alt="Vue d’ensemble de l’atelier, exemple à remplacer" style="width:100%;height:auto;display:block;border-radius:1.5rem"></div></div>
+</section>
+<section id="tarifs">
+  <span class="eyebrow">Tarifs</span>
+  <div class="shell"><div class="core"><h2 style="font:600 2rem Georgia,serif;margin:0 0 12px">Ce que nous réparons</h2><p style="margin:0;color:var(--muted)">Crevaison, freins, révision complète. Prix d’exemple à confirmer.</p></div></div>
+</section>
+<section id="contact"><span class="eyebrow">Contact</span><p style="font-size:1.5rem">Rue des Tanneurs 12, Gand. <a href="tel:+3290000000">+32 9 000 00 00</a></p></section>
+</main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Rouleau, réparation de vélos à Gand</title>
+<style>
+/* Prescriptions de stitch-skill.md : Canvas #F9FAFB, Charcoal #18181B, Muted Steel #71717A, un seul accent, cartes 2.5rem, micro-interactions perpétuelles, entrée en cascade */
+:root{--canvas:#F9FAFB;--surface:#fff;--ink:#18181B;--steel:#71717A;--accent:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+.wrap{max-width:1400px;margin:0 auto;padding:0 24px}
+.hero{display:grid;grid-template-columns:7fr 5fr;gap:48px;min-height:100dvh;align-items:center}
+h1{font-size:clamp(2.5rem,6vw,5.5rem);line-height:1;letter-spacing:-.04em;margin:0 0 24px}
+.lead{color:var(--steel);max-width:60ch}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 28px;border-radius:9999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+.btn:active{transform:translateY(1px)}
+.card{background:var(--surface);border-radius:2.5rem;padding:32px;box-shadow:0 20px 40px -15px rgba(24,24,27,.08)}
+.live{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);animation:pulse 1.6s ease-in-out infinite;margin-right:8px}
+.shimmer{background:linear-gradient(90deg,#e4e4e7 25%,#f4f4f5 50%,#e4e4e7 75%);background-size:200% 100%;animation:sh 2s linear infinite;border-radius:12px;height:16px;margin:8px 0}
+.float{animation:fl 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
+@keyframes sh{to{background-position:-200% 0}}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.cascade>*{opacity:0;transform:translateY(24px);animation:in .8s cubic-bezier(.22,1,.36,1) forwards}
+.cascade>*:nth-child(2){animation-delay:.1s}.cascade>*:nth-child(3){animation-delay:.2s}.cascade>*:nth-child(4){animation-delay:.3s}
+@keyframes in{to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+  <div class="cascade">
+    <p style="margin:0 0 16px"><span class="live"></span><span style="color:var(--steel)">Atelier ouvert aujourd’hui</span></p>
+    <h1>Votre vélo repart ce soir</h1>
+    <p class="lead">Réparation en moins de 24 heures, rue des Tanneurs, à Gand. Exemple de texte à confirmer.</p>
+    <a class="btn" href="tel:+3290000000">Appeler l’atelier</a>
+  </div>
+  <div class="card float"><img src="photo1.png" width="1200" height="800" alt="Vue d’ensemble de l’atelier, exemple à remplacer" style="width:100%;height:auto;border-radius:1.5rem;display:block"><div class="shimmer"></div><div class="shimmer" style="width:60%"></div></div>
+</section>
+</div>
+</body>
+</html>

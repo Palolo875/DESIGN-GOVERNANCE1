@@ -1,0 +1,1 @@
+[RETURN               ] Mouvement réduit respecté : animation infinie encore active : pulse, fl, sh, sh

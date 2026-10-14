@@ -1,0 +1,1313 @@
+{
+ "url": "index.html",
+ "at": "2026-10-14T17:31:19.823Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.58,
+    0.56
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1260,
+     "screens": 1.4,
+     "words": 70,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 0,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo1.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "VOTRE VÉLO REPART CE SOIR",
+     "words": 5,
+     "chars": 25,
+     "lines": 2,
+     "size": 144,
+     "vw": 10,
+     "font": "Arial Black",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 1,
+     "top": 42,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "VOTRE VÉLO REPART CE SOIR",
+     "words": 5,
+     "lines": 2,
+     "size": 144,
+     "font": "Arial Black"
+    },
+    "headings": [
+     {
+      "text": "VOTRE VÉLO REPART CE SOIR",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 144,
+      "vw": 10,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 42,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "12 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 1,
+      "size": 64,
+      "vw": 4.4,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 447,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "25 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 1,
+      "size": 64,
+      "vw": 4.4,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.3,
+      "top": 447,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "85 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 1,
+      "size": 64,
+      "vw": 4.4,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.3,
+      "top": 447,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Courier New",
+       "share": 0.78,
+       "mono": true
+      },
+      {
+       "family": "Arial Black",
+       "share": 0.13,
+       "mono": false
+      },
+      {
+       "family": "Helvetica Neue",
+       "share": 0.09,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      12,
+      16,
+      64,
+      144
+     ],
+     "sizeCount": 4,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 144,
+      "vw": 10,
+      "font": "Arial Black",
+      "text": "Votre vélo repart ce soir"
+     },
+     "monoShare": 0.78,
+     "monoProseShare": 0.78,
+     "monoFamilies": [
+      "Courier New"
+     ],
+     "monoSamples": [
+      "[ ATELIER ROULEAU ]",
+      "/ /",
+      "Tarifs",
+      "Atelier",
+      "Contact",
+      "REV 2.6 / UNIT D-01 /"
+     ],
+     "microLabels": 11,
+     "microLabelShare": 0.588,
+     "microSamples": [
+      "REV 2.6 / UNIT D-01 /",
+      "RÉPARATION < 24 H",
+      "[ 01 ] CREVAISON",
+      "EXEMPLE À CONFIRMER",
+      "[ 02 ] FREINS",
+      "EXEMPLE À CONFIRMER"
+     ],
+     "upperShare": 0.87,
+     "centerShare": 0,
+     "smallText": 10
+    },
+    "eyebrows": [
+     {
+      "text": "[ 01 ] CREVAISON",
+      "above": "12 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 424
+     },
+     {
+      "text": "[ 02 ] FREINS",
+      "above": "25 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 424
+     },
+     {
+      "text": "[ 03 ] RÉVISION",
+      "above": "85 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 424
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4f4f0",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.15,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#050505",
+       "top": 553,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.02
+       }
+      },
+      {
+       "color": "#f4f4f0",
+       "top": 555,
+       "hsl": {
+        "h": 60,
+        "s": 0.15,
+        "l": 0.95
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#050505",
+       "share": 0.71
+      },
+      {
+       "color": "#e61919",
+       "share": 0.29
+      }
+     ],
+     "button": null,
+     "lowContrast": [
+      {
+       "text": "RÉPARATION < 24 H",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": ">>> APPELER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 401
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.23
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 42,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.34
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1024,
+     "screens": 1,
+     "words": 70,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 0,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo1.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "VOTRE VÉLO REPART CE SOIR",
+     "words": 5,
+     "chars": 25,
+     "lines": 2,
+     "size": 76.8,
+     "vw": 10,
+     "font": "Arial Black",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 1,
+     "top": 42,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "VOTRE VÉLO REPART CE SOIR",
+     "words": 5,
+     "lines": 2,
+     "size": 76.8,
+     "font": "Arial Black"
+    },
+    "headings": [
+     {
+      "text": "VOTRE VÉLO REPART CE SOIR",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 76.8,
+      "vw": 10,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 42,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "12 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 1,
+      "size": 64,
+      "vw": 8.3,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 329,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "25 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 1,
+      "size": 64,
+      "vw": 8.3,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.27,
+      "top": 329,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "85 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 1,
+      "size": 64,
+      "vw": 8.3,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.27,
+      "top": 329,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Courier New",
+       "share": 0.78,
+       "mono": true
+      },
+      {
+       "family": "Arial Black",
+       "share": 0.13,
+       "mono": false
+      },
+      {
+       "family": "Helvetica Neue",
+       "share": 0.09,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      12,
+      16,
+      64,
+      77
+     ],
+     "sizeCount": 4,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 76.8,
+      "vw": 10,
+      "font": "Arial Black",
+      "text": "Votre vélo repart ce soir"
+     },
+     "monoShare": 0.78,
+     "monoProseShare": 0.78,
+     "monoFamilies": [
+      "Courier New"
+     ],
+     "monoSamples": [
+      "[ ATELIER ROULEAU ]",
+      "/ /",
+      "Tarifs",
+      "Atelier",
+      "Contact",
+      "REV 2.6 / UNIT D-01 /"
+     ],
+     "microLabels": 11,
+     "microLabelShare": 0.588,
+     "microSamples": [
+      "REV 2.6 / UNIT D-01 /",
+      "RÉPARATION < 24 H",
+      "[ 01 ] CREVAISON",
+      "EXEMPLE À CONFIRMER",
+      "[ 02 ] FREINS",
+      "EXEMPLE À CONFIRMER"
+     ],
+     "upperShare": 0.87,
+     "centerShare": 0,
+     "smallText": 10
+    },
+    "eyebrows": [
+     {
+      "text": "[ 01 ] CREVAISON",
+      "above": "12 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 305
+     },
+     {
+      "text": "[ 02 ] FREINS",
+      "above": "25 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 305
+     },
+     {
+      "text": "[ 03 ] RÉVISION",
+      "above": "85 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 305
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4f4f0",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.15,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#050505",
+       "top": 435,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.02
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#050505",
+       "share": 0.71
+      },
+      {
+       "color": "#e61919",
+       "share": 0.29
+      }
+     ],
+     "button": null,
+     "lowContrast": [
+      {
+       "text": "RÉPARATION < 24 H",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": ">>> APPELER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 282
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 42,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.51,
+    0.5
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 883,
+     "screens": 1,
+     "words": 70,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 0,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo1.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "VOTRE VÉLO REPART CE SOIR",
+     "words": 5,
+     "chars": 25,
+     "lines": 4,
+     "size": 64,
+     "vw": 16.4,
+     "font": "Arial Black",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 1,
+     "top": 57,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "VOTRE VÉLO REPART CE SOIR",
+     "words": 5,
+     "lines": 4,
+     "size": 64,
+     "font": "Arial Black"
+    },
+    "headings": [
+     {
+      "text": "VOTRE VÉLO REPART CE SOIR",
+      "words": 5,
+      "chars": 25,
+      "lines": 4,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 57,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "12 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 2,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 457,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "25 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 2,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.21,
+      "top": 457,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "85 €",
+      "words": 2,
+      "chars": 4,
+      "lines": 2,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Arial Black",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.21,
+      "top": 457,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 4,
+     "over2Lines": 1,
+     "statements": 3,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Courier New",
+       "share": 0.78,
+       "mono": true
+      },
+      {
+       "family": "Arial Black",
+       "share": 0.13,
+       "mono": false
+      },
+      {
+       "family": "Helvetica Neue",
+       "share": 0.09,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      12,
+      16,
+      64
+     ],
+     "sizeCount": 3,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Arial Black",
+      "text": "Votre vélo repart ce soir"
+     },
+     "monoShare": 0.78,
+     "monoProseShare": 0.78,
+     "monoFamilies": [
+      "Courier New"
+     ],
+     "monoSamples": [
+      "[ ATELIER ROULEAU ]",
+      "/ /",
+      "Tarifs",
+      "Atelier",
+      "Contact",
+      "REV 2.6 / UNIT D-01 /"
+     ],
+     "microLabels": 11,
+     "microLabelShare": 0.588,
+     "microSamples": [
+      "REV 2.6 / UNIT D-01 /",
+      "RÉPARATION < 24 H",
+      "[ 01 ] CREVAISON",
+      "EXEMPLE À CONFIRMER",
+      "[ 02 ] FREINS",
+      "EXEMPLE À CONFIRMER"
+     ],
+     "upperShare": 0.87,
+     "centerShare": 0,
+     "smallText": 10
+    },
+    "eyebrows": [
+     {
+      "text": "[ 01 ] CREVAISON",
+      "above": "12 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 411
+     },
+     {
+      "text": "[ 02 ] FREINS",
+      "above": "25 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 411
+     },
+     {
+      "text": "[ 03 ] RÉVISION",
+      "above": "85 €",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 12,
+      "top": 411
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4f4f0",
+     "bodyBgHsl": {
+      "h": 60,
+      "s": 0.15,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#050505",
+       "top": 386,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.02
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#050505",
+       "share": 0.71
+      },
+      {
+       "color": "#e61919",
+       "share": 0.29
+      }
+     ],
+     "button": null,
+     "lowContrast": [
+      {
+       "text": "RÉPARATION < 24 H",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": "EXEMPLE À CONFIRMER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      },
+      {
+       "text": ">>> APPELER",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#e61919",
+       "bg": "#f4f4f0"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 0,
+     "inHero": 0,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": []
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.09
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 57,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "3 eyebrow/kicker label(s) above headings: \"[ 01 ] CREVAISON\" above \"12 €\"; \"[ 02 ] FREINS\" above \"25 €\"; \"[ 03 ] RÉVISION\" above \"85 €\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "mono",
+   "width": 1440,
+   "message": "Monospace type outside code: Courier New — e.g. \"[ ATELIER ROULEAU ]\", \"/ /\", \"Tarifs\", \"Atelier\"",
+   "fix": "Set it in the text face. Monospace is for literal code inside <pre>/<code> only.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "11 tiny uppercase letter-spaced labels (e.g. \"REV 2.6 / UNIT D-01 /\", \"RÉPARATION < 24 H\", \"[ 01 ] CREVAISON\", \"EXEMPLE À CONFIRMER\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"RÉPARATION < 24 H\" 4.2:1 needs 4.5:1; \"EXEMPLE À CONFIRMER\" 4.2:1 needs 4.5:1; \"EXEMPLE À CONFIRMER\" 4.2:1 needs 4.5:1; \"EXEMPLE À CONFIRMER\" 4.2:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (Courier New, Arial Black, Helvetica Neue).",
+   "fix": "Two at most.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "first-action",
+   "width": 1440,
+   "message": "No visible button in the first screen.",
+   "fix": "Give the one primary action a real button in the first screen (a filled or solid-bordered control, 44px or taller), not only a link in the navigation.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 1 picture(s) on the page (1 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "10 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 0 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"VOTRE VÉLO REPART CE SOIR\" → 4 lines (5 words, 64px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_brutalist/desktop-fold.jpg",
+   "pages": [
+    "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_brutalist/desktop-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_brutalist/tablet-fold.jpg",
+   "pages": [
+    "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_brutalist/tablet-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_brutalist/mobile-fold.jpg",
+   "pages": [
+    "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/proto_skills/out_ts_brutalist/mobile-page-01.jpg"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+TASTESKILL · LINT   1 file(s)
+
+FAIL
+  [gradient] Gradient fill. Use a flat colour or a real image (a neutral scrim over a photo is the one exception).  (1×)
+      index.html:12  radial-gradient(
+  [shadow] Shadow. Elements at rest carry none; only real overlays (menu, dialog, sticky bar) may.  (3×)
+      index.html:13  box-shadow:
+      index.html:19  box-shadow:
+      index.html:20  box-shadow:
+  [eyebrow] Eyebrow / kicker label above a heading.  (4×)
+      index.html:16  .eyebrow{
+      index.html:33  class="eyebrow
+      index.html:40  class="eyebrow
+      index.html:43  class="eyebrow
+
+WARN
+  [glass] Backdrop blur. One sticky bar at most; glass cards are a tell.  (1×)
+      index.html:13  backdrop-filter:
+  [transition-all] transition: all. Name the properties (transform, opacity).  (1×)
+      index.html:21  transition:all
+
+RESULT: 8 FAIL, 2 WARN — fix the FAILs before rendering.
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.
