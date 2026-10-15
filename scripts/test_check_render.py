@@ -237,8 +237,10 @@ def part_a() -> None:
     expect("A", "focus : le détail nomme l’arrêt, les couleurs et le ratio",
            all(x in next(d for t, _, d in cr.interpret(focus_case(ring(1.9))) if t.startswith("Contraste de l’indicateur")) for x in ("#c0", "#bbbbbb sur #ffffff = 1.9:1", "1.4.11")), True)
     expect("A", "focus : contour du navigateur, rien de mesuré : conforme", status(cr.interpret(focus_case({"cues": [], "other": False, "ua": True})), "Contraste de l’indicateur de focus"), PASS)
-    expect("A", "focus : indicateur faible mais un changement de fond le porte aussi : pas de réserve",
-           status(cr.interpret(focus_case(dict(ring(1.9), other=True))), "Contraste de l’indicateur de focus"), PASS)
+    expect("A", "focus : indicateur faible accompagné d’un autre changement non mesuré : réserve",
+           status(cr.interpret(focus_case(dict(ring(1.9), other=True))), "Contraste de l’indicateur de focus"), RESERVE)
+    expect("A", "focus : la réserve signale l’autre changement non mesuré",
+           "autre changement de style non mesuré" in next(d for t, _, d in cr.interpret(focus_case(dict(ring(1.9), other=True))) if t.startswith("Contraste de l’indicateur")), True)
     expect("A", "focus : arrêt non mesurable nommé, sans réserve", "#c0" in next(d for t, _, d in cr.interpret(focus_case({"cues": [], "other": True, "ua": False})) if t.startswith("Contraste de l’indicateur")), True)
     expect("A", "focus : un arrêt conforme n’annule pas un arrêt faible", status(cr.interpret(focus_case(ring(5.0), ring(1.4, "ombre"))), "Contraste de l’indicateur de focus"), RESERVE)
     ext_case = lambda blocked, ext=True: dict(raw_case(audit={"brokenImgs": [{"sel": "img.a", "external": ext}]}), blocked=blocked)
@@ -247,6 +249,10 @@ def part_a() -> None:
     expect("A", "image d'une autre origine bloquée par la mesure : réserve, non vérifiée", status(cr.interpret(ext_case(1)), "Images chargées"), RESERVE)
     expect("A", "image d'une autre origine, rien de bloqué (--allow-external) : RETURN", status(cr.interpret(ext_case(0)), "Images chargées"), RETURN)
     expect("A", "aucune image illisible : PASS", status(cr.interpret(raw_case()), "Images chargées"), PASS)
+    expect("A", "image encore en chargement à la mesure : réserve, non vérifiée",
+           status(cr.interpret(raw_case(audit={"pendingImgs": [{"sel": "img.p"}]})), "Images chargées"), RESERVE)
+    expect("A", "image en chargement et image locale illisible : RETURN",
+           status(cr.interpret(raw_case(audit={"pendingImgs": [{"sel": "img.p"}], "brokenImgs": [{"sel": "img.a", "external": False}]})), "Images chargées"), RETURN)
     expect("A", "image cassée : le détail la nomme", "img.a" in next(d for t, _, d in cr.interpret(ext_case(0, ext=False)) if t == "Images chargées"), True)
     expect("A", "opacité de groupe : réserve", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g','opacity':0.5}]})), 'Contraste'), RESERVE)
     expect("A", "opacité non couverte et défaut ailleurs : retour conservé", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g'}], 'contrast':[fail]})), 'Contraste'), RETURN)
@@ -483,6 +489,15 @@ PAGES = {
     "animgardee.html": ('<style>@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}'
                         '@media (prefers-reduced-motion:no-preference){.a{animation:up .3s ease both}}</style><p class="a">Entrée gardée</p>'),
     "animopacite.html": '<style>@keyframes fade{from{opacity:0}to{opacity:1}}.a{animation:fade .3s ease both}</style><p class="a">Fondu seul</p>',
+    # Réinitialisation habituelle du mouvement réduit : les animations démarrent mais durent 0,01 ms.
+    "animreduite.html": ('<style>@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}.a{animation:up .3s ease both}'
+                         '@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}</style>'
+                         '<p class="a">Entrée réduite</p>'),
+    # Deux Element.animate() sans nom sur le même élément : la seconde, infinie, ne doit pas être écartée.
+    "animjsdouble.html": ('<div id="a" style="width:20px;height:20px;background:#000"></div><script>const a=document.getElementById("a");'
+                          'a.animate([{opacity:0},{opacity:1}],{duration:300});'
+                          'a.animate([{transform:"rotate(0)"},{transform:"rotate(360deg)"}],{duration:1000,iterations:Infinity});</script>'),
+    "image_sans_source.html": '<img alt="x" width="100" height="60">',
     "animinfinie.html": '<style>@keyframes spin{to{transform:rotate(360deg)}}.a{width:20px;height:20px;background:#000;animation:spin 1s linear infinite}</style><div class="a"></div>',
     "iconesvg.html": '<button><svg width="12" height="12"><path d="M0 0L12 12M12 0L0 12" stroke="#000"/></svg></button>',
     "iconesvgtitre.html": '<button><svg width="12" height="12"><title>Fermer</title><path d="M0 0L12 12M12 0L0 12" stroke="#000"/></svg></button>',
@@ -587,7 +602,8 @@ def part_b(require: bool) -> str:
                                          ('iconesvgtexte.html','Nom accessible',RESERVE)]:
                 _,c=measure(str(d/filename));expect('B',filename,status(c,prefix),want)
             for filename, want in [('animcourte.html', RESERVE), ('animgardee.html', PASS), ('animopacite.html', RESERVE),
-                                   ('animinfinie.html', RETURN), ('transitionjs.html', RESERVE)]:
+                                   ('animinfinie.html', RETURN), ('transitionjs.html', RESERVE),
+                                   ('animreduite.html', PASS), ('animjsdouble.html', RETURN)]:
                 _, c = measure(str(d / filename)); expect('B', filename + ' sous mouvement réduit', status(c, 'Mouvement réduit'), want)
             motion = lambda page: next(x for t, _, x in measure(str(d / page))[1] if t.startswith('Mouvement réduit'))
             expect('B', 'animation courte : déplacement relevé', 'dont 1 avec déplacement' in motion('animcourte.html'), True)
@@ -620,7 +636,8 @@ def part_b(require: bool) -> str:
             focus_detail = lambda page: next(x for t, _, x in measure(str(d / page))[1] if t.startswith('Contraste de l’indicateur'))
             expect('B', 'focus : contour pâle nommé avec son ratio', all(t in focus_detail('focus_faible.html') for t in ('#bbbbbb sur #ffffff', '1.92:1')), True)
             expect('B', 'focus : changement de fond signalé non mesuré, sans réserve', 'non mesuré' in focus_detail('focus_fond.html'), True)
-            for filename, want in [('image_absente.html', RETURN), ('image_externe.html', RESERVE), ('image_ok.html', PASS)]:
+            for filename, want in [('image_absente.html', RETURN), ('image_externe.html', RESERVE), ('image_ok.html', PASS),
+                                   ('image_sans_source.html', RETURN)]:
                 _, c = measure(str(d / filename)); expect('B', filename + ' : images chargées', status(c, 'Images chargées'), want)
             gros = lambda page: measure(str(d / page), '--mesures')[0]['per_width'][390]['mesures']['gros_textes']
             g = gros('texte_couvert.html')

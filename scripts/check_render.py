@@ -27,7 +27,7 @@ Usage :
 
 Mesures (--mesures) : relevés chiffrés de la page par largeur (titre d'accueil, corps, plus petit texte et sa part, tailles et familles,
 longueur de ligne, images, texte centré, fonds de section, bords gauches, gros textes du premier écran couverts par un autre élément
-ou au haut rogné, actions et navigation du premier écran, palette en OKLCH : fond, fonds voisins, encres, couleurs chromatiques). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie, aucun seuil. Ils se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`, qui n'imposent rien.
+ou au haut rogné, actions et navigation du premier écran, palette en OKLCH : fond, fonds voisins, encres, couleurs chromatiques). Ils ne passent pas par les contrôles : aucun statut, aucun code de sortie, aucun seuil.
 
 Comparaison (--baseline) : chaque contrôle est rapproché du même contrôle d'une mesure antérieure, au même périmètre
 (état et largeurs) et avec les mêmes réglages (--proof, --tab-stops, --allow-external, --wait-ms). Elle distingue un RETURN introduit, préexistant ou disparu ; elle ne change ni les statuts ni le
@@ -242,10 +242,16 @@ AUDIT_JS = r"""
   }
   for (const im of document.querySelectorAll('img')) { if (im.getAttribute('role') === 'presentation' || im.closest('[aria-hidden="true"]')) continue;
     if (!im.hasAttribute('alt')) res.imgs.push({sel: sel(im)}); }
-  // Image visible dont le chargement est terminé sans pixel : introuvable, illisible ou bloquée (autre origine sans --allow-external).
-  res.brokenImgs = [];
+  // Image visible sans source, ou dont le chargement est terminé sans pixel : introuvable, illisible ou bloquée (autre origine sans --allow-external).
+  // Une image visible encore en chargement à la mesure n'est pas vérifiée.
+  res.brokenImgs = []; res.pendingImgs = [];
   for (const im of document.querySelectorAll('img')) { const src = im.currentSrc || im.src;
-    if (!src || !im.complete || im.naturalWidth > 0 || !shown(im)) continue;
+    if (!shown(im)) continue;
+    const declared = im.getAttribute('src') || im.getAttribute('srcset') || (im.parentElement && im.parentElement.tagName === 'PICTURE');
+    if (!declared) { res.brokenImgs.push({sel: sel(im), external: false}); continue; }  // boîte d'image visible sans source
+    if (!src) { res.pendingImgs.push({sel: sel(im)}); continue; }  // source déclarée, pas encore choisie
+    if (!im.complete) { res.pendingImgs.push({sel: sel(im)}); continue; }
+    if (im.naturalWidth > 0) continue;
     let external = false; try { const u = new URL(src, location.href); external = !/^(data|blob):$/.test(u.protocol) && u.origin !== location.origin; } catch (e) {}
     res.brokenImgs.push({sel: sel(im), external}); }
   for (const el of document.querySelectorAll('dialog[open], body *')) {
@@ -412,11 +418,19 @@ MOTION_RECORDER_JS = r"""
     try { for (const k of (a.effect && a.effect.getKeyframes ? a.effect.getKeyframes() : [])) for (const n of Object.keys(k))
       if (!SKIP.has(n)) p.add(n.replace(/[A-Z]/g, m => '-' + m.toLowerCase())); } catch (e) {}
     return [...p]; };
+  // Chaque instance est lue une fois ; les instances d'une même cible et d'un même nom sont fusionnées sans perdre une
+  // animation infinie. Une animation finie dont la durée active ne dépasse pas INSTANT ms (réinitialisation habituelle
+  // du mouvement réduit, 0,01 ms) n'est pas un mouvement perceptible : elle n'est pas notée.
+  const INSTANT = 10, read = new WeakSet();
   const note = a => { try {
+    if (!a || read.has(a)) return; read.add(a);
+    const t = a.effect.getComputedTiming(), infinite = t.iterations === Infinity;
+    if (!infinite && t.activeDuration <= INSTANT) return;
     const target = sel(a.effect && a.effect.target), name = a.animationName || a.transitionProperty || 'anim', key = target + '|' + name;
-    if (seen.has(key)) return;
-    const p = props(a);
-    seen.set(key, {name, target, infinite: a.effect.getComputedTiming().iterations === Infinity, props: p, moves: p.some(n => MOVE.test(n))});
+    const p = props(a), had = seen.get(key);
+    if (had) { had.infinite = had.infinite || infinite; for (const n of p) if (!had.props.includes(n)) had.props.push(n);
+      had.moves = had.props.some(n => MOVE.test(n)); return; }
+    seen.set(key, {name, target, infinite, props: p, moves: p.some(n => MOVE.test(n))});
   } catch (e) {} };
   const scan = () => { try { for (const a of (document.getAnimations ? document.getAnimations() : [])) note(a); } catch (e) {} };
   const hook = e => { try { for (const a of e.target.getAnimations()) note(a); } catch (x) {} };
@@ -745,7 +759,6 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
                 const r = e.getBoundingClientRect(); return r.right > document.documentElement.clientWidth + 1 && getComputedStyle(e).position !== 'fixed'; })
                 .slice(0, 4).map(e => e.tagName.toLowerCase() + (e.className && e.className.baseVal === undefined ? '.' + String(e.className).split(' ')[0] : ''))""")
             audit = page.evaluate(AUDIT_JS, FOC)
-            mesures = page.evaluate(MESURES_JS) if args.mesures else None  # relevés seulement : jamais lus par interpret
             proof = None
             if args.proof:
                 page.evaluate("window.scrollTo(0, 0)")
@@ -778,9 +791,11 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
                             unreached=[e['id'] for e in keyboard['expected'] if e['key'] not in visited], unexpected=unexpected)
             raw["per_width"][w] = {"overflow": dims, "offenders": offenders, "errs": errs, "audit": audit, "proof": proof,
                                    "stops": stops, "missing_ind": missing, "focus_cues": focus_cues, "keyboard": keyboard}
-            if mesures is not None:
-                raw["per_width"][w]["mesures"] = mesures
             ctx.close()
+            if args.mesures:  # relevés seulement, jamais lus par interpret ; page à part : ils ne modifient pas la page contrôlée
+                mctx, mpage, _ = open_page(w)
+                raw["per_width"][w]["mesures"] = mpage.evaluate(MESURES_JS)
+                mctx.close()
 
         ctx, page, _ = open_page(widths[0], reduced=True)
         raw["running"] = page.evaluate(MOTION_REPORT_JS)
@@ -895,8 +910,12 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
         broken_status = RESERVE
     else:
         broken_status = PASS
+    pending = sorted({p["sel"] for d in per.values() for p in d["audit"].get("pendingImgs", [])})
+    if pending and broken_status == PASS:
+        broken_status = RESERVE
     broken_parts = ([f"image introuvable ou illisible : {', '.join(local[:4])}"] if local else []) + \
-                   ([f"image d'une autre origine non chargée : {', '.join(remote[:4])}" + (" ; requêtes externes bloquées, --allow-external les charge" if blocked else " ; introuvable ou illisible")] if remote else [])
+                   ([f"image d'une autre origine non chargée : {', '.join(remote[:4])}" + (" ; requêtes externes bloquées, --allow-external les charge" if blocked else " ; introuvable ou illisible")] if remote else []) + \
+                   ([f"image encore en chargement à la mesure, non vérifiée : {', '.join(pending[:4])}"] if pending else [])
     checks.append(("Images chargées", broken_status, "; ".join(broken_parts) or "aucune image visible illisible"))
 
     miss = sorted({m for d in per.values() for m in d["missing_ind"]})
@@ -921,8 +940,9 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     checks.append(("Parcours clavier : arrêts et indicateur de focus", RESERVE if keyboard_limits else PASS,
                    ' ; '.join(keyboard_details + keyboard_limits) + ' ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant'))
 
-    # Contraste de l'indicateur de focus (WCAG 1.4.11, 3:1). Réserve si un indicateur mesuré est sous le seuil et qu'aucun autre
-    # signal de focus (fond, couleur, bordure, ombre non mesurée) ne peut le porter ; les arrêts non mesurables restent à juger.
+    # Contraste de l'indicateur de focus (WCAG 1.4.11, 3:1). Réserve si un indicateur mesuré est sous le seuil, même accompagné
+    # d'un autre changement de style (fond, couleur, bordure, ombre floue) : non mesuré, celui-ci ne prouve pas que le focus se voit.
+    # Les arrêts sans indicateur mesurable restent à juger, sans réserve.
     if any("focus_cues" in d for d in per.values()):
         low, good, unmeasured = {}, 0, set()
         for d in per.values():
@@ -932,9 +952,9 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
                     good += 1
                 elif best is None and c.get("ua") and not c.get("other"):
                     good += 1
-                elif best is not None and not c.get("other"):
+                elif best is not None:
                     m = max(c["cues"], key=lambda x: x["ratio"])
-                    low[(c["id"], m["kind"], m["fg"], m["bg"], m["ratio"])] = None
+                    low[(c["id"] + (" (autre changement de style non mesuré)" if c.get("other") else ""), m["kind"], m["fg"], m["bg"], m["ratio"])] = None
                 else:
                     unmeasured.add(c["id"])
         lines = [f"{i} : {k} {fg} sur {bg} = {r}:1" for (i, k, fg, bg, r) in list(low)[:4]]
