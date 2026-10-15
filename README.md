@@ -2,7 +2,7 @@
 
 Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu ; il sert aussi à juger et analyser un existant. Quand un travail doit être livré ou audité, le système garde la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
 
-> **Statut :** V1.0.0, révision `R2026-10-15`. Expérimentation maintenue, pensée pour un usage avec revue humaine (voir [les limites](#limites)). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
+> **Statut :** V1.0.0, révision `R2026-10-15.2`. Expérimentation maintenue, pensée pour un usage avec revue humaine (voir [les limites](#limites)). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
 
 ## Par où entrer
 
@@ -28,6 +28,7 @@ Le vocabulaire est expliqué dans [`guides/glossaire.md`](guides/glossaire.md).
 
 Le paquet entier est la skill : `SKILL.md` est à sa racine, avec à côté les sources, les scripts et les références qu’elle lit au moment utile. On installe donc le dossier complet, sous le nom `design-governance-practice` (le format [Agent Skills](https://agentskills.io/specification) exige que le dossier porte le nom de la skill).
 
+<!-- github:début installation -->
 **Avec l’outil `skills`**, depuis la racine de votre projet :
 
 ```bash
@@ -48,7 +49,10 @@ git clone https://github.com/Palolo875/DESIGN-GOVERNANCE1 .claude/skills/design-
 | Codex | `.agents/skills/` | `~/.agents/skills/` |
 | Cursor, Gemini CLI, GitHub Copilot | `.agents/skills/` | `~/.cursor/skills/`, `~/.gemini/skills/`, `~/.copilot/skills/` |
 
-Pour mettre à jour un clone : `git -C .claude/skills/design-governance-practice pull`. Un agent sans gestion de skills reçoit `SKILL.md` comme instructions et travaille depuis le dossier du paquet. Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium. Évitez d’activer dans le même projet une autre skill générale de design : deux skills se déclencheraient sur la même demande avec des consignes différentes.
+Pour mettre à jour un clone : `git -C .claude/skills/design-governance-practice pull`.
+<!-- github:fin installation -->
+
+Un agent sans gestion de skills reçoit `SKILL.md` comme instructions et travaille depuis le dossier du paquet. Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium. Évitez d’activer dans le même projet une autre skill générale de design : deux skills se déclencheraient sur la même demande avec des consignes différentes.
 
 **Vérifier.** Le fichier principal est à la racine du dossier installé, et le lecteur y affiche une route :
 
@@ -62,7 +66,9 @@ Ce contrôle ne prouve pas que l’agent a chargé la skill : demandez-lui quell
 
 Deux boucles se répondent. La première **crée** : cadrer le produit et son public, chercher des références quand elles peuvent changer la décision, choisir une direction, construire une scène complète, polir. La seconde **apprend** : regarder le rendu réel, nommer le défaut principal, corriger, regarder à nouveau, décider. Le détail est dans [`design/README.md`](design/README.md). Le [parcours d’un travail](supports/parcours.md) et la [boucle créer/apprendre](supports/boucle.md) en donnent deux vues complémentaires.
 
+<!-- github:début titre-contenu -->
 ## Ce que contient le dépôt
+<!-- github:fin titre-contenu -->
 
 <a href="supports/systeme.md">
   <picture>
@@ -83,7 +89,7 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 | **Supports** | [`supports/`](supports/README.md) | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
 | **Maintenance** | [`maintenance/`](maintenance/README.md) | Ce que contient la version, évolution du système, distributions et validation. |
 | **Sections d’origine** | [`sections/`](sections/README.md) | Sections restées à leur emplacement d’origine et carte de lecture ; même autorité que les autres. |
-| **Outils** | `scripts/` | Lecteur, contrôles et construction des distributions. |
+| **Outils** | `scripts/` | <!-- github:début outils -->Lecteur, contrôles et construction des distributions.<!-- github:fin outils --> |
 
 La gouvernance s’adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
 
@@ -115,7 +121,8 @@ Une conformité de surface ne vaut ni direction visible, ni preuve d’usage, ni
 
 ## Limites
 
-- **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. La CI du dépôt exécute les contrôles sur chaque commit ([notes de version](RELEASE_NOTES.md#contrôles-inclus)) ; elle atteste la cohérence du paquet, pas cette efficacité.
+- **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre encore l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. <!-- github:début limite-ci -->La CI du dépôt exécute les contrôles sur chaque commit ([notes de version](RELEASE_NOTES.md#contrôles-inclus)) ; elle atteste la cohérence du paquet, pas cette efficacité.<!-- github:fin limite-ci -->
 - **Une validation confirme seulement les contrôles exécutés.** Une capture prouve un rendu, pas un usage : à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle.
 - **Séduisant n’est pas prouvé, conforme n’est pas réussi.** Le système demande de rendre cet écart visible et de corriger le défaut principal, sans le compenser par une autre preuve. Une étape ou une référence qui ne change rien est retirée.
+- **Savoir daté.** Les observations de tendances, d’outils et de normes portent une date (`[VEILLE AAAA-MM]`) et une échéance de revue ; passé cette échéance, elles se revérifient avant usage.
 - **Le système ne remplace** ni le jugement créatif, ni les tests utilisateurs, ni la responsabilité du projet. Toute conclusion dit ce qui a été observé, comment, sur quel périmètre et avec quelle limite.

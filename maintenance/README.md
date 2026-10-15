@@ -10,7 +10,7 @@ Pour qui fait évoluer le système : d’où vient chaque distribution, comment 
 <!-- origine:README.md -->
 ## Source de vérité et distributions
 
-Le dépôt GitHub est la **source de vérité**. La distribution Local est un export dérivé : même arborescence et même README, sans les outils de préparation ni l’intégration continue. Elle ne doit pas être modifiée à la main.
+Le dépôt GitHub est la **source de vérité**. La distribution Local est un export dérivé : même arborescence, sans les outils de préparation ni l’intégration continue ; son README remplace les passages balisés `github:` (installation par dépôt, CI, outils de construction) par leur variante locale, définie dans `scripts/build_distributions.sh`. Elle ne doit pas être modifiée à la main. <!-- références:github -->
 
 Depuis la distribution GitHub, préparez la livraison :
 

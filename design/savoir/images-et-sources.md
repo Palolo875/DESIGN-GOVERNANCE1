@@ -67,6 +67,8 @@ La profondeur de recherche augmente par déclencheur : confiance ou erreur coût
 
 Si deux ou trois requêtes sérieuses ne donnent rien d’honnête, dessine le sujet (`CODE-NATIVE`) ou retiens `SANS-ASSET`, et dis-le (`DIRECTION/VISUAL_TARGET`).
 
+**Calibration culturelle.** Une culture se calibre par des références nommées et locales — un lettrage vernaculaire précis, une archive, un studio, une fonderie, un lieu — jamais par un registre régional générique (« africain », « asiatique », « latino ») qui ramène des dizaines de pays et de traditions à des motifs attendus. Un motif ou une écriture n’est employé que si son sens et son usage sont connus. Vérifie sur le vrai texte la prise en charge réelle de l’écriture par la police (glyphes, ordre, diacritiques), et n’emploie jamais un glyphe ou un symbole comme ornement présenté comme du texte. Sans référence locale retrouvée, la limite est déclarée.
+
 ### Curer, produire et intégrer
 
 Le point de départ n’est pas « quelle image produire ? », mais « quelle relation manque à la promesse, à la preuve ou à l’action ? ».
@@ -76,6 +78,8 @@ Cherche des calibrations dans les domaines qui peuvent changer cette relation �
 <!-- noyau:fin MOY-CALIBRATION -->
 
 Choisis ensuite une route de production déclarée dans `DIRECTION/VISUAL_TARGET`. Une génération réussie ne se mesure pas à son réalisme intrinsèque : elle doit répondre au cadrage, au plan de lecture, au rôle du type, au contraste, au mouvement éventuel, au crop mobile et au niveau de preuve requis.
+
+**Provenance d’un asset généré.** Tout asset généré ou retouché par un outil garde sa provenance dans la trace : généré, retouché ou humain, outil et date. Le marquage `TRUTH/ILLUSTRATIVE` s’applique s’il figure le produit, un lieu, une personne ou un résultat. Ne le présente jamais comme protégé, exclusif ou propriété du client : ces droits dépendent du droit applicable et de l’apport humain, qui ne se décident pas ici. Quand la destination est publique, signale à la personne qu’un étiquetage des contenus générés peut être exigé — en Europe, article 50 de l’AI Act, applicable depuis août 2026 [VEILLE 2026-10] ; ce n’est pas un avis juridique.
 
 Avant de retenir un asset directeur, formule une contre-épreuve proportionnée : quel rendu code-native, asset retiré, crop alternatif ou autre médium ferait mieux apparaître la même relation ? Persiste dans la trace la contre-épreuve, la décision qu’elle pourrait modifier, son résultat et l’alternative refusée. Ne produis cette contre-épreuve que si elle peut réellement modifier la décision ; sinon, conserve la justification de non-applicabilité prévue par ACTION et avance.
 

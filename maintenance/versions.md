@@ -2,7 +2,7 @@
 
 **Version expérimentale :** `V1.0.0`
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
-**Révision :** `R2026-10-15`, 15 octobre 2026.  
+**Révision :** `R2026-10-15.2`, 15 octobre 2026.  
 **Usage recommandé :** pilote avec revue humaine et preuves adaptées au risque.
 
 Cette fiche décrit ce que le système possède aujourd’hui et ce qui en est vérifié. Elle ne retrace pas son histoire.
@@ -27,9 +27,11 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 
 ## Ce que le système sait faire
 
-- **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système) et ne charger que ce qui peut changer la décision.
+- **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système), lire le noyau de fabrication (premier objet, composition, typographie, couleur, boucle d’édition) puis ne charger que ce qui peut changer la décision.
 - **Diriger une proposition** : premier objet, cible visuelle, alternative située, direction lisible dans le rendu.
-- **Construire avec un contenu vrai** : exemples marqués plutôt qu’emplacements vides, sources et droits vérifiés au moment de l’intégration.
+- **Construire avec un contenu vrai** : exemples marqués plutôt qu’emplacements vides, données et graphiques d’exemple cohérents, sources et droits vérifiés au moment de l’intégration, provenance des images générées conservée.
+- **Protéger la personne** : dans les flux d’inscription, de paiement, de consentement ou de résiliation, refuser reste aussi visible et aussi court qu’accepter ; une culture se calibre par des références locales nommées, jamais par un registre régional générique.
+- **Construire sur le socle des navigateurs** : un levier encore limité à un ou deux moteurs s’ajoute en amélioration progressive, avec un repli qui garde la direction lisible.
 - **Observer et corriger** : boucle d’édition sur capture, recette de rendu automatisée pour les fautes objectivables (débordement, contraste, noms accessibles, clavier, cibles, images visibles qui ne se chargent pas, contraste du focus dans les cas lisibles, mouvement réduit observé dès le chargement), avec comparaison à une mesure antérieure pour distinguer les défauts introduits, et relevés de composition facultatifs (`--mesures`), sans seuil ni verdict.
 - **Tracer selon le besoin** : trace légère par défaut, trace complète et fiche `RUN_CARD` validable lorsqu’un travail est repris, partagé, audité ou accepté.
 - **Retrouver un savoir** : lecteur de routes par code, adresse lisible, recherche ou connexions entre domaines.
@@ -50,6 +52,7 @@ Ces sections et cette option sont des essais, suivis selon le cycle de vie de `m
 | `SAVOIR/CRAFT/CFT-01` — « Inventaire du sujet et phrase d’idée » | `PILOT` | Trouver l’idée dans ce que le sujet a de propre : inventaire, phrase d’idée, test du concurrent, une chose vivante. Ne garantit ni la qualité ni une préférence ; ne remplace ni `MODAL` ni le test de singularité. | Contrat de gain réel : runs contrastés avec et sans la procédure. | Retirer la sous-section. |
 | `SAVOIR/CRAFT/CFT-00` — « Mouvement » | Question de revue | Qu’est-ce qui bouge, et pourquoi ? Sans quota ni seuil ; ne dit pas que le mouvement améliore une page. | Runs contrastés : la page qui doit se montrer a-t-elle un mouvement justifié, sans mouvement ajouté là où il n’a pas d’usage ? | Retirer le paragraphe. |
 | `SAVOIR/CRAFT/CFT-05` — « Relations de couleur » | `PILOT` | Fixer un rôle par sa luminosité (OKLCH), nommer la relation d’une palette, fonds voisins, neutres teintés, fond sombre. Repères établis sur des neutres ; WCAG reste le critère. | Runs contrastés : contrastes tenus là où les accents servent, fonds voisins distincts par la luminosité. | Retirer la sous-section. |
+| `BIBLIOTHEQUE/READ` « Traduire un caractère en leviers » | Valeurs `[À ADAPTER]` | Leviers de départ et piège réflexe pour douze caractères perceptuels (calme, tension, intimité…). Servi par sa route, hors du noyau. | Runs contrastés avec et sans le tableau : le caractère visé se lit-il dans le rendu sans tomber dans le piège réflexe ? | Retirer le tableau et sa ligne dans l’index des signaux. |
 | `SAVOIR/TYPE` « Réglage d’un grand texte » et `SAVOIR/CONTEXT` « Durées et courbes, points de départ » | Valeurs `[À ADAPTER]` | Points de départ, non des mesures, pour régler un grand titre et calibrer un mouvement ; chacun porte ses contre-indications et sa preuve. | Essais sur des rendus du paquet jugés par plusieurs personnes. | Retirer les deux paragraphes. |
 | `SAVOIR/SOURCE` « Chercher le monde du sujet dans des collections ouvertes » | `PILOT` | Requêtes tirées de l’inventaire du sujet, critères de choix, honnêteté, droits. Ne remplace ni la fiche de source ni un avis juridique ; aucun accès n’est testé par le paquet. | Contrat de gain réel, accès atteint depuis l’environnement du run, droits relus. | Retirer la sous-section et sa mention dans `MOYENS`. |
 | `scripts/check_render.py --mesures` | Option facultative | Relevés chiffrés de composition : titres et textes, gros textes du premier écran couverts ou au haut rogné, palette en OKLCH, actions et navigation du premier écran. Aucun statut, aucun seuil, aucun effet sur le code de sortie. | Usage sur des runs réels avant de lier un relevé à une règle. | Retirer l’option ; les contrôles restent inchangés. |

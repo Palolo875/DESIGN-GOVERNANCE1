@@ -21,6 +21,25 @@ Une structure peut porter une scène naturelle, éditoriale, technique, tactile 
 Une structure ne choisit pas seule le goût, mais elle ouvre ou ferme des possibilités de présence. Lorsqu’une décision esthétique est active, décris aussi le caractère perceptuel que la structure doit favoriser : **calme ou tension, intimité ou monumentalité, précision ou spontanéité, continuité ou rupture, collection ou instrument, retenue ou intensité**. Ces termes ne sont pas des styles à appliquer ; ils doivent être traduits par des relations observables de masse, de rythme, de matière, de typographie, de lumière, de contenu ou de comportement.
 <!-- noyau:fin STRUCT-EXPRESSION -->
 
+<!-- noyau:début STRUCT-LEVIERS -->
+**Traduire un caractère en leviers.** `[À ADAPTER]` Points de départ, **non des mesures** : choisis un pôle par paire utile (deux paires au plus), applique deux ou trois leviers de sa ligne, puis juge sur capture avec le vrai contenu. La colonne « piège » décrit la version réflexe du pôle : si le rendu y ressemble, nomme ce qui, dans le produit, la justifie ou change de levier. Un levier qui nuit à la lecture, au contraste, à la tâche ou au mouvement réduit perd toujours.
+
+| Caractère | Leviers de départ | Piège réflexe |
+|---|---|---|
+| **Calme** | Un seul foyer par écran ; écart d’échelle titre/texte modéré (environ ×2 à ×2,5) ; espacements réguliers, multiples d’une même unité ; contraste de valeur doux hors action ; mouvement court ou absent. | Page grise sans foyer, « minimalisme » sans hiérarchie. |
+| **Tension** | Masse décentrée et marges inégales ; écart d’échelle fort (×4 ou plus) ; une rupture de grille contrôlée ; deux zones à contraste de valeur net. | Tout décalé ou incliné, désordre sans axe. |
+| **Intimité** | Échelle proche du corps de lecture ; mesure courte (environ 45 à 65 signes) ; adresse directe ; matière proche (papier, photo rapprochée, grain léger) ; densité basse. | Registre « chaleureux » d’une vague datée (`SAVOIR/TOOLS/CONVERGENCE`) posé par défaut. |
+| **Monumentalité** | Un élément très grand (titre ou objet sur environ la moitié de la largeur ou de la hauteur) ; peu d’éléments ; axe ou symétrie fort ; approche resserrée en grand corps. | Titre géant sur fond sombre et dégradé, sans contenu qui le porte. |
+| **Précision** | Grille stricte et alignements sur une base (4 ou 8 px) ; chiffres tabulaires ; filets fins ; unités, légendes et valeurs réelles. | Signes techniques d’une vague datée (mono, repères) posés en décor. |
+| **Spontanéité** | Un ou deux éléments tracés ou légèrement tournés (1 à 3°) ; rythme irrégulier mais lisible ; écriture ou dessin réels ; recadrages libres. | Texture « fait main » générique, artisanat simulé. |
+| **Continuité** | Même trame sur toutes les sections ; objets qui gardent leur place d’un état à l’autre ; palette restreinte ; rythme vertical régulier. | Sections identiques empilées, monotonie. |
+| **Rupture** | Un changement d’échelle, de fond ou de densité placé à un moment précis du récit ; une section qui casse la trame ; inversion clair/sombre motivée. | Chaque section différente sans raison, patchwork. |
+| **Collection** | Items homogènes au même ratio ; tri ou filtre visibles ; légendes courtes ; l’item est la vedette, le cadre s’efface. | Grille de cartes génériques à ombre douce. |
+| **Instrument** | Contrôle direct au premier plan ; état visible et retour immédiat ; données réelles ; densité plus haute, décor minimal. | Tableau de bord décoratif, courbes factices. |
+| **Retenue** | Une ou deux teintes et des neutres teintés ; une seule voix expressive ; ornement absent ; le détail porté par la finition. | Neutre interchangeable « propre et moderne ». |
+| **Intensité** | Couleur saturée en surface étendue, pas seulement en accent ; échelle forte ; contraste de valeur maximal ; mouvement présent mais lié à un état. | Néon ou dégradé vif d’une vague datée, sans rapport au produit. |
+<!-- noyau:fin STRUCT-LEVIERS -->
+
 Une sélection structurelle est créativement utile lorsqu’elle améliore au moins une relation entre le produit et le regard : foyer, cadence, révélation, profondeur, voisinage, contraste, mémoire, geste ou preuve. Une structure peut donc être retenue pour sa contribution perceptuelle, à condition de nommer la décision, la contre-indication et la condition de sortie. La beauté ne justifie pas une structure qui masque la tâche, mais la tâche n’épuise pas toute la valeur d’une structure lorsque la présence, la voix ou l’expérience du regard sont elles-mêmes des décisions du run.
 
 ### BIBLIOTHEQUE/TENSION — diverger avant de sélectionner

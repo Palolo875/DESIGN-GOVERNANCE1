@@ -140,10 +140,14 @@ Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité con
 <!-- noyau:début CHARGE-REGLE -->
 > **Règle de vitesse.** Ouvre l’arbre `DIRECTION/START/TREE`, classe le mode, puis lis sa ligne avec `python3 scripts/read_route.py --mode MODE`. `DIRECTION/START` complet reste disponible si le contexte de lancement ou les capacités doivent être précisés. Lis ce qui peut changer la décision présente ; les routes d’observation et de clôture attendent leur usage. Toute contrainte critique est lue avant le choix qu’elle protège. Pour une relation de craft ouverte, même dans un correctif local, lis les gestes de `SAVOIR/STATE` ; n’approfondis que le savoir qui peut modifier l’intervention, sans ouvrir de nouvelle direction. Avant de construire, déclare le mode, la décision dominante, le risque principal, la preuve minimale et la condition d’arrêt (absolu 4) : une ligne suffit, dans la trace.
 
+**Retrouver un savoir.** `python3 scripts/read_route.py --trouver "terme"` cherche une notion ; sans résultat, reformule, sans conclure à l’absence du savoir. `python3 scripts/read_route.py LOCATOR` lit une route en entier, blocs du noyau repliés ; `python3 scripts/read_route.py --connexions` relie plusieurs propriétaires. Le mode d’emploi complet du lecteur est servi par `DIRECTION/CHARGE`.
+<!-- noyau:fin CHARGE-REGLE -->
+
+<!-- noyau:début CHARGE-RECHERCHE -->
 **Retrouver un savoir utile.** Route inconnue, notion apparemment absente ou finesse sans geste concret : `python3 scripts/read_route.py --trouver "terme"`. La recherche couvre les sections normatives à leurs emplacements actuels : mots entiers, quelques synonymes et traductions, puis correspondances partielles ; routes classées, `--tout` pour tout afficher. Elle ne comprend pas le sens : sans résultat, reformule puis déclare la limite, sans conclure à l’absence du savoir. `python3 scripts/read_route.py --sommaire` liste les routes ; `--sommaire LOCATOR`, leurs sous-sections. `SAVOIR/READ` guide le chargement et `SAVOIR/ROUTING` le jugement. Lis la route utile en entier avec `scripts/read_route.py LOCATOR`, puis applique-la à la décision. Les blocs déjà dans le noyau sont repliés (`--complet` les affiche). Lecteur indisponible : cherche dans la source propriétaire avec son contexte. Respecte la ligne du mode : ni lecture exhaustive, ni direction supplémentaire.
 
 Si plusieurs propriétaires peuvent éclairer une relation ouverte, consulte les connexions situées de `sections/READING_MAP.md` avec `python3 scripts/read_route.py --connexions`. Cette aide dérivée conserve les conditions et limites ; elle ne remplace ni la ligne de CHARGE ni les sources.
-<!-- noyau:fin CHARGE-REGLE -->
+<!-- noyau:fin CHARGE-RECHERCHE -->
 
 Une intention perceptuelle encore sans levier de construction active la traduction de `BIBLIOTHEQUE/SELECT` dans le périmètre du mode ; une route connue se lit directement. Si seule sa fabrication reste ouverte, utilise la calibration de `BIBLIOTHEQUE/CONTRACTS`. Ce passage relie direction, structure et gestes de SAVOIR sans charger le catalogue entier ni ajouter une seconde liste de chargement.
 
@@ -160,15 +164,37 @@ Une intention perceptuelle encore sans levier de construction active la traducti
 <!-- noyau:fin CHARGE-TABLE -->
 
 <!-- noyau:début CHARGE-FIN -->
-Les codes du noyau et les adresses lisibles servent les mêmes sections : une seule lecture suffit. Réponds dans la langue de la demande. La clôture de chaque mode est `ACTION/CLOSE-PACKAGE`, en trace complète ; en trace légère, le run s’arrête à la proposition (`ACTION/HANDOFF`). Pour l’agent, seuls les blocs effectivement compilés dans la skill sont déjà lus ; les autres restent servis par leur route propriétaire. Le lecteur ne replie un bloc que si son texte complet est présent dans la skill ; `README.md`, `guides/3-maitriser.md` et `guides/2-comprendre.md` sont des lectures d’orientation pour les humains ; l’agent n’interroge READING_MAP que par `--connexions`. Tags du noyau : `[REQUIS PAR LE MODULE — scope]`, obligation dans ce scope (sinon `NOT-VERIFIED`, ou `N/A-JUSTIFIED` motivé) ; `[MÉTHODE]`, procédure à adapter.
+Réponds dans la langue de la demande. La clôture de chaque mode est `ACTION/CLOSE-PACKAGE`, en trace complète ; en trace légère, le run s’arrête à la proposition (`ACTION/HANDOFF`). Tags du noyau : `[REQUIS PAR LE MODULE — scope]`, obligation dans ce scope (sinon `NOT-VERIFIED`, ou `N/A-JUSTIFIED` motivé) ; `[MÉTHODE]`, procédure à adapter.
 <!-- noyau:fin CHARGE-FIN -->
 
+<!-- noyau:début CHARGE-LECTEUR -->
+Les codes du noyau et les adresses lisibles servent les mêmes sections : une seule lecture suffit. Pour l’agent, seuls les blocs effectivement compilés dans la skill sont déjà lus ; les autres restent servis par leur route propriétaire. Le lecteur ne replie un bloc que si son texte complet est présent dans la skill ; `README.md`, `guides/3-maitriser.md` et `guides/2-comprendre.md` sont des lectures d’orientation pour les humains ; l’agent n’interroge READING_MAP que par `--connexions`.
+<!-- noyau:fin CHARGE-LECTEUR -->
+
 <!-- noyau:début CHARGE-DETAILS -->
-**Activer le savoir, selon la décision.** Pour une composition nouvelle ou une direction réévaluée, lis `SAVOIR/FRAME/COMPOSITION` et `SAVOIR/FRAME/SINGULARITE` avant de construire ; pour une structure ouverte, `BIBLIOTHEQUE/READ`, `BIBLIOTHEQUE/SELECT`, puis `BIBLIOTHEQUE/TENSION` si l’alternative peut changer le choix. Un brief vague active `DIRECTION/EXTERNAL-START` ; le premier objet et son plafond suivent les routes de la ligne du mode. Une retouche locale conserve la direction retrouvée et charge seulement le savoir utile au delta.
+**Lire les détails selon le signal.** Lis la route utile en entier, au moment où elle peut changer la décision ; les blocs déjà dans le noyau y sont repliés. Une retouche locale conserve la direction retrouvée et charge seulement le savoir utile au delta. Ces lectures éclairent un choix situé, sans prescrire une police, une palette ou un gabarit.
 
-Pour une typographie ouverte, lis `SAVOIR/TYPE` sur le vrai contenu ; pour une relation couleur ouverte, `SAVOIR/CRAFT/CFT-05` ; pour texte sur image, densité ou harmonie, `SAVOIR/CRAFT/CFT-03`. Un choix de style utile active `SAVOIR/STYLE` ; un asset ou une calibration culturelle utile, `SAVOIR/SOURCE`. Ces lectures éclairent un choix situé, sans prescrire une police, une palette ou un gabarit.
+| Signal | Route |
+|---|---|
+| Composition nouvelle ou direction réévaluée | `SAVOIR/FRAME/COMPOSITION` et `SAVOIR/FRAME/SINGULARITE`, avant de construire |
+| Structure ouverte | `BIBLIOTHEQUE/READ`, `BIBLIOTHEQUE/SELECT` ; `BIBLIOTHEQUE/TENSION` si l’alternative peut changer le choix |
+| Caractère perceptuel à traduire en leviers (calme, tension, intimité…) | `BIBLIOTHEQUE/READ`, « Traduire un caractère en leviers » |
+| Brief vague | `DIRECTION/EXTERNAL-START` ; le premier objet et son plafond suivent la ligne du mode |
+| Typographie ouverte | `SAVOIR/TYPE`, sur le vrai contenu |
+| Relation de couleur ouverte | `SAVOIR/CRAFT/CFT-05` |
+| Texte sur image, densité ou harmonie | `SAVOIR/CRAFT/CFT-03` |
+| Choix de style utile | `SAVOIR/STYLE` |
+| Asset, provenance ou calibration culturelle | `SAVOIR/SOURCE` |
+| Levier CSS récent ou limité à un moteur, compatibilité | `SAVOIR/TECH` |
+| Finesse sans geste concret | `SAVOIR/STATE`, avant l’intervention |
+| Revue créative | `SAVOIR/CRAFT/CFT-00` |
+| Alternative située | `SAVOIR/CRAFT/CFT-02` |
+| Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` |
+| Repasse | `SAVOIR/INTEGRITY/REPASSE`, dans son périmètre |
+| Comparaison sur capture en `DIRECTION` | `ACTION/ATELIER-EDITION`, même en trace légère ; la formalisation B1b reste limitée à son scope |
+| Diagnostic ou condition d’arrêt encore ouvert | `DIRECTION/DOUBLE-LOOP` |
 
-Pour une finesse sans geste concret, lis `SAVOIR/STATE` avant l’intervention ; pour une revue créative, `SAVOIR/CRAFT/CFT-00` ; pour une alternative située, `SAVOIR/CRAFT/CFT-02` ; pour un motif générique ou réflexe, `SAVOIR/CRAFT/CFT-01`. La repasse suit `SAVOIR/INTEGRITY/REPASSE` dans son périmètre. En `DIRECTION`, lis `ACTION/ATELIER-EDITION` avant la comparaison sur capture, même en trace légère ; la formalisation B1b reste limitée à son scope. Si le diagnostic ou la condition d’arrêt reste ouvert, approfondis `DIRECTION/DOUBLE-LOOP`. Aucun détail n’est considéré lu parce qu’il porte un marqueur « noyau » dans sa source.
+Aucun détail n’est considéré lu parce qu’il porte un marqueur « noyau » dans sa source.
 <!-- noyau:fin CHARGE-DETAILS -->
 
 

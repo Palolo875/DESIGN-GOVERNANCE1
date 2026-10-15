@@ -81,10 +81,52 @@ cp -a "$ROOT/scripts/build_core.py" "$STAGE/github/scripts/build_core.py"
 mkdir -p "$STAGE/github/.github/workflows"
 cp -a "$ROOT/.github/workflows/validate.yml" "$STAGE/github/.github/workflows/validate.yml"
 
-# Local : même arborescence et même README que GitHub, sans les outils de préparation ni l’intégration continue.
+# Local : même arborescence que GitHub, sans les outils de préparation ni l’intégration continue ; README adapté ci-dessous.
 cp -a "$STAGE/github/." "$STAGE/local/"
 rm -rf "$STAGE/local/.github" "$STAGE/local/.gitignore" "$STAGE/local/scripts/build_distributions.sh" \
   "$STAGE/local/scripts/preparer_livraison.py" "$STAGE/local/scripts/test_preparer_livraison.py"
+
+# README du Local : les passages balisés `github:début ID` / `github:fin ID` (installation par
+# dépôt, CI, outils de construction) sont remplacés par leur variante locale ; la distribution
+# GitHub garde ces balises, invisibles au rendu. Un passage balisé sans variante, ou une variante
+# sans passage, fait échouer le build.
+python3 - "$STAGE/local/README.md" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1])
+text = path.read_text(encoding="utf-8")
+LOCAL = {
+    "installation": """Copiez ce dossier dans le dossier de skills de votre agent, sous ce nom ; par exemple, pour Claude Code dans le projet :
+
+```bash
+mkdir -p .claude/skills
+cp -R chemin/vers/ce/dossier .claude/skills/design-governance-practice
+```
+
+| Agent | Dossier du projet | Dossier personnel |
+|---|---|---|
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Codex | `.agents/skills/` | `~/.agents/skills/` |
+| Cursor, Gemini CLI, GitHub Copilot | `.agents/skills/` | `~/.cursor/skills/`, `~/.gemini/skills/`, `~/.copilot/skills/` |
+
+Pour mettre à jour, remplacez le dossier installé par le nouvel export complet, sans fusionner les deux versions.""",
+    "titre-contenu": "## Ce que contient le paquet",
+    "outils": "Lecteur de routes, recette de rendu et contrôles du paquet.",
+    "limite-ci": "Les contrôles inclus (`python3 scripts/validate_all.py`, voir les [notes de version](RELEASE_NOTES.md#contrôles-inclus)) attestent la cohérence du paquet, pas cette efficacité.",
+}
+pattern = re.compile(r"<!-- github:début ([a-z-]+) -->\n?(.*?)\n?<!-- github:fin \1 -->", re.S)
+found = pattern.findall(text)
+ids = [i for i, _ in found]
+if len(ids) != len(set(ids)) or set(ids) != set(LOCAL):
+    raise SystemExit(f"BUILD FAILED — README Local : passages balisés {sorted(ids)} ≠ variantes {sorted(LOCAL)}")
+text = pattern.sub(lambda m: LOCAL[m.group(1)], text)
+if "github:" in text:
+    raise SystemExit("BUILD FAILED — README Local : balise github restante")
+path.write_text(text, encoding="utf-8")
+print(f"README LOCAL — {len(LOCAL)} passages remplacés par leur variante locale")
+PY
 
 # Vérification de la distribution canonique avant archivage.
 python3 "$STAGE/github/scripts/validate_design_governance.py"
