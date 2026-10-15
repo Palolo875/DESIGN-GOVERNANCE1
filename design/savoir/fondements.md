@@ -34,7 +34,7 @@ Un moodboard, une référence ou une rationale doit être annoté par la décisi
 ### Singularité sans rejet des conventions
 
 <!-- noyau:début COMP-SINGULARITE -->
-Le test de singularité demande : si le logo et le nom disparaissent, qu’est-ce qui reste spécifique au produit ? La réponse peut être une donnée, une tâche, une hiérarchie, une voix, une densité, une interaction, une microcopie ou un traitement matériel.
+Le test de singularité demande : si le logo et le nom disparaissent, qu’est-ce qui reste spécifique au produit ? La réponse peut être une donnée, une tâche, une hiérarchie, une voix, une densité, une interaction, une microcopie ou un traitement matériel. Au premier regard, le genre doit pourtant se reconnaître : la première impression se forme en une fraction de seconde et favorise une complexité contenue et une forme attendue pour ce type de surface (Tuch et al., 2012). La singularité se joue donc d’abord dans ce qui est propre au produit — objet, donnée, voix, matière, détail — avant de déformer la structure attendue.
 <!-- noyau:fin COMP-SINGULARITE -->
 
 La singularité n’exige pas une structure spectaculaire lorsque la convention de genre sert mieux l’usage. La convergence de genre est légitime lorsque la structure partagée répond à un besoin connu et que contenu, états, données, microcopie et craft sont propres au produit.

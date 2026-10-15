@@ -21,6 +21,10 @@ Associe chaque technique à une preuve adaptée :
 
 Le jugement commence par `P0` : direction visuelle, hiérarchie, composition, typographie, matière, états, contenu et action dominante. `P1` vérifie le plancher de compréhension, d’usage et d’accessibilité. `P2` vérifie que la décision est correctement traduite dans le runtime réel — web, Flutter, Swift, Kotlin ou autre stack. `P3` couvre performance, compatibilité, robustesse et maintien lorsque le risque le requiert. Si un risque critique d’usage, d’accessibilité, de sécurité, de confidentialité ou de permission est déclaré, sa protection passe avant l’optimisation visuelle, sans supprimer les autres contrôles. Une plateforme ne justifie ni une dégradation silencieuse du craft ni un `PASS` sans preuve.
 
+### Socle et amélioration progressive
+
+`[À ADAPTER]` [VEILLE 2026-10] Une décision visuelle qui porte la proposition repose sur le socle largement disponible des navigateurs (Baseline). Un levier encore limité à un ou deux moteurs — à cette date `corner-shape`, les animations pilotées par le défilement, les view transitions entre documents ou `display: grid-lanes` — s’ajoute en amélioration progressive, sous `@supports`, avec un repli qui garde la direction lisible. `scripts/check_render.py` observe Chromium seul : le rendu d’un levier dans un autre moteur reste `NOT-VERIFIED`, et un levier propre à un autre moteur n’y est pas visible. Vérifie le statut au moment de l’intégrer (Baseline sur web.dev) ; les exemples ci-dessus sont datés et périment. À revoir avant 2027-04.
+
 ### Traduire production et observation par médium
 
 Ces points de départ adaptent le contrat au support utile ; ils ne constituent ni catalogue obligatoire ni preuve que les moyens sont connectés. Rapproche ressource retrouvable, action de fabrication et observation dans la fiche ou la spec existante ; charge seulement la famille qui peut changer la décision.

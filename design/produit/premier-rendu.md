@@ -39,6 +39,8 @@ La couverture de chaque exigence emploie `OBSERVED`, `NOT-VERIFIED` ou `N/A-JUST
 
 Ces lignes décrivent les décisions de construction et la couverture attendue ; elles ne créent pas un nouveau gate ni un formulaire universel. `ACTION` garde les preuves, les limites et le verdict ; `SAVOIR/CONTEXT` et `SAVOIR/TECH` sont chargés seulement lorsque leurs questions peuvent changer la décision, la preuve ou la limite. Lorsque la capacité nécessaire manque, déclare `NOT-VERIFIED` ou l’issue appropriée au lieu de réduire silencieusement l’ambition de protection.
 
+**Flux d’engagement.** Dans un flux d’inscription, d’abonnement, de paiement, de consentement ou de résiliation, refuser, annuler ou se désabonner reste aussi visible et aussi court qu’accepter. Sont exclus les motifs trompeurs (dark patterns) : formule culpabilisante sur le choix de refus (« Non merci, je préfère payer plus »), option présélectionnée en faveur de l’offre, prix ou frais révélés seulement à la fin, résiliation par un autre canal ou par un parcours plus long que l’inscription. Une exception demandée par la personne est déclarée dans la réponse. Ces motifs ont été sanctionnés (FTC contre Amazon, septembre 2025) [VEILLE 2026-10].
+
 **Source de classification.** Le mode est classé par `DIRECTION/START`. ACTION ne reclassifie pas silencieusement une tâche parce qu’une capacité, un outil ou une preuve manque. Il déclare alors la limite, le statut et la prochaine preuve.
 
 ---
