@@ -1,0 +1,57 @@
+{"script": "read_route.py", "t": 1792047372.1243412, "argv": ["DIRECTION/START/TREE"]}
+{"script": "read_route.py", "t": 1792047375.847517, "argv": ["--mode", "STANDARD"]}
+{"script": "read_route.py", "t": 1792047378.8345928, "argv": ["ACTION/RUN-STANDARD"]}
+{"script": "read_route.py", "t": 1792047378.9303317, "argv": ["ACTION/UI-UX-REALITY"]}
+{"script": "read_route.py", "t": 1792047383.453476, "argv": ["ACTION/GATE-A"]}
+{"script": "read_route.py", "t": 1792047383.5383441, "argv": ["DIRECTION/EXTERNAL-START"]}
+{"script": "read_route.py", "t": 1792047383.634094, "argv": ["DIRECTION/DOMAIN-FRAME"]}
+{"script": "read_route.py", "t": 1792047389.8041892, "argv": ["--sommaire"]}
+{"script": "read_route.py", "t": 1792047390.1124263, "argv": ["BIBLIOTHEQUE/SELECT"]}
+{"script": "read_route.py", "t": 1792047390.2152119, "argv": ["BIBLIOTHEQUE/READ"]}
+{"script": "read_route.py", "t": 1792047395.9662113, "argv": ["SAVOIR/CONTEXT"]}
+{"script": "read_route.py", "t": 1792047396.0509465, "argv": ["SAVOIR/FRAME", "--complet"]}
+{"script": "read_route.py", "t": 1792047400.6893673, "argv": ["SAVOIR/FRAME/COMPOSITION"]}
+{"script": "read_route.py", "t": 1792047400.7844439, "argv": ["SAVOIR/FRAME/SINGULARITE"]}
+{"script": "read_route.py", "t": 1792047400.874079, "argv": ["SAVOIR/TYPE"]}
+{"script": "read_route.py", "t": 1792047405.3058255, "argv": ["SAVOIR/CRAFT/CFT-05"]}
+{"script": "read_route.py", "t": 1792047405.3946745, "argv": ["--sommaire", "BIBLIOTHEQUE"]}
+{"script": "read_route.py", "t": 1792047410.5273988, "argv": ["--sommaire"]}
+{"script": "read_route.py", "t": 1792047410.8211815, "argv": ["--trouver", "tablette cuisine mains"]}
+{"script": "read_route.py", "t": 1792047412.7529788, "argv": ["--trouver", "cible tactile"]}
+{"script": "read_route.py", "t": 1792047419.3686025, "argv": ["BIBLIOTHEQUE/SUPPORT"]}
+{"script": "read_route.py", "t": 1792047419.4609025, "argv": ["BIBLIOTHEQUE/GRID"]}
+{"script": "read_route.py", "t": 1792047419.543538, "argv": ["BIBLIOTHEQUE/MICRO"]}
+{"script": "read_route.py", "t": 1792047419.63139, "argv": ["BIBLIOTHEQUE/OBJECT"]}
+{"script": "read_route.py", "t": 1792047425.9502137, "argv": ["DIRECTION/CREATIVE-BOOT"]}
+{"script": "read_route.py", "t": 1792047426.0308526, "argv": ["SAVOIR/STATE"]}
+{"script": "read_route.py", "t": 1792047432.5381649, "argv": ["ACTION/HANDOFF"]}
+{"script": "read_route.py", "t": 1792047432.636245, "argv": ["ACTION/GATE-B/B2"]}
+{"script": "read_route.py", "t": 1792047432.8109953, "argv": ["SAVOIR/CRAFT/CFT-00"]}
+{"script": "read_route.py", "t": 1792047432.921482, "argv": ["SAVOIR/CRAFT/CFT-01"]}
+{"script": "read_route.py", "t": 1792047444.585729, "argv": ["DIRECTION/FIRST-OBJECT"]}
+{"script": "read_route.py", "t": 1792047444.6774747, "argv": ["SAVOIR/CRAFT/CFT-03"]}
+{"script": "read_route.py", "t": 1792047444.9143007, "argv": ["SAVOIR/CRAFT/CFT-06"]}
+{"script": "read_route.py", "t": 1792047559.1970463, "argv": ["--sommaire", "SAVOIR/TOOLS"]}
+{"script": "read_route.py", "t": 1792047559.3055215, "argv": ["SAVOIR/TOOLS/MOYENS"]}
+{"script": "check_render.py", "t": 1792048296.831256, "argv": ["--help"]}
+{"script": "check_render.py", "t": 1792048300.9873178, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html", "--widths", "390,768,1024,1280", "--proof", "#view .row", "--tab-stops", "60", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/_travail/recette-1.json", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/captures-recette"]}
+{"script": "check_render.py", "t": 1792048332.1527278, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html", "--widths", "1280", "--tab-stops", "120", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/_travail/recette-tab.json"]}
+{"script": "check_render.py", "t": 1792048339.8824666, "argv": ["file:///tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html#vide", "--widths", "390,768,1024,1280"]}
+{"script": "check_render.py", "t": 1792048340.0075028, "argv": ["file:///tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html#hors-ligne", "--widths", "390,768,1024,1280"]}
+{"script": "check_render.py", "t": 1792048340.103607, "argv": ["file:///tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html#premier-lancement", "--widths", "390,768,1024,1280"]}
+{"script": "check_render.py", "t": 1792048340.1998043, "argv": ["file:///tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html#erreur", "--widths", "390,768,1024,1280"]}
+{"script": "check_render.py", "t": 1792048340.3284814, "argv": ["file:///tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html#chargement", "--widths", "390,768,1024,1280"]}
+{"script": "check_render.py", "t": 1792048346.7290573, "argv": ["file:///tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html#hors-ligne", "--widths", "768,1280"]}
+{"script": "check_render.py", "t": 1792048346.8407412, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html", "--widths", "768,1024", "--click", "#open-cmd", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/_travail/recette-tiroir.json"]}
+{"script": "check_render.py", "t": 1792048368.6503148, "argv": ["http://127.0.0.1:8123/stock-cuisine.html#vide", "--widths", "390,768,1024,1280", "--tab-stops", "40"]}
+{"script": "check_render.py", "t": 1792048388.1211193, "argv": ["http://127.0.0.1:8123/stock-cuisine.html#hors-ligne", "--widths", "390,768,1024,1280", "--tab-stops", "40"]}
+{"script": "check_render.py", "t": 1792048407.6127176, "argv": ["http://127.0.0.1:8123/stock-cuisine.html#premier-lancement", "--widths", "390,768,1024,1280", "--tab-stops", "40"]}
+{"script": "check_render.py", "t": 1792048420.545974, "argv": ["http://127.0.0.1:8123/stock-cuisine.html#erreur", "--widths", "390,768,1024,1280", "--tab-stops", "40"]}
+{"script": "check_render.py", "t": 1792048433.0891175, "argv": ["http://127.0.0.1:8123/stock-cuisine.html#chargement", "--widths", "390,768,1024,1280", "--tab-stops", "40"]}
+{"script": "check_render.py", "t": 1792048612.2853274, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html", "--widths", "390,768,1024,1280", "--proof", "#view .row", "--tab-stops", "120", "--mesures", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/_travail/recette-2.json", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/captures-recette"]}
+{"script": "check_render.py", "t": 1792048711.4891076, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/stock-cuisine.html", "--widths", "390,768,1024,1280", "--proof", "#view .row", "--tab-stops", "120", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s2/out/captures-recette"]}
+{"script": "check_render.py", "t": 1792048735.3047938, "argv": ["http://127.0.0.1:8124/stock-cuisine.html#vide", "--widths", "390,768,1024,1280", "--tab-stops", "120"]}
+{"script": "check_render.py", "t": 1792048756.7138507, "argv": ["http://127.0.0.1:8124/stock-cuisine.html#hors-ligne", "--widths", "390,768,1024,1280", "--tab-stops", "120"]}
+{"script": "check_render.py", "t": 1792048778.6319444, "argv": ["http://127.0.0.1:8124/stock-cuisine.html#premier-lancement", "--widths", "390,768,1024,1280", "--tab-stops", "120"]}
+{"script": "check_render.py", "t": 1792048791.1263251, "argv": ["http://127.0.0.1:8124/stock-cuisine.html#erreur", "--widths", "390,768,1024,1280", "--tab-stops", "120"]}
+{"script": "check_render.py", "t": 1792048803.6146913, "argv": ["http://127.0.0.1:8124/stock-cuisine.html#chargement", "--widths", "390,768,1024,1280", "--tab-stops", "120"]}

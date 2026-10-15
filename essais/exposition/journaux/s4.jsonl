@@ -1,0 +1,45 @@
+{"script": "read_route.py", "t": 1792047373.870748, "argv": ["DIRECTION/START/TREE"]}
+{"script": "read_route.py", "t": 1792047379.718665, "argv": ["--mode", "RUN-DIRECTION"]}
+{"script": "read_route.py", "t": 1792047379.829033, "argv": ["--help"]}
+{"script": "read_route.py", "t": 1792047380.0587423, "argv": ["DIRECTION/EXTERNAL-START"]}
+{"script": "read_route.py", "t": 1792047384.4633474, "argv": ["--mode", "DIRECTION"]}
+{"script": "read_route.py", "t": 1792047384.610792, "argv": ["DIRECTION/START"]}
+{"script": "read_route.py", "t": 1792047389.4919794, "argv": ["ACTION/RUN-DIRECTION"]}
+{"script": "read_route.py", "t": 1792047389.5902963, "argv": ["DIRECTION/CREATIVE-BOOT"]}
+{"script": "read_route.py", "t": 1792047393.087177, "argv": ["DIRECTION/VISUAL_TARGET"]}
+{"script": "read_route.py", "t": 1792047393.1771371, "argv": ["DIRECTION/FIRST-OBJECT"]}
+{"script": "read_route.py", "t": 1792047393.2731934, "argv": ["ACTION/FIRST-RENDER"]}
+{"script": "read_route.py", "t": 1792047399.5711215, "argv": ["ACTION/UI-UX-REALITY"]}
+{"script": "read_route.py", "t": 1792047399.655573, "argv": ["ACTION/GATE-A"]}
+{"script": "read_route.py", "t": 1792047399.8907356, "argv": ["SAVOIR/TYPE"]}
+{"script": "read_route.py", "t": 1792047406.1724448, "argv": ["ACTION/PIPELINE-DIRECTION"]}
+{"script": "read_route.py", "t": 1792047406.2630954, "argv": ["ACTION/VISUAL_PROOF"]}
+{"script": "read_route.py", "t": 1792047406.3536706, "argv": ["ACTION/GATE-C"]}
+{"script": "read_route.py", "t": 1792047412.3926578, "argv": ["SAVOIR/FRAME/COMPOSITION"]}
+{"script": "read_route.py", "t": 1792047412.4776986, "argv": ["SAVOIR/FRAME/SINGULARITE"]}
+{"script": "read_route.py", "t": 1792047412.6640346, "argv": ["BIBLIOTHEQUE/READ"]}
+{"script": "read_route.py", "t": 1792047412.7651165, "argv": ["BIBLIOTHEQUE/SELECT"]}
+{"script": "read_route.py", "t": 1792047412.8411493, "argv": ["BIBLIOTHEQUE/TENSION"]}
+{"script": "read_route.py", "t": 1792047419.264195, "argv": ["BIBLIOTHEQUE/SEQUENCE"]}
+{"script": "read_route.py", "t": 1792047419.3656895, "argv": ["DIRECTION/DIRECTION-ATELIER"]}
+{"script": "read_route.py", "t": 1792047419.4445698, "argv": ["DIRECTION/DOMAIN-FRAME"]}
+{"script": "read_route.py", "t": 1792047419.6773057, "argv": ["SAVOIR/TOOLS/CONVERGENCE"]}
+{"script": "read_route.py", "t": 1792047419.7634573, "argv": ["SAVOIR/TOOLS/MOYENS"]}
+{"script": "read_route.py", "t": 1792047425.874402, "argv": ["ACTION/ATELIER-EDITION"]}
+{"script": "read_route.py", "t": 1792047425.984049, "argv": ["SAVOIR/CRAFT/CFT-00"]}
+{"script": "read_route.py", "t": 1792047426.0838542, "argv": ["SAVOIR/STATE"]}
+{"script": "read_route.py", "t": 1792047433.6931124, "argv": ["SAVOIR/CRAFT/CFT-05"]}
+{"script": "read_route.py", "t": 1792047433.7804236, "argv": ["SAVOIR/CRAFT/CFT-02"]}
+{"script": "read_route.py", "t": 1792047433.8988273, "argv": ["SAVOIR/CRAFT/CFT-01"]}
+{"script": "read_route.py", "t": 1792047434.130239, "argv": ["SAVOIR/CRAFT/CFT-04a"]}
+{"script": "read_route.py", "t": 1792047434.225929, "argv": ["SAVOIR/CRAFT/CFT-06"]}
+{"script": "read_route.py", "t": 1792047434.3339176, "argv": ["SAVOIR/CRAFT/CFT-03"]}
+{"script": "read_route.py", "t": 1792047434.43741, "argv": ["SAVOIR/TOOLS/POINTS-DE-DEPART"]}
+{"script": "check_render.py", "t": 1792047554.15965, "argv": ["--help"]}
+{"script": "check_render.py", "t": 1792048160.866584, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/jardin-partage.html", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/captures/v1", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v1.json", "--proof", ".plan-bloc svg"]}
+{"script": "check_render.py", "t": 1792048428.118643, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/jardin-partage.html", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/captures/v2", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v2.json", "--proof", ".plan-bloc svg", "--baseline", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v1.json"]}
+{"script": "check_render.py", "t": 1792048458.6464124, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/jardin-partage.html", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/captures/v2-etat-selection", "--click", ".zone[data-bed='3']", "--click", "#sel-add", "--click", ".leg[data-legend='cuve']", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v2-etat.json"]}
+{"script": "check_render.py", "t": 1792048513.0036514, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/jardin-partage.html", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/captures/v2-etat-selection", "--click", ".zone[data-bed='3']", "--click", "#sel-add", "--click", ".leg[data-legend='cuve']", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v2-etat.json"]}
+{"script": "check_render.py", "t": 1792048517.8220508, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/jardin-partage.html", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/captures/v2-etat-selection", "--click", ".zone[data-bed='3']", "--click", "#sel-add", "--click", ".leg[data-legend='cuve']", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v2-etat.json"]}
+{"script": "check_render.py", "t": 1792048570.7348948, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/jardin-partage.html", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/captures/v2-etat-selection", "--click", ".zone[data-bed='3']", "--click", ".leg[data-legend='cuve']", "--click", "[data-add='cuve']", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v2-etat.json"]}
+{"script": "check_render.py", "t": 1792048678.760611, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/jardin-partage.html", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/captures/apres", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/controle-rendu.json", "--proof", ".plan-bloc svg", "--baseline", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s4/out/_work/mesure-v1.json"]}

@@ -1,0 +1,16 @@
+passage ajouté (route lue en entier)     s1 s2 s3 s4   (t en s depuis le premier appel)
+CFT-01 inventaire du sujet                t= 66  t= 61    -    t= 60
+CFT-05 relations de couleur               t= 50  t= 33  t=171  t= 60
+CFT-00 substance et mouvement             t= 45  t= 61  t= 47  t= 52
+CFT-06 écriture                           t= 50  t= 73  t=165  t= 60
+TYPE grand texte                          t= 15  t= 29  t= 16  t= 26
+CONTEXT durées                            index  t= 24    -      -  
+SOURCE images libres                        -      -      -      -  
+POINTS-DE-DEPART                          t= 35    -    t=165  t= 61
+GRID gabarit                                -    t= 47    -      -  
+SCENE gabarit                               -      -    t= 40    -  
+
+s1: 34 lectures de route ; 5 appels de check_render.py dont 1 avec --mesures et 4 avec --proof
+s2: 28 lectures de route ; 22 appels de check_render.py dont 1 avec --mesures et 3 avec --proof
+s3: 36 lectures de route ; 4 appels de check_render.py dont 1 avec --mesures et 3 avec --proof
+s4: 35 lectures de route ; 8 appels de check_render.py dont 0 avec --mesures et 3 avec --proof

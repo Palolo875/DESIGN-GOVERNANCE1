@@ -1,0 +1,41 @@
+{"script": "read_route.py", "t": 1792047373.3007069, "argv": ["DIRECTION/START/TREE"]}
+{"script": "read_route.py", "t": 1792047377.098218, "argv": ["--mode", "DIRECTION"]}
+{"script": "read_route.py", "t": 1792047382.0038695, "argv": ["ACTION/RUN-DIRECTION"]}
+{"script": "read_route.py", "t": 1792047382.0841398, "argv": ["DIRECTION/EXTERNAL-START"]}
+{"script": "read_route.py", "t": 1792047385.6896665, "argv": ["DIRECTION/CREATIVE-BOOT"]}
+{"script": "read_route.py", "t": 1792047385.764674, "argv": ["DIRECTION/VISUAL_TARGET"]}
+{"script": "read_route.py", "t": 1792047385.846104, "argv": ["DIRECTION/FIRST-OBJECT"]}
+{"script": "read_route.py", "t": 1792047389.5038283, "argv": ["SAVOIR/TYPE"]}
+{"script": "read_route.py", "t": 1792047389.6349738, "argv": ["ACTION/FIRST-RENDER"]}
+{"script": "read_route.py", "t": 1792047392.8404427, "argv": ["ACTION/UI-UX-REALITY"]}
+{"script": "read_route.py", "t": 1792047392.9689476, "argv": ["ACTION/GATE-A"]}
+{"script": "read_route.py", "t": 1792047400.156228, "argv": ["ACTION/PIPELINE-DIRECTION"]}
+{"script": "read_route.py", "t": 1792047400.2506163, "argv": ["ACTION/VISUAL_PROOF"]}
+{"script": "read_route.py", "t": 1792047400.3290765, "argv": ["ACTION/GATE-C"]}
+{"script": "read_route.py", "t": 1792047406.791715, "argv": ["SAVOIR/FRAME/COMPOSITION"]}
+{"script": "read_route.py", "t": 1792047406.897726, "argv": ["SAVOIR/FRAME/SINGULARITE"]}
+{"script": "read_route.py", "t": 1792047407.1706116, "argv": ["BIBLIOTHEQUE/READ"]}
+{"script": "read_route.py", "t": 1792047407.2714448, "argv": ["BIBLIOTHEQUE/SELECT"]}
+{"script": "read_route.py", "t": 1792047412.8361998, "argv": ["BIBLIOTHEQUE/TENSION"]}
+{"script": "read_route.py", "t": 1792047412.9246666, "argv": ["BIBLIOTHEQUE/SEQUENCE"]}
+{"script": "read_route.py", "t": 1792047413.010346, "argv": ["SCENE/EDITORIAL_FIELD"]}
+{"script": "read_route.py", "t": 1792047413.1031904, "argv": ["OBJECT/EDITORIAL_SELECTION"]}
+{"script": "read_route.py", "t": 1792047419.6757414, "argv": ["DIRECTION/DIRECTION-ATELIER"]}
+{"script": "read_route.py", "t": 1792047419.7599535, "argv": ["DIRECTION/DOMAIN-FRAME"]}
+{"script": "read_route.py", "t": 1792047419.9525373, "argv": ["SAVOIR/TOOLS/CONVERGENCE"]}
+{"script": "read_route.py", "t": 1792047420.0344563, "argv": ["SAVOIR/CRAFT/CFT-00"]}
+{"script": "read_route.py", "t": 1792047437.9370317, "argv": ["SAVOIR/MOYENS"]}
+{"script": "read_route.py", "t": 1792047438.0395691, "argv": ["SAVOIR/TOOLS/MOYENS"]}
+{"script": "read_route.py", "t": 1792047538.262045, "argv": ["SAVOIR/TOOLS/POINTS-DE-DEPART"]}
+{"script": "read_route.py", "t": 1792047538.346775, "argv": ["SAVOIR/CRAFT/CFT-06"]}
+{"script": "read_route.py", "t": 1792047538.436187, "argv": ["SAVOIR/CRAFT/CFT-04a"]}
+{"script": "read_route.py", "t": 1792047544.2254155, "argv": ["SAVOIR/CRAFT/CFT-05"]}
+{"script": "read_route.py", "t": 1792047544.3187244, "argv": ["SAVOIR/STATE"]}
+{"script": "read_route.py", "t": 1792047549.7323577, "argv": ["ACTION/ATELIER-EDITION"]}
+{"script": "read_route.py", "t": 1792047549.827738, "argv": ["SAVOIR/CRAFT/CFT-02"]}
+{"script": "read_route.py", "t": 1792047549.935227, "argv": ["SAVOIR/CRAFT/CFT-03"]}
+{"script": "read_route.py", "t": 1792047554.6431756, "argv": ["ACTION/HANDOFF"]}
+{"script": "check_render.py", "t": 1792048297.8706446, "argv": ["--help"]}
+{"script": "check_render.py", "t": 1792048301.8871405, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/index.html", "--proof", ".title", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/v1", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/v1/render-v1.json", "--mesures"]}
+{"script": "check_render.py", "t": 1792048587.54539, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/index.html", "--proof", ".title", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/v2", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/v2/render-v2.json", "--baseline", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/v1/render-v1.json"]}
+{"script": "check_render.py", "t": 1792048726.54111, "argv": ["/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/index.html", "--proof", ".title", "--captures", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/final", "--json", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/final/render-final.json", "--baseline", "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/e2e70cde-c5a0-5e7e-a975-06a63a88b1fd/scratchpad/expo/s3/out/captures/v2/render-v2.json"]}

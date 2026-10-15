@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadre &amp; Chaîne — Réparation de vélos à Lyon</title>
+<meta name="description" content="Atelier de réparation de vélos à Lyon, et quelques vélos d’occasion remis en état. Ouvert du mardi au samedi.">
+<meta name="theme-color" content="#151f2b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23151f2b'/%3E%3Crect x='6' y='20' width='34' height='24' rx='12' fill='none' stroke='%23ebeff4' stroke-width='5'/%3E%3Crect x='24' y='20' width='34' height='24' rx='12' fill='%23cc2823' stroke='%23ebeff4' stroke-width='5'/%3E%3C/svg%3E">
+
+<!--
+  CADRE & CHAÎNE — page d’accueil. Proposition EXPLORATORY (trace légère, écrite ici, à côté de l’artefact).
+
+  MODE        DIRECTION (première scène d’une surface de marque, destination réelle). Arrêt : la proposition vaut checkpoint.
+  THÈSE       Un client veut savoir, avant de venir : est-ce ouvert, qu’est-ce que ça coûte, qu’est-ce que vous vendez.
+              → objets de preuve codés : la semaine en chaîne (7 maillons, jours fermés en pointillé, jour courant allumé),
+                la fiche d’atelier (symptôme → on regarde / on fait → temps → tarif), le registre d’occasion avec règle de taille
+              → remplacent la photo d’atelier, les trois cartes « services » et les avis (aucun fourni, aucun inventé).
+  MODAL/PARTI Modal : photo d’atelier plein cadre, titre centré, trois cartes, avis, carte ; noir-jaune « garage » ou crème-brun-rouille.
+              Trame héros > services > avis > contact, rompue : le nom en monument et la chaîne ouvrent la page ; garde : navigation
+              et contact attendus. Titre : Bitter 800 (dalle d’enseigne), comparée sur « Cadre & Chaîne » à Zilla Slab, Rokkitt, Kreon,
+              Bricolage Grotesque, Hubot Sans, Anybody, Barlow Condensed, Familjen Grotesk ; texte : IBM Plex Sans. Couleur par rôles :
+              nuit et zinc, un seul rouge (feu arrière) pour « maintenant » et « agir ». Pointillé = absent ou à remplir.
+  PLAFOND     Typographie et couleur au plafond (polices libres auto-hébergées, contrastes mesurés). Pas de photos : routes
+              SANS-ASSET + CODE-NATIVE (schémas de cadre, dits « pas des photos »). Marqués « exemple » ou « à confirmer » :
+              téléphone (numéro fictif réservé), adresse, horaires de la journée, tarifs et délais, les 3 vélos, mentions légales.
+              Faits donnés par l’atelier : nom, Lyon, réparation, occasion remise en état, ouvert du mardi au samedi.
+  DÉFAUT      Corrigés et recapturés (captures 390/768/1440 px) : chaîne illisible sur mobile (étiquettes sorties de la chaîne),
+              contraste du focus sur fond sombre, titre trop large entre 640 et 1300 px, jour fermé affiché en rouge, répétitions
+              du premier écran (bouton d’appel en double, « mardi au samedi » dit trois fois). Reste : aucune photo, donc la matière
+              de l’atelier (mains, outils, lumière) manque ; sections 2 à 4 sobres, au service de l’info plus que de l’émotion.
+  PROCHAINE   Vraies informations et premières photos intégrées, capture mobile, puis parcours lecteur d’écran et essai avec une
+              vraie personne (« est-ce ouvert ? combien pour un pneu à plat ? »). Non vérifié : nom accessible calculé, appareils réels.
+  Polices auto-hébergées (dossier fonts/, licence OFL). Aucune ressource externe. Nécessite :has() (repli : toutes les fiches visibles).
+-->
+
+<style>
+@font-face{font-family:"Bitter";src:url("fonts/bitter-latin-var.woff2") format("woff2");font-weight:600 800;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url("fonts/ibm-plex-sans-latin-var.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+
+/* ───────── Rôles de couleur (valeurs OKLCH de conception, sorties en hex) ─────────
+   nuit   : fond sombre de l’atelier        oklch(.235 .028 255)
+   acier  : plaques de chaîne, texte sur nuit
+   zinc   : fond clair (galvanisé), zinc-2 pour le fond voisin
+   feu    : le rouge du feu arrière — seulement « maintenant » et « agir » (aujourd’hui, appeler)
+   pointillé = ce qui est absent ou à remplir (jour fermé, valeur d’exemple) */
+:root{
+  --nuit:#151f2b; --nuit-2:#202c3b; --nuit-3:#333e4d;
+  --acier:#ebeff4; --acier-2:#b7bfc7; --acier-3:#9199a2;
+  --zinc:#eef1f5; --zinc-2:#dfe3e8; --ligne:#b9bec4;
+  --encre:#151f2b; --encre-2:#48515c;
+  --feu:#cc2823; --blanc:#ffffff;
+
+  --f-titre:"Bitter","Roboto Slab","Rockwell",Georgia,serif;
+  --f-texte:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+  --marge:clamp(16px,3.4vw,48px);
+  --max:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--zinc);color:var(--encre);font-family:var(--f-texte);font-size:1.0625rem;line-height:1.55;font-kerning:normal;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p,dl,dd,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--encre);outline-offset:3px;border-radius:4px}
+.hero :focus-visible,.venir :focus-visible,.pied :focus-visible{outline-color:var(--acier)}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--marge)}
+
+.skip{position:absolute;left:var(--marge);top:-100px;z-index:50;background:var(--acier);color:var(--encre);padding:.7em 1em;border-radius:8px;font-weight:600}
+.skip:focus{top:12px}
+
+/* ───────── Marque « exemple » : pointillé = à remplir ───────── */
+.ex{display:inline-block;vertical-align:.12em;margin-left:.5em;padding:.05em .6em .08em;border:1.5px dashed currentColor;border-radius:99px;font:500 .75rem/1.4 var(--f-texte);letter-spacing:.01em;white-space:nowrap;opacity:1}
+
+/* ───────── Boutons ───────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:3.25rem;padding:.7em 1.5em;border-radius:99px;font:600 1.0625rem/1.2 var(--f-texte);text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn--feu{background:var(--feu);color:var(--blanc);border-color:var(--feu)}
+.btn--feu:hover{background:#b3211d;border-color:#b3211d}
+.btn--feu:active{background:#9c1c19;border-color:#9c1c19}
+.lien{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.28em;padding:.6em .2em}
+.lien:hover{text-decoration-color:var(--feu)}
+
+/* ═════════ HERO ═════════ */
+.hero{background:var(--nuit);color:var(--acier);position:relative;padding-bottom:clamp(28px,4vw,56px)}
+.haut{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-block:clamp(14px,2vw,22px)}
+.marque{font:800 1.35rem/1 var(--f-titre);text-decoration:none;letter-spacing:-.01em;padding:.3em 0}
+.haut nav{display:flex;gap:.25rem 1.6rem;order:3;width:100%}
+.haut nav a{font-size:.9375rem;font-weight:500;text-decoration:none;padding:.55em 0;border-bottom:2px solid transparent}
+.haut nav a:hover{border-bottom-color:var(--feu)}
+.haut .btn{display:none;min-height:2.75rem;padding:.45em 1.15em;font-size:1rem}
+@media (min-width:760px){
+  .haut nav{order:0;width:auto;margin-left:auto;margin-right:1rem}
+  .haut .btn{display:inline-flex}
+}
+@media (max-width:759px){
+  .haut{flex-wrap:wrap}
+  .haut nav{order:0;width:auto;gap:.1rem 1.1rem}
+  .haut nav a{padding:.7em 0}
+}
+
+.hero__corps{padding-top:clamp(28px,6vw,84px)}
+.hero__genre{font-size:clamp(1rem,1.5vw,1.3rem);color:var(--acier-2);font-weight:500;margin-bottom:clamp(8px,1.4vw,18px)}
+.nom{font:800 clamp(4.6rem,20.5vw,7.2rem)/.9 var(--f-titre);letter-spacing:-.025em;color:var(--blanc);text-wrap:balance;margin-left:-.04em}
+.nom span{display:inline-block}
+@media (min-width:640px){.nom{font-size:min(13.5vw,12.2rem);line-height:.92;white-space:nowrap}}
+
+.hero__bas{display:grid;gap:1.4rem;margin-top:clamp(22px,3.4vw,44px);align-items:end}
+.hero__lead{font-size:clamp(1.15rem,1.9vw,1.6rem);line-height:1.4;max-width:30em;text-wrap:pretty;color:var(--acier)}
+.hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.4rem}
+@media (min-width:900px){.hero__bas{grid-template-columns:minmax(0,1.2fr) auto;gap:3rem}.hero__actions{justify-content:flex-end}}
+
+/* ───── La semaine en chaîne ───── */
+.semaine{margin-top:clamp(52px,7vw,104px)}
+.chaine{--h:clamp(46px,5.6vw,80px);--hi:calc(var(--h)*.66);--p:calc((100% - var(--h)) / 7);
+  --trou:var(--nuit);position:relative;display:flex;height:var(--h)}
+.maillon{position:relative;flex:0 0 var(--p);height:100%}
+.plaque{position:absolute;z-index:2;left:0;top:0;width:calc(100% + var(--h));height:var(--h);display:flex;align-items:center;justify-content:center;
+  border-radius:99px;background:var(--acier);border:2px solid var(--acier-3)}
+.maillon:nth-child(even) .plaque{z-index:1;left:calc((var(--h) - var(--hi)) / 2);top:calc((var(--h) - var(--hi)) / 2);
+  width:calc(100% + var(--hi));height:var(--hi);background:var(--acier-2)}
+.chaine::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;
+  background:radial-gradient(circle at calc(var(--h) / 2) 50%,var(--trou) 0 calc(var(--h)*.105),var(--acier-3) calc(var(--h)*.105) calc(var(--h)*.145),transparent calc(var(--h)*.145));
+  background-size:var(--p) 100%;background-repeat:repeat-x}
+.jour{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--encre);font-weight:600;font-size:clamp(.8125rem,1.5vw,1.2rem);line-height:1.1;letter-spacing:.01em}
+.jour small,.jour-m small{display:block;font-size:max(.72em,.75rem);font-weight:500;letter-spacing:.02em}
+.jour-m{display:none}
+/* fermé : le maillon est un contour, comme la silhouette d’un outil absent sur un tableau d’atelier */
+.maillon--ferme .plaque{background:transparent;border:2px dashed var(--acier-3)}
+.maillon--ferme .jour{color:var(--acier-2)}
+/* aujourd’hui : le feu arrière est allumé */
+.maillon[aria-current="date"] .plaque{background:var(--feu);border-color:var(--feu)}
+.maillon[aria-current="date"] .jour{color:var(--blanc)}
+.maillon--ferme[aria-current="date"] .plaque{background:transparent;border:2px dashed var(--blanc)}
+.maillon--ferme[aria-current="date"] .jour{color:var(--blanc)}
+.auj{display:none;position:absolute;z-index:5;left:0;width:calc(100% + var(--h));top:calc(-1.9rem);text-align:center;font-size:.8125rem;font-weight:600;color:var(--acier);line-height:1}
+.auj::after{content:"";display:block;margin:.3rem auto 0;width:0;height:0;border:.34rem solid transparent;border-top-color:var(--feu);border-bottom:0}
+.maillon[aria-current="date"] .auj{display:block}
+
+@media (max-width:639px){
+  .chaine{--h:30px;margin-bottom:3.1rem}
+  .plaque .jour{display:none}
+  .jour-m{display:flex;flex-direction:column;align-items:center;position:absolute;left:calc(var(--h) / 2);width:100%;top:calc(var(--h) + 8px);
+    color:var(--acier);font-size:.8125rem;font-weight:600;line-height:1.1}
+  .maillon--ferme .jour-m{color:var(--acier-2)}
+  .maillon[aria-current="date"] .jour-m{color:var(--blanc);font-weight:700}
+}
+.statut{margin-top:clamp(16px,2vw,26px);display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem 1.4rem;color:var(--acier-2);font-size:1rem}
+.statut strong{font:700 clamp(1.3rem,2.4vw,1.9rem)/1.2 var(--f-titre);color:var(--blanc)}
+
+/* ═════════ RÉPARATIONS ═════════ */
+.rep{padding-block:clamp(56px,9vw,128px);background:var(--zinc)}
+h2{font:800 clamp(2rem,4.6vw,3.6rem)/1.05 var(--f-titre);letter-spacing:-.018em;text-wrap:balance}
+.chapo{margin-top:1rem;max-width:34em;color:var(--encre-2);font-size:1.0625rem;text-wrap:pretty}
+.rep__grille{display:grid;gap:clamp(32px,4vw,72px)}
+@media (min-width:960px){.rep__grille{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}.fiches{margin-top:.4rem}}
+
+.sym-liste{border:0;padding:0;margin:clamp(22px,3vw,36px) 0 0;display:flex;flex-wrap:wrap;gap:.7rem}
+.sym{position:relative}
+.sym input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.sym label{display:inline-flex;align-items:center;gap:.7em;min-height:3.1rem;padding:.55em 1.3em .55em .9em;border:2px solid var(--encre);border-radius:99px;font-weight:500;font-size:1.125rem;line-height:1.2;background:transparent;pointer-events:none}
+.sym label::before{content:"";flex:none;width:.9rem;height:.9rem;border-radius:50%;border:2px solid var(--encre);background:var(--zinc)}
+.sym input:hover + label{background:var(--zinc-2)}
+.sym input:checked + label{background:var(--encre);color:var(--blanc)}
+.sym input:checked + label::before{background:var(--feu);border-color:var(--blanc)}
+.sym input:focus-visible + label{outline:3px solid var(--encre);outline-offset:3px}
+@media (min-width:960px){.sym-liste{flex-direction:column;align-items:flex-start}}
+
+/* La fiche d’atelier : exemplaire du dessus d’une liasse */
+.fiches{position:relative}
+.fiche{display:none;background:var(--blanc);border:2px solid var(--encre);border-radius:6px;position:relative;
+  box-shadow:8px 8px 0 -2px var(--zinc),8px 8px 0 0 var(--encre),16px 16px 0 -2px var(--zinc),16px 16px 0 0 var(--ligne);
+  margin:0 16px 16px 0}
+.atelier:has(#s1:checked) .fiche[data-s="s1"],
+.atelier:has(#s2:checked) .fiche[data-s="s2"],
+.atelier:has(#s3:checked) .fiche[data-s="s3"],
+.atelier:has(#s4:checked) .fiche[data-s="s4"],
+.atelier:has(#s5:checked) .fiche[data-s="s5"],
+.atelier:has(#s6:checked) .fiche[data-s="s6"]{display:grid;animation:fiche-arrive .22s ease-out}
+@supports not selector(:has(a)){.fiche{display:grid;margin-bottom:28px}}
+@keyframes fiche-arrive{from{transform:translateY(8px);opacity:.2}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.fiche{animation:none!important}}
+.fiche{grid-template-columns:auto 1fr}
+.fiche__souche{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem .8rem;border-right:3px dotted var(--ligne);color:var(--encre-2);font-size:.8125rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.fiche__souche span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+.fiche__souche b{font:800 1.05rem/1 var(--f-titre);letter-spacing:0;text-transform:none;color:var(--encre)}
+.fiche__corps{padding:clamp(18px,2.6vw,34px)}
+.fiche__sym{font:800 clamp(1.7rem,3.4vw,2.6rem)/1.05 var(--f-titre);letter-spacing:-.015em}
+.fiche__sym small{display:block;font:600 .8125rem/1 var(--f-texte);letter-spacing:.04em;text-transform:uppercase;color:var(--encre-2);margin-bottom:.6rem}
+.fiche dl{margin-top:1.3rem;border-top:2px solid var(--encre)}
+.fiche dl>div{display:grid;grid-template-columns:minmax(6.5rem,9rem) 1fr;gap:.3rem 1rem;padding:.85rem 0;border-bottom:1px solid var(--ligne)}
+.fiche dt{font-weight:600;color:var(--encre-2);font-size:.9375rem}
+.fiche dd{font-size:1.0625rem}
+.fiche .prix dd{font-size:1rem}
+.fiche .prix b{font:800 clamp(1.9rem,3.2vw,2.5rem)/1 var(--f-titre);font-variant-numeric:tabular-nums;margin-left:.2em}
+.fiche .prix{border-bottom:0}
+.note-fiche{margin-top:1.4rem;color:var(--encre-2);font-size:1rem}
+.note-fiche a{font-weight:600;white-space:nowrap}
+@media (max-width:620px){
+  .fiche{grid-template-columns:1fr}
+  .fiche__souche{flex-direction:row;border-right:0;border-bottom:3px dotted var(--ligne);padding:.7rem 1rem}
+  .fiche__souche span{writing-mode:horizontal-tb;transform:none}
+  .fiche dl>div{grid-template-columns:1fr}
+}
+
+/* ═════════ OCCASION ═════════ */
+.occ{background:var(--zinc-2);padding-block:clamp(56px,9vw,128px)}
+.registre{margin-top:clamp(28px,4vw,56px);border-top:2px solid var(--encre)}
+.velo{display:grid;gap:1.1rem 2rem;padding-block:clamp(22px,3vw,36px);border-bottom:1px solid var(--ligne);grid-template-columns:1fr}
+.velo__cadre{max-width:22rem}
+.schema{width:100%;height:auto}
+.regle{--t:.5;position:relative;height:3rem;margin-top:.8rem;color:var(--encre-2);font-size:.8125rem;font-weight:500}
+.regle__echelle{position:absolute;left:0;right:0;top:0;height:.9rem;border-bottom:1px solid var(--encre);
+  background:
+    repeating-linear-gradient(90deg,var(--encre) 0 1px,transparent 1px 10%) left top/100% 100% no-repeat,
+    repeating-linear-gradient(90deg,var(--encre-2) 0 1px,transparent 1px 5%) left top/100% 55% no-repeat}
+.regle__echelle::after{content:"";position:absolute;right:0;top:0;width:1px;height:100%;background:var(--encre)}
+.regle__bout{position:absolute;top:1.15rem;line-height:1.2}
+.regle__bout--g{left:0}.regle__bout--d{right:0}
+.regle__rep{position:absolute;top:.9rem;left:calc(var(--t) * 100%);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;color:var(--encre);font-weight:700;font-size:.875rem;line-height:1.2;white-space:nowrap}
+.regle__rep::before{content:"";width:0;height:0;border:.4rem solid transparent;border-top:0;border-bottom:.7rem solid var(--feu)}
+.velo h3{font:800 clamp(1.4rem,2.3vw,1.9rem)/1.15 var(--f-titre);letter-spacing:-.01em}
+.spec{margin-top:.8rem;display:grid;gap:.1rem}
+.spec>div{display:grid;grid-template-columns:7.5rem 1fr;gap:.2rem .9rem;padding:.4rem 0;border-bottom:1px dotted var(--ligne)}
+.spec dt{color:var(--encre-2);font-weight:600;font-size:.9375rem}
+.velo__prix{display:flex;align-items:baseline;gap:.3rem .6rem;flex-wrap:wrap}
+.velo__prix b{font:800 clamp(2rem,3.4vw,2.8rem)/1 var(--f-titre);font-variant-numeric:tabular-nums}
+@media (min-width:860px){
+  .velo{grid-template-columns:minmax(15rem,22rem) minmax(0,1fr) auto;align-items:start}
+  .velo__prix{justify-content:flex-end;text-align:right;flex-direction:column;align-items:flex-end;gap:.4rem}
+}
+.occ__pied{margin-top:clamp(22px,3vw,36px);display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.6rem}
+.occ__pied p{color:var(--encre-2);max-width:32em}
+
+/* ═════════ VENIR ═════════ */
+.venir{background:var(--nuit);color:var(--acier);padding-block:clamp(56px,9vw,128px)}
+.venir h2{color:var(--blanc);max-width:15em}
+.venir__grille{display:grid;gap:clamp(28px,4vw,56px);margin-top:clamp(28px,4vw,56px)}
+@media (min-width:960px){.venir__grille{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end}}
+.tel{display:inline-block;font:800 clamp(2.3rem,7.4vw,6.2rem)/1 var(--f-titre);letter-spacing:-.02em;color:var(--blanc);text-decoration:none;font-variant-numeric:tabular-nums;border-bottom:.09em solid var(--feu);padding-bottom:.06em}
+.tel:hover{border-bottom-color:var(--blanc)}
+.tel-note{margin-top:1rem;color:var(--acier-2);display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center}
+.coord{border-top:2px solid var(--acier-3)}
+.coord>div{display:grid;grid-template-columns:7rem 1fr;gap:.2rem 1rem;padding:.95rem 0;border-bottom:1px solid var(--nuit-3)}
+.coord dt{color:var(--acier-2);font-weight:600;font-size:.9375rem}
+.coord dd{font-size:1.0625rem}
+
+/* ═════════ PIED ═════════ */
+.pied{background:var(--nuit);color:var(--acier-2);border-top:1px solid var(--nuit-3);padding-block:1.6rem 2rem;font-size:.9375rem}
+.pied .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
+.pied strong{font-family:var(--f-titre);font-weight:800;color:var(--acier)}
+
+@media print{.skip{display:none}}
+</style>
+</head>
+
+<body id="haut">
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="haut">
+      <a class="marque" href="#haut" aria-label="Cadre &amp; Chaîne, haut de page">Cadre &amp;&nbsp;Chaîne</a>
+      <nav aria-label="Principal">
+        <a href="#reparations">Réparations</a>
+        <a href="#occasion">Occasion</a>
+        <a href="#venir">Venir</a>
+      </nav>
+    </div>
+
+    <div class="hero__corps">
+      <p class="hero__genre">Atelier de réparation de vélos à Lyon</p>
+      <h1 class="nom"><span>Cadre</span> <span>&amp;&nbsp;Chaîne</span></h1>
+
+      <div class="hero__bas">
+        <p class="hero__lead">On répare les vélos, et on en revend quelques-uns d’occasion, remis en état.</p>
+        <p class="hero__actions">
+          <a class="btn btn--feu" href="tel:+33465716612">Appeler l’atelier</a>
+          <a class="lien" href="#occasion">Voir les vélos d’occasion</a>
+        </p>
+      </div>
+    </div>
+
+    <section class="semaine" aria-labelledby="semaine-titre">
+      <h2 id="semaine-titre" class="vh">La semaine à l’atelier</h2>
+      <ol class="chaine" id="chaine">
+        <li class="maillon maillon--ferme" data-j="Mon"><span class="plaque" aria-hidden="true"><span class="jour">Lun<small>fermé</small></span></span><span class="jour-m" aria-hidden="true">Lun<small>fermé</small></span><span class="auj" aria-hidden="true">aujourd’hui</span><span class="vh">Lundi : fermé</span></li>
+        <li class="maillon" data-j="Tue"><span class="plaque" aria-hidden="true"><span class="jour">Mar</span></span><span class="jour-m" aria-hidden="true">Mar</span><span class="auj" aria-hidden="true">aujourd’hui</span><span class="vh">Mardi : ouvert</span></li>
+        <li class="maillon" data-j="Wed"><span class="plaque" aria-hidden="true"><span class="jour">Mer</span></span><span class="jour-m" aria-hidden="true">Mer</span><span class="auj" aria-hidden="true">aujourd’hui</span><span class="vh">Mercredi : ouvert</span></li>
+        <li class="maillon" data-j="Thu"><span class="plaque" aria-hidden="true"><span class="jour">Jeu</span></span><span class="jour-m" aria-hidden="true">Jeu</span><span class="auj" aria-hidden="true">aujourd’hui</span><span class="vh">Jeudi : ouvert</span></li>
+        <li class="maillon" data-j="Fri"><span class="plaque" aria-hidden="true"><span class="jour">Ven</span></span><span class="jour-m" aria-hidden="true">Ven</span><span class="auj" aria-hidden="true">aujourd’hui</span><span class="vh">Vendredi : ouvert</span></li>
+        <li class="maillon" data-j="Sat"><span class="plaque" aria-hidden="true"><span class="jour">Sam</span></span><span class="jour-m" aria-hidden="true">Sam</span><span class="auj" aria-hidden="true">aujourd’hui</span><span class="vh">Samedi : ouvert</span></li>
+        <li class="maillon maillon--ferme" data-j="Sun"><span class="plaque" aria-hidden="true"><span class="jour">Dim<small>fermé</small></span></span><span class="jour-m" aria-hidden="true">Dim<small>fermé</small></span><span class="auj" aria-hidden="true">aujourd’hui</span><span class="vh">Dimanche : fermé</span></li>
+      </ol>
+      <p class="statut" id="statut">
+        <strong id="statut-jour">Ouvert du mardi au samedi.</strong>
+        <span>Ouvert du mardi au samedi, fermé le dimanche et le lundi.</span>
+        <span>Journée : 9&nbsp;h&nbsp;30–19&nbsp;h <span class="ex">horaires à confirmer</span></span>
+      </p>
+    </section>
+  </div>
+</header>
+
+<main id="contenu">
+
+<section class="rep" id="reparations" aria-labelledby="rep-titre">
+  <div class="wrap">
+    <div class="atelier rep__grille">
+      <div class="rep__gauche">
+      <h2 id="rep-titre">Qu’est-ce qu’il a, votre&nbsp;vélo&nbsp;?</h2>
+      <p class="chapo">Choisissez ce qui s’en rapproche : la fiche d’atelier montre ce qu’on regarde, le temps que ça prend et le tarif indicatif. <span class="ex">tarifs et délais d’exemple</span></p>
+      <fieldset class="sym-liste" style="min-width:0">
+        <legend class="vh">Ce que fait votre vélo</legend>
+        <div class="sym"><input type="radio" name="sym" id="s1" checked><label for="s1">Ça grince</label></div>
+        <div class="sym"><input type="radio" name="sym" id="s2"><label for="s2">Pneu à plat</label></div>
+        <div class="sym"><input type="radio" name="sym" id="s3"><label for="s3">Les freins mollissent</label></div>
+        <div class="sym"><input type="radio" name="sym" id="s4"><label for="s4">Les vitesses sautent</label></div>
+        <div class="sym"><input type="radio" name="sym" id="s5"><label for="s5">La roue voile</label></div>
+        <div class="sym"><input type="radio" name="sym" id="s6"><label for="s6">Je ne sais pas</label></div>
+      </fieldset>
+      </div>
+
+      <div class="fiches">
+        <article class="fiche" data-s="s1">
+          <div class="fiche__souche"><span>Fiche d’atelier</span><b aria-hidden="true">C&amp;C</b></div>
+          <div class="fiche__corps">
+            <p class="fiche__sym"><small>Symptôme</small>Ça grince</p>
+            <dl>
+              <div><dt>On regarde</dt><dd>La chaîne, la cassette et les plateaux : propreté, graissage, usure.</dd></div>
+              <div><dt>On fait</dt><dd>Nettoyage et graissage de la transmission, réglage si besoin.</dd></div>
+              <div><dt>Temps</dt><dd>Environ 30&nbsp;min</dd></div>
+              <div class="prix"><dt>Tarif indicatif</dt><dd>À partir de <b>25&nbsp;€</b><span class="ex">exemple</span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="fiche" data-s="s2">
+          <div class="fiche__souche"><span>Fiche d’atelier</span><b aria-hidden="true">C&amp;C</b></div>
+          <div class="fiche__corps">
+            <p class="fiche__sym"><small>Symptôme</small>Pneu à plat</p>
+            <dl>
+              <div><dt>On regarde</dt><dd>La cause du trou : clou, éclat, bord de jante ou valve.</dd></div>
+              <div><dt>On fait</dt><dd>Réparation ou remplacement de la chambre à air, contrôle du pneu, regonflage.</dd></div>
+              <div><dt>Temps</dt><dd>20 à 30&nbsp;min</dd></div>
+              <div class="prix"><dt>Tarif indicatif</dt><dd>À partir de <b>12&nbsp;€</b><span class="ex">exemple</span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="fiche" data-s="s3">
+          <div class="fiche__souche"><span>Fiche d’atelier</span><b aria-hidden="true">C&amp;C</b></div>
+          <div class="fiche__corps">
+            <p class="fiche__sym"><small>Symptôme</small>Les freins mollissent</p>
+            <dl>
+              <div><dt>On regarde</dt><dd>Les patins ou plaquettes, les câbles, le réglage ; le liquide si les freins sont hydrauliques.</dd></div>
+              <div><dt>On fait</dt><dd>Remplacement de ce qui est usé, réglage, purge si nécessaire.</dd></div>
+              <div><dt>Temps</dt><dd>30 à 45&nbsp;min</dd></div>
+              <div class="prix"><dt>Tarif indicatif</dt><dd>À partir de <b>15&nbsp;€</b> par frein<span class="ex">exemple</span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="fiche" data-s="s4">
+          <div class="fiche__souche"><span>Fiche d’atelier</span><b aria-hidden="true">C&amp;C</b></div>
+          <div class="fiche__corps">
+            <p class="fiche__sym"><small>Symptôme</small>Les vitesses sautent</p>
+            <dl>
+              <div><dt>On regarde</dt><dd>Le réglage du dérailleur, la tension des câbles, l’usure de la chaîne et de la cassette.</dd></div>
+              <div><dt>On fait</dt><dd>Réglage, remplacement du câble ou de la chaîne si elle est trop usée.</dd></div>
+              <div><dt>Temps</dt><dd>30 à 45&nbsp;min</dd></div>
+              <div class="prix"><dt>Tarif indicatif</dt><dd>À partir de <b>18&nbsp;€</b><span class="ex">exemple</span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="fiche" data-s="s5">
+          <div class="fiche__souche"><span>Fiche d’atelier</span><b aria-hidden="true">C&amp;C</b></div>
+          <div class="fiche__corps">
+            <p class="fiche__sym"><small>Symptôme</small>La roue voile</p>
+            <dl>
+              <div><dt>On regarde</dt><dd>La tension des rayons, le faux-rond de la jante, l’état du moyeu.</dd></div>
+              <div><dt>On fait</dt><dd>Dévoilage de la roue sur le montage, remplacement d’un rayon cassé si besoin.</dd></div>
+              <div><dt>Temps</dt><dd>À laisser une journée</dd></div>
+              <div class="prix"><dt>Tarif indicatif</dt><dd>À partir de <b>20&nbsp;€</b><span class="ex">exemple</span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="fiche" data-s="s6">
+          <div class="fiche__souche"><span>Fiche d’atelier</span><b aria-hidden="true">C&amp;C</b></div>
+          <div class="fiche__corps">
+            <p class="fiche__sym"><small>Symptôme</small>Je ne sais pas</p>
+            <dl>
+              <div><dt>On regarde</dt><dd>Le vélo en entier : roues, freins, transmission, direction, éclairage.</dd></div>
+              <div><dt>On fait</dt><dd>On vous explique ce qu’on a trouvé et ce qu’il faut faire, par ordre d’importance.</dd></div>
+              <div><dt>Temps</dt><dd>À laisser un jour ou deux</dd></div>
+              <div class="prix"><dt>Tarif indicatif</dt><dd>Révision à partir de <b>60&nbsp;€</b><span class="ex">exemple</span></dd></div>
+            </dl>
+          </div>
+        </article>
+        <p class="vh" id="annonce" aria-live="polite"></p>
+        <p class="note-fiche">Pas dans la liste&nbsp;? <a href="tel:+33465716612">Appelez l’atelier</a> ou venez avec votre vélo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="occ" id="occasion" aria-labelledby="occ-titre">
+  <div class="wrap">
+    <h2 id="occ-titre">Quelques vélos d’occasion, remis en état à l’atelier</h2>
+    <p class="chapo">Pas encore de photos : chaque vélo est décrit par son cadre, sa taille et ce qu’on a refait dessus. Les schémas montrent le type de cadre, pas le vélo lui-même. <span class="ex">les trois vélos sont des exemples</span></p>
+
+    <ul class="registre">
+      <li class="velo">
+        <figure class="velo__cadre">
+          <svg class="schema" viewBox="-380 -720 1830 1110" role="img" aria-label="Schéma d’un vélo de ville à cadre ouvert, vert sapin" xmlns="http://www.w3.org/2000/svg"><circle cx="0" cy="0" r="340" fill="none" stroke="#151f2b" stroke-width="14"/><circle cx="0" cy="0" r="321.0" fill="none" stroke="#151f2b" stroke-width="4"/><circle cx="0" cy="0" r="16" fill="#151f2b"/><circle cx="1060" cy="0" r="340" fill="none" stroke="#151f2b" stroke-width="14"/><circle cx="1060" cy="0" r="321.0" fill="none" stroke="#151f2b" stroke-width="4"/><circle cx="1060" cy="0" r="16" fill="#151f2b"/><circle cx="430" cy="60" r="66" fill="none" stroke="#151f2b" stroke-width="9"/><circle cx="0" cy="0" r="28" fill="none" stroke="#151f2b" stroke-width="8"/><path d="M430 -6L0 -28M430 126L0 28" stroke="#151f2b" stroke-width="7" stroke-dasharray="11 7" fill="none"/><path d="M430 60L505 210" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/><path d="M465 218L555 202" stroke="#151f2b" stroke-width="16" stroke-linecap="round"/><defs><path id="tubesA" d="M238 -466L430 60M0 0L259 -410M0 0L430 60M850 -540L906 -401M917 -375L1060 0M430 60L898 -421M882 -461C690 -330 520 -215 331 -213"/></defs><use href="#tubesA" fill="none" stroke="#151f2b" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><use href="#tubesA" fill="none" stroke="#1a6444" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><path d="M206 -555L238 -466" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/><path d="M111 -567L276 -559" stroke="#151f2b" stroke-width="26" stroke-linecap="round"/><path d="M850 -540L826 -618" stroke="#151f2b" stroke-width="16" stroke-linecap="round"/><path d="M826 -618C790 -672 690 -684 612 -610" fill="none" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/><path d="M640 -640L600 -598" stroke="#151f2b" stroke-width="24" stroke-linecap="round"/></svg>
+          <div class="regle" style="--t:.30" role="img" aria-label="Taille de cadre : 50 cm, sur une règle de 44 à 64 cm">
+            <div class="regle__echelle"></div>
+            <span class="regle__bout regle__bout--g">44</span><span class="regle__bout regle__bout--d">64 cm</span>
+            <span class="regle__rep">50&nbsp;cm</span>
+          </div>
+        </figure>
+        <div class="velo__corps">
+          <h3>Vélo de ville, cadre ouvert</h3>
+          <dl class="spec">
+            <div><dt>Cadre</dt><dd>50&nbsp;cm, cadre ouvert, vert sapin</dd></div>
+            <div><dt>Transmission</dt><dd>7 vitesses au moyeu</dd></div>
+            <div><dt>Remis en état</dt><dd>chaîne, câbles et gaines, pneus, freins réglés</dd></div>
+          </dl>
+        </div>
+        <p class="velo__prix"><b>220&nbsp;€</b><span class="ex" style="margin-left:0">exemple</span></p>
+      </li>
+
+      <li class="velo">
+        <figure class="velo__cadre">
+          <svg class="schema" viewBox="-380 -640 1790 1030" role="img" aria-label="Schéma d’un vélo de route à cadre diamant, jaune moutarde" xmlns="http://www.w3.org/2000/svg"><circle cx="0" cy="0" r="335" fill="none" stroke="#151f2b" stroke-width="11"/><circle cx="0" cy="0" r="317.5" fill="none" stroke="#151f2b" stroke-width="4"/><circle cx="0" cy="0" r="16" fill="#151f2b"/><circle cx="1000" cy="0" r="335" fill="none" stroke="#151f2b" stroke-width="11"/><circle cx="1000" cy="0" r="317.5" fill="none" stroke="#151f2b" stroke-width="4"/><circle cx="1000" cy="0" r="16" fill="#151f2b"/><circle cx="415" cy="70" r="66" fill="none" stroke="#151f2b" stroke-width="9"/><circle cx="0" cy="0" r="28" fill="none" stroke="#151f2b" stroke-width="8"/><path d="M415 4L0 -28M415 136L0 28" stroke="#151f2b" stroke-width="7" stroke-dasharray="11 7" fill="none"/><path d="M415 70L490 220" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/><path d="M450 228L540 212" stroke="#151f2b" stroke-width="16" stroke-linecap="round"/><defs><path id="tubesB" d="M251 -466L872 -478M415 70L906 -365M251 -466L415 70M0 0L263 -427M0 0L415 70M872 -478L911 -349M917 -330L1000 0"/></defs><use href="#tubesB" fill="none" stroke="#151f2b" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><use href="#tubesB" fill="none" stroke="#ca9d33" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><path d="M216 -580L251 -466" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/><path d="M146 -590L306 -582" stroke="#151f2b" stroke-width="22" stroke-linecap="round"/><path d="M872 -478L950 -506" stroke="#151f2b" stroke-width="16" stroke-linecap="round"/><path d="M950 -506C1018 -508 1044 -430 988 -372" fill="none" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/></svg>
+          <div class="regle" style="--t:.60" role="img" aria-label="Taille de cadre : 56 cm, sur une règle de 44 à 64 cm">
+            <div class="regle__echelle"></div>
+            <span class="regle__bout regle__bout--g">44</span><span class="regle__bout regle__bout--d">64 cm</span>
+            <span class="regle__rep">56&nbsp;cm</span>
+          </div>
+        </figure>
+        <div class="velo__corps">
+          <h3>Vélo de route, cadre acier</h3>
+          <dl class="spec">
+            <div><dt>Cadre</dt><dd>56&nbsp;cm, cadre diamant, jaune moutarde</dd></div>
+            <div><dt>Transmission</dt><dd>2&nbsp;×&nbsp;8 vitesses</dd></div>
+            <div><dt>Remis en état</dt><dd>chaîne, cassette, câbles, ruban de guidon</dd></div>
+          </dl>
+        </div>
+        <p class="velo__prix"><b>340&nbsp;€</b><span class="ex" style="margin-left:0">exemple</span></p>
+      </li>
+
+      <li class="velo">
+        <figure class="velo__cadre">
+          <svg class="schema" viewBox="-390 -640 1850 1060" role="img" aria-label="Schéma d’un VTT à cadre rigide, bleu ciel" xmlns="http://www.w3.org/2000/svg"><circle cx="0" cy="0" r="350" fill="none" stroke="#151f2b" stroke-width="24"/><circle cx="0" cy="0" r="326.0" fill="none" stroke="#151f2b" stroke-width="4"/><circle cx="0" cy="0" r="16" fill="#151f2b"/><circle cx="1030" cy="0" r="350" fill="none" stroke="#151f2b" stroke-width="24"/><circle cx="1030" cy="0" r="326.0" fill="none" stroke="#151f2b" stroke-width="4"/><circle cx="1030" cy="0" r="16" fill="#151f2b"/><circle cx="425" cy="50" r="66" fill="none" stroke="#151f2b" stroke-width="9"/><circle cx="0" cy="0" r="28" fill="none" stroke="#151f2b" stroke-width="8"/><path d="M425 -16L0 -28M425 116L0 28" stroke="#151f2b" stroke-width="7" stroke-dasharray="11 7" fill="none"/><path d="M425 50L500 200" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/><path d="M460 208L550 192" stroke="#151f2b" stroke-width="16" stroke-linecap="round"/><defs><path id="tubesC" d="M280 -397L858 -432M425 50L897 -331M280 -397L425 50M0 0L292 -359M0 0L425 50M858 -432L903 -315M910 -297L1030 0"/></defs><use href="#tubesC" fill="none" stroke="#151f2b" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><use href="#tubesC" fill="none" stroke="#54a2cd" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><path d="M246 -502L280 -397" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/><path d="M166 -512L321 -504" stroke="#151f2b" stroke-width="24" stroke-linecap="round"/><path d="M858 -432L846 -500" stroke="#151f2b" stroke-width="16" stroke-linecap="round"/><path d="M790 -512L918 -512" stroke="#151f2b" stroke-width="22" stroke-linecap="round"/><path d="M846 -500L846 -512" stroke="#151f2b" stroke-width="14" stroke-linecap="round"/></svg>
+          <div class="regle" style="--t:.45" role="img" aria-label="Taille de cadre : 53 cm, sur une règle de 44 à 64 cm">
+            <div class="regle__echelle"></div>
+            <span class="regle__bout regle__bout--g">44</span><span class="regle__bout regle__bout--d">64 cm</span>
+            <span class="regle__rep">53&nbsp;cm</span>
+          </div>
+        </figure>
+        <div class="velo__corps">
+          <h3>VTT rigide</h3>
+          <dl class="spec">
+            <div><dt>Cadre</dt><dd>53&nbsp;cm (taille M), bleu ciel</dd></div>
+            <div><dt>Transmission</dt><dd>3&nbsp;×&nbsp;7 vitesses</dd></div>
+            <div><dt>Remis en état</dt><dd>freins, chaîne, pneus, roulements de direction</dd></div>
+          </dl>
+        </div>
+        <p class="velo__prix"><b>180&nbsp;€</b><span class="ex" style="margin-left:0">exemple</span></p>
+      </li>
+    </ul>
+
+    <div class="occ__pied">
+      <a class="btn btn--feu" href="tel:+33465716612">Appeler pour un vélo</a>
+      <p>Un vélo vous intéresse&nbsp;? Appelez l’atelier ou passez le voir du mardi au samedi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="venir" id="venir" aria-labelledby="venir-titre">
+  <div class="wrap">
+    <h2 id="venir-titre">Venez avec votre vélo, du mardi au samedi.</h2>
+    <div class="venir__grille">
+      <div>
+        <a class="tel" href="tel:+33465716612" aria-label="Appeler l’atelier au 04 65 71 66 12">04&nbsp;65&nbsp;71&nbsp;66&nbsp;12</a>
+        <p class="tel-note"><span>Appelez l’atelier</span><span class="ex" style="margin-left:0">numéro d’exemple</span></p>
+      </div>
+      <dl class="coord">
+        <div><dt>Adresse</dt><dd>12&nbsp;rue d’Exemple, 69001&nbsp;Lyon <span class="ex">adresse à confirmer</span></dd></div>
+        <div><dt>Ouvert</dt><dd>Du mardi au samedi, 9&nbsp;h&nbsp;30–19&nbsp;h <span class="ex">horaires à confirmer</span></dd></div>
+        <div><dt>Fermé</dt><dd>Le dimanche et le lundi</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <p><strong>Cadre &amp;&nbsp;Chaîne</strong> · Atelier de réparation de vélos, Lyon</p>
+    <p>Mentions légales <span class="ex">à compléter avant la mise en ligne</span></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // 1. Aujourd’hui : le maillon du jour s’allume (fuseau de l’atelier, pas celui du visiteur).
+  try {
+    var jours = { Mon: "lundi", Tue: "mardi", Wed: "mercredi", Thu: "jeudi", Fri: "vendredi", Sat: "samedi", Sun: "dimanche" };
+    var code = new Intl.DateTimeFormat("en-US", { weekday: "short", timeZone: "Europe/Paris" }).format(new Date());
+    var li = document.querySelector('#chaine [data-j="' + code + '"]');
+    var titre = document.getElementById("statut-jour");
+    if (li && titre) {
+      li.setAttribute("aria-current", "date");
+      var ferme = code === "Mon" || code === "Sun";
+      if (ferme) {
+        var reprise = code === "Mon" ? "demain, mardi" : "mardi";
+        titre.textContent = "Aujourd’hui, " + jours[code] + " : fermé. Réouverture " + reprise + ".";
+      } else {
+        titre.textContent = "Aujourd’hui, " + jours[code] + " : ouvert.";
+      }
+    }
+  } catch (e) { /* le texte statique reste correct */ }
+
+  // 2. Fiche d’atelier : annoncer le changement aux lecteurs d’écran.
+  var annonce = document.getElementById("annonce");
+  var radios = document.querySelectorAll('input[name="sym"]');
+  function dire(radio) {
+    var fiche = document.querySelector('.fiche[data-s="' + radio.id + '"]');
+    if (!fiche || !annonce) return;
+    var sym = fiche.querySelector(".fiche__sym").textContent.replace(/^Symptôme/, "");
+    var temps = fiche.querySelectorAll("dl > div")[2].textContent.replace(/^Temps/, "").trim();
+    var prix = fiche.querySelector(".prix dd").textContent.replace(/exemple$/, "").trim();
+    annonce.textContent = "Fiche d’atelier : " + sym + ". Temps : " + temps + ". Tarif indicatif : " + prix + ".";
+  }
+  for (var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener("change", function (e) { dire(e.target); });
+  }
+})();
+</script>
+</body>
+</html>

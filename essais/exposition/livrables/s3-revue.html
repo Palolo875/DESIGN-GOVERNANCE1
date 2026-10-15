@@ -1,0 +1,526 @@
+<!doctype html>
+<!--
+TRACE (light). Design Governance run: mode DIRECTION, EXPLORATORY proposal, not accepted, not closed.
+MODE: DIRECTION. THESIS: issue about borders and crossings -> a ruled margin that the cover title, the contents and the closing form visibly cross -> read the issue, then subscribe.
+MODAL, FRAME AND PARTI: cream paper, brown ink, italic serif, centred title, three cards, round portraits, rust accent; cover > about > contents > contributors > prices. Broken: neutral paper, blue-black ink, signal yellow (fill only), left-anchored title cut by the rule, notes in the margin, running-paragraph contributors, one form. Kept: a serif for reading text.
+CEILING AND MARKED CONTENT: type, colour, layout and form logic at ceiling (Besley + Newsreader, SIL OFL, self-hosted in fonts/). No photographs or cover art (route SANS-ASSET, the type is the cover). Every title, name, bio, excerpt, date, page count, price and e-mail address is an EXAMPLE, flagged in the page; the form only composes an e-mail, nothing is sent or paid.
+DOMINANT DEFECT REMAINING: holds = cut title, ledger lines crossing the rule, swapped fields at the end; still generic = the contributors block (plain running text, empty margin; gesture envisaged, not applied: carry each person's place or language in the margin). Applied and re-inspected: title size capped by viewport height with the rule tied to it, so the cut stays inside the letters; title weight 700 vs 540 compared, 700 kept.
+NEXT PROOF: real titles, names, dates, prices and a real subscription link, then a mobile and keyboard re-check; no screen-reader or real-reader test has been run.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marginalia 7: Borders and Crossings</title>
+<meta name="description" content="Issue 7 of Marginalia, a literary magazine published twice a year: borders and crossings. Cover theme, contents, contributors and how to subscribe.">
+<meta name="color-scheme" content="light">
+<style>
+/* Fonts: Besley (display) and Newsreader (text), both SIL Open Font License, self-hosted. See fonts/ for licences. */
+@font-face{font-family:"Besley";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/besley-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Besley";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/besley-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Besley";font-style:italic;font-weight:400 900;font-display:swap;src:url(fonts/besley-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Besley";font-style:italic;font-weight:400 900;font-display:swap;src:url(fonts/besley-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:swap;src:url(fonts/newsreader-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:swap;src:url(fonts/newsreader-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:200 800;font-display:swap;src:url(fonts/newsreader-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:200 800;font-display:swap;src:url(fonts/newsreader-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  /* Colour roles. Ink is a blue-black, paper a neutral pale grey-white (not cream), marker a signal yellow.
+     Marker is a FILL (and text on ink) only; on paper it is never used as text. */
+  --ink:#0f1218;       /* text on paper, field colour */
+  --paper:#f3f3ef;     /* page, text on ink */
+  --paper-2:#e6e6e0;   /* notice strip */
+  --ink-2:#4a4f59;     /* secondary text on paper, 7.4:1 */
+  --paper-3:#b9bec8;   /* secondary text on ink, 10:1 */
+  --marker:#ffcf1f;    /* signal yellow */
+  --hair:#c3c4c0;      /* ledger lines on paper */
+
+  --display:"Besley","Rockwell","Georgia",serif;
+  --text:"Newsreader","Georgia","Times New Roman",serif;
+
+  --m:24vw;                             /* where the margin rule sits (vw so every block can use it) */
+  --pad:clamp(18px,3.4vw,56px);         /* outer padding */
+  --gap:clamp(18px,3vw,48px);           /* gap either side of the rule */
+  --sec-y:clamp(72px,9vw,136px);
+  --fs:clamp(56px,15.2vw,292px);        /* hero title size */
+}
+@media (min-width:1180px){:root{
+  /* Title size is capped by viewport height so the whole title fits the first screen; the rule follows the title
+     (1.6em from its left edge) so the cut always lands inside the letters. At 1440x900 this equals 25vw. */
+  --fs:min(clamp(150px,13.4vw,292px),max(120px,calc((100svh - 190px) / 2.44)));
+  --m:calc(var(--fs) * 1.6 + var(--pad));
+}}
+@media (max-width:520px){:root{--m:18vw}}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:16px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 clamp(18px,1.25vw,20px)/1.55 var(--text);font-optical-sizing:auto;text-wrap:pretty;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ol,ul,dl,dd,figure,blockquote{margin:0;padding:0}
+ol,ul{list-style:none}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.on-ink :focus-visible,.cover__l :focus-visible{outline-color:var(--marker)}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:20;background:var(--marker);color:var(--ink);padding:10px 16px;font-weight:600;border:2px solid var(--ink)}
+.skip:focus{top:12px}
+
+/* Example flag: discreet, inline, removable (delete the .eg spans and the .notice strip for the real page). */
+.eg{font-style:italic;font-weight:400;color:var(--ink-2);font-family:var(--text);letter-spacing:0;text-transform:none;font-size:max(.85em,14px)}
+.on-ink .eg{color:var(--paper-3)}
+.notice{background:var(--paper-2);color:var(--ink-2);font-size:15px;line-height:1.3;padding:9px var(--pad);border-bottom:1px solid var(--hair)}
+
+/* The page: one rule runs the whole length at --m. */
+.page{position:relative}
+.page::before{content:"";position:absolute;top:0;bottom:0;left:var(--m);width:2px;margin-left:-1px;background:var(--ink);z-index:0;pointer-events:none}
+.page>*{position:relative;z-index:1}
+
+/* ---------- Cover ---------- */
+.cover{position:relative;display:grid;grid-template-columns:var(--m) minmax(0,1fr);grid-template-rows:auto 1fr auto;min-height:clamp(620px,calc(100svh - 40px),1000px)}
+.cover__l{background:var(--ink);color:var(--paper)}
+.bar__l,.bar__r{grid-row:1}
+.mid__l,.mid__r{grid-row:2}
+.bar__l,.mid__l{grid-column:1}
+.bar__r,.mid__r{grid-column:2}
+.bar__l{padding:22px var(--pad) 0}
+.brand{font:700 clamp(22px,2vw,30px)/1 var(--display);text-decoration:none;letter-spacing:-.01em;display:inline-block}
+.brand:hover{text-decoration:underline;text-decoration-thickness:2px}
+.bar__r{display:flex;justify-content:flex-end;align-items:flex-start;padding:16px var(--pad) 0 var(--gap)}
+.nav{display:flex;flex-wrap:wrap;gap:6px clamp(14px,2vw,30px);align-items:center;font-size:18px;line-height:1}
+.nav a{padding:10px 2px;text-decoration:none;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:currentColor}
+.nav .btn{padding:12px 18px;background:transparent;border-bottom:2px solid var(--ink)}
+.nav .btn:hover{background:var(--ink);color:var(--paper)}
+
+.mid__r{padding:clamp(48px,7vw,96px) var(--pad) 0 var(--gap);display:flex;justify-content:flex-end}
+.dek{max-width:25rem}
+.dek .issue{font:600 17px/1.3 var(--text);margin-bottom:14px}
+.dek p.lede{font-size:clamp(20px,1.6vw,24px);line-height:1.38}
+.cta{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;margin-top:26px}
+.btn{display:inline-block;font:600 18px/1 var(--text);padding:16px 26px;background:var(--marker);color:var(--ink);border:2px solid var(--ink);text-decoration:none;cursor:pointer;min-height:48px}
+.btn:hover{background:var(--ink);color:var(--marker)}
+.on-ink .btn{border-color:var(--marker)}
+.on-ink .btn:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* Title: base layer is ink on paper; the ghost layer (same text, paper on ink) is clipped to the margin field.
+   The cut falls at the rule, so the words change sides as they cross it. */
+.title{grid-column:1/-1;grid-row:3;position:relative;font-family:var(--display);font-weight:700;font-size:var(--fs);line-height:.86;letter-spacing:-.035em;font-optical-sizing:auto}
+.title__base,.title__ghost{display:block;padding:0 0 clamp(28px,3.6vw,56px) var(--pad)}
+.title__ghost{position:absolute;inset:0;background:var(--ink);color:var(--paper);clip-path:inset(-20% calc(100% - var(--m)) -20% 0);user-select:none;-webkit-user-select:none;pointer-events:none}
+.title span{display:block;white-space:nowrap}
+.title .and{font:italic 400 max(.2em,15px)/1 var(--display);letter-spacing:0;margin:.28em 0 .24em .04em}
+.title__ghost .and{color:var(--marker)}
+
+/* ---------- Sections: margin | rule | main ---------- */
+.sec{display:grid;grid-template-columns:var(--m) minmax(0,1fr);padding:var(--sec-y) 0}
+.mar{position:relative;z-index:2;display:flex;justify-content:center;padding:0}
+.mar h2{font:700 28px/1.05 var(--display);letter-spacing:-.015em;writing-mode:vertical-rl;transform:rotate(180deg);position:sticky;top:20px;align-self:flex-start;white-space:nowrap;padding:12px 0;background:var(--paper)}
+.main{padding:0 var(--pad) 0 var(--gap);min-width:0}
+.legend{font-style:italic;color:var(--ink-2);font-size:17px;line-height:1.45;max-width:38rem;margin-bottom:clamp(28px,3vw,44px)}
+
+/* About */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:14px 28px;font-size:16px;line-height:1.35;margin-bottom:clamp(32px,4vw,56px);max-width:44rem}
+.facts dt{color:var(--ink-2);font-style:italic}
+.facts dd{font-weight:600}
+.facts .eg{white-space:nowrap}
+.lead{font:400 clamp(26px,3vw,44px)/1.17 var(--text);letter-spacing:-.012em;max-width:26em;text-wrap:balance}
+mark{background:var(--marker);color:var(--ink);padding:0 .14em;margin:0 0 0 -.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.body{max-width:36rem;margin-top:clamp(28px,3vw,44px);display:grid;gap:1.1em;font-size:clamp(19px,1.5vw,22px)}
+.sample{margin-top:clamp(56px,7vw,104px)}
+.sample__pair{display:grid;grid-template-columns:minmax(0,1fr);gap:2px 0;padding:10px 0}
+.sample .pt{font:italic 400 clamp(18px,1.4vw,20px)/1.35 var(--text);color:var(--ink-2)}
+.sample .en{font:400 clamp(24px,2.5vw,36px)/1.22 var(--text);letter-spacing:-.01em}
+.sample figcaption{font-size:16px;color:var(--ink-2);margin-top:22px;line-height:1.4}
+.sample .tag{font-style:italic;margin-bottom:12px;color:var(--ink-2);font-size:16px}
+
+/* Contents ledger: rows run the full page width, so every line crosses the rule. */
+.ledger{margin:0 calc(var(--pad) * -1) 0 calc((var(--m) + var(--gap)) * -1);border-bottom:1px solid var(--hair)}
+.row{position:relative;border-top:1px solid var(--hair);padding:clamp(18px,2vw,28px) var(--pad) clamp(18px,2vw,28px) calc(var(--m) + var(--gap));scroll-margin-top:24px;display:flex;flex-direction:column}
+.row__title{font:600 clamp(24px,2.5vw,36px)/1.1 var(--display);letter-spacing:-.015em;text-wrap:balance}
+.row__by{margin-top:8px;font-size:18px;line-height:1.35}
+.row__by small{display:block;font-size:16px;font-style:italic;color:var(--ink-2);margin-top:2px}
+.row__note{font-style:italic;font-size:17px;line-height:1.42;color:var(--ink-2);margin-top:10px}
+.row__note .kind{font-style:normal;font-weight:600;color:var(--ink);display:block}
+.row__pg{order:-1;margin-bottom:8px;font:600 18px/1 var(--display);font-variant-numeric:tabular-nums lining-nums;color:var(--ink-2)}
+.row__pg::before{content:"p. ";font:italic 400 17px/1 var(--text)}
+.row:target{background:color-mix(in srgb,var(--marker) 38%,var(--paper))}
+.row--tr::before{content:"";position:absolute;top:-1px;left:calc(var(--m) - 12px);width:56px;height:7px;background:var(--marker)}
+
+/* Contributors: running paragraphs, as in print */
+.people{columns:1;column-gap:clamp(32px,4vw,72px);max-width:62rem}
+.people p{break-inside:avoid;margin:0 0 1.35em;font-size:clamp(18px,1.2vw,19px);line-height:1.5}
+.people b{font:600 1.08em/1.2 var(--display);letter-spacing:-.005em}
+.people .where{display:block;margin-top:4px;font-size:16px;font-style:italic;color:var(--ink-2)}
+.people .where a{font-style:normal}
+@media (min-width:1180px){.people{columns:2}}
+
+/* Subscribe: the fields swap. Margin is paper, main is ink. */
+.sec--sub{padding:0}
+.sec--sub .mar{padding-top:var(--sec-y);padding-bottom:var(--sec-y)}
+.sub{background:var(--ink);color:var(--paper);padding:var(--sec-y) var(--pad) var(--sec-y) var(--gap);box-shadow:inset 4px 0 0 var(--marker)}
+.sub .lead{font-size:clamp(26px,2.8vw,42px);max-width:22em}
+.sub .eg,.sub .legend{color:var(--paper-3)}
+.how{display:grid;gap:12px;margin:clamp(26px,3vw,40px) 0 clamp(32px,4vw,52px);max-width:36rem;color:var(--paper-3);font-size:18px}
+.how li{display:grid;grid-template-columns:2.2em 1fr}
+.how li::before{content:counter(s) ".";counter-increment:s;font-family:var(--display);font-weight:600;color:var(--marker)}
+.how{counter-reset:s}
+.how strong{color:var(--paper);font-weight:600}
+form{max-width:40rem}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font:600 20px/1.3 var(--display);padding:0;margin-bottom:14px}
+.plans{display:grid;gap:10px}
+.plan{position:relative;display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:2px 16px;align-items:center;padding:16px 18px;border:2px solid var(--paper-3);cursor:pointer}
+.plan:hover{border-color:var(--paper)}
+.plan input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.plan input:focus-visible{outline:none}
+.dot{grid-row:1/3;width:24px;height:24px;border:2px solid var(--paper);border-radius:50%;display:block}
+.plan__name{font:600 19px/1.25 var(--text)}
+.plan__desc{grid-column:2;font-size:16px;color:var(--paper-3);line-height:1.35}
+.plan__price{grid-column:3;grid-row:1/3;font:700 24px/1 var(--display);font-variant-numeric:tabular-nums lining-nums;text-align:right}
+.plan__price small{display:block;font:400 14px/1.3 var(--text);color:var(--paper-3);margin-top:4px;white-space:nowrap}
+.plan:has(input:checked){background:var(--marker);color:var(--ink);border-color:var(--marker)}
+.plan:has(input:checked) .plan__desc,.plan:has(input:checked) .plan__price small{color:var(--ink)}
+.plan:has(input:checked) .dot{border-color:var(--ink);background:radial-gradient(var(--ink) 0 45%,transparent 50%)}
+.plan:has(input:focus-visible){outline:3px solid var(--paper);outline-offset:3px}
+.abroad{margin-top:14px;grid-template-columns:28px minmax(0,1fr)}
+.abroad .dot{border-radius:3px;grid-row:1/3}
+.abroad:has(input:checked) .dot{background:linear-gradient(var(--ink),var(--ink)) center/12px 12px no-repeat}
+.total{margin:22px 0 6px;font-size:20px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.total strong{font:700 34px/1 var(--display);font-variant-numeric:tabular-nums lining-nums}
+.total span{color:var(--paper-3);font-size:16px}
+.fields{display:grid;gap:22px;margin-top:26px}
+@media (min-width:720px){.fields{grid-template-columns:1fr 1fr}}
+.field label{display:block;font-weight:600;margin-bottom:8px;font-size:18px}
+.field input{width:100%;font:400 19px/1.2 var(--text);padding:14px 14px;background:var(--paper);color:var(--ink);border:2px solid var(--paper);border-radius:0;min-height:52px}
+.field input:focus-visible{outline:3px solid var(--marker);outline-offset:3px}
+.field input[aria-invalid="true"]{border-color:var(--marker);box-shadow:inset 0 -6px 0 var(--marker)}
+.err{display:none;margin-top:8px;font-size:17px;color:var(--marker);font-weight:600}
+.err.show{display:block}
+.actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+.actions .alt{font-size:17px;color:var(--paper-3);max-width:22rem}
+.actions .alt a{color:var(--paper)}
+.sent{margin-top:32px;border-left:4px solid var(--marker);padding:4px 0 4px 20px;max-width:40rem}
+.sent[hidden]{display:none}
+.sent h3{font:600 20px/1.3 var(--display);margin-bottom:8px}
+.sent pre{white-space:pre-wrap;font:400 16px/1.5 var(--text);background:#1b2029;color:var(--paper);padding:14px 16px;margin:14px 0;border:1px solid var(--paper-3)}
+.btn--ghost{background:transparent;color:var(--paper);border-color:var(--paper);padding:12px 20px;font-size:17px}
+.btn--ghost:hover{background:var(--paper);color:var(--ink)}
+
+/* Footer */
+.foot{display:grid;grid-template-columns:var(--m) minmax(0,1fr);border-top:2px solid var(--ink);padding:clamp(32px,4vw,56px) 0 clamp(40px,5vw,72px);font-size:17px;line-height:1.5}
+.foot .brand{font-size:clamp(20px,1.8vw,26px);padding-left:var(--pad)}
+.foot .f{padding:0 var(--pad) 0 var(--gap);display:grid;gap:10px;max-width:46rem}
+.foot .top{justify-self:start}
+
+/* Wide hero (900px and up): the dek floats in the calm field, so the whole title fits the first screen. */
+@media (min-width:900px){
+  .mid__r{position:absolute;right:0;top:clamp(110px,12vw,180px);width:calc(min(24rem,27vw) + var(--pad));padding:0 var(--pad) 0 0;display:block}
+}
+
+/* Narrow layouts (below 900px): wordmark runs up the margin; title first, then the dek. */
+@media (max-width:899px){
+  .cover{grid-template-rows:auto 1fr auto auto}
+  .bar__l{grid-row:1/5;padding:22px 0 0;display:flex;justify-content:center;align-items:flex-start}
+  .brand{writing-mode:vertical-rl;transform:rotate(180deg);font-size:26px}
+  .mid__l{display:none}
+  .bar__r{padding:12px var(--pad) 0 var(--gap);justify-content:flex-start;grid-row:1}
+  .nav{font-size:17px;gap:4px 14px}
+  .nav .btn{padding:10px 14px;min-height:44px}
+  .nav .opt{display:none}
+  .mid__r{grid-column:2;grid-row:4;justify-content:flex-start;padding-top:4px;padding-bottom:clamp(40px,8vw,72px)}
+  .foot .brand{writing-mode:horizontal-tb;transform:none}
+  .foot{grid-template-columns:minmax(0,1fr);background:var(--paper);gap:14px}
+  .foot .f{padding-left:var(--pad)}
+}
+@media (max-width:520px){
+  .nav{font-size:17px}
+  .nav .btn{display:none}
+  .lead{font-size:26px}
+  .plan{grid-template-columns:24px minmax(0,1fr)}
+  .plan__price{grid-column:2;grid-row:auto;text-align:left;display:flex;gap:10px;align-items:baseline;margin-top:6px}
+  .plan__price small{display:inline;margin:0}
+  .dot{grid-row:1/4}
+}
+
+/* Wide layouts: label and notes live in the margin, the rule is crossed by every row. */
+@media (min-width:1180px){
+  .mar{justify-content:flex-start;padding:0 var(--gap) 0 var(--pad)}
+  .mar h2{writing-mode:horizontal-tb;transform:none;position:static;font-size:min(clamp(30px,2.6vw,46px),calc((var(--m) - var(--pad) - var(--gap)) / 7));background:none;padding:0}
+  .row{display:grid;grid-template-columns:var(--m) minmax(0,1fr) 96px;padding:clamp(20px,2vw,30px) 0;align-items:start}
+  .row__note{grid-column:1;grid-row:1;padding:0 var(--gap) 0 var(--pad);margin-top:6px}
+  .row__t{grid-column:2;grid-row:1;padding:0 var(--gap)}
+  .row__pg{grid-column:3;grid-row:1;order:0;margin:8px 0 0;padding:0 var(--pad) 0 0;text-align:right;font-size:22px;color:var(--ink)}
+  .row__pg::before{content:none}
+  .row--tr::before{left:calc(var(--m) - 28px);width:128px}
+  .sample{margin:clamp(56px,7vw,104px) calc(var(--pad) * -1) 0 calc((var(--m) + var(--gap)) * -1)}
+  .sample__pair{grid-template-columns:var(--m) minmax(0,1fr);align-items:baseline;padding:12px 0}
+  .sample .pt{padding:0 calc(var(--gap) / 2) 0 var(--pad)}
+  .sample .en{padding:0 var(--pad) 0 var(--gap)}
+  .sample .tag,.sample figcaption{padding:0 var(--pad) 0 calc(var(--m) + var(--gap))}
+  .sample .tag{padding-left:var(--pad)}
+}
+@media (forced-colors:active){
+  .title__ghost{display:none}
+  .plan:has(input:checked){outline:3px solid Highlight}
+}
+@media print{.notice,.nav,.cta{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the issue</a>
+<div class="notice" role="note">Draft layout. Every title, name, date, page number and price on this page is an example, marked <em>(example)</em>, to be replaced.</div>
+
+<div class="page">
+
+<!-- ================= COVER ================= -->
+<header class="cover" id="top">
+  <div class="cover__l bar__l"><a class="brand" href="#top">Marginalia</a></div>
+  <div class="bar__r">
+    <nav class="nav" aria-label="On this page">
+      <a class="opt" href="#issue">The issue</a>
+      <a href="#contents">Contents</a>
+      <a href="#contributors">Contributors</a>
+      <a class="btn" href="#subscribe">Subscribe</a>
+    </nav>
+  </div>
+
+  <h1 class="title">
+    <span class="title__base"><span>Borders</span> <span class="and">and</span> <span>Crossings</span></span>
+    <span class="title__ghost" aria-hidden="true"><span>Borders</span> <span class="and">and</span> <span>Crossings</span></span>
+  </h1>
+
+  <div class="cover__l mid__l" aria-hidden="true"></div>
+  <div class="mid__r">
+    <div class="dek">
+      <p class="issue">Issue 7 &middot; Autumn 2026 <span class="eg">(date to confirm)</span></p>
+      <p class="lede">Poems, fiction, essays and translations written at the line, not about it: a frontier post, a mother tongue, a school gate, the edge of a genre.</p>
+      <div class="cta">
+        <a class="btn" href="#subscribe">Subscribe</a>
+        <a href="#contents">Read the contents</a>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<main id="main">
+<!-- ================= THE ISSUE ================= -->
+<section class="sec" id="issue" aria-labelledby="h-issue">
+  <div class="mar"><h2 id="h-issue">The issue</h2></div>
+  <div class="main">
+    <dl class="facts">
+      <div><dt>Appears</dt><dd>Twice a year</dd></div>
+      <div><dt>This issue</dt><dd>Autumn 2026 <span class="eg">(to confirm)</span></dd></div>
+      <div><dt>Format</dt><dd>Print, 144 pages <span class="eg">(example)</span></dd></div>
+    </dl>
+    <p class="lead">A border is a line that somebody has to be able to read. This issue follows the people who <mark>read it</mark>, ignore it, translate it, or live in a house it runs through.</p>
+    <div class="body">
+      <p>We asked for writing from the threshold, whatever its size: a frontier post, a mother tongue, a school gate, the edge of a genre. The pieces we kept disagree about whether a line protects or divides. Most of them cross it anyway, and tell you what it cost and what the weather was like on the other side.</p>
+      <p>There is no photograph on the cover this time. The cover is set in type, and the type is cut by a line.</p>
+    </div>
+
+    <figure class="sample">
+      <p class="tag">A page from the issue <span class="eg">(example text)</span></p>
+      <div class="sample__pair"><p class="pt" lang="pt">A fronteira passa no meio da mesa.</p><p class="en">The border runs across the middle of the table.</p></div>
+      <div class="sample__pair"><p class="pt" lang="pt">Ninguém pediu licença ao pão.</p><p class="en">No one asked the bread&rsquo;s permission.</p></div>
+      <div class="sample__pair"><p class="pt" lang="pt">Declaro: uma faca, duas línguas,</p><p class="en">I declare: one knife, two languages,</p></div>
+      <div class="sample__pair"><p class="pt" lang="pt">a sede de quem chega.</p><p class="en">the thirst of whoever arrives.</p></div>
+      <figcaption>From &ldquo;Declaration of Goods&rdquo; by Marta Quinteira, translated from the Portuguese by Dev Anand Rowe. Original and translation, face to face.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= CONTENTS ================= -->
+<section class="sec" id="contents" aria-labelledby="h-contents">
+  <div class="mar"><h2 id="h-contents">Contents</h2></div>
+  <div class="main">
+    <p class="legend">Rows with a yellow bar are translations: they crossed a language to get here. <span class="eg">(All titles, names and page numbers are examples.)</span></p>
+    <ol class="ledger" style="list-style:none">
+      <li class="row" id="c-note">
+        <div class="row__t"><h3 class="row__title">Reading the Line</h3><p class="row__by">The editors</p></div>
+        <p class="row__note"><span class="kind">Editors&rsquo; note</span>Why this issue, and who we asked.</p>
+        <p class="row__pg"><span class="sr">Page </span>7</p>
+      </li>
+      <li class="row row--tr" id="c-declaration">
+        <div class="row__t"><h3 class="row__title">Declaration of Goods</h3><p class="row__by">Marta Quinteira <small>Translated from the Portuguese by Dev Anand Rowe</small></p></div>
+        <p class="row__note"><span class="kind">Poem</span>A customs form, answered in verse. The Portuguese runs alongside.</p>
+        <p class="row__pg"><span class="sr">Page </span>11</p>
+      </li>
+      <li class="row" id="c-surveyor">
+        <div class="row__t"><h3 class="row__title">The Surveyor&rsquo;s Daughter</h3><p class="row__by">Ilse Varga-Holm</p></div>
+        <p class="row__note"><span class="kind">Fiction</span>A boundary commission, a river that moves, and the one map nobody will sign.</p>
+        <p class="row__pg"><span class="sr">Page </span>19</p>
+      </li>
+      <li class="row" id="c-language">
+        <div class="row__t"><h3 class="row__title">Where the Language Stops</h3><p class="row__by">Tom&aacute;s Echeverri</p></div>
+        <p class="row__note"><span class="kind">Essay</span>On a dialect spoken on both banks and a dictionary that exists on only one.</p>
+        <p class="row__pg"><span class="sr">Page </span>34</p>
+      </li>
+      <li class="row" id="c-ferries">
+        <div class="row__t"><h3 class="row__title">Four Ferries</h3><p class="row__by">Adaeze Mbeki-Lund</p></div>
+        <p class="row__note"><span class="kind">Poems</span>The same crossing, at four hours of the day.</p>
+        <p class="row__pg"><span class="sr">Page </span>47</p>
+      </li>
+      <li class="row" id="c-transit">
+        <div class="row__t"><h3 class="row__title">Transit Hall B</h3><p class="row__by">Selin Aksoy-Berg</p></div>
+        <p class="row__note"><span class="kind">Fiction</span>Eleven hours in a corridor that belongs to no country.</p>
+        <p class="row__pg"><span class="sr">Page </span>53</p>
+      </li>
+      <li class="row row--tr" id="c-postman">
+        <div class="row__t"><h3 class="row__title">The Postman of Km&nbsp;14</h3><p class="row__by">Jun-seo Baek <small>Translated from the Korean by Rosalind Achterberg</small></p></div>
+        <p class="row__note"><span class="kind">Fiction in translation</span>A village post office that answers to two districts, and a postman who answers to both.</p>
+        <p class="row__pg"><span class="sr">Page </span>68</p>
+      </li>
+      <li class="row" id="c-change">
+        <div class="row__t"><h3 class="row__title">Small Change</h3><p class="row__by">Mirela Dragovi&cacute;</p></div>
+        <p class="row__note"><span class="kind">Essay</span>Coins in old coat pockets, and what a border does to a price.</p>
+        <p class="row__pg"><span class="sr">Page </span>81</p>
+      </li>
+      <li class="row" id="c-weather">
+        <div class="row__t"><h3 class="row__title">Weather on the Other Side</h3><p class="row__by">Callum Aird</p></div>
+        <p class="row__note"><span class="kind">Poems</span>Twelve short poems, one for each month, written as forecasts.</p>
+        <p class="row__pg"><span class="sr">Page </span>92</p>
+      </li>
+      <li class="row" id="c-word">
+        <div class="row__t"><h3 class="row__title">One Word That Will Not Cross</h3><p class="row__by">Dev Anand Rowe and Yusuf al-Rahmani</p></div>
+        <p class="row__note"><span class="kind">Conversation</span>Two translators, one hotel bar, and a verb with no equivalent.</p>
+        <p class="row__pg"><span class="sr">Page </span>101</p>
+      </li>
+      <li class="row" id="c-notes">
+        <div class="row__t"><h3 class="row__title">Notes on Contributors</h3><p class="row__by">Below, and in print</p></div>
+        <p class="row__note"><span class="kind">Back matter</span>Who wrote what, and where to find more.</p>
+        <p class="row__pg"><span class="sr">Page </span>138</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= CONTRIBUTORS ================= -->
+<section class="sec" id="contributors" aria-labelledby="h-contrib">
+  <div class="mar"><h2 id="h-contrib">Contributors</h2></div>
+  <div class="main">
+    <p class="legend">Eleven writers and translators, in alphabetical order. <span class="eg">(All names and biographies are examples.)</span></p>
+    <div class="people">
+      <p><b>Rosalind Achterberg</b> translates from Korean and Dutch and lives in a town with two railway stations. <span class="where">Translator, <a href="#c-postman">The Postman of Km&nbsp;14</a>, p.&nbsp;68</span></p>
+      <p><b>Callum Aird</b> writes poems and repairs boats on an estuary where the county line runs down the middle of the channel. <span class="where"><a href="#c-weather">Weather on the Other Side</a>, p.&nbsp;92</span></p>
+      <p><b>Selin Aksoy-Berg</b> writes fiction. She grew up between &Idot;zmir and Malm&ouml; and has missed more connections than she will admit. <span class="where"><a href="#c-transit">Transit Hall B</a>, p.&nbsp;53</span></p>
+      <p><b>Yusuf al-Rahmani</b> translates from Arabic and teaches interpreting. <span class="where"><a href="#c-word">One Word That Will Not Cross</a>, p.&nbsp;101</span></p>
+      <p><b>Jun-seo Baek</b> is a novelist and a former rural postal worker. This is his first appearance in English. <span class="where"><a href="#c-postman">The Postman of Km&nbsp;14</a>, p.&nbsp;68</span></p>
+      <p><b>Mirela Dragovi&cacute;</b> writes essays about money, migration and household objects. <span class="where"><a href="#c-change">Small Change</a>, p.&nbsp;81</span></p>
+      <p><b>Tom&aacute;s Echeverri</b> is a linguist who has spent twenty years collecting words that exist on only one side of a river. <span class="where"><a href="#c-language">Where the Language Stops</a>, p.&nbsp;34</span></p>
+      <p><b>Adaeze Mbeki-Lund</b> writes poems and commutes by ferry. <span class="where"><a href="#c-ferries">Four Ferries</a>, p.&nbsp;47</span></p>
+      <p><b>Marta Quinteira</b> writes poems in Portuguese and in Dutch. <span class="where"><a href="#c-declaration">Declaration of Goods</a>, p.&nbsp;11</span></p>
+      <p><b>Dev Anand Rowe</b> translates from Portuguese and Spanish, and sometimes into them. <span class="where">Translator, <a href="#c-declaration">Declaration of Goods</a>, p.&nbsp;11; <a href="#c-word">One Word That Will Not Cross</a>, p.&nbsp;101</span></p>
+      <p><b>Ilse Varga-Holm</b> writes fiction and works as a land surveyor. <span class="where"><a href="#c-surveyor">The Surveyor&rsquo;s Daughter</a>, p.&nbsp;19</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUBSCRIBE ================= -->
+<section class="sec sec--sub" id="subscribe" aria-labelledby="h-sub">
+  <div class="mar"><h2 id="h-sub">Subscribe</h2></div>
+  <div class="sub on-ink">
+    <p class="lead">Two issues a year, starting with <mark>Issue 7</mark>. Choose how many, and where it should land.</p>
+    <ol class="how" aria-label="How subscribing works for now">
+      <li><span><strong>Choose</strong> a subscription below.</span></li>
+      <li><span><strong>Send</strong> the request: your email app opens with it written out.</span></li>
+      <li><span><strong>We reply</strong> with payment details and ask for your postal address.</span></li>
+    </ol>
+
+    <form id="subform" novalidate>
+      <fieldset class="plans">
+        <legend>Subscription <span class="eg">(example prices)</span></legend>
+        <label class="plan"><input type="radio" name="plan" value="single" data-issues="1" data-price="16"><span class="dot" aria-hidden="true"></span><span class="plan__name">Issue 7 only</span><span class="plan__desc">One copy.</span><span class="plan__price">&euro;16<small>&euro;16 an issue</small></span></label>
+        <label class="plan"><input type="radio" name="plan" value="year" data-issues="2" data-price="28" checked><span class="dot" aria-hidden="true"></span><span class="plan__name">One year</span><span class="plan__desc">Two issues, starting with Issue 7.</span><span class="plan__price">&euro;28<small>&euro;14 an issue</small></span></label>
+        <label class="plan"><input type="radio" name="plan" value="two" data-issues="4" data-price="52"><span class="dot" aria-hidden="true"></span><span class="plan__name">Two years</span><span class="plan__desc">Four issues, starting with Issue 7.</span><span class="plan__price">&euro;52<small>&euro;13 an issue</small></span></label>
+      </fieldset>
+      <label class="plan abroad"><input type="checkbox" name="abroad" id="abroad"><span class="dot" aria-hidden="true"></span><span class="plan__name">Post it abroad</span><span class="plan__desc">Add &euro;3 per issue if the address is outside our home country. <span class="eg">(example rate)</span></span></label>
+      <p class="total" id="total" aria-live="polite"><span>Total</span><strong>&euro;28</strong><span>two issues, posted at home</span></p>
+
+      <div class="fields">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+          <p class="err" id="e-name" role="alert">Add the name the subscription should go under.</p>
+        </div>
+        <div class="field">
+          <label for="f-email">Your email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+          <p class="err" id="e-email" role="alert">Enter an address like name@example.com so we can reply.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" type="submit">Subscribe</button>
+        <p class="alt">Or write directly to <a href="mailto:subscribe@marginalia.example">subscribe@marginalia.example</a> <span class="eg">(example address)</span>.</p>
+      </div>
+    </form>
+
+    <div class="sent" id="sent" role="status" hidden>
+      <h3>Your request is written, not sent</h3>
+      <p>Your email app should open with this message ready to send. Nothing has been sent or paid from this page. If no app opened, copy the text and send it to <a href="mailto:subscribe@marginalia.example">subscribe@marginalia.example</a>.</p>
+      <pre id="sent-text"></pre>
+      <button class="btn btn--ghost" type="button" id="copy">Copy the text</button> <span id="copied" class="sr" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div><a class="brand" href="#top">Marginalia</a></div>
+  <div class="f">
+    <p>A literary magazine, published twice a year. Issue 7, <em>Borders and Crossings</em>, appears in Autumn 2026 <span class="eg">(to confirm)</span>.</p>
+    <p>Editors: <a href="mailto:editors@marginalia.example">editors@marginalia.example</a> <span class="eg">(example address)</span></p>
+    <a class="top" href="#top">Back to the cover</a>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var form=document.getElementById('subform'); if(!form) return;
+  var total=document.getElementById('total'), abroad=document.getElementById('abroad');
+  var nameI=document.getElementById('f-name'), mailI=document.getElementById('f-email');
+  var sent=document.getElementById('sent'), sentText=document.getElementById('sent-text');
+  var ADDRESS='subscribe@marginalia.example';
+  var words={1:'one issue',2:'two issues',4:'four issues'};
+  function plan(){return form.querySelector('input[name="plan"]:checked');}
+  function calc(){
+    var p=plan(), n=+p.dataset.issues, base=+p.dataset.price, extra=abroad.checked?3*n:0;
+    total.innerHTML='<span>Total</span><strong>€'+(base+extra)+'</strong><span>'+words[n]+(abroad.checked?', posted abroad (€'+extra+' postage)':', posted at home')+'</span>';
+  }
+  form.addEventListener('change',calc); calc();
+  function bad(input,errId,isBad){
+    var e=document.getElementById(errId);
+    if(isBad){input.setAttribute('aria-invalid','true');e.classList.add('show');}
+    else{input.removeAttribute('aria-invalid');e.classList.remove('show');}
+    return isBad;
+  }
+  nameI.addEventListener('input',function(){if(nameI.value.trim())bad(nameI,'e-name',false);});
+  mailI.addEventListener('input',function(){if(/^\S+@\S+\.\S+$/.test(mailI.value.trim()))bad(mailI,'e-email',false);});
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var nBad=bad(nameI,'e-name',!nameI.value.trim());
+    var eBad=bad(mailI,'e-email',!/^\S+@\S+\.\S+$/.test(mailI.value.trim()));
+    if(nBad||eBad){sent.hidden=true;(nBad?nameI:mailI).focus();return;}   // input is kept; focus goes to the first problem
+    var p=plan(), n=+p.dataset.issues, label=p.parentNode.querySelector('.plan__name').textContent;
+    var extra=abroad.checked?3*n:0, tot=(+p.dataset.price)+extra;
+    var body='Hello,\n\nI would like to subscribe to Marginalia.\n\nSubscription: '+label+' ('+words[n]+', starting with Issue 7)\nPostage: '+(abroad.checked?'abroad':'home country')+'\nTotal as shown on the page: €'+tot+'\nName: '+nameI.value.trim()+'\nEmail: '+mailI.value.trim()+'\n\nPlease send me payment details and ask for my postal address.\n';
+    var subject='Subscription request: Marginalia ('+label+')';
+    sentText.textContent='To: '+ADDRESS+'\nSubject: '+subject+'\n\n'+body;
+    sent.hidden=false;
+    var h=sent.querySelector('h3'); h.setAttribute('tabindex','-1'); h.focus();   // announce the result and keep it in view
+    window.location.href='mailto:'+ADDRESS+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=sentText.textContent, c=document.getElementById('copied');
+    function done(m){c.textContent=m;}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){done('Copied.');},function(){sel();});}
+    else sel();
+    function sel(){var r=document.createRange();r.selectNodeContents(sentText);var s=window.getSelection();s.removeAllRanges();s.addRange(r);done('Text selected. Press copy.');}
+  });
+})();
+</script>
+</body>
+</html>

@@ -107,7 +107,8 @@ Contraintes de cohérence avec le paquet : pas de score agrégé, pas de seuil e
 ## 10. Ordre et coût
 
 1. **Essai à blanc** sur un seul brief écarté (le brief « atelier de vélos »), sans comparer, pour vérifier le journal d'exposition, l'anonymisation et les captures.
-2. **Q1** seule : A1 et A2, 8 briefs, 2 répétitions : 32 sessions.
+   **Fait en manche 15 (étape 1)** : quatre briefs brûlés (atelier de vélos, outil de cuisine, revue littéraire, jardin partagé), DG seul, journal des appels dans des copies instrumentées ; résultats dans `SUIVI.md` 11.10. Coût mesuré : environ 340 à 400 mille jetons, 70 à 90 appels d'outil et 20 à 25 minutes par session. **Les quatre briefs sont exclus des huit du protocole.** Les transcriptions des sous-agents sont lisibles et donnent un journal complet ; les dates d'accès aux fichiers ne servent à rien.
+2. **Q1** seule : A1 et A2, 8 briefs, 2 répétitions : 32 sessions, de l'ordre de 12 millions de jetons d'après l'étape 1.
 3. **Q2 et Q3** seulement si Q1 est informatif ou si l'utilisateur veut la réponse pour elle-même : A0 et A3 en plus : 64 sessions au total.
 4. Version minimale pour décider d'un seul pilote : A1 et A2, briefs 1, 5, 6 et 8 (ceux où l'inventaire du sujet devrait peser), 2 répétitions : 16 sessions. **Elle ne peut pas atteindre 7 sur 8** : elle ne servirait qu'à vérifier l'exposition et à repérer une régression, pas à promouvoir.
 

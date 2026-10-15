@@ -353,7 +353,7 @@ Accord de l'utilisateur : « Allons-y. » après la proposition « U3 à U6, un 
 
 **Limites déclarées.** Valeurs reprises de TS, observées sur des sites de galerie notés par des modèles ; aucun gain n'est démontré ; aucune n'a été exercée sur un run de design. `ADOPTED` exige des runs contrastés avec et sans.
 
-## 11. Manches 10 à 14 : lectures, mesures, protocole, principes D, contraste du focus, couleur
+## 11. Manches 10 à 15 : lectures, mesures, protocole, principes D, contraste du focus, couleur, exposition
 
 « A toi le choix. » : j'ai choisi, dans l'ordre, de finir les lectures encore ouvertes (`probe.mjs`, B9), de combler le trou que `probe.mjs` montre, et de préparer le protocole A/B **sans le lancer**.
 
@@ -478,6 +478,40 @@ Après la discussion de l'utilisateur sur D1, D3 et D4 (avis, données de TS, ar
 
 **Premier écran (D1), ce qui a été livré.** Actions : boutons, liens d'action et champs d'envoi de 28 à 84 px de haut portant un fond opaque ou une bordure, comptés et nommés ; **un lien d'action sans fond ni bordure n'est pas compté** (la page `brutalist` de la manche 5 donne 0 action pour cette raison). Navigation : liens, hauteur prise sur l'ancêtre fixe ou collant, part du premier écran, fixe ou non. Tests : A 104 → 108 ; B 72 → 75 ; C 65 (248 au total). Validation complète `--require-browser` passée.
 
+### 11.10 Étape 1 faite : exposition de quatre sessions réelles
+
+L'utilisateur a dit « Allons-y avec l'étape 1 » (4 sessions d'agent avec DG tel qu'il est, relevé des routes lues). Fichiers : `essais/exposition/` (`journaux/`, `livrables/`, `analyse_exposition.py`, `resultats.txt`).
+
+**Dispositif.** Quatre copies isolées du paquet au commit `37e39e5`, chacune avec `read_route.py` et `check_render.py` qui enregistrent leurs appels dans un journal extérieur à la copie. Quatre briefs, un par session, consigne identique (« Utilise-la comme tu utiliserais n'importe quelle skill installée », hypothèses explicites, personne ne répond) : (1) atelier de vélos à Lyon, en français, sans photos ; (2) outil de stock pour une cuisine de 40 couverts, tablette, mains mouillées, en français ; (3) page de numéro d'une petite revue littéraire, en anglais, sans photos ; (4) « une page pour mon projet de jardin partagé », brief vague, en français. **Ces quatre briefs sont brûlés pour le protocole A/B** (vus et utilisés pour décider d'éventuels ajustements de chargement). Les agents ne savaient pas ce qui était mesuré.
+
+**Vérifié.** Les transcriptions des sous-agents sont lisibles : les agents n'ont lu la skill que par `read_route.py` (plus `SKILL.md`, et `references/examples.md` pour une session) ; le journal est donc complet. Les dates d'accès aux fichiers sont **inutilisables** : `read_route.py` charge tout le corpus à chaque appel. Chaque appel de lecture a été rejoué sur une copie propre pour savoir quel texte il a servi ; les appels d'index (`--sommaire`, `--trouver`, `--mode`) ne comptent pas comme lecture.
+
+| Passage ajouté (route lue en entier) | s1 vélos | s2 cuisine | s3 revue | s4 jardin |
+|---|---|---|---|---|
+| `CFT-00` : substance et question sur le mouvement | oui | oui | oui | oui |
+| `CFT-05` : relations de couleur | oui | oui | oui | oui |
+| `CFT-06` : écriture | oui | oui | oui | oui |
+| `SAVOIR/TYPE` : réglage d'un grand texte | oui | oui | oui | oui |
+| `CFT-01` : inventaire du sujet | oui | oui | **non** | oui |
+| `POINTS-DE-DEPART` | oui | **non** | oui | oui |
+| `SAVOIR/CONTEXT` : durées | index seul | oui | **non** | **non** |
+| `BIBLIOTHEQUE/GRID` : gabarit | non | oui | non | non |
+| `SCENE/EDITORIAL_FIELD` : gabarit | non | non | oui | non |
+| **`SAVOIR/SOURCE` : images libres** | **non** | **non** | **non** | **non** |
+
+Toutes les lectures ont eu lieu **avant la création du livrable** (entre 15 s et 171 s, le livrable apparaissant vers 640 à 790 s). 28 à 36 lectures de route par session ; `--mesures` utilisé dans 3 sessions sur 4 ; `--proof` dans les 4.
+
+**Lecture.**
+- Les passages sur le **chemin principal** de chargement (substance et mouvement, couleur, écriture, grand texte) sont lus **4 fois sur 4** : les pilotes qui s'y trouvent peuvent agir.
+- Les passages **conditionnels** sont lus sélectivement : l'inventaire du sujet 3 sur 4 (pas la revue, dont le sujet est un texte), les points de départ 3 sur 4 (pas l'outil), les durées 1 sur 4 en entier, chaque gabarit 1 sur 4 (là où la structure s'y prête).
+- **`SAVOIR/SOURCE` (images libres, pilote U6) n'a été appelée par personne, même en index, alors que les quatre briefs n'avaient pas de photographies.** Les agents ont construit avec du code, du SVG et de la typographie, ont écrit que les photos manquaient, et n'ont pas cherché d'images. Dans cet échantillon, U6 est **inerte**. Ce n'est pas une preuve qu'il serait utile de le lire ; c'est la preuve que la décision de ne pas chercher d'images est prise ailleurs que dans cette route (D3, 11.9).
+- Un cas de **contrôle utile observé** : à la première mesure de la session 1, le nouveau contrôle de contraste du focus a relevé `a.tel : contour #151f2b sur #151f2b = 1:1` (un focus invisible sur fond sombre) ; l'agent l'a corrigé, la mesure finale est conforme. Un seul cas, mais c'est le défaut pour lequel le contrôle a été écrit.
+- **Aucune attribution d'effet.** Les livrables montrent des partis marqués (un plan de terrain à l'échelle, une semaine en chaîne de vélo, une marge traversée) ; rien ne dit si l'inventaire du sujet ou la couleur par la luminosité y sont pour quelque chose, faute de bras témoin. Une session a utilisé l'OKLCH pour ses rôles de couleur, mais `CFT-05` le mentionnait déjà avant la sous-section.
+
+**Coût mesuré** (rapport du harnais, ordre de grandeur) : 338 à 398 mille jetons, 68 à 91 appels d'outil et 20 à 25 minutes par session, soit environ 1,4 million de jetons pour les quatre. Extrapolé : la question A1 contre A2 (32 sessions) coûterait de l'ordre de **12 millions de jetons** ; le protocole complet à 64 sessions de l'ordre de 23 millions, sans les relecteurs.
+
+**Limites.** Quatre briefs, une session chacun, un seul modèle, une consigne de ma rédaction (non celle d'un utilisateur réel), un environnement avec navigateur fourni. L'exposition d'une autre version du modèle ou d'autres briefs peut différer. Mesurer la lecture n'est pas mesurer la compréhension ni l'effet.
+
 ## 12. À garder en tête pour la suite
 
 **Nécessaire**
@@ -547,7 +581,7 @@ Après la discussion de l'utilisateur sur D1, D3 et D4 (avis, données de TS, ar
 1. **Décision sur la branche `ccr-38b0a56f-t8xdo8`** (15 commits : `8d91faf`, `e0ab48b`, `471bedb`, `27db80d`, `cdb3f49`, `c12ec3e`, `a31afe4`, `60629bf`, `d461b30`, `1978466`, `a474ac5`, `c5e60fd`, `cec0636`, `7dbfb2e`, `37e39e5` ; validation complète rejouée sur chacun des derniers). Aucune PR n'est ouverte.
 2. **Confirmer ou renverser** les décisions de l'assistant : D1, D3, D4 (11.9), D2 (appliqué), les six autres contradictions (tranchées côté DG).
 3. **Gagner le statut `ADOPTED`** ou retirer : pilotes et valeurs `[À ADAPTER]` (`CFT-01` inventaire du sujet, `CFT-05` relations de couleur, question sur le mouvement de `CFT-00`, `CFT-06`, `SAVOIR/SOURCE` collections ouvertes, gabarits sur deux routes, réglage d'un grand texte, durées de mouvement, `POINTS-DE-DEPART`, `--mesures`) : runs contrastés sur de vrais briefs, avec et sans. **Le protocole est prêt (`PROTOCOLE-AB.md`) ; il demande des sessions d'agent, des relecteurs et l'accord de l'utilisateur.**
-4. **Étendre `EVALUATION_CASE`** selon la spécification de `PROTOCOLE-AB.md` section 9, avec le premier run réel et pas avant.
+4. **Étendre `EVALUATION_CASE`** selon la spécification de `PROTOCOLE-AB.md` section 9, avec le premier run réel et pas avant. **L'étape 1 (exposition) est faite (11.10) ; l'étape 2 (A1 contre A2) reste à décider.**
 5. **Contraste de l'indicateur de focus** : fait en manche 12 (11.7) pour les cas lisibles. Restent non mesurés : bordures de champs, icônes, indicateurs par changement de fond.
 5bis. **Écran vide et même énoncé écran après écran** (le reste de `frame()` de TS) : non repris ; demanderait de parcourir le défilement et un seuil, donc plus proche d'un verdict. À reprendre seulement si un run réel montre le défaut.
 6. **Prototypes restants** (N2 avec sélecteur et historique, B5, B7) seulement si l'étape 2 le permet. Le gabarit sur deux routes (B2) a été fait ; l'étendre dépend de son essai.
