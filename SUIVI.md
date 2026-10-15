@@ -510,6 +510,8 @@ Toutes les lectures ont eu lieu **avant la création du livrable** (entre 15 s e
 
 **Coût mesuré** (rapport du harnais, ordre de grandeur) : 338 à 398 mille jetons, 68 à 91 appels d'outil et 20 à 25 minutes par session, soit environ 1,4 million de jetons pour les quatre. Extrapolé : la question A1 contre A2 (32 sessions) coûterait de l'ordre de **12 millions de jetons** ; le protocole complet à 64 sessions de l'ordre de 23 millions, sans les relecteurs.
 
+**Suite décidée par l'assistant** (l'utilisateur : « les images des pages » puis « à toi de choisir concernant les D »). Les huit captures (bureau et mobile ou tablette) des quatre pages lui ont été envoyées. Choix sur les principes : **D1, D3 et D4 restent tels que tranchés en 11.9** ; le pilote d'images libres (`SAVOIR/SOURCE`), lu 0 fois sur 4, est **conservé sans déclencheur** (en faire un déclencheur forcerait des recherches d'images, avec leur coût et leurs droits, et contredirait D3) et marqué « inexercé » dans `maintenance/versions.md` (commit `ccr-38b0a56f-t8xdo8`, exposition observée). **L'étape 2 (A1 contre A2) n'est pas lancée** : elle demande l'accord explicite de l'utilisateur et environ 1,4 million de jetons pour sa version légère (quatre briefs avec DG avant les ajouts, commit `897ed35`, comparaison à l'aveugle par l'utilisateur).
+
 **Limites.** Quatre briefs, une session chacun, un seul modèle, une consigne de ma rédaction (non celle d'un utilisateur réel), un environnement avec navigateur fourni. L'exposition d'une autre version du modèle ou d'autres briefs peut différer. Mesurer la lecture n'est pas mesurer la compréhension ni l'effet.
 
 ## 12. À garder en tête pour la suite
