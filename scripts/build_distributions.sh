@@ -101,6 +101,7 @@ LOCAL = {
     "installation": """Copiez ce dossier dans le dossier de skills de votre agent, sous ce nom ; par exemple, pour Claude Code dans le projet :
 
 ```bash
+mkdir -p .claude/skills
 cp -R chemin/vers/ce/dossier .claude/skills/design-governance-practice
 ```
 
