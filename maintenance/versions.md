@@ -44,6 +44,8 @@ Une promotion, une dépréciation ou une migration décidée se reflète ici, da
 
 Ajouts de cette révision, suivis comme candidats (`maintenance/evolution.md`, cycle de vie) : aucun n’est `ADOPTED`. Owner : mainteneur du corpus. Revue : avant 2027-04.
 
+**Exposition observée (manche 15, quatre sessions réelles, quatre briefs, version `37e39e5`).** Lues en entier avant la création du livrable : `CFT-00` (substance, mouvement), `CFT-05` (relations de couleur), `CFT-06` et `SAVOIR/TYPE` dans 4 sessions sur 4 ; `CFT-01` (inventaire du sujet) et `POINTS-DE-DEPART` dans 3 sur 4 ; `SAVOIR/CONTEXT` (durées) et chacun des deux gabarits dans 1 sur 4 ; **`SAVOIR/SOURCE` (images libres) dans 0 sur 4**, alors qu’aucun des quatre briefs ne fournissait de photographies. Cette exposition ne dit rien de l’effet : le gain reste à établir avec des runs contrastés. Le pilote « images libres » est inexercé dans cet échantillon ; il est conservé sans déclencheur supplémentaire.
+
 | Ajout | Statut | Périmètre et limite | Preuve exigée avant adoption | Retour arrière |
 |---|---|---|---|---|
 | `SAVOIR/CRAFT/CFT-06` — écriture et contenu | `PILOT` | Forme et spécificité du texte (budget de titre, formes de titre, actions, micro-typographie française) ; ne juge ni la justesse commerciale, ni la conformité légale, ni la conversion. | Contrat de gain réel (`BIBLIOTHEQUE/EVOLUTION`) : plusieurs runs contrastés avec et sans la route, baseline, observation et limite. | Retirer la section et son adresse lisible ; le noyau de la skill n’est pas touché. |
