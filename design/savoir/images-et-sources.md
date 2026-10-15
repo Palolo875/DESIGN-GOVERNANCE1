@@ -56,6 +56,17 @@ Une recherche de domaine et une recherche de calibration visuelle peuvent se com
 
 La profondeur de recherche augmente par déclencheur : confiance ou erreur coûteuse, public ou JTBD incertain, contexte culturel sensible, convention inconnue, matériau ou asset directeur à calibrer, ou écart créatif qui ne peut être défendu par le seul jugement interne. La recherche doit ensuite revenir dans le premier objet, la structure, le contenu, le geste ou la preuve ; sinon elle reste une archive et non un levier de production.
 
+### Chercher le monde du sujet dans des collections ouvertes
+
+[MÉTHODE] Lorsque le client n’a pas d’images propres, ce que son monde donne à voir se trouve souvent dans des collections ouvertes d’archives et de musées : carte postale du quartier, vieille carte, gravure du métier, matière en gros plan, objet de musée du même genre. Méthode en `PILOT` (`maintenance/versions.md`). Les collections se nomment dans `SAVOIR/TOOLS/MOYENS` ; leur accès n’est pas une capacité acquise tant qu’il n’a pas été atteint depuis l’environnement du run.
+
+- **Requêtes.** Pars de l’inventaire du sujet (`SAVOIR/CRAFT/CFT-01`), non de la catégorie : « boulangerie » ramène les boulangeries des autres. Cherche dans les mots du lieu (le nom local, pas une description générique), ajoute un médium (carte postale, gravure, vieille carte, lithographie, vue aérienne) ou une décennie ; deux ou trois requêtes par idée. Les collections de musées répondent mieux à un ou deux mots.
+- **Choisir.** Une trouvaille convient si elle appartient au monde de ce sujet et n’irait pas chez son voisin ; si elle tient au recadrage voulu (regarde l’image elle-même : une légende n’est pas une image) ; si elle est assez grande (le double de la largeur d’affichage pour une image pleine largeur) ; si elle appartient à la même famille que les autres images de la page (lot d’assets) ; si elle est sans filigrane, sans texte incrusté, sans bord de numérisation impossible à recadrer et sans personne reconnaissable qui pourrait passer pour l’équipe ou la clientèle du client.
+- **Honnêteté.** Une image trouvée montre le monde autour du client, jamais son produit, sa salle, son plat, une personne ou son équipe. Sa légende reprend ce que dit la source et ne la lie pas au client.
+- **Droits.** La licence se lit sur la page de la source, image par image ; ce n’est pas un avis juridique. Un usage commercial est requis pour un site de client ; une obligation de crédit ou de partage à l’identique se respecte dans la page ; une licence sans usage commercial est écartée ; une licence sans dérivation demande de montrer l’image entière et inchangée. Les crédits (intitulé, auteur, source, licence, lien) s’enregistrent à côté du fichier, l’image se copie dans le projet plutôt que d’être liée, et la réponse la liste (`RIGHTS / UNCERTAINTY` de la fiche de source).
+
+Si deux ou trois requêtes sérieuses ne donnent rien d’honnête, dessine le sujet (`CODE-NATIVE`) ou retiens `SANS-ASSET`, et dis-le (`DIRECTION/VISUAL_TARGET`).
+
 ### Curer, produire et intégrer
 
 Le point de départ n’est pas « quelle image produire ? », mais « quelle relation manque à la promesse, à la preuve ou à l’action ? ».
@@ -74,6 +85,8 @@ Avant de retenir un asset directeur, formule une contre-épreuve proportionnée 
 <!-- noyau:début MOY-ASSETS -->
 **Traitement des assets moyens.** Quand les assets disponibles sont moyens (photos de téléphone, banque d’images), choisis le traitement que justifie la thèse — recadrage, étalonnage, duotone, grain ou trame — plutôt que de les poser bruts ou de les remplacer par un dessin. Un traitement commun peut unifier une série disparate ; plusieurs traitements se justifient si leurs rôles sont distincts et lisibles. Vérifie sur capture la relation entre les images et la composition. Le traitement ne masque ni un droit inconnu, ni une image hors sujet.
 <!-- noyau:fin MOY-ASSETS -->
+
+Une trame ou un grain proches des marqueurs de vague datés (`SAVOIR/TOOLS/CONVERGENCE`) restent permis lorsque la thèse les justifie : la question est celle de `MODIFIER/PRINT_FIELD` (que perd la page si l’on retire ce traitement ?), et un traitement repris d’un brief à l’autre est un signal d’enquête (`BIBLIOTHEQUE/SELECT`, signaux de convergence structurelle), jamais un interdit.
 
 # SAVOIR/DESIGN-ATLAS — familles et responsabilités
 

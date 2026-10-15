@@ -162,8 +162,98 @@ def part_a() -> None:
     expect("A", "feuille ouverte qui défile", status(cr.interpret(raw_case(audit={"inner": [{"sel": "#d", "dialog": True, "sw": 580, "cw": 390}]})), "Défilement"), RETURN)
     expect("A", "conteneur défilant voulu ou non", status(cr.interpret(raw_case(audit={"inner": [{"sel": ".table", "dialog": False, "sw": 900, "cw": 390}]})), "Défilement"), RESERVE)
     expect("A", "animation infinie en mouvement réduit", status(cr.interpret(raw_case(running=[{"name": "spin", "infinite": True}])), "Mouvement"), RETURN)
+    expect("A", "aucune animation démarrée", status(cr.interpret(raw_case(running=[])), "Mouvement"), PASS)
+    expect("A", "animation finie avec déplacement : réserve",
+           status(cr.interpret(raw_case(running=[{"name": "up", "target": "p.a", "infinite": False, "moves": True}])), "Mouvement"), RESERVE)
+    expect("A", "animation finie sans déplacement : réserve conservatrice",
+           status(cr.interpret(raw_case(running=[{"name": "fade", "target": "p.a", "infinite": False, "moves": False}])), "Mouvement"), RESERVE)
+    expect("A", "ancienne mesure sans champ moves : traitée comme déplacement, jamais écartée",
+           status(cr.interpret(raw_case(running=[{"name": "up", "infinite": False}])), "Mouvement"), RESERVE)
+    detail = next(d for t, _, d in cr.interpret(raw_case(running=[{"name": "fade", "target": "p.a", "infinite": False, "moves": False}])) if t.startswith("Mouvement"))
+    expect("A", "fondu seul : le détail annonce zéro déplacement", "dont 0 avec déplacement" in detail, True)
     expect("A", "débordement du document", status(cr.interpret(raw_case(overflow=(510, 390))), "Débordement horizontal"), RETURN)
+    sample = {"viewport": 390, "titre": {"texte": "Un titre", "mots": 2, "caracteres": 8, "lignes": 3, "taille": 50.0, "vw": 12.8, "interligne": 1.0,
+                                          "approche": -0.02, "graisse": "700", "famille": "X", "balise": "h1"},
+              "corps": 16.0, "tailles_distinctes": 4, "familles": ["X"], "plus_petit": {"taille": 10.0, "part": 4}, "mesure_max": 70, "mesure_mediane": 60,
+              "images": {"raster": 2, "video": 0, "canvas": 0, "svg": 1}, "media_premier_ecran": 40, "centre_pour_cent": 10,
+              "fonds_distincts": 2, "bords_gauches": 3, "mots": 120, "ecrans": 2.5}
+    with_m = raw_case(); with_m["per_width"][390]["mesures"] = sample
+    expect("A", "mesures : aucun statut modifié", cr.interpret(with_m) == cr.interpret(raw_case()), True)
+    line = cr.format_mesures(with_m["per_width"])[0]
+    expect("A", "mesures : titre, lignes et vw relevés", all(x in line for x in ("3 ligne(s)", "50.0 px (12.8 vw)", "corps 16.0 px", "2 raster", "40 % du premier écran")), True)
+    expect("A", "mesures : plus petit texte et sa part relevés", "plus petit texte 10.0 px (4 % des caractères)" in line, True)
+    old = raw_case(); old["per_width"][390]["mesures"] = {k: v for k, v in sample.items() if k != "plus_petit"}
+    expect("A", "mesures : relevé ancien sans plus petit texte, aucune erreur ni mention", "plus petit" in cr.format_mesures(old["per_width"])[0], False)
+    expect("A", "mesures : aucun seuil ni verdict dans la ligne", any(w in line for w in (PASS, RESERVE, RETURN, "trop", "insuffisant")), False)
+    expect("A", "mesures : relevé ancien sans gros textes, aucune erreur ni mention", "gros textes" in cr.format_mesures(old["per_width"])[0], False)
+    clear = dict(sample, gros_textes={"testes": 2, "couverts": [], "hauts_rognes": []})
+    with_g = raw_case(); with_g["per_width"][390]["mesures"] = clear
+    expect("A", "mesures : gros textes testés, rien de couvert", "gros textes du premier écran (2 testé(s)) : aucun couvert ni rogné" in cr.format_mesures(with_g["per_width"])[0], True)
+    hit = dict(sample, gros_textes={"testes": 3, "couverts": [{"texte": "Le titre", "part": 60}], "hauts_rognes": ["Autre titre"]})
+    with_h = raw_case(); with_h["per_width"][390]["mesures"] = hit
+    expect("A", "mesures : texte couvert et haut rogné relevés avec leur part",
+           all(x in cr.format_mesures(with_h["per_width"])[0] for x in ("couvert à 60 % « Le titre »", "haut rogné « Autre titre »")), True)
+    expect("A", "mesures : texte couvert, aucun statut modifié", cr.interpret(with_h) == cr.interpret(raw_case()), True)
+    expect("A", "mesures : sans relevé, aucune ligne", cr.format_mesures(raw_case()["per_width"]), [])
+    with tempfile.TemporaryDirectory() as tmp:
+        for flag, present in (([], False), (["--mesures"], True)):
+            out = Path(tmp) / f"m{len(flag)}.json"
+            args = cr.parser().parse_args([str(Path(__file__).resolve()), "--json", str(out), *flag])
+            buf = io.StringIO()
+            with patch.object(cr, "measure", return_value=with_m), contextlib.redirect_stdout(buf):
+                code = cr.run(args)
+            expect("A", f"mesures {'demandées' if present else 'non demandées'} : JSON et affichage cohérents",
+                   ["mesures" in json.loads(out.read_text()), "Mesures de composition" in buf.getvalue(), code], [present, present, 0])
     expect("A", "contrôle sans nom", status(cr.interpret(raw_case(audit={"names": [{"sel": "button.x"}]})), "Nom accessible"), RETURN)
+    pe = {"actions": 2, "textes": ["Réserver", "Appeler"], "navigation": {"liens": 5, "fixe": True, "hauteur": 72, "part": 8}}
+    with_e = raw_case(); with_e["per_width"][390]["mesures"] = dict(sample, premier_ecran=pe)
+    line_e = cr.format_mesures(with_e["per_width"])[0]
+    expect("A", "premier écran : actions nommées, navigation (liens, hauteur, part, fixe) relevées",
+           all(x in line_e for x in ("2 action(s) (« Réserver », « Appeler »)", "navigation 5 lien(s), 72 px (8 % de la hauteur), fixe")), True)
+    none_e = raw_case(); none_e["per_width"][390]["mesures"] = dict(sample, premier_ecran={"actions": 0, "textes": [], "navigation": None})
+    expect("A", "premier écran : aucune action, aucune navigation, dit sans verdict",
+           "0 action(s) ; aucune navigation repérée" in cr.format_mesures(none_e["per_width"])[0] and not any(w in cr.format_mesures(none_e["per_width"])[0] for w in (PASS, RESERVE, RETURN)), True)
+    expect("A", "premier écran : relevé ancien sans le champ, aucune mention", "premier écran :" in cr.format_mesures(with_m["per_width"])[0], False)
+    expect("A", "premier écran : aucun statut modifié", cr.interpret(with_e) == cr.interpret(raw_case()), True)
+    pal = {"fond": {"hex": "#f6f1e7", "L": 0.96, "C": 0.02, "H": 85}, "fonds": [{"hex": "#f6f1e7", "L": 0.96, "C": 0.02, "H": 85}, {"hex": "#10201a", "L": 0.22, "C": 0.03, "H": 170}],
+           "fonds_non_evalues": 1, "ecarts": [{"dL": 0.74, "dH": 85}],
+           "encres": [{"hex": "#1a1a1a", "L": 0.22, "C": 0.0, "H": 90, "part": 92}],
+           "chromatiques": [{"hex": "#0b6b4f", "L": 0.47, "C": 0.094, "H": 167, "surface": 3.1, "caracteres": 4}], "teintes": 1}
+    with_p = raw_case(); with_p["per_width"][390]["mesures"] = dict(sample, palette=pal)
+    out_p = cr.format_mesures(with_p["per_width"])
+    expect("A", "palette : une ligne de plus, la première inchangée", [len(out_p), out_p[0] == cr.format_mesures(with_m["per_width"])[0]], [2, True])
+    expect("A", "palette : fond, écart de luminosité, encre et couleur chromatique relevés",
+           all(x in out_p[1] for x in ("fond #f6f1e7 (L 0.96, C 0.02, H 85°)", "écart de luminosité entre voisins 0.74", "1 en image ou en dégradé", "#1a1a1a (L 0.22, C 0.0, teinte négligeable) 92 % des caractères",
+                                     "#0b6b4f (L 0.47, C 0.094, H 167°) 3.1 % du premier écran, 4 % des caractères", "1 teinte(s) à 1 % ou plus")), True)
+    expect("A", "palette : aucun verdict ni seuil dans la ligne", any(w in out_p[1] for w in (PASS, RESERVE, RETURN, "trop", "insuffisant")), False)
+    expect("A", "palette : relevé ancien sans palette, une seule ligne", len(cr.format_mesures(with_m["per_width"])), 1)
+    expect("A", "palette : aucun statut modifié", cr.interpret(with_p) == cr.interpret(raw_case()), True)
+    def focus_case(*cues):
+        d = raw_case(); d["per_width"][390]["focus_cues"] = [{"id": f"#c{i}", **c} for i, c in enumerate(cues)]; return d
+    ring = lambda ratio, kind="contour": {"cues": [{"kind": kind, "fg": "#bbbbbb", "bg": "#ffffff", "ratio": ratio}], "other": False, "ua": False}
+    expect("A", "focus : ancienne mesure sans relevé, contrôle absent", [t for t, _, _ in cr.interpret(raw_case()) if t.startswith("Contraste de l’indicateur")], [])
+    expect("A", "focus : contour à 1,9:1 : réserve", status(cr.interpret(focus_case(ring(1.9))), "Contraste de l’indicateur de focus"), RESERVE)
+    expect("A", "focus : contour à 3:1 : conforme", status(cr.interpret(focus_case(ring(3.0))), "Contraste de l’indicateur de focus"), PASS)
+    expect("A", "focus : le détail nomme l’arrêt, les couleurs et le ratio",
+           all(x in next(d for t, _, d in cr.interpret(focus_case(ring(1.9))) if t.startswith("Contraste de l’indicateur")) for x in ("#c0", "#bbbbbb sur #ffffff = 1.9:1", "1.4.11")), True)
+    expect("A", "focus : contour du navigateur, rien de mesuré : conforme", status(cr.interpret(focus_case({"cues": [], "other": False, "ua": True})), "Contraste de l’indicateur de focus"), PASS)
+    expect("A", "focus : indicateur faible accompagné d’un autre changement non mesuré : réserve",
+           status(cr.interpret(focus_case(dict(ring(1.9), other=True))), "Contraste de l’indicateur de focus"), RESERVE)
+    expect("A", "focus : la réserve signale l’autre changement non mesuré",
+           "autre changement de style non mesuré" in next(d for t, _, d in cr.interpret(focus_case(dict(ring(1.9), other=True))) if t.startswith("Contraste de l’indicateur")), True)
+    expect("A", "focus : arrêt non mesurable nommé, sans réserve", "#c0" in next(d for t, _, d in cr.interpret(focus_case({"cues": [], "other": True, "ua": False})) if t.startswith("Contraste de l’indicateur")), True)
+    expect("A", "focus : un arrêt conforme n’annule pas un arrêt faible", status(cr.interpret(focus_case(ring(5.0), ring(1.4, "ombre"))), "Contraste de l’indicateur de focus"), RESERVE)
+    ext_case = lambda blocked, ext=True: dict(raw_case(audit={"brokenImgs": [{"sel": "img.a", "external": ext}]}), blocked=blocked)
+    expect("A", "image locale illisible : RETURN", status(cr.interpret(ext_case(0, ext=False)), "Images chargées"), RETURN)
+    expect("A", "image locale illisible, requêtes externes bloquées par ailleurs : RETURN", status(cr.interpret(ext_case(3, ext=False)), "Images chargées"), RETURN)
+    expect("A", "image d'une autre origine bloquée par la mesure : réserve, non vérifiée", status(cr.interpret(ext_case(1)), "Images chargées"), RESERVE)
+    expect("A", "image d'une autre origine, rien de bloqué (--allow-external) : RETURN", status(cr.interpret(ext_case(0)), "Images chargées"), RETURN)
+    expect("A", "aucune image illisible : PASS", status(cr.interpret(raw_case()), "Images chargées"), PASS)
+    expect("A", "image encore en chargement à la mesure : réserve, non vérifiée",
+           status(cr.interpret(raw_case(audit={"pendingImgs": [{"sel": "img.p"}]})), "Images chargées"), RESERVE)
+    expect("A", "image en chargement et image locale illisible : RETURN",
+           status(cr.interpret(raw_case(audit={"pendingImgs": [{"sel": "img.p"}], "brokenImgs": [{"sel": "img.a", "external": False}]})), "Images chargées"), RETURN)
+    expect("A", "image cassée : le détail la nomme", "img.a" in next(d for t, _, d in cr.interpret(ext_case(0, ext=False)) if t == "Images chargées"), True)
     expect("A", "opacité de groupe : réserve", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g','opacity':0.5}]})), 'Contraste'), RESERVE)
     expect("A", "opacité non couverte et défaut ailleurs : retour conservé", status(cr.interpret(raw_case(audit={'groupOpacity':[{'sel':'#g'}], 'contrast':[fail]})), 'Contraste'), RETURN)
     expect("A", "candidat DOM présent : nom calculé non prouvé", status(cr.interpret(raw_case(audit={'nameMethod':'dom-candidate','nameControls':1})), 'Nom accessible'), RESERVE)
@@ -261,12 +351,22 @@ def part_c() -> str:
         ('référence masquée par un ancêtre',"(()=>{node('DIV',{hidden:''},[node('SPAN',{id:'lab'},[txt('Fermer')])]);return node('BUTTON',{'aria-labelledby':'lab'});})()",'Fermer'),
         ('visibilité rétablie sur le contrôle',"(()=>{const b=node('BUTTON',{},[txt('Confirmer')],{visibility:'visible'});node('DIV',{},[b],{visibility:'hidden'});return b;})()",'Confirmer'),
         ('descendant en visibility hidden exclu',"node('BUTTON',{},[node('SPAN',{},[txt('×')],{visibility:'hidden'})])",''),
+        ('icône SVG en formes seules : aucun nom',"node('BUTTON',{},[node('svg',{},[node('path')])])",''),
+        ('icône SVG avec title',"node('BUTTON',{},[node('svg',{},[node('title',{},[txt('Fermer')]),node('path')])])",'Fermer'),
+        ('SVG décoratif masqué : le nom vient du contrôle',"node('BUTTON',{'aria-label':'Fermer'},[node('svg',{'aria-hidden':'true'},[node('path')])])",'Fermer'),
+        ('SVG avec aria label propre',"node('BUTTON',{},[node('svg',{'aria-label':'Fermer'},[node('path')])])",'Fermer'),
     ]
     for title,expr,want in cases:
         got=js('process.stdout.write(JSON.stringify(candidate('+expr+').candidate));')
         expect('C',title,got,want)
     expect('C','pseudo contenu : cas non couvert',js("process.stdout.write(JSON.stringify(candidate(node('BUTTON',{generated:'\"Fermer\"'})).uncertain));"),True)
     expect('C','valeur native implicite : cas non couvert',js("process.stdout.write(JSON.stringify(candidate(node('INPUT',{type:'submit'})).uncertain));"),True)
+    for title,expr,want in [('SVG en formes seules : cas conclusif',"node('svg',{},[node('path'),node('circle')])",False),
+                            ('SVG avec texte : cas non couvert',"node('svg',{},[node('text',{},[txt('OK')])])",True),
+                            ('SVG avec use : cas non couvert',"node('svg',{},[node('use')])",True),
+                            ('SVG avec nom ARIA interne : cas non couvert',"node('svg',{},[node('g',{'aria-label':'Fermer'},[node('path')])])",True),
+                            ('SVG avec foreignObject : cas non couvert',"node('svg',{},[node('foreignObject')])",True)]:
+        expect('C',title,js("process.stdout.write(JSON.stringify(candidate(node('BUTTON',{},["+expr+"])).uncertain));"),want)
     for label,opacity,bg,fg,ancestor,want in [
         ('opacité sur le texte et son fond',0.5,'rgb(0, 0, 0)','rgb(255, 255, 255)',False,'reserve'),
         ('opacité d’un ancêtre',0.5,'rgb(0, 0, 0)','rgb(255, 255, 255)',True,'reserve'),
@@ -384,6 +484,51 @@ PAGES = {
     "placeholder.html": '<style>input::placeholder{color:#aaa;opacity:1}</style><input aria-label="Nom" placeholder="Nom">',
     "transparent.html": '<div id="preuve" style="width:300px;height:100px;opacity:0">Objet</div>',
     "horscran.html": '<div id="preuve" style="position:absolute;left:-400px;width:300px;height:100px">Objet</div>',
+    # Mouvement réduit : une animation d'entrée courte, terminée à la mesure, doit rester observée.
+    "animcourte.html": '<style>@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}.a{animation:up .3s ease both}</style><p class="a">Entrée courte</p>',
+    "animgardee.html": ('<style>@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}'
+                        '@media (prefers-reduced-motion:no-preference){.a{animation:up .3s ease both}}</style><p class="a">Entrée gardée</p>'),
+    "animopacite.html": '<style>@keyframes fade{from{opacity:0}to{opacity:1}}.a{animation:fade .3s ease both}</style><p class="a">Fondu seul</p>',
+    # Réinitialisation habituelle du mouvement réduit : les animations démarrent mais durent 0,01 ms.
+    "animreduite.html": ('<style>@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}.a{animation:up .3s ease both}'
+                         '@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}</style>'
+                         '<p class="a">Entrée réduite</p>'),
+    # Deux Element.animate() sans nom sur le même élément : la seconde, infinie, ne doit pas être écartée.
+    "animjsdouble.html": ('<div id="a" style="width:20px;height:20px;background:#000"></div><script>const a=document.getElementById("a");'
+                          'a.animate([{opacity:0},{opacity:1}],{duration:300});'
+                          'a.animate([{transform:"rotate(0)"},{transform:"rotate(360deg)"}],{duration:1000,iterations:Infinity});</script>'),
+    "image_sans_source.html": '<img alt="x" width="100" height="60">',
+    "animinfinie.html": '<style>@keyframes spin{to{transform:rotate(360deg)}}.a{width:20px;height:20px;background:#000;animation:spin 1s linear infinite}</style><div class="a"></div>',
+    "iconesvg.html": '<button><svg width="12" height="12"><path d="M0 0L12 12M12 0L0 12" stroke="#000"/></svg></button>',
+    "iconesvgtitre.html": '<button><svg width="12" height="12"><title>Fermer</title><path d="M0 0L12 12M12 0L0 12" stroke="#000"/></svg></button>',
+    "iconesvgtexte.html": '<button><svg width="40" height="14"><text x="0" y="12">OK</text></svg></button>',
+    "mesures.html": ('<style>h1{font-size:50px;line-height:1;letter-spacing:-.02em;margin:0}p{font-size:16px;margin:0;max-width:20em}</style>'
+                     '<p>Un paragraphe suffisamment long pour compter plus de soixante caractères et passer sur plusieurs lignes dans la colonne étroite qui le contient.</p>'
+                     '<img alt="x" width="120" height="80" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">'),
+    "petittexte.html": '<p style="font-size:16px;margin:0">' + 'a' * 90 + '</p><p style="font-size:10px;margin:0">' + 'b' * 10 + '</p>',
+    "texte_couvert.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:#c00}</style><div class="v"></div>',
+    "texte_voile.html": '<style>h1{font-size:48px;margin:0;position:relative}.v{position:absolute;left:0;top:0;width:100%;height:200px;background:transparent}</style><div class="v"></div>',
+    "haut_rogne.html": ('<style>.w{overflow:hidden;margin-top:100px}.t{font-size:60px;line-height:1;margin:0;position:relative;top:-30px}</style>'
+                        '<div class="w"><p class="t">Titre</p></div>'),
+    "premier_ecran.html": ('<style>header{position:fixed;top:0;left:0;right:0;height:60px;background:#fff}header a{margin:0 8px}'
+                           '.b{display:block;margin:100px 0 0;width:160px;height:44px;background:#1a1a1a;color:#fff;border:0}</style>'
+                           '<header><nav><a href="#a">Un</a><a href="#b">Deux</a><a href="#c">Trois</a></nav></header><button class="b">Réserver</button>'),
+    "premier_ecran_vide.html": '<p>Un texte seul, sans bouton ni navigation.</p>',
+    "palette.html": ('<style>body{margin:0;background:#ffffff;color:#1a1a1a}h1{margin:0}.r{background:#ff0000;color:#ffffff;height:300px}.g{background:#f2f2f2;height:200px}</style>'
+                     '<section class="g">Un fond neutre clair</section><section class="r">Un champ rouge</section>'),
+    "focus_faible.html": '<style>:focus{outline:2px solid #bbbbbb;outline-offset:2px}</style><a href="#x">Lien</a>',
+    "focus_net.html": '<style>:focus{outline:2px solid #1a1a1a;outline-offset:2px}</style><a href="#x">Lien</a>',
+    "focus_anneau.html": '<style>button{border:0;outline:none}button:focus{box-shadow:0 0 0 3px rgba(59,130,246,.5)}</style><button>Valider</button>',
+    "focus_navigateur.html": '<a href="#x">Lien</a>',
+    "focus_fond.html": '<style>button{background:#fff;border:1px solid #ccc;outline:none}button:focus{background:#222;color:#fff}</style><button>Valider</button>',
+    "focus_transition.html": '<style>a{outline:2px solid transparent;transition:outline-color .6s}a:focus{outline-color:#1a1a1a}</style><a href="#x">Lien</a>',
+    "image_absente.html": '<img alt="x" width="100" height="60" src="absente.png">',
+    "image_externe.html": '<img alt="x" width="100" height="60" src="https://exemple.invalid/a.png">',
+    "image_ok.html": ('<img alt="x" width="100" height="60" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">'
+                      '<img alt="y" width="100" height="60" src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 10 10%27%3E%3Crect width=%2710%27 height=%2710%27/%3E%3C/svg%3E">'
+                      '<img alt="z" width="100" height="60" src="absente.png" style="display:none">'),
+    "transitionjs.html": ('<style>.t{transition:transform .2s;transform:none}.t.on{transform:translateX(30px)}</style><p class="t">Transition</p>'
+                          '<script>requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(".t").classList.add("on")))</script>'),
 }
 
 
@@ -452,8 +597,59 @@ def part_b(require: bool) -> str:
                                          ('nomreference.html','Nom accessible',RESERVE),('inatteignable.html','Parcours clavier',RESERVE),
                                          ('sanscontrole.html','Parcours clavier',PASS),
                                          ('visiblerestauree.html','Nom accessible',RESERVE),('remplissage.html','Contraste',RETURN),
-                                         ('remplissagefond.html','Contraste',RESERVE)]:
+                                         ('remplissagefond.html','Contraste',RESERVE),
+                                         ('iconesvg.html','Nom accessible',RETURN),('iconesvgtitre.html','Nom accessible',RESERVE),
+                                         ('iconesvgtexte.html','Nom accessible',RESERVE)]:
                 _,c=measure(str(d/filename));expect('B',filename,status(c,prefix),want)
+            for filename, want in [('animcourte.html', RESERVE), ('animgardee.html', PASS), ('animopacite.html', RESERVE),
+                                   ('animinfinie.html', RETURN), ('transitionjs.html', RESERVE),
+                                   ('animreduite.html', PASS), ('animjsdouble.html', RETURN)]:
+                _, c = measure(str(d / filename)); expect('B', filename + ' sous mouvement réduit', status(c, 'Mouvement réduit'), want)
+            motion = lambda page: next(x for t, _, x in measure(str(d / page))[1] if t.startswith('Mouvement réduit'))
+            expect('B', 'animation courte : déplacement relevé', 'dont 1 avec déplacement' in motion('animcourte.html'), True)
+            expect('B', 'fondu seul : aucun déplacement relevé', 'dont 0 avec déplacement' in motion('animopacite.html'), True)
+            raw, c = measure(str(d / 'mesures.html'), '--mesures')
+            m = raw['per_width'][390]['mesures']
+            expect('B', 'mesures : titre relevé (taille, vw, lignes, interligne)',
+                   [m['titre']['taille'], m['titre']['vw'], m['titre']['lignes'], m['titre']['interligne']], [50.0, 12.8, 1, 1.0])
+            expect('B', 'mesures : corps et ligne de texte (144 car. sur 3 lignes)', [m['corps'], m['mesure_max']], [16.0, 48])
+            expect('B', 'mesures : image raster comptée, svg non', [m['images']['raster'], m['images']['svg']], [1, 0])
+            _, c0 = measure(str(d / 'mesures.html'))
+            expect('B', 'mesures : statuts identiques avec et sans l’option', c == c0, True)
+            raw, _ = measure(str(d / 'petittexte.html'), '--mesures')
+            expect('B', 'mesures : plus petit texte relevé (10 px, 10 % des caractères), corps resté à 16 px',
+                   [raw['per_width'][390]['mesures']['plus_petit'], raw['per_width'][390]['mesures']['corps']], [{'taille': 10.0, 'part': 10}, 16.0])
+            pe = measure(str(d / 'premier_ecran.html'), '--mesures')[0]['per_width'][390]['mesures']['premier_ecran']
+            expect('B', 'premier écran : un bouton rempli compté et nommé, les liens de navigation non', [pe['actions'], pe['textes']], [1, ['Réserver']])
+            expect('B', 'premier écran : navigation fixe de 3 liens et 60 px relevée', [pe['navigation']['liens'], pe['navigation']['fixe'], pe['navigation']['hauteur'], 0 < pe['navigation']['part'] <= 100], [3, True, 60, True])
+            pe = measure(str(d / 'premier_ecran_vide.html'), '--mesures')[0]['per_width'][390]['mesures']['premier_ecran']
+            expect('B', 'premier écran : page sans action ni navigation', [pe['actions'], pe['navigation']], [0, None])
+            pal = measure(str(d / 'palette.html'), '--mesures')[0]['per_width'][390]['mesures']['palette']
+            red = next((x for x in pal['fonds'] if x['hex'] == '#ff0000'), None)
+            expect('B', 'palette : fond blanc relevé en OKLCH (L 1, C 0)', [pal['fond']['hex'], pal['fond']['L'], pal['fond']['C']], ['#ffffff', 1.0, 0.0])
+            expect('B', 'palette : champ rouge relevé (L 0,63, C 0,258, H 29)', red is not None and [red['L'], red['C'], red['H']] == [0.63, 0.258, 29], True)
+            expect('B', 'palette : fonds voisins, écart de luminosité entre le gris clair et le rouge', [x['dL'] for x in pal['ecarts']], [0.33])
+            expect('B', 'palette : le rouge est la couleur chromatique relevée', [x['hex'] for x in pal['chromatiques']][:1], ['#ff0000'])
+            for filename, want in [('focus_faible.html', RESERVE), ('focus_net.html', PASS), ('focus_anneau.html', RESERVE),
+                                   ('focus_navigateur.html', PASS), ('focus_fond.html', PASS), ('focus_transition.html', PASS)]:
+                _, c = measure(str(d / filename)); expect('B', filename + ' : contraste de l’indicateur de focus', status(c, 'Contraste de l’indicateur de focus'), want)
+            focus_detail = lambda page: next(x for t, _, x in measure(str(d / page))[1] if t.startswith('Contraste de l’indicateur'))
+            expect('B', 'focus : contour pâle nommé avec son ratio', all(t in focus_detail('focus_faible.html') for t in ('#bbbbbb sur #ffffff', '1.92:1')), True)
+            expect('B', 'focus : changement de fond signalé non mesuré, sans réserve', 'non mesuré' in focus_detail('focus_fond.html'), True)
+            for filename, want in [('image_absente.html', RETURN), ('image_externe.html', RESERVE), ('image_ok.html', PASS),
+                                   ('image_sans_source.html', RETURN)]:
+                _, c = measure(str(d / filename)); expect('B', filename + ' : images chargées', status(c, 'Images chargées'), want)
+            gros = lambda page: measure(str(d / page), '--mesures')[0]['per_width'][390]['mesures']['gros_textes']
+            g = gros('texte_couvert.html')
+            expect('B', 'mesures : gros titre recouvert par un aplat relevé (100 %)', [g['couverts'], g['hauts_rognes']], [[{'texte': 'Test', 'part': 100}], []])
+            g = gros('texte_voile.html')
+            expect('B', 'mesures : calque transparent sur le titre, rien de relevé', [g['testes'] >= 1, g['couverts'], g['hauts_rognes']], [True, [], []])
+            g = gros('haut_rogne.html')
+            expect('B', 'mesures : haut du titre coupé par un ancêtre à débordement masqué', [g['couverts'], g['hauts_rognes']], [[], ['Titre']])
+            g = gros('mesures.html')
+            expect('B', 'mesures : page sans recouvrement ni rognage, rien de relevé', [g['testes'] >= 1, g['couverts'], g['hauts_rognes']], [True, [], []])
+            _, c = measure(str(d / 'texte_couvert.html'), '--mesures'); _, c0 = measure(str(d / 'texte_couvert.html'))
+            expect('B', 'mesures : le recouvrement relevé ne change aucun statut', c == c0, True)
             for filename in ('dialogferme.html', 'ancetremasque.html'):
                 raw,c=measure(str(d/filename))
                 expect('B',filename+' aucun faux nom manquant',status(c,'Nom accessible'),PASS)

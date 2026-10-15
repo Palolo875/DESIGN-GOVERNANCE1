@@ -69,7 +69,7 @@ Le sourcing de `DIRECTION` sépare trois rôles : **ancrage de direction** — p
 - **Composants :** design system fourni, sinon bibliothèque éprouvée (par exemple shadcn, Radix) ; hors Web, les idiomes de la plateforme.
 - **Données et objets de preuve :** contenu du client, sinon exemples marqués ; codables, donc au plafond sans intrant.
 - **Texture et traitement :** CSS, SVG, canvas ; rendu inspecté sur capture, performance mesurée dans le runtime cible.
-- **Photographie :** client (même au téléphone, en lumière du jour), banques sous licence (Wikimedia Commons, Unsplash).
+- **Photographie :** client (même au téléphone, en lumière du jour), banques sous licence (Wikimedia Commons, Unsplash), collections ouvertes d’archives et de musées pour le monde du sujet (Openverse, Art Institute of Chicago, Metropolitan Museum of Art ; `SAVOIR/SOURCE`, « Chercher le monde du sujet dans des collections ouvertes »).
 - **Illustration et 3D :** commande, packs sous licence, génération dirigée avec références (`GÉNÉRÉ-DIRIGÉ`).
 - **Fichiers et marque :** Figma ou kit de marque par connecteur.
 

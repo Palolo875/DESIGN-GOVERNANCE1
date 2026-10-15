@@ -1,6 +1,6 @@
 # Savoir — qualité créative
 
-Ambition, forme située, registres, composition, émotion, premier contact et couleur.
+Ambition, forme située, registres, composition, émotion, premier contact, couleur, écriture et contenu.
 
 <!-- origine:SAVOIR.md -->
 # SAVOIR/CRAFT — anti-slop, composition et expression
@@ -38,6 +38,10 @@ Ces qualités ne constituent ni un score, ni un verdict automatique, ni une prom
 
 Une **proposition premium** se juge avec l’heuristique [« Premium perçu »](fondements.md#premium-perçu-comme-heuristique-de-jugement) (`SAVOIR/FRAME`), sa seule définition ; elle n’est pas définie par une palette sombre, une grande typographie, un espace vide, une matière riche ou un nom de style, et doit survivre au contenu réel, aux états, au mobile, aux contraintes du produit et au geste principal.
 
+**Substance.** La retenue n’est pas le vide. Signaux d’enquête, sans seuil ni score : un écran presque vide qui n’est pas un repos voulu ; une section demandée livrée en quelques mots ; un texte courant petit ou grisé sur toute la page ; une page qui a perdu ses motifs sans rien gagner à la place. Réponse possible : agrandir ce qui compte, livrer le contenu complet à taille lisible (`CNT-01`), mettre une image ou un champ de couleur faits pour ce sujet, ou couper la section ; ne comble pas par un ornement (`FND-01`, retenue avant accumulation). Un vide placé qui porte une relation reste valable (`SAVOIR/CRAFT/CFT-03`, échelle et champ calme).
+
+**Mouvement.** Question de revue, sans quota : qu’est-ce qui bouge sur cette surface, et pourquoi ? Une page faite pour se montrer (lancement, récit, présentation d’une activité) où rien ne répond au regard ni au geste appelle l’enquête ; une page d’outil ou de lecture qui reste fixe n’a rien à justifier. La réponse peut être une apparition, un changement d’état, un défilement qui révèle, ou rien, avec sa raison. Aucun nombre d’éléments animés n’est attendu. Durées et courbes de départ : `SAVOIR/CONTEXT`, « Durées et courbes, points de départ » ; l’alternative sous mouvement réduit reste due (`ACTION/GATE-A`).
+
 ### Creative Quality Review
 
 <!-- noyau:début BOUCLE-REVUE -->
@@ -72,6 +76,26 @@ Un principe générateur remplace un interdit sans devenir une recette. La struc
 Un principe récité sans conséquence visible est du théâtre procédural.
 
 **Idée par rapprochement.** Une forme peut naître du rapprochement de deux registres qui ne vont pas ensemble (deux époques, deux matières, deux usages) ou d’un contresens assumé entre le mot et l’image. Elle vaut si le rapprochement dit quelque chose du produit et se comprend en une seconde ; sinon, c’est un clin d’œil gratuit.
+
+### Inventaire du sujet et phrase d’idée
+
+[MÉTHODE] Statut de route : `PILOT` (`maintenance/evolution.md`), avec le contrat réduit en fin de sous-section. Lorsque le sujet est un client, un lieu ou un objet réel et que l’idée est ouverte, dresse avant de choisir la forme l’**inventaire** de ce qui appartient à ce sujet et à aucun voisin : son nom et ce qu’il veut dire ; son adresse, sa rue, son quartier et ce que le lieu donne à voir (carreaux, enseignes, lumière, saisons) ; les nombres du brief (places, chambres, minutes, prix, année) ; la contrainte avec laquelle il vit (une seule fournée par mois, fermé l’hiver, sur rendez-vous) ; ses matières et ses couleurs ; ses rituels et ses horaires ; les objets imprimés de son monde (carte, ticket, étiquette, horaire, enseigne). Huit à douze éléments suffisent. Un élément que le brief ne donne pas reste inconnu : il n’est pas inventé (`CNT-01`, `TRUTH`).
+
+**Phrase d’idée.** Avant le build, complète : « Sur cette page, [un élément de l’inventaire] devient [le dispositif que la composition appelle]. » Le dispositif est une scène, un geste ou un objet de preuve (`DIRECTION/FIRST-OBJECT`), non un effet. Pour le premier blanc, cherche du côté de ce que le sujet produit (montré tel quel), de sa forme (agrandie, recadrée, devenue cadre ou motif), de son nom (des lettres qui contiennent une photographie, se découpent ou s’empilent), de son lieu, de son rituel (une séquence que la page rejoue en défilant), de l’objet imprimé de son monde, ou de son opposé (la catégorie voisine qui possède le sentiment qui lui manque). Ces pistes s’essaient sur l’inventaire ; elles ne forment pas un menu de styles, et le `MODAL` nommé reste à écarter.
+
+**Test du concurrent.** Remplace le sujet de la phrase par son voisin le plus proche (la boulangerie d’à côté, un autre atelier). Si la phrase tient encore, l’idée appartient à la catégorie : reprends l’inventaire. « Propre et moderne » n’est pas une idée. La phrase se juge avec le test de singularité (`COMP-SINGULARITE`), sans le remplacer.
+
+**Une chose vivante.** Une seule, si elle sert la promesse : un geste ou un état qui change d’une visite à l’autre, fait avec le contenu réel du sujet (choisir un bois et voir la chaise ; régler un prêt et lire la mensualité). Elle se lit au pouce sur téléphone, garde un repli sans script et ne bloque pas la lecture. C’est le geste produit de `DIRECTION/DIRECTION-ATELIER`, codé.
+
+**Même liste, autre usage.** Chaque lieu, matière ou objet imprimé de l’inventaire est aussi une requête possible pour chercher des images (`SAVOIR/SOURCE`).
+
+| Champ du contrat réduit | Contenu |
+|---|---|
+| Décision | L’idée de la scène et le contenu du premier objet. |
+| Contre-indication | Brief sans particularité fournie (ne rien inventer, marquer l’exemple, `CNT-01`) ; surface fonctionnelle où l’idée retarderait la tâche, ou risque critique, dont la protection prévaut (`DIRECTION/START`) ; identité de marque existante qui fixe déjà la direction. |
+| Preuve attendue | Inventaire de huit à douze éléments, phrase d’idée et résultat du test du concurrent dans la trace ; capture du premier objet où l’élément du sujet est visible. Preuve de type perceptuel et expert. |
+| Limite | Une idée tirée du sujet n’est ni une garantie de qualité ni une préférence mesurée ; l’inventaire ne vaut que pour les faits du brief. |
+| Revue | Méthode du système, à éprouver : aucun gain n’est encore observé. À revoir avant 2027-04 ; passage en `ADOPTED` seulement avec un gain observé (`BIBLIOTHEQUE/EVOLUTION`, contrat de gain réel). |
 
 ### Dérivation bornée d’une forme située
 
@@ -149,7 +173,7 @@ Une vue peut avoir une priorité dominante ou un groupe de priorités liées. Ne
 
 **Échelle et champ calme.** Une seule opération poussée loin, par exemple un objet très petit face à un titre très grand, se lit dans un champ calme qui occupe la plus grande part de la surface. Ce champ n’est pas un vide à remplir : retire ce qui dispute le foyer avant d’ajouter.
 
-**Franchissement et ancrage.** Un élément qui chevauche deux zones, comme le bord d’une image ou la limite entre deux sections, relie ce que les boîtes séparent ; de petits repères placés aux coins peuvent tenir un grand champ sans cadre ni carte. Ces gestes demandent un ordre de plans explicite, un contraste mesuré à l’endroit du chevauchement et une recomposition mobile qui ne coupe ni texte ni objet.
+**Franchissement et ancrage.** Un élément qui chevauche deux zones, comme le bord d’une image ou la limite entre deux sections, relie ce que les boîtes séparent ; de petits repères placés aux coins peuvent tenir un grand champ sans cadre ni carte. Ces gestes demandent un ordre de plans explicite, un contraste mesuré à l’endroit du chevauchement et une recomposition mobile qui ne coupe ni texte ni objet. Les repères de coin figurent parmi les marqueurs de vague datés (`SAVOIR/TOOLS/CONVERGENCE`) : ils restent permis lorsqu’ils tiennent un champ réel. Test de retrait : sans eux, le champ tient-il encore et la composition perd-elle un point d’ancrage ? Sinon ils sont décoratifs (`DÉCORATIF-SANS-CONSEQUENCE`).
 
 ### Cohérence et harmonie
 
@@ -221,5 +245,49 @@ Le gamut élargi peut enrichir l’expression, mais ne porte jamais une informat
 Une relation de couleur peut exprimer un registre ou une hiérarchie, mais ne doit pas porter seule une information critique. Les impressions de statut, chaleur, sérieux ou premium restent des hypothèses de perception à vérifier dans leur contexte.
 
 Les claims sur chroma, statut perçu ou tendances de palette passent par `SAVOIR/TOOLS` et portent source, date, portée et limite dans la trace locale du run.
+
+### Relations de couleur : construire et critiquer une palette
+
+[MÉTHODE] Statut de route : `PILOT` (`maintenance/evolution.md`). Les relations de couleur servent à fixer un rôle et à nommer ce sur quoi une palette repose ; elles ne fournissent pas de recette.
+
+**La valeur d’abord.** `[À ADAPTER]` Décide la luminosité de chaque rôle avant sa teinte : en OKLCH, fixe L, puis choisis la chroma C et la teinte H ; le contraste se lit alors dans l’écart de L. Pour des neutres, un écart de L d’environ 0,3 à 0,33 donne 3:1 et d’environ 0,37 à 0,43 donne 4,5:1 (sur un noir pur : environ 0,47 et 0,56). Une teinte saturée s’écarte de ces repères, surtout dans les bleus et les jaunes : le calcul d’`ACTION/GATE-A` tranche toujours. Un accent se règle sur ses trois usages, texte sur le fond, fond portant son texte, contour ou anneau de focus à 3:1 ; une seule valeur les tient rarement tous sur un fond clair comme sur un fond sombre, d’où souvent deux valeurs d’accent.
+
+**Nommer la relation.** Une palette repose sur un écart de valeur, de teinte, de chaleur (chaud contre froid), de saturation ou de surface (une couleur étendue, une autre rare) : dis lequel. Test en niveaux de gris : si les rôles ne se distinguent plus, la palette ne tenait que par la teinte et risque de vibrer ou de se confondre.
+
+**Fonds voisins.** Deux fonds de section voisins diffèrent par la luminosité, pas par la seule teinte ; l’écart de L se lit dans le relevé de palette (`scripts/check_render.py --mesures`, `ACTION/GATE-A`).
+
+**Neutres.** Teinter les neutres (fond, surface, texte atténué) d’une chroma faible, d’environ 0,005 à 0,02, vers la teinte dominante les met dans une même famille. Le noir et le blanc purs restent possibles quand la direction les veut.
+
+**Fond sombre.** Remonte la luminosité de l’accent, baisse un peu sa chroma, et fais l’élévation par pas de luminosité des surfaces plutôt que par des lueurs.
+
+**Roue chromatique.** Complémentaire, analogue ou triade décrivent une palette ; elles n’en justifient pas une. Une palette tirée de la roue sans raison propre au sujet relève du réflexe que la question ci-dessus fait nommer. Les effets de la couleur sur l’émotion ou la confiance restent des hypothèses de perception.
+
+Contre-indications : palette ou marque fournie (la conserver et noter les écarts) ; palette née d’un asset (« Couleur située ») ; contraste de teinte seule assumé par la direction (le déclarer et vérifier le contraste calculé). Preuve : contraste calculé par rôle et par fond, capture en niveaux de gris, relevé de palette, vrai contenu. Limite : repères perceptuels approchés, établis sur des neutres ; WCAG reste le critère de contraste et APCA un complément (`ACTION/GATE-A`) ; aucun gain démontré. Références : OKLab (Ottosson, 2020), WCAG 2.2 (1.4.3 et 1.4.11), contrastes de couleur de Johannes Itten. À revoir avant 2027-04 ; passage en `ADOPTED` seulement avec un gain observé (`BIBLIOTHEQUE/EVOLUTION`).
+
+## CFT-06 — écriture et contenu
+
+[MÉTHODE] La rédaction (copywriting, titres, microcopie, nom des actions) est une décision de design : un titre qui demande quatre lignes ne se rattrape pas par la typographie, et une page de slogans ne se rattrape pas par la mise en page. Statut de route : `PILOT` (`maintenance/evolution.md`), avec le contrat réduit en fin de section. Charge cette route lorsque le contenu, le titre, l’ordre des sections ou le nom des actions sont une décision du run ; pour une retouche locale, relis seulement le texte touché.
+
+**L’argument avant la page.** Réponds en une ligne chacune : qui lit et que sait-il déjà ; ce qu’est la chose, dite comme son auteur la dirait à un ami ; ce que la personne doit croire après un écran ; ce qui le lui fait croire (un objet, un chiffre, un nom, une démonstration) ; ce qu’elle fait ensuite. Écris ensuite la page comme des affirmations, chacune avec sa preuve. Une section sans affirmation est du remplissage ; l’ordre des affirmations devient l’ordre de la page, ce qui évite la trame modale (`BIBLIOTHEQUE/SELECT`, test de trame).
+
+**Budget d’un titre.** `[À ADAPTER]` Un titre se lit en un regard. Avant de t’attacher à une phrase, mesure sur la police livrée combien de caractères tient une ligne à la largeur et au corps prévus, puis écris dans ce budget ; un titre d’accueil vise deux lignes au plus sur téléphone. Fixe la coupe sur le vrai texte et vérifie-la sur capture mobile (`TIT-01`, `SAVOIR/TYPE`). Réduire seulement le corps d’un titre trop long affaiblit la hiérarchie : coupe d’abord des mots, puis place le détail dans la ligne d’appui.
+
+**Formes de titre.** Un titre fort dit une chose vraie que seul ce sujet peut dire : son nom, ce qu’il est, ce qu’il permet, une affirmation qu’un concurrent ne pourrait pas signer, un lieu ou un moment. Choisis la forme la plus simple qui reste vraie. Signaux d’enquête, dans la logique de `SAVOIR/TOOLS/CONVERGENCE` et jamais des interdits : la formule « la plateforme X pour équipes modernes », le tricolon (« Rapide. Simple. Sûr. »), la correction (« pas seulement un outil, un… »), « Bienvenue » ou « Découvrez » sans objet, la question que personne ne se posait, un nom suivi de deux-points que la navigation porte déjà.
+
+**Ligne d’appui, corps et actions.** La ligne d’appui est une phrase concrète qui dit ce que c’est et pour qui ; elle reçoit le détail retiré du titre et ne le répète pas. Préfère le nom précis et le chiffre réel (« livré en une semaine », « 38 places ») au générique (« livraison rapide », « intime ») : une autre entreprise pourrait-elle imprimer la phrase telle quelle ? Si oui, précise-la ou coupe-la. Un bouton nomme l’action ou l’objet (« Réserver une table », « Voir les tarifs ») ; l’action principale garde le même nom sur la page, et un « Commencer » ou « En savoir plus » sans objet est un signal d’enquête.
+
+**Preuve sans l’inventer.** Sans preuve fournie, montre la chose elle-même (objet de preuve, `DIRECTION/FIRST-OBJECT`), dis comment elle fonctionne, utilise les faits du brief. Un témoignage, un logo, une note ou un chiffre d’usage inventé n’est jamais un décor (`CNT-01`). Des détails d’exemple (noms de plats, tarifs, chambres) sont attendus pour juger la page à sa vraie densité ; ils sont marqués dans l’interface et listés dans la réponse (`CNT-01`, `EXD-01`).
+
+**Formules du genre.** Verbes et adjectifs de la production générique (« libérez », « propulsez », « fluide », « sans effort », « tout-en-un »), étiquettes éditoriales de pure forme (« notes de terrain »), texte de mobilier (« Scroll », heure locale, coordonnées sans fonction), tiret cadratin en cadence (`SAVOIR/STYLE`), trois éléments parallèles partout. Ce sont des signaux d’enquête : un mot du genre reste valide s’il dit exactement ce que fait le produit, et cette liste vieillit avec les modèles.
+
+**Micro-typographie en français.** Guillemets typographiques « ainsi », apostrophe courbe, points de suspension en un seul caractère, demi-cadratin pour les plages (9–17 h), espace insécable avant « : ; ! ? », à l’intérieur des guillemets, entre un nombre et son unité (« 12 € », « 38 places ») et avant le dernier mot court d’un titre s’il resterait seul ; `font-variant-numeric: tabular-nums` pour les colonnes de chiffres, `text-wrap: balance` sur les titres et `text-wrap: pretty` sur les paragraphes. Pour une autre langue, suis les usages de cette langue.
+
+| Champ du contrat réduit | Contenu |
+|---|---|
+| Décision | Longueur et forme du titre, ordre des sections, nom des actions, texte d’appui. |
+| Contre-indication | Texte fourni ou validé par un tiers (mentions légales, santé, finance) ; voix de marque existante ; langue dont le calcul de longueur ne tient pas (écritures sans espaces, par exemple) ; sujet intime où la concision ferait perdre la juste distance. |
+| Preuve attendue | Capture du premier écran à 390 et 1440 px (lignes du titre, coupe) ; relecture « une autre entreprise pourrait-elle imprimer cette phrase ? » sur les titres et la ligne d’appui. Preuve de type perceptuel et expert. |
+| Limite | Juge la forme et la spécificité du texte, non sa justesse commerciale, sa conformité légale ni son effet sur la conversion ou la compréhension, qui demandent une tâche et un lecteur (`ACTION/GATE-B`). |
+| Revue | Méthode du système ; formules du genre alignées sur `SAVOIR/TOOLS/CONVERGENCE`. À revoir avant 2027-04 ; passage en `ADOPTED` seulement avec un gain observé (`BIBLIOTHEQUE/EVOLUTION`, contrat de gain réel). |
 
 ---
