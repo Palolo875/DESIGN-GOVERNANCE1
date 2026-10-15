@@ -183,7 +183,6 @@ ADRESSES: dict[str, str] = {
     "savoir/systeme-de-design": "SAVOIR/SYSTEM", "savoir/contexte": "SAVOIR/CONTEXT", "savoir/techniques": "SAVOIR/TECH",
     "savoir/gout-et-tendances": "SAVOIR/TOOLS", "savoir/gout-et-tendances#tendances-datees": "SAVOIR/TOOLS/CONVERGENCE",
     "savoir/gout-et-tendances#ressources": "SAVOIR/TOOLS/MOYENS",
-    "savoir/gout-et-tendances#points-de-depart": "SAVOIR/TOOLS/POINTS-DE-DEPART",
     "formes/choisir": "BIBLIOTHEQUE/SELECT", "formes/choisir#lire": "BIBLIOTHEQUE/READ",
     "formes/choisir#tension": "BIBLIOTHEQUE/TENSION", "formes/choisir#signature": "BIBLIOTHEQUE/SIGNATURE",
     "formes/choisir#deriver": "BIBLIOTHEQUE/DERIVE", "formes/catalogue#supports": "BIBLIOTHEQUE/SUPPORT",

@@ -5,7 +5,7 @@ Le savoir de design, par sujet. Chaque fichier se lit seul ; le lecteur sert aus
 | Fichier | Sujet |
 |---|---|
 | [`fondements.md`](fondements.md) | Principe fondateur, compromis, cadrage du contexte |
-| [`qualite-creative.md`](qualite-creative.md) | Ambition, forme située, registres, composition, émotion, premier contact, couleur |
+| [`qualite-creative.md`](qualite-creative.md) | Ambition, forme située, registres, composition, émotion, premier contact, couleur, écriture et contenu |
 | [`typographie.md`](typographie.md) | Typographie et données |
 | [`composition.md`](composition.md) | Jugement visuel, vocabulaire perceptuel, états |
 | [`images-et-sources.md`](images-et-sources.md) | Ancre, sourcing visuel, familles visuelles |

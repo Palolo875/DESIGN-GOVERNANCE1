@@ -432,7 +432,7 @@ MOTION_RECORDER_JS = r"""
 MOTION_REPORT_JS = "() => window.__dgMotion ? window.__dgMotion() : []"
 
 # Mesures de composition (option --mesures) : des relevés chiffrés de la page, sans seuil ni verdict. Elles ne passent pas par
-# `interpret` : aucun statut, aucun code de sortie. Elles se confrontent aux repères datés de `SAVOIR/TOOLS/POINTS-DE-DEPART`.
+# `interpret` : aucun statut, aucun code de sortie.
 MESURES_JS = r"""
 () => {
   const W = innerWidth, H = innerHeight, r1 = v => Math.round(v * 10) / 10;
@@ -1082,7 +1082,6 @@ def run(args: argparse.Namespace) -> int:
         print("\nMesures de composition (relevés chiffrés, sans seuil ni verdict ; elles ne modifient ni les statuts ni le code de sortie) :")
         for line in format_mesures(raw["per_width"]):
             print(line)
-        print("  Repères datés, à confronter au rendu et non à imposer : SAVOIR/TOOLS/POINTS-DE-DEPART (À REVÉRIFIER).")
     print("\nProvenance : " + " · ".join(f"{k}={v}" for k, v in prov.items()))
     print("Limites : seules les fautes objectivables sont contrôlées, à l'état et aux largeurs observés. "
           f"{raw['blocked']} requête(s) externe(s) bloquée(s) : les mesures utilisent alors les polices de repli. "

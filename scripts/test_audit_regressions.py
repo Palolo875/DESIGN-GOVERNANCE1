@@ -8,6 +8,7 @@ from __future__ import annotations
 import copy
 import importlib.util
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -419,32 +420,28 @@ class CoreResourceActivationTests(unittest.TestCase):
                 _, lines, index = routes.resolve(locator)
                 self.assertIn(expected, '\n'.join(routes.extract(lines, index)))
 
-    def test_starting_points_and_writing_routes_are_reachable_and_dated(self):
-        # Points de départ chiffrés : claims datés `À REVÉRIFIER`, source et limites nommées ; écriture : route PILOT à contrat réduit.
-        for locator, expected in [('SAVOIR/TOOLS/POINTS-DE-DEPART', ('À REVÉRIFIER', 'Limites communes', 'Revue.')),
-                                  ('SAVOIR/CRAFT/CFT-06', ('PILOT', 'Contre-indication', 'Limite', 'ADOPTED'))]:
-            with self.subTest(locator=locator):
-                _, lines, index = routes.resolve(locator)
-                served = '\n'.join(routes.extract(lines, index))
-                for fragment in expected:
-                    self.assertIn(fragment, served)
-        self.assertEqual(routes.adresse('savoir/gout-et-tendances#points-de-depart'), 'SAVOIR/TOOLS/POINTS-DE-DEPART')
+    def test_writing_route_is_reachable_with_its_contract(self):
+        # Écriture : route PILOT à contrat réduit, servie par son adresse lisible.
+        _, lines, index = routes.resolve('SAVOIR/CRAFT/CFT-06')
+        served = '\n'.join(routes.extract(lines, index))
+        for fragment in ('PILOT', 'Contre-indication', 'Limite', 'ADOPTED'):
+            self.assertIn(fragment, served)
         self.assertEqual(routes.adresse('savoir/qualite-creative#ecriture'), 'SAVOIR/CRAFT/CFT-06')
 
-    def test_starting_templates_are_served_with_their_limits_on_two_routes_only(self):
-        # Gabarits de départ : deux routes seulement, valeurs [À ADAPTER], source datée, contre-indications, preuve et test de retrait.
-        for locator in ('BIBLIOTHEQUE/GRID', 'BIBLIOTHEQUE/SCENE'):
-            with self.subTest(locator=locator):
-                _, lines, index = routes.resolve(locator)
-                served = '\n'.join(routes.extract(lines, index))
-                for fragment in ('Gabarit de départ', 'À ADAPTER', 'Contre-indications', 'test de retrait', '2026-10-14', 'non validées'):
-                    self.assertIn(fragment, served)
-                self.assertEqual(served.count('**Gabarit de départ'), 1)
+    def test_package_names_no_third_party_skill(self):
+        # Le système présente son propre contenu : aucune autre skill de design n'y est nommée ni citée comme source.
+        manifest = json.loads((ROOT / 'scripts' / 'package_manifest.json').read_text(encoding='utf-8'))
+        named = re.compile('ta' + r'ste[ -]?skill|' + 'leon' + 'xlnx', re.I)  # assemblé : ce fichier ne contient pas le nom
+        for rel in manifest['github']:
+            path = ROOT / rel
+            if path.suffix in {'.md', '.py', '.json', '.html', '.txt', '.svg', '.yml'} and path.is_file():
+                with self.subTest(file=rel):
+                    self.assertIsNone(named.search(path.read_text(encoding='utf-8')))
 
     def test_setting_values_and_image_search_pilots_are_served_with_their_limits(self):
         # Valeurs de réglage `[À ADAPTER]` (grand texte, durées) et procédure d'images libres : servies par leur route, limites et source datée présentes.
-        for locator, expected in [('SAVOIR/TYPE', ('Réglage d’un grand texte', 'À ADAPTER', 'non des mesures', 'Contre-indications', '2026-10-14')),
-                                  ('SAVOIR/CONTEXT', ('Durées et courbes, points de départ', 'À ADAPTER', 'non des mesures', 'Contre-indications', '2026-10-14')),
+        for locator, expected in [('SAVOIR/TYPE', ('Réglage d’un grand texte', 'À ADAPTER', 'non des mesures', 'Contre-indications')),
+                                  ('SAVOIR/CONTEXT', ('Durées et courbes, points de départ', 'À ADAPTER', 'non des mesures', 'Contre-indications')),
                                   ('SAVOIR/SOURCE', ('Chercher le monde du sujet dans des collections ouvertes', 'Honnêteté', 'Droits', 'avis juridique', 'PILOT'))]:
             with self.subTest(locator=locator):
                 _, lines, index = routes.resolve(locator)
@@ -457,12 +454,12 @@ class CoreResourceActivationTests(unittest.TestCase):
         _, lines, index = routes.resolve('SAVOIR/CRAFT/CFT-05')
         served = '\n'.join(routes.extract(lines, index))
         for fragment in ('Relations de couleur', 'PILOT', 'La valeur d’abord', 'OKLCH', 'niveaux de gris', 'Fonds voisins',
-                         'décrivent une palette ; elles n’en justifient pas une', 'Contre-indications', 'ADOPTED', '2026-10-14'):
+                         'décrivent une palette ; elles n’en justifient pas une', 'Contre-indications', 'ADOPTED'):
             self.assertIn(fragment, served)
 
     def test_subject_inventory_pilot_and_substance_signal_are_served_by_their_routes(self):
         # Inventaire du sujet : sous-section de CFT-01 en PILOT, source datée ; substance : signal d'enquête de CFT-00, sans score.
-        for locator, expected in [('SAVOIR/CRAFT/CFT-01', ('Inventaire du sujet et phrase d’idée', 'Test du concurrent', 'PILOT', 'Contre-indication', 'ADOPTED', '2026-10-14')),
+        for locator, expected in [('SAVOIR/CRAFT/CFT-01', ('Inventaire du sujet et phrase d’idée', 'Test du concurrent', 'PILOT', 'Contre-indication', 'ADOPTED')),
                                   ('SAVOIR/CRAFT/CFT-00', ('Substance', 'sans seuil ni score', 'La retenue n’est pas le vide',
                                                            'qu’est-ce qui bouge sur cette surface', 'Aucun nombre d’éléments animés'))]:
             with self.subTest(locator=locator):

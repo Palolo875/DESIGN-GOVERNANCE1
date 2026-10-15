@@ -2,7 +2,7 @@
 
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.
 **Usage recommandé :** pilote avec revue humaine.  
-**Révision livrée :** `R2026-10-14-REVUE`, 14 octobre 2026.
+**Révision livrée :** `R2026-10-15`, 15 octobre 2026.
 
 ## Ce que permet la V1
 
@@ -34,6 +34,4 @@ Une `RUN_CARD` validée atteste la forme de la projection et les invariants de l
 
 ## Limites de la V1
 
-**Efficacité : `NOT-VERIFIED`.** Aucune mesure comparative n’établit l’effet général du système sur la qualité, la variété ou le coût des rendus. Le noyau borne le chargement initial ; il ne mesure ni la charge cognitive ni le coût complet d’un run.
-
-Les contrôles automatisés ne remplacent pas un jugement visuel, une tâche représentative, une observation de lecteur d’écran ou une mesure de performance. L’installation n’a été vérifiée qu’avec Claude Code ; les autres agents compatibles avec le format Agent Skills restent à vérifier.
+**Efficacité : `NOT-VERIFIED`.** Aucune mesure comparative n’établit l’effet général du système sur la qualité, la variété ou le coût des rendus ; la portée exacte des contrôles est décrite dans [ce que contient le système](maintenance/versions.md#ce-qui-est-vérifié-ce-qui-ne-lest-pas). L’installation est vérifiée avec Claude Code et Codex ; les autres agents compatibles avec le format Agent Skills restent à vérifier.
