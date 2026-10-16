@@ -3,7 +3,7 @@
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. ACTION transforme une direction ou une décision produit en trace de run, artefacts observables, preuves adaptées, gates proportionnés et verdicts inspectables.
 
 <!-- lieux:début -->
-> **Ce fichier ne contient pas toute la responsabilité `ACTION`.** Il garde les sections conservées ici ; les autres sections `ACTION` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
+> **Ce fichier ne contient pas toute la responsabilité `ACTION`.** Il contient les sections rangées dans ce fichier ; les autres sections `ACTION` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
 >
 > - [`agent/chemins.md`](../agent/chemins.md) : `ACTION/RUN`, `ACTION/RUN-LITE`, `ACTION/RUN-ITER`, `ACTION/RUN-STANDARD`, `ACTION/RUN-DIRECTION`, `ACTION/RUN-SYSTEM`, `ACTION/FAST-PATH`, `ACTION/ROUTING`
 > - [`agent/repondre.md`](../agent/repondre.md) : `ACTION/HANDOFF`

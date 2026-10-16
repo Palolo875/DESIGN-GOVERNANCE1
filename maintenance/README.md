@@ -87,7 +87,7 @@ La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`
 | `python3 gouvernance/outils/validate_run_card.py chemin/run.json` | Valide un fichier JSON ciblé et échoue s’il est absent, malformé ou sémantiquement invalide. |
 | `python3 gouvernance/outils/validate_contracts.py --type production_contracts chemin/contrat.json` | Valide un contrat ciblé, y compris hors du package ; sans `--type`, la famille est détectée par les clés racines. |
 | `python3 scripts/validate_reading_map.py` | Vérifie la carte de lecture, ses propriétaires, ses locators et sa frontière non normative. |
-| `python3 scripts/read_route.py --tronc MODE` | Affiche le tronc de la ligne d’un mode (routes lues à chaque run de ce mode), sa taille et le respect du budget de 35 000 caractères ; code 1 si le budget est dépassé. |
+| `python3 scripts/read_route.py --tronc MODE` | Affiche le tronc de la ligne d’un mode (routes lues à chaque run de ce mode), sa taille, sa marge et le respect du budget de 35 000 caractères ; signale une marge sous 10 % et rend le code 1 si le budget est dépassé. |
 | `python3 scripts/read_route.py --connexions` | Affiche le sommaire des connexions situées ; ajouter un identifiant comme `C03` pour lire condition, contributions, limites et sources résolues. |
 | `python3 scripts/test_audit_regressions.py` | Exécute les régressions de navigation, de capacités et de conditions de façade ; ne mesure ni la compréhension utilisateur ni la qualité esthétique. |
 | `python3 scripts/validate_all.py` | Exécute les contrôles documentaires, machine, CLI, fixtures négatives, compilation et reproductibilité des distributions. |

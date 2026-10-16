@@ -2,7 +2,7 @@
 
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.
 **Usage recommandé :** pilote avec revue humaine.  
-**Révision livrée :** `R2026-10-16`, 16 octobre 2026.
+**Révision livrée :** `R2026-10-16.2`, 16 octobre 2026.
 
 ## Ce que permet la V1
 

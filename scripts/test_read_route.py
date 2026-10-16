@@ -670,6 +670,7 @@ class TroncTests(unittest.TestCase):
                              capture_output=True, text=True, encoding="utf-8")
         self.assertEqual(out.returncode, 0, out.stderr)
         self.assertIn("TOTAL DU TRONC", out.stdout)
+        self.assertIn("marge", out.stdout)
         self.assertIn("======== DIRECTION/FIRST-OBJECT", out.stdout)
 
     def test_trunk_is_exclusive_with_other_reads(self):

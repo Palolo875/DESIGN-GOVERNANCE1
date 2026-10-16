@@ -1131,7 +1131,11 @@ def main(argv: list[str] | None = None) -> int:
         for locator, text in chunks:
             print(f"\n======== {locator} ({len(text)} caractères)\n{text}")
         ok = total <= TRONC_BUDGET
-        print(f"\nTOTAL DU TRONC — {total} caractères pour {len(chunks)} route(s) : budget {'respecté' if ok else 'DÉPASSÉ'}")
+        print(f"\nTOTAL DU TRONC — {total} caractères pour {len(chunks)} route(s) : budget {'respecté' if ok else 'DÉPASSÉ'}"
+              f" ({total * 100 // TRONC_BUDGET} %, marge {TRONC_BUDGET - total} caractères)")
+        if ok and total > TRONC_BUDGET * 0.9:
+            print("MARGE FAIBLE — moins de 10 % du budget : un ajout au tronc se compense par un allègement du même tronc, "
+                  "pas par une hausse du budget.")
         absentes = bloquantes_hors_tronc(args.tronc)
         if absentes:
             print("ROUTES BLOQUANTES HORS DU TRONC — " + ", ".join(absentes) + " : citées dans la ligne du mode, absentes du tronc")

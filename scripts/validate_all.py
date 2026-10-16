@@ -209,7 +209,7 @@ def main() -> int:
     check_craft_regressions()
     check_move_regression()
     run([sys.executable, "scripts/test_core_budget.py"])
-    run([sys.executable, "scripts/test_check_direction.py"])
+    run([sys.executable, "scripts/test_check_caractere.py", *(["--require-browser"] if args.require_browser else [])])
     run([sys.executable, "scripts/test_read_route.py"])
     run([sys.executable, "scripts/test_audit_regressions.py"])
     if (ROOT / "scripts/test_preparer_livraison.py").is_file():

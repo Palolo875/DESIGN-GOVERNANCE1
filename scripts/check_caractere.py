@@ -5,7 +5,7 @@ Elle émet des SIGNAL et des RELEVÉ, jamais PASS ni RETURN : un signal attend u
 trace (corrigé, ou gardé avec sa raison) ; un relevé informe sans rien demander. Elle ne juge ni la
 qualité d'une direction, ni le goût, ni l'usage. Méthode, déclaration et limites : ACTION/RECETTE-CARACTERE.
 
-Usage : python3 scripts/check_direction.py page.html declaration.json [--json SORTIE]
+Usage : python3 scripts/check_caractere.py page.html declaration.json [--json SORTIE]
 Requiert Playwright avec Chromium, numpy et Pillow ; sans eux, la recette rend NOT-VERIFIED (code 2).
 """
 from __future__ import annotations
@@ -17,7 +17,8 @@ import math
 import sys
 from pathlib import Path
 
-# Bornes provisoires, réglées sur cinq pages d'essai et trois runs [À CALIBRER].
+# Bornes provisoires, réglées sur cinq pages d'essai et trois runs [À CALIBRER]. Figées entre deux recalibrations :
+# un run ne les retouche pas ; recalibration par lot, sur au moins cinq runs qui n'ont pas servi à les régler.
 BORNES = {"comp_void": .45, "resp_void": .60,
           "retenue_max": 40, "intensite_min": 10, "capture_min": .8, "focus_concentre": .65,
           "bande_vide_vh": .15, "marge_matiere": 1.25}

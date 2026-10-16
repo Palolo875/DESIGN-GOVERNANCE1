@@ -235,7 +235,7 @@ def bandeau(name: str) -> str | None:
     import read_route
     resp = name.removesuffix(".md")
     out = [LIEUX_BEGIN,
-           f"> **Ce fichier ne contient pas toute la responsabilité `{resp}`.** Il garde les sections conservées ici ; "
+           f"> **Ce fichier ne contient pas toute la responsabilité `{resp}`.** Il contient les sections rangées dans ce fichier ; "
            f"les autres sections `{resp}` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. "
            "Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. "
            "_Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._",

@@ -2,7 +2,7 @@
 
 Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu ; il sert aussi à juger et analyser un existant. Quand un travail doit être livré ou audité, le système garde la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
 
-> **Statut :** V1.0.0, révision `R2026-10-16`. Expérimentation maintenue, pensée pour un usage avec revue humaine (voir [les limites](#limites)). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
+> **Statut :** V1.0.0, révision `R2026-10-16.2`. Expérimentation maintenue, pensée pour un usage avec revue humaine (voir [les limites](#limites)). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
 
 ## Par où entrer
 
@@ -88,7 +88,7 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 | **Gouvernance** (selon le besoin) | [`gouvernance/`](gouvernance/README.md) | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
 | **Supports** | [`supports/`](supports/README.md) | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
 | **Maintenance** | [`maintenance/`](maintenance/README.md) | Ce que contient la version, évolution du système, distributions et validation. |
-| **Sections de référence** | [`sections/`](sections/README.md) | Sections conservées par domaine et carte de lecture. Chaque fichier ne contient qu’une partie de sa responsabilité et liste en tête où vivent les autres sections. |
+| **Sections de référence** | [`sections/`](sections/README.md) | Sections regroupées par domaine et carte de lecture. Chaque fichier ne contient qu’une partie de sa responsabilité et liste en tête où vivent les autres sections. |
 | **Outils** | [`scripts/`](scripts/README.md) | <!-- github:début outils -->Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau, contrôles du paquet et construction des distributions ; chaque commande est décrite dans [la validation](maintenance/README.md#validation).<!-- github:fin outils --> |
 
 La gouvernance s’adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.

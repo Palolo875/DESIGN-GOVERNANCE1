@@ -30,9 +30,9 @@ Une capture prouve le rendu, pas l’indépendance du jugement, l’accessibilit
 <!-- origine:ACTION.md -->
 ## ACTION/RECETTE-CARACTERE — recette de caractère, à l’essai
 
-Recette `AUTOMATED` facultative qui confronte le caractère déclaré d’un run à son rendu HTML : `python3 scripts/check_direction.py page.html declaration.json`. Elle sert la boucle d’édition lorsque la qualité perceptuelle fait partie de la décision. Elle ne juge ni la qualité d’une direction, ni le goût, ni l’usage, et ne remplace ni la revue de `SAVOIR/CRAFT/CFT-00`, ni `ACTION/GATE-A`, ni `ACTION/RECETTE-RENDU`.
+Recette `AUTOMATED` facultative qui confronte le caractère déclaré d’un run à son rendu HTML : `python3 scripts/check_caractere.py page.html declaration.json`. Elle sert la boucle d’édition lorsque la qualité perceptuelle fait partie de la décision. Elle ne juge ni la qualité d’une direction, ni le goût, ni l’usage, et ne remplace ni la revue de `SAVOIR/CRAFT/CFT-00`, ni `ACTION/GATE-A`, ni `ACTION/RECETTE-RENDU`.
 
-**Déclaration.** Un fichier JSON tiré de `DIRECTION/VISUAL_TARGET` et des axes de `BIBLIOTHEQUE/TENSION`. Un champ absent n’est pas contrôlé.
+**Déclaration.** Un fichier JSON tiré de `DIRECTION/VISUAL_TARGET` et des axes de `BIBLIOTHEQUE/TENSION`, écrit avant la construction et rangé à côté de l’artefact. Un champ absent n’est pas contrôlé. La trace la cite : en trace légère, sur la ligne « modal, trame et parti », sans ligne supplémentaire.
 
 | Champ | Valeurs | Ce qui est confronté |
 |---|---|---|
@@ -45,8 +45,8 @@ Recette `AUTOMATED` facultative qui confronte le caractère déclaré d’un run
 | `intended_voids` | `true`, `false` | Bandes vides entre deux contenus |
 | `widths`, `states` | largeurs en px ; suffixes d’URL | Vues mesurées (par défaut 390 et 1440 px) |
 
-**Sorties.** Un `SIGNAL` (polices, densité, matière) attend une réponse dans la trace : l’écart est corrigé dans l’artefact, ou gardé avec sa raison lorsque la déclaration était fausse ou l’écart voulu ; la trace dit lequel. Un `RELEVÉ` (foyer, intensité, vide) informe sans rien exiger. Aucune sortie ne vaut `PASS`.
+**Sorties.** Un `SIGNAL` (polices, densité, matière) attend une réponse dans la trace : l’écart est corrigé dans l’artefact, ou gardé avec sa raison lorsque la déclaration était fausse ou l’écart voulu ; la trace dit lequel, sur la ligne du défaut dominant restant en trace légère. Un `RELEVÉ` (foyer, intensité, vide) informe sans rien exiger. Aucune sortie ne vaut `PASS`.
 
-**Limites.** Statut `PILOT` : bornes provisoires `[À CALIBRER]`, réglées sur peu de pages. La saillance est un modèle classique (résidu spectral), non entraîné sur des interfaces. Le caractère générique d’une page n’est pas mesuré. Une graisse synthétisée par le navigateur et une coupure de titre ne sont pas détectées. Sans Playwright, numpy et Pillow, la recette rend `NOT-VERIFIED`. Ses règles sont testées par `scripts/test_check_direction.py`.
+**Limites.** Statut `PILOT` : bornes provisoires `[À CALIBRER]`, réglées sur peu de pages. Elles restent figées entre deux recalibrations : un run ne les retouche pas ; une recalibration se fait par lot, sur au moins cinq runs qui n’ont pas servi à les régler, et la fiche de version en donne la date. La saillance est un modèle classique (résidu spectral), non entraîné sur des interfaces. Le caractère générique d’une page n’est pas mesuré. Une graisse synthétisée par le navigateur et une coupure de titre ne sont pas détectées. Sans Playwright, numpy et Pillow, la recette rend `NOT-VERIFIED`. Ses règles sont testées par `scripts/test_check_caractere.py`.
 
 ---

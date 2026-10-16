@@ -20,9 +20,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install browser for render tests
-        # version épinglée ; Chromium et ses dépendances système pour les tests de pages de check_render
+        # version épinglée ; Chromium et ses dépendances système pour les tests de pages de check_render et de check_caractere ; numpy et Pillow pour les mesures de check_caractere
         run: |
-          python3 -m pip install playwright==1.56.0
+          python3 -m pip install playwright==1.56.0 numpy==2.3.3 pillow==11.3.0
           python3 -m playwright install --with-deps chromium
       - name: Run package audit
         run: python3 scripts/validate_all.py --require-browser
