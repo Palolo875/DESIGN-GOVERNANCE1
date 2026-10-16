@@ -479,7 +479,10 @@ TEXT_LAYOUT_JS = r"""
       || [...e.children].some(c => getComputedStyle(c).display.startsWith('inline') && c.textContent.trim());
     if (!carries) continue;
     const clipped = cs.textOverflow === 'ellipsis' || ((cs.overflowX === 'hidden' || cs.overflowX === 'clip') && cs.whiteSpace !== 'normal');
-    if (clipped && e.scrollWidth > e.clientWidth + 1) { trunc.push((e.textContent || '').trim().slice(0, 32)); if (trunc.length >= 8) break; }
+    // Coupe sur plusieurs lignes (line-clamp) : le débordement est vertical.
+    const clamp = cs.webkitLineClamp || cs.lineClamp || 'none';
+    const clamped = clamp !== 'none' && (cs.overflowY === 'hidden' || cs.overflowY === 'clip');
+    if ((clipped && e.scrollWidth > e.clientWidth + 1) || (clamped && e.scrollHeight > e.clientHeight + 1)) { trunc.push((e.textContent || '').trim().slice(0, 32)); if (trunc.length >= 8) break; }
   }
   return {leaves: leaves.length, overlaps, decorative, trunc};
 }

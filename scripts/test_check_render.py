@@ -502,6 +502,8 @@ PAGES = {
     "chevauche_visible.html": ('<div style="visibility:hidden;position:relative;height:60px"><span style="visibility:visible;position:absolute;left:10px;top:10px">Heure 18 h 00</span>'
                                '<span style="visibility:visible;position:absolute;left:30px;top:14px">Barre de fenêtre</span></div>'),
     "tronque_imbrique.html": '<p style="width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><a href="#x">Porte-conteneurs très long</a></p>',
+    "tronque_lignes.html": ('<p style="width:160px;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2">'
+                            + 'Une description longue qui continue bien au-delà des deux lignes autorisées par la carte du produit. ' * 3 + '</p>'),
     "cadre_masque.html": ('<div id="cadre" style="position:relative;width:200px;height:120px;border:1px solid #000">'
                           '<span class="pt" style="position:absolute;left:20px;top:20px;width:10px;height:10px;background:#000"></span>'
                           '<span class="pt" style="position:absolute;left:400px;top:20px;width:10px;height:10px;background:#000;visibility:hidden"></span>'
@@ -749,6 +751,8 @@ def part_b(require: bool) -> str:
             expect("B", "textes rendus visibles sous un parent masqué qui se recouvrent : RETURN", status(c, "Chevauchement"), RETURN)
             _, c = measure(str(d / "tronque_imbrique.html"))
             expect("B", "texte tronqué porté par un lien dans la boîte qui rogne : réserve", status(c, "Chevauchement"), RESERVE)
+            _, c = measure(str(d / "tronque_lignes.html"))
+            expect("B", "texte coupé à deux lignes (line-clamp) : réserve", status(c, "Chevauchement"), RESERVE)
             _, c = measure(str(d / "cadre_masque.html"), "--in-frame", ".pt@#cadre")
             expect("B", "éléments masqués ou transparents hors du cadre : ignorés", status(c, "Objet de l’état clé"), PASS)
             _, c = measure(str(d / "cadre_masque.html"), "--in-frame", 'a[href="mailto:equipe@exemple.fr"]')
