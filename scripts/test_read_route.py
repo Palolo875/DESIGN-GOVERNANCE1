@@ -635,6 +635,44 @@ class ActivationTests(unittest.TestCase):
             self.assertTrue(any("limite de la recherche" in e for e in errors))
 
 
+class TroncTests(unittest.TestCase):
+    MODES = ("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME")
+
+    def test_every_mode_has_a_trunk_within_budget(self):
+        for mode in self.MODES:
+            with self.subTest(mode=mode):
+                self.assertTrue(reader.tronc_routes(mode))
+                _, total = reader.tronc_text(mode)
+                self.assertLessEqual(total, reader.TRONC_BUDGET)
+
+    def test_trunk_routes_belong_to_the_mode_row(self):
+        for mode in self.MODES:
+            row = reader.mode_row(mode)[2]
+            for route in reader.tronc_routes(mode):
+                with self.subTest(mode=mode, route=route):
+                    self.assertIn(f"`{route}`", row)
+
+    def test_cli_serves_the_trunk_and_its_total(self):
+        out = subprocess.run([sys.executable, str(ROOT / "scripts" / "read_route.py"), "--tronc", "DIRECTION"],
+                             capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(out.returncode, 0, out.stderr)
+        self.assertIn("TOTAL DU TRONC", out.stdout)
+        self.assertIn("======== DIRECTION/FIRST-OBJECT", out.stdout)
+
+    def test_trunk_is_exclusive_with_other_reads(self):
+        out = subprocess.run([sys.executable, str(ROOT / "scripts" / "read_route.py"), "--tronc", "LITE", "--mode", "LITE"],
+                             capture_output=True, text=True, encoding="utf-8")
+        self.assertNotEqual(out.returncode, 0)
+
+    def test_reuse_challenge_reads_thesis_and_register(self):
+        _, lines, index = reader.resolve("DIRECTION/FIRST-OBJECT")
+        text = "\n".join(reader.extract(lines, index))
+        for field in ("**teinte dominante**", "**paire typographique**", "**ossature**", "**objet de preuve**", "**thèse**", "**registre**"):
+            with self.subTest(field=field):
+                self.assertIn(field, text)
+        self.assertIn("Relève six champs", text)
+
+
 if __name__ == "__main__":
     result = unittest.TextTestRunner(stream=sys.stdout).run(unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__]))
     print(f"READ_ROUTE TESTS {'PASSED' if result.wasSuccessful() else 'FAILED'} — {result.testsRun} cas")

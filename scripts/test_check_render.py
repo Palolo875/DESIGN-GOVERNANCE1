@@ -110,6 +110,29 @@ def part_a_baseline() -> None:
     expect("A", "référence au mauvais format refusée avant la mesure", code, 2)
 
 
+def part_a_state() -> None:
+    print("Partie A — preuve d'état et texte (mesures synthétiques)")
+    r = raw_case()
+    expect("A", "texte non mesuré : NOT-VERIFIED", status(cr.interpret(r), "Chevauchement"), NOTVER)
+    for name, layout, want in [("recouvrement", {"leaves": 3, "overlaps": [["a", "b", 10, 8]], "trunc": []}, RETURN),
+                               ("troncature seule", {"leaves": 3, "overlaps": [], "trunc": ["Porte-conten…"]}, RESERVE),
+                               ("rien", {"leaves": 3, "overlaps": [], "trunc": []}, PASS)]:
+        r = raw_case(); r["per_width"][390]["textlayout"] = layout
+        expect("A", f"texte : {name}", status(cr.interpret(r), "Chevauchement"), want)
+    r = raw_case()
+    expect("A", "sans --assert : pas de contrôle d'assertion", status(cr.interpret(r), "Assertions"), "(absent)")
+    for name, items, want in [("fausse", [{"expr": "x", "ok": False, "value": False}], RETURN),
+                              ("vraie", [{"expr": "x", "ok": True, "value": True}], PASS)]:
+        r = raw_case(); r["per_width"][390]["asserts"] = items
+        expect("A", f"assertion {name}", status(cr.interpret(r), "Assertions"), want)
+    for name, items, want in [("hors cadre", [{"spec": "#a@#b", "found": 3, "outside": 1}], RETURN),
+                              ("absent", [{"spec": "#a@#b", "found": 0, "outside": 0}], RETURN),
+                              ("cadre introuvable", [{"spec": "#a@#b", "found": 2, "error": "cadre introuvable"}], RETURN),
+                              ("dans le cadre", [{"spec": "#a@#b", "found": 3, "outside": 0}], PASS)]:
+        r = raw_case(); r["per_width"][390]["frames"] = items
+        expect("A", f"état clé {name}", status(cr.interpret(r), "Objet de l’état clé"), want)
+
+
 def part_a() -> None:
     part_a_baseline()
     with patch.dict(os.environ, {"DG_BROWSER_EXECUTABLE": "/browser/configure"}):
@@ -457,6 +480,11 @@ def part_c() -> str:
 
 # ---------------------------------------------------------------- Partie B : pages pièges, avec navigateur
 PAGES = {
+    "chevauche.html": '<div style="position:relative;height:60px"><span style="position:absolute;left:10px;top:10px">Heure 18 h 00</span><span style="position:absolute;left:30px;top:14px">Barre de fenêtre</span></div>',
+    "tronque.html": '<p style="width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Porte-conteneurs très long</p>',
+    "collant.html": ''.join(f'<p>Paragraphe {i} du contenu courant.</p>' for i in range(60)) + '<div style="position:sticky;bottom:0;background:#fff;padding:12px">Bande collante qui recouvre le texte</div>',
+    "masque.html": '<a href="#fin" style="position:absolute;left:-999px">Aller au contenu</a><p id="fin">Texte courant.</p>',
+    "etat.html": '<div id="cadre" style="position:relative;width:200px;height:120px;border:1px solid #000;overflow:hidden"><span id="point" style="position:absolute;left:20px;top:20px;width:10px;height:10px;background:#000"></span></div><p>Total : <b id="total">1</b></p><button id="go" type="button">Avancer</button><script>document.getElementById("go").addEventListener("click",function(){setTimeout(function(){document.getElementById("point").style.left="400px";document.getElementById("total").textContent="2";},800);});</script>',
     "oklch.html": '<p style="color:oklch(0.9 0 0)">Texte presque blanc</p>',
     "ombre.html": '<style>button{box-shadow:0 2px 6px rgba(0,0,0,.3);min-width:60px;min-height:40px}button:focus{outline:none}</style><button>Un</button> <button>Deux</button>',
     "zero.html": '<div id="preuve" style="height:0"></div><p>ok</p>',
@@ -674,6 +702,26 @@ def part_b(require: bool) -> str:
             comparison = json.loads(after.read_text(encoding="utf-8"))["baseline_comparison"]
             expect("B", "référence : défaut introduit signalé, code de sortie inchangé",
                    [comparison["introduced_or_to_examine"], code], [["Contraste du texte sur fond uni"], 1])
+            _, c = measure(str(d / "chevauche.html"))
+            expect("B", "deux textes qui se recouvrent : RETURN", status(c, "Chevauchement"), RETURN)
+            _, c = measure(str(d / "tronque.html"))
+            expect("B", "texte tronqué par des points de suspension : réserve", status(c, "Chevauchement"), RESERVE)
+            _, c = measure(str(d / "collant.html"))
+            expect("B", "bande collante sur le texte : hors de ce contrôle", status(c, "Chevauchement"), PASS)
+            _, c = measure(str(d / "masque.html"))
+            expect("B", "lien d'évitement hors page : pas un chevauchement", status(c, "Chevauchement"), PASS)
+            _, c = measure(str(d / "propre.html"))
+            expect("B", "page propre : aucun chevauchement", status(c, "Chevauchement"), PASS)
+            _, c = measure(str(d / "etat.html"), "--in-frame", "#point@#cadre")
+            expect("B", "état initial : point dans son cadre", status(c, "Objet de l’état clé"), PASS)
+            _, c = measure(str(d / "etat.html"), "--click", "#go", "--wait-after-ms", "1200", "--in-frame", "#point@#cadre")
+            expect("B", "état après clic : point sorti du cadre : RETURN", status(c, "Objet de l’état clé"), RETURN)
+            _, c = measure(str(d / "etat.html"), "--click", "#go", "--assert", "document.querySelector('#total').textContent === '2'")
+            expect("B", "assertion lue trop tôt (sans attente) : RETURN", status(c, "Assertions"), RETURN)
+            _, c = measure(str(d / "etat.html"), "--click", "#go", "--wait-after-ms", "1200", "--assert", "document.querySelector('#total').textContent === '2'")
+            expect("B", "assertion à l'état qui compte : PASS", status(c, "Assertions"), PASS)
+            _, c = measure(str(d / "etat.html"), "--in-frame", "#absent@#cadre")
+            expect("B", "sélecteur de l'état clé introuvable : RETURN", status(c, "Objet de l’état clé"), RETURN)
             _, c = measure(str(d / "revele.html"))
             expect("B", "contenu révélé au défilement : mesuré (contraste faible détecté)", status(c, "Contraste"), RETURN)
             raw, _ = measure(str(d / "propre.html"), "--captures", str(d / "captures"))
@@ -695,6 +743,7 @@ def main() -> int:
     ap.add_argument("--skip-browser", action="store_true", help="exécuter uniquement A et C, sans navigateur")
     args = ap.parse_args()
     part_a()
+    part_a_state()
     c = part_c()
     b = 'NOT-VERIFIED : navigateur écarté explicitement' if args.skip_browser else part_b(args.require_browser)
     if args.skip_browser and args.require_browser:
