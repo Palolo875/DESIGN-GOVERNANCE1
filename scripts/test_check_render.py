@@ -101,6 +101,12 @@ def part_a_baseline() -> None:
            cr.compare_baseline([("Contraste", PASS, "ok")], scope, before, dict(settings))["comparable"], True)
     expect("A", "référence : réglages différents (--proof) non comparables",
            cr.compare_baseline([("Contraste", PASS, "ok")], scope, before, {**settings, "proof": "#x"})["comparable"], False)
+    plain = cr.parser().parse_args(["page.html"])
+    expect("A", "réglages sans preuve d'état : identiques à une référence antérieure à ces options",
+           cr.measurement_settings(plain), settings)
+    stated = cr.parser().parse_args(["page.html", "--wait-after-ms", "800", "--assert", "true", "--in-frame", "#a"])
+    expect("A", "réglages avec preuve d'état : inscrits et non comparables à une référence sans eux",
+           cr.compare_baseline([("Contraste", PASS, "ok")], scope, before, cr.measurement_settings(stated))["comparable"], False)
     with tempfile.TemporaryDirectory() as tmp:
         bad = Path(tmp) / "ref.json"; bad.write_text("[]", encoding="utf-8")
         page = Path(tmp) / "p.html"; page.write_text("<p>x</p>", encoding="utf-8")
@@ -116,6 +122,8 @@ def part_a_state() -> None:
     expect("A", "texte non mesuré : NOT-VERIFIED", status(cr.interpret(r), "Chevauchement"), NOTVER)
     for name, layout, want in [("recouvrement", {"leaves": 3, "overlaps": [["a", "b", 10, 8]], "trunc": []}, RETURN),
                                ("troncature seule", {"leaves": 3, "overlaps": [], "trunc": ["Porte-conten…"]}, RESERVE),
+                               ("texte décoratif superposé seul", {"leaves": 3, "overlaps": [], "decorative": [["2026", "Titre", 90, 40]], "trunc": []}, RESERVE),
+                               ("recouvrement et texte décoratif", {"leaves": 3, "overlaps": [["a", "b", 10, 8]], "decorative": [["2026", "Titre", 90, 40]], "trunc": []}, RETURN),
                                ("rien", {"leaves": 3, "overlaps": [], "trunc": []}, PASS)]:
         r = raw_case(); r["per_width"][390]["textlayout"] = layout
         expect("A", f"texte : {name}", status(cr.interpret(r), "Chevauchement"), want)
@@ -484,6 +492,10 @@ PAGES = {
     "tronque.html": '<p style="width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Porte-conteneurs très long</p>',
     "collant.html": ''.join(f'<p>Paragraphe {i} du contenu courant.</p>' for i in range(60)) + '<div style="position:sticky;bottom:0;background:#fff;padding:12px">Bande collante qui recouvre le texte</div>',
     "masque.html": '<a href="#fin" style="position:absolute;left:-999px">Aller au contenu</a><p id="fin">Texte courant.</p>',
+    "filigrane.html": ('<div style="position:relative;padding:40px 16px"><span aria-hidden="true" style="position:absolute;top:10px;left:0;'
+                       'font-size:160px;font-weight:900;line-height:1;opacity:.08">2026</span><h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
+    "filigrane_lu.html": ('<div style="position:relative;padding:40px 16px"><span style="position:absolute;top:10px;left:0;'
+                          'font-size:160px;font-weight:900;line-height:1;color:#ccc">2026</span><h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
     "etat.html": '<div id="cadre" style="position:relative;width:200px;height:120px;border:1px solid #000;overflow:hidden"><span id="point" style="position:absolute;left:20px;top:20px;width:10px;height:10px;background:#000"></span></div><p>Total : <b id="total">1</b></p><button id="go" type="button">Avancer</button><script>document.getElementById("go").addEventListener("click",function(){setTimeout(function(){document.getElementById("point").style.left="400px";document.getElementById("total").textContent="2";},800);});</script>',
     "oklch.html": '<p style="color:oklch(0.9 0 0)">Texte presque blanc</p>',
     "ombre.html": '<style>button{box-shadow:0 2px 6px rgba(0,0,0,.3);min-width:60px;min-height:40px}button:focus{outline:none}</style><button>Un</button> <button>Deux</button>',
@@ -710,6 +722,10 @@ def part_b(require: bool) -> str:
             expect("B", "bande collante sur le texte : hors de ce contrôle", status(c, "Chevauchement"), PASS)
             _, c = measure(str(d / "masque.html"))
             expect("B", "lien d'évitement hors page : pas un chevauchement", status(c, "Chevauchement"), PASS)
+            _, c = measure(str(d / "filigrane.html"))
+            expect("B", "filigrane décoratif derrière un titre : réserve, à juger", status(c, "Chevauchement"), RESERVE)
+            _, c = measure(str(d / "filigrane_lu.html"))
+            expect("B", "même texte lu et opaque derrière un titre : RETURN", status(c, "Chevauchement"), RETURN)
             _, c = measure(str(d / "propre.html"))
             expect("B", "page propre : aucun chevauchement", status(c, "Chevauchement"), PASS)
             _, c = measure(str(d / "etat.html"), "--in-frame", "#point@#cadre")

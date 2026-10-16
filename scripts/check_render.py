@@ -411,17 +411,18 @@ TEXT_LAYOUT_JS = r"""
   // Textes qui se recouvrent ou sont tronqués. Rectangles de lignes ramenés à l'interligne (la boîte de contenu
   // d'une fonte dépasse souvent l'interligne) ; calques fixes ou collants exclus (couverture : autre contrôle) ;
   // texte masqué, transparent ou hors de la largeur de la page exclu (liens d'évitement, texte pour lecteur d'écran).
+  // Un texte décoratif (aria-hidden ou opacité cumulée sous 0,35, comme un filigrane) superposé à un autre est
+  // relevé à part : la superposition peut être un parti typographique, elle se juge.
   const W = document.documentElement.clientWidth;
   const overlay = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { const p = getComputedStyle(e).position; if (p === 'fixed' || p === 'sticky') return true; } return false; };
+  const opacity = el => { let op = 1; for (let e = el; e; e = e.parentElement) op *= parseFloat(getComputedStyle(e).opacity); return op; };
   const hidden = (el, r) => {
     if (r.right <= 0 || r.left >= W) return true;
-    let op = 1;
     for (let e = el; e; e = e.parentElement) {
       const cs = getComputedStyle(e);
       if (cs.display === 'none' || cs.visibility === 'hidden' || cs.clip === 'rect(0px, 0px, 0px, 0px)' || cs.clipPath === 'inset(50%)') return true;
-      op *= parseFloat(cs.opacity);
     }
-    return op < 0.05;
+    return opacity(el) < 0.05;
   };
   const leaves = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -430,21 +431,26 @@ TEXT_LAYOUT_JS = r"""
     const el = n.parentElement; if (!el || el.closest('script,style,noscript,title,template') || overlay(el)) continue;
     const range = document.createRange(); range.selectNodeContents(n);
     const lh = parseFloat(getComputedStyle(el).lineHeight);
+    const deco = !!el.closest('[aria-hidden="true"]') || opacity(el) < 0.35;
     for (const x of range.getClientRects()) {
       if (x.width <= 1 || x.height <= 1 || hidden(el, x)) continue;
       let top = x.top, bottom = x.bottom;
       if (lh && lh < x.height) { const c = (top + bottom) / 2; top = c - lh / 2; bottom = c + lh / 2; }
-      leaves.push({el, t: n.nodeValue.trim().slice(0, 32), l: x.left, top, r: x.right, b: bottom});
+      leaves.push({el, deco, t: n.nodeValue.trim().slice(0, 32), l: x.left, top, r: x.right, b: bottom});
     }
   }
-  const overlaps = [];
+  const overlaps = [], decorative = [];
   outer: for (let i = 0; i < leaves.length; i++) {
     const a = leaves[i];
     for (let j = i + 1; j < leaves.length; j++) {
       const c = leaves[j];
       if (a.el === c.el || a.el.contains(c.el) || c.el.contains(a.el)) continue;
       const ox = Math.min(a.r, c.r) - Math.max(a.l, c.l), oy = Math.min(a.b, c.b) - Math.max(a.top, c.top);
-      if (ox > 2 && oy > 3) { overlaps.push([a.t, c.t, Math.round(ox), Math.round(oy)]); if (overlaps.length >= 12) break outer; }
+      if (ox > 2 && oy > 3) {
+        const pair = [a.t, c.t, Math.round(ox), Math.round(oy)];
+        if (a.deco || c.deco) { if (decorative.length < 12) decorative.push(pair); }
+        else { overlaps.push(pair); if (overlaps.length >= 12) break outer; }
+      }
     }
   }
   const trunc = [];
@@ -455,7 +461,7 @@ TEXT_LAYOUT_JS = r"""
     const clipped = cs.textOverflow === 'ellipsis' || ((cs.overflowX === 'hidden' || cs.overflowX === 'clip') && cs.whiteSpace !== 'normal');
     if (clipped && e.scrollWidth > e.clientWidth + 1) { trunc.push((e.textContent || '').trim().slice(0, 32)); if (trunc.length >= 8) break; }
   }
-  return {leaves: leaves.length, overlaps, trunc};
+  return {leaves: leaves.length, overlaps, decorative, trunc};
 }
 """
 
@@ -915,8 +921,10 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     else:
         overlap_parts = [f"{w} px : « {a} » et « {b} » ({ox}×{oy} px)" for w, v in layouts.items() if v for a, b, ox, oy in v.get("overlaps", [])[:3]]
         trunc_parts = [f"{w} px : « {x} »" for w, v in layouts.items() if v for x in v.get("trunc", [])[:3]]
-        status = RETURN if overlap_parts else (RESERVE if trunc_parts else PASS)
-        detail = "; ".join(overlap_parts + (["tronqué, à juger : " + ", ".join(trunc_parts)] if trunc_parts else []))
+        deco_parts = [f"{w} px : « {a} » et « {b} »" for w, v in layouts.items() if v for a, b, _, _ in v.get("decorative", [])[:3]]
+        status = RETURN if overlap_parts else (RESERVE if trunc_parts or deco_parts else PASS)
+        detail = "; ".join(overlap_parts + (["tronqué, à juger : " + ", ".join(trunc_parts)] if trunc_parts else [])
+                           + (["texte décoratif superposé, à juger : " + ", ".join(deco_parts)] if deco_parts else []))
         checks.append(("Chevauchement et troncature de texte", status,
                        (detail or f"aucun à {', '.join(map(str, widths))} px") + " ; texte SVG compris, calques fixes ou collants exclus"))
 
@@ -1125,9 +1133,13 @@ RANK = {PASS: 0, RESERVE: 1, RETURN: 2}
 
 def measurement_settings(args: argparse.Namespace) -> dict:
     """Réglages qui changent les contrôles sans changer le périmètre : ils doivent être identiques pour comparer."""
-    return {"proof": args.proof, "tab_stops": args.tab_stops, "allow_external": args.allow_external, "wait_ms": args.wait_ms,
-            "wait_after_ms": getattr(args, "wait_after_ms", 0), "asserts": list(getattr(args, "assert_", []) or []),
-            "in_frame": list(getattr(args, "in_frame", []) or [])}
+    settings = {"proof": args.proof, "tab_stops": args.tab_stops, "allow_external": args.allow_external, "wait_ms": args.wait_ms}
+    # Réglages de preuve d'état : inscrits seulement s'ils sont employés, pour qu'une mesure sans eux reste
+    # comparable à une référence enregistrée avant leur existence.
+    optional = {"wait_after_ms": getattr(args, "wait_after_ms", 0), "asserts": list(getattr(args, "assert_", []) or []),
+                "in_frame": list(getattr(args, "in_frame", []) or [])}
+    settings.update({key: value for key, value in optional.items() if value})
+    return settings
 
 
 def check_baseline_shape(baseline: object) -> None:
@@ -1229,7 +1241,7 @@ def run(args: argparse.Namespace) -> int:
           "Le mouvement réduit enregistre les animations et transitions démarrées au chargement et au défilement, sur la première largeur ; "
           "les animations pilotées par script sans API d'animation du navigateur ne sont pas observées. "
           "Les captures montrent l'état observé ; elles ne jugent rien. "
-          "Le chevauchement de texte est mesuré sur les rectangles de lignes, ramenés à l'interligne, hors calques fixes ou collants ; il ne voit ni les glyphes ni les recouvrements par une image. "
+          "Le chevauchement de texte est mesuré sur les rectangles de lignes, ramenés à l'interligne, hors calques fixes ou collants ; un texte décoratif superposé (aria-hidden ou très transparent) reste à juger ; il ne voit ni les glyphes ni les recouvrements par une image. "
           "Une assertion d'état ne prouve que ce qu'elle exprime, à l'état et aux largeurs observés. "
           "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
     comparison = None

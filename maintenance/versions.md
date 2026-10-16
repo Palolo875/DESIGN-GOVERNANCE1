@@ -2,7 +2,7 @@
 
 **Version expérimentale :** `V1.0.0`
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
-**Révision :** `R2026-10-15.2`, 15 octobre 2026.  
+**Révision :** `R2026-10-16`, 16 octobre 2026.  
 **Usage recommandé :** pilote avec revue humaine et preuves adaptées au risque.
 
 Cette fiche décrit ce que le système possède aujourd’hui et ce qui en est vérifié. Elle ne retrace pas son histoire.
@@ -27,12 +27,13 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 
 ## Ce que le système sait faire
 
-- **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système), lire le noyau de fabrication (premier objet, composition, typographie, couleur, boucle d’édition) puis ne charger que ce qui peut changer la décision.
-- **Diriger une proposition** : premier objet, cible visuelle, alternative située, direction lisible dans le rendu.
+- **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système), lire le noyau de fabrication (premier objet, composition, typographie, couleur, boucle d’édition), puis le tronc de son mode (routes lues à chaque run, sous un budget de 30 000 caractères, `read_route.py --tronc`) ; le reste se charge quand son signal apparaît.
+- **Diriger une proposition** : premier objet, cible visuelle, alternative située, direction lisible dans le rendu ; une reprise se compare à ses antécédents sur six champs (teinte, paire typographique, ossature, objet de preuve, thèse, registre).
 - **Construire avec un contenu vrai** : exemples marqués plutôt qu’emplacements vides, données et graphiques d’exemple cohérents, sources et droits vérifiés au moment de l’intégration, provenance des images générées conservée.
 - **Protéger la personne** : dans les flux d’inscription, de paiement, de consentement ou de résiliation, refuser reste aussi visible et aussi court qu’accepter ; une culture se calibre par des références locales nommées, jamais par un registre régional générique.
+- **Choisir ses moyens** : une carte datée nomme, par couche, des sources gratuites avec leurs restrictions connues : bases techniques, typographie, couleur, icônes, composants, mouvement et 3D, données et cartes, textures, photographie, illustration, références à observer. Une ressource nommée n’est ni atteinte ni vérifiée ; sa licence se relit au moment de l’intégrer.
 - **Construire sur le socle des navigateurs** : un levier encore limité à un ou deux moteurs s’ajoute en amélioration progressive, avec un repli qui garde la direction lisible.
-- **Observer et corriger** : boucle d’édition sur capture, recette de rendu automatisée pour les fautes objectivables (débordement, contraste, noms accessibles, clavier, cibles, images visibles qui ne se chargent pas, contraste du focus dans les cas lisibles, mouvement réduit observé dès le chargement), avec comparaison à une mesure antérieure pour distinguer les défauts introduits, et relevés de composition facultatifs (`--mesures`), sans seuil ni verdict.
+- **Observer et corriger** : boucle d’édition sur capture, recette de rendu automatisée pour les fautes objectivables (débordement, contraste, noms accessibles, clavier, cibles, images visibles qui ne se chargent pas, contraste du focus dans les cas lisibles, mouvement réduit observé dès le chargement, textes qui se recouvrent ou sont tronqués) ; preuve à l’état qui compte, après clic et attente : assertions sur un texte calculé (`--assert`) et objet de l’état clé dans son cadre (`--in-frame`) ; comparaison à une mesure antérieure pour distinguer les défauts introduits, et relevés de composition facultatifs (`--mesures`), sans seuil ni verdict.
 - **Tracer selon le besoin** : trace légère par défaut, trace complète et fiche `RUN_CARD` validable lorsqu’un travail est repris, partagé, audité ou accepté.
 - **Retrouver un savoir** : lecteur de routes par code, adresse lisible, recherche ou connexions entre domaines.
 
@@ -55,6 +56,7 @@ Ces sections et cette option sont des essais, suivis selon le cycle de vie de `m
 | `BIBLIOTHEQUE/READ` « Traduire un caractère en leviers » | Valeurs `[À ADAPTER]` | Leviers de départ et piège réflexe pour douze caractères perceptuels (calme, tension, intimité…). Servi par sa route, hors du noyau. | Runs contrastés avec et sans le tableau : le caractère visé se lit-il dans le rendu sans tomber dans le piège réflexe ? | Retirer le tableau et sa ligne dans l’index des signaux. |
 | `SAVOIR/TYPE` « Réglage d’un grand texte » et `SAVOIR/CONTEXT` « Durées et courbes, points de départ » | Valeurs `[À ADAPTER]` | Points de départ, non des mesures, pour régler un grand titre et calibrer un mouvement ; chacun porte ses contre-indications et sa preuve. | Essais sur des rendus du paquet jugés par plusieurs personnes. | Retirer les deux paragraphes. |
 | `SAVOIR/SOURCE` « Chercher le monde du sujet dans des collections ouvertes » | `PILOT` | Requêtes tirées de l’inventaire du sujet, critères de choix, honnêteté, droits. Ne remplace ni la fiche de source ni un avis juridique ; aucun accès n’est testé par le paquet. | Contrat de gain réel, accès atteint depuis l’environnement du run, droits relus. | Retirer la sous-section et sa mention dans `MOYENS`. |
+| `DIRECTION/CHARGE` — tronc par mode | `PILOT` | Routes lues à chaque run d’un mode, sous un budget de 30 000 caractères. En `DIRECTION`, les contraintes de `ACTION/GATE-A` restent hors du tronc pour tenir le budget : elles se lisent dès qu’elles s’appliquent, avant le choix qu’elles protègent. | Runs réels : le tronc suffit-il à fabriquer sans lecture manquée d’une contrainte ? | Retirer les mentions « Tronc » de la table et l’option `--tronc`. |
 | `scripts/check_render.py --mesures` | Option facultative | Relevés chiffrés de composition : titres et textes, gros textes du premier écran couverts ou au haut rogné, palette en OKLCH, actions et navigation du premier écran. Aucun statut, aucun seuil, aucun effet sur le code de sortie. | Usage sur des runs réels avant de lier un relevé à une règle. | Retirer l’option ; les contrôles restent inchangés. |
 
 Le noyau de la skill ne dépend d’aucune de ces sections : leur retrait ne le modifie pas.
