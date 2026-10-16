@@ -2,6 +2,23 @@
 
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. ACTION transforme une direction ou une décision produit en trace de run, artefacts observables, preuves adaptées, gates proportionnés et verdicts inspectables.
 
+<!-- lieux:début -->
+> **Ce fichier ne contient pas toute la responsabilité `ACTION`.** Il garde les sections conservées ici ; les autres sections `ACTION` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
+>
+> - [`agent/chemins.md`](../agent/chemins.md) : `ACTION/RUN`, `ACTION/RUN-LITE`, `ACTION/RUN-ITER`, `ACTION/RUN-STANDARD`, `ACTION/RUN-DIRECTION`, `ACTION/RUN-SYSTEM`, `ACTION/FAST-PATH`, `ACTION/ROUTING`
+> - [`agent/repondre.md`](../agent/repondre.md) : `ACTION/HANDOFF`
+> - [`gouvernance/principes.md`](../gouvernance/principes.md) : `ACTION/AUTHORITY`
+> - [`gouvernance/statuts.md`](../gouvernance/statuts.md) : `ACTION/STATUS`
+> - [`gouvernance/travail.md`](../gouvernance/travail.md) : `ACTION/PRECONDITION`, `ACTION/RUN_CARD`
+> - [`gouvernance/verification.md`](../gouvernance/verification.md) : `ACTION/STRUCTURED-PROOF`, `ACTION/GATE-B`, `ACTION/OVERRIDE`
+> - [`gouvernance/cloture.md`](../gouvernance/cloture.md) : `ACTION/CLOSE-PACKAGE`, `ACTION/CLOSE-EXIT-CHECK`
+> - [`design/produit/premier-rendu.md`](../design/produit/premier-rendu.md) : `ACTION/FIRST-RENDER`, `ACTION/UI-UX-REALITY`
+> - [`design/produit/plancher.md`](../design/produit/plancher.md) : `ACTION/GATE-A`, `ACTION/RECETTE-RENDU`, `ACTION/POLICIES`
+> - [`design/produit/finition.md`](../design/produit/finition.md) : `ACTION/GATE-C`, `ACTION/ANTI-SLOP`, `ACTION/ATELIER-EDITION`
+> - [`design/produit/preuve-visuelle.md`](../design/produit/preuve-visuelle.md) : `ACTION/VISUAL_PROOF`, `ACTION/RECETTE-CARACTERE`
+> - [`maintenance/evolution.md`](../maintenance/evolution.md) : `ACTION/MAINTENANCE`
+<!-- lieux:fin -->
+
 ## Responsabilité
 
 `ACTION` est le propriétaire des preuves exécutables, des gates, des statuts de run, des verdicts et de la clôture. Dans un run, le chargement suit `DIRECTION/CHARGE`, seule liste de chargement. Pour lire ACTION hors run, commencez par `ACTION/STATUS` et `ACTION/PRECONDITION`, puis la route de votre mode `ACTION/RUN-<MODE>`, et chargez seulement les gates correspondant au risque déclaré. `ACTION/FAST-PATH` est une vue de formalité réduite pour un delta local ; il ne supprime ni la preuve requise ni l’honnêteté du statut.

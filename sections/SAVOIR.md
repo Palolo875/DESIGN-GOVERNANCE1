@@ -2,6 +2,22 @@
 
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. SAVOIR porte le jugement de design : craft, style, contenu, contexte, technique, sources, intégrité et limites de ce qui peut être affirmé.
 
+<!-- lieux:début -->
+> **Ce fichier ne contient pas toute la responsabilité `SAVOIR`.** Il garde les sections conservées ici ; les autres sections `SAVOIR` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
+>
+> - [`agent/chemins.md`](../agent/chemins.md) : `SAVOIR/READ`, `SAVOIR/JUGEMENT-COURT`
+> - [`design/savoir/fondements.md`](../design/savoir/fondements.md) : `SAVOIR/FRAME`
+> - [`design/savoir/qualite-creative.md`](../design/savoir/qualite-creative.md) : `SAVOIR/CRAFT`
+> - [`design/savoir/typographie.md`](../design/savoir/typographie.md) : `SAVOIR/TYPE`
+> - [`design/savoir/composition.md`](../design/savoir/composition.md) : `SAVOIR/STATE`
+> - [`design/savoir/images-et-sources.md`](../design/savoir/images-et-sources.md) : `SAVOIR/SOURCE`, `SAVOIR/DESIGN-ATLAS`
+> - [`design/savoir/styles.md`](../design/savoir/styles.md) : `SAVOIR/STYLE`
+> - [`design/savoir/systeme-de-design.md`](../design/savoir/systeme-de-design.md) : `SAVOIR/SYSTEM`
+> - [`design/savoir/contexte.md`](../design/savoir/contexte.md) : `SAVOIR/CONTEXT`
+> - [`design/savoir/techniques.md`](../design/savoir/techniques.md) : `SAVOIR/TECH`
+> - [`design/savoir/gout-et-tendances.md`](../design/savoir/gout-et-tendances.md) : `SAVOIR/TOOLS`
+<!-- lieux:fin -->
+
 ## Responsabilité
 
 SAVOIR explique **comment exercer le jugement** : cadrer, choisir, comparer, retirer, vérifier et reconnaître une limite. Il contient les fondations, le craft, les profils de style, la production, la veille et la gouvernance de principes.

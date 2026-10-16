@@ -87,10 +87,9 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 | **Agent** | [`agent/`](agent/README.md) | Le chemin de l’agent par mode et la forme de sa réponse. |
 | **Gouvernance** (selon le besoin) | [`gouvernance/`](gouvernance/README.md) | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
 | **Supports** | [`supports/`](supports/README.md) | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
-| **Outils** | `scripts/` | Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau, contrôles du paquet et construction des distributions ; chaque commande est décrite dans [la validation](maintenance/README.md#validation). |
 | **Maintenance** | [`maintenance/`](maintenance/README.md) | Ce que contient la version, évolution du système, distributions et validation. |
-| **Sections de référence** | [`sections/`](sections/README.md) | Sections propriétaires regroupées par domaine et carte de lecture ; même autorité que les autres. |
-| **Outils** | `scripts/` | <!-- github:début outils -->Lecteur, contrôles et construction des distributions.<!-- github:fin outils --> |
+| **Sections de référence** | [`sections/`](sections/README.md) | Sections conservées par domaine et carte de lecture. Chaque fichier ne contient qu’une partie de sa responsabilité et liste en tête où vivent les autres sections. |
+| **Outils** | [`scripts/`](scripts/README.md) | <!-- github:début outils -->Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau, contrôles du paquet et construction des distributions ; chaque commande est décrite dans [la validation](maintenance/README.md#validation).<!-- github:fin outils --> |
 
 La gouvernance s’adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
 

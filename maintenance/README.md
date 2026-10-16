@@ -64,7 +64,7 @@ Les modifications doivent être apportées aux sources du dépôt, puis vérifi�
 <!-- origine:README.md -->
 ## Validation
 
-Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machine utilisent la bibliothèque standard Python. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus **Playwright et son navigateur Chromium** ; sans eux, ces tests restent `NOT-VERIFIED`. La construction des archives de la distribution GitHub nécessite Bash, `zip` et les outils Unix utilisés par `scripts/build_distributions.sh` ; elle a été contrôlée sous Linux. <!-- références:github -->
+Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machine utilisent la bibliothèque standard Python. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus **Playwright et son navigateur Chromium** ; sans eux, ces tests restent `NOT-VERIFIED`. La recette de caractère (à l’essai) demande aussi **numpy et Pillow** ; sans eux, elle rend `NOT-VERIFIED`. La construction des archives de la distribution GitHub nécessite Bash, `zip` et les outils Unix utilisés par `scripts/build_distributions.sh` ; elle a été contrôlée sous Linux. <!-- références:github -->
 
 Un Chromium déjà installé peut être choisi explicitement avec `--browser-executable CHEMIN` dans la recette, ou `DG_BROWSER_EXECUTABLE` pour la recette et ses tests. Sa version et son exécutable sont conservés dans la provenance ; ce choix ne remplace pas silencieusement le navigateur Playwright. Si la politique du navigateur interdit les fichiers locaux, `--serve-local` (ou `DG_RENDER_SERVE_LOCAL=1`) sert temporairement le dossier du fichier sur 127.0.0.1, puis ferme le serveur. Les autres origines restent bloquées par défaut.
 
@@ -87,7 +87,7 @@ La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`
 | `python3 gouvernance/outils/validate_run_card.py chemin/run.json` | Valide un fichier JSON ciblé et échoue s’il est absent, malformé ou sémantiquement invalide. |
 | `python3 gouvernance/outils/validate_contracts.py --type production_contracts chemin/contrat.json` | Valide un contrat ciblé, y compris hors du package ; sans `--type`, la famille est détectée par les clés racines. |
 | `python3 scripts/validate_reading_map.py` | Vérifie la carte de lecture, ses propriétaires, ses locators et sa frontière non normative. |
-| `python3 scripts/read_route.py --tronc MODE` | Affiche le tronc de la ligne d’un mode (routes lues à chaque run de ce mode), sa taille et le respect du budget de 30 000 caractères ; code 1 si le budget est dépassé. |
+| `python3 scripts/read_route.py --tronc MODE` | Affiche le tronc de la ligne d’un mode (routes lues à chaque run de ce mode), sa taille et le respect du budget de 35 000 caractères ; code 1 si le budget est dépassé. |
 | `python3 scripts/read_route.py --connexions` | Affiche le sommaire des connexions situées ; ajouter un identifiant comme `C03` pour lire condition, contributions, limites et sources résolues. |
 | `python3 scripts/test_audit_regressions.py` | Exécute les régressions de navigation, de capacités et de conditions de façade ; ne mesure ni la compréhension utilisateur ni la qualité esthétique. |
 | `python3 scripts/validate_all.py` | Exécute les contrôles documentaires, machine, CLI, fixtures négatives, compilation et reproductibilité des distributions. |

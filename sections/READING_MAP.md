@@ -83,6 +83,8 @@ Cette table liste des **raccourcis et sous-locators** ; elle n’est pas un inve
 | `ACTION/UI-UX-REALITY` | `ACTION.md` — `### ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble` |
 | `ACTION/CLOSE-PACKAGE` | `ACTION.md` — `## ACTION/CLOSE-PACKAGE — paquet de clôture` |
 | `ACTION/GATE-A` | `ACTION.md` — `## ACTION/GATE-A — plancher objectivable` |
+| `ACTION/RECETTE-CARACTERE` | `ACTION.md` — `## ACTION/RECETTE-CARACTERE — recette de caractère, à l’essai` |
+| `ACTION/RECETTE-RENDU` | `ACTION.md` — `## ACTION/RECETTE-RENDU — recette de rendu \`check_render.py\`` |
 | `ACTION/ATELIER-EDITION` | `ACTION.md` — `## ACTION/ATELIER-EDITION — opération observable` |
 | `ACTION/ROUTING` | `ACTION.md` — `## ACTION/ROUTING — prérequis de jugement et de structure` |
 | `ACTION/CLOSE-EXIT-CHECK` | `ACTION.md` — `## ACTION/CLOSE-EXIT-CHECK — test de sortie canonique` |

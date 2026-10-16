@@ -112,7 +112,7 @@ def check_craft_regressions() -> None:
     print("CRAFT REGRESSIONS PASSED — 2 cas de halo de production admis, 3 marqueurs de vague non datés et 3 mutations d’activation rejetés")
 
 def check_move_regression() -> None:
-    """Le rangement déplace du texte et met à jour la seule table LIEUX : lecteur, noyau et validateurs suivent.
+    """Le rangement déplace du texte, met à jour la seule table LIEUX et régénère (build_core.py) : lecteur, noyau, bandeaux et validateurs suivent.
 
     Sur une copie, la route SAVOIR/TYPE (avec un bloc du noyau) part dans un nouveau fichier ; tout doit rester vert,
     la skill compilée doit rester identique et la route doit être servie depuis son nouveau lieu.
@@ -158,6 +158,8 @@ def check_move_regression() -> None:
                 reader.write_text(src.replace(anchor, f"\nLIEUX['SAVOIR.md'] = {known + (target,)!r}\n{anchor}"),
                                   encoding="utf-8")
             skill_before = (ROOT / skill_rel).read_bytes()
+            if with_table and not duplicate:  # le rangement régénère les bandeaux de sections/ depuis LIEUX
+                subprocess.run([sys.executable, "scripts/build_core.py"], cwd=case, capture_output=True, text=True)
             steps = [[sys.executable, "scripts/build_core.py", "--check"],
                      [sys.executable, "scripts/validate_structure.py"],
                      [sys.executable, "scripts/validate_reading_map.py"],
@@ -207,6 +209,7 @@ def main() -> int:
     check_craft_regressions()
     check_move_regression()
     run([sys.executable, "scripts/test_core_budget.py"])
+    run([sys.executable, "scripts/test_check_direction.py"])
     run([sys.executable, "scripts/test_read_route.py"])
     run([sys.executable, "scripts/test_audit_regressions.py"])
     if (ROOT / "scripts/test_preparer_livraison.py").is_file():

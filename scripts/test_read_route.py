@@ -645,6 +645,19 @@ class TroncTests(unittest.TestCase):
                 _, total = reader.tronc_text(mode)
                 self.assertLessEqual(total, reader.TRONC_BUDGET)
 
+    def test_blocking_routes_cited_by_a_mode_are_in_its_trunk(self):
+        for mode in self.MODES:
+            with self.subTest(mode=mode):
+                self.assertEqual(reader.bloquantes_hors_tronc(mode), [])
+
+    def test_blocking_route_moved_out_of_trunk_fails(self):
+        row = reader.mode_row("DIRECTION")[2]
+        moved = row.replace(", `ACTION/FIRST-RENDER` et `ACTION/GATE-A` (contrôles applicables).",
+                            " et `ACTION/FIRST-RENDER`. Selon le signal : `ACTION/GATE-A`.")
+        self.assertNotEqual(moved, row)
+        with patch.object(reader, "mode_row", lambda mode: ["", "", moved]):
+            self.assertEqual(reader.bloquantes_hors_tronc("DIRECTION"), ["ACTION/GATE-A"])
+
     def test_trunk_routes_belong_to_the_mode_row(self):
         for mode in self.MODES:
             row = reader.mode_row(mode)[2]

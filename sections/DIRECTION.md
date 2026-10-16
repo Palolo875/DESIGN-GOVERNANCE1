@@ -2,6 +2,17 @@
 
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. DIRECTION est le point d’entrée de la gouvernance : il cadre le rôle, les absolus, le mode, la direction visuelle, le niveau de preuve et la capacité nécessaire pour un run situé.
 
+<!-- lieux:début -->
+> **Ce fichier ne contient pas toute la responsabilité `DIRECTION`.** Il garde les sections conservées ici ; les autres sections `DIRECTION` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
+>
+> - [`agent/chemins.md`](../agent/chemins.md) : `DIRECTION/START`, `DIRECTION/CREATIVE-BOOT`, `DIRECTION/DOMAIN-FRAME`, `DIRECTION/CHARGE`, `DIRECTION/FAST-PATH`
+> - [`gouvernance/principes.md`](../gouvernance/principes.md) : `DIRECTION/SERVICE-BOUNDARY`
+> - [`design/direction/cadrer.md`](../design/direction/cadrer.md) : `DIRECTION/EXTERNAL-START`
+> - [`design/direction/premier-objet.md`](../design/direction/premier-objet.md) : `DIRECTION/FIRST-OBJECT`
+> - [`design/direction/diriger.md`](../design/direction/diriger.md) : `DIRECTION/VISUAL_TARGET`, `DIRECTION/DIRECTION-ATELIER`
+> - [`design/direction/boucle.md`](../design/direction/boucle.md) : `DIRECTION/DOUBLE-LOOP`
+<!-- lieux:fin -->
+
 ## Rôle
 
 <!-- noyau:début ROLE -->

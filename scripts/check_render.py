@@ -1008,7 +1008,7 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
         limits.append("fond en dégradé ou en image, non évalué : " + ", ".join(nonsolid[:5]) + (f" +{len(nonsolid)-5}" if len(nonsolid) > 5 else ""))
     if svg_text:
         limits.append("texte SVG non évalué (" + ", ".join(svg_text[:3]) + ") : relever fill/stroke, opacités et fond réel, "
-                      "puis calculer le contraste ; méthode dans ACTION/GATE-A")
+                      "puis calculer le contraste ; méthode dans ACTION/RECETTE-RENDU")
     if unknown:
         limits.append("couleur non convertible, non évaluée : " + ", ".join(unknown[:4]) + (f" +{len(unknown)-4}" if len(unknown) > 4 else ""))
     if contrast:
@@ -1282,7 +1282,7 @@ def run(args: argparse.Namespace) -> int:
           "Les captures montrent l'état observé ; elles ne jugent rien. "
           "Le chevauchement de texte est mesuré sur les rectangles de lignes, ramenés à l'interligne, hors calques fixes ou collants ; un texte décoratif superposé (aria-hidden ou très transparent) reste à juger ; il ne voit ni les glyphes ni les recouvrements par une image. "
           "Une assertion d'état ne prouve que ce qu'elle exprime, à l'état et aux largeurs observés. "
-          "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
+          "Cette recette ne valide ni la direction visuelle, ni le goût, ni l'utilisabilité, ni un verdict global.")
     comparison = None
     if baseline is not None:
         comparison = compare_baseline(checks, prov["scope"], baseline, prov["settings"])
