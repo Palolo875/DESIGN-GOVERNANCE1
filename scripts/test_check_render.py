@@ -494,6 +494,21 @@ PAGES = {
     "masque.html": '<a href="#fin" style="position:absolute;left:-999px">Aller au contenu</a><p id="fin">Texte courant.</p>',
     "filigrane.html": ('<div style="position:relative;padding:40px 16px"><span aria-hidden="true" style="position:absolute;top:10px;left:0;'
                        'font-size:160px;font-weight:900;line-height:1;opacity:.08">2026</span><h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
+    "filigrane_alpha.html": ('<div style="position:relative;padding:40px 16px"><span style="position:absolute;top:10px;left:0;'
+                             'font-size:160px;font-weight:900;line-height:1;color:rgba(0,0,0,.06)">2026</span><h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
+    "filigrane_contour.html": ('<div style="position:relative;padding:40px 16px"><span style="position:absolute;top:10px;left:0;font-size:160px;'
+                               'font-weight:900;line-height:1;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px #000">2026</span>'
+                               '<h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
+    "chevauche_visible.html": ('<div style="visibility:hidden;position:relative;height:60px"><span style="visibility:visible;position:absolute;left:10px;top:10px">Heure 18 h 00</span>'
+                               '<span style="visibility:visible;position:absolute;left:30px;top:14px">Barre de fenêtre</span></div>'),
+    "tronque_imbrique.html": '<p style="width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><a href="#x">Porte-conteneurs très long</a></p>',
+    "cadre_masque.html": ('<div id="cadre" style="position:relative;width:200px;height:120px;border:1px solid #000">'
+                          '<span class="pt" style="position:absolute;left:20px;top:20px;width:10px;height:10px;background:#000"></span>'
+                          '<span class="pt" style="position:absolute;left:400px;top:20px;width:10px;height:10px;background:#000;visibility:hidden"></span>'
+                          '<span class="pt" style="position:absolute;left:500px;top:20px;width:10px;height:10px;background:#000;opacity:0"></span></div>'
+                          '<p><a href="mailto:equipe@exemple.fr">Écrire à l’équipe</a></p>'),
+    "clic_defile.html": ('<p id="haut">Titre du haut</p>' + '<p>Paragraphe de contenu.</p>' * 80
+                         + '<button id="bas" type="button">Valider</button>'),
     "filigrane_lu.html": ('<div style="position:relative;padding:40px 16px"><span style="position:absolute;top:10px;left:0;'
                           'font-size:160px;font-weight:900;line-height:1;color:#ccc">2026</span><h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
     "etat.html": '<div id="cadre" style="position:relative;width:200px;height:120px;border:1px solid #000;overflow:hidden"><span id="point" style="position:absolute;left:20px;top:20px;width:10px;height:10px;background:#000"></span></div><p>Total : <b id="total">1</b></p><button id="go" type="button">Avancer</button><script>document.getElementById("go").addEventListener("click",function(){setTimeout(function(){document.getElementById("point").style.left="400px";document.getElementById("total").textContent="2";},800);});</script>',
@@ -726,6 +741,22 @@ def part_b(require: bool) -> str:
             expect("B", "filigrane décoratif derrière un titre : réserve, à juger", status(c, "Chevauchement"), RESERVE)
             _, c = measure(str(d / "filigrane_lu.html"))
             expect("B", "même texte lu et opaque derrière un titre : RETURN", status(c, "Chevauchement"), RETURN)
+            _, c = measure(str(d / "filigrane_alpha.html"))
+            expect("B", "filigrane estompé par l'alpha de sa couleur : réserve", status(c, "Chevauchement"), RESERVE)
+            _, c = measure(str(d / "filigrane_contour.html"))
+            expect("B", "filigrane en contour sur remplissage transparent : réserve", status(c, "Chevauchement"), RESERVE)
+            _, c = measure(str(d / "chevauche_visible.html"))
+            expect("B", "textes rendus visibles sous un parent masqué qui se recouvrent : RETURN", status(c, "Chevauchement"), RETURN)
+            _, c = measure(str(d / "tronque_imbrique.html"))
+            expect("B", "texte tronqué porté par un lien dans la boîte qui rogne : réserve", status(c, "Chevauchement"), RESERVE)
+            _, c = measure(str(d / "cadre_masque.html"), "--in-frame", ".pt@#cadre")
+            expect("B", "éléments masqués ou transparents hors du cadre : ignorés", status(c, "Objet de l’état clé"), PASS)
+            _, c = measure(str(d / "cadre_masque.html"), "--in-frame", 'a[href="mailto:equipe@exemple.fr"]')
+            expect("B", "@ dans un sélecteur d'attribut : pas un séparateur de cadre", status(c, "Objet de l’état clé"), PASS)
+            _, plain = measure(str(d / "clic_defile.html"), "--click", "#bas", "--in-frame", "#haut")
+            _, shot = measure(str(d / "clic_defile.html"), "--click", "#bas", "--in-frame", "#haut", "--captures", str(d / "captures_defile"))
+            expect("B", "état après un clic qui défile : même résultat avec ou sans --captures",
+                   [status(plain, "Objet de l’état clé"), status(shot, "Objet de l’état clé")], [RETURN, RETURN])
             _, c = measure(str(d / "propre.html"))
             expect("B", "page propre : aucun chevauchement", status(c, "Chevauchement"), PASS)
             _, c = measure(str(d / "etat.html"), "--in-frame", "#point@#cadre")

@@ -411,16 +411,30 @@ TEXT_LAYOUT_JS = r"""
   // Textes qui se recouvrent ou sont tronqués. Rectangles de lignes ramenés à l'interligne (la boîte de contenu
   // d'une fonte dépasse souvent l'interligne) ; calques fixes ou collants exclus (couverture : autre contrôle) ;
   // texte masqué, transparent ou hors de la largeur de la page exclu (liens d'évitement, texte pour lecteur d'écran).
-  // Un texte décoratif (aria-hidden ou opacité cumulée sous 0,35, comme un filigrane) superposé à un autre est
-  // relevé à part : la superposition peut être un parti typographique, elle se juge.
+  // Un texte décoratif (aria-hidden, ou encre effective sous 0,35 : opacité cumulée, alpha de la couleur ou du
+  // remplissage, contour sur remplissage transparent), comme un filigrane, superposé à un autre est relevé à part :
+  // la superposition peut être un parti typographique, elle se juge.
   const W = document.documentElement.clientWidth;
   const overlay = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { const p = getComputedStyle(e).position; if (p === 'fixed' || p === 'sticky') return true; } return false; };
   const opacity = el => { let op = 1; for (let e = el; e; e = e.parentElement) op *= parseFloat(getComputedStyle(e).opacity); return op; };
+  const alphaOf = c => {
+    const m = /^rgba?\(([^)]*)\)/.exec(c || '');
+    if (m) { const p = m[1].split(/[\s,\/]+/).filter(Boolean); return p.length > 3 ? parseFloat(p[3]) : 1; }
+    const slash = (c || '').split('/')[1];
+    return slash ? parseFloat(slash) : 1;
+  };
+  const ink = el => {
+    const cs = getComputedStyle(el), fill = alphaOf(cs.webkitTextFillColor || cs.color);
+    if (fill > 0) return fill;
+    if (parseFloat(cs.webkitTextStrokeWidth) > 0) return 0;  // contour seul : texte de dessin
+    return (cs.backgroundClip === 'text' || cs.webkitBackgroundClip === 'text') ? 1 : 0;  // texte en dégradé : lu
+  };
+  // visibility s'hérite : la valeur calculée du parent du texte suffit, et un descendant rendu visible reste mesuré.
   const hidden = (el, r) => {
-    if (r.right <= 0 || r.left >= W) return true;
+    if (r.right <= 0 || r.left >= W || getComputedStyle(el).visibility === 'hidden') return true;
     for (let e = el; e; e = e.parentElement) {
       const cs = getComputedStyle(e);
-      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.clip === 'rect(0px, 0px, 0px, 0px)' || cs.clipPath === 'inset(50%)') return true;
+      if (cs.display === 'none' || cs.clip === 'rect(0px, 0px, 0px, 0px)' || cs.clipPath === 'inset(50%)') return true;
     }
     return opacity(el) < 0.05;
   };
@@ -431,7 +445,7 @@ TEXT_LAYOUT_JS = r"""
     const el = n.parentElement; if (!el || el.closest('script,style,noscript,title,template') || overlay(el)) continue;
     const range = document.createRange(); range.selectNodeContents(n);
     const lh = parseFloat(getComputedStyle(el).lineHeight);
-    const deco = !!el.closest('[aria-hidden="true"]') || opacity(el) < 0.35;
+    const deco = !!el.closest('[aria-hidden="true"]') || opacity(el) * ink(el) < 0.35;
     for (const x of range.getClientRects()) {
       if (x.width <= 1 || x.height <= 1 || hidden(el, x)) continue;
       let top = x.top, bottom = x.bottom;
@@ -439,14 +453,17 @@ TEXT_LAYOUT_JS = r"""
       leaves.push({el, deco, t: n.nodeValue.trim().slice(0, 32), l: x.left, top, r: x.right, b: bottom});
     }
   }
+  // Tri par haut de ligne : seules les lignes qui commencent avant la fin de la courante peuvent la recouvrir.
+  leaves.sort((x, y) => x.top - y.top);
   const overlaps = [], decorative = [];
   outer: for (let i = 0; i < leaves.length; i++) {
     const a = leaves[i];
     for (let j = i + 1; j < leaves.length; j++) {
       const c = leaves[j];
-      if (a.el === c.el || a.el.contains(c.el) || c.el.contains(a.el)) continue;
+      if (c.top >= a.b - 3) break;
       const ox = Math.min(a.r, c.r) - Math.max(a.l, c.l), oy = Math.min(a.b, c.b) - Math.max(a.top, c.top);
       if (ox > 2 && oy > 3) {
+        if (a.el === c.el || a.el.contains(c.el) || c.el.contains(a.el)) continue;
         const pair = [a.t, c.t, Math.round(ox), Math.round(oy)];
         if (a.deco || c.deco) { if (decorative.length < 12) decorative.push(pair); }
         else { overlaps.push(pair); if (overlaps.length >= 12) break outer; }
@@ -457,7 +474,10 @@ TEXT_LAYOUT_JS = r"""
   for (const e of document.querySelectorAll('body *')) {
     const cs = getComputedStyle(e);
     if (cs.display === 'none' || !e.clientWidth || overlay(e)) continue;
-    if (![...e.childNodes].some(n => n.nodeType === 3 && n.nodeValue.trim())) continue;
+    // Texte porté directement, ou par des éléments en ligne (un lien ou un span dans la boîte qui rogne).
+    const carries = [...e.childNodes].some(n => n.nodeType === 3 && n.nodeValue.trim())
+      || [...e.children].some(c => getComputedStyle(c).display.startsWith('inline') && c.textContent.trim());
+    if (!carries) continue;
     const clipped = cs.textOverflow === 'ellipsis' || ((cs.overflowX === 'hidden' || cs.overflowX === 'clip') && cs.whiteSpace !== 'normal');
     if (clipped && e.scrollWidth > e.clientWidth + 1) { trunc.push((e.textContent || '').trim().slice(0, 32)); if (trunc.length >= 8) break; }
   }
@@ -468,10 +488,25 @@ TEXT_LAYOUT_JS = r"""
 IN_FRAME_JS = r"""
 (spec) => {
   // SÉLECTEUR@CADRE : chaque élément visible du sélecteur doit avoir son centre dans le cadre (la fenêtre si omis).
-  const at = spec.lastIndexOf('@'), sel = at > 0 ? spec.slice(0, at) : spec, frame = at > 0 ? spec.slice(at + 1) : '';
+  // Le séparateur est le dernier @ hors chaîne et hors crochets : a[href="mailto:x@y.fr"] reste un sélecteur.
+  let at = -1, quote = '', depth = 0;
+  for (let i = 0; i < spec.length; i++) {
+    const ch = spec[i];
+    if (quote) { if (ch === '\\') i++; else if (ch === quote) quote = ''; }
+    else if (ch === '"' || ch === "'") quote = ch;
+    else if (ch === '[') depth++;
+    else if (ch === ']') depth = Math.max(0, depth - 1);
+    else if (ch === '@' && !depth) at = i;
+  }
+  const sel = at > 0 ? spec.slice(0, at) : spec, frame = at > 0 ? spec.slice(at + 1) : '';
   let els;
   try { els = [...document.querySelectorAll(sel)]; } catch (e) { return {spec, error: 'sélecteur invalide'}; }
-  els = els.filter(e => { const r = e.getBoundingClientRect(); return r.width > 0 || r.height > 0; });
+  const shown = e => {
+    if (getComputedStyle(e).visibility === 'hidden') return false;
+    let op = 1; for (let x = e; x; x = x.parentElement) op *= parseFloat(getComputedStyle(x).opacity);
+    return op >= 0.05;
+  };
+  els = els.filter(e => { const r = e.getBoundingClientRect(); return (r.width > 0 || r.height > 0) && shown(e); });
   let box = {l: 0, t: 0, r: innerWidth, b: innerHeight};
   if (frame) {
     let f; try { f = document.querySelector(frame); } catch (e) { return {spec, error: 'cadre invalide'}; }
@@ -828,6 +863,17 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
 
         for w in widths:
             ctx, page, errs = open_page(w)
+            # Preuve d'état : avant les captures, la tabulation et tout défilement, à l'état atteint par --click et
+            # --wait-after-ms ; le résultat ne dépend donc pas de --captures.
+            textlayout = page.evaluate(TEXT_LAYOUT_JS)
+            asserts = []
+            for expr in getattr(args, "assert_", []) or []:
+                try:
+                    value = page.evaluate(f"() => ({expr})")
+                    asserts.append({"expr": expr, "ok": value is True, "value": value if isinstance(value, (bool, int, float, str)) or value is None else str(value)})
+                except PlaywrightError as exc:
+                    asserts.append({"expr": expr, "ok": False, "value": "erreur : " + str(exc).splitlines()[0][:120]})
+            frames = [page.evaluate(IN_FRAME_JS, spec) for spec in (getattr(args, "in_frame", []) or [])]
             if args.captures:  # avant la tabulation, qui déplacerait le focus visible
                 shot = capture_paths(args.captures, [w])[0]
                 shot.parent.mkdir(parents=True, exist_ok=True)
@@ -839,16 +885,6 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
                 const r = e.getBoundingClientRect(); return r.right > document.documentElement.clientWidth + 1 && getComputedStyle(e).position !== 'fixed'; })
                 .slice(0, 4).map(e => e.tagName.toLowerCase() + (e.className && e.className.baseVal === undefined ? '.' + String(e.className).split(' ')[0] : ''))""")
             audit = page.evaluate(AUDIT_JS, FOC)
-            # Preuve d'état : avant toute tabulation ou tout défilement, à l'état atteint par --click et --wait-after-ms.
-            textlayout = page.evaluate(TEXT_LAYOUT_JS)
-            asserts = []
-            for expr in getattr(args, "assert_", []) or []:
-                try:
-                    value = page.evaluate(f"() => ({expr})")
-                    asserts.append({"expr": expr, "ok": value is True, "value": value if isinstance(value, (bool, int, float, str)) or value is None else str(value)})
-                except PlaywrightError as exc:
-                    asserts.append({"expr": expr, "ok": False, "value": "erreur : " + str(exc).splitlines()[0][:120]})
-            frames = [page.evaluate(IN_FRAME_JS, spec) for spec in (getattr(args, "in_frame", []) or [])]
             proof = None
             if args.proof:
                 page.evaluate("window.scrollTo(0, 0)")
