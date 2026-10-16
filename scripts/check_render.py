@@ -406,6 +406,122 @@ s => { const el = document.querySelector(s); if (!el) return {found: false};
 # l'enregistreur note chaque animation ou transition dès son démarrage (CSS, Web Animations, `Element.animate`) et
 # relève les propriétés animées pour dire si elle déplace quelque chose. Les animations pilotées par script sans API
 # d'animation du navigateur (changements de style inline à chaque image) ne sont pas observées.
+TEXT_LAYOUT_JS = r"""
+() => {
+  // Textes qui se recouvrent ou sont tronqués. Rectangles de lignes ramenés à l'interligne (la boîte de contenu
+  // d'une fonte dépasse souvent l'interligne) ; calques fixes ou collants exclus (couverture : autre contrôle) ;
+  // texte masqué, transparent ou hors de la largeur de la page exclu (liens d'évitement, texte pour lecteur d'écran).
+  // Un texte décoratif (aria-hidden, ou encre effective sous 0,35 : opacité cumulée, alpha de la couleur ou du
+  // remplissage, contour sur remplissage transparent), comme un filigrane, superposé à un autre est relevé à part :
+  // la superposition peut être un parti typographique, elle se juge.
+  const W = document.documentElement.clientWidth;
+  const overlay = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { const p = getComputedStyle(e).position; if (p === 'fixed' || p === 'sticky') return true; } return false; };
+  const opacity = el => { let op = 1; for (let e = el; e; e = e.parentElement) op *= parseFloat(getComputedStyle(e).opacity); return op; };
+  const alphaOf = c => {
+    const m = /^rgba?\(([^)]*)\)/.exec(c || '');
+    if (m) { const p = m[1].split(/[\s,\/]+/).filter(Boolean); return p.length > 3 ? parseFloat(p[3]) : 1; }
+    const slash = (c || '').split('/')[1];
+    return slash ? parseFloat(slash) : 1;
+  };
+  const ink = el => {
+    const cs = getComputedStyle(el), fill = alphaOf(cs.webkitTextFillColor || cs.color);
+    if (fill > 0) return fill;
+    if (parseFloat(cs.webkitTextStrokeWidth) > 0) return 0;  // contour seul : texte de dessin
+    return (cs.backgroundClip === 'text' || cs.webkitBackgroundClip === 'text') ? 1 : 0;  // texte en dégradé : lu
+  };
+  // visibility s'hérite : la valeur calculée du parent du texte suffit, et un descendant rendu visible reste mesuré.
+  const hidden = (el, r) => {
+    if (r.right <= 0 || r.left >= W || getComputedStyle(el).visibility === 'hidden') return true;
+    for (let e = el; e; e = e.parentElement) {
+      const cs = getComputedStyle(e);
+      if (cs.display === 'none' || cs.clip === 'rect(0px, 0px, 0px, 0px)' || cs.clipPath === 'inset(50%)') return true;
+    }
+    return opacity(el) < 0.05;
+  };
+  const leaves = [];
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode() && leaves.length < 4000) {
+    const n = walker.currentNode; if (!n.nodeValue.trim()) continue;
+    const el = n.parentElement; if (!el || el.closest('script,style,noscript,title,template') || overlay(el)) continue;
+    const range = document.createRange(); range.selectNodeContents(n);
+    const lh = parseFloat(getComputedStyle(el).lineHeight);
+    const deco = !!el.closest('[aria-hidden="true"]') || opacity(el) * ink(el) < 0.35;
+    for (const x of range.getClientRects()) {
+      if (x.width <= 1 || x.height <= 1 || hidden(el, x)) continue;
+      let top = x.top, bottom = x.bottom;
+      if (lh && lh < x.height) { const c = (top + bottom) / 2; top = c - lh / 2; bottom = c + lh / 2; }
+      leaves.push({el, deco, t: n.nodeValue.trim().slice(0, 32), l: x.left, top, r: x.right, b: bottom});
+    }
+  }
+  // Tri par haut de ligne : seules les lignes qui commencent avant la fin de la courante peuvent la recouvrir.
+  leaves.sort((x, y) => x.top - y.top);
+  const overlaps = [], decorative = [];
+  outer: for (let i = 0; i < leaves.length; i++) {
+    const a = leaves[i];
+    for (let j = i + 1; j < leaves.length; j++) {
+      const c = leaves[j];
+      if (c.top >= a.b - 3) break;
+      const ox = Math.min(a.r, c.r) - Math.max(a.l, c.l), oy = Math.min(a.b, c.b) - Math.max(a.top, c.top);
+      if (ox > 2 && oy > 3) {
+        if (a.el === c.el || a.el.contains(c.el) || c.el.contains(a.el)) continue;
+        const pair = [a.t, c.t, Math.round(ox), Math.round(oy)];
+        if (a.deco || c.deco) { if (decorative.length < 12) decorative.push(pair); }
+        else { overlaps.push(pair); if (overlaps.length >= 12) break outer; }
+      }
+    }
+  }
+  const trunc = [];
+  for (const e of document.querySelectorAll('body *')) {
+    const cs = getComputedStyle(e);
+    if (cs.display === 'none' || !e.clientWidth || overlay(e)) continue;
+    // Texte porté directement, ou par des éléments en ligne (un lien ou un span dans la boîte qui rogne).
+    const carries = [...e.childNodes].some(n => n.nodeType === 3 && n.nodeValue.trim())
+      || [...e.children].some(c => getComputedStyle(c).display.startsWith('inline') && c.textContent.trim());
+    if (!carries) continue;
+    const clipped = cs.textOverflow === 'ellipsis' || ((cs.overflowX === 'hidden' || cs.overflowX === 'clip') && cs.whiteSpace !== 'normal');
+    // Coupe sur plusieurs lignes (line-clamp) : le débordement est vertical.
+    const clamp = cs.webkitLineClamp || cs.lineClamp || 'none';
+    const clamped = clamp !== 'none' && (cs.overflowY === 'hidden' || cs.overflowY === 'clip');
+    if ((clipped && e.scrollWidth > e.clientWidth + 1) || (clamped && e.scrollHeight > e.clientHeight + 1)) { trunc.push((e.textContent || '').trim().slice(0, 32)); if (trunc.length >= 8) break; }
+  }
+  return {leaves: leaves.length, overlaps, decorative, trunc};
+}
+"""
+
+IN_FRAME_JS = r"""
+(spec) => {
+  // SÉLECTEUR@CADRE : chaque élément visible du sélecteur doit avoir son centre dans le cadre (la fenêtre si omis).
+  // Le séparateur est le dernier @ hors chaîne et hors crochets : a[href="mailto:x@y.fr"] reste un sélecteur.
+  let at = -1, quote = '', depth = 0;
+  for (let i = 0; i < spec.length; i++) {
+    const ch = spec[i];
+    if (quote) { if (ch === '\\') i++; else if (ch === quote) quote = ''; }
+    else if (ch === '"' || ch === "'") quote = ch;
+    else if (ch === '[') depth++;
+    else if (ch === ']') depth = Math.max(0, depth - 1);
+    else if (ch === '@' && !depth) at = i;
+  }
+  const sel = at > 0 ? spec.slice(0, at) : spec, frame = at > 0 ? spec.slice(at + 1) : '';
+  let els;
+  try { els = [...document.querySelectorAll(sel)]; } catch (e) { return {spec, error: 'sélecteur invalide'}; }
+  const shown = e => {
+    if (getComputedStyle(e).visibility === 'hidden') return false;
+    let op = 1; for (let x = e; x; x = x.parentElement) op *= parseFloat(getComputedStyle(x).opacity);
+    return op >= 0.05;
+  };
+  els = els.filter(e => { const r = e.getBoundingClientRect(); return (r.width > 0 || r.height > 0) && shown(e); });
+  let box = {l: 0, t: 0, r: innerWidth, b: innerHeight};
+  if (frame) {
+    let f; try { f = document.querySelector(frame); } catch (e) { return {spec, error: 'cadre invalide'}; }
+    if (!f) return {spec, found: els.length, error: 'cadre introuvable'};
+    const r = f.getBoundingClientRect(); box = {l: r.left, t: r.top, r: r.right, b: r.bottom};
+  }
+  let outside = 0;
+  for (const e of els) { const r = e.getBoundingClientRect(), cx = (r.left + r.right) / 2, cy = (r.top + r.bottom) / 2; if (cx < box.l || cx > box.r || cy < box.t || cy > box.b) outside++; }
+  return {spec, found: els.length, outside};
+}
+"""
+
 MOTION_RECORDER_JS = r"""
 (() => {
   if (window.__dgMotion) return;
@@ -744,10 +860,23 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             for sel in args.click:
                 page.click(sel)
                 page.wait_for_timeout(300)
+            if getattr(args, "wait_after_ms", 0):
+                page.wait_for_timeout(args.wait_after_ms)
             return ctx, page, errs
 
         for w in widths:
             ctx, page, errs = open_page(w)
+            # Preuve d'état : avant les captures, la tabulation et tout défilement, à l'état atteint par --click et
+            # --wait-after-ms ; le résultat ne dépend donc pas de --captures.
+            textlayout = page.evaluate(TEXT_LAYOUT_JS)
+            asserts = []
+            for expr in getattr(args, "assert_", []) or []:
+                try:
+                    value = page.evaluate(f"() => ({expr})")
+                    asserts.append({"expr": expr, "ok": value is True, "value": value if isinstance(value, (bool, int, float, str)) or value is None else str(value)})
+                except PlaywrightError as exc:
+                    asserts.append({"expr": expr, "ok": False, "value": "erreur : " + str(exc).splitlines()[0][:120]})
+            frames = [page.evaluate(IN_FRAME_JS, spec) for spec in (getattr(args, "in_frame", []) or [])]
             if args.captures:  # avant la tabulation, qui déplacerait le focus visible
                 shot = capture_paths(args.captures, [w])[0]
                 shot.parent.mkdir(parents=True, exist_ok=True)
@@ -790,6 +919,7 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             keyboard.update(reason=reason, tab_limit=args.tab_stops, visited=sorted(visited),
                             unreached=[e['id'] for e in keyboard['expected'] if e['key'] not in visited], unexpected=unexpected)
             raw["per_width"][w] = {"overflow": dims, "offenders": offenders, "errs": errs, "audit": audit, "proof": proof,
+                                   "textlayout": textlayout, "asserts": asserts, "frames": frames,
                                    "stops": stops, "missing_ind": missing, "focus_cues": focus_cues, "keyboard": keyboard}
             ctx.close()
             if args.mesures:  # relevés seulement, jamais lus par interpret ; page à part : ils ne modifient pas la page contrôlée
@@ -822,6 +952,38 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
 
     errs = sorted({e for d in per.values() for e in d["errs"]})
     checks.append(("Erreurs JavaScript au chargement", RETURN if errs else PASS, "; ".join(errs)[:200] or "aucune"))
+
+    # Textes qui se recouvrent ou sont tronqués (rectangles de lignes ; calques fixes ou collants exclus).
+    layouts = {w: d.get("textlayout") for w, d in per.items()}
+    if all(v is None for v in layouts.values()):
+        checks.append(("Chevauchement et troncature de texte", NOTVER, "non mesuré"))
+    else:
+        overlap_parts = [f"{w} px : « {a} » et « {b} » ({ox}×{oy} px)" for w, v in layouts.items() if v for a, b, ox, oy in v.get("overlaps", [])[:3]]
+        trunc_parts = [f"{w} px : « {x} »" for w, v in layouts.items() if v for x in v.get("trunc", [])[:3]]
+        deco_parts = [f"{w} px : « {a} » et « {b} »" for w, v in layouts.items() if v for a, b, _, _ in v.get("decorative", [])[:3]]
+        status = RETURN if overlap_parts else (RESERVE if trunc_parts or deco_parts else PASS)
+        detail = "; ".join(overlap_parts + (["tronqué, à juger : " + ", ".join(trunc_parts)] if trunc_parts else [])
+                           + (["texte décoratif superposé, à juger : " + ", ".join(deco_parts)] if deco_parts else []))
+        checks.append(("Chevauchement et troncature de texte", status,
+                       (detail or f"aucun à {', '.join(map(str, widths))} px") + " ; texte SVG compris, calques fixes ou collants exclus"))
+
+    # Preuve d'état demandée par l'auteur : assertions et objet de l'état clé dans son cadre.
+    if any(d.get("asserts") for d in per.values()):
+        bad = [f"{w} px : {a['expr'][:60]} → {a['value']!r}"[:140] for w, d in per.items() for a in d.get("asserts", []) if not a["ok"]]
+        total = sum(len(d.get("asserts", [])) for d in per.values())
+        checks.append(("Assertions d’état (--assert)", RETURN if bad else PASS, "; ".join(bad[:4]) or f"{total} assertion(s) vraie(s) à l’état observé"))
+    if any(d.get("frames") for d in per.values()):
+        bad = []
+        for w, d in per.items():
+            for f in d.get("frames", []):
+                if f.get("error"):
+                    bad.append(f"{w} px : {f['spec']} : {f['error']}")
+                elif not f.get("found"):
+                    bad.append(f"{w} px : {f['spec']} : aucun élément visible")
+                elif f.get("outside"):
+                    bad.append(f"{w} px : {f['spec']} : {f['outside']} élément(s) sur {f['found']} hors du cadre")
+        checks.append(("Objet de l’état clé dans son cadre (--in-frame)", RETURN if bad else PASS,
+                       "; ".join(bad[:4]) or "tous les éléments ont leur centre dans le cadre, à l’état observé"))
 
     contrast = [c for d in per.values() for c in d["audit"]["contrast"]]
     nonsolid = sorted({n["sel"] for d in per.values() for n in d["audit"]["nonSolid"]})
@@ -1010,7 +1172,13 @@ RANK = {PASS: 0, RESERVE: 1, RETURN: 2}
 
 def measurement_settings(args: argparse.Namespace) -> dict:
     """Réglages qui changent les contrôles sans changer le périmètre : ils doivent être identiques pour comparer."""
-    return {"proof": args.proof, "tab_stops": args.tab_stops, "allow_external": args.allow_external, "wait_ms": args.wait_ms}
+    settings = {"proof": args.proof, "tab_stops": args.tab_stops, "allow_external": args.allow_external, "wait_ms": args.wait_ms}
+    # Réglages de preuve d'état : inscrits seulement s'ils sont employés, pour qu'une mesure sans eux reste
+    # comparable à une référence enregistrée avant leur existence.
+    optional = {"wait_after_ms": getattr(args, "wait_after_ms", 0), "asserts": list(getattr(args, "assert_", []) or []),
+                "in_frame": list(getattr(args, "in_frame", []) or [])}
+    settings.update({key: value for key, value in optional.items() if value})
+    return settings
 
 
 def check_baseline_shape(baseline: object) -> None:
@@ -1087,7 +1255,7 @@ def run(args: argparse.Namespace) -> int:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     prov = {"artifact_locator": target, "artifact_version": sha12(path) if path else "url (non versionnée)",
             "method": "AUTOMATED", "observed_at": now,
-            "scope": f"état initial{' puis ' + ' puis '.join(args.click) if args.click else ''}, largeurs {','.join(map(str, raw['widths']))} px",
+            "scope": f"état initial{' puis ' + ' puis '.join(args.click) if args.click else ''}{f', puis {args.wait_after_ms} ms' if args.wait_after_ms else ''}, largeurs {','.join(map(str, raw['widths']))} px",
             "external_requests_blocked": raw["blocked"], "settings": measurement_settings(args)}
     if raw.get("captures"):
         prov["captures"] = raw["captures"]
@@ -1112,6 +1280,8 @@ def run(args: argparse.Namespace) -> int:
           "Le mouvement réduit enregistre les animations et transitions démarrées au chargement et au défilement, sur la première largeur ; "
           "les animations pilotées par script sans API d'animation du navigateur ne sont pas observées. "
           "Les captures montrent l'état observé ; elles ne jugent rien. "
+          "Le chevauchement de texte est mesuré sur les rectangles de lignes, ramenés à l'interligne, hors calques fixes ou collants ; un texte décoratif superposé (aria-hidden ou très transparent) reste à juger ; il ne voit ni les glyphes ni les recouvrements par une image. "
+          "Une assertion d'état ne prouve que ce qu'elle exprime, à l'état et aux largeurs observés. "
           "Cette recette ne valide ni la direction visuelle, ni l'utilisabilité, ni un verdict global.")
     comparison = None
     if baseline is not None:
@@ -1144,6 +1314,11 @@ def parser() -> argparse.ArgumentParser:
     ap.add_argument("--proof", default="", help="sélecteur CSS de l'objet de preuve déclaré par l'auteur")
     ap.add_argument("--click", action="append", default=[], help="sélecteur à cliquer avant la mesure (répétable)")
     ap.add_argument("--wait-ms", type=int, default=1500, help="attente après chargement (animations d'entrée)")
+    ap.add_argument("--wait-after-ms", type=int, default=0, help="attente après les clics, pour observer l'état qui compte (chargement, animation, résultat)")
+    ap.add_argument("--assert", dest="assert_", action="append", default=[], metavar="EXPRESSION",
+                    help="expression JavaScript qui doit valoir true à l'état observé (répétable) : recoupe un texte calculé avec ses valeurs ; RETURN sinon")
+    ap.add_argument("--in-frame", dest="in_frame", action="append", default=[], metavar="SÉLECTEUR[@CADRE]",
+                    help="chaque élément visible du sélecteur doit avoir son centre dans le cadre (la fenêtre si @CADRE est omis), à l'état observé (répétable) ; RETURN sinon")
     ap.add_argument("--tab-stops", type=int, default=60, help="nombre maximal de tabulations observées")
     ap.add_argument("--allow-external", action="store_true", help="laisser passer les requêtes vers d'autres origines")
     ap.add_argument("--json", default="", help="écrit les résultats et la provenance dans ce fichier")

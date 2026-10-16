@@ -607,6 +607,35 @@ def mode_row(mode: str) -> list[str]:
     return [header[0], "|---|---|---|", rows[0]]
 
 
+TRONC_BUDGET = 30_000
+TRONC = re.compile(r"\*\*Tronc[^*]*\*\*\s*:\s*(.+?)\.(?:\s|$)")
+
+
+def tronc_routes(mode: str) -> list[str]:
+    """Routes du tronc de la ligne d'un mode : lues à chaque run de ce mode, sous un budget de caractères.
+    Le tronc est écrit dans la table DIRECTION/CHARGE elle-même ; aucune table concurrente n'est créée ici."""
+    row = mode_row(mode)[2]
+    cells = [c.strip() for c in row.strip().strip("|").split(" | ")]
+    if len(cells) < 2:
+        raise RouteError(f"ligne de chargement illisible pour {mode}")
+    found = TRONC.search(cells[1])
+    if not found:
+        raise RouteError(f"tronc absent de la ligne {mode} (« **Tronc** : … ») dans DIRECTION/CHARGE")
+    routes = re.findall(r"`([A-Z]+(?:/[A-Za-z0-9_\-]+)+)`", found.group(1))
+    if not routes:
+        raise RouteError(f"tronc vide pour {mode}")
+    return routes
+
+
+def tronc_text(mode: str) -> tuple[list[tuple[str, str]], int]:
+    """Texte servi de chaque route du tronc (blocs du noyau repliés, comme une lecture ordinaire) et total."""
+    chunks = []
+    for locator in tronc_routes(mode):
+        _, lines, index = resolve(locator)
+        chunks.append((locator, "\n".join(fold_core(lines, index))))
+    return chunks, sum(len(text) for _, text in chunks)
+
+
 def core_section(first_line: str) -> str | None:
     """Section de la skill compilée (« 7. Gestes de finition ») qui contient cette ligne de bloc."""
     for skill in (ROOT / "SKILL.md",):
@@ -1060,9 +1089,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--mode", type=lambda value: "SYSTÈME" if value == "SYSTEME" else value,
                         choices=("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"),
                         help="ligne du mode déjà classé dans DIRECTION/CHARGE, sans charger les autres modes ; SYSTEME accepte l’écriture sans accent")
+    parser.add_argument("--tronc", type=lambda value: "SYSTÈME" if value == "SYSTEME" else value,
+                        choices=("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"),
+                        help=f"routes du tronc de la ligne du mode (lues à chaque run), servies à la suite, avec leur taille ; code 1 au-delà de {TRONC_BUDGET} caractères")
     args = parser.parse_args(argv)
-    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None, args.mode is not None)) != 1:
-        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR], soit --mode MODE")
+    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None, args.mode is not None, args.tronc is not None)) != 1:
+        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR], soit --mode MODE, soit --tronc MODE")
     if args.complet and args.locator is None:
         parser.error("--complet exige un locator")
     if args.tout and not args.trouver:
@@ -1076,6 +1108,18 @@ def main(argv: list[str] | None = None) -> int:
     bad = non_utf8(ROOT)
     if bad:
         fail(f"Markdown non UTF-8 : {', '.join(bad)}")
+    if args.tronc is not None:
+        try:
+            chunks, total = tronc_text(args.tronc)
+        except (RouteError, OSError) as exc:
+            fail(str(exc))
+        print(f"TRONC — {args.tronc} ; source : DIRECTION/CHARGE ; budget {TRONC_BUDGET} caractères")
+        print("Le reste de la ligne du mode se lit quand son signal apparaît : python3 scripts/read_route.py --mode " + args.tronc)
+        for locator, text in chunks:
+            print(f"\n======== {locator} ({len(text)} caractères)\n{text}")
+        ok = total <= TRONC_BUDGET
+        print(f"\nTOTAL DU TRONC — {total} caractères pour {len(chunks)} route(s) : budget {'respecté' if ok else 'DÉPASSÉ'}")
+        return 0 if ok else 1
     if args.mode is not None:
         try:
             selected = mode_row(args.mode)
