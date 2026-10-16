@@ -1,4 +1,4 @@
-# Sections d’origine — DIRECTION : décision et design situé
+# Sections de référence — DIRECTION : décision et design situé
 
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. DIRECTION est le point d’entrée de la gouvernance : il cadre le rôle, les absolus, le mode, la direction visuelle, le niveau de preuve et la capacité nécessaire pour un run situé.
 

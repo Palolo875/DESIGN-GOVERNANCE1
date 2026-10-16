@@ -1,4 +1,4 @@
-# Sections d’origine — carte de lecture (READING_MAP)
+# Sections de référence — carte de lecture (READING_MAP)
 
 **Statut :** guide dérivé non normatif. Les sources normatives sont leurs sections propriétaires à leurs emplacements actuels ; le schéma `RUN_CARD` et les validateurs propriétaires font foi en cas de divergence.
 

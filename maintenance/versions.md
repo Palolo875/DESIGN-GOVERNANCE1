@@ -23,7 +23,7 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 | `supports/` | Trois cartes du système (responsabilités, parcours d’un travail, boucle créer/apprendre) en HTML, SVG clair et sombre, et texte. |
 | `scripts/` | Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau, contrôles du paquet et construction des distributions. |
 | `maintenance/` | Cette fiche, l’évolution du système et la préparation des livraisons. |
-| `sections/` | Sections conservées à leur emplacement d’origine et carte de lecture ; même autorité que les sections rangées ailleurs. |
+| `sections/` | Sections propriétaires regroupées par domaine (ACTION, BIBLIOTHEQUE, DIRECTION, SAVOIR) et carte de lecture ; même autorité que les autres sections. |
 
 ## Ce que le système sait faire
 
@@ -39,7 +39,7 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 
 ## Compatibilité
 
-Les codes historiques (`DIRECTION/START`) et les adresses lisibles (`agent/chemins#classer`) désignent les mêmes sections. Cette fiche est aussi accessible par `maintenance/versions` et `CHANGELOG`. Les distributions GitHub et Local ont la même arborescence ; Local est un export dérivé, sans les outils de construction. La skill suit le format ouvert Agent Skills ; son installation est décrite dans le README.
+Les codes de route (`DIRECTION/START`) et les adresses lisibles (`agent/chemins#classer`) désignent les mêmes sections. Cette fiche est aussi accessible par `maintenance/versions` et `CHANGELOG`. Les distributions GitHub et Local ont la même arborescence ; Local est un export dérivé, sans les outils de construction. La skill suit le format ouvert Agent Skills ; son installation est décrite dans le README.
 
 Une promotion, une dépréciation ou une migration décidée se reflète ici, dans l’état courant ; la règle de cycle de vie et le contrat de la décision sont dans `maintenance/evolution.md`.
 

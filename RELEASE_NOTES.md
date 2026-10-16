@@ -8,7 +8,7 @@
 
 Transformer une demande en proposition de design composée, crédible et observable, puis l’améliorer à partir du rendu réel ; ou juger et analyser un existant. Le système relie direction, typographie, couleur, structure, contenu, interaction et qualité du produit. Les techniques de mouvement et de mobile se choisissent selon le travail ; une interface Web mobile ne prouve pas un fonctionnement natif.
 
-L’agent lit un noyau commun (la skill, 29 206 octets UTF-8), classe le travail, lit le tronc de son mode puis charge les détails nécessaires au moment utile. Les sections propriétaires font foi à leur emplacement actuel ; guides et cartes les rendent plus faciles à trouver. La gouvernance sert le risque, la preuve, la décision et la reprise. Le langage visuel des documents n’impose aucun style aux productions des agents.
+L’agent lit un noyau commun (la skill, 29 660 octets UTF-8), classe le travail, lit le tronc de son mode puis charge les détails nécessaires au moment utile. Les sections propriétaires font foi à leur emplacement actuel ; guides et cartes les rendent plus faciles à trouver. La gouvernance sert le risque, la preuve, la décision et la reprise. Le langage visuel des documents n’impose aucun style aux productions des agents.
 
 Le contenu détaillé du paquet est décrit dans [ce que contient le système](maintenance/versions.md).
 
@@ -16,7 +16,7 @@ Le contenu détaillé du paquet est décrit dans [ce que contient le système](m
 
 Suivre [l’installation de la skill](README.md#installer-la-skill-dans-un-agent), puis entrer par le niveau utile : [utiliser](guides/1-utiliser.md), [comprendre](guides/2-comprendre.md), [maîtriser](guides/3-maitriser.md), ou [faire évoluer le système](maintenance/README.md). L’agent garde accès au paquet entier, avec Python 3.10 ou plus récent ; les tests de rendu demandent Playwright et Chromium.
 
-La première proposition oriente la suite ; la valider ne vaut pas l’accepter. Une acceptation demandée passe par les preuves, les limites et la trace complète applicables. Les codes historiques et adresses lisibles désignent toujours les mêmes sections.
+La première proposition oriente la suite ; la valider ne vaut pas l’accepter. Une acceptation demandée passe par les preuves, les limites et la trace complète applicables. Les codes de route et les adresses lisibles désignent les mêmes sections.
 
 ## Contrôles inclus
 

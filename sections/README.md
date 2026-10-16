@@ -1,12 +1,12 @@
-# Sections d’origine — Design Governance V1.0.0
+# Sections de référence — Design Governance V1.0.0
 
-Ce dossier contient des sections du système restées à leur emplacement d’origine et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Leur autorité suit la section propriétaire, comme dans les autres dossiers. Le sommaire reste le point d’entrée vers toutes les responsabilités historiques.
+Ce dossier contient les sections propriétaires regroupées par domaine (ACTION, BIBLIOTHEQUE, DIRECTION, SAVOIR) et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Leur autorité suit la section propriétaire, comme dans les autres dossiers. Le sommaire reste le point d’entrée vers toutes les responsabilités historiques.
 
 Pour commencer, lisez le [niveau 1](../guides/1-utiliser.md#commencer) : vous n’avez pas à choisir de mode. Pour piloter un run, lisez le [niveau 3](../guides/3-maitriser.md) ; un agent entre par la skill `design-governance-practice`. Le vocabulaire est défini dans [`guides/glossaire.md`](../guides/glossaire.md).
 
 ## Sources normatives
 
-L’autorité appartient à la **section propriétaire à son emplacement actuel**. Les cinq noms historiques ci-dessous désignent des responsabilités normatives, et non cinq fichiers complets à lire. Les sections déplacées conservent leur autorité ; leur provenance est marquée par `origine:`. Le registre `LIEUX` de `scripts/read_route.py` relie chaque source historique à ses fichiers actuels, et le lecteur résout la section exacte.
+L’autorité appartient à la **section propriétaire à son emplacement actuel**. Les cinq noms ci-dessous désignent des responsabilités normatives, et non cinq fichiers complets à lire. Une section rangée dans un dossier thématique garde la même autorité ; le marqueur `origine:` indique sa responsabilité. Le registre `LIEUX` de `scripts/read_route.py` relie chaque responsabilité à ses fichiers, et le lecteur résout la section exacte.
 
 | Source | Responsabilité |
 |---|---|
@@ -14,11 +14,11 @@ L’autorité appartient à la **section propriétaire à son emplacement actuel
 | `ACTION` | Production : [qualité du produit](../design/produit/README.md) ; réponse et trace : [répondre](../agent/repondre.md) ; preuve et clôture : [gouvernance](../gouvernance/README.md) ; [sections conservées](ACTION.md). |
 | `SAVOIR` | Jugement, craft, contenu, contexte et sources : [savoir](../design/savoir/README.md) ; [sections conservées](SAVOIR.md). |
 | `BIBLIOTHEQUE` | Structures : [formes](../design/formes/README.md) ; contrats : [gouvernance](../gouvernance/structure.md) ; évolution : [maintenance](../maintenance/evolution.md) ; [sections conservées](BIBLIOTHEQUE.md). |
-| `CHANGELOG` (identité historique) | Version : [versions](../maintenance/versions.md) ; cycle de vie et migrations : [évolution](../maintenance/evolution.md). Pour lire, ouvrir ces fichiers actuels. |
+| `CHANGELOG` | Version : [versions](../maintenance/versions.md) ; cycle de vie et migrations : [évolution](../maintenance/evolution.md). Pour lire, ouvrir ces fichiers actuels. |
 
 Les marqueurs de provenance ne rendent pas un guide normatif : une section de règle fait foi, un guide ou une carte l’oriente. Le noyau de la skill est une projection générée ; les archives sont des distributions dérivées. En cas de divergence, corriger la projection ou le guide depuis la section propriétaire, puis régénérer et valider.
 
-Les codes stables et les adresses lisibles sont deux noms pour une même section. L’agent utilise les codes stables du noyau ; une personne peut utiliser les adresses lisibles. Aucune seconde lecture n’est requise. Les noms historiques de fichiers conservés dans le registre et les marqueurs servent à la provenance, pas de chemins à ouvrir.
+Les codes stables et les adresses lisibles sont deux noms pour une même section. L’agent utilise les codes stables du noyau ; une personne peut utiliser les adresses lisibles. Aucune seconde lecture n’est requise. Les noms de fichiers inscrits dans le registre et dans les marqueurs servent à la provenance ; ce ne sont pas des chemins à ouvrir.
 
 Le README et les guides (`guides/`) sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`sections/READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
 
