@@ -166,12 +166,15 @@ L’agent active le système en silence : la personne donne l’objectif, le pé
 | Texte sur image, densité ou harmonie | `SAVOIR/CRAFT/CFT-03` |
 | Choix de style utile | `SAVOIR/STYLE` |
 | Asset, provenance ou calibration culturelle | `SAVOIR/SOURCE` |
+| Bibliothèque, police, icônes, texture, données ou 3D à choisir | `SAVOIR/TOOLS/MOYENS`, par couche, licence relue à l’intégration |
+| Ancien projet, préférence, profil, asset ou composant qui peut orienter le brief | `DIRECTION/FIRST-OBJECT`, « Réutilisation située » (`REUSE-CHALLENGE`) |
 | Levier CSS récent ou limité à un moteur, compatibilité | `SAVOIR/TECH` |
 | Finesse sans geste concret | `SAVOIR/STATE`, avant l’intervention |
 | Revue créative | `SAVOIR/CRAFT/CFT-00` |
 | Alternative située | `SAVOIR/CRAFT/CFT-02` |
 | Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` |
 | Repasse | `SAVOIR/INTEGRITY/REPASSE`, dans son périmètre |
+| Texte calculé, état animé ou résultat d’une action à prouver | `ACTION/VISUAL_PROOF`, à l’état qui compte (`--assert`, `--in-frame`) |
 | Comparaison sur capture en `DIRECTION` | `ACTION/ATELIER-EDITION`, même en trace légère ; la formalisation B1b reste limitée à son scope |
 | Diagnostic ou condition d’arrêt encore ouvert | `DIRECTION/DOUBLE-LOOP` |
 

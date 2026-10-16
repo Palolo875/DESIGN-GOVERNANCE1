@@ -193,7 +193,7 @@ CONSTRAINTS — contraintes de produit, technique, contenu, droits et délai.
 OUTPUT — artefact, trace, preuve, limite et prochaine action attendus.
 ```
 
-L’agent localise le package réellement fourni, lit le noyau de la skill, classe la demande avec `agent/chemins#classer`, lit la ligne de son mode dans `agent/chemins#quoi-lire` et seulement les sections utiles, produit le rendu, vérifie le risque dominant et rend par défaut la réponse visible en langage produit : ce qui a été fait, pourquoi, ce qui manque pour la vraie version, et la suite (voir `agent/repondre`), avec la trace légère par défaut.
+L’agent localise le package réellement fourni, lit le noyau de la skill, classe la demande avec `agent/chemins#classer`, lit la ligne de son mode dans `agent/chemins#quoi-lire`, dont le tronc se lit à chaque run de ce mode (`read_route.py --tronc MODE`), puis seulement les sections que leur signal rend utiles, produit le rendu, vérifie le risque dominant et rend par défaut la réponse visible en langage produit : ce qui a été fait, pourquoi, ce qui manque pour la vraie version, et la suite (voir `agent/repondre`), avec la trace légère par défaut.
 
 Il demande confirmation avant toute action externe, irréversible, publique, destructive, financière ou durable hors du périmètre autorisé. Il ne choisit pas un mode plus léger parce qu’un moyen manque : il le dit, ajuste la protection nécessaire ou garde explicitement la limite.
 
@@ -261,6 +261,8 @@ Regardez le rendu ou le comportement réel dans le périmètre déclaré. Toute 
 
 Une capture prouve un rendu dans son périmètre ; à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle. Une mesure d’accessibilité limitée ne certifie pas toute l’expérience. Une revue experte du craft ne remplace pas un test d’usage.
 
+Pour un rendu HTML, la recette de rendu (`scripts/check_render.py`, navigateur requis) relève les fautes objectivables aux largeurs courantes : débordement, contraste, clavier, cibles, textes qui se recouvrent ou sont tronqués. Un texte calculé, un état animé ou le résultat d’une action se prouve à l’état qui compte, après clic et attente : `--assert` recoupe une phrase dérivée avec ses valeurs, `--in-frame` vérifie que l’objet de l’état clé est dans son cadre (`produit/preuve-visuelle`). La recette ne juge ni la direction ni l’usage.
+
 Pour une décision créative, appliquez la revue en six points (`savoir/qualite-creative#ambition`, Creative Quality Review), puis notez avec la boucle d’édition (`direction/boucle`) le changement observé et les régressions.
 
 Le polish est l’aboutissement cohérent de la structure, du contenu, de la typographie, de la matière, de l’action et des états. Ce n’est pas une couche automatique de dégradés, d’ombres, de flou ou de grands arrondis.
@@ -286,7 +288,7 @@ Si une étape, une variante, une référence ou une étiquette ne change aucune 
 | Besoin | Où lire |
 |---|---|
 | Classer et choisir quoi lire | [`agent/chemins.md`](../agent/chemins.md) |
-| Direction, cinq règles essentielles | [`design/direction/`](../design/README.md) |
+| Direction, cinq règles essentielles | [`design/direction/`](../design/direction/README.md) |
 | Craft, contenu, contexte, sources | [`design/savoir/`](../design/savoir/README.md) |
 | Structures, grilles, scènes, composants | [`design/formes/`](../design/formes/README.md) |
 | Qualité du rendu, plancher, finition | [`design/produit/`](../design/produit/README.md) |
