@@ -226,6 +226,61 @@ def render(skill_text: str, core: str) -> str:
     return skill_text[: i + len(BEGIN)] + "\n" + core + skill_text[j:]
 
 
+LIEUX_BEGIN, LIEUX_END = "<!-- lieux:début -->", "<!-- lieux:fin -->"
+ROUTE_HEADING = re.compile(r"^#{1,4}\s+`?([A-Z]+(?:/[A-Za-z0-9_\-]+)+)`?")
+
+
+def bandeau(name: str) -> str | None:
+    """Bandeau généré depuis LIEUX : ce que le fichier sections/ ne contient pas, et où le trouver."""
+    import read_route
+    resp = name.removesuffix(".md")
+    out = [LIEUX_BEGIN,
+           f"> **Ce fichier ne contient pas toute la responsabilité `{resp}`.** Il contient les sections rangées dans ce fichier ; "
+           f"les autres sections `{resp}` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. "
+           "Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. "
+           "_Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._",
+           ">"]
+    for rel in read_route.LIEUX[name][1:]:
+        path = read_route.chemin_lieu(rel)
+        routes = []
+        for line in path.read_text(encoding="utf-8").splitlines():
+            m = ROUTE_HEADING.match(line)
+            if m and m.group(1).startswith(resp + "/") and m.group(1) not in routes:
+                routes.append(m.group(1))
+        if routes:
+            out.append(f"> - [`{rel}`](../{rel}) : " + ", ".join(f"`{r}`" for r in routes))
+    if len(out) == 3:
+        return None  # aucune route de cette responsabilité ailleurs : pas de bandeau
+    out.append(LIEUX_END)
+    return "\n".join(out)
+
+
+def bandeaux() -> dict[Path, tuple[str, str]]:
+    """(texte actuel, texte attendu) de chaque fichier sections/ qui partage sa responsabilité avec d'autres fichiers."""
+    import read_route
+    result = {}
+    for name, rels in read_route.LIEUX.items():
+        if not rels or not rels[0].startswith("sections/") or len(rels) < 2:
+            continue
+        path = read_route.chemin_lieu(rels[0])
+        text = path.read_text(encoding="utf-8")
+        block = bandeau(name)
+        i, j = text.find(LIEUX_BEGIN), text.find(LIEUX_END)
+        if block is None:
+            if i >= 0 and j > i:
+                result[path] = (text, text[:i] + text[j + len(LIEUX_END):].lstrip("\n"))
+            continue
+        if i >= 0 and j > i:
+            new = text[:i] + block + text[j + len(LIEUX_END):]
+        else:
+            k = text.find("\n## ")
+            if k < 0:
+                raise CoreError(f"{rels[0]} : aucun titre de section pour placer le bandeau LIEUX")
+            new = text[:k + 1] + block + "\n\n" + text[k + 1:]
+        result[path] = (text, new)
+    return result
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Compiler le noyau et contrôler le budget du fichier SKILL.md complet.")
     parser.add_argument("--check", action="store_true", help="vérifier sans écrire : compilation et budget")
@@ -244,13 +299,28 @@ def main() -> int:
     except (CoreError, OSError, UnicodeError) as exc:
         print(f"NOYAU : erreur — {exc}")
         return 1
+    try:
+        lieux = bandeaux()
+    except (CoreError, OSError) as exc:
+        print(f"LIEUX : erreur — {exc}")
+        return 1
+    stale = [path for path, (cur, exp) in lieux.items() if cur != exp]
     if args.check:
+        if stale:
+            print("LIEUX : bandeau sections/ différent du registre (lancer scripts/build_core.py) : "
+                  + ", ".join(p.name for p in stale))
+            return 1
+        print(f"LIEUX : {len(lieux)} bandeau(x) sections/ conformes au registre")
         if new != text:
             print("NOYAU : la skill diffère de sa compilation (lancer scripts/build_core.py)")
             return 1
         print("NOYAU : skill conforme à sa compilation")
         print(f"CORE BUDGET PASSED — SKILL.md complet {size} / {CORE_BUDGET_BYTES} octets UTF-8")
         return 0
+    for path in stale:
+        path.write_text(lieux[path][1], encoding="utf-8")
+    if stale:
+        print(f"LIEUX : {len(stale)} bandeau(x) sections/ écrit(s) depuis le registre")
     SKILL.write_bytes(new.encode("utf-8"))
     print("NOYAU : section compilée écrite dans la skill")
     print(f"CORE BUDGET PASSED — SKILL.md complet {size} / {CORE_BUDGET_BYTES} octets UTF-8")

@@ -2,6 +2,15 @@
 
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. BIBLIOTHEQUE sélectionne les responsabilités structurelles — support, grille, scène, objet, micro-interface, modificateur, primitive et couche — puis les encadre par des contrats transversaux (`BIBLIOTHEQUE/CONTRACTS`, `BIBLIOTHEQUE/COMPAT`).
 
+<!-- lieux:début -->
+> **Ce fichier ne contient pas toute la responsabilité `BIBLIOTHEQUE`.** Il contient les sections rangées dans ce fichier ; les autres sections `BIBLIOTHEQUE` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
+>
+> - [`gouvernance/structure.md`](../gouvernance/structure.md) : `BIBLIOTHEQUE/CONTRACTS`
+> - [`design/formes/choisir.md`](../design/formes/choisir.md) : `BIBLIOTHEQUE/READ`, `BIBLIOTHEQUE/TENSION`, `BIBLIOTHEQUE/SIGNATURE`, `BIBLIOTHEQUE/SELECT`, `BIBLIOTHEQUE/AVANT-SELECTION`, `BIBLIOTHEQUE/DERIVE`
+> - [`design/formes/catalogue.md`](../design/formes/catalogue.md) : `BIBLIOTHEQUE/SUPPORT`, `BIBLIOTHEQUE/GRID`, `BIBLIOTHEQUE/SCENE`, `BIBLIOTHEQUE/SEQUENCE`, `BIBLIOTHEQUE/OBJECT`, `BIBLIOTHEQUE/MICRO`, `BIBLIOTHEQUE/MODIFIER`, `BIBLIOTHEQUE/COMPONENTS`, `BIBLIOTHEQUE/COMPAT`
+> - [`maintenance/evolution.md`](../maintenance/evolution.md) : `BIBLIOTHEQUE/EVOLUTION`
+<!-- lieux:fin -->
+
 ## Responsabilité
 
 BIBLIOTHEQUE est le système de sélection des **structures d’interface**. Elle décrit où une surface vit, comment le regard circule, comment texte, information, média et preuve se rencontrent, et quelles unités rendent une action tangible.

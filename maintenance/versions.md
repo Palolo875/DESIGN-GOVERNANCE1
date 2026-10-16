@@ -2,7 +2,7 @@
 
 **Version expérimentale :** `V1.0.0`
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.  
-**Révision :** `R2026-10-16`, 16 octobre 2026.  
+**Révision :** `R2026-10-16.2`, 16 octobre 2026.  
 **Usage recommandé :** pilote avec revue humaine et preuves adaptées au risque.
 
 Cette fiche décrit ce que le système possède aujourd’hui et ce qui en est vérifié. Elle ne retrace pas son histoire.
@@ -23,11 +23,11 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 | `supports/` | Trois cartes du système (responsabilités, parcours d’un travail, boucle créer/apprendre) en HTML, SVG clair et sombre, et texte. |
 | `scripts/` | Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau, contrôles du paquet et construction des distributions. |
 | `maintenance/` | Cette fiche, l’évolution du système et la préparation des livraisons. |
-| `sections/` | Sections propriétaires regroupées par domaine (ACTION, BIBLIOTHEQUE, DIRECTION, SAVOIR) et carte de lecture ; même autorité que les autres sections. |
+| `sections/` | Sections regroupées par domaine (ACTION, BIBLIOTHEQUE, DIRECTION, SAVOIR) et carte de lecture. Chaque fichier ne contient qu’une partie de sa responsabilité ; un bandeau généré depuis `LIEUX` liste en tête les fichiers et routes qui portent le reste. |
 
 ## Ce que le système sait faire
 
-- **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système), lire le noyau de fabrication (premier objet, composition, typographie, couleur, boucle d’édition), puis le tronc de son mode (routes lues à chaque run, sous un budget de 30 000 caractères, `read_route.py --tronc`) ; le reste se charge quand son signal apparaît.
+- **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système), lire le noyau de fabrication (premier objet, composition, typographie, couleur, boucle d’édition), puis le tronc de son mode (routes lues à chaque run, sous un budget de 35 000 caractères, `read_route.py --tronc`) ; le reste se charge quand son signal apparaît.
 - **Diriger une proposition** : premier objet, cible visuelle, alternative située, direction lisible dans le rendu ; une reprise se compare à ses antécédents sur six champs (teinte, paire typographique, ossature, objet de preuve, thèse, registre).
 - **Construire avec un contenu vrai** : exemples marqués plutôt qu’emplacements vides, données et graphiques d’exemple cohérents, sources et droits vérifiés au moment de l’intégration, provenance des images générées conservée.
 - **Protéger la personne** : dans les flux d’inscription, de paiement, de consentement ou de résiliation, refuser reste aussi visible et aussi court qu’accepter ; une culture se calibre par des références locales nommées, jamais par un registre régional générique.
@@ -56,7 +56,8 @@ Ces sections et cette option sont des essais, suivis selon le cycle de vie de `m
 | `BIBLIOTHEQUE/READ` « Traduire un caractère en leviers » | Valeurs `[À ADAPTER]` | Leviers de départ et piège réflexe pour douze caractères perceptuels (calme, tension, intimité…). Servi par sa route, hors du noyau. | Runs contrastés avec et sans le tableau : le caractère visé se lit-il dans le rendu sans tomber dans le piège réflexe ? | Retirer le tableau et sa ligne dans l’index des signaux. |
 | `SAVOIR/TYPE` « Réglage d’un grand texte » et `SAVOIR/CONTEXT` « Durées et courbes, points de départ » | Valeurs `[À ADAPTER]` | Points de départ, non des mesures, pour régler un grand titre et calibrer un mouvement ; chacun porte ses contre-indications et sa preuve. | Essais sur des rendus du paquet jugés par plusieurs personnes. | Retirer les deux paragraphes. |
 | `SAVOIR/SOURCE` « Chercher le monde du sujet dans des collections ouvertes » | `PILOT` | Requêtes tirées de l’inventaire du sujet, critères de choix, honnêteté, droits. Ne remplace ni la fiche de source ni un avis juridique ; aucun accès n’est testé par le paquet. | Contrat de gain réel, accès atteint depuis l’environnement du run, droits relus. | Retirer la sous-section et sa mention dans `MOYENS`. |
-| `DIRECTION/CHARGE` — tronc par mode | `PILOT` | Routes lues à chaque run d’un mode, sous un budget de 30 000 caractères. En `DIRECTION`, les contraintes de `ACTION/GATE-A` restent hors du tronc pour tenir le budget : elles se lisent dès qu’elles s’appliquent, avant le choix qu’elles protègent. | Runs réels : le tronc suffit-il à fabriquer sans lecture manquée d’une contrainte ? | Retirer les mentions « Tronc » de la table et l’option `--tronc`. |
+| `DIRECTION/CHARGE` — tronc par mode | `PILOT` | Routes lues à chaque run d’un mode, sous un budget de 35 000 caractères. Invariant : une route bloquante citée dans la ligne d’un mode (`ACTION/GATE-A`) est dans son tronc ; le budget se règle sur l’explicatif, jamais sur une contrainte bloquante. La notice de `check_render.py` vit dans `ACTION/RECETTE-RENDU`, hors du tronc. Le tronc `DIRECTION` occupe 98 % de ce budget : un ajout s’y compense par un allègement du même tronc ; `--tronc` affiche la marge et la signale sous 10 %. | Runs réels : le tronc suffit-il à fabriquer sans lecture manquée d’une contrainte ? | Retirer les mentions « Tronc » de la table et l’option `--tronc`. |
+| `ACTION/RECETTE-CARACTERE` — recette de caractère | `PILOT` | Confronte le caractère déclaré au rendu : polices, densité et matière en signal ; foyer, intensité et vide en relevé. Bornes provisoires, figées entre deux recalibrations par lot ; ne mesure ni le goût ni le caractère générique. | Signaux qui changent des décisions sur au moins cinq runs réels qui n’ont pas servi à régler les bornes. Une calibration sur le jugement du mainteneur peut régler les bornes ; elle ne valide pas la recette. | Retirer `scripts/check_caractere.py` et sa route ; les autres contrôles restent inchangés. |
 | `scripts/check_render.py --mesures` | Option facultative | Relevés chiffrés de composition : titres et textes, gros textes du premier écran couverts ou au haut rogné, palette en OKLCH, actions et navigation du premier écran. Aucun statut, aucun seuil, aucun effet sur le code de sortie. | Usage sur des runs réels avant de lier un relevé à une règle. | Retirer l’option ; les contrôles restent inchangés. |
 
 Le noyau de la skill ne dépend d’aucune de ces sections : leur retrait ne le modifie pas.

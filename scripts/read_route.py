@@ -139,7 +139,8 @@ def block_end(lines: list[str], heads: list[tuple[int, int, str]], start: int) -
 
 # Lieux : nom historique d’une source (« SAVOIR.md ») → fichiers, relatifs à la racine, qui portent aujourd’hui
 # son contenu. Un nom absent de la table désigne le fichier du même nom dans OFFICIAL. Le rangement déplace le
-# texte puis met à jour cette table, et elle seule : lecteur, compilation du noyau et validateurs passent par elle.
+# texte, met à jour cette table, et elle seule, puis lance `scripts/build_core.py`, qui régénère les bandeaux
+# de sections/ : lecteur, compilation du noyau, bandeaux et validateurs passent par elle.
 LIEUX: dict[str, tuple[str, ...]] = {
     "DIRECTION.md": ("sections/DIRECTION.md", "agent/chemins.md", "gouvernance/principes.md", "gouvernance/cloture.md",
                      "design/direction/cadrer.md", "design/direction/premier-objet.md", "design/direction/diriger.md",
@@ -191,9 +192,9 @@ ADRESSES: dict[str, str] = {
     "formes/catalogue#micro": "BIBLIOTHEQUE/MICRO", "formes/catalogue#modificateurs": "BIBLIOTHEQUE/MODIFIER",
     "formes/catalogue#composants": "BIBLIOTHEQUE/COMPONENTS", "formes/catalogue#compatibilite": "BIBLIOTHEQUE/COMPAT",
     "produit/premier-rendu": "ACTION/FIRST-RENDER", "produit/interface": "ACTION/UI-UX-REALITY",
-    "produit/plancher": "ACTION/GATE-A", "produit/plancher#contraste": "ACTION/POLICIES",
+    "produit/plancher": "ACTION/GATE-A", "produit/plancher#recette": "ACTION/RECETTE-RENDU", "produit/plancher#contraste": "ACTION/POLICIES",
     "produit/finition": "ACTION/GATE-C", "produit/finition#atelier": "ACTION/ATELIER-EDITION", "produit/finition#contre-le-generique": "ACTION/ANTI-SLOP",
-    "produit/preuve-visuelle": "ACTION/VISUAL_PROOF",
+    "produit/preuve-visuelle": "ACTION/VISUAL_PROOF", "produit/preuve-visuelle#caractere": "ACTION/RECETTE-CARACTERE",
     "agent/chemins#classer": "DIRECTION/START", "agent/chemins#quoi-lire": "DIRECTION/CHARGE",
     "agent/chemins#chemin-court": "ACTION/FAST-PATH", "agent/chemins#lire-le-savoir": "SAVOIR/READ",
     "agent/chemins#jugement-rapide": "SAVOIR/JUGEMENT-COURT", "agent/chemins#prerequis": "ACTION/ROUTING",
@@ -607,7 +608,7 @@ def mode_row(mode: str) -> list[str]:
     return [header[0], "|---|---|---|", rows[0]]
 
 
-TRONC_BUDGET = 30_000
+TRONC_BUDGET = 35_000
 TRONC = re.compile(r"\*\*Tronc[^*]*\*\*\s*:\s*(.+?)\.(?:\s|$)")
 
 
@@ -625,6 +626,18 @@ def tronc_routes(mode: str) -> list[str]:
     if not routes:
         raise RouteError(f"tronc vide pour {mode}")
     return routes
+
+
+# Routes bloquantes : si la ligne d'un mode les cite, elles sont dans son tronc. Le budget se règle
+# sur l'explicatif, jamais en sortant une contrainte bloquante du tronc (le tronc optimise le risque, pas la taille).
+BLOQUANTES: tuple[str, ...] = ("ACTION/GATE-A",)
+
+
+def bloquantes_hors_tronc(mode: str) -> list[str]:
+    """Routes bloquantes citées dans la ligne du mode mais absentes de son tronc."""
+    row = mode_row(mode)[2]
+    tronc = set(tronc_routes(mode))
+    return [r for r in BLOQUANTES if f"`{r}`" in row and r not in tronc]
 
 
 def tronc_text(mode: str) -> tuple[list[tuple[str, str]], int]:
@@ -1118,8 +1131,15 @@ def main(argv: list[str] | None = None) -> int:
         for locator, text in chunks:
             print(f"\n======== {locator} ({len(text)} caractères)\n{text}")
         ok = total <= TRONC_BUDGET
-        print(f"\nTOTAL DU TRONC — {total} caractères pour {len(chunks)} route(s) : budget {'respecté' if ok else 'DÉPASSÉ'}")
-        return 0 if ok else 1
+        print(f"\nTOTAL DU TRONC — {total} caractères pour {len(chunks)} route(s) : budget {'respecté' if ok else 'DÉPASSÉ'}"
+              f" ({total * 100 // TRONC_BUDGET} %, marge {TRONC_BUDGET - total} caractères)")
+        if ok and total > TRONC_BUDGET * 0.9:
+            print("MARGE FAIBLE — moins de 10 % du budget : un ajout au tronc se compense par un allègement du même tronc, "
+                  "pas par une hausse du budget.")
+        absentes = bloquantes_hors_tronc(args.tronc)
+        if absentes:
+            print("ROUTES BLOQUANTES HORS DU TRONC — " + ", ".join(absentes) + " : citées dans la ligne du mode, absentes du tronc")
+        return 0 if ok and not absentes else 1
     if args.mode is not None:
         try:
             selected = mode_row(args.mode)

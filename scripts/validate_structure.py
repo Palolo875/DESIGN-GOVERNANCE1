@@ -597,6 +597,18 @@ def check_load(corpus: dict[Path, list[str]], errors: list[str]) -> None:
     gb, tc = first.find("`ACTION/GATE-B`"), first.find("trace complète")
     if gb >= 0 and not (0 <= tc < gb):
         errors.append("[CHG-08] chargement : en DIRECTION, Gate B n'est chargée qu'en trace complète (ACTION/HANDOFF)")
+    for mode in ("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"):
+        try:
+            absentes = rr.bloquantes_hors_tronc(mode)
+            _, total = rr.tronc_text(mode)
+        except rr.RouteError as exc:
+            errors.append(f"[CHG-09] chargement : tronc {mode} illisible ({exc})")
+            continue
+        if absentes:
+            errors.append(f"[CHG-09] chargement : en {mode}, route bloquante hors du tronc ({', '.join(absentes)}) ; "
+                          "le budget se règle sur l'explicatif, jamais sur une contrainte bloquante")
+        if total > rr.TRONC_BUDGET:
+            errors.append(f"[CHG-10] chargement : tronc {mode} à {total} caractères, au-delà du budget de {rr.TRONC_BUDGET}")
     if "`ACTION/CLOSE-PACKAGE`" not in body or any("Clôture" in l for l in served if l.startswith("| Mode |")):
         errors.append("[CHG-01] chargement : la clôture de chaque mode renvoie à ACTION/CLOSE-PACKAGE, sans colonne de clôture")
     lite = cells("LITE")

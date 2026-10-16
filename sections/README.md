@@ -6,7 +6,7 @@ Pour commencer, lisez le [niveau 1](../guides/1-utiliser.md#commencer) : vous n�
 
 ## Sources normatives
 
-L’autorité appartient à la **section propriétaire à son emplacement actuel**. Les cinq noms ci-dessous désignent des responsabilités normatives, et non cinq fichiers complets à lire. Une section rangée dans un dossier thématique garde la même autorité ; le marqueur `origine:` indique sa responsabilité. Le registre `LIEUX` de `scripts/read_route.py` relie chaque responsabilité à ses fichiers, et le lecteur résout la section exacte.
+L’autorité appartient à la **section propriétaire à son emplacement actuel**. Les cinq noms ci-dessous désignent des responsabilités normatives, et non cinq fichiers complets à lire. Une section rangée dans un dossier thématique garde la même autorité ; le marqueur `origine:` indique sa responsabilité. Le registre `LIEUX` de `scripts/read_route.py` relie chaque responsabilité à ses fichiers, et le lecteur résout la section exacte. Un fichier de ce dossier ne contient donc pas toute sa responsabilité : son bandeau de tête, généré depuis `LIEUX`, liste les fichiers et routes qui portent le reste.
 
 | Source | Responsabilité |
 |---|---|

@@ -78,6 +78,9 @@ cp -a "$ROOT/scripts/check_render.py" "$STAGE/github/scripts/check_render.py"
 cp -a "$ROOT/scripts/test_check_render.py" "$STAGE/github/scripts/test_check_render.py"
 cp -a "$ROOT/scripts/validate_structure.py" "$STAGE/github/scripts/validate_structure.py"
 cp -a "$ROOT/scripts/build_core.py" "$STAGE/github/scripts/build_core.py"
+cp -a "$ROOT/scripts/README.md" "$STAGE/github/scripts/README.md"
+cp -a "$ROOT/scripts/check_caractere.py" "$STAGE/github/scripts/check_caractere.py"
+cp -a "$ROOT/scripts/test_check_caractere.py" "$STAGE/github/scripts/test_check_caractere.py"
 mkdir -p "$STAGE/github/.github/workflows"
 cp -a "$ROOT/.github/workflows/validate.yml" "$STAGE/github/.github/workflows/validate.yml"
 
@@ -113,7 +116,7 @@ cp -R chemin/vers/ce/dossier .claude/skills/design-governance-practice
 
 Pour mettre à jour, remplacez le dossier installé par le nouvel export complet, sans fusionner les deux versions.""",
     "titre-contenu": "## Ce que contient le paquet",
-    "outils": "Lecteur de routes, recette de rendu et contrôles du paquet.",
+    "outils": "Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau et contrôles du paquet ; chaque commande est décrite dans [la validation](maintenance/README.md#validation).",
     "limite-ci": "Les contrôles inclus (`python3 scripts/validate_all.py`, voir les [notes de version](RELEASE_NOTES.md#contrôles-inclus)) attestent la cohérence du paquet, pas cette efficacité.",
 }
 pattern = re.compile(r"<!-- github:début ([a-z-]+) -->\n?(.*?)\n?<!-- github:fin \1 -->", re.S)
