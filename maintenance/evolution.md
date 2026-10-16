@@ -106,7 +106,7 @@ Les routes présentes dans le seed de la V1 ont le statut `SEED` : canoniques, s
 
 **Portée des contrôles.** La validation couvre la cohérence documentaire et technique, dont la liste close des conditions de façade. Une divergence hors de cette liste n’est pas détectée. Le contrôle des supports vérifie leur fraîcheur, leur version et leurs relations ; il ne juge pas le rendu. Les tests de pages exigent un navigateur et restent non vérifiés lorsqu’ils ne sont pas exécutés.
 
-**Autorité.** Une règle fait foi dans sa section propriétaire, à son emplacement actuel. DIRECTION, ACTION, SAVOIR, BIBLIOTHEQUE et CHANGELOG désignent les cinq responsabilités historiques réparties dans les dossiers du paquet, selon le registre `LIEUX` de `scripts/read_route.py`. Les guides et les cartes orientent la lecture sans créer de règle concurrente. Le schéma `RUN_CARD` et ses validateurs définissent les projections machine dans leur périmètre.
+**Autorité.** Une règle fait foi dans sa section propriétaire, à son emplacement actuel. DIRECTION, ACTION, SAVOIR, BIBLIOTHEQUE et CHANGELOG désignent cinq responsabilités normatives réparties dans les dossiers du paquet, selon le registre `LIEUX` de `scripts/read_route.py`. Les guides et les cartes orientent la lecture sans créer de règle concurrente. Le schéma `RUN_CARD` et ses validateurs définissent les projections machine dans leur périmètre.
 
 **Identifiants structurels.** Le lecteur projette les identifiants structurels documentés vers leur titre ou leur section porteuse ; `LAYER/*` reste chez `BIBLIOTHEQUE/COMPONENTS`. Ce raccourci est compatible avec les locators existants, conserve le refus d’un nom absent ou ambigu et ne crée pas de route normative.
 

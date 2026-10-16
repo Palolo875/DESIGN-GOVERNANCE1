@@ -16,7 +16,7 @@ Le contenu détaillé du paquet est décrit dans [ce que contient le système](m
 
 Suivre [l’installation de la skill](README.md#installer-la-skill-dans-un-agent), puis entrer par le niveau utile : [utiliser](guides/1-utiliser.md), [comprendre](guides/2-comprendre.md), [maîtriser](guides/3-maitriser.md), ou [faire évoluer le système](maintenance/README.md). L’agent garde accès au paquet entier, avec Python 3.10 ou plus récent ; les tests de rendu demandent Playwright et Chromium.
 
-La première proposition oriente la suite ; la valider ne vaut pas l’accepter. Une acceptation demandée passe par les preuves, les limites et la trace complète applicables. Les codes historiques et adresses lisibles désignent toujours les mêmes sections.
+La première proposition oriente la suite ; la valider ne vaut pas l’accepter. Une acceptation demandée passe par les preuves, les limites et la trace complète applicables. Les codes de route et les adresses lisibles désignent les mêmes sections.
 
 ## Contrôles inclus
 

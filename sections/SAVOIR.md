@@ -1,4 +1,4 @@
-# Sections d’origine — SAVOIR : jugement, craft et production
+# Sections de référence — SAVOIR : jugement, craft et production
 
 **Design Governance V1 — expérimentation maintenue.** Cette V1 est un cadre de travail en évaluation ; elle n’est pas présentée comme une release publique stabilisée. Ses limites, preuves et conditions d’usage restent explicites. SAVOIR porte le jugement de design : craft, style, contenu, contexte, technique, sources, intégrité et limites de ce qui peut être affirmé.
 

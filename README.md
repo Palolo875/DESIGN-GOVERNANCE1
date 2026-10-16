@@ -89,12 +89,12 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 | **Supports** | [`supports/`](supports/README.md) | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |
 | **Outils** | `scripts/` | Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau, contrôles du paquet et construction des distributions ; chaque commande est décrite dans [la validation](maintenance/README.md#validation). |
 | **Maintenance** | [`maintenance/`](maintenance/README.md) | Ce que contient la version, évolution du système, distributions et validation. |
-| **Sections d’origine** | [`sections/`](sections/README.md) | Sections restées à leur emplacement d’origine et carte de lecture ; même autorité que les autres. |
+| **Sections de référence** | [`sections/`](sections/README.md) | Sections propriétaires regroupées par domaine et carte de lecture ; même autorité que les autres. |
 | **Outils** | `scripts/` | <!-- github:début outils -->Lecteur, contrôles et construction des distributions.<!-- github:fin outils --> |
 
 La gouvernance s’adapte au travail : chaque contrôle et chaque élément de trace doit aider à vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Une proposition exploratoire garde une trace légère ; un travail persistant, partagé, audité ou soumis à acceptation conserve les éléments formels nécessaires. Les preuves applicables restent dues.
 
-Les guides orientent ; ils ne créent aucune règle. Une règle fait foi dans sa section propriétaire, à son emplacement actuel, décrit dans le [sommaire des sources](sections/README.md). Les codes historiques et les adresses lisibles désignent les mêmes sections.
+Les guides orientent ; ils ne créent aucune règle. Une règle fait foi dans sa section propriétaire, à son emplacement actuel, décrit dans le [sommaire des sources](sections/README.md). Les codes de route et les adresses lisibles désignent les mêmes sections.
 
 Pour lire une seule partie du système :
 
@@ -122,8 +122,7 @@ Une conformité de surface ne vaut ni direction visible, ni preuve d’usage, ni
 
 ## Limites
 
-- **Efficacité non vérifiée** (`NOT-VERIFIED`). Aucune mesure comparative ne montre l’effet du système sur la qualité des rendus. Usage recommandé : un pilote, avec revue humaine. <!-- github:début limite-ci -->La CI du dépôt exécute les contrôles sur chaque commit ([notes de version](RELEASE_NOTES.md#contrôles-inclus)) ; elle atteste la cohérence du paquet, pas cette efficacité.<!-- github:fin limite-ci -->
-- **Une validation confirme seulement les contrôles exécutés.** Une capture prouve un rendu, pas un usage : à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle.
+- **Efficacité non vérifiée** (`NOT-VERIFIED`) : usage recommandé en pilote, avec revue humaine. Ce qui est vérifié, et ce qui ne l’est pas, est décrit une fois dans [la fiche de version](maintenance/versions.md#ce-qui-est-vérifié-ce-qui-ne-lest-pas). <!-- github:début limite-ci -->La CI du dépôt exécute les contrôles sur chaque commit ([notes de version](RELEASE_NOTES.md#contrôles-inclus)) ; elle atteste la cohérence du paquet, pas cette efficacité.<!-- github:fin limite-ci -->
 - **Séduisant n’est pas prouvé, conforme n’est pas réussi.** Le système demande de rendre cet écart visible et de corriger le défaut principal, sans le compenser par une autre preuve. Une étape ou une référence qui ne change rien est retirée.
 - **Savoir daté.** Les observations de tendances, d’outils et de normes portent une date (`[VEILLE AAAA-MM]`) et une échéance de revue ; passé cette échéance, elles se revérifient avant usage.
 - **Le système ne remplace** ni le jugement créatif, ni les tests utilisateurs, ni la responsabilité du projet. Toute conclusion dit ce qui a été observé, comment, sur quel périmètre et avec quelle limite.
