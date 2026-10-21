@@ -67,6 +67,22 @@ class Journal(unittest.TestCase):
         e = [{"outil": "check_caractere", "commande": ["p.html", "d.json"], "code": 2, "non_verifie": True, "resultats": {}}]
         self.assertIn("sollicité, en échec", jm.fiche(e))
 
+    def test_sortie_en_erreur_sans_resultat_n_est_pas_un_succes(self):
+        e = [{"outil": "check_caractere", "commande": ["p.html", "d.json"], "code": 1, "non_verifie": False, "resultats": {}}]
+        self.assertIn("en échec (code 1, aucun résultat)", jm.fiche(e))
+        usage = [{"outil": "check_render", "commande": ["--inconnue"], "code": 2, "non_verifie": False, "resultats": {}}]
+        self.assertNotIn("NOT-VERIFIED", jm.fiche(usage))
+        self.assertIn("en échec (code 2", jm.fiche(usage))
+        retour = [{"outil": "check_render", "commande": ["p.html"], "code": 1, "non_verifie": False, "resultats": {"RETURN": ["Contraste"]}}]
+        self.assertIn("RETURN — Contraste", jm.fiche(retour))
+
+    def test_options_ecrites_avec_egal(self):
+        e = [{"outil": "read_route", "commande": ["--mode=ITER"], "code": 0, "routes_lues": [], "routes_proposees": []}]
+        texte = jm.fiche(e)
+        self.assertIn("ligne du mode ITER", texte)
+        self.assertIn("Tronc ITER non consulté", texte)
+        self.assertEqual(jm.option(["--tronc=DIRECTION"], "--tronc"), "DIRECTION")
+
     def test_journal_absent(self):
         self.assertEqual(jm.main(["/chemin/inexistant.jsonl"]), 2)
 

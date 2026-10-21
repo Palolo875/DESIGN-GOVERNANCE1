@@ -111,10 +111,22 @@ def lire(chemin: Path) -> list[dict]:
     return entrees
 
 
+def option(cmd: list[str], nom: str) -> str | None:
+    """Valeur d'une option, écrite « --nom VALEUR » ou « --nom=VALEUR »."""
+    for i, c in enumerate(cmd):
+        if c == nom and i + 1 < len(cmd):
+            return cmd[i + 1]
+        if c.startswith(nom + "="):
+            return c[len(nom) + 1:]
+    return None
+
+
 def niveau_outil(e: dict) -> str:
-    if e.get("non_verifie") or e.get("code") == 2:
-        return "sollicité, en échec (NOT-VERIFIED)"
     res = e.get("resultats") or {}
+    if e.get("non_verifie"):
+        return "sollicité, en échec (NOT-VERIFIED)"
+    if not res and e.get("code") not in (0, None):
+        return f"sollicité, en échec (code {e.get('code')}, aucun résultat)"
     utiles = {k: v for k, v in res.items() if k in ("RETURN", "PASS-WITH-RESERVATION", "SIGNAL", "RELEVÉ")}
     if not utiles:
         return "exécuté, rien à traiter"
@@ -132,18 +144,19 @@ def fiche(entrees: list[dict]) -> str:
         heure = e.get("horodatage", "")[11:19]
         cmd = e.get("commande", [])
         for opt in ("--mode", "--tronc"):
-            if opt in cmd and cmd.index(opt) + 1 < len(cmd):
-                modes.add("SYSTÈME" if cmd[cmd.index(opt) + 1] == "SYSTEME" else cmd[cmd.index(opt) + 1])
+            valeur = option(cmd, opt)
+            if valeur:
+                modes.add("SYSTÈME" if valeur == "SYSTEME" else valeur)
         if e.get("outil") == "read_route":
             for r in e.get("routes_lues", []):
                 lues.add(r)
                 lignes.append(f"| {i} | {heure} | `{r}` | consultée | | |")
             if e.get("routes_proposees"):
-                terme = " ".join(cmd[cmd.index("--trouver") + 1:cmd.index("--trouver") + 2]) if "--trouver" in cmd else ""
+                terme = option(cmd, "--trouver") or ""
                 lignes.append(f"| {i} | {heure} | recherche « {terme} » | proposée, non lue : {', '.join(f'`{r}`' for r in e['routes_proposees'][:6])} | | |")
             if not e.get("routes_lues") and not e.get("routes_proposees"):
-                if "--mode" in cmd and e.get("code") == 0:
-                    lignes.append(f"| {i} | {heure} | ligne du mode {cmd[cmd.index('--mode') + 1]} | consultée (routes citées, non lues) | | |")
+                if option(cmd, "--mode") and e.get("code") == 0:
+                    lignes.append(f"| {i} | {heure} | ligne du mode {option(cmd, '--mode')} | consultée (routes citées, non lues) | | |")
                 else:
                     lignes.append(f"| {i} | {heure} | read_route {' '.join(cmd)} | code {e.get('code')}, rien servi | | |")
         else:
