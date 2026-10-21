@@ -110,6 +110,11 @@ def part_a_baseline() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         bad = Path(tmp) / "ref.json"; bad.write_text("[]", encoding="utf-8")
         page = Path(tmp) / "p.html"; page.write_text("<p>x</p>", encoding="utf-8")
+        expect("A", "page locale suivie de paramètres : fichier et paramètres séparés",
+               cr.local_page(f"{page}?date=2027-01-21"), (page, "?date=2027-01-21"))
+        expect("A", "adresse file:// avec paramètres : fichier et paramètres séparés",
+               cr.local_page(page.as_uri() + "?date=2027-01-21"), (page, "?date=2027-01-21"))
+        expect("A", "page locale sans paramètres : inchangée", cr.local_page(str(page)), (page, ""))
         with patch.object(cr, "measure", side_effect=AssertionError("mesure lancée malgré une référence invalide")), \
                 contextlib.redirect_stderr(io.StringIO()):
             code = cr.run(cr.parser().parse_args([str(page), "--baseline", str(bad)]))
@@ -513,6 +518,8 @@ PAGES = {
                          + '<button id="bas" type="button">Valider</button>'),
     "filigrane_lu.html": ('<div style="position:relative;padding:40px 16px"><span style="position:absolute;top:10px;left:0;'
                           'font-size:160px;font-weight:900;line-height:1;color:#ccc">2026</span><h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
+    "defilement_doux.html": ('<style>html{scroll-behavior:smooth}</style><p id="haut">Titre du haut</p>' + '<p>Paragraphe de contenu.</p>' * 200),
+    "requete.html": '<p id="v"></p><script>document.getElementById("v").textContent = new URLSearchParams(location.search).get("date") || "aucune";</script>',
     "etat.html": '<div id="cadre" style="position:relative;width:200px;height:120px;border:1px solid #000;overflow:hidden"><span id="point" style="position:absolute;left:20px;top:20px;width:10px;height:10px;background:#000"></span></div><p>Total : <b id="total">1</b></p><button id="go" type="button">Avancer</button><script>document.getElementById("go").addEventListener("click",function(){setTimeout(function(){document.getElementById("point").style.left="400px";document.getElementById("total").textContent="2";},800);});</script>',
     "oklch.html": '<p style="color:oklch(0.9 0 0)">Texte presque blanc</p>',
     "ombre.html": '<style>button{box-shadow:0 2px 6px rgba(0,0,0,.3);min-width:60px;min-height:40px}button:focus{outline:none}</style><button>Un</button> <button>Deux</button>',
@@ -773,6 +780,12 @@ def part_b(require: bool) -> str:
             expect("B", "assertion à l'état qui compte : PASS", status(c, "Assertions"), PASS)
             _, c = measure(str(d / "etat.html"), "--in-frame", "#absent@#cadre")
             expect("B", "sélecteur de l'état clé introuvable : RETURN", status(c, "Objet de l’état clé"), RETURN)
+            _, c = measure(str(d / "defilement_doux.html"), "--in-frame", "#haut")
+            expect("B", "défilement doux de la page : mesure faite en haut, élément du haut dans le cadre", status(c, "Objet de l’état clé"), PASS)
+            _, c = measure(str(d / "requete.html") + "?date=2027-01-21", "--assert", "document.querySelector('#v').textContent === '2027-01-21'")
+            expect("B", "page locale suivie de paramètres : paramètres transmis", status(c, "Assertions"), PASS)
+            _, c = measure((d / "requete.html").as_uri() + "?date=2027-01-21", "--assert", "document.querySelector('#v').textContent === '2027-01-21'")
+            expect("B", "adresse file:// avec paramètres : paramètres transmis", status(c, "Assertions"), PASS)
             _, c = measure(str(d / "revele.html"))
             expect("B", "contenu révélé au défilement : mesuré (contraste faible détecté)", status(c, "Contraste"), RETURN)
             raw, _ = measure(str(d / "propre.html"), "--captures", str(d / "captures"))

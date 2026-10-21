@@ -21,6 +21,7 @@ Usage :
     python3 scripts/check_render.py page.html --widths 390,768,1440 --proof "#estimateur" --json preuve.json
     python3 scripts/check_render.py http://127.0.0.1:8000/page.html          # même origine autorisée
     python3 scripts/check_render.py page.html --click "#ouvrir"               # observer un autre état
+    python3 scripts/check_render.py "page.html?date=2027-01-21"               # page locale avec paramètres d'URL
     python3 scripts/check_render.py page.html --captures captures/v1          # une capture pleine page par largeur
     python3 scripts/check_render.py page.html --baseline avant.json            # comparer à une mesure --json antérieure
     python3 scripts/check_render.py page.html --mesures                        # relevés de composition, sans seuil ni verdict
@@ -47,7 +48,7 @@ import threading
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote, urlsplit
+from urllib.parse import quote, unquote, urlsplit
 
 PASS, RESERVE, RETURN, NOTVER = "PASS", "PASS-WITH-RESERVATION", "RETURN", "NOT-VERIFIED"
 FOC = 'a[href],button,input:not([type=hidden]),select,textarea,summary,[role=button],[role=link],[tabindex]:not([tabindex="-1"])'
@@ -777,15 +778,29 @@ def sha12(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
 
 
+def local_page(page: str) -> tuple[Path, str]:
+    """Fichier local et paramètres éventuels : « page.html?date=… » et « file:///…/page.html?date=… » sont acceptés."""
+    if page.startswith("file://"):
+        sp = urlsplit(page)
+        return Path(unquote(sp.path)), "?" + sp.query if sp.query else ""
+    path = Path(page)
+    base, sep, query = page.partition("?")
+    if sep and not path.is_file() and Path(base).is_file():
+        return Path(base), "?" + query
+    return path, ""
+
+
 @contextmanager
 def page_url(args: argparse.Namespace):
     """Serveur local explicitement choisi pour les navigateurs qui refusent file://."""
     if re.match(r"^https?://", args.page):
         yield args.page
     elif not args.serve_local:
-        yield Path(args.page).resolve().as_uri()
+        path, query = local_page(args.page)
+        yield path.resolve().as_uri() + query
     else:
-        target = Path(args.page).resolve()
+        path, query = local_page(args.page)
+        target = path.resolve()
 
         class QuietHandler(http.server.SimpleHTTPRequestHandler):
             def log_message(self, *_args):
@@ -796,7 +811,7 @@ def page_url(args: argparse.Namespace):
         thread = threading.Thread(target=server.serve_forever, kwargs={"poll_interval": 0.05}, daemon=True)
         thread.start()
         try:
-            yield f"http://127.0.0.1:{server.server_port}/{quote(target.name)}"
+            yield f"http://127.0.0.1:{server.server_port}/{quote(target.name)}{query}"
         finally:
             server.shutdown()
             server.server_close()
@@ -852,10 +867,11 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             # Défilement complet : déclenche le contenu révélé au scroll, qui sera ainsi mesuré et capturé.
             step, y = page.viewport_size["height"] // 2, 0
             while y < page.evaluate("document.documentElement.scrollHeight"):
-                page.evaluate(f"window.scrollTo(0, {y})")
+                page.evaluate(f"window.scrollTo({{top: {y}, behavior: 'instant'}})")
                 page.wait_for_timeout(120)
                 y += step
-            page.evaluate("window.scrollTo(0, 0)")
+            # Retour instantané : avec scroll-behavior: smooth, un retour animé laisserait les mesures en cours de défilement.
+            page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
             page.wait_for_timeout(300)
             for sel in args.click:
                 page.click(sel)
@@ -880,7 +896,7 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             if args.captures:  # avant la tabulation, qui déplacerait le focus visible
                 shot = capture_paths(args.captures, [w])[0]
                 shot.parent.mkdir(parents=True, exist_ok=True)
-                page.evaluate("window.scrollTo(0, 0)")
+                page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
                 page.screenshot(path=str(shot), full_page=True)
                 raw["captures"].append(str(shot))
             dims = page.evaluate("({sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth})")
@@ -890,7 +906,7 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             audit = page.evaluate(AUDIT_JS, FOC)
             proof = None
             if args.proof:
-                page.evaluate("window.scrollTo(0, 0)")
+                page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
                 proof = page.evaluate(PROOF_JS, args.proof)
             keyboard = page.evaluate(BASELINE_JS, FOC)
             stops: list[str] = []
@@ -1225,7 +1241,7 @@ def capture_paths(folder: str, widths: list[int]) -> list[Path]:
 def run(args: argparse.Namespace) -> int:
     target = args.page
     is_url = re.match(r"^https?://", target) is not None
-    path = None if is_url else Path(target)
+    path = None if is_url else local_page(target)[0]
     if path is not None and not path.is_file():
         print(f"{NOTVER} : fichier introuvable : {target}", file=sys.stderr)
         return 2
