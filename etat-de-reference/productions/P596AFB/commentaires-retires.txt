@@ -1,0 +1,6 @@
+--- index.html
+<!--
+  Copie intégrée de interventions.csv (40 lignes), utilisée quand la page est ouverte
+  directement depuis le disque (file://). Servie par un serveur web, la page lit
+  plutôt le fichier interventions.csv placé à côté d'elle.
+-->

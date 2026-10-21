@@ -1,0 +1,44 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 14:30:39 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 14:30:44 | read_route --help | code 0, rien servi | | |
+| 3 | 14:30:44 | `ACTION/RUN-STANDARD` | consultée | | |
+| 3 | 14:30:44 | `ACTION/GATE-A` | consultée | | |
+| 3 | 14:30:44 | `ACTION/GATE-B/B2` | consultée | | |
+| 4 | 14:30:48 | ligne du mode STANDARD | consultée (routes citées, non lues) | | |
+| 5 | 14:30:48 | `ACTION/RUN-STANDARD` | consultée | | |
+| 5 | 14:30:48 | `ACTION/GATE-A` | consultée | | |
+| 5 | 14:30:48 | `ACTION/GATE-B/B2` | consultée | | |
+| 6 | 14:30:53 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 7 | 14:30:53 | recherche « résiliation » | proposée, non lue : `ACTION/UI-UX-REALITY` | | |
+| 8 | 14:30:54 | recherche « dark pattern » | proposée, non lue : `ACTION/UI-UX-REALITY` | | |
+| 9 | 14:30:55 | recherche « formulaire » | proposée, non lue : `ACTION/GATE-A`, `DIRECTION/CREATIVE-BOOT`, `DIRECTION/DIRECTION-ATELIER`, `DIRECTION/EXTERNAL-START`, `DIRECTION/FIRST-OBJECT`, `DIRECTION/START/TREE` | | |
+| 10 | 14:30:58 | `BIBLIOTHEQUE/SELECT` | consultée | | |
+| 11 | 14:30:58 | `ACTION/RECETTE-RENDU` | consultée | | |
+| 12 | 14:31:03 | `SAVOIR/TYPE` | consultée | | |
+| 13 | 14:31:03 | `SAVOIR/STATE` | consultée | | |
+| 14 | 14:32:35 | `SAVOIR/CRAFT/CFT-05` | consultée | | |
+| 15 | 14:34:46 | `SAVOIR/CRAFT/CFT-00` | consultée | | |
+| 16 | 14:38:05 | check_render (--help) | exécuté, rien à traiter | | |
+| 17 | 14:38:18 | check_render sur `index.html` (--captures, --wait-ms) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 18 | 14:42:11 | check_render sur `index.html#resiliation-2-erreur` (--wait-ms, --proof, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 19 | 14:42:11 | check_render sur `index.html#resiliation-1` (--wait-ms, --proof, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 20 | 14:42:11 | check_render sur `index.html#formule-1` (--wait-ms, --proof, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 21 | 14:42:15 | check_render sur `index.html#resiliation-2-erreur` (--wait-ms) | sollicité, en échec (code 2, aucun résultat) | | |
+| 22 | 14:42:30 | check_render sur `index.html#resiliation-2-erreur` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 23 | 14:42:36 | check_render sur `index.html#resiliation-1` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 24 | 14:42:44 | check_render sur `index.html#formule-1` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 25 | 14:42:51 | check_render sur `index.html#resiliation-2-echec` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 26 | 14:42:58 | check_render sur `index.html#resiliation-ok` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 27 | 14:43:14 | check_render sur `index.html#resiliation-1` (--wait-ms, --assert, --proof, --captures) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) ; RETURN — Objet de preuve au premier écran (.echeancier) | | |
+| 28 | 14:43:26 | check_render sur `index.html#resiliation-1` (--wait-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 29 | 14:43:33 | check_render sur `index.html#resiliation-2` (--wait-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran ([data-ecran="resiliation-2"] .echeancier) | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

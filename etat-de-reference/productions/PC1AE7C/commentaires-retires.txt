@@ -1,0 +1,10 @@
+--- index.html
+<!--
+Trace (proposition, trace légère)
+- Mode : direction (premier contact d'une salle de quartier). Thèse : « six soirs, un seul prix » → objet de preuve : un rouleau de six billets de couleurs différentes qui portent tous le même prix → geste : choisir une date, réserver sur la billetterie externe.
+- Modal : photo plein écran + grille 3×2 de cartes + bloc tarifs, sur crème/brun ou noir/rouge rideau, serif italique. Parti : pas de photo (aucune fournie) ; affiche typographique de salle (grotesque condensée, bois d'affiche) ; couleurs de papier à billets, une par spectacle, le prix constant ; la saison se lit d'abord dans le temps (rouleau puis liste chronologique), pas en grille.
+- Plafond : typo et couleur au plafond (Bricolage Grotesque, OFL, hébergée à côté) ; aucun visuel de spectacle ni logo fournis → route sans image, rien de simulé. Contenus : ceux du brief, sans ajout ; liens billetterie et courriel en .example, à remplacer.
+- Revue : retient = le rouleau (six couleurs, un seul prix) et l'affiche condensée ; corrigé après capture = titre coupé « 2026– / 2027 » (années insécables, titre pleine largeur), filets débordant la colonne, billet passé resté en couleur, repère « 2027 » cassant le rouleau en mobile. Défaut dominant restant : les six couleurs de billet frôlent le registre « enfantin » ; gardées parce qu'elles portent l'identité de chaque soirée face au prix constant, à confirmer avec l'équipe.
+- Preuves : recette check_render (390/768/1440) sans défaut, réserves = textes masqués pour lecteurs d'écran ; états datés vérifiés par assertions (?date=2026-12-01, ?date=2027-01-21, date du jour).
+- Prochaine preuve : relecture par l'équipe du lieu, test lecteur d'écran réel, liens de billetterie par spectacle.
+-->

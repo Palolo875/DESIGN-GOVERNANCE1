@@ -1,0 +1,42 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 14:50:10 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 14:50:16 | read_route --help | code 0, rien servi | | |
+| 3 | 14:50:16 | `ACTION/RUN-STANDARD` | consultée | | |
+| 3 | 14:50:16 | `ACTION/GATE-A` | consultée | | |
+| 3 | 14:50:16 | `ACTION/GATE-B/B2` | consultée | | |
+| 4 | 14:50:16 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 4 | 14:50:16 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 4 | 14:50:16 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 4 | 14:50:16 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 4 | 14:50:16 | `SAVOIR/TYPE` | consultée | | |
+| 4 | 14:50:16 | `ACTION/FIRST-RENDER` | consultée | | |
+| 4 | 14:50:16 | `ACTION/GATE-A` | consultée | | |
+| 5 | 14:50:22 | ligne du mode DIRECTION | consultée (routes citées, non lues) | | |
+| 6 | 14:50:22 | ligne du mode STANDARD | consultée (routes citées, non lues) | | |
+| 7 | 14:50:26 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 7 | 14:50:26 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 7 | 14:50:26 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 7 | 14:50:26 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 7 | 14:50:26 | `SAVOIR/TYPE` | consultée | | |
+| 7 | 14:50:26 | `ACTION/FIRST-RENDER` | consultée | | |
+| 7 | 14:50:26 | `ACTION/GATE-A` | consultée | | |
+| 8 | 14:50:33 | `SAVOIR/TOOLS/CONVERGENCE` | consultée | | |
+| 9 | 14:50:33 | `ACTION/RECETTE-RENDU` | consultée | | |
+| 10 | 14:50:39 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 11 | 14:50:39 | `BIBLIOTHEQUE/SEQUENCE` | consultée | | |
+| 12 | 14:52:09 | recherche « check_caractere » | proposée, non lue : `DIRECTION/DOUBLE-LOOP`, `ACTION/RECETTE-CARACTERE` | | |
+| 13 | 14:52:13 | `ACTION/RECETTE-CARACTERE` | consultée | | |
+| 14 | 14:54:26 | `SAVOIR/CRAFT/CFT-05` | consultée | | |
+| 15 | 14:57:42 | check_render sur `index.html` (--captures, --json, --mesures) | exécuté, rien à traiter | | |
+| 16 | 14:57:52 | check_caractere sur `index.html` | exécuté : SIGNAL — Densité | | |
+| 17 | 14:58:32 | check_render sur `index.html` | exécuté, rien à traiter | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

@@ -1,0 +1,57 @@
+[
+  {
+    "statut": "SIGNAL",
+    "controle": "Densité",
+    "detail": "respiration déclarée ; rendu compressé (vide 0.44, bords 0.087)",
+    "savoir": "BIBLIOTHEQUE/TENSION ; SAVOIR/CRAFT/CFT-03",
+    "ou": "390px"
+  },
+  {
+    "statut": "SIGNAL",
+    "controle": "Matière dominante",
+    "detail": "typographie déclarée ; rendu dominé par plan (plan 82%, image 1%, typographie 39%)",
+    "savoir": "DIRECTION/VISUAL_TARGET (matière)",
+    "ou": "390px"
+  },
+  {
+    "statut": "MESURES",
+    "ou": "390px",
+    "mesures": {
+      "densite": 0.087,
+      "vide": 0.44,
+      "bande_vide_px": 16,
+      "hauteur": 844,
+      "saillance_top10": 0.8,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 15.4,
+      "texte": 0.39,
+      "image": 0.01,
+      "aplats": 0.82
+    }
+  },
+  {
+    "statut": "SIGNAL",
+    "controle": "Matière dominante",
+    "detail": "typographie déclarée ; rendu dominé par plan (plan 53%, image 0%, typographie 19%)",
+    "savoir": "DIRECTION/VISUAL_TARGET (matière)",
+    "ou": "1440px"
+  },
+  {
+    "statut": "MESURES",
+    "ou": "1440px",
+    "mesures": {
+      "densite": 0.049,
+      "vide": 0.68,
+      "bande_vide_px": 16,
+      "hauteur": 900,
+      "saillance_top10": 0.76,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 12.7,
+      "texte": 0.19,
+      "image": 0.0,
+      "aplats": 0.53
+    }
+  }
+]

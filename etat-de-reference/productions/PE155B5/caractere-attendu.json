@@ -1,0 +1,43 @@
+[
+  {
+    "statut": "SIGNAL",
+    "controle": "Densité",
+    "detail": "respiration déclarée ; rendu compressé (vide 0.41, bords 0.141)",
+    "savoir": "BIBLIOTHEQUE/TENSION ; SAVOIR/CRAFT/CFT-03",
+    "ou": "390px"
+  },
+  {
+    "statut": "MESURES",
+    "ou": "390px",
+    "mesures": {
+      "densite": 0.141,
+      "vide": 0.41,
+      "bande_vide_px": 32,
+      "hauteur": 844,
+      "saillance_top10": 0.68,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 8.9,
+      "texte": 0.54,
+      "image": 0.0,
+      "aplats": 0.07
+    }
+  },
+  {
+    "statut": "MESURES",
+    "ou": "1440px",
+    "mesures": {
+      "densite": 0.058,
+      "vide": 0.72,
+      "bande_vide_px": 64,
+      "hauteur": 900,
+      "saillance_top10": 0.8,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 5.8,
+      "texte": 0.26,
+      "image": 0.0,
+      "aplats": 0.06
+    }
+  }
+]

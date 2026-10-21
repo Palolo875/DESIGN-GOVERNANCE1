@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon contrat santé – Mutuelle des Trois Rivières</title>
+<meta name="description" content="Maquette du parcours en ligne pour changer de formule ou résilier son contrat santé – Mutuelle des Trois Rivières (fictive).">
+<style>
+@font-face{font-family:"Atkinson Hyperlegible Next";src:url("fonts/atkinson-next-latin.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("fonts/source-serif-4-latin.woff2") format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
+
+:root{
+  /* Neutres teintés vers l’encre, fond papier chaud */
+  --papier:#F6F3EC;
+  --surface:#FFFEFB;
+  --creux:#EDE8DD;
+  --filet:#D9D2C4;
+  --filet-fort:#8C877C;
+  --encre:#15262F;
+  --encre-2:#43535B;
+  /* Rôles */
+  --action:#0E4A5A;        /* action principale : encre de rivière */
+  --action-survol:#0A3946;
+  --echeance:#8E4310;      /* dates et échéances */
+  --erreur:#A9231B;
+  --erreur-fond:#FBEDEB;
+  --succes:#1D6438;
+  --succes-fond:#E8F2EA;
+  --info-fond:#E9EFF0;
+  --focus:#0E4A5A;
+
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Atkinson Hyperlegible Next", "Segoe UI", Roboto, Arial, sans-serif;
+  --r:10px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papier);color:var(--encre);font-family:var(--sans);font-size:18px;line-height:1.5}
+img,svg{display:block;max-width:100%}
+a{color:var(--action);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.num{font-variant-numeric:lining-nums}
+sup{font-size:.62em;line-height:0;position:relative;top:-.55em;vertical-align:baseline;margin-left:.04em}
+[hidden]{display:none!important}
+
+/* ---------- Bandeau de maquette (hors produit) ---------- */
+.maquette{background:#2B2B2B;color:#F2F2F2;font-size:15px;line-height:1.4}
+.maquette__in{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between}
+.maquette__txt{margin:0}
+.maquette__txt strong{letter-spacing:.06em;text-transform:uppercase;font-size:13px;background:#F2F2F2;color:#2B2B2B;padding:2px 7px;border-radius:3px;margin-right:8px}
+.maquette label{margin-right:8px}
+.maquette select{font:inherit;font-size:15px;color:#2B2B2B;background:#F2F2F2;border:0;border-radius:6px;padding:8px 10px;min-height:40px;max-width:100%}
+.maquette :focus-visible{outline-color:#F2F2F2}
+.maquette__nav{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+
+/* ---------- En-tête de l’espace adhérent ---------- */
+.entete{background:var(--surface);border-bottom:1px solid var(--filet)}
+.entete__in{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.marque{display:flex;flex-direction:column;line-height:1.05;color:var(--encre);text-decoration:none}
+.marque__petit{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--encre-2)}
+.marque__nom{font-family:var(--serif);font-weight:600;font-size:24px}
+.adherent{font-size:15px;color:var(--encre-2);text-align:right}
+.adherent strong{color:var(--encre);font-weight:600;display:block;font-size:16px}
+
+/* ---------- Mise en page ---------- */
+.page{max-width:1180px;margin:0 auto;padding:20px 24px 48px}
+.ariane{font-size:15px;color:var(--encre-2);margin:0 0 28px}
+.ariane ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.ariane li+li::before{content:"›";margin:0 8px 0 4px;color:var(--filet-fort)}
+.grille{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:start}
+.grille--seule{grid-template-columns:minmax(0,760px)}
+.col{min-width:0}
+.col > * + *{margin-top:28px}
+
+h1,h2,h3{margin:0;font-weight:600}
+h1{font-family:var(--serif);font-size:42px;line-height:1.08;letter-spacing:-.012em;text-wrap:balance;max-width:20ch}
+h1:focus{outline:none}
+h2{font-family:var(--serif);font-size:26px;line-height:1.2}
+h3{font-size:18px;font-weight:700}
+.chapo{font-size:20px;line-height:1.45;color:var(--encre-2);max-width:36em;margin-top:14px!important}
+.col > h1 + .chapo{margin-top:14px}
+p{margin:0}
+
+/* Étapes */
+.etapes{display:flex;flex-direction:column;gap:10px;margin-bottom:-8px}
+.etapes__txt{font-size:15px;color:var(--encre-2);margin:0}
+.etapes__txt b{color:var(--encre);font-weight:700}
+.etapes__barre{display:flex;gap:6px;list-style:none;margin:0;padding:0;max-width:260px}
+.etapes__barre li{flex:1;height:6px;border-radius:3px;background:var(--filet)}
+.etapes__barre li.fait,.etapes__barre li[aria-current]{background:var(--action)}
+
+/* Carte */
+.carte{background:var(--surface);border:1px solid var(--filet);border-radius:var(--r);padding:28px}
+.carte > * + *{margin-top:18px}
+
+/* Liste de faits */
+.faits{margin-left:0;margin-right:0;margin-bottom:0;display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr);border-top:1px solid var(--filet)}
+.faits dt,.faits dd{margin:0;padding:14px 0;border-bottom:1px solid var(--filet)}
+.faits dt{color:var(--encre-2);padding-right:16px}
+.faits dd{font-weight:600}
+.faits dd small{display:block;font-weight:400;color:var(--encre-2);font-size:15px;margin-top:2px}
+.faits .montant{font-size:22px}
+.carte > .faits:first-child{border-top:0;margin-top:0}
+.carte > .faits:first-child > dt:first-of-type,.carte > .faits:first-child > dt:first-of-type + dd{padding-top:0}
+.carte .faits > dt:nth-last-of-type(1),.carte .faits > dd:nth-last-of-type(1){border-bottom:0;padding-bottom:0}
+
+/* Options d’évolution : poids égal */
+.options{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.option{background:var(--surface);border:1px solid var(--filet);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px}
+.option p{color:var(--encre-2)}
+.option .bouton{margin-top:auto;align-self:flex-start}
+.option__haut{flex:1;display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+
+/* Boutons */
+.bouton{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 24px;border-radius:8px;font:inherit;font-weight:700;font-size:18px;line-height:1.2;cursor:pointer;text-decoration:none;text-align:center;border:2px solid var(--action)}
+.bouton--plein{background:var(--action);color:#fff}
+.bouton--plein:hover{background:var(--action-survol);border-color:var(--action-survol)}
+.bouton--trait{background:var(--surface);color:var(--action)}
+.bouton--trait:hover{background:var(--info-fond)}
+.bouton[aria-disabled="true"]{opacity:1;cursor:progress;background:var(--encre-2);border-color:var(--encre-2)}
+.lien-bouton{background:none;border:0;padding:6px 2px;font:inherit;color:var(--action);text-decoration:underline;text-underline-offset:.18em;cursor:pointer;min-height:44px}
+.actions{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;padding-top:8px}
+.actions--egales{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.actions--egales .bouton{width:100%}
+.actions__note{font-size:15px;color:var(--encre-2);margin-top:12px!important}
+
+/* Comparatif */
+.comparatif{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--filet);border-radius:var(--r);overflow:hidden}
+.comparatif caption{text-align:left;padding:0 0 12px;font-size:15px;color:var(--encre-2);caption-side:top}
+.comparatif th,.comparatif td{padding:14px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--filet)}
+.comparatif thead th{font-family:var(--serif);font-size:22px;font-weight:600;background:var(--creux);border-bottom:1px solid var(--filet)}
+.comparatif thead th small{display:block;font-family:var(--sans);font-size:14px;font-weight:600;color:var(--encre-2);margin-top:2px}
+.comparatif thead td{background:var(--creux)}
+.comparatif tbody th{font-weight:400;color:var(--encre-2);width:34%}
+.comparatif tbody td{font-weight:600;width:33%}
+.comparatif tr:last-child th,.comparatif tr:last-child td{border-bottom:0}
+.comparatif .ligne-prix td{font-size:22px}
+.comparatif .ligne-prix td small{display:block;font-size:14px;font-weight:400;color:var(--encre-2)}
+.comparatif .col-actuelle{background:#FBF9F4}
+.non-couvert{color:var(--encre-2);font-weight:400!important}
+
+/* Encadrés */
+.note{border-left:4px solid var(--filet-fort);background:var(--creux);padding:16px 20px;border-radius:0 8px 8px 0}
+.note > * + *{margin-top:8px}
+.note h2,.note h3{font-family:var(--sans);font-size:18px;font-weight:700}
+.note ul{margin:8px 0 0;padding-left:1.2em}
+.note li + li{margin-top:6px}
+.alerte{border:2px solid var(--erreur);background:var(--erreur-fond);border-radius:8px;padding:18px 20px}
+.alerte:focus{outline:3px solid var(--focus);outline-offset:3px}
+.alerte h2{font-family:var(--sans);font-size:19px;font-weight:700;color:var(--erreur);display:flex;gap:10px;align-items:center}
+.alerte p,.alerte ul{margin-top:8px}
+.alerte ul{padding-left:1.2em}
+.alerte a{color:var(--erreur);font-weight:600}
+.pictogramme{flex:none;width:24px;height:24px}
+.indispo{border:2px solid var(--filet-fort);background:var(--surface);border-radius:8px;padding:20px}
+.indispo h2{font-family:var(--sans);font-size:19px;font-weight:700;display:flex;gap:10px;align-items:center}
+.indispo p{margin-top:8px}
+
+/* Résultat */
+.resultat{border:2px solid var(--succes);background:var(--succes-fond);border-radius:var(--r);padding:24px}
+.resultat__statut{display:flex;gap:10px;align-items:center;font-weight:700;color:var(--succes);font-size:17px}
+.resultat > * + *{margin-top:12px}
+.resultat .grand{font-family:var(--serif);font-size:26px;line-height:1.25;font-weight:600}
+.resultat--neutre{border-color:var(--filet-fort);background:var(--surface)}
+.resultat--neutre .resultat__statut{color:var(--encre)}
+
+/* Formulaire */
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{padding:0;font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.2}
+.aide{font-size:16px;color:var(--encre-2);margin-top:6px!important}
+.choix{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.case{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--filet);border-radius:8px;padding:12px 16px;min-height:52px;cursor:pointer}
+.case:hover{border-color:var(--filet-fort)}
+.case input{width:22px;height:22px;margin:0;accent-color:var(--action);flex:none}
+.case:has(input:checked){border-color:var(--action);box-shadow:inset 0 0 0 1px var(--action)}
+.champ{margin-top:14px}
+.champ label{display:block;font-weight:700}
+.champ input,.champ textarea{display:block;width:100%;max-width:32em;margin-top:6px;font:inherit;color:var(--encre);background:var(--surface);border:2px solid var(--filet-fort);border-radius:8px;padding:11px 14px;min-height:52px}
+.champ textarea{min-height:96px;resize:vertical}
+.champ input[aria-invalid="true"]{border-color:var(--erreur);box-shadow:inset 0 0 0 1px var(--erreur)}
+.champ__erreur{display:flex;gap:8px;align-items:flex-start;color:var(--erreur);font-weight:600;margin-top:8px}
+.champ__erreur .pictogramme{width:20px;height:20px;margin-top:3px}
+.compteur{font-size:15px;color:var(--encre-2);margin-top:6px}
+.courriel{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center}
+.courriel__adr{font-weight:600;overflow-wrap:anywhere}
+
+/* Échéancier : objet de preuve */
+.echeancier{background:var(--creux);border-radius:var(--r);padding:24px 24px 8px;position:sticky;top:20px}
+.echeancier h2{font-family:var(--sans);font-size:15px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--encre-2)}
+.echeancier__pour{font-size:16px;margin-top:6px!important;color:var(--encre)}
+.fil{list-style:none;margin:18px 0 0;padding:0}
+.fil li{position:relative;padding:0 0 22px 30px}
+.fil li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--creux);border:3px solid var(--echeance)}
+.fil li::after{content:"";position:absolute;left:6px;top:24px;bottom:2px;width:2px;background:var(--echeance);opacity:.45}
+.fil li:last-child::after{display:none}
+.fil li.fait::before{background:var(--echeance)}
+.fil li.fin::before{border-radius:3px}
+.fil__date{font-weight:700;color:var(--echeance)}
+.fil__quoi{font-weight:700;margin-top:2px!important}
+.fil__detail{font-size:16px;color:var(--encre-2);margin-top:2px!important}
+.etiquette{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--encre-2);border:1px dashed var(--filet-fort);border-radius:4px;padding:0 6px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.echeancier--carte{position:static}
+
+/* Rappel discret */
+.rappel{border-top:1px solid var(--filet);padding-top:20px}
+.rappel p{color:var(--encre-2)}
+.rappel p + p{margin-top:6px}
+
+/* Aide constante */
+.aide-adherent{max-width:1180px;margin:0 auto;padding:0 24px 40px}
+.aide-adherent__in{border-top:1px solid var(--filet);padding-top:20px;display:flex;flex-wrap:wrap;gap:6px 28px;font-size:16px;color:var(--encre-2)}
+.aide-adherent b{color:var(--encre)}
+
+.ecran{animation:entree .22s ease-out}
+@keyframes entree{from{opacity:.0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.ecran{animation:none}}
+
+/* ---------- Mobile : recomposition ---------- */
+@media (max-width: 900px){
+  .grille{grid-template-columns:minmax(0,1fr);gap:28px}
+  .echeancier{position:static}
+  .ordre-avant{order:-1}
+}
+@media (max-width: 640px){
+  body{font-size:17px}
+  .page{padding:16px 16px 40px}
+  .entete__in,.maquette__in{padding-left:16px;padding-right:16px}
+  .aide-adherent{padding:0 16px 32px}
+  .ariane{margin-bottom:20px}
+  h1{font-size:31px;max-width:none}
+  .chapo{font-size:18px}
+  .carte{padding:20px}
+  .options{grid-template-columns:1fr}
+  .choix{grid-template-columns:1fr}
+  .actions--egales{grid-template-columns:1fr}
+  .actions .bouton{width:100%}
+  .faits{grid-template-columns:1fr}
+  .faits dt{border-bottom:0;padding-bottom:0}
+  .faits dd{padding-top:2px}
+  .adherent{text-align:left}
+  .marque__nom{font-size:21px}
+  /* Le tableau devient des lignes : libellé puis les deux valeurs côte à côte */
+  .comparatif thead tr,.comparatif tbody tr{display:grid;grid-template-columns:1fr 1fr}
+  .comparatif thead td{display:none}
+  .comparatif tbody th{grid-column:1 / -1;width:auto;padding:12px 14px 0;border-bottom:0;font-weight:600;color:var(--encre)}
+  .comparatif tbody td{width:auto;padding:4px 14px 12px}
+  .comparatif thead th{padding:12px 14px;font-size:20px}
+  .comparatif .ligne-prix td{font-size:20px}
+  .comparatif td::before{content:attr(data-formule);display:block;font-size:13px;font-weight:600;color:var(--encre-2)}
+}
+</style>
+</head>
+<body>
+
+<div class="maquette" role="region" aria-label="Commandes de la maquette">
+  <div class="maquette__in">
+    <p class="maquette__txt"><strong>Maquette</strong>Données fictives · date simulée : mercredi 21 octobre 2026</p>
+    <div class="maquette__nav">
+      <label for="aller">Écran</label>
+      <select id="aller">
+        <option value="contrat">0 · Mon contrat santé (départ)</option>
+        <optgroup label="Changer de formule">
+          <option value="formule-1">F1 · Comparer les formules</option>
+          <option value="formule-2">F2 · Vérifier et confirmer</option>
+          <option value="formule-2-erreur">F2 · Erreur de saisie (courriel)</option>
+          <option value="formule-ok">F3 · Changement enregistré</option>
+          <option value="formule-indispo">F· · Changement indisponible (règle annuelle)</option>
+        </optgroup>
+        <optgroup label="Résilier">
+          <option value="resiliation-1">R1 · Votre résiliation</option>
+          <option value="resiliation-2">R2 · Confirmer ou annuler</option>
+          <option value="resiliation-2-erreur">R2 · Erreur de saisie (courriel)</option>
+          <option value="resiliation-2-echec">R2 · Échec de l’envoi</option>
+          <option value="resiliation-ok">R3 · Demande envoyée</option>
+          <option value="resiliation-annulee">R3 · Résiliation annulée</option>
+        </optgroup>
+      </select>
+    </div>
+  </div>
+</div>
+
+<header class="entete">
+  <div class="entete__in">
+    <a class="marque" href="#contrat" aria-label="Mutuelle des Trois Rivières, retour à mon contrat santé">
+      <span class="marque__petit">Mutuelle des</span>
+      <span class="marque__nom">Trois Rivières</span>
+    </a>
+    <p class="adherent"><strong>Camille Moreau</strong>Adhérent·e n° <span class="num">TR-204-58817</span></p>
+  </div>
+</header>
+
+<main class="page" id="contenu">
+  <nav class="ariane" aria-label="Fil d’Ariane">
+    <ol>
+      <li>Espace adhérent</li>
+      <li id="ariane-courant"><span aria-current="page">Mon contrat santé</span></li>
+    </ol>
+  </nav>
+
+  <p class="sr-only" id="annonce" aria-live="polite"></p>
+
+    <section class="ecran" data-ecran="contrat" aria-labelledby="t-contrat">
+    <div class="grille">
+      <div class="col">
+        <h1 id="t-contrat" tabindex="-1">Mon contrat santé</h1>
+        <div class="carte">
+          <h2>Formule Confort</h2>
+          <dl class="faits">
+            <dt>En vigueur depuis</dt><dd class="num">1<sup>er</sup> mars 2024</dd>
+            <dt>Personnes couvertes</dt><dd>Camille Moreau<small>Léo Moreau, enfant, né en 2015</small></dd>
+            <dt>Cotisation mensuelle</dt><dd><span class="montant num" data-v="totalConfort">81,70&nbsp;€</span><small class="num">61,90&nbsp;€ adulte + 19,80&nbsp;€ enfant</small></dd>
+            <dt>Prélèvement</dt><dd>Le 5 de chaque mois<small>Compte se terminant par <span class="num">4412</span></small></dd>
+          </dl>
+        </div>
+
+        <section aria-labelledby="t-evoluer">
+          <h2 id="t-evoluer">Faire évoluer mon contrat</h2>
+          <div class="options" style="margin-top:16px">
+            <div class="option">
+              <div class="option__haut">
+                <h3>Changer de formule</h3>
+                <p>Passer à Essentielle&nbsp;: <span class="num" data-v="totalEssentielle">50,50&nbsp;€</span> par mois pour vous et Léo. Effet le <span data-v="effetFormule">1<sup>er</sup> novembre 2026</span>.</p>
+              </div>
+              <a class="bouton bouton--trait" href="#formule-1" data-va="formule-1">Changer de formule</a>
+            </div>
+            <div class="option">
+              <div class="option__haut">
+                <h3>Résilier mon contrat</h3>
+                <p>Sans frais. Fin du contrat un mois après votre demande, soit le <span data-v="effetResil">21 novembre 2026</span> si vous la faites aujourd’hui.</p>
+              </div>
+              <a class="bouton bouton--trait" href="#resiliation-1" data-va="resiliation-1">Résilier mon contrat</a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <aside class="col" aria-label="Garanties principales">
+        <div class="note">
+          <h2>Vos garanties Confort</h2>
+          <ul>
+            <li>Généraliste&nbsp;: 150&nbsp;% de la base de remboursement</li>
+            <li>Chambre particulière&nbsp;: 60&nbsp;€ par jour, 30 jours par an</li>
+            <li>Optique&nbsp;: 250&nbsp;€ par an</li>
+            <li>Dentaire, prothèses&nbsp;: 250&nbsp;% de la base</li>
+            <li>Médecines douces&nbsp;: 4 séances par an, 30&nbsp;€ chacune</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="formule-1" aria-labelledby="t-f1" hidden>
+    <div class="grille">
+      <div class="col">
+        <div class="etapes">
+          <p class="etapes__txt"><b>Étape 1 sur 2</b> · Comparer les formules</p>
+          <ol class="etapes__barre" aria-hidden="true"><li aria-current="step"></li><li></li></ol>
+        </div>
+        <h1 id="t-f1" tabindex="-1">Changer de formule</h1>
+        <p class="chapo">Avec Essentielle, vous payez <strong class="num" data-v="ecart">31,20&nbsp;€</strong> de moins par mois pour vous et Léo, et vos remboursements sont plus bas sur toutes les garanties ci-dessous.</p>
+
+        <table class="comparatif">
+          <caption>Ce qui change pour vous et Léo</caption>
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col" class="col-actuelle">Confort<small>Votre formule actuelle</small></th>
+              <th scope="col">Essentielle<small>Proposée</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ligne-prix">
+              <th scope="row">Cotisation par mois, pour vous et Léo</th>
+              <td class="col-actuelle num" data-formule="Confort"><span data-v="totalConfort">81,70&nbsp;€</span><small>61,90 + 19,80</small></td>
+              <td class="num" data-formule="Essentielle"><span data-v="totalEssentielle">50,50&nbsp;€</span><small>38,40 + 12,10</small></td>
+            </tr>
+            <tr><th scope="row">Consultation chez un généraliste</th><td class="col-actuelle" data-formule="Confort">150&nbsp;% de la base</td><td data-formule="Essentielle">100&nbsp;% de la base</td></tr>
+            <tr><th scope="row">Hospitalisation, chambre particulière</th><td class="col-actuelle" data-formule="Confort">60&nbsp;€ par jour, 30&nbsp;jours par an</td><td class="non-couvert" data-formule="Essentielle">Non couverte</td></tr>
+            <tr><th scope="row">Optique, par an</th><td class="col-actuelle num" data-formule="Confort">250&nbsp;€</td><td class="num" data-formule="Essentielle">100&nbsp;€</td></tr>
+            <tr><th scope="row">Dentaire, prothèses</th><td class="col-actuelle" data-formule="Confort">250&nbsp;% de la base</td><td data-formule="Essentielle">125&nbsp;% de la base</td></tr>
+            <tr><th scope="row">Médecines douces</th><td class="col-actuelle" data-formule="Confort">4 séances par an, 30&nbsp;€ chacune</td><td class="non-couvert" data-formule="Essentielle">Non couvertes</td></tr>
+          </tbody>
+        </table>
+
+        <div data-ech-ancre="formule-1" hidden></div>
+        <div class="note">
+          <h2>Bon à savoir avant de choisir</h2>
+          <ul>
+            <li>Le passage de Confort à Essentielle n’est possible qu’<strong>une fois par année civile</strong>. Si vous revenez ensuite à Confort, vous ne pourrez pas repasser à Essentielle avant le 1<sup>er</sup> janvier 2027.</li>
+            <li>La cotisation d’octobre reste due au tarif Confort.</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="bouton bouton--plein" href="#formule-2" data-va="formule-2">Continuer avec Essentielle</a>
+          <a class="bouton bouton--trait" href="#contrat" data-va="contrat">Annuler</a>
+        </div>
+      </div>
+
+      <aside class="col" aria-labelledby="e-f1">
+        <div class="echeancier">
+          <h2 id="e-f1">Ce qui va se passer</h2>
+          <p class="echeancier__pour">Si vous confirmez aujourd’hui</p>
+          <ol class="fil">
+            <li><p class="fil__date">21 octobre 2026</p><p class="fil__quoi">Vous confirmez le changement</p><p class="fil__detail">Confirmation par courriel.</p></li>
+            <li><p class="fil__date"><span data-v="effetFormule">1<sup>er</sup> novembre 2026</span></p><p class="fil__quoi">Essentielle s’applique</p><p class="fil__detail">Pour vous et Léo. Octobre reste au tarif Confort.</p></li>
+            <li><p class="fil__date">5 novembre 2026</p><p class="fil__quoi">Prélèvement de <span class="num" data-v="totalEssentielle">50,50&nbsp;€</span> <span class="etiquette">à confirmer</span></p><p class="fil__detail">Compte se terminant par <span class="num">4412</span>.</p></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="formule-2" aria-labelledby="t-f2" hidden>
+    <div class="grille">
+      <form class="col" id="form-f2" novalidate>
+        <div class="etapes">
+          <p class="etapes__txt"><b>Étape 2 sur 2</b> · Vérifier et confirmer</p>
+          <ol class="etapes__barre" aria-hidden="true"><li class="fait"></li><li aria-current="step"></li></ol>
+        </div>
+        <div class="alerte" id="f-resume" tabindex="-1" hidden>
+          <h2><svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><rect x="10.8" y="5.5" width="2.4" height="8.5" rx="1.2" fill="#fff"/><circle cx="12" cy="17.6" r="1.5" fill="#fff"/></svg>Votre changement n’est pas encore enregistré</h2>
+          <ul><li><a href="#f-email">L’adresse courriel est incomplète</a></li></ul>
+        </div>
+        <h1 id="t-f2" tabindex="-1">Vérifiez votre changement de formule</h1>
+
+        <div class="carte">
+          <dl class="faits">
+            <dt>Nouvelle formule</dt><dd>Essentielle<small>au lieu de Confort</small></dd>
+            <dt>À partir du</dt><dd><span data-v="effetFormule">1<sup>er</sup> novembre 2026</span></dd>
+            <dt>Personnes couvertes</dt><dd>Camille Moreau<small>Léo Moreau, enfant</small></dd>
+            <dt>Cotisation mensuelle</dt><dd><span class="montant num" data-v="totalEssentielle">50,50&nbsp;€</span><small>au lieu de <span class="num" data-v="totalConfort">81,70&nbsp;€</span>, soit <span class="num" data-v="ecart">31,20&nbsp;€</span> de moins</small></dd>
+            <dt>Octobre 2026</dt><dd>Reste dû au tarif Confort<small class="num"><span data-v="totalConfort">81,70&nbsp;€</span></small></dd>
+            <dt>Vous n’aurez plus</dt><dd>La chambre particulière et les médecines douces<small>Généraliste, optique et dentaire sont moins remboursés.</small></dd>
+          </dl>
+        </div>
+
+        <div data-ech-ancre="formule-2" hidden></div>
+        <div class="courriel-bloc" data-courriel="f">
+          <h2 data-titre style="font-family:var(--sans);font-size:18px;font-weight:700">Confirmation envoyée à</h2>
+          <div class="courriel" style="margin-top:6px">
+            <span class="courriel__adr" data-adr>camille.moreau@courriel.example</span>
+            <button type="button" class="lien-bouton" data-modifier aria-controls="f-champ" aria-expanded="false">Modifier l’adresse</button>
+          </div>
+          <div class="champ" id="f-champ" hidden>
+            <label for="f-email">Adresse courriel pour la confirmation</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" value="camille.moreau@courriel.example" aria-describedby="f-email-err">
+            <p class="champ__erreur" id="f-email-err" hidden></p>
+          </div>
+        </div>
+
+        <div>
+          <div class="actions actions--egales">
+            <button type="submit" class="bouton bouton--plein" data-envoyer>Confirmer le changement</button>
+            <a class="bouton bouton--trait" href="#contrat" data-va="contrat">Annuler</a>
+          </div>
+          <p class="actions__note">Tant que vous n’avez pas confirmé, rien ne change. <a href="#formule-1" data-va="formule-1">Revenir à la comparaison</a></p>
+        </div>
+      </form>
+
+      <aside class="col" aria-labelledby="e-f2">
+        <div class="echeancier">
+          <h2 id="e-f2">Ce qui va se passer</h2>
+          <p class="echeancier__pour">Si vous confirmez aujourd’hui</p>
+          <ol class="fil">
+            <li><p class="fil__date">21 octobre 2026</p><p class="fil__quoi">Vous confirmez le changement</p><p class="fil__detail">Confirmation par courriel.</p></li>
+            <li><p class="fil__date"><span data-v="effetFormule">1<sup>er</sup> novembre 2026</span></p><p class="fil__quoi">Essentielle s’applique</p><p class="fil__detail">Pour vous et Léo.</p></li>
+            <li><p class="fil__date">5 novembre 2026</p><p class="fil__quoi">Prélèvement de <span class="num" data-v="totalEssentielle">50,50&nbsp;€</span> <span class="etiquette">à confirmer</span></p><p class="fil__detail">Compte se terminant par <span class="num">4412</span>.</p></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="formule-ok" aria-labelledby="t-f3" hidden>
+    <div class="grille">
+      <div class="col">
+        <h1 id="t-f3" tabindex="-1">Votre changement de formule est enregistré</h1>
+        <div class="resultat" role="status">
+          <p class="resultat__statut"><svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M6.5 12.5l3.7 3.6 7.3-7.6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Enregistré le 21 octobre 2026</p>
+          <p class="grand">À partir du <span data-v="effetFormule">1<sup>er</sup> novembre 2026</span>, vous et Léo êtes couverts par la formule Essentielle.</p>
+          <p>Une confirmation a été envoyée à <strong class="courriel__adr" data-adr-final>camille.moreau@courriel.example</strong>.</p>
+        </div>
+        <dl class="faits">
+          <dt>Nouvelle cotisation</dt><dd><span class="num" data-v="totalEssentielle">50,50&nbsp;€</span> par mois</dd>
+          <dt>Octobre 2026</dt><dd>Reste dû au tarif Confort</dd>
+          <dt>Référence</dt><dd class="num">MOD-2026-58817-01 <span class="etiquette">exemple</span></dd>
+        </dl>
+        <div class="actions">
+          <a class="bouton bouton--trait" href="#contrat" data-va="contrat">Retour à mon contrat</a>
+        </div>
+      </div>
+      <aside class="col" aria-labelledby="e-f3">
+        <div class="echeancier">
+          <h2 id="e-f3">Prochaines dates</h2>
+          <ol class="fil">
+            <li class="fait"><p class="fil__date">21 octobre 2026</p><p class="fil__quoi">Changement enregistré</p><p class="fil__detail">Fait.</p></li>
+            <li><p class="fil__date"><span data-v="effetFormule">1<sup>er</sup> novembre 2026</span></p><p class="fil__quoi">Essentielle s’applique</p></li>
+            <li><p class="fil__date">5 novembre 2026</p><p class="fil__quoi">Prélèvement de <span class="num" data-v="totalEssentielle">50,50&nbsp;€</span> <span class="etiquette">à confirmer</span></p></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="formule-indispo" aria-labelledby="t-fi" hidden>
+    <div class="grille grille--seule">
+      <div class="col">
+        <h1 id="t-fi" tabindex="-1">Changer de formule</h1>
+        <div class="indispo">
+          <h2><svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M12 6.5V12l3.5 2.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>Le passage à Essentielle n’est pas disponible avant le 1<sup>er</sup> janvier 2027</h2>
+          <p>Vous êtes déjà passé·e de Confort à Essentielle en 2026. Ce passage n’est possible qu’une fois par année civile.</p>
+          <p>Vous pourrez le demander à partir du 1<sup>er</sup> janvier 2027, pour un effet le 1<sup>er</sup> février 2027.</p>
+        </div>
+        <div class="note">
+          <h2>Ce que vous pouvez faire maintenant</h2>
+          <ul>
+            <li>Garder la formule Confort&nbsp;: rien à faire.</li>
+            <li>Résilier votre contrat reste possible à tout moment&nbsp;: <a href="#resiliation-1" data-va="resiliation-1">résilier mon contrat</a>.</li>
+            <li>Poser une question au service adhérents (coordonnées en bas de page).</li>
+          </ul>
+        </div>
+        <div class="actions">
+          <a class="bouton bouton--trait" href="#contrat" data-va="contrat">Retour à mon contrat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="resiliation-1" aria-labelledby="t-r1" hidden>
+    <div class="grille">
+      <form class="col" id="form-r1" novalidate>
+        <div class="etapes">
+          <p class="etapes__txt"><b>Étape 1 sur 2</b> · Votre résiliation</p>
+          <ol class="etapes__barre" aria-hidden="true"><li aria-current="step"></li><li></li></ol>
+        </div>
+        <h1 id="t-r1" tabindex="-1">Résilier votre contrat santé</h1>
+        <p class="chapo">Votre adhésion a plus d’un an&nbsp;: vous pouvez résilier à tout moment, sans frais ni pénalité. Aucun justificatif de nouvelle mutuelle n’est demandé.</p>
+
+        <div class="echeancier echeancier--carte" data-mobile-echeancier>
+          <h2>Ce qui va se passer</h2>
+          <p class="echeancier__pour">Si vous envoyez votre demande aujourd’hui</p>
+          <ol class="fil">
+            <li><p class="fil__date">21 octobre 2026</p><p class="fil__quoi">Vous confirmez votre demande</p><p class="fil__detail">Vous recevez un accusé de réception par courriel, avec la date de fin.</p></li>
+            <li><p class="fil__date">5 novembre 2026</p><p class="fil__quoi">Prélèvement habituel <span class="etiquette">montant à confirmer</span></p><p class="fil__detail">La cotisation reste due jusqu’à la fin du contrat.</p></li>
+            <li class="fin"><p class="fil__date"><span data-v="effetResil">21 novembre 2026</span></p><p class="fil__quoi">Fin du contrat</p><p class="fil__detail">Vous et Léo n’êtes plus couverts par la Mutuelle des Trois Rivières. Pensez à votre nouvelle couverture pour cette date.</p></li>
+          </ol>
+        </div>
+
+        <fieldset>
+          <legend>Pourquoi partez-vous&nbsp;? <span style="font-family:var(--sans);font-size:17px;font-weight:400;color:var(--encre-2)">(facultatif)</span></legend>
+          <p class="aide" id="r1-aide">Votre réponse nous aide à améliorer nos offres. Elle ne change rien à votre demande&nbsp;; vous pouvez passer cette question.</p>
+          <div class="choix" aria-describedby="r1-aide">
+            <label class="case"><input type="checkbox" name="raison" value="Le prix">Le prix</label>
+            <label class="case"><input type="checkbox" name="raison" value="Les garanties">Les garanties</label>
+            <label class="case"><input type="checkbox" name="raison" value="Un déménagement">Un déménagement</label>
+            <label class="case"><input type="checkbox" name="raison" value="Autre raison" id="r1-autre" aria-controls="r1-autre-champ" aria-expanded="false">Autre raison</label>
+          </div>
+          <div class="champ" id="r1-autre-champ" hidden>
+            <label for="r1-precision">Précisez si vous le souhaitez <span style="font-weight:400;color:var(--encre-2)">(facultatif)</span></label>
+            <textarea id="r1-precision" maxlength="300" aria-describedby="r1-compteur"></textarea>
+            <p class="compteur num" id="r1-compteur">300 caractères au maximum</p>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" class="bouton bouton--plein">Continuer</button>
+          <a class="bouton bouton--trait" href="#contrat" data-va="contrat">Annuler</a>
+        </div>
+
+        <div class="rappel">
+          <p><strong style="color:var(--encre)">Une autre possibilité&nbsp;:</strong> changer de formule. Essentielle coûte <span class="num" data-v="totalEssentielle">50,50&nbsp;€</span> par mois pour vous et Léo, avec des garanties plus basses.</p>
+          <p><a href="#formule-1" data-va="formule-1">Comparer les formules</a></p>
+        </div>
+      </form>
+
+      <aside class="col" aria-label="Ce qui va se passer" data-desktop-echeancier></aside>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="resiliation-2" aria-labelledby="t-r2" hidden>
+    <div class="grille">
+      <form class="col" id="form-r2" novalidate>
+        <div class="etapes">
+          <p class="etapes__txt"><b>Étape 2 sur 2</b> · Confirmer ou annuler</p>
+          <ol class="etapes__barre" aria-hidden="true"><li class="fait"></li><li aria-current="step"></li></ol>
+        </div>
+        <div class="alerte" id="r-resume" tabindex="-1" hidden>
+          <h2><svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><rect x="10.8" y="5.5" width="2.4" height="8.5" rx="1.2" fill="#fff"/><circle cx="12" cy="17.6" r="1.5" fill="#fff"/></svg>Votre demande n’est pas encore envoyée</h2>
+          <ul><li><a href="#r-email">L’adresse courriel est incomplète</a></li></ul>
+        </div>
+        <div class="alerte" id="r-echec" tabindex="-1" hidden>
+          <h2><svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><rect x="10.8" y="5.5" width="2.4" height="8.5" rx="1.2" fill="#fff"/><circle cx="12" cy="17.6" r="1.5" fill="#fff"/></svg>L’envoi n’a pas abouti</h2>
+          <p>Votre demande n’a pas été transmise&nbsp;: votre contrat continue normalement. Vos réponses sont conservées. Réessayez dans quelques instants, ou appelez le service adhérents au <a href="tel:+33900000000" class="num">09&nbsp;00&nbsp;00&nbsp;00&nbsp;00</a>.</p>
+        </div>
+        <h1 id="t-r2" tabindex="-1">Confirmez-vous la résiliation&nbsp;?</h1>
+        <p class="chapo">Vérifiez les informations. Rien n’est envoyé tant que vous n’avez pas confirmé.</p>
+
+        <div class="carte">
+          <dl class="faits">
+            <dt>Contrat</dt><dd>Formule Confort<small>N° d’adhérent <span class="num">TR-204-58817</span></small></dd>
+            <dt>Personnes concernées</dt><dd>Camille Moreau<small>Léo Moreau, enfant</small></dd>
+            <dt>Fin du contrat</dt><dd><span class="montant" data-v="effetResil">21 novembre 2026</span><small>un mois après la réception de votre demande</small></dd>
+            <dt>Frais</dt><dd>Aucun</dd>
+            <dt>Raison du départ</dt><dd data-raisons>Non indiquée<small>Question facultative</small></dd>
+          </dl>
+        </div>
+
+        <div data-ech-ancre="resiliation-2" hidden></div>
+        <div class="courriel-bloc" data-courriel="r">
+          <h2 data-titre style="font-family:var(--sans);font-size:18px;font-weight:700">Accusé de réception envoyé à</h2>
+          <div class="courriel" style="margin-top:6px">
+            <span class="courriel__adr" data-adr>camille.moreau@courriel.example</span>
+            <button type="button" class="lien-bouton" data-modifier aria-controls="r-champ" aria-expanded="false">Modifier l’adresse</button>
+          </div>
+          <div class="champ" id="r-champ" hidden>
+            <label for="r-email">Adresse courriel pour l’accusé de réception</label>
+            <input id="r-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" value="camille.moreau@courriel.example" aria-describedby="r-email-err">
+            <p class="champ__erreur" id="r-email-err" hidden></p>
+          </div>
+        </div>
+
+        <div>
+          <div class="actions actions--egales">
+            <button type="submit" class="bouton bouton--plein" data-envoyer>Confirmer la résiliation</button>
+            <button type="button" class="bouton bouton--trait" data-annuler-resil>Annuler la résiliation</button>
+          </div>
+          <p class="actions__note"><a href="#resiliation-1" data-va="resiliation-1">Revenir à l’étape précédente</a></p>
+        </div>
+      </form>
+
+      <aside class="col" aria-labelledby="e-r2">
+        <div class="echeancier">
+          <h2 id="e-r2">Ce qui va se passer</h2>
+          <p class="echeancier__pour">Si vous confirmez aujourd’hui</p>
+          <ol class="fil">
+            <li><p class="fil__date">21 octobre 2026</p><p class="fil__quoi">Demande reçue</p><p class="fil__detail">Accusé de réception par courriel, avec la date de fin.</p></li>
+            <li><p class="fil__date">5 novembre 2026</p><p class="fil__quoi">Prélèvement habituel <span class="etiquette">montant à confirmer</span></p><p class="fil__detail">La cotisation reste due jusqu’à la fin du contrat.</p></li>
+            <li class="fin"><p class="fil__date"><span data-v="effetResil">21 novembre 2026</span></p><p class="fil__quoi">Fin du contrat</p><p class="fil__detail">Vous et Léo n’êtes plus couverts.</p></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="resiliation-ok" aria-labelledby="t-r3" hidden>
+    <div class="grille">
+      <div class="col">
+        <h1 id="t-r3" tabindex="-1">Votre demande de résiliation est envoyée</h1>
+        <div class="resultat" role="status">
+          <p class="resultat__statut"><svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M6.5 12.5l3.7 3.6 7.3-7.6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Reçue le 21 octobre 2026</p>
+          <p class="grand">Votre contrat prendra fin le <span data-v="effetResil">21 novembre 2026</span>.</p>
+          <p>Un accusé de réception, avec cette date, a été envoyé à <strong class="courriel__adr" data-adr-final>camille.moreau@courriel.example</strong>. Gardez-le&nbsp;: il prouve la date de votre demande.</p>
+        </div>
+        <dl class="faits">
+          <dt>D’ici la fin du contrat</dt><dd>Vous et Léo restez couverts<small>Vos remboursements continuent normalement.</small></dd>
+          <dt>Frais</dt><dd>Aucun</dd>
+          <dt>Référence</dt><dd class="num">RES-2026-58817-01 <span class="etiquette">exemple</span></dd>
+        </dl>
+        <div class="actions">
+          <a class="bouton bouton--trait" href="#contrat" data-va="contrat">Retour à mon espace</a>
+        </div>
+      </div>
+      <aside class="col" aria-labelledby="e-r3">
+        <div class="echeancier">
+          <h2 id="e-r3">Prochaines dates</h2>
+          <ol class="fil">
+            <li class="fait"><p class="fil__date">21 octobre 2026</p><p class="fil__quoi">Demande reçue</p><p class="fil__detail">Accusé de réception envoyé.</p></li>
+            <li><p class="fil__date">5 novembre 2026</p><p class="fil__quoi">Prélèvement habituel <span class="etiquette">montant à confirmer</span></p></li>
+            <li class="fin"><p class="fil__date"><span data-v="effetResil">21 novembre 2026</span></p><p class="fil__quoi">Fin du contrat</p></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+    <section class="ecran" data-ecran="resiliation-annulee" aria-labelledby="t-ra" hidden>
+    <div class="grille grille--seule">
+      <div class="col">
+        <h1 id="t-ra" tabindex="-1">Votre contrat continue</h1>
+        <div class="resultat resultat--neutre" role="status">
+          <p class="resultat__statut"><svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Résiliation annulée</p>
+          <p class="grand">Aucune demande n’a été envoyée. Rien ne change pour vous et Léo.</p>
+          <p>Vous gardez la formule Confort, au même tarif. Vous pourrez résilier plus tard depuis votre contrat, si vous le souhaitez.</p>
+        </div>
+        <div class="actions">
+          <a class="bouton bouton--trait" href="#contrat" data-va="contrat">Retour à mon contrat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="aide-adherent" aria-label="Aide">
+  <div class="aide-adherent__in">
+    <p><b>Une question&nbsp;?</b> Service adhérents</p>
+    <p><a href="tel:+33900000000" class="num">09&nbsp;00&nbsp;00&nbsp;00&nbsp;00</a>, du lundi au vendredi, de 9&nbsp;h à 18&nbsp;h</p>
+    <p><a href="mailto:contact@trois-rivieres.example">contact@trois-rivieres.example</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  /* ---------- Données du brief (fictives) ---------- */
+  var TARIFS = { Confort:{adulte:61.90, enfant:19.80}, Essentielle:{adulte:38.40, enfant:12.10} };
+  var FOYER = { adultes:1, enfants:1 };
+  var AUJOURDHUI = new Date(2026, 9, 21); // date simulée de la maquette
+  var MOIS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+
+  function total(f){ var t=TARIFS[f]; return Math.round((t.adulte*FOYER.adultes + t.enfant*FOYER.enfants)*100)/100; }
+  function euros(n){ return n.toFixed(2).replace(".", ",") + " €"; }
+  function dateHTML(d, sansAnnee){
+    var j = d.getDate()===1 ? "1<sup>er</sup>" : String(d.getDate());
+    return j + " " + MOIS[d.getMonth()] + (sansAnnee ? "" : " " + d.getFullYear());
+  }
+  // Changement de formule : 1er du mois suivant la demande
+  var effetFormule = new Date(AUJOURDHUI.getFullYear(), AUJOURDHUI.getMonth()+1, 1);
+  // Résiliation : un mois après la réception de la demande
+  var effetResil = new Date(AUJOURDHUI.getFullYear(), AUJOURDHUI.getMonth()+1, AUJOURDHUI.getDate());
+
+  var V = {
+    totalConfort: euros(total("Confort")),
+    totalEssentielle: euros(total("Essentielle")),
+    ecart: euros(Math.round((total("Confort")-total("Essentielle"))*100)/100),
+    effetFormule: dateHTML(effetFormule),
+    effetResil: dateHTML(effetResil),
+    effetResilCourt: dateHTML(effetResil, true)
+  };
+  document.querySelectorAll("[data-v]").forEach(function(el){
+    var k = el.getAttribute("data-v"); if (V[k] != null) el.innerHTML = V[k];
+  });
+  window.__maquette = { V:V, total:total }; // exposé pour la recette
+
+  /* ---------- Écrans et états ---------- */
+  var ETATS = {
+    "contrat":             { ecran:"contrat", titre:"Mon contrat santé", fil:null },
+    "formule-1":           { ecran:"formule-1", titre:"Étape 1 sur 2 – Changer de formule", fil:"Changer de formule" },
+    "formule-2":           { ecran:"formule-2", titre:"Étape 2 sur 2 – Vérifier votre changement de formule", fil:"Changer de formule" },
+    "formule-2-erreur":    { ecran:"formule-2", titre:"Erreur – Étape 2 sur 2 – Vérifier votre changement de formule", fil:"Changer de formule", prep:function(){ simulerErreur("f"); } },
+    "formule-ok":          { ecran:"formule-ok", titre:"Changement de formule enregistré", fil:"Changer de formule" },
+    "formule-indispo":     { ecran:"formule-indispo", titre:"Changer de formule – indisponible", fil:"Changer de formule" },
+    "resiliation-1":       { ecran:"resiliation-1", titre:"Étape 1 sur 2 – Résilier votre contrat santé", fil:"Résilier" },
+    "resiliation-2":       { ecran:"resiliation-2", titre:"Étape 2 sur 2 – Confirmer ou annuler la résiliation", fil:"Résilier" },
+    "resiliation-2-erreur":{ ecran:"resiliation-2", titre:"Erreur – Étape 2 sur 2 – Confirmer ou annuler la résiliation", fil:"Résilier", prep:function(){ simulerErreur("r"); } },
+    "resiliation-2-echec": { ecran:"resiliation-2", titre:"Échec de l’envoi – Confirmer ou annuler la résiliation", fil:"Résilier", prep:function(){ var a=document.getElementById("r-echec"); a.hidden=false; document.querySelector("#form-r2 [data-envoyer]").textContent="Réessayer l’envoi"; return a; } },
+    "resiliation-ok":      { ecran:"resiliation-ok", titre:"Demande de résiliation envoyée", fil:"Résilier" },
+    "resiliation-annulee": { ecran:"resiliation-annulee", titre:"Résiliation annulée", fil:"Résilier" }
+  };
+
+  var select = document.getElementById("aller");
+  var arianeCourant = document.getElementById("ariane-courant");
+  var etatCourant = null;
+  var deplacerFocus = false;
+
+  function reinitialiser(){
+    ["f","r"].forEach(function(p){
+      var resume = document.getElementById(p+"-resume"); if (resume) resume.hidden = true;
+      var input = document.getElementById(p+"-email");
+      input.removeAttribute("aria-invalid");
+      var err = document.getElementById(p+"-email-err"); err.hidden = true; err.innerHTML = "";
+    });
+    ["f","r"].forEach(function(p){
+      var bloc = document.querySelector('[data-courriel="'+p+'"]');
+      document.getElementById(p+"-champ").hidden = true;
+      bloc.querySelector(".courriel").hidden = false;
+      bloc.querySelector("[data-titre]").hidden = false;
+      bloc.querySelector("[data-modifier]").setAttribute("aria-expanded","false");
+      document.getElementById(p+"-email").value = bloc.querySelector("[data-adr]").textContent;
+    });
+    document.getElementById("r-echec").hidden = true;
+    document.querySelectorAll("[data-envoyer]").forEach(function(b){ b.removeAttribute("aria-disabled"); b.textContent = b.closest("#form-r2") ? "Confirmer la résiliation" : "Confirmer le changement"; });
+  }
+
+  function afficher(cle){
+    var etat = ETATS[cle] ? cle : "contrat";
+    var def = ETATS[etat];
+    reinitialiser();
+    document.querySelectorAll("[data-ecran]").forEach(function(s){ s.hidden = s.getAttribute("data-ecran") !== def.ecran; });
+    if (def.fil){
+      arianeCourant.innerHTML = '<a href="#contrat">Mon contrat santé</a>';
+      var li = document.getElementById("ariane-flux");
+      if (!li){ li = document.createElement("li"); li.id = "ariane-flux"; arianeCourant.parentNode.appendChild(li); }
+      li.innerHTML = '<span aria-current="page">' + def.fil + '</span>';
+    } else {
+      arianeCourant.innerHTML = '<span aria-current="page">Mon contrat santé</span>';
+      var l2 = document.getElementById("ariane-flux"); if (l2) l2.remove();
+    }
+    if (def.ecran === "resiliation-2") majRaisons();
+    var cible = def.prep ? def.prep() : null;
+    document.title = def.titre + " – Mutuelle des Trois Rivières";
+    select.value = etat;
+    etatCourant = etat;
+    if (deplacerFocus){
+      var h = cible || document.querySelector('[data-ecran="'+def.ecran+'"] h1');
+      if (h) h.focus();
+      window.scrollTo(0,0);
+    }
+    deplacerFocus = true;
+  }
+
+  function aller(cle, remplacer){
+    if (remplacer){ history.replaceState(null, "", "#" + cle); afficher(cle); }
+    else if (location.hash.slice(1) === cle){ afficher(cle); }
+    else { location.hash = cle; }
+  }
+  window.addEventListener("hashchange", function(){ afficher(location.hash.slice(1)); });
+  select.addEventListener("change", function(){ aller(select.value); });
+
+  /* ---------- Échéancier : à côté (bureau), dans le fil de lecture avant la décision (mobile) ---------- */
+  var formR1 = document.getElementById("form-r1");
+  var mq = window.matchMedia("(min-width: 901px)");
+  var PLACEMENTS = [];
+  (function(){
+    var ech = document.querySelector("[data-mobile-echeancier]");
+    var cote = document.querySelector("[data-desktop-echeancier]");
+    var ancre = document.createElement("div"); ancre.hidden = true;
+    formR1.querySelector(".chapo").after(ancre);
+    PLACEMENTS.push({ech:ech, cote:cote, ancre:ancre});
+  })();
+  document.querySelectorAll("[data-ech-ancre]").forEach(function(ancre){
+    var cote = ancre.closest("[data-ecran]").querySelector("aside.col");
+    PLACEMENTS.push({ech:cote.querySelector(".echeancier"), cote:cote, ancre:ancre});
+  });
+  function placer(){
+    PLACEMENTS.forEach(function(pl){
+      if (mq.matches){ pl.ech.classList.remove("echeancier--carte"); pl.cote.appendChild(pl.ech); pl.cote.hidden = false; }
+      else { pl.ech.classList.add("echeancier--carte"); pl.ancre.after(pl.ech); pl.cote.hidden = true; }
+    });
+  }
+  placer(); if (mq.addEventListener) mq.addEventListener("change", placer);
+
+  /* ---------- R1 : questionnaire facultatif ---------- */
+  var autre = document.getElementById("r1-autre");
+  var autreChamp = document.getElementById("r1-autre-champ");
+  var precision = document.getElementById("r1-precision");
+  var compteur = document.getElementById("r1-compteur");
+  autre.addEventListener("change", function(){
+    autreChamp.hidden = !autre.checked; autre.setAttribute("aria-expanded", String(autre.checked));
+  });
+  precision.addEventListener("input", function(){
+    var reste = 300 - precision.value.length;
+    compteur.textContent = reste === 300 ? "300 caractères au maximum" : reste + " caractère" + (reste>1?"s":"") + " restant" + (reste>1?"s":"");
+  });
+  formR1.addEventListener("submit", function(e){ e.preventDefault(); aller("resiliation-2"); });
+
+  function majRaisons(){
+    var dd = document.querySelector("[data-raisons]");
+    var r = Array.prototype.map.call(document.querySelectorAll('input[name="raison"]:checked'), function(i){ return i.value; });
+    var p = precision.value.trim();
+    if (!r.length){ dd.innerHTML = 'Non indiquée<small>Question facultative</small>'; return; }
+    dd.textContent = r.join(", ");
+    if (p && autre.checked){ var s = document.createElement("small"); s.textContent = "« " + p + " »"; dd.appendChild(s); }
+  }
+
+  /* ---------- Courriel modifiable + validation ---------- */
+  var RE = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[^\s@.]{2,}$/;
+  var PICTO = '<svg class="pictogramme" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><rect x="10.8" y="5.5" width="2.4" height="8.5" rx="1.2" fill="#fff"/><circle cx="12" cy="17.6" r="1.5" fill="#fff"/></svg>';
+  function ouvrirChamp(p){
+    var bloc = document.querySelector('[data-courriel="'+p+'"]');
+    var champ = document.getElementById(p+"-champ");
+    champ.hidden = false;
+    bloc.querySelector("[data-modifier]").setAttribute("aria-expanded","true");
+    bloc.querySelector(".courriel").hidden = true;
+    bloc.querySelector("[data-titre]").hidden = true;
+  }
+  function verifier(p){
+    var input = document.getElementById(p+"-email");
+    var err = document.getElementById(p+"-email-err");
+    var v = input.value.trim();
+    var msg = null;
+    if (!v) msg = (p==="r" ? "Indiquez l’adresse où recevoir l’accusé de réception." : "Indiquez l’adresse où recevoir la confirmation.");
+    else if (v.indexOf("@") < 0) msg = "Il manque le « @ » dans cette adresse. Exemple de format attendu : nom@exemple.fr.";
+    else if (!RE.test(v)) msg = "Cette adresse est incomplète après le « @ ». Exemple de format attendu : nom@exemple.fr.";
+    if (msg){
+      input.setAttribute("aria-invalid","true");
+      err.innerHTML = PICTO + "<span>" + msg + "</span>"; err.hidden = false;
+      return false;
+    }
+    input.removeAttribute("aria-invalid"); err.hidden = true; err.innerHTML = "";
+    return true;
+  }
+  function simulerErreur(p){
+    ouvrirChamp(p);
+    var input = document.getElementById(p+"-email");
+    input.value = "camille.moreau@courriel";
+    verifier(p);
+    var resume = document.getElementById(p+"-resume"); resume.hidden = false;
+    return resume;
+  }
+  document.querySelectorAll("[data-modifier]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var p = b.closest("[data-courriel]").getAttribute("data-courriel");
+      ouvrirChamp(p); document.getElementById(p+"-email").focus();
+    });
+  });
+  ["f","r"].forEach(function(p){
+    var input = document.getElementById(p+"-email");
+    input.addEventListener("blur", function(){ if (input.getAttribute("aria-invalid")) { if (verifier(p)) document.getElementById(p+"-resume").hidden = true; } });
+    input.addEventListener("input", function(){ if (input.getAttribute("aria-invalid") && RE.test(input.value.trim())) { verifier(p); document.getElementById(p+"-resume").hidden = true; document.getElementById("annonce").textContent = "Adresse corrigée."; } });
+  });
+  document.querySelectorAll(".alerte a[href^='#'][href$='-email']").forEach(function(a){
+    a.addEventListener("click", function(e){ e.preventDefault(); document.getElementById(a.getAttribute("href").slice(1)).focus(); });
+  });
+
+  function envoyer(form, p, suite){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var champOuvert = !document.getElementById(p+"-champ").hidden;
+      if (champOuvert && !verifier(p)){
+        var resume = document.getElementById(p+"-resume"); resume.hidden = false; resume.focus();
+        document.title = "Erreur – " + document.title.replace(/^Erreur – /,"");
+        return;
+      }
+      var adr = document.getElementById(p+"-email").value.trim();
+      document.querySelectorAll("[data-adr], [data-adr-final]").forEach(function(el){
+        if (el.closest('[data-courriel="'+p+'"]') || el.closest('[data-ecran="'+suite+'"]')) el.textContent = adr;
+      });
+      var b = form.querySelector("[data-envoyer]");
+      if (b.getAttribute("aria-disabled")) return;
+      b.setAttribute("aria-disabled","true"); b.textContent = "Envoi en cours…";
+      document.getElementById("annonce").textContent = "Envoi en cours.";
+      setTimeout(function(){ aller(suite, true); }, 700); // l’écran de confirmation remplace l’étape envoyée dans l’historique
+    });
+  }
+  envoyer(document.getElementById("form-f2"), "f", "formule-ok");
+  envoyer(document.getElementById("form-r2"), "r", "resiliation-ok");
+  document.querySelector("[data-annuler-resil]").addEventListener("click", function(){ aller("resiliation-annulee"); });
+
+  /* Liens internes : passer par le routeur pour déplacer le focus */
+  document.addEventListener("click", function(e){
+    var a = e.target.closest("a[data-va]"); if (!a) return;
+    e.preventDefault(); aller(a.getAttribute("data-va"));
+  });
+
+  deplacerFocus = false;
+  afficher(location.hash.slice(1) || "contrat");
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interventions du jour · Lyon Sud</title>
+<style>
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("atkinson-hyperlegible-next-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --fond: #f1f0ec;
+  --panneau: #ffffff;
+  --encre: #15181c;
+  --encre-2: #4f5661;
+  --filet: #d6d3cb;
+  --filet-fort: #a9a59b;
+
+  --retard: #a8231b;
+  --retard-fond: #fbecea;
+  --cours: #1c56ad;
+  --cours-fond: #ecf1fa;
+  --fait: #2a6546;
+  --signal: #f3c300;      /* jaune de signalisation : priorité haute uniquement */
+  --focus: #15181c;
+
+  --r: 6px;
+  --gouttiere: 16px;
+  font-family: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--encre);
+  background: var(--fond);
+  font-variant-numeric: tabular-nums;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fond); }
+h1, h2, h3, p { margin: 0; }
+button, a { font: inherit; color: inherit; }
+.visuellement-cache {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; padding: 0; border: 0;
+}
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* ---------- En-tête ---------- */
+.tete {
+  padding: 14px var(--gouttiere) 12px;
+  background: var(--encre);
+  color: #fff;
+}
+.tete-in { max-width: 1440px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: baseline; justify-content: space-between; }
+.marque { font-size: 0.82rem; color: #c9ccd2; letter-spacing: 0.01em; }
+.marque b { color: #fff; font-weight: 700; }
+h1 { font-size: 1.45rem; line-height: 1.15; font-weight: 750; letter-spacing: -0.01em; text-wrap: balance; flex-basis: 100%; }
+.situation { font-size: 0.88rem; color: #dfe2e7; }
+.situation time { color: #fff; font-weight: 700; }
+
+/* ---------- Filtres ---------- */
+.filtres {
+  padding: 12px var(--gouttiere) 14px;
+  background: var(--panneau);
+  border-bottom: 1px solid var(--filet);
+}
+.filtres-in { max-width: 1440px; margin: 0 auto; display: grid; gap: 10px; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend { font-size: 0.8rem; font-weight: 700; color: var(--encre-2); padding: 0; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+.choix { display: grid; gap: 6px; }
+.choix-tech { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.choix-statut { grid-template-columns: 0.72fr 1.14fr 1.14fr; }
+.choix-statut button:nth-child(4) { grid-column: 1 / span 2; }
+.choix button {
+  min-height: 48px;
+  padding: 6px 8px;
+  border: 1.5px solid var(--filet-fort);
+  border-radius: var(--r);
+  background: var(--panneau);
+  color: var(--encre);
+  font-weight: 650;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  text-align: center;
+}
+.choix button:hover { border-color: var(--encre); }
+.choix button[aria-pressed="true"] { background: var(--encre); border-color: var(--encre); color: #fff; }
+.choix button:disabled { cursor: not-allowed; color: #6b717b; background: #f4f3ef; border-color: var(--filet); }
+.choix .nb { font-weight: 400; font-size: 0.9em; }
+.choix .nom-long { display: none; }
+.pastille { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.pastille.retard { background: var(--retard); }
+.pastille.cours { background: var(--cours); }
+.pastille.faire { background: transparent; border: 2px solid var(--encre-2); }
+.pastille.fait { background: var(--fait); }
+button[aria-pressed="true"] .pastille.faire { border-color: #fff; }
+button[aria-pressed="true"] .pastille { box-shadow: 0 0 0 2px #fff; }
+
+/* ---------- Mise en page ---------- */
+main { padding: 16px var(--gouttiere) 32px; }
+.page { max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+.bloc-titre { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+h2 { font-size: 1.12rem; font-weight: 750; letter-spacing: -0.005em; }
+.aide { font-size: 0.84rem; color: var(--encre-2); }
+
+/* ordre mobile : sans filtre technicien, ce qui est en retard passe d'abord */
+.page[data-tech="tous"] #zone-surveiller { order: -1; }
+/* un filtre de statut porte sur la liste : sur mobile, la liste filtrée remonte sous les filtres */
+.page:not([data-statut="tous"]) #zone-journee { order: -2; }
+
+/* ---------- Files des techniciens ---------- */
+.files { display: grid; gap: 12px; }
+.file {
+  background: var(--panneau);
+  border: 1px solid var(--filet);
+  border-radius: var(--r);
+  padding: 14px 14px 12px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.file-tete { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.file h3 { font-size: 1.05rem; font-weight: 750; }
+.charge { font-size: 0.82rem; color: var(--encre-2); }
+.charge .r { color: var(--retard); font-weight: 700; }
+.sur-place {
+  font-size: 0.88rem; padding: 8px 10px; border-left: 4px solid var(--cours); background: var(--cours-fond); border-radius: 0 4px 4px 0;
+}
+.sur-place b { color: var(--cours); }
+.ensuite { display: grid; gap: 4px; }
+.ensuite-tag { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--encre-2); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ensuite-tag .delai { text-transform: none; letter-spacing: 0; }
+.ensuite-tag .delai.retard { color: var(--retard); }
+.ensuite-heure { font-size: 1.7rem; font-weight: 800; line-height: 1.05; }
+.ensuite-adresse { font-size: 1.22rem; font-weight: 700; line-height: 1.22; }
+.ensuite-detail { font-size: 0.9rem; color: var(--encre-2); }
+.ensuite-note { font-size: 0.92rem; font-weight: 650; }
+.actions-file { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.btn {
+  min-height: 48px; padding: 10px 16px; border-radius: var(--r);
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700;
+  border: 1.5px solid var(--encre); background: var(--encre); color: #fff; cursor: pointer;
+}
+.btn.second { background: var(--panneau); color: var(--encre); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.puis { font-size: 0.86rem; color: var(--encre-2); border-top: 1px solid var(--filet); padding-top: 8px; }
+.puis b { color: var(--encre); font-weight: 650; }
+.file.libre .ensuite-adresse { font-size: 1.05rem; }
+
+/* ---------- Étiquettes ---------- */
+.urgent {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--signal); color: var(--encre);
+  font-size: 0.78rem; font-weight: 750; line-height: 1;
+  padding: 4px 7px 4px 5px; border-radius: 3px; white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.urgent svg { width: 13px; height: 13px; }
+.basse { font-size: 0.8rem; color: var(--encre-2); white-space: nowrap; }
+
+/* ---------- À surveiller ---------- */
+.surveiller { background: var(--panneau); border: 1px solid var(--filet); border-top: 4px solid var(--retard); border-radius: var(--r); padding: 14px; }
+.surveiller ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.alerte { padding: 11px 0; border-top: 1px solid var(--filet); display: grid; gap: 3px; }
+.alerte:first-child { border-top: 0; padding-top: 2px; }
+.alerte-etat { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-weight: 750; }
+.alerte-etat .txt.retard { color: var(--retard); }
+.alerte-etat .txt.cours { color: var(--cours); }
+.alerte-etat svg { width: 18px; height: 18px; flex: none; }
+.alerte-qui { font-size: 0.9rem; }
+.alerte-qui b { font-weight: 700; }
+.alerte-adr { font-size: 0.9rem; color: var(--encre-2); }
+.alerte-note { font-size: 0.9rem; font-weight: 650; }
+.surveiller .rien { font-size: 0.95rem; color: var(--encre-2); padding: 4px 0; }
+
+/* ---------- Journée ---------- */
+.journee { background: var(--panneau); border: 1px solid var(--filet); border-radius: var(--r); }
+.journee .bloc-titre { padding: 14px 14px 0; }
+.entetes { display: none; }
+.liste { list-style: none; margin: 0; padding: 0; }
+.ligne {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  column-gap: 10px; row-gap: 2px;
+  padding: 11px 14px 12px 10px;
+  border-top: 1px solid var(--filet);
+  border-left: 4px solid transparent;
+}
+.ligne > .c-heure { grid-row: 1 / span 6; font-weight: 800; font-size: 1.05rem; padding-top: 1px; }
+.c-statut { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 0.92rem; flex-wrap: wrap; }
+.c-statut svg { width: 16px; height: 16px; flex: none; }
+.c-statut .delai { font-weight: 400; }
+.c-objet { font-size: 0.95rem; }
+.c-objet b { font-weight: 700; }
+.c-objet .ref { color: var(--encre-2); }
+.c-adresse { font-size: 0.95rem; font-weight: 650; }
+.c-tech { font-size: 0.9rem; color: var(--encre-2); }
+.c-note { font-size: 0.9rem; }
+.c-note:empty { display: none; }
+
+.ligne.s-retard { background: var(--retard-fond); border-left-color: var(--retard); }
+.ligne.s-retard .c-statut { color: var(--retard); }
+.ligne.s-cours { border-left-color: var(--cours); }
+.ligne.s-cours .c-statut { color: var(--cours); }
+.ligne.s-fait { color: var(--encre-2); }
+.ligne.s-fait .c-statut { color: var(--fait); }
+.ligne.s-fait .c-adresse { font-weight: 400; }
+.nw { white-space: nowrap; }
+/* le passé terminé se tasse pour que « maintenant » arrive plus vite (sauf filtre « Terminées ») */
+.page:not([data-statut="fait"]) .ligne.s-fait { padding-top: 7px; padding-bottom: 8px; }
+.page:not([data-statut="fait"]) .ligne.s-fait .ref,
+.page:not([data-statut="fait"]) .ligne.s-fait .c-note,
+.page:not([data-statut="fait"]) .ligne.s-fait .c-objet br,
+.page:not([data-statut="fait"]) .ligne.s-fait .basse { display: none; }
+
+.maintenant {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 14px; border-top: 2px solid var(--encre);
+  font-weight: 750; font-size: 0.9rem; background: var(--fond);
+}
+.maintenant time { background: var(--encre); color: #fff; padding: 3px 8px; border-radius: 3px; }
+.vide { padding: 22px 14px 24px; border-top: 1px solid var(--filet); display: grid; gap: 10px; justify-items: start; }
+.vide p:first-child { font-size: 1.08rem; font-weight: 750; }
+.vide .aide { font-size: 0.92rem; }
+
+/* ---------- États de chargement et d'erreur ---------- */
+.etat-global { background: var(--panneau); border: 1px solid var(--filet); border-radius: var(--r); padding: 22px 18px; display: grid; gap: 12px; justify-items: start; max-width: 720px; }
+.etat-global h2 { font-size: 1.25rem; }
+.etat-global.erreur { border-top: 4px solid var(--retard); }
+.squelette { display: grid; gap: 10px; width: 100%; }
+.squelette span { display: block; height: 58px; border-radius: 4px; background: #e6e4de; }
+.squelette span:nth-child(2) { width: 88%; }
+.squelette span:nth-child(3) { width: 94%; }
+.page[hidden], .etat-global[hidden] { display: none; }
+
+.pied { max-width: 1440px; margin: 0 auto; padding: 0 var(--gouttiere) 28px; font-size: 0.82rem; color: var(--encre-2); display: grid; gap: 6px; }
+.pied a { color: var(--encre); }
+.pied nav { display: flex; flex-wrap: wrap; gap: 0 16px; align-items: center; }
+.pied nav a { display: inline-block; padding: 12px 0; min-height: 44px; }
+
+/* ---------- Tablette et bureau ---------- */
+@media (min-width: 720px) {
+  :root { font-size: 16px; --gouttiere: 24px; }
+  h1 { flex-basis: auto; font-size: 1.55rem; }
+  .choix { display: flex; flex-wrap: wrap; }
+  .choix button { padding: 6px 14px; }
+  .choix .nom-court { display: none; }
+  .choix .nom-long { display: inline; }
+  .files { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+
+@media (min-width: 1100px) {
+  .filtres-in { grid-template-columns: auto minmax(0, 1fr); align-items: end; gap: 12px 28px; }
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-areas: "files surveiller" "journee surveiller";
+    align-items: start;
+    gap: 20px 24px;
+  }
+  #zone-files { grid-area: files; }
+  #zone-surveiller { grid-area: surveiller; position: sticky; top: 16px; }
+  #zone-journee { grid-area: journee; }
+  .entetes, .ligne {
+    display: grid;
+    grid-template-columns: 62px 168px minmax(0, 1.15fr) minmax(0, 1.25fr) 128px;
+    column-gap: 16px;
+  }
+  .entetes {
+    padding: 10px 14px 8px 10px; border-left: 4px solid transparent;
+    font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--encre-2);
+    border-top: 1px solid var(--filet); margin-top: 10px;
+  }
+  .ligne { row-gap: 3px; padding: 10px 14px 10px 10px; }
+  .ligne > .c-heure { grid-row: 1 / span 2; }
+  .c-statut { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+  .c-objet { grid-column: 3; grid-row: 1; }
+  .c-adresse { grid-column: 4; grid-row: 1; }
+  .c-tech { grid-column: 5; grid-row: 1; }
+  .c-note { grid-column: 3 / span 3; grid-row: 2; }
+}
+</style>
+</head>
+<body>
+
+<header class="tete">
+  <div class="tete-in">
+    <p class="marque"><b>Ascenseurs Rhône Maintenance</b> · agence Lyon Sud</p>
+    <h1>Interventions du mardi 20&nbsp;octobre</h1>
+    <p class="situation">Situation à <time datetime="2026-10-20T10:30">10:30</time> · Chef d’équipe&nbsp;: Nathalie Roux</p>
+  </div>
+</header>
+
+<section class="filtres" aria-label="Filtres">
+  <div class="filtres-in">
+    <fieldset>
+      <legend>Technicien</legend>
+      <div class="choix choix-tech" id="filtre-tech"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Statut</legend>
+      <div class="choix choix-statut" id="filtre-statut"></div>
+    </fieldset>
+  </div>
+</section>
+
+<p class="visuellement-cache" aria-live="polite" id="annonce"></p>
+
+<main>
+    <section class="etat-global" id="etat-chargement" aria-busy="true" aria-labelledby="titre-chargement">
+    <h2 id="titre-chargement">Chargement des interventions du jour…</h2>
+    <p class="aide">La liste arrive en quelques secondes. Les filtres seront disponibles ensuite.</p>
+    <div class="squelette" aria-hidden="true"><span></span><span></span><span></span></div>
+  </section>
+
+    <section class="etat-global erreur" id="etat-erreur" hidden aria-labelledby="titre-erreur">
+    <h2 id="titre-erreur">La liste des interventions n’a pas pu être chargée</h2>
+    <p>Le fichier du jour n’est pas arrivé jusqu’à cet écran (réseau coupé ou serveur indisponible). Aucune intervention n’est affichée pour éviter de vous envoyer à une adresse périmée.</p>
+    <p class="aide" id="erreur-detail"></p>
+    <div class="actions-file">
+      <button type="button" class="btn" id="reessayer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
+        Réessayer
+      </button>
+      <a class="btn second" href="tel:+33478000000">Appeler Nathalie Roux</a>
+    </div>
+    <p class="aide">Numéro du chef d’équipe&nbsp;: 04&nbsp;78&nbsp;00&nbsp;00&nbsp;00 (numéro d’exemple, à remplacer).</p>
+  </section>
+
+  <div class="page" id="page" data-tech="tous" hidden>
+    <section id="zone-files" aria-labelledby="titre-files">
+      <div class="bloc-titre">
+        <h2 id="titre-files">Où aller ensuite</h2>
+        <p class="aide">Retards d’abord (pannes urgentes en tête), puis les rendez-vous à l’heure prévue.</p>
+      </div>
+      <div class="files" id="files"></div>
+    </section>
+
+    <aside id="zone-surveiller" class="surveiller" aria-labelledby="titre-surveiller">
+      <div class="bloc-titre">
+        <h2 id="titre-surveiller">À surveiller</h2>
+        <p class="aide" id="surveiller-compte"></p>
+      </div>
+      <ol id="alertes"></ol>
+    </aside>
+
+    <section id="zone-journee" class="journee" aria-labelledby="titre-journee">
+      <div class="bloc-titre">
+        <h2 id="titre-journee">Journée</h2>
+        <p class="aide" id="journee-compte"></p>
+      </div>
+      <div class="entetes" aria-hidden="true">
+        <span>Heure</span><span>Statut</span><span>Intervention</span><span>Adresse</span><span>Technicien</span>
+      </div>
+      <ol class="liste" id="liste"></ol>
+    </section>
+  </div>
+</main>
+
+<footer class="pied">
+  <p id="source">Données fictives fournies par le service. Heure de référence fixée à 10:30 pour la démonstration.</p>
+  <nav aria-label="États de démonstration">
+    <span>Voir l’écran&nbsp;:</span>
+    <a href="?">normal</a>
+    <a href="?#tech=karim&amp;statut=retard">filtre sans résultat</a>
+    <a href="?etat=chargement">en chargement</a>
+    <a href="?etat=erreur">données non chargées</a>
+  </nav>
+</footer>
+
+<noscript><p style="padding:16px">Cet écran a besoin de JavaScript pour afficher et filtrer les interventions.</p></noscript>
+
+<script type="text/csv" id="donnees-integrees">
+id,heure_prevue,adresse,batiment,appareil,type,priorite,statut,technicien,note
+INT-2601,07:30,"118, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-1977,Entretien périodique,Normale,En retard,Sophie Lambert,technicien retenu sur une panne précédente
+INT-2602,07:55,"141, rue Chevreul-Basse, 69007 Lyon",hôtel,ASC-1707,Panne,Haute,En retard,Théo Girard,Porte palière ne se ferme plus ; pièce manquante
+INT-2603,08:00,"46, impasse des Glycines, 69008 Lyon",copropriété,ASC-2179,Entretien périodique,Normale,Terminée,Karim Benali,
+INT-2604,08:25,"115, impasse des Glycines, 69007 Lyon",école,ASC-2954,Panne,Haute,En retard,Sophie Lambert,"Appareil à l'arrêt, signalé par le gardien ; technicien retenu sur une panne précédente"
+INT-2605,08:30,"25, avenue des Frères-Ladoux, 69008 Lyon",clinique,ASC-1451,Réparation planifiée,Normale,Terminée,Théo Girard,"Pièce reçue, pose prévue"
+INT-2606,08:50,"145, boulevard des Tchécoslovaques-Sud, 69008 Lyon",résidence,ASC-1922,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2607,08:55,"2, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-4231,Contrôle réglementaire,Normale,En retard,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer ; accès au local machinerie refusé"
+INT-2608,09:10,"107, rue Sébastien-Ory, 69007 Lyon",parking,ASC-2712,Réparation planifiée,Basse,Terminée,Théo Girard,Remplacement des câbles de traction
+INT-2609,09:15,"123, rue de la Charité-Haute, 69007 Lyon",résidence seniors,ASC-3590,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2610,09:25,"83, rue du Vieux-Moulin, 69007 Lyon",résidence,ASC-3059,Entretien périodique,Normale,Terminée,Sophie Lambert,
+INT-2611,09:30,"112, quai Claude-Arnaud, 69007 Lyon",parking,ASC-4753,Panne,Haute,En cours,Théo Girard,"Cabine bloquée entre deux étages, personne à l'intérieur ; pompiers prévenus"
+INT-2612,09:40,"115, cours Gambetta-Neuf, 69008 Lyon",clinique,ASC-4473,Entretien périodique,Normale,En cours,Karim Benali,
+INT-2613,09:45,"11, rue Pasteur-Prolongée, 69008 Lyon",école,ASC-4006,Entretien périodique,Basse,En cours,Sophie Lambert,
+INT-2614,10:45,"24, impasse des Glycines, 69008 Lyon",école,ASC-2409,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2615,10:55,"120, avenue Berthelot, 69008 Lyon",hôtel,ASC-4880,Entretien périodique,Basse,À faire,Karim Benali,
+INT-2616,11:20,"109, boulevard des Tchécoslovaques-Sud, 69007 Lyon",copropriété,ASC-1431,Réparation planifiée,Basse,À faire,Sophie Lambert,Remplacement des câbles de traction
+INT-2617,11:40,"134, rue Marcel-Rivière, 69007 Lyon",résidence,ASC-4249,Entretien périodique,Normale,À faire,Théo Girard,
+INT-2618,11:45,"93, quai Claude-Arnaud, 69007 Lyon",parking,ASC-1117,Panne,Haute,À faire,Karim Benali,"Appareil à l'arrêt, signalé par le gardien"
+INT-2619,12:20,"46, avenue Berthelot, 69008 Lyon",résidence,ASC-3954,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2620,12:25,"88, avenue Jean-Jaurès-Ouest, 69007 Lyon",résidence seniors,ASC-4257,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2621,12:50,"33, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-4305,Réparation planifiée,Normale,À faire,Sophie Lambert,Changement de l'opérateur de porte
+INT-2622,13:15,"104, rue des Tanneurs, 69008 Lyon",copropriété,ASC-1076,Réparation planifiée,Normale,À faire,Sophie Lambert,"Pièce reçue, pose prévue"
+INT-2623,13:20,"32, rue du Vieux-Moulin, 69007 Lyon",parking,ASC-4042,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2624,13:30,"97, place Jean-Macé-Haute, 69008 Lyon",école,ASC-2008,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2625,13:40,"148, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-2247,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2626,13:55,"64, rue Marcel-Rivière, 69007 Lyon",hôtel,ASC-2221,Réparation planifiée,Basse,À faire,Théo Girard,"Pièce reçue, pose prévue"
+INT-2627,14:00,"21, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-3115,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2628,14:15,"76, boulevard des Tchécoslovaques-Sud, 69008 Lyon",parking,ASC-4980,Réparation planifiée,Normale,À faire,Théo Girard,Changement de l'opérateur de porte
+INT-2629,14:40,"26, cours Gambetta-Neuf, 69008 Lyon",école,ASC-4354,Panne,Normale,À faire,Théo Girard,Bruit anormal au démarrage
+INT-2630,14:45,"147, place Jean-Macé-Haute, 69008 Lyon",clinique,ASC-1746,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2631,14:50,"91, rue des Trois-Pierres, 69008 Lyon",copropriété,ASC-4832,Entretien périodique,Basse,À faire,Sophie Lambert,
+INT-2632,15:05,"42, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3672,Panne,Normale,À faire,Théo Girard,Bouton d'appel du 3e hors service
+INT-2633,15:30,"85, place Jean-Macé-Haute, 69007 Lyon",copropriété,ASC-2794,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2634,15:45,"137, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3137,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2635,16:05,"66, place Jean-Macé-Haute, 69008 Lyon",résidence,ASC-4576,Contrôle réglementaire,Normale,À faire,Karim Benali,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2636,16:55,"122, avenue des Frères-Ladoux, 69008 Lyon",école,ASC-2868,Panne,Haute,À faire,Karim Benali,Porte palière ne se ferme plus
+INT-2637,17:00,"33, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-1548,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2638,17:15,"22, rue du Vieux-Moulin, 69007 Lyon",clinique,ASC-2323,Entretien périodique,Basse,À faire,Théo Girard,
+INT-2639,17:20,"115, place Jean-Macé-Haute, 69008 Lyon",hôtel,ASC-3255,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2640,17:25,"22, avenue Jean-Jaurès-Ouest, 69008 Lyon",copropriété,ASC-2928,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+</script>
+
+<script>
+(() => {
+  "use strict";
+
+  const MAINTENANT = 10 * 60 + 30;           // l'écran est consulté à 10:30
+  const COLONNES = ["id","heure_prevue","adresse","batiment","appareil","type","priorite","statut","technicien","note"];
+  const TECHS = [
+    { cle: "karim",  nom: "Karim Benali",   court: "Karim" },
+    { cle: "sophie", nom: "Sophie Lambert", court: "Sophie" },
+    { cle: "theo",   nom: "Théo Girard",    court: "Théo" }
+  ];
+  const STATUTS = [
+    { cle: "tous",   nom: null,           libelle: "Tous",       court: "Tous" },
+    { cle: "retard", nom: "En retard",    libelle: "En retard",  court: "En retard", pastille: "retard" },
+    { cle: "cours",  nom: "En cours",     libelle: "En cours",   court: "En cours",  pastille: "cours" },
+    { cle: "faire",  nom: "À faire",      libelle: "À faire",    court: "À faire",   pastille: "faire" },
+    { cle: "fait",   nom: "Terminée",     libelle: "Terminées",  court: "Terminées", pastille: "fait" }
+  ];
+  const CLE_STATUT = { "En retard": "retard", "En cours": "cours", "À faire": "faire", "Terminée": "fait" };
+
+  const ICONES = {
+    retard: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    cours:  '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>',
+    faire:  '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="8.5"/></svg>',
+    fait:   '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    urgent: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 22.5 21h-21z" fill="#15181c"/><path d="M12 9v5.5" stroke="#f3c300" stroke-width="2.6" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.4" fill="#f3c300"/></svg>',
+    itin:   '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>'
+  };
+
+  const $ = (s) => document.querySelector(s);
+  const esc = (t) => String(t).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const nbsp = " ";
+
+  let donnees = [];
+  let filtre = { tech: "tous", statut: "tous" };
+
+  /* ---------- Lecture CSV ---------- */
+  function lireCSV(texte) {
+    const lignes = []; let champ = ""; let ligne = []; let guillemets = false;
+    for (let i = 0; i < texte.length; i++) {
+      const c = texte[i];
+      if (guillemets) {
+        if (c === '"' && texte[i + 1] === '"') { champ += '"'; i++; }
+        else if (c === '"') guillemets = false;
+        else champ += c;
+      } else if (c === '"') guillemets = true;
+      else if (c === ",") { ligne.push(champ); champ = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && texte[i + 1] === "\n") i++;
+        ligne.push(champ); champ = "";
+        if (ligne.some(v => v.trim() !== "")) lignes.push(ligne);
+        ligne = [];
+      } else champ += c;
+    }
+    ligne.push(champ);
+    if (ligne.some(v => v.trim() !== "")) lignes.push(ligne);
+    return lignes;
+  }
+
+  function versInterventions(texte) {
+    const lignes = lireCSV(texte.trim());
+    const entete = lignes.shift() || [];
+    if (COLONNES.some((c, i) => entete[i] !== c)) throw new Error("colonnes inattendues dans le fichier");
+    const liste = lignes.map(l => {
+      const o = {}; COLONNES.forEach((c, i) => o[c] = (l[i] || "").trim());
+      const [h, m] = o.heure_prevue.split(":").map(Number);
+      o.minutes = h * 60 + m;
+      o.cle = CLE_STATUT[o.statut];
+      o.tech = (TECHS.find(t => t.nom === o.technicien) || {}).cle;
+      if (!o.cle || !o.tech || Number.isNaN(o.minutes)) throw new Error("ligne illisible : " + (o.id || "sans identifiant"));
+      return o;
+    });
+    if (!liste.length) throw new Error("fichier vide");
+    return liste.sort((a, b) => a.minutes - b.minutes || a.id.localeCompare(b.id));
+  }
+
+  /* ---------- Durées ---------- */
+  function duree(min) {
+    const h = Math.floor(min / 60), m = min % 60;
+    if (h && m) return h + nbsp + "h" + nbsp + String(m).padStart(2, "0");
+    if (h) return h + nbsp + "h";
+    return m + nbsp + "min";
+  }
+  const retardDe = (i) => duree(MAINTENANT - i.minutes);
+
+  /* ---------- File d'un technicien ---------- */
+  function fileDe(cle) {
+    const a = donnees.filter(i => i.tech === cle);
+    const enCours = a.filter(i => i.cle === "cours");
+    const retards = a.filter(i => i.cle === "retard")
+      .sort((x, y) => (x.priorite === "Haute" ? 0 : 1) - (y.priorite === "Haute" ? 0 : 1) || x.minutes - y.minutes);
+    const aFaire = a.filter(i => i.cle === "faire").sort((x, y) => x.minutes - y.minutes);
+    return { tout: a, enCours, suite: retards.concat(aFaire) };
+  }
+
+  function tagUrgent(i) {
+    return i.priorite === "Haute" ? `<span class="urgent">${ICONES.urgent}Priorité haute</span>` : "";
+  }
+  function itineraire(i) {
+    return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(i.adresse);
+  }
+  function decouperAdresse(a) {
+    const k = a.lastIndexOf(",");
+    return k > 0 ? [a.slice(0, k).trim(), a.slice(k + 1).trim()] : [a, ""];
+  }
+
+  function rendreFiles() {
+    const techs = filtre.tech === "tous" ? TECHS : TECHS.filter(t => t.cle === filtre.tech);
+    $("#files").innerHTML = techs.map(t => {
+      const f = fileDe(t.cle);
+      const n = (k) => f.tout.filter(i => i.cle === k).length;
+      const charge = [
+        n("retard") ? `<span class="r">${n("retard")} en retard</span>` : "",
+        n("cours") ? `${n("cours")} en cours` : "",
+        `${n("faire")} à faire`,
+        `${n("fait")} terminée${n("fait") > 1 ? "s" : ""}`
+      ].filter(Boolean).join(" · ");
+
+      const surPlace = f.enCours.map(i =>
+        `<p class="sur-place"><b>Sur place</b> · ${esc(i.type)}${i.priorite === "Haute" ? " urgente" : ""} · ${esc(decouperAdresse(i.adresse)[0])} <span class="ref">(prévue ${i.heure_prevue})</span></p>`).join("");
+
+      const p = f.suite[0];
+      let ensuite;
+      if (!p) {
+        ensuite = `<div class="ensuite"><p class="ensuite-adresse">Plus d’intervention prévue aujourd’hui.</p></div>`;
+      } else {
+        const [rue, ville] = decouperAdresse(p.adresse);
+        const delai = p.cle === "retard"
+          ? `<span class="delai retard">En retard de ${retardDe(p)}</span>`
+          : (p.minutes - MAINTENANT >= 0 && p.minutes - MAINTENANT < 120 ? `<span class="delai">dans ${duree(p.minutes - MAINTENANT)}</span>` : "");
+        ensuite = `
+          <div class="ensuite">
+            <p class="ensuite-tag">Prochaine ${delai} ${tagUrgent(p)}</p>
+            <p class="ensuite-heure"><time>${p.heure_prevue}</time></p>
+            <p class="ensuite-adresse">${esc(rue)}<br>${esc(ville)}</p>
+            <p class="ensuite-detail">${esc(p.type)} · ${esc(p.batiment)} · <span class="nw">${esc(p.appareil)}</span> · <span class="nw">${esc(p.id)}</span></p>
+            ${p.note ? `<p class="ensuite-note">${esc(p.note)}</p>` : ""}
+            <div class="actions-file">
+              <a class="btn" href="${itineraire(p)}" target="_blank" rel="noopener" aria-label="Itinéraire vers ${esc(p.adresse)}">${ICONES.itin}Itinéraire</a>
+            </div>
+          </div>`;
+      }
+      const s = f.suite[1];
+      const puis = s ? `<p class="puis">Puis <b>${s.heure_prevue}</b> · ${esc(decouperAdresse(s.adresse)[0])}${s.cle === "retard" ? " (en retard)" : ""}</p>` : "";
+
+      return `<article class="file${p ? "" : " libre"}" aria-labelledby="file-${t.cle}">
+          <div class="file-tete"><h3 id="file-${t.cle}">${t.nom}</h3><p class="charge">${charge}</p></div>
+          ${surPlace}${ensuite}${puis}
+        </article>`;
+    }).join("");
+  }
+
+  /* ---------- À surveiller ---------- */
+  function rendreAlertes() {
+    const portee = donnees.filter(i => filtre.tech === "tous" || i.tech === filtre.tech);
+    const alertes = portee.filter(i => i.cle === "retard" || (i.cle === "cours" && i.priorite === "Haute"))
+      .sort((a, b) => (a.cle === "cours" ? 0 : 1) - (b.cle === "cours" ? 0 : 1)
+                   || (a.priorite === "Haute" ? 0 : 1) - (b.priorite === "Haute" ? 0 : 1)
+                   || a.minutes - b.minutes);
+    const urgentsAVenir = portee.filter(i => i.cle === "faire" && i.priorite === "Haute").length;
+    $("#surveiller-compte").textContent =
+      `${alertes.length} point${alertes.length > 1 ? "s" : ""} · ${urgentsAVenir} panne${urgentsAVenir > 1 ? "s" : ""} urgente${urgentsAVenir > 1 ? "s" : ""} à venir`;
+    if (!alertes.length) {
+      const qui = filtre.tech === "tous" ? "l’équipe" : TECHS.find(t => t.cle === filtre.tech).nom;
+      $("#alertes").innerHTML = `<li class="rien">Aucun retard ni panne urgente en cours pour ${qui}.</li>`;
+      return;
+    }
+    $("#alertes").innerHTML = alertes.map(i => {
+      const etat = i.cle === "cours"
+        ? `<span class="txt cours">${ICONES.cours}</span><span class="txt cours">Panne urgente en cours</span>`
+        : `<span class="txt retard">${ICONES.retard}</span><span class="txt retard">En retard de ${retardDe(i)}</span>`;
+      return `<li class="alerte">
+          <p class="alerte-etat">${etat} ${tagUrgent(i)}</p>
+          <p class="alerte-qui"><b>${esc(i.technicien)}</b> · prévue ${i.heure_prevue} · ${esc(i.type)} · ${esc(i.batiment)} · <span class="nw">${esc(i.appareil)}</span></p>
+          <p class="alerte-adr">${esc(i.adresse)}</p>
+          ${i.note ? `<p class="alerte-note">${esc(i.note)}</p>` : ""}
+        </li>`;
+    }).join("");
+  }
+
+  /* ---------- Journée ---------- */
+  function ligne(i) {
+    const s = STATUTS.find(x => x.cle === i.cle);
+    const delai = i.cle === "retard" ? `<span class="delai">· ${retardDe(i)}</span>` : "";
+    const prio = i.priorite === "Haute" ? tagUrgent(i) : (i.priorite === "Basse" ? `<span class="basse">Priorité basse</span>` : "");
+    const [rue, ville] = decouperAdresse(i.adresse);
+    return `<li class="ligne s-${i.cle}" data-id="${esc(i.id)}">
+        <span class="c-heure"><time>${i.heure_prevue}</time></span>
+        <span class="c-statut">${ICONES[i.cle]}${s.nom}${delai}</span>
+        <span class="c-objet"><b>${esc(i.type)}</b> ${prio}<br><span class="ref">${esc(i.batiment)} · <span class="nw">${esc(i.appareil)}</span> · <span class="nw">${esc(i.id)}</span></span></span>
+        <span class="c-adresse">${esc(rue)}, ${esc(ville)}</span>
+        <span class="c-tech">${esc(i.technicien)}</span>
+        <span class="c-note">${esc(i.note)}</span>
+      </li>`;
+  }
+
+  function rendreJournee() {
+    const portee = donnees.filter(i => filtre.tech === "tous" || i.tech === filtre.tech);
+    const visibles = portee.filter(i => filtre.statut === "tous" || i.cle === filtre.statut);
+    const nomTech = filtre.tech === "tous" ? null : TECHS.find(t => t.cle === filtre.tech).nom;
+    const st = STATUTS.find(s => s.cle === filtre.statut);
+
+    $("#journee-compte").textContent =
+      `${visibles.length} intervention${visibles.length > 1 ? "s" : ""}` +
+      (nomTech ? ` · ${nomTech}` : " · toute l’équipe") +
+      (filtre.statut !== "tous" ? ` · ${st.libelle.toLowerCase()}` : "");
+
+    if (!visibles.length) {
+      const reste = portee.length;
+      const libelleStatut = st.libelle.toLowerCase();
+      const qui = nomTech ? `pour ${nomTech}` : "dans l’équipe";
+      const autres = STATUTS.slice(1).map(x => {
+        const n = portee.filter(i => i.cle === x.cle).length;
+        return n ? `${n} ${x.libelle.toLowerCase()}` : null;
+      }).filter(Boolean).join(", ");
+      $("#liste").innerHTML = `<li class="vide">
+          <p>Aucune intervention ${libelleStatut} ${qui}.</p>
+          <p class="aide">${nomTech ? `Ses ${reste} interventions du jour` : `Les ${reste} interventions du jour`}&nbsp;: ${autres}.</p>
+          <div class="actions-file">
+            <button type="button" class="btn" data-action="statut-tous">Voir ${nomTech ? "toutes ses" : "toutes les"} interventions</button>
+            ${nomTech ? `<button type="button" class="btn second" data-action="tech-tous">Voir « ${st.libelle} » pour toute l’équipe</button>` : ""}
+          </div>
+        </li>`;
+      return visibles.length;
+    }
+
+    let html = ""; let ligneMaintenant = false;
+    visibles.forEach(i => {
+      if (!ligneMaintenant && i.minutes > MAINTENANT) {
+        html += `<li class="maintenant" aria-label="Il est 10:30, les interventions suivantes sont à venir"><time>10:30</time> Maintenant</li>`;
+        ligneMaintenant = true;
+      }
+      html += ligne(i);
+    });
+    if (!ligneMaintenant) html += `<li class="maintenant"><time>10:30</time> Maintenant · plus rien de prévu après</li>`;
+    $("#liste").innerHTML = html;
+    return visibles.length;
+  }
+
+  /* ---------- Filtres ---------- */
+  function rendreFiltres(actifs) {
+    const portee = donnees.filter(i => filtre.tech === "tous" || i.tech === filtre.tech);
+    $("#filtre-tech").innerHTML = [{ cle: "tous", nom: "Tous", court: "Tous" }].concat(TECHS).map(t =>
+      `<button type="button" data-tech="${t.cle}" aria-pressed="${filtre.tech === t.cle}" ${actifs ? "" : "disabled"}>
+         <span class="nom-court">${t.court}</span><span class="nom-long">${t.nom}</span></button>`).join("");
+    $("#filtre-statut").innerHTML = STATUTS.map(s => {
+      const n = actifs ? (s.cle === "tous" ? portee.length : portee.filter(i => i.cle === s.cle).length) : "–";
+      return `<button type="button" data-statut="${s.cle}" aria-pressed="${filtre.statut === s.cle}" ${actifs ? "" : "disabled"}>
+          ${s.pastille ? `<span class="pastille ${s.pastille}" aria-hidden="true"></span>` : ""}${s.libelle} <span class="nb">${n}</span></button>`;
+    }).join("");
+  }
+
+  function rendre(annoncer) {
+    $("#page").dataset.tech = filtre.tech;
+    $("#page").dataset.statut = filtre.statut;
+    rendreFiltres(true);
+    rendreFiles();
+    rendreAlertes();
+    const n = rendreJournee();
+    if (annoncer) $("#annonce").textContent = n ? `${n} intervention${n > 1 ? "s" : ""} affichée${n > 1 ? "s" : ""}.` : "Aucune intervention pour ce filtre.";
+  }
+
+  /* ---------- Mémoire du filtre (URL, puis appareil) ---------- */
+  function lireFiltre() {
+    const h = new URLSearchParams(location.hash.slice(1));
+    let tech = h.get("tech"), statut = h.get("statut");
+    if (!tech) { try { tech = localStorage.getItem("interventions.tech"); } catch (e) { tech = null; } }
+    filtre.tech = ["tous"].concat(TECHS.map(t => t.cle)).includes(tech) ? tech : "tous";
+    filtre.statut = STATUTS.some(s => s.cle === statut) ? statut : "tous";
+  }
+  function ecrireFiltre() {
+    const p = new URLSearchParams();
+    if (filtre.tech !== "tous") p.set("tech", filtre.tech);
+    if (filtre.statut !== "tous") p.set("statut", filtre.statut);
+    history.replaceState(null, "", location.pathname + location.search + (p.toString() ? "#" + p : ""));
+    try { localStorage.setItem("interventions.tech", filtre.tech); } catch (e) { /* stockage indisponible : pas de mémoire */ }
+  }
+
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b || b.disabled) return;
+    if (b.dataset.tech) filtre.tech = b.dataset.tech;
+    else if (b.dataset.statut) filtre.statut = b.dataset.statut;
+    else if (b.dataset.action === "statut-tous") filtre.statut = "tous";
+    else if (b.dataset.action === "tech-tous") filtre.tech = "tous";
+    else return;
+    const garde = b.dataset.tech ? `[data-tech="${b.dataset.tech}"]` : b.dataset.statut ? `[data-statut="${b.dataset.statut}"]` : null;
+    ecrireFiltre();
+    rendre(true);
+    if (garde) { const r = document.querySelector("button" + garde); if (r) r.focus(); }
+    else { const r = document.querySelector('#filtre-statut button[aria-pressed="true"]'); if (r) r.focus(); }
+  });
+
+  /* ---------- Chargement ---------- */
+  function afficher(etat) {
+    $("#etat-chargement").hidden = etat !== "chargement";
+    $("#etat-erreur").hidden = etat !== "erreur";
+    $("#page").hidden = etat !== "pret";
+  }
+
+  async function charger(demo) {
+    afficher("chargement");
+    rendreFiltres(false);
+    if (demo === "chargement") return;               // état figé pour la démonstration
+    try {
+      if (demo === "erreur") throw new Error("connexion au serveur impossible (simulation)");
+      let texte = null, source = "";
+      if (location.protocol !== "file:") {
+        try {
+          const r = await fetch("interventions.csv", { cache: "no-store" });
+          if (r.ok) { texte = await r.text(); source = "fichier interventions.csv"; }
+        } catch (e) { /* fichier inaccessible : on prend la copie intégrée */ }
+      }
+      if (!texte) { texte = $("#donnees-integrees").textContent; source = "copie intégrée à l’écran (identique à interventions.csv)"; }
+      donnees = versInterventions(texte);
+      $("#source").textContent = `${donnees.length} interventions lues depuis la ${source}. Données fictives fournies par le service. Heure de référence fixée à 10:30 pour la démonstration.`;
+      lireFiltre();
+      afficher("pret");
+      rendre(false);
+    } catch (err) {
+      $("#erreur-detail").textContent = "Détail technique : " + err.message + ".";
+      afficher("erreur");
+      $("#titre-erreur").setAttribute("tabindex", "-1");
+    }
+  }
+
+  $("#reessayer").addEventListener("click", () => {
+    history.replaceState(null, "", location.pathname + location.hash);
+    charger(null);
+  });
+
+  charger(new URLSearchParams(location.search).get("etat"));
+})();
+</script>
+</body>
+</html>

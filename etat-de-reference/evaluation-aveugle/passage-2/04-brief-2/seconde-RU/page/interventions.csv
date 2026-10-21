@@ -1,0 +1,41 @@
+id,heure_prevue,adresse,batiment,appareil,type,priorite,statut,technicien,note
+INT-2601,07:30,"118, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-1977,Entretien périodique,Normale,En retard,Sophie Lambert,technicien retenu sur une panne précédente
+INT-2602,07:55,"141, rue Chevreul-Basse, 69007 Lyon",hôtel,ASC-1707,Panne,Haute,En retard,Théo Girard,Porte palière ne se ferme plus ; pièce manquante
+INT-2603,08:00,"46, impasse des Glycines, 69008 Lyon",copropriété,ASC-2179,Entretien périodique,Normale,Terminée,Karim Benali,
+INT-2604,08:25,"115, impasse des Glycines, 69007 Lyon",école,ASC-2954,Panne,Haute,En retard,Sophie Lambert,"Appareil à l'arrêt, signalé par le gardien ; technicien retenu sur une panne précédente"
+INT-2605,08:30,"25, avenue des Frères-Ladoux, 69008 Lyon",clinique,ASC-1451,Réparation planifiée,Normale,Terminée,Théo Girard,"Pièce reçue, pose prévue"
+INT-2606,08:50,"145, boulevard des Tchécoslovaques-Sud, 69008 Lyon",résidence,ASC-1922,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2607,08:55,"2, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-4231,Contrôle réglementaire,Normale,En retard,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer ; accès au local machinerie refusé"
+INT-2608,09:10,"107, rue Sébastien-Ory, 69007 Lyon",parking,ASC-2712,Réparation planifiée,Basse,Terminée,Théo Girard,Remplacement des câbles de traction
+INT-2609,09:15,"123, rue de la Charité-Haute, 69007 Lyon",résidence seniors,ASC-3590,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2610,09:25,"83, rue du Vieux-Moulin, 69007 Lyon",résidence,ASC-3059,Entretien périodique,Normale,Terminée,Sophie Lambert,
+INT-2611,09:30,"112, quai Claude-Arnaud, 69007 Lyon",parking,ASC-4753,Panne,Haute,En cours,Théo Girard,"Cabine bloquée entre deux étages, personne à l'intérieur ; pompiers prévenus"
+INT-2612,09:40,"115, cours Gambetta-Neuf, 69008 Lyon",clinique,ASC-4473,Entretien périodique,Normale,En cours,Karim Benali,
+INT-2613,09:45,"11, rue Pasteur-Prolongée, 69008 Lyon",école,ASC-4006,Entretien périodique,Basse,En cours,Sophie Lambert,
+INT-2614,10:45,"24, impasse des Glycines, 69008 Lyon",école,ASC-2409,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2615,10:55,"120, avenue Berthelot, 69008 Lyon",hôtel,ASC-4880,Entretien périodique,Basse,À faire,Karim Benali,
+INT-2616,11:20,"109, boulevard des Tchécoslovaques-Sud, 69007 Lyon",copropriété,ASC-1431,Réparation planifiée,Basse,À faire,Sophie Lambert,Remplacement des câbles de traction
+INT-2617,11:40,"134, rue Marcel-Rivière, 69007 Lyon",résidence,ASC-4249,Entretien périodique,Normale,À faire,Théo Girard,
+INT-2618,11:45,"93, quai Claude-Arnaud, 69007 Lyon",parking,ASC-1117,Panne,Haute,À faire,Karim Benali,"Appareil à l'arrêt, signalé par le gardien"
+INT-2619,12:20,"46, avenue Berthelot, 69008 Lyon",résidence,ASC-3954,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2620,12:25,"88, avenue Jean-Jaurès-Ouest, 69007 Lyon",résidence seniors,ASC-4257,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2621,12:50,"33, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-4305,Réparation planifiée,Normale,À faire,Sophie Lambert,Changement de l'opérateur de porte
+INT-2622,13:15,"104, rue des Tanneurs, 69008 Lyon",copropriété,ASC-1076,Réparation planifiée,Normale,À faire,Sophie Lambert,"Pièce reçue, pose prévue"
+INT-2623,13:20,"32, rue du Vieux-Moulin, 69007 Lyon",parking,ASC-4042,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2624,13:30,"97, place Jean-Macé-Haute, 69008 Lyon",école,ASC-2008,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2625,13:40,"148, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-2247,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2626,13:55,"64, rue Marcel-Rivière, 69007 Lyon",hôtel,ASC-2221,Réparation planifiée,Basse,À faire,Théo Girard,"Pièce reçue, pose prévue"
+INT-2627,14:00,"21, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-3115,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2628,14:15,"76, boulevard des Tchécoslovaques-Sud, 69008 Lyon",parking,ASC-4980,Réparation planifiée,Normale,À faire,Théo Girard,Changement de l'opérateur de porte
+INT-2629,14:40,"26, cours Gambetta-Neuf, 69008 Lyon",école,ASC-4354,Panne,Normale,À faire,Théo Girard,Bruit anormal au démarrage
+INT-2630,14:45,"147, place Jean-Macé-Haute, 69008 Lyon",clinique,ASC-1746,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2631,14:50,"91, rue des Trois-Pierres, 69008 Lyon",copropriété,ASC-4832,Entretien périodique,Basse,À faire,Sophie Lambert,
+INT-2632,15:05,"42, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3672,Panne,Normale,À faire,Théo Girard,Bouton d'appel du 3e hors service
+INT-2633,15:30,"85, place Jean-Macé-Haute, 69007 Lyon",copropriété,ASC-2794,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2634,15:45,"137, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3137,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2635,16:05,"66, place Jean-Macé-Haute, 69008 Lyon",résidence,ASC-4576,Contrôle réglementaire,Normale,À faire,Karim Benali,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2636,16:55,"122, avenue des Frères-Ladoux, 69008 Lyon",école,ASC-2868,Panne,Haute,À faire,Karim Benali,Porte palière ne se ferme plus
+INT-2637,17:00,"33, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-1548,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2638,17:15,"22, rue du Vieux-Moulin, 69007 Lyon",clinique,ASC-2323,Entretien périodique,Basse,À faire,Théo Girard,
+INT-2639,17:20,"115, place Jean-Macé-Haute, 69008 Lyon",hôtel,ASC-3255,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2640,17:25,"22, avenue Jean-Jaurès-Ouest, 69008 Lyon",copropriété,ASC-2928,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"

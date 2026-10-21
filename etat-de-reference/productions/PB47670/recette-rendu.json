@@ -1,0 +1,505 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PB47670/artefact/index.html",
+    "artifact_version": "48c757da15e4",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-21T14:50:58Z",
+    "scope": "état initial, largeurs 390,768,1440 px",
+    "external_requests_blocked": 0,
+    "settings": {
+      "proof": "",
+      "tab_stops": 60,
+      "allow_external": false,
+      "wait_ms": 1500
+    },
+    "captures": [
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PB47670/captures/capture-390px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PB47670/captures/capture-768px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PB47670/captures/capture-1440px.png"
+    ],
+    "browser": {
+      "engine": "chromium",
+      "version": "141.0.7390.37",
+      "executable": "playwright-managed"
+    }
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Chevauchement et troncature de texte",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "tronqué, à juger : 390 px : « (site externe) », 390 px : « pour Le Poids des clés (site ext », 390 px : « pour Bal pour les pieds qui hési », 768 px : « (site externe) », 768 px : « pour Le Poids des clés (site ext », 768 px : « pour Bal pour les pieds qui hési », 1440 px : « (site externe) », 1440 px : « pour Le Poids des clés (site ext », 1440 px : « pour Bal pour les pieds qui hési » ; texte SVG compris, calques fixes ou collants exclus"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "RETURN",
+      "detail": "p.amount #b23a1e sur #1f1a17 = 2.89:1 (seuil 3:1, 56 px, « 14 € ») ; p.amount #b23a1e sur #1f1a17 = 2.89:1 (seuil 3:1, 76.8 px, « 14 € ») ; p.amount #b23a1e sur #1f1a17 = 2.89:1 (seuil 3:1, 88 px, « 14 € ») ; 390 px : 135 texte(s) évalué(s), 138 candidat(s), 3 exclu(s) ; 768 px : 135 texte(s) évalué(s), 138 candidat(s), 3 exclu(s) ; 1440 px : 138 texte(s) évalué(s), 138 candidat(s), 0 exclu(s)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "24 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement ; 6 petite(s) cible(s) admise(s) par l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Images chargées",
+      "status": "PASS",
+      "detail": "aucune image visible illisible"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "21 arrêt(s) à 390 px ; 390 px : page, fin=end, 21 candidat(s) ; 21 arrêt(s) à 768 px ; 768 px : page, fin=end, 21 candidat(s) ; 24 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 24 candidat(s) ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant"
+    },
+    {
+      "check": "Contraste de l’indicateur de focus",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "indicateur sous le seuil de 3:1 (WCAG 1.4.11) : a.btn : contour #1f4fd1 sur #1f1a17 = 2.54:1 ; 63 arrêt(s) mesuré(s) ou à contour du navigateur sans défaut"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation démarrée"
+    },
+    {
+      "check": "Objet de preuve au premier écran",
+      "status": "NOT-VERIFIED",
+      "detail": "aucun sélecteur fourni (--proof) : à juger à la main"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "a"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "a"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "a"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 21
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "a"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "a"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "a"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 21
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "a"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "a"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "a"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        },
+        {
+          "key": "control-21",
+          "id": "a"
+        },
+        {
+          "key": "control-22",
+          "id": "a"
+        },
+        {
+          "key": "control-23",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-22",
+        "control-23",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 24
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 138,
+      "evaluated": 135,
+      "excluded": 3,
+      "unmeasured": []
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 138,
+      "evaluated": 135,
+      "excluded": 3,
+      "unmeasured": []
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 138,
+      "evaluated": 138,
+      "excluded": 0,
+      "unmeasured": []
+    }
+  },
+  "proof_observations": {
+    "390": null,
+    "768": null,
+    "1440": null
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P403B24/artefact/index.html",
+    "artifact_version": "e5af363ce3ad",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-21T19:32:47Z",
+    "scope": "état initial, largeurs 390,768,1440 px",
+    "external_requests_blocked": 0,
+    "settings": {
+      "proof": "",
+      "tab_stops": 60,
+      "allow_external": false,
+      "wait_ms": 1500
+    },
+    "captures": [
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P403B24/captures/capture-390px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P403B24/captures/capture-768px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P403B24/captures/capture-1440px.png"
+    ],
+    "browser": {
+      "engine": "chromium",
+      "version": "141.0.7390.37",
+      "executable": "playwright-managed"
+    }
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Chevauchement et troncature de texte",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px ; texte SVG compris, calques fixes ou collants exclus"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 390 px : 66 texte(s) évalué(s), 66 candidat(s), 0 exclu(s) ; 768 px : 66 texte(s) évalué(s), 66 candidat(s), 0 exclu(s) ; 1440 px : 66 texte(s) évalué(s), 66 candidat(s), 0 exclu(s)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS",
+      "detail": "aucun contrôle applicable dans le périmètre DOM inspecté"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Images chargées",
+      "status": "PASS",
+      "detail": "aucune image visible illisible"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "0 arrêt(s) à 390 px ; 390 px : page, fin=end, 0 candidat(s) ; 390 px : aucun contrôle candidat applicable ; 0 arrêt(s) à 768 px ; 768 px : page, fin=end, 0 candidat(s) ; 768 px : aucun contrôle candidat applicable ; 0 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 0 candidat(s) ; 1440 px : aucun contrôle candidat applicable ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant"
+    },
+    {
+      "check": "Contraste de l’indicateur de focus",
+      "status": "PASS",
+      "detail": "0 arrêt(s) mesuré(s) ou à contour du navigateur sans défaut"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation démarrée"
+    },
+    {
+      "check": "Objet de preuve au premier écran",
+      "status": "NOT-VERIFIED",
+      "detail": "aucun sélecteur fourni (--proof) : à juger à la main"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 0
+    },
+    "768": {
+      "expected": [],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 0
+    },
+    "1440": {
+      "expected": [],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 0
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 66,
+      "evaluated": 66,
+      "excluded": 0,
+      "unmeasured": []
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 66,
+      "evaluated": 66,
+      "excluded": 0,
+      "unmeasured": []
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 66,
+      "evaluated": 66,
+      "excluded": 0,
+      "unmeasured": []
+    }
+  },
+  "proof_observations": {
+    "390": null,
+    "768": null,
+    "1440": null
+  }
+}

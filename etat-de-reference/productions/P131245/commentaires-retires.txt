@@ -1,0 +1,20 @@
+--- index.html
+<!--
+  Trace (légère) — écran de suivi des interventions, Ascenseurs Rhône Maintenance (fictive), agence Lyon Sud.
+  Mode : écran nouveau, sans charge identitaire (STANDARD), proposition exploratoire.
+  Thèse : « qui va où, maintenant » → objet : la file de chaque technicien (en cours, puis la suivante avec son adresse et l'itinéraire)
+          + le rail de la journée coupé par la ligne « 10:30 maintenant » → geste : un filtre technicien mémorisé sur le téléphone.
+  Trame modale écartée : bandeau de 4 KPI + graphique + tableau. Parti : instrument dense, couleur réservée aux statuts,
+          jaune de signalisation pour la seule priorité haute ; Atkinson Hyperlegible Next (0 barré, I/l/1 distincts) pour lire codes et adresses en mouvement.
+  Contenus marqués : numéro du chef d'équipe (exemple) ; heure figée à 10:30 ; ordre « retards d'abord » = hypothèse à valider.
+  Revue : corrigé à l'observation — liste filtrée hors écran sur mobile (le résultat d'un filtre de statut remonte désormais sous les filtres),
+          débordement des filtres à 768 px, passé « terminé » tassé. Recette check_render verte à 390/768/1100/1440 px, états prouvés par --assert/--in-frame.
+  Défaut dominant restant / prochaine preuve : ordre de la file non validé par le service ; liste « Tous » longue sur téléphone ;
+          tester avec un technicien ganté, dehors, sur son téléphone.
+-->
+
+--- index.html
+<!-- Chargement -->
+
+--- index.html
+<!-- Erreur -->

@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modifier ou résilier mon contrat – Mutuelle des Trois Rivières</title>
+<meta name="description" content="Maquette interactive du parcours en ligne pour changer de formule ou résilier son contrat santé, avec tous ses états.">
+<style>
+:root{
+  --ink:#14232b; --muted:#4c5c65; --line:#d3dde1; --line-strong:#9fb0b7;
+  --bg:#f3f6f5; --surface:#ffffff; --soft:#eaf3f4;
+  --brand:#0a5566; --brand-dark:#073f4c; --brand-tint:#d9edf0;
+  --focus:#ffbf47;
+  --error:#b42318; --error-bg:#fdeceb;
+  --ok:#17663a; --ok-bg:#e5f3ea;
+  --warn:#7a4a00; --warn-bg:#fff4dc; --warn-line:#e7c27a;
+  --radius:12px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--font)}
+a{color:var(--brand)}
+a:hover{color:var(--brand-dark)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;box-shadow:0 0 0 5px var(--ink)}
+[tabindex="-1"]:focus,[tabindex="-1"]:focus-visible{outline:none;box-shadow:none}
+h1,h2,h3{line-height:1.25;margin:0}
+h1{font-size:1.75rem;letter-spacing:-.01em}
+h2{font-size:1.25rem}
+h3{font-size:1.05rem}
+p{margin:0 0 .8em}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- Barre de revue (hors maquette) ---------- */
+.review{background:#1d252a;color:#e8eef0;font-size:14px}
+.review__in{max-width:1160px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.review strong{color:#fff;font-weight:600}
+.review label{display:flex;gap:8px;align-items:center}
+.review select{font:inherit;padding:6px 8px;border-radius:6px;border:1px solid #56656c;background:#2b353b;color:#fff;max-width:100%}
+.review a,.review button{color:#bfe6ec;font:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.review__tag{background:#ffbf47;color:#1d252a;font-weight:700;border-radius:4px;padding:1px 7px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.review__note{color:#a9b7bd}
+.review__spacer{flex:1}
+body.embed .review{display:none}
+
+/* ---------- En-tête espace adhérent ---------- */
+.site-header{background:var(--surface);border-bottom:1px solid var(--line)}
+.site-header__in{max-width:1160px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand svg{flex:none}
+.brand__name{font-weight:700;font-size:1.02rem;line-height:1.15}
+.brand__sub{display:block;font-weight:400;font-size:.8rem;color:var(--muted)}
+.user{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:.92rem}
+.user__avatar{width:36px;height:36px;border-radius:50%;background:var(--brand-tint);color:var(--brand-dark);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.user__id{color:var(--muted);font-size:.8rem;display:block}
+.subnav{max-width:1160px;margin:0 auto;padding:0 16px;display:flex;gap:4px;overflow-x:auto}
+.subnav span{padding:10px 12px;font-size:.92rem;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent}
+.subnav span[aria-current]{color:var(--ink);font-weight:600;border-color:var(--brand)}
+
+/* ---------- Structure ---------- */
+main{display:block}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 56px}
+.wrap--flow{max-width:760px}
+.crumbs{font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.crumbs li+li::before{content:"›";margin:0 6px 0 2px;color:var(--line-strong)}
+.flowbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;font-size:.95rem}
+.lead{font-size:1.08rem;color:var(--muted);margin-top:8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.card + .card{margin-top:16px}
+.grid2 > .card{margin-top:0}
+.stack > * + *{margin-top:20px}
+.section-title{margin:32px 0 12px}
+
+/* Étapes */
+.steps{margin:0 0 20px}
+.steps__label{font-size:.92rem;color:var(--muted);margin:0 0 8px}
+.steps__label b{color:var(--ink)}
+.steps ol{list-style:none;margin:0;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px}
+.steps li{height:6px;border-radius:3px;background:var(--line)}
+.steps li.done,.steps li[aria-current]{background:var(--brand)}
+
+/* Listes de définitions */
+.facts{margin:0;display:grid;grid-template-columns:minmax(150px,34%) 1fr;border-top:1px solid var(--line)}
+.facts dt,.facts dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted);padding-right:16px}
+.facts dd{font-weight:500}
+.facts dd small{display:block;font-weight:400;color:var(--muted);font-size:.9rem;margin-top:2px}
+.facts .act{float:right;margin-left:12px;font-weight:400;font-size:.95rem}
+.big{font-size:1.15rem;font-weight:700}
+
+/* Boutons */
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}
+.btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:8px;border:2px solid var(--brand);background:var(--brand);color:#fff;font:600 1rem/1.2 var(--font);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--brand-dark);border-color:var(--brand-dark);color:#fff}
+.btn--secondary{background:var(--surface);color:var(--brand)}
+.btn--secondary:hover{background:var(--brand-tint);color:var(--brand-dark)}
+.btn[aria-disabled="true"]{opacity:.7;cursor:progress}
+.linkbtn{appearance:none;background:none;border:0;padding:0;font:inherit;color:var(--brand);text-decoration:underline;cursor:pointer}
+.linkbtn:hover{color:var(--brand-dark)}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spinner{animation:none}}
+
+/* Encadrés */
+.note{border-radius:var(--radius);padding:16px 18px;border:1px solid var(--line);background:var(--soft);display:flex;gap:12px}
+.note svg{flex:none;margin-top:2px}
+.note > div,.facts dd{min-width:0;overflow-wrap:anywhere}
+.note h2,.note h3{font-size:1.02rem;margin-bottom:4px}
+.note p:last-child,.note ul:last-child{margin-bottom:0}
+.note ul{margin:.3em 0 .6em;padding-left:1.1em}
+.note--warn{background:var(--warn-bg);border-color:var(--warn-line)}
+.note--error{background:var(--error-bg);border-color:var(--error);border-left-width:5px}
+.note--ok{background:var(--ok-bg);border-color:#9ccfae}
+.note--plain{background:var(--surface)}
+
+/* Formulaires */
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:700;font-size:1.1rem;padding:0;margin-bottom:4px}
+.hint{color:var(--muted);font-size:.95rem;margin:0 0 12px}
+.choices{display:grid;gap:10px;margin-top:12px}
+.choice{position:relative;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:2px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer}
+.choice:hover{border-color:var(--line-strong)}
+.choice:has(input:checked){border-color:var(--brand);background:#f3fafb}
+.choice input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--brand);flex:none}
+.field{margin-top:12px}
+.field label{display:block;font-weight:600;margin-bottom:4px}
+.field input[type=email],.field textarea{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--line-strong);border-radius:8px;background:#fff;color:var(--ink)}
+.field textarea{min-height:96px;resize:vertical}
+.field--error{border-left:4px solid var(--error);padding-left:14px}
+.field--error input,.field--error textarea{border-color:var(--error)}
+.err{color:var(--error);font-weight:600;margin:0 0 6px;display:flex;gap:6px;align-items:flex-start}
+.counter{font-size:.88rem;color:var(--muted);margin-top:4px}
+.counter.over{color:var(--error);font-weight:600}
+.subfield{margin:4px 0 4px 34px}
+
+.errsum{border:3px solid var(--error);border-radius:var(--radius);padding:16px 18px;background:#fff;margin-bottom:20px}
+.errsum h2{font-size:1.1rem;color:var(--error);margin-bottom:6px}
+.errsum ul{margin:0;padding-left:1.1em}
+.errsum a{color:var(--error);font-weight:600}
+
+/* Comparatif */
+.compare{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.compare-title{font-size:1.1rem;margin:0 0 10px}
+.compare th,.compare td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.compare tr:last-child > *{border-bottom:0}
+.compare thead th{background:#f7faf9;font-size:.95rem}
+.compare thead th small{display:block;font-weight:400;color:var(--muted)}
+.compare tbody th{font-weight:500;color:var(--ink);width:34%}
+.compare .col-new{background:#f6fbfc}
+.badge{display:inline-block;font-size:.78rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--brand-tint);color:var(--brand-dark);margin-top:4px}
+.less{display:block;font-size:.85rem;color:var(--warn);font-weight:600;margin-top:2px}
+@media (max-width:620px){
+  .compare thead{display:none}
+  .compare,.compare tbody{display:block}
+  .compare tr{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+  .compare tr:last-child{border-bottom:0}
+  .compare tbody th{grid-column:1/-1;width:auto;background:#f7faf9;border-bottom:0;padding-bottom:6px}
+  .compare td{border-bottom:0}
+  .compare td::before{content:attr(data-col);display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+}
+
+/* Page contrat */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.formula{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:flex-start}
+.formula__price{text-align:right}
+@media (max-width:560px){.formula__price{text-align:left}}
+.formula__name{font-size:1.5rem;font-weight:700}
+.price{font-size:1.6rem;font-weight:700}
+.price small{font-size:.95rem;font-weight:400;color:var(--muted)}
+.list-plain{list-style:none;margin:0;padding:0}
+.list-plain li{padding:6px 0}
+.garanties{margin:0;padding-left:1.1em}
+.garanties li{margin:4px 0}
+.option h3{font-size:1.15rem;margin-bottom:6px}
+.option p{color:var(--muted)}
+.option .btn{margin-top:4px}
+.status{display:inline-block;font-size:.82rem;font-weight:700;padding:3px 10px;border-radius:999px}
+.status--warn{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-line)}
+.status--info{background:var(--brand-tint);color:var(--brand-dark)}
+
+/* Confirmation */
+.success{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--ok);border-radius:var(--radius);padding:24px}
+.success__icon{width:48px;height:48px;border-radius:50%;background:var(--ok-bg);display:grid;place-items:center;margin-bottom:12px}
+.next{margin:0;padding-left:1.2em}
+.next li{margin:8px 0}
+
+/* Pied de page */
+.site-footer{border-top:1px solid var(--line);background:var(--surface);font-size:.92rem;color:var(--muted)}
+.site-footer__in{max-width:1160px;margin:0 auto;padding:20px 16px;display:flex;flex-wrap:wrap;gap:8px 24px}
+.site-footer strong{color:var(--ink)}
+
+/* ---------- Planche ---------- */
+.planche{max-width:1400px;margin:0 auto;padding:24px 16px 64px}
+.planche h1{font-size:1.6rem}
+.planche > p{max-width:780px;color:var(--muted)}
+.planche h2{margin:36px 0 14px;font-size:1.25rem;padding-bottom:6px;border-bottom:2px solid var(--line)}
+.board{display:flex;flex-wrap:wrap;gap:28px}
+.frame{margin:0;width:392px;max-width:100%}
+.frame__screen{width:392px;max-width:100%;height:760px;border:1px solid var(--line-strong);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(20,35,43,.08)}
+.frame iframe{width:390px;height:760px;border:0;display:block}
+.frame figcaption{margin-top:10px;font-size:.95rem}
+.frame figcaption b{display:block}
+.frame figcaption span{color:var(--muted);display:block;font-size:.9rem}
+@media (max-width:440px){.frame,.frame__screen{width:100%}.frame iframe{width:100%}}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  h1{font-size:1.45rem}
+  .facts{grid-template-columns:1fr}
+  .facts dt{border-bottom:0;padding-bottom:0;font-size:.9rem}
+  .facts dd{padding-top:2px}
+  .user__txt{display:none}
+  .actions .btn{width:100%}
+  .card{padding:16px}
+  .wrap{padding-top:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="review" id="review" role="region" aria-label="Outils de revue de la maquette">
+  <div class="review__in">
+    <span class="review__tag">Maquette</span>
+    <strong>Parcours « Modifier ou résilier mon contrat santé »</strong>
+    <label>Aller à l’écran
+      <select id="review-select"></select>
+    </label>
+    <a id="review-planche" href="?vue=planche">Planche de tous les états</a>
+    <button type="button" id="review-reset">Recommencer</button>
+    <span class="review__spacer"></span>
+    <span class="review__note">Scénario : demande faite le mercredi 21 octobre 2026</span>
+  </div>
+</div>
+
+<div id="app"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ================= Données fournies (fictives) ================= */
+const D = {
+  mutuelle: 'Mutuelle des Trois Rivières',
+  tel: '09 00 00 00 00',
+  horaires: 'du lundi au vendredi, de 9 h à 18 h',
+  mail: 'contact@trois-rivieres.example',
+  nom: 'Camille Moreau',
+  initiales: 'CM',
+  numero: 'TR-204-58817',
+  depuis: '1er mars 2024',
+  enfant: 'Léo Moreau',
+  enfantNe: '2015',
+  compte: '4412',
+  // Hypothèses de la maquette
+  courriel: 'camille.moreau@courriel.example',
+  aujourdhui: '21 octobre 2026',
+  effetModif: '1er novembre 2026',
+  effetResil: '21 novembre 2026',
+  moisEnCours: 'octobre 2026',
+  moisSuivant: 'novembre 2026',
+  anneeSuivante: '1er janvier 2027'
+};
+const F = {
+  confort:     { nom:'Confort',     adulte:'61,90 €', enfant:'19,80 €', total:'81,70 €' },
+  essentielle: { nom:'Essentielle', adulte:'38,40 €', enfant:'12,10 €', total:'50,50 €' },
+  ecart: '31,20 €'
+};
+const GARANTIES = [
+  { lib:'Consultation chez un généraliste', confort:'150 % de la base de remboursement', ess:'100 % de la base de remboursement' },
+  { lib:'Hospitalisation, chambre particulière', confort:'60 € par jour, 30 jours par an', ess:'Non couverte' },
+  { lib:'Optique', confort:'250 € par an', ess:'100 € par an' },
+  { lib:'Dentaire, prothèses', confort:'250 % de la base', ess:'125 % de la base' },
+  { lib:'Médecines douces', confort:'4 séances par an, 30 € chacune', ess:'Non couvertes' }
+];
+const RAISONS = [
+  { v:'prix', lib:'Le prix' },
+  { v:'garanties', lib:'Les garanties' },
+  { v:'demenagement', lib:'Un déménagement' },
+  { v:'autre', lib:'Autre raison' }
+];
+const AUTRE_MAX = 300;
+
+/* ================= Catalogue des écrans et états ================= */
+const ETATS = [
+  { id:'contrat', groupe:'Point de départ', titre:'Mon contrat santé', desc:'Adhérent connecté, les deux actions sont visibles à égalité.' },
+  { id:'resil-1', groupe:'Résiliation', titre:'Étape 1 · Conditions et date d’effet', desc:'Date d’effet, absence de frais, rappel non bloquant du changement de formule.' },
+  { id:'resil-2', groupe:'Résiliation', titre:'Étape 2 · Raison du départ (facultatif)', desc:'Questionnaire facultatif, bouton « Passer cette question ».' },
+  { id:'resil-2-autre', groupe:'Résiliation', titre:'Étape 2 · « Autre raison » précisée', desc:'Champ libre facultatif qui apparaît avec « Autre raison ».', preset:{ screen:'resil-2', raison:'autre', autre:'Je pars vivre chez mes parents, qui ont déjà une mutuelle familiale.' } },
+  { id:'resil-2-erreur', groupe:'Résiliation', titre:'Étape 2 · Erreur : texte trop long', desc:'Le seul cas bloquant de cette étape : plus de 300 caractères.', preset:{ screen:'resil-2', raison:'autre', autre:'Je trouve que les remboursements ne suivent pas mes besoins actuels. '.repeat(5).trim(), autreErreur:true } },
+  { id:'resil-3', groupe:'Résiliation', titre:'Étape 3 · Vérifier, confirmer ou annuler', desc:'Rien n’est envoyé avant « Confirmer la résiliation ».', preset:{ screen:'resil-3', raison:'prix' } },
+  { id:'resil-3-erreur', groupe:'Résiliation', titre:'Étape 3 · Erreur de saisie (courriel)', desc:'Adresse modifiée sans « @ » : résumé d’erreur et message sous le champ.', preset:{ screen:'resil-3', raison:'prix', emailOpen:true, emailDraft:'camille.moreau.courriel.example', emailError:'Il manque le signe « @ » dans l’adresse. Exemple : nom@domaine.fr' } },
+  { id:'resil-3-envoi', groupe:'Résiliation', titre:'Étape 3 · Erreur : envoi impossible', desc:'Panne technique : rien n’est enregistré, on peut réessayer.', preset:{ screen:'resil-3', raison:'prix', envoiErreur:true } },
+  { id:'resil-ok', groupe:'Résiliation', titre:'Confirmation · Demande envoyée', desc:'Date d’effet et accusé de réception par courriel.', preset:{ screen:'resil-ok', raison:'prix', resilEnvoyee:true } },
+  { id:'contrat-resil-annulee', groupe:'Résiliation', titre:'Résiliation annulée', desc:'Retour au contrat : aucune demande envoyée.', preset:{ screen:'contrat', banner:'resil-annulee' } },
+  { id:'contrat-apres-resil', groupe:'Résiliation', titre:'Mon contrat après l’envoi', desc:'Le contrat affiche la résiliation en cours.', preset:{ screen:'contrat', resilEnvoyee:true } },
+  { id:'modif-1', groupe:'Changement de formule', titre:'Étape 1 · Comparer et choisir', desc:'Comparatif Confort / Essentielle pour Camille et Léo, règles de prise d’effet.' },
+  { id:'modif-1-bloque', groupe:'Changement de formule', titre:'Étape 1 · Passage déjà utilisé cette année', desc:'Variante : un adhérent qui a déjà quitté Confort pour Essentielle en 2026 (ce n’est pas le cas de Camille Moreau).', preset:{ screen:'modif-1', bloque:true } },
+  { id:'modif-2', groupe:'Changement de formule', titre:'Étape 2 · Vérifier, confirmer ou annuler', desc:'Nouvelle cotisation, mois en cours au tarif actuel, règle annuelle.' },
+  { id:'modif-2-erreur', groupe:'Changement de formule', titre:'Étape 2 · Erreur de saisie (courriel)', desc:'Adresse incomplète : extension manquante.', preset:{ screen:'modif-2', emailOpen:true, emailDraft:'camille.moreau@courriel', emailError:'L’adresse est incomplète : il manque la fin, par exemple « .fr » ou « .com ». Exemple : nom@domaine.fr' } },
+  { id:'modif-ok', groupe:'Changement de formule', titre:'Confirmation · Changement enregistré', desc:'Date d’effet et nouvelle cotisation.', preset:{ screen:'modif-ok', modifEnvoyee:true } },
+  { id:'contrat-modif-annulee', groupe:'Changement de formule', titre:'Changement annulé', desc:'Retour au contrat : la formule Confort continue.', preset:{ screen:'contrat', banner:'modif-annulee' } },
+  { id:'contrat-apres-modif', groupe:'Changement de formule', titre:'Mon contrat après le changement', desc:'Le changement prévu au 1er novembre est affiché.', preset:{ screen:'contrat', modifEnvoyee:true } }
+];
+const SCREENS = ['contrat','resil-1','resil-2','resil-3','resil-ok','modif-1','modif-2','modif-ok'];
+
+/* ================= État ================= */
+function fresh(){
+  return { screen:'contrat', raison:null, autre:'', autreErreur:false,
+    email:D.courriel, emailOpen:false, emailDraft:'', emailError:'',
+    envoiErreur:false, envoi:false, banner:null, bloque:false,
+    resilEnvoyee:false, modifEnvoyee:false };
+}
+let S = fresh();
+
+/* ================= Outils ================= */
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nb = s => s.replace(/ (€|%)/g,' $1');
+const ICON = {
+  info:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  warn:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--warn)"><path d="M12 3 2 21h20L12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v5M12 18v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  error:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--error)"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v6M12 16.5v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  errSmall:'<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex:none;margin-top:3px"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M12 7v6M12 16.5v.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  ok:'<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--ok)"><path d="M5 12.5 10 17 19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  okSmall:'<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--ok)"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5 10.5 15.5 16.5 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  back:'<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-2px"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+};
+const LOGO = '<svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#0a5566"/><path d="M8 14c3-2.4 5-2.4 8 0s5 2.4 8 0 5-2.4 8 0M8 20.5c3-2.4 5-2.4 8 0s5 2.4 8 0 5-2.4 8 0M8 27c3-2.4 5-2.4 8 0s5 2.4 8 0 5-2.4 8 0" fill="none" stroke="#bfe6ec" stroke-width="2.2" stroke-linecap="round"/></svg>';
+
+function validateEmail(v){
+  v = v.trim();
+  if(!v) return 'Saisissez l’adresse courriel où recevoir l’accusé de réception. Exemple : nom@domaine.fr';
+  if(!v.includes('@')) return 'Il manque le signe « @ » dans l’adresse. Exemple : nom@domaine.fr';
+  if(/\s/.test(v)) return 'L’adresse ne doit pas contenir d’espace. Exemple : nom@domaine.fr';
+  const parts = v.split('@');
+  if(parts.length !== 2 || !parts[0]) return 'Vérifiez le début de l’adresse, avant le « @ ». Exemple : nom@domaine.fr';
+  if(!/^[^.]+(\.[^.]+)*\.[a-z]{2,}$/i.test(parts[1])) return 'L’adresse est incomplète : il manque la fin, par exemple « .fr » ou « .com ». Exemple : nom@domaine.fr';
+  return '';
+}
+
+/* ================= Composants ================= */
+function shell(inner, opts){
+  opts = opts || {};
+  return `
+  <header class="site-header">
+    <div class="site-header__in">
+      <span class="brand">${LOGO}<span class="brand__name">${D.mutuelle}<span class="brand__sub">Espace adhérent</span></span></span>
+      <div class="user">
+        <span class="user__avatar" aria-hidden="true">${D.initiales}</span>
+        <span class="user__txt">${D.nom}<span class="user__id">N° adhérent ${D.numero}</span></span>
+        <span class="sr-only">Connecté : ${D.nom}, numéro d’adhérent ${D.numero}</span>
+      </div>
+    </div>
+    <nav class="subnav" aria-label="Espace adhérent (non cliquable dans la maquette)">
+      <span>Accueil</span><span>Mes remboursements</span><span aria-current="page">Mon contrat</span><span>Mes documents</span><span>Nous contacter</span>
+    </nav>
+  </header>
+  <main id="main" class="wrap ${opts.flow ? 'wrap--flow' : ''}">
+    ${inner}
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__in">
+      <span><strong>Service adhérents</strong> : <a href="tel:+33900000000">${D.tel}</a>, ${D.horaires}</span>
+      <span><a href="mailto:${D.mail}">${D.mail}</a></span>
+    </div>
+  </footer>`;
+}
+
+function crumbs(items){
+  return `<nav class="crumbs" aria-label="Fil d’Ariane"><ol>${items.map((t,i)=>`<li${i===items.length-1?' aria-current="page"':''}>${t}</li>`).join('')}</ol></nav>`;
+}
+
+function flowbar(backTo, backLabel, quitLabel){
+  return `<div class="flowbar">
+    <a href="#${backTo}" data-go="${backTo}">${ICON.back} ${backLabel}</a>
+    <a href="#contrat" data-go="contrat" data-quit="1">${quitLabel}</a>
+  </div>`;
+}
+
+function steps(current, total, label){
+  let lis = '';
+  for(let i=1;i<=total;i++) lis += `<li class="${i<current?'done':''}"${i===current?' aria-current="step"':''}></li>`;
+  return `<div class="steps"><p class="steps__label">Étape <b>${current}</b> sur ${total} : ${label}</p><ol aria-hidden="true">${lis}</ol></div>`;
+}
+
+function errorSummary(items){
+  if(!items.length) return '';
+  return `<div class="errsum" role="alert" tabindex="-1" id="errsum">
+    <h2>${items.length>1?'Il y a '+items.length+' problèmes':'Il y a un problème'}</h2>
+    <ul>${items.map(it=>`<li><a href="#${it.id}" data-focus="${it.id}">${esc(it.msg)}</a></li>`).join('')}</ul>
+  </div>`;
+}
+
+function envoiErreurNote(objet){
+  if(!S.envoiErreur) return '';
+  return `<div class="note note--error" role="alert" tabindex="-1" id="envoi-err">${ICON.error}<div>
+    <h2>Votre demande n’a pas pu être envoyée</h2>
+    <p>Un problème technique nous a empêchés de la recevoir. <strong>Aucune ${objet} n’a été enregistrée</strong> et rien n’a changé sur votre contrat.</p>
+    <p>Vérifiez votre connexion puis cliquez à nouveau sur le bouton de confirmation. Si le problème continue, appelez le service adhérents au <a href="tel:+33900000000">${D.tel}</a>, ${D.horaires}.</p>
+  </div></div>`;
+}
+
+function emailRow(context){
+  // context: 'resil' | 'modif'
+  const label = context==='resil' ? 'Accusé de réception envoyé à' : 'Confirmation envoyée à';
+  if(!S.emailOpen){
+    return `<dt>${label}</dt><dd><button type="button" class="linkbtn act" data-action="email-open">Modifier<span class="sr-only"> l’adresse courriel</span></button><span id="email-display">${esc(S.email)}</span>
+      <small>${context==='resil' ? 'Le courriel indiquera la date d’effet de votre résiliation.' : 'Le courriel reprendra la nouvelle formule et sa date d’effet.'}</small></dd>`;
+  }
+  const err = S.emailError;
+  return `<dt>${label}</dt><dd>
+    <div class="field ${err?'field--error':''}" style="margin-top:0">
+      <label for="email">Adresse courriel</label>
+      <p class="hint" id="email-hint" style="margin-bottom:6px">Exemple : nom@domaine.fr. Cette adresse sert uniquement pour ${context==='resil'?'l’accusé de réception':'la confirmation'}.</p>
+      ${err?`<p class="err" id="email-err">${ICON.errSmall}<span><span class="sr-only">Erreur : </span>${esc(err)}</span></p>`:''}
+      <input type="email" id="email" name="email" autocomplete="email" spellcheck="false" value="${esc(S.emailDraft)}" aria-describedby="email-hint${err?' email-err':''}"${err?' aria-invalid="true"':''}>
+    </div>
+    <p style="margin:8px 0 0;font-weight:400"><button type="button" class="linkbtn" data-action="email-cancel">Garder ${esc(S.email)}</button></p>
+  </dd>`;
+}
+
+function confirmButton(label, action){
+  if(S.envoi) return `<button type="button" class="btn" aria-disabled="true" data-action="noop"><span class="spinner" aria-hidden="true"></span>Envoi en cours…</button>`;
+  return `<button type="button" class="btn" data-action="${action}">${label}</button>`;
+}
+
+/* ================= Écrans ================= */
+const R = {};
+
+R['contrat'] = function(){
+  let banner = '';
+  if(S.banner==='resil-annulee'){
+    banner = `<div class="note note--plain" role="status" tabindex="-1" id="banner">${ICON.info}<div><h2>Résiliation annulée</h2><p>Aucune demande n’a été envoyée. Votre contrat santé continue normalement, sans aucun changement.</p></div></div>`;
+  } else if(S.banner==='modif-annulee'){
+    banner = `<div class="note note--plain" role="status" tabindex="-1" id="banner">${ICON.info}<div><h2>Changement de formule annulé</h2><p>Aucune demande n’a été envoyée. Vous gardez la formule Confort.</p></div></div>`;
+  }
+  const statut = S.resilEnvoyee
+    ? `<span class="status status--warn">Résiliation demandée · fin le ${D.effetResil}</span>`
+    : S.modifEnvoyee ? `<span class="status status--info">Passage à Essentielle le ${D.effetModif}</span>` : '';
+
+  let options;
+  if(S.resilEnvoyee){
+    options = `<div class="card"><div class="note note--warn" style="border:0;padding:0;background:none">${ICON.warn}<div>
+      <h3>Votre demande de résiliation a été envoyée le ${D.aujourdhui}</h3>
+      <p>Votre contrat prendra fin le <strong>${D.effetResil}</strong>. D’ici là, vos garanties Confort continuent pour vous et ${D.enfant}. L’accusé de réception a été envoyé à ${esc(S.email)}.</p>
+      <p>Une question sur votre demande ? Service adhérents : <a href="tel:+33900000000">${D.tel}</a>, ${D.horaires}.</p>
+    </div></div></div>`;
+  } else {
+    const modifCard = S.modifEnvoyee
+      ? `<div class="card option"><h3>Changer de formule</h3>
+          <p>Votre passage à la formule Essentielle prendra effet le <strong>${D.effetModif}</strong>. Nouvelle cotisation : <span class="num">${nb(F.essentielle.total)}</span> par mois.</p>
+          <p style="margin:0">Pour revenir sur ce changement, contactez le service adhérents.</p></div>`
+      : `<div class="card option"><h3>Changer de formule</h3>
+          <p>Passer à la formule Essentielle : <span class="num">${nb(F.essentielle.total)}</span> par mois pour vous et ${D.enfant.split(' ')[0]}. Prise d’effet le 1er du mois suivant votre demande.</p>
+          <a class="btn btn--secondary" href="#modif-1" data-go="modif-1">Changer de formule</a></div>`;
+    options = `<div class="grid2">
+      ${modifCard}
+      <div class="card option"><h3>Résilier mon contrat</h3>
+        <p>Possible à tout moment, sans frais ni pénalité. La résiliation prend effet un mois après la réception de votre demande.</p>
+        <a class="btn btn--secondary" href="#resil-1" data-go="resil-1">Résilier mon contrat</a></div>
+    </div>`;
+  }
+
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé'])}
+    <div class="stack">
+      ${banner}
+      <div>
+        <h1 tabindex="-1">Mon contrat santé</h1>
+        <p class="lead">Contrat n° ${D.numero} · ${D.nom}</p>
+      </div>
+      <section class="card" aria-labelledby="t-formule">
+        <div class="formula">
+          <div>
+            <h2 id="t-formule" class="sr-only">Ma formule</h2>
+            <p style="margin:0;color:var(--muted)">Ma formule</p>
+            <p class="formula__name" style="margin:0">Confort</p>
+            <p style="margin:0;color:var(--muted)">depuis le ${D.depuis}</p>
+            ${statut?`<p style="margin:8px 0 0">${statut}</p>`:''}
+          </div>
+          <div class="formula__price">
+            <p style="margin:0;color:var(--muted)">Cotisation mensuelle</p>
+            <p class="price num" style="margin:0">${nb(F.confort.total)}</p>
+            <p style="margin:0;color:var(--muted);font-size:.92rem">vous ${nb(F.confort.adulte)} + ${D.enfant.split(' ')[0]} ${nb(F.confort.enfant)}</p>
+          </div>
+        </div>
+        <dl class="facts" style="margin-top:18px">
+          <dt>Personnes couvertes</dt><dd>${D.nom}<small>Adhérent principal</small><span style="display:block;margin-top:6px">${D.enfant}</span><small>Enfant, né en ${D.enfantNe}</small></dd>
+          <dt>Prélèvement</dt><dd>Le 5 de chaque mois<small>Compte se terminant par ${D.compte}</small></dd>
+          <dt>Garanties principales</dt><dd style="font-weight:400"><ul class="garanties">${GARANTIES.map(g=>`<li>${g.lib} : ${nb(g.confort)}</li>`).join('')}</ul></dd>
+        </dl>
+      </section>
+      <section aria-labelledby="t-evol">
+        <h2 id="t-evol" style="margin-bottom:12px">${S.resilEnvoyee ? 'Ma demande en cours' : 'Faire évoluer mon contrat'}</h2>
+        ${options}
+      </section>
+    </div>
+  `);
+};
+
+R['resil-1'] = function(){
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé','Résilier'])}
+    ${flowbar('contrat','Mon contrat','Quitter sans rien envoyer')}
+    ${steps(1,3,'Conditions et date d’effet')}
+    <div class="stack">
+      <div>
+        <h1 tabindex="-1">Résilier mon contrat santé</h1>
+        <p class="lead">Votre adhésion date du ${D.depuis}, il y a plus d’un an : vous pouvez résilier à tout moment.</p>
+      </div>
+      <section class="card" aria-labelledby="t-cond">
+        <h2 id="t-cond" style="margin-bottom:12px">Ce qui se passe si vous résiliez aujourd’hui</h2>
+        <dl class="facts">
+          <dt>Fin du contrat</dt><dd><span class="big">${D.effetResil}</span><small>Un mois après la réception de votre demande. Si vous l’envoyez aujourd’hui, nous la recevons le ${D.aujourdhui}.</small></dd>
+          <dt>Personnes concernées</dt><dd>${D.nom} et ${D.enfant}<small>La couverture prend fin pour vous deux à la même date.</small></dd>
+          <dt>D’ici là</dt><dd>Vos garanties Confort continuent<small>Vos soins sont remboursés normalement jusqu’à la fin du contrat.</small></dd>
+          <dt>Frais</dt><dd>Aucun frais, aucune pénalité</dd>
+          <dt>Justificatif</dt><dd>Aucun à fournir<small>Vous n’avez pas à nous prouver que vous avez une nouvelle mutuelle.</small></dd>
+          <dt>Après l’envoi</dt><dd>Un accusé de réception par courriel<small>Il indique la date d’effet de la résiliation.</small></dd>
+        </dl>
+      </section>
+      <aside class="note" aria-labelledby="t-alt">${ICON.info}<div>
+        <h2 id="t-alt">Une autre possibilité : changer de formule</h2>
+        <p>La formule Essentielle coûte <strong class="num">${nb(F.essentielle.total)}</strong> par mois pour vous et ${D.enfant.split(' ')[0]}, soit <span class="num">${nb(F.ecart)}</span> de moins qu’aujourd’hui, avec des garanties plus réduites. Elle prendrait effet le ${D.effetModif}.</p>
+        <p><a href="#modif-1" data-go="modif-1">Comparer les deux formules</a> <span style="color:var(--muted)">· Si vous poursuivez, cela ne change rien à votre résiliation.</span></p>
+      </div></aside>
+      <div class="actions">
+        <a class="btn" href="#resil-2" data-go="resil-2">Continuer la résiliation</a>
+      </div>
+      <p style="color:var(--muted);font-size:.95rem;margin:0">Rien n’est envoyé avant la dernière étape, où vous pourrez encore confirmer ou annuler.</p>
+    </div>
+  `, {flow:true});
+};
+
+R['resil-2'] = function(){
+  const tooLong = S.autre.length > AUTRE_MAX;
+  const errs = S.autreErreur && tooLong ? [{id:'autre', msg:`Votre précision fait ${S.autre.length} caractères : raccourcissez-la à ${AUTRE_MAX} caractères maximum, ou videz le champ.`}] : [];
+  const radios = RAISONS.map(r=>`
+    <label class="choice"><input type="radio" name="raison" value="${r.v}" ${S.raison===r.v?'checked':''}><span>${r.lib}</span></label>
+    ${r.v==='autre' && S.raison==='autre' ? `
+      <div class="subfield field ${errs.length?'field--error':''}">
+        <label for="autre">Précisez, si vous le souhaitez (facultatif)</label>
+        ${errs.length?`<p class="err" id="autre-err">${ICON.errSmall}<span><span class="sr-only">Erreur : </span>${esc(errs[0].msg)}</span></p>`:''}
+        <textarea id="autre" name="autre" aria-describedby="autre-count${errs.length?' autre-err':''}"${errs.length?' aria-invalid="true"':''}>${esc(S.autre)}</textarea>
+        <p class="counter ${tooLong?'over':''}" id="autre-count" aria-live="polite">${S.autre.length} / ${AUTRE_MAX} caractères</p>
+      </div>` : ''}`).join('');
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé','Résilier'])}
+    ${flowbar('resil-1','Étape précédente','Quitter sans rien envoyer')}
+    ${steps(2,3,'Raison du départ (facultatif)')}
+    ${errorSummary(errs)}
+    <div class="stack">
+      <div>
+        <h1 tabindex="-1">Pourquoi souhaitez-vous partir ?</h1>
+        <p class="lead">Cette question est facultative. Votre réponse nous aide à améliorer nos offres ; elle ne change rien à votre demande.</p>
+      </div>
+      <form class="card" id="f-raison" novalidate>
+        <fieldset>
+          <legend>Raison principale <span style="font-weight:400;color:var(--muted)">(facultatif)</span></legend>
+          <div class="choices">${radios}</div>
+        </fieldset>
+        <div class="actions">
+          <button type="submit" class="btn">Continuer</button>
+          <button type="button" class="btn btn--secondary" data-action="raison-skip">Passer cette question</button>
+        </div>
+      </form>
+    </div>
+  `, {flow:true});
+};
+
+R['resil-3'] = function(){
+  const raison = S.raison ? RAISONS.find(r=>r.v===S.raison).lib : null;
+  const errs = S.emailError && S.emailOpen ? [{id:'email', msg:S.emailError}] : [];
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé','Résilier'])}
+    ${flowbar('resil-2','Étape précédente','Quitter sans rien envoyer')}
+    ${steps(3,3,'Vérification')}
+    ${errorSummary(errs)}
+    <div class="stack">
+      ${envoiErreurNote('résiliation')}
+      <div>
+        <h1 tabindex="-1">Vérifiez et confirmez votre résiliation</h1>
+        <p class="lead">Votre demande n’est pas encore envoyée. Vérifiez les informations ci-dessous, puis confirmez ou annulez.</p>
+      </div>
+      <section class="card" aria-labelledby="t-recap">
+        <h2 id="t-recap" style="margin-bottom:12px">Votre demande</h2>
+        <dl class="facts">
+          <dt>Contrat</dt><dd>Santé, formule Confort<small>N° adhérent ${D.numero}</small></dd>
+          <dt>Personnes concernées</dt><dd>${D.nom}<span style="display:block">${D.enfant}</span></dd>
+          <dt>Réception de la demande</dt><dd>${D.aujourdhui}<small>Aujourd’hui, dès que vous confirmez.</small></dd>
+          <dt>Fin du contrat</dt><dd><span class="big">${D.effetResil}</span><small>Vos garanties continuent jusqu’à cette date.</small></dd>
+          <dt>Frais</dt><dd>Aucun</dd>
+          <dt>Raison indiquée</dt><dd><a class="act" href="#resil-2" data-go="resil-2">Modifier<span class="sr-only"> la raison</span></a>${raison ? esc(raison) : '<span style="color:var(--muted);font-weight:400">Non indiquée (facultatif)</span>'}${S.raison==='autre' && S.autre.trim() ? `<small>« ${esc(S.autre.trim())} »</small>`:''}</dd>
+          ${emailRow('resil')}
+        </dl>
+      </section>
+      <div>
+        <div class="actions" style="margin-top:0">
+          ${confirmButton('Confirmer la résiliation','resil-send')}
+          <button type="button" class="btn btn--secondary" data-action="resil-cancel">Annuler la résiliation</button>
+        </div>
+        <p style="color:var(--muted);font-size:.95rem;margin:12px 0 0">« Confirmer » envoie la demande et déclenche l’accusé de réception. « Annuler » n’envoie rien : votre contrat continue.</p>
+      </div>
+    </div>
+  `, {flow:true});
+};
+
+R['resil-ok'] = function(){
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé','Résilier'])}
+    <div class="stack">
+      <div class="success" role="status">
+        <div class="success__icon">${ICON.ok}</div>
+        <h1 tabindex="-1">Votre demande de résiliation est envoyée</h1>
+        <p class="lead" style="margin-top:10px">Nous l’avons reçue le ${D.aujourdhui}. Votre contrat santé prendra fin le <strong style="color:var(--ink)">${D.effetResil}</strong>.</p>
+        <div class="note note--ok" style="margin-top:16px">${ICON.okSmall}<div>
+          <p><strong>Accusé de réception envoyé à ${esc(S.email)}</strong></p>
+          <p>Il indique la date d’effet de votre résiliation. Gardez-le : il fait foi de votre demande.</p>
+        </div></div>
+      </div>
+      <section class="card" aria-labelledby="t-next">
+        <h2 id="t-next" style="margin-bottom:8px">Et maintenant ?</h2>
+        <ul class="next">
+          <li>Jusqu’au ${D.effetResil}, vos garanties Confort continuent pour vous et ${D.enfant}.</li>
+          <li>Pensez à prévoir une nouvelle complémentaire santé pour vous et ${D.enfant.split(' ')[0]} à partir de cette date. Vous n’avez aucun justificatif à nous envoyer.</li>
+          <li>Aucun frais ni pénalité ne vous sera demandé pour cette résiliation.</li>
+        </ul>
+        ${S.raison?'<p style="margin:12px 0 0;color:var(--muted)">Merci d’avoir indiqué la raison de votre départ.</p>':''}
+      </section>
+      <p style="color:var(--muted);margin:0">Vous n’avez pas reçu l’accusé de réception ? Vérifiez vos courriers indésirables, puis contactez le service adhérents au <a href="tel:+33900000000">${D.tel}</a> (${D.horaires}) ou à <a href="mailto:${D.mail}">${D.mail}</a>.</p>
+      <div class="actions" style="margin-top:0"><a class="btn btn--secondary" href="#contrat" data-go="contrat">Retour à mon contrat</a></div>
+    </div>
+  `, {flow:true});
+};
+
+function compareTable(){
+  const rows = GARANTIES.map(g=>`<tr>
+      <th scope="row">${g.lib}</th>
+      <td data-col="Confort (actuelle)">${nb(g.confort)}</td>
+      <td class="col-new" data-col="Essentielle">${nb(g.ess)}<span class="less">↓ Moins couvert</span></td>
+    </tr>`).join('');
+  return `<div><h2 class="compare-title" id="t-comp">Comparatif pour ${D.nom} et ${D.enfant}</h2>
+  <table class="compare" aria-labelledby="t-comp">
+    <thead><tr>
+      <th scope="col">Garantie</th>
+      <th scope="col">Confort<small>Votre formule actuelle</small></th>
+      <th scope="col" class="col-new">Essentielle<small>Nouvelle formule possible</small></th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <th scope="row">Cotisation mensuelle<br><span style="font-size:.88rem;color:var(--muted);font-weight:400">pour vous et ${D.enfant.split(' ')[0]}</span></th>
+        <td data-col="Confort (actuelle)"><span class="big num">${nb(F.confort.total)}</span><span style="display:block;font-size:.88rem;color:var(--muted)">${nb(F.confort.adulte)} + ${nb(F.confort.enfant)}</span></td>
+        <td class="col-new" data-col="Essentielle"><span class="big num">${nb(F.essentielle.total)}</span><span style="display:block;font-size:.88rem;color:var(--muted)">${nb(F.essentielle.adulte)} + ${nb(F.essentielle.enfant)}</span><span class="badge">${nb(F.ecart)} de moins</span></td>
+      </tr>
+      ${rows}
+    </tbody>
+  </table></div>`;
+}
+
+R['modif-1'] = function(){
+  const bloque = S.bloque;
+  const cta = bloque
+    ? `<div class="note note--warn" role="alert" tabindex="-1" id="bloque">${ICON.warn}<div>
+        <h2>Passage à Essentielle indisponible jusqu’à la fin de l’année</h2>
+        <p>Le passage de la formule Confort à la formule Essentielle n’est possible qu’une fois par année civile, et vous l’avez déjà utilisé en 2026.</p>
+        <p>Vous pourrez faire cette demande à partir du <strong>${D.anneeSuivante}</strong>. Pour toute question : service adhérents au <a href="tel:+33900000000">${D.tel}</a>, ${D.horaires}.</p>
+      </div></div>
+      <div class="actions"><a class="btn btn--secondary" href="#contrat" data-go="contrat">Retour à mon contrat</a></div>`
+    : `<div class="actions">
+        <a class="btn" href="#modif-2" data-go="modif-2">Choisir la formule Essentielle</a>
+        <a href="#contrat" data-go="contrat" data-quit="1">Garder ma formule Confort</a>
+      </div>`;
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé','Changer de formule'])}
+    ${flowbar('contrat','Mon contrat','Quitter sans rien envoyer')}
+    ${steps(1,2,'Choix de la formule')}
+    <div class="stack">
+      <div>
+        <h1 tabindex="-1">Changer de formule</h1>
+        <p class="lead">Vous avez la formule Confort depuis le ${D.depuis}. Voici ce que changerait la formule Essentielle.</p>
+      </div>
+      ${compareTable()}
+      ${bloque ? '' : `<section class="note note--plain" aria-labelledby="t-bon">${ICON.info}<div>
+        <h2 id="t-bon">Bon à savoir</h2>
+        <ul>
+          <li><strong>Prise d’effet le ${D.effetModif}</strong>, le 1er du mois qui suit votre demande.</li>
+          <li>La cotisation d’${D.moisEnCours} reste due au tarif actuel : <span class="num">${nb(F.confort.total)}</span>.</li>
+          <li>La formule s’applique à tout le contrat : vous et ${D.enfant}.</li>
+          <li>Le passage de Confort à Essentielle n’est possible <strong>qu’une fois par année civile</strong>.</li>
+        </ul>
+      </div></section>`}
+      ${cta}
+    </div>
+  `, {flow:true});
+};
+
+R['modif-2'] = function(){
+  const errs = S.emailError && S.emailOpen ? [{id:'email', msg:S.emailError}] : [];
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé','Changer de formule'])}
+    ${flowbar('modif-1','Étape précédente','Quitter sans rien envoyer')}
+    ${steps(2,2,'Vérification')}
+    ${errorSummary(errs)}
+    <div class="stack">
+      ${envoiErreurNote('modification')}
+      <div>
+        <h1 tabindex="-1">Vérifiez et confirmez votre changement de formule</h1>
+        <p class="lead">Votre demande n’est pas encore envoyée. Vérifiez les informations ci-dessous, puis confirmez ou annulez.</p>
+      </div>
+      <section class="card" aria-labelledby="t-recap">
+        <h2 id="t-recap" style="margin-bottom:12px">Votre demande</h2>
+        <dl class="facts">
+          <dt>Changement</dt><dd>De Confort à <strong>Essentielle</strong><small>Pour ${D.nom} et ${D.enfant}</small></dd>
+          <dt>Prise d’effet</dt><dd><span class="big">${D.effetModif}</span></dd>
+          <dt>Cotisation d’${D.moisEnCours}</dt><dd><span class="num">${nb(F.confort.total)}</span><small>Inchangée : le mois en cours reste au tarif actuel.</small></dd>
+          <dt>À partir de ${D.moisSuivant}</dt><dd><span class="big num">${nb(F.essentielle.total)}</span> par mois<small>${nb(F.essentielle.adulte)} pour vous + ${nb(F.essentielle.enfant)} pour ${D.enfant.split(' ')[0]}, prélevés le 5 du mois sur le compte se terminant par ${D.compte}.</small></dd>
+          <dt>Garanties en moins</dt><dd style="font-weight:400">
+            <ul class="garanties">
+              <li>Plus de chambre particulière à l’hôpital</li>
+              <li>Plus de médecines douces</li>
+              <li>Optique : <span class="num">${nb('100 €')}</span> par an au lieu de <span class="num">${nb('250 €')}</span></li>
+              <li>Dentaire, prothèses : <span class="num">${nb('125 %')}</span> de la base au lieu de <span class="num">${nb('250 %')}</span></li>
+              <li>Généraliste : <span class="num">${nb('100 %')}</span> de la base au lieu de <span class="num">${nb('150 %')}</span></li>
+            </ul>
+            <a href="#modif-1" data-go="modif-1">Revoir le comparatif</a></dd>
+          ${emailRow('modif')}
+        </dl>
+      </section>
+      <div class="note note--warn">${ICON.warn}<div>
+        <p><strong>Une fois par année civile.</strong> Si vous revenez ensuite à la formule Confort, vous ne pourrez pas repasser à Essentielle avant le ${D.anneeSuivante}.</p>
+      </div></div>
+      <div>
+        <div class="actions" style="margin-top:0">
+          ${confirmButton('Confirmer le changement','modif-send')}
+          <button type="button" class="btn btn--secondary" data-action="modif-cancel">Annuler</button>
+        </div>
+        <p style="color:var(--muted);font-size:.95rem;margin:12px 0 0">« Annuler » n’envoie rien : vous gardez la formule Confort.</p>
+      </div>
+    </div>
+  `, {flow:true});
+};
+
+R['modif-ok'] = function(){
+  return shell(`
+    ${crumbs(['Mon espace','Mon contrat santé','Changer de formule'])}
+    <div class="stack">
+      <div class="success" role="status">
+        <div class="success__icon">${ICON.ok}</div>
+        <h1 tabindex="-1">Votre changement de formule est enregistré</h1>
+        <p class="lead" style="margin-top:10px">À partir du <strong style="color:var(--ink)">${D.effetModif}</strong>, votre contrat passe en formule Essentielle pour vous et ${D.enfant}.</p>
+        <div class="note note--ok" style="margin-top:16px">${ICON.okSmall}<div>
+          <p><strong>Confirmation envoyée à ${esc(S.email)}</strong></p>
+          <p>Elle reprend la nouvelle formule, sa date d’effet et votre nouvelle cotisation.</p>
+        </div></div>
+      </div>
+      <section class="card" aria-labelledby="t-next">
+        <h2 id="t-next" style="margin-bottom:8px">Ce qui change</h2>
+        <dl class="facts">
+          <dt>Jusqu’au 31 octobre 2026</dt><dd>Formule Confort<small>Cotisation d’${D.moisEnCours} : ${nb(F.confort.total)}, au tarif actuel.</small></dd>
+          <dt>À partir du ${D.effetModif}</dt><dd>Formule Essentielle<small>Cotisation : ${nb(F.essentielle.total)} par mois, prélevée le 5 sur le compte se terminant par ${D.compte}.</small></dd>
+        </dl>
+      </section>
+      <div class="actions" style="margin-top:0"><a class="btn btn--secondary" href="#contrat" data-go="contrat">Retour à mon contrat</a></div>
+    </div>
+  `, {flow:true});
+};
+
+/* ================= Rendu et navigation ================= */
+const app = document.getElementById('app');
+const TITRES = {
+  'contrat':'Mon contrat santé', 'resil-1':'Résilier – étape 1 sur 3', 'resil-2':'Résilier – étape 2 sur 3',
+  'resil-3':'Résilier – étape 3 sur 3', 'resil-ok':'Résiliation envoyée', 'modif-1':'Changer de formule – étape 1 sur 2',
+  'modif-2':'Changer de formule – étape 2 sur 2', 'modif-ok':'Changement de formule enregistré'
+};
+
+function render(focusTarget){
+  let title = TITRES[S.screen];
+  const hasErr = (S.emailError && S.emailOpen) || (S.autreErreur && S.autre.length > AUTRE_MAX);
+  if(hasErr) title = 'Erreur : ' + title;
+  document.title = title + ' – ' + D.mutuelle;
+  app.innerHTML = R[S.screen]();
+  typo(app);
+  const sel = document.getElementById('review-select');
+  if(sel){ const cur = location.hash.slice(1); if([...sel.options].some(o=>o.value===cur)) sel.value = cur; }
+  if(focusTarget === false) return;
+  let el = null;
+  if(focusTarget) el = document.getElementById(focusTarget);
+  if(!el) el = document.getElementById('errsum') || document.getElementById('envoi-err') || document.getElementById('banner') || document.getElementById('bloque') || app.querySelector('h1');
+  if(el){ el.focus({preventScroll:true}); }
+  window.scrollTo(0,0);
+}
+
+// Typographie française : espace insécable avant ? ! ; : » et après «
+function typo(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let n; while((n = w.nextNode())){
+    const p = n.parentNode && n.parentNode.nodeName;
+    if(p==='SCRIPT'||p==='STYLE'||p==='TEXTAREA') continue;
+    const t = n.nodeValue.replace(/ ([?!;:»])/g,'\u00a0$1').replace(/« /g,'«\u00a0');
+    if(t !== n.nodeValue) n.nodeValue = t;
+  }
+}
+
+function clearTransient(){
+  S.emailError=''; S.envoiErreur=false; S.envoi=false; S.autreErreur=false; S.banner=null;
+}
+
+function go(screen){
+  clearTransient();
+  if(screen !== 'resil-3' && screen !== 'modif-2'){ S.emailOpen=false; }
+  S.screen = screen;
+  if(location.hash.slice(1) === screen) render();
+  else location.hash = screen;
+}
+
+let fromReview = false;
+function applyRoute(initial){
+  const id = location.hash.slice(1) || 'contrat';
+  const etat = ETATS.find(e=>e.id===id);
+  const isScreen = SCREENS.includes(id);
+  if(etat && (fromReview || initial === true || !isScreen)){
+    // Accès direct à un état (barre de revue, planche, lien) : on repart d'un état connu
+    S = Object.assign(fresh(), etat.preset || {}, {screen:(etat.preset && etat.preset.screen) || id});
+  } else if(isScreen){
+    if(id !== S.screen) clearTransient();
+    S.screen = id;
+  } else {
+    S = fresh();
+  }
+  fromReview = false;
+  render();
+}
+
+function readEmailDraft(){
+  const inp = document.getElementById('email');
+  if(inp) S.emailDraft = inp.value;
+}
+
+function send(kind){
+  if(S.emailOpen){
+    readEmailDraft();
+    const err = validateEmail(S.emailDraft);
+    if(err){ S.emailError = err; S.envoiErreur=false; render(); return; }
+    S.email = S.emailDraft.trim(); S.emailOpen=false; S.emailError='';
+  }
+  S.envoiErreur=false; S.envoi=true; render('main');
+  const btn = app.querySelector('[aria-disabled="true"]'); if(btn) btn.focus();
+  setTimeout(()=>{
+    S.envoi=false;
+    if(kind==='resil'){ S.resilEnvoyee=true; go('resil-ok'); }
+    else { S.modifEnvoyee=true; go('modif-ok'); }
+  }, 900);
+}
+
+app.addEventListener('click', e=>{
+  const a = e.target.closest('[data-go]');
+  if(a){
+    e.preventDefault();
+    const dest = a.getAttribute('data-go');
+    if(a.hasAttribute('data-quit')){
+      if(S.screen.startsWith('resil') && S.screen!=='resil-ok'){ go('contrat'); S.banner='resil-annulee'; render(); return; }
+      if(S.screen.startsWith('modif') && S.screen!=='modif-ok'){ go('contrat'); S.banner='modif-annulee'; render(); return; }
+    }
+    if(S.screen==='resil-2' && dest==='resil-1') saveRaison();
+    go(dest); return;
+  }
+  const f = e.target.closest('[data-focus]');
+  if(f){ e.preventDefault(); const t=document.getElementById(f.getAttribute('data-focus')); if(t){ t.focus(); t.scrollIntoView({block:'center'}); } return; }
+  const b = e.target.closest('[data-action]');
+  if(!b) return;
+  const act = b.getAttribute('data-action');
+  switch(act){
+    case 'email-open': S.emailOpen=true; S.emailDraft=S.email; S.emailError=''; render('email'); break;
+    case 'email-cancel': S.emailOpen=false; S.emailError=''; render('email-display'); break;
+    case 'raison-skip': S.raison=null; S.autre=''; go('resil-3'); break;
+    case 'resil-send': send('resil'); break;
+    case 'modif-send': send('modif'); break;
+    case 'resil-cancel': go('contrat'); S.banner='resil-annulee'; S.raison=null; S.autre=''; render(); break;
+    case 'modif-cancel': go('contrat'); S.banner='modif-annulee'; render(); break;
+  }
+});
+
+function saveRaison(){
+  const form = document.getElementById('f-raison'); if(!form) return;
+  const r = form.querySelector('input[name=raison]:checked'); S.raison = r ? r.value : null;
+  const t = document.getElementById('autre'); if(t) S.autre = t.value;
+}
+
+app.addEventListener('change', e=>{
+  if(e.target.name==='raison'){
+    saveRaison(); S.autreErreur=false;
+    const v = e.target.value; render(false);
+    const r = app.querySelector(`input[name=raison][value="${v}"]`); if(r) r.focus();
+  }
+});
+app.addEventListener('input', e=>{
+  if(e.target.id==='autre'){
+    S.autre = e.target.value;
+    const c = document.getElementById('autre-count');
+    if(c){ c.textContent = `${S.autre.length} / ${AUTRE_MAX} caractères`; c.classList.toggle('over', S.autre.length>AUTRE_MAX); }
+  }
+});
+app.addEventListener('submit', e=>{
+  if(e.target.id==='f-raison'){
+    e.preventDefault(); saveRaison();
+    if(S.raison==='autre' && S.autre.length > AUTRE_MAX){ S.autreErreur=true; render(); return; }
+    if(S.raison!=='autre') S.autre='';
+    go('resil-3');
+  }
+});
+
+/* ================= Barre de revue ================= */
+const params = new URLSearchParams(location.search);
+if(params.has('embed')) document.body.classList.add('embed');
+
+const sel = document.getElementById('review-select');
+const groupes = [...new Set(ETATS.map(e=>e.groupe))];
+sel.innerHTML = groupes.map(g=>`<optgroup label="${g}">${ETATS.filter(e=>e.groupe===g).map(e=>`<option value="${e.id}">${e.titre}</option>`).join('')}</optgroup>`).join('');
+sel.addEventListener('change', ()=>{ fromReview = true; if(location.hash.slice(1)===sel.value) applyRoute(); else location.hash = sel.value; });
+document.getElementById('review-reset').addEventListener('click', ()=>{ S = fresh(); if(location.hash==='#contrat') render(); else location.hash='contrat'; });
+
+/* ================= Planche de tous les états ================= */
+function renderPlanche(){
+  document.title = 'Planche des états – Modifier ou résilier – ' + D.mutuelle;
+  document.getElementById('review-planche').textContent = 'Prototype interactif';
+  document.getElementById('review-planche').setAttribute('href', location.pathname);
+  sel.closest('label').style.display='none';
+  document.getElementById('review-reset').style.display='none';
+  app.innerHTML = `<main class="planche">
+    <h1>Planche des écrans et de leurs états</h1>
+    <p>Chaque écran est affiché ici en largeur mobile (390 px) ; on peut faire défiler l’intérieur de chaque cadre. Le lien sous chaque cadre ouvre l’état dans le prototype interactif, en pleine largeur.</p>
+    ${groupes.map(g=>`<h2>${g}</h2><div class="board">${ETATS.filter(e=>e.groupe===g).map(e=>`
+      <figure class="frame">
+        <div class="frame__screen"><iframe loading="lazy" title="${esc(e.titre)}" src="?embed=1#${e.id}"></iframe></div>
+        <figcaption><b>${e.titre}</b><span>${e.desc}</span><a href="${location.pathname}#${e.id}">Ouvrir dans le prototype</a></figcaption>
+      </figure>`).join('')}</div>`).join('')}
+  </main>`;
+  typo(app);
+}
+
+if(params.get('vue')==='planche'){ renderPlanche(); }
+else { window.addEventListener('hashchange', ()=>applyRoute(false)); applyRoute(true); }
+
+})();
+</script>
+</body>
+</html>

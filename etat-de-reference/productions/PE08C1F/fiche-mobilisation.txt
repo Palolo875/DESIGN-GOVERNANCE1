@@ -1,0 +1,49 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 10:36:56 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 10:36:59 | read_route --help | code 0, rien servi | | |
+| 3 | 10:37:00 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 3 | 10:37:00 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 3 | 10:37:00 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 3 | 10:37:00 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 3 | 10:37:00 | `SAVOIR/TYPE` | consultée | | |
+| 3 | 10:37:00 | `ACTION/FIRST-RENDER` | consultée | | |
+| 3 | 10:37:00 | `ACTION/GATE-A` | consultée | | |
+| 4 | 10:37:02 | ligne du mode DIRECTION | consultée (routes citées, non lues) | | |
+| 5 | 10:37:06 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 5 | 10:37:06 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 5 | 10:37:06 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 5 | 10:37:06 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 5 | 10:37:06 | `SAVOIR/TYPE` | consultée | | |
+| 5 | 10:37:06 | `ACTION/FIRST-RENDER` | consultée | | |
+| 5 | 10:37:06 | `ACTION/GATE-A` | consultée | | |
+| 6 | 10:37:09 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 6 | 10:37:09 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 6 | 10:37:09 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 6 | 10:37:09 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 6 | 10:37:09 | `SAVOIR/TYPE` | consultée | | |
+| 6 | 10:37:09 | `ACTION/FIRST-RENDER` | consultée | | |
+| 6 | 10:37:09 | `ACTION/GATE-A` | consultée | | |
+| 7 | 10:37:15 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 8 | 10:37:15 | `BIBLIOTHEQUE/SEQUENCE` | consultée | | |
+| 9 | 10:37:18 | `SAVOIR/TOOLS/CONVERGENCE` | consultée | | |
+| 10 | 10:37:18 | `BIBLIOTHEQUE/SELECT` | consultée | | |
+| 11 | 10:37:22 | `ACTION/RECETTE-RENDU` | consultée | | |
+| 12 | 14:15:29 | check_render (--help) | exécuté, rien à traiter | | |
+| 13 | 14:16:12 | check_render sur `index.html` (--proof, --mesures, --captures, --json) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.tableau) | | |
+| 14 | 14:16:23 | check_render sur `index.html` ?date=2027-01-21T16:00 (--widths, --captures, --assert ×3, --in-frame) | sollicité, en échec (code 2, aucun résultat) | | |
+| 15 | 14:16:23 | check_render sur `index.html` ?date=2027-06-01T00:00 (--widths, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 16 | 14:16:30 | check_render sur `index.html` ?date=2027-01-21T16:00 (--widths, --captures, --assert ×2, --in-frame) | sollicité, en échec (code 2, aucun résultat) | | |
+| 17 | 14:16:54 | check_render sur `index.html` ?date=2027-01-21T16:00 (--widths, --captures, --assert ×3, --in-frame) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Parcours clavier ; RETURN — Objet de l’état clé dans son cadre (--in-frame) | | |
+| 18 | 14:17:02 | check_render sur `index.html` ?date=2027-06-01T00:00 (--widths, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Parcours clavier | | |
+| 19 | 14:18:18 | check_render sur `index.html` (--proof, --captures) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.tableau) | | |
+| 20 | 14:19:03 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

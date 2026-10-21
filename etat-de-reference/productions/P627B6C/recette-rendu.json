@@ -1,0 +1,371 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P627B6C/artefact/index.html",
+    "artifact_version": "ea7590e1b445",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-21T14:49:33Z",
+    "scope": "état initial, largeurs 390,768,1440 px",
+    "external_requests_blocked": 0,
+    "settings": {
+      "proof": "",
+      "tab_stops": 60,
+      "allow_external": false,
+      "wait_ms": 1500
+    },
+    "captures": [
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P627B6C/captures/capture-390px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P627B6C/captures/capture-768px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/P627B6C/captures/capture-1440px.png"
+    ],
+    "browser": {
+      "engine": "chromium",
+      "version": "141.0.7390.37",
+      "executable": "playwright-managed"
+    }
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Chevauchement et troncature de texte",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px ; texte SVG compris, calques fixes ou collants exclus"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 390 px : 59 texte(s) évalué(s), 319 candidat(s), 258 exclu(s) ; 768 px : 59 texte(s) évalué(s), 307 candidat(s), 246 exclu(s) ; 1440 px : 59 texte(s) évalué(s), 307 candidat(s), 246 exclu(s) ; 390 px : texte non évalué : #aller (texte de contrôle natif), #ariane-courant (contenu ::before) ; 768 px : texte non évalué : #aller (texte de contrôle natif), #ariane-courant (contenu ::before) ; 1440 px : texte non évalué : #aller (texte de contrôle natif), #ariane-courant (contenu ::before)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "6 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement ; 1 petite(s) cible(s) admise(s) par l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Images chargées",
+      "status": "PASS",
+      "detail": "aucune image visible illisible"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "6 arrêt(s) à 390 px ; 390 px : page, fin=end, 6 candidat(s) ; 6 arrêt(s) à 768 px ; 768 px : page, fin=end, 6 candidat(s) ; 6 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 6 candidat(s) ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant"
+    },
+    {
+      "check": "Contraste de l’indicateur de focus",
+      "status": "PASS",
+      "detail": "18 arrêt(s) mesuré(s) ou à contour du navigateur sans défaut"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation démarrée"
+    },
+    {
+      "check": "Objet de preuve au premier écran",
+      "status": "NOT-VERIFIED",
+      "detail": "aucun sélecteur fourni (--proof) : à juger à la main"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#aller"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "button",
+        "#f-email",
+        "button",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "input",
+        "input",
+        "input",
+        "#r1-autre",
+        "#r1-precision",
+        "button",
+        "a",
+        "a",
+        "a",
+        "a",
+        "button",
+        "#r-email",
+        "button",
+        "button",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 6
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#aller"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "button",
+        "#f-email",
+        "button",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "input",
+        "input",
+        "input",
+        "#r1-autre",
+        "#r1-precision",
+        "button",
+        "a",
+        "a",
+        "a",
+        "a",
+        "button",
+        "#r-email",
+        "button",
+        "button",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 6
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#aller"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "button",
+        "#f-email",
+        "button",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "input",
+        "input",
+        "input",
+        "#r1-autre",
+        "#r1-precision",
+        "button",
+        "a",
+        "a",
+        "a",
+        "a",
+        "button",
+        "#r-email",
+        "button",
+        "button",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 6
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 319,
+      "evaluated": 59,
+      "excluded": 258,
+      "unmeasured": [
+        {
+          "sel": "#aller",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#ariane-courant",
+          "kind": "contenu ::before"
+        }
+      ]
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 307,
+      "evaluated": 59,
+      "excluded": 246,
+      "unmeasured": [
+        {
+          "sel": "#aller",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#ariane-courant",
+          "kind": "contenu ::before"
+        }
+      ]
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 307,
+      "evaluated": 59,
+      "excluded": 246,
+      "unmeasured": [
+        {
+          "sel": "#aller",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "#ariane-courant",
+          "kind": "contenu ::before"
+        }
+      ]
+    }
+  },
+  "proof_observations": {
+    "390": null,
+    "768": null,
+    "1440": null
+  }
+}

@@ -1,0 +1,20 @@
+--- index.html
+<!--
+  Mutuelle des Trois Rivières — parcours « Modifier ou résilier mon contrat santé »
+  Maquette interactive, données fictives fournies par le brief. Date de démonstration : 21 octobre 2026.
+
+  Trace (légère)
+  - Mode : STANDARD (flow nouveau, santé + résiliation → protection de niveau : ni LITE ni ITER).
+  - Thèse : « avant de valider, vous savez ce qui change, quand et combien » → objet de preuve : l’échéancier daté
+    (aujourd’hui → date d’effet → prélèvement, montants du foyer calculés) → geste : confirmer ou annuler, côte à côte, même poids.
+  - Trame modale écartée : stepper à pastilles + formulaire + gros bouton rouge « Résilier » + coche verte de succès.
+    Gardé : la séquence en 2 étapes (nécessaire). Rompu : l’objet qui organise chaque étape est l’échéancier ; la confirmation
+    est l’accusé de réception lui-même ; « Résilier » n’est pas coloré en danger (le rouge est réservé aux erreurs).
+  - Plafond : maquette front sans back-end ; marque sans logo (nom en texte) ; contenus d’exemple marqués (courriel, n° de demande,
+    montant du dernier prélèvement « à confirmer »).
+  - Défaut dominant restant : règle de cotisation du mois de fin de contrat inconnue (prorata ?) → montant non affiché.
+  - Vérifié : recette check_render (390/768/1440 px, état initial + 9 états par le menu) sans RETURN ; réserves = noms DOM non calculés,
+    pseudo-éléments décoratifs, radios = 1 arrêt clavier. Parcours joués au navigateur : erreur courriel (saisie conservée, focus, aria-invalid),
+    envoi en cours, accusé, questionnaire vide puis rempli, annulation, changement de formule. Montants recoupés (81,70 / 50,50 / 31,20 / 374,40).
+  - Prochaine preuve : test de tâche avec 5 adhérent·es (dont 60 ans et plus), lecteur d’écran réel, relecture juridique des libellés.
+-->

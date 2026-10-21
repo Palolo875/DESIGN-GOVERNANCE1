@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Interventions du jour</title>
+<meta name="description" content="Suivi des interventions du jour — Ascenseurs Rhône Maintenance, agence de Lyon Sud.">
+<style>
+:root {
+  --bg: #eef0f3;
+  --surface: #ffffff;
+  --surface-2: #f6f7f9;
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --muted: #5b6474;
+  --line: #d5d9e0;
+  --line-strong: #aeb5c1;
+  --brand: #13233f;
+  --brand-ink: #ffffff;
+  --focus: #2563eb;
+
+  --retard: #b42318;
+  --retard-bg: #fde8e7;
+  --retard-line: #f3b4ae;
+  --cours: #1849a9;
+  --cours-bg: #e3ecfd;
+  --faire: #334155;
+  --faire-bg: #eef1f5;
+  --fini: #17663a;
+  --fini-bg: #e2f4e8;
+  --haute: #1a1300;
+  --haute-bg: #ffc93d;
+
+  --radius: 12px;
+  --tap: 48px;
+  font-size: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b24;
+    --surface-2: #1c2230;
+    --ink: #f1f4f9;
+    --ink-2: #ced5e0;
+    --muted: #9aa4b5;
+    --line: #2c3444;
+    --line-strong: #46506a;
+    --brand: #0a1426;
+    --focus: #7aa7ff;
+    --retard: #ff8a80;
+    --retard-bg: #3a1714;
+    --retard-line: #7a2a24;
+    --cours: #9dbdff;
+    --cours-bg: #15274a;
+    --faire: #ced5e0;
+    --faire-bg: #232a38;
+    --fini: #7fd6a0;
+    --fini-bg: #13301f;
+    --haute: #1a1300;
+    --haute-bg: #ffc93d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117; --surface: #161b24; --surface-2: #1c2230; --ink: #f1f4f9; --ink-2: #ced5e0;
+  --muted: #9aa4b5; --line: #2c3444; --line-strong: #46506a; --brand: #0a1426; --focus: #7aa7ff;
+  --retard: #ff8a80; --retard-bg: #3a1714; --retard-line: #7a2a24; --cours: #9dbdff; --cours-bg: #15274a;
+  --faire: #ced5e0; --faire-bg: #232a38; --fini: #7fd6a0; --fini-bg: #13301f;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.4;
+}
+.num { font-variant-numeric: tabular-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+
+/* ---------- En-tête ---------- */
+.top {
+  background: var(--brand);
+  color: var(--brand-ink);
+}
+.top-in {
+  max-width: 1320px; margin: 0 auto; padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.org { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.org svg { flex: none; }
+.org-name { font-weight: 700; font-size: 1rem; letter-spacing: .01em; }
+.org-sub { font-size: .8rem; opacity: .78; }
+.clock { text-align: right; }
+.clock-day { font-size: .85rem; opacity: .85; }
+.clock-time { font-size: 1.35rem; font-weight: 700; line-height: 1.1; }
+@media (max-width: 599px) {
+  .clock { text-align: left; display: flex; align-items: baseline; gap: 10px; padding-left: 44px; }
+  .clock-time { font-size: 1.15rem; }
+}
+
+/* ---------- Filtres ---------- */
+.filters {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 6px rgb(15 23 42 / .06);
+}
+.filters-in {
+  max-width: 1320px; margin: 0 auto; padding: 10px 16px;
+  display: grid; gap: 8px;
+}
+@media (min-width: 900px) {
+  .filters { position: sticky; top: 0; z-index: 10; }
+  .filters-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; }
+}
+.fgroup { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.flabel { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); flex: none; width: 82px; }
+@media (max-width: 899px) { .flabel { width: auto; } .fgroup { flex-direction: column; align-items: stretch; gap: 4px; } }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  min-height: var(--tap); padding: 0 14px;
+  border: 1.5px solid var(--line-strong); border-radius: 999px;
+  background: var(--surface); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 600; font-size: .95rem; white-space: nowrap;
+  touch-action: manipulation;
+}
+.chip:hover { border-color: var(--ink-2); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.chip .count {
+  font-size: .8rem; font-weight: 700; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px;
+  display: inline-grid; place-items: center; background: var(--surface-2); color: var(--ink-2);
+}
+.chip[aria-pressed="true"] .count { background: rgb(255 255 255 / .2); color: inherit; }
+.chip[data-statut="En retard"] .count:not(.zero) { background: var(--retard); color: var(--surface); }
+.chip .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.chip:disabled { opacity: .5; cursor: not-allowed; }
+@media (max-width: 899px) {
+  .chips.tech { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .chips.tech .chip { justify-content: center; padding: 0 4px; gap: 6px; }
+  .chips.statut { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chips.statut .chip { justify-content: center; padding: 0 6px; }
+  .chips.statut .chip:first-child { grid-column: span 2; }
+}
+@media (max-width: 899px) and (min-width: 560px) {
+  .chips.statut { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .chips.statut .chip:first-child { grid-column: auto; }
+}
+@media (max-width: 400px) { .chips.tech .avatar { display: none; } }
+
+/* ---------- Mise en page ---------- */
+main { max-width: 1320px; margin: 0 auto; padding: 16px 16px 40px; display: grid; gap: 20px; }
+h2.sec {
+  font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted);
+  margin: 0 0 8px; font-weight: 700; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+}
+h2.sec .hint { text-transform: none; letter-spacing: 0; font-weight: 500; }
+
+.banner {
+  border-radius: var(--radius); padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start;
+  background: var(--retard-bg); border: 1.5px solid var(--retard-line); color: var(--ink);
+}
+.banner strong { color: var(--retard); }
+.banner > div { flex: 1 1 0; min-width: 0; }
+.banner .btn { margin-left: auto; flex: none; }
+@media (max-width: 600px) { .banner { flex-wrap: wrap; } .banner .btn { margin-left: 0; flex-basis: 100%; } }
+
+.btn {
+  min-height: var(--tap); padding: 0 18px; border-radius: 10px; border: 1.5px solid var(--ink);
+  background: var(--ink); color: var(--surface); font-weight: 700; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
+  touch-action: manipulation;
+}
+.btn.ghost { background: transparent; color: var(--ink); }
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 9px; border-radius: 6px;
+  font-size: .82rem; font-weight: 700; white-space: nowrap;
+}
+.badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.st-retard { color: var(--retard); background: var(--retard-bg); }
+.st-cours  { color: var(--cours);  background: var(--cours-bg); }
+.st-faire  { color: var(--faire);  background: var(--faire-bg); }
+.st-fini   { color: var(--fini);   background: var(--fini-bg); }
+.st-fini::before { content: "✓"; background: none; width: auto; height: auto; font-size: .8rem; }
+.st-retard::before { border-radius: 1px; transform: rotate(45deg); }
+.prio-haute { color: var(--haute); background: var(--haute-bg); }
+.prio-haute::before { content: "!"; width: 16px; height: 16px; border-radius: 50%; background: var(--haute); color: var(--haute-bg); display: grid; place-items: center; font-size: .75rem; font-weight: 900; }
+.prio-plain { font-size: .82rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
+
+/* ---------- Vue chef : attention ---------- */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+@media (max-width: 560px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+.kpi {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 10px 14px; display: flex; flex-direction: column; gap: 2px; text-align: left; cursor: pointer;
+  border-top: 4px solid var(--line-strong); min-height: var(--tap);
+}
+.kpi:hover { border-color: var(--line-strong); }
+.kpi .v { font-size: 1.75rem; font-weight: 800; line-height: 1.1; }
+.kpi .l { font-size: .85rem; color: var(--muted); font-weight: 600; }
+.kpi.k-retard { border-top-color: var(--retard); } .kpi.k-retard .v { color: var(--retard); }
+.kpi.k-cours { border-top-color: var(--cours); }
+.kpi.k-faire { border-top-color: var(--faire); }
+.kpi.k-fini { border-top-color: var(--fini); }
+
+.attn { display: grid; gap: 12px; }
+@media (min-width: 900px) { .attn { grid-template-columns: 1fr 1fr; } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.panel-h {
+  padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--line);
+  font-weight: 800; font-size: 1rem;
+}
+.panel-h .n { margin-left: auto; font-size: .85rem; font-weight: 700; color: var(--muted); }
+.panel.p-retard .panel-h { background: var(--retard-bg); color: var(--retard); border-bottom-color: var(--retard-line); }
+.panel.p-urgent .panel-h { background: var(--haute-bg); color: var(--haute); }
+.panel.p-urgent .panel-h .n { color: var(--haute); }
+.mini { list-style: none; margin: 0; padding: 0; }
+.mini li { border-top: 1px solid var(--line); }
+.mini li:first-child { border-top: 0; }
+.mini-row { display: grid; grid-template-columns: 64px 1fr; gap: 4px 12px; padding: 10px 14px; }
+.mini-t { font-weight: 800; font-size: 1.05rem; }
+.mini-t small { display: block; font-size: .75rem; font-weight: 700; color: var(--retard); }
+.mini-main { min-width: 0; }
+.mini-l1 { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-weight: 700; }
+.mini-l2 { color: var(--ink-2); font-size: .92rem; }
+.mini-note { font-size: .9rem; color: var(--ink); margin-top: 3px; }
+.mini-note.alert { font-weight: 700; color: var(--retard); }
+.who { font-size: .85rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
+.mini-empty { padding: 14px; color: var(--muted); }
+
+/* ---------- Vue chef : équipe ---------- */
+.team { display: grid; gap: 12px; }
+@media (min-width: 760px) { .team { grid-template-columns: repeat(3, 1fr); } }
+.tcard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); display: flex; flex-direction: column; }
+.tcard-h { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.tcard-h .name { font-weight: 800; }
+.tcard-h .stats { margin-left: auto; font-size: .8rem; color: var(--muted); text-align: right; }
+.tcard-h .stats b.r { color: var(--retard); }
+.avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: .8rem; color: #fff; flex: none; }
+.slot { padding: 10px 14px; border-top: 1px solid var(--line); }
+.slot:first-of-type { border-top: 0; }
+.slot-k { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 800; color: var(--muted); margin-bottom: 2px; }
+.slot-v { font-weight: 700; }
+.slot-s { font-size: .9rem; color: var(--ink-2); }
+.tcard .open { margin: auto 14px 12px; }
+
+/* ---------- Vue technicien : focus ---------- */
+.focus { display: grid; gap: 12px; }
+@media (min-width: 900px) { .focus { grid-template-columns: 1.3fr 1fr; align-items: start; } }
+.next {
+  background: var(--surface); border: 2px solid var(--ink); border-radius: 16px; padding: 16px; display: grid; gap: 10px;
+}
+.next-k { font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 800; color: var(--muted); }
+.next-time { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.next-time .t { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+.next-time .rel { font-size: 1.05rem; font-weight: 700; color: var(--cours); }
+.next-addr { font-size: 1.45rem; font-weight: 800; line-height: 1.2; }
+.next-addr small { display: block; font-size: 1rem; font-weight: 600; color: var(--muted); margin-top: 2px; }
+.next-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; color: var(--ink-2); font-weight: 600; }
+.next-note { background: var(--surface-2); border-left: 4px solid var(--line-strong); padding: 8px 12px; border-radius: 6px; font-size: 1rem; }
+.next .btn { width: 100%; font-size: 1.05rem; min-height: 56px; }
+@media (min-width: 900px) { .next .btn { width: auto; justify-self: start; } }
+.side { display: grid; gap: 12px; }
+.now {
+  background: var(--cours-bg); border: 1.5px solid var(--cours); border-radius: var(--radius); padding: 12px 14px; display: grid; gap: 4px;
+}
+.now .k { font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 800; color: var(--cours); }
+.now .v { font-weight: 800; font-size: 1.05rem; }
+.now .s { color: var(--ink-2); font-size: .95rem; }
+.now .alert { font-weight: 700; color: var(--retard); }
+.done-day { background: var(--fini-bg); border: 1.5px solid var(--fini); color: var(--ink); border-radius: 16px; padding: 18px; }
+.done-day b { color: var(--fini); font-size: 1.2rem; display: block; }
+
+/* ---------- Liste ---------- */
+.list-h { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.list-h h2.sec { margin: 0; }
+.list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.cols { display: none; }
+.row { border-top: 1px solid var(--line); position: relative; }
+.list > li:first-child .row, .list > li:first-child { border-top: 0; }
+.row { display: grid; grid-template-columns: 62px 1fr; gap: 4px 12px; padding: 12px 14px 12px 16px; }
+.row::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: transparent; }
+.row.is-retard::before { background: var(--retard); }
+.row.is-cours::before { background: var(--cours); }
+.row.is-fini { background: var(--surface-2); }
+.row.is-fini .c-addr, .row.is-fini .c-type b { color: var(--muted); }
+.c-time { font-weight: 800; font-size: 1.15rem; grid-row: span 4; }
+.c-time small { display: block; font-size: .75rem; color: var(--retard); font-weight: 700; }
+.c-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.c-addr { font-weight: 700; font-size: 1.02rem; }
+.c-addr small { font-weight: 500; color: var(--muted); }
+.c-type { color: var(--ink-2); font-size: .93rem; }
+.c-type b { color: var(--ink); }
+.c-note { font-size: .9rem; color: var(--ink); }
+.c-note.alert { color: var(--retard); font-weight: 700; }
+.c-dev { font-size: .85rem; color: var(--muted); }
+.c-tech { font-size: .88rem; color: var(--muted); display: flex; align-items: center; gap: 6px; font-weight: 600; }
+.c-tech .avatar { width: 22px; height: 22px; font-size: .62rem; }
+.c-id { font-size: .78rem; color: var(--muted); }
+.c-mob-foot { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
+
+@media (min-width: 1000px) {
+  .cols, .row {
+    display: grid;
+    grid-template-columns: 70px 118px 92px minmax(220px, 1.25fr) minmax(220px, 1.2fr) 150px;
+    gap: 0 14px; align-items: start;
+  }
+  .hide-tech .cols, .hide-tech .row { grid-template-columns: 70px 118px 92px minmax(220px, 1.3fr) minmax(220px, 1.3fr); }
+  .cols {
+    padding: 8px 14px 8px 16px; font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 800; color: var(--muted);
+    background: var(--surface-2); border-bottom: 1px solid var(--line);
+  }
+  .row { padding: 11px 14px 11px 16px; }
+  .c-time { grid-row: auto; font-size: 1.05rem; }
+  .c-badges { display: contents; }
+  .c-badges > .badge:first-child { justify-self: start; }
+  .c-prio { justify-self: start; }
+  .c-what { grid-column: 4; }
+  .c-where { grid-column: 5; }
+  .c-tech-col { grid-column: 6; }
+  .c-mob-foot { display: none; }
+  .d-only { display: block; }
+}
+@media (max-width: 999px) {
+  .d-only { display: none !important; }
+}
+.c-where .c-addr { font-size: .98rem; }
+
+/* ---------- États ---------- */
+.state {
+  background: var(--surface); border: 1px dashed var(--line-strong); border-radius: var(--radius);
+  padding: 28px 18px; text-align: center; display: grid; gap: 10px; justify-items: center;
+}
+.state h3 { margin: 0; font-size: 1.15rem; }
+.state p { margin: 0; color: var(--ink-2); max-width: 46ch; }
+.state .actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 4px; }
+.state.err { border: 2px solid var(--retard); border-style: solid; }
+.state.err h3 { color: var(--retard); }
+.state svg { color: var(--muted); }
+
+.skel { display: grid; gap: 10px; }
+.sk { height: 74px; border-radius: var(--radius); background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%); background-size: 200% 100%; animation: sh 1.4s linear infinite; border: 1px solid var(--line); }
+.sk.big { height: 190px; }
+@keyframes sh { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .sk { animation: none; } }
+
+footer { max-width: 1320px; margin: 0 auto; padding: 0 16px 28px; font-size: .82rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { color: var(--ink-2); }
+footer nav { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="org">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 6v22" stroke="currentColor" stroke-width="2"/><path d="M8 13l3.5-4 3.5 4M19 21l3.5 4 3.5-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <div class="org-name">Interventions du jour</div>
+        <div class="org-sub">Ascenseurs Rhône Maintenance · Agence Lyon Sud</div>
+      </div>
+    </div>
+    <div class="clock">
+      <div class="clock-day" id="clock-day">Mardi 20 octobre 2026</div>
+      <div class="clock-time num" id="clock-time" aria-label="Heure de consultation">10 h 30</div>
+    </div>
+  </div>
+</header>
+
+<div class="filters" role="search" aria-label="Filtres">
+  <div class="filters-in">
+    <div class="fgroup">
+      <span class="flabel" id="lbl-tech">Technicien</span>
+      <div class="chips tech" role="group" aria-labelledby="lbl-tech" id="f-tech"></div>
+    </div>
+    <div class="fgroup">
+      <span class="flabel" id="lbl-statut">Statut</span>
+      <div class="chips statut" role="group" aria-labelledby="lbl-statut" id="f-statut"></div>
+    </div>
+  </div>
+</div>
+
+<main id="main" aria-live="polite">
+  <noscript><div class="state err"><h3>Cet écran a besoin de JavaScript</h3><p>Activez JavaScript dans le navigateur pour afficher les interventions.</p></div></noscript>
+</main>
+
+<footer>
+  <span>Données fictives · Prototype livré le 20/10/2026</span>
+  <nav aria-label="Aperçu des états (prototype)">
+    <span>Aperçu des états :</span>
+    <a href="?">normal</a>
+    <a href="?etat=chargement">chargement</a>
+    <a href="?etat=erreur">données non chargées</a>
+    <a href="?etat=hors-ligne">connexion perdue</a>
+  </nav>
+</footer>
+
+<script type="text/csv" id="donnees-integrees">
+id,heure_prevue,adresse,batiment,appareil,type,priorite,statut,technicien,note
+INT-2601,07:30,"118, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-1977,Entretien périodique,Normale,En retard,Sophie Lambert,technicien retenu sur une panne précédente
+INT-2602,07:55,"141, rue Chevreul-Basse, 69007 Lyon",hôtel,ASC-1707,Panne,Haute,En retard,Théo Girard,Porte palière ne se ferme plus ; pièce manquante
+INT-2603,08:00,"46, impasse des Glycines, 69008 Lyon",copropriété,ASC-2179,Entretien périodique,Normale,Terminée,Karim Benali,
+INT-2604,08:25,"115, impasse des Glycines, 69007 Lyon",école,ASC-2954,Panne,Haute,En retard,Sophie Lambert,"Appareil à l'arrêt, signalé par le gardien ; technicien retenu sur une panne précédente"
+INT-2605,08:30,"25, avenue des Frères-Ladoux, 69008 Lyon",clinique,ASC-1451,Réparation planifiée,Normale,Terminée,Théo Girard,"Pièce reçue, pose prévue"
+INT-2606,08:50,"145, boulevard des Tchécoslovaques-Sud, 69008 Lyon",résidence,ASC-1922,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2607,08:55,"2, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-4231,Contrôle réglementaire,Normale,En retard,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer ; accès au local machinerie refusé"
+INT-2608,09:10,"107, rue Sébastien-Ory, 69007 Lyon",parking,ASC-2712,Réparation planifiée,Basse,Terminée,Théo Girard,Remplacement des câbles de traction
+INT-2609,09:15,"123, rue de la Charité-Haute, 69007 Lyon",résidence seniors,ASC-3590,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2610,09:25,"83, rue du Vieux-Moulin, 69007 Lyon",résidence,ASC-3059,Entretien périodique,Normale,Terminée,Sophie Lambert,
+INT-2611,09:30,"112, quai Claude-Arnaud, 69007 Lyon",parking,ASC-4753,Panne,Haute,En cours,Théo Girard,"Cabine bloquée entre deux étages, personne à l'intérieur ; pompiers prévenus"
+INT-2612,09:40,"115, cours Gambetta-Neuf, 69008 Lyon",clinique,ASC-4473,Entretien périodique,Normale,En cours,Karim Benali,
+INT-2613,09:45,"11, rue Pasteur-Prolongée, 69008 Lyon",école,ASC-4006,Entretien périodique,Basse,En cours,Sophie Lambert,
+INT-2614,10:45,"24, impasse des Glycines, 69008 Lyon",école,ASC-2409,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2615,10:55,"120, avenue Berthelot, 69008 Lyon",hôtel,ASC-4880,Entretien périodique,Basse,À faire,Karim Benali,
+INT-2616,11:20,"109, boulevard des Tchécoslovaques-Sud, 69007 Lyon",copropriété,ASC-1431,Réparation planifiée,Basse,À faire,Sophie Lambert,Remplacement des câbles de traction
+INT-2617,11:40,"134, rue Marcel-Rivière, 69007 Lyon",résidence,ASC-4249,Entretien périodique,Normale,À faire,Théo Girard,
+INT-2618,11:45,"93, quai Claude-Arnaud, 69007 Lyon",parking,ASC-1117,Panne,Haute,À faire,Karim Benali,"Appareil à l'arrêt, signalé par le gardien"
+INT-2619,12:20,"46, avenue Berthelot, 69008 Lyon",résidence,ASC-3954,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2620,12:25,"88, avenue Jean-Jaurès-Ouest, 69007 Lyon",résidence seniors,ASC-4257,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2621,12:50,"33, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-4305,Réparation planifiée,Normale,À faire,Sophie Lambert,Changement de l'opérateur de porte
+INT-2622,13:15,"104, rue des Tanneurs, 69008 Lyon",copropriété,ASC-1076,Réparation planifiée,Normale,À faire,Sophie Lambert,"Pièce reçue, pose prévue"
+INT-2623,13:20,"32, rue du Vieux-Moulin, 69007 Lyon",parking,ASC-4042,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2624,13:30,"97, place Jean-Macé-Haute, 69008 Lyon",école,ASC-2008,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2625,13:40,"148, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-2247,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2626,13:55,"64, rue Marcel-Rivière, 69007 Lyon",hôtel,ASC-2221,Réparation planifiée,Basse,À faire,Théo Girard,"Pièce reçue, pose prévue"
+INT-2627,14:00,"21, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-3115,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2628,14:15,"76, boulevard des Tchécoslovaques-Sud, 69008 Lyon",parking,ASC-4980,Réparation planifiée,Normale,À faire,Théo Girard,Changement de l'opérateur de porte
+INT-2629,14:40,"26, cours Gambetta-Neuf, 69008 Lyon",école,ASC-4354,Panne,Normale,À faire,Théo Girard,Bruit anormal au démarrage
+INT-2630,14:45,"147, place Jean-Macé-Haute, 69008 Lyon",clinique,ASC-1746,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2631,14:50,"91, rue des Trois-Pierres, 69008 Lyon",copropriété,ASC-4832,Entretien périodique,Basse,À faire,Sophie Lambert,
+INT-2632,15:05,"42, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3672,Panne,Normale,À faire,Théo Girard,Bouton d'appel du 3e hors service
+INT-2633,15:30,"85, place Jean-Macé-Haute, 69007 Lyon",copropriété,ASC-2794,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2634,15:45,"137, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3137,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2635,16:05,"66, place Jean-Macé-Haute, 69008 Lyon",résidence,ASC-4576,Contrôle réglementaire,Normale,À faire,Karim Benali,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2636,16:55,"122, avenue des Frères-Ladoux, 69008 Lyon",école,ASC-2868,Panne,Haute,À faire,Karim Benali,Porte palière ne se ferme plus
+INT-2637,17:00,"33, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-1548,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2638,17:15,"22, rue du Vieux-Moulin, 69007 Lyon",clinique,ASC-2323,Entretien périodique,Basse,À faire,Théo Girard,
+INT-2639,17:20,"115, place Jean-Macé-Haute, 69008 Lyon",hôtel,ASC-3255,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2640,17:25,"22, avenue Jean-Jaurès-Ouest, 69008 Lyon",copropriété,ASC-2928,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Contexte fixé par le brief ---------- */
+  var HEURE_CONSULTATION = "10:30";
+  var CHEF = "Nathalie Roux";
+  var TECHNICIENS = [
+    { nom: "Karim Benali",   court: "Karim",  init: "KB", couleur: "#0f766e" },
+    { nom: "Sophie Lambert", court: "Sophie", init: "SL", couleur: "#7c3aed" },
+    { nom: "Théo Girard",    court: "Théo",   init: "TG", couleur: "#c2410c" }
+  ];
+  var STATUTS = [
+    { v: "En retard", cls: "st-retard", couleur: "var(--retard)" },
+    { v: "En cours",  cls: "st-cours",  couleur: "var(--cours)" },
+    { v: "À faire",   cls: "st-faire",  couleur: "var(--faire)" },
+    { v: "Terminée",  cls: "st-fini",   couleur: "var(--fini)" }
+  ];
+  var COLONNES = ["id","heure_prevue","adresse","batiment","appareil","type","priorite","statut","technicien","note"];
+  // Mots qui signalent un danger pour des personnes : la note est alors mise en évidence.
+  var MOTS_ALERTE = /personne à l'intérieur|personne bloquée|pompiers|bloquée/i;
+
+  var main = document.getElementById("main");
+  var fTech = document.getElementById("f-tech");
+  var fStatut = document.getElementById("f-statut");
+
+  var data = null;
+  var etat = { tech: "tous", statut: "tous" };
+  var horsLigne = false;
+
+  try {
+    var memo = JSON.parse(localStorage.getItem("arm-filtres") || "null");
+    if (memo && typeof memo === "object") {
+      if (memo.tech === "tous" || TECHNICIENS.some(function (t) { return t.nom === memo.tech; })) etat.tech = memo.tech;
+      if (memo.statut === "tous" || STATUTS.some(function (s) { return s.v === memo.statut; })) etat.statut = memo.statut;
+    }
+  } catch (e) {}
+
+  function memoriser() {
+    try { localStorage.setItem("arm-filtres", JSON.stringify(etat)); } catch (e) {}
+  }
+
+  /* ---------- Utilitaires ---------- */
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function min(h) { var p = h.split(":"); return (+p[0]) * 60 + (+p[1]); }
+  var NOW = min(HEURE_CONSULTATION);
+  function hh(h) { return h.replace(":", " h "); }
+  function hcourt(h) { return h; }
+  function duree(m) {
+    m = Math.abs(m);
+    var h = Math.floor(m / 60), r = m % 60;
+    if (!h) return r + " min";
+    return h + " h" + (r ? " " + (r < 10 ? "0" : "") + r : "");
+  }
+  function tech(nom) { return TECHNICIENS.filter(function (t) { return t.nom === nom; })[0] || { nom: nom, court: nom, init: "?", couleur: "#64748b" }; }
+  function statutDef(v) { return STATUTS.filter(function (s) { return s.v === v; })[0] || STATUTS[2]; }
+  function badgeStatut(v) { return '<span class="badge ' + statutDef(v).cls + '">' + esc(v) + '</span>'; }
+  function badgePrio(p) {
+    if (p === "Haute") return '<span class="badge prio-haute c-prio">Haute</span>';
+    return '<span class="prio-plain c-prio">' + esc(p) + '</span>';
+  }
+  function avatar(nom, taille) {
+    var t = tech(nom), st = "background:" + t.couleur + (taille ? ";width:" + taille + "px;height:" + taille + "px;font-size:" + (taille * 0.026).toFixed(2) + "rem" : "");
+    return '<span class="avatar" style="' + st + '" aria-hidden="true">' + t.init + '</span>';
+  }
+  function ville(adr) {
+    // "118, rue Paul-Duvernay, 69008 Lyon" -> rue + code postal séparés
+    var m = adr.match(/^(.*),\s*(\d{5}\s+.+)$/);
+    return m ? { rue: m[1], cp: m[2] } : { rue: adr, cp: "" };
+  }
+  function lienCarte(adr) { return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(adr); }
+  function estAlerte(i) { return MOTS_ALERTE.test(i.note || ""); }
+  function retardTxt(i) {
+    if (i.statut !== "En retard") return "";
+    return "+" + duree(NOW - min(i.heure_prevue));
+  }
+  function parHeure(a, b) { return min(a.heure_prevue) - min(b.heure_prevue); }
+
+  /* ---------- Lecture CSV ---------- */
+  function parseCSV(txt) {
+    var rows = [], row = [], f = "", q = false, i = 0, c;
+    txt = txt.replace(/^﻿/, "");
+    for (; i < txt.length; i++) {
+      c = txt[i];
+      if (q) {
+        if (c === '"') { if (txt[i + 1] === '"') { f += '"'; i++; } else q = false; }
+        else f += c;
+      } else if (c === '"') q = true;
+      else if (c === ",") { row.push(f); f = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && txt[i + 1] === "\n") i++;
+        row.push(f); f = "";
+        if (row.length > 1 || row[0] !== "") rows.push(row);
+        row = [];
+      } else f += c;
+    }
+    if (f !== "" || row.length) { row.push(f); rows.push(row); }
+    var head = rows.shift() || [];
+    head = head.map(function (h) { return h.trim(); });
+    var manque = COLONNES.filter(function (c) { return head.indexOf(c) < 0; });
+    if (manque.length) throw new Error("Colonnes manquantes dans le fichier : " + manque.join(", "));
+    return rows.map(function (r) {
+      var o = {};
+      head.forEach(function (h, k) { o[h] = (r[k] || "").trim(); });
+      return o;
+    }).filter(function (o) { return o.id; });
+  }
+
+  function charger() {
+    if (/^https?:/.test(location.protocol)) {
+      return fetch("interventions.csv", { cache: "no-store" }).then(function (r) {
+        if (!r.ok) throw new Error("Le serveur a répondu " + r.status + ".");
+        return r.text();
+      }).then(parseCSV);
+    }
+    return new Promise(function (ok, ko) {
+      try { ok(parseCSV(document.getElementById("donnees-integrees").textContent.trim())); }
+      catch (e) { ko(e); }
+    });
+  }
+
+  /* ---------- Filtres ---------- */
+  function rendreFiltres(desactive) {
+    var base = data || [];
+    var techs = [{ v: "tous", label: "Tous" }].concat(TECHNICIENS.map(function (t) { return { v: t.nom, label: t.court }; }));
+    fTech.innerHTML = techs.map(function (t) {
+      var n = t.v === "tous" ? base.length : base.filter(function (i) { return i.technicien === t.v; }).length;
+      return '<button type="button" class="chip" data-tech="' + esc(t.v) + '" aria-pressed="' + (etat.tech === t.v) + '"' + (desactive ? " disabled" : "") + '>' +
+        (t.v !== "tous" ? avatar(t.v, 24) : "") +
+        '<span>' + esc(t.label) + '</span><span class="sr"> (' + n + ' interventions)</span></button>';
+    }).join("");
+
+    var dansTech = base.filter(function (i) { return etat.tech === "tous" || i.technicien === etat.tech; });
+    var st = [{ v: "tous", label: "Tous" }].concat(STATUTS.map(function (s) { return { v: s.v, label: s.v }; }));
+    fStatut.innerHTML = st.map(function (s) {
+      var n = s.v === "tous" ? dansTech.length : dansTech.filter(function (i) { return i.statut === s.v; }).length;
+      var dot = s.v === "tous" ? "" : '<span class="dot" style="background:' + statutDef(s.v).couleur + '" aria-hidden="true"></span>';
+      return '<button type="button" class="chip" data-statut="' + esc(s.v) + '" aria-pressed="' + (etat.statut === s.v) + '"' + (desactive ? " disabled" : "") + '>' +
+        dot + '<span>' + esc(s.label) + '</span><span class="count num' + (n === 0 ? " zero" : "") + '">' + (data ? n : "–") + '</span></button>';
+    }).join("");
+  }
+
+  fTech.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-tech]"); if (!b || b.disabled) return;
+    etat.tech = b.getAttribute("data-tech"); memoriser(); rendre();
+  });
+  fStatut.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-statut]"); if (!b || b.disabled) return;
+    etat.statut = b.getAttribute("data-statut"); memoriser(); rendre();
+  });
+  main.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-set-tech],[data-set-statut],[data-retry]");
+    if (!a) return;
+    if (a.hasAttribute("data-retry")) { e.preventDefault(); demarrer(true); return; }
+    if (a.hasAttribute("data-set-tech")) etat.tech = a.getAttribute("data-set-tech");
+    if (a.hasAttribute("data-set-statut")) etat.statut = a.getAttribute("data-set-statut");
+    memoriser(); rendre();
+    if (a.hasAttribute("data-scroll")) {
+      var l = document.getElementById("liste"); if (l) l.scrollIntoView({ block: "start" });
+    }
+  });
+
+  /* ---------- Blocs ---------- */
+  function miniLigne(i, opts) {
+    var v = ville(i.adresse);
+    return '<li><div class="mini-row">' +
+      '<div class="mini-t num">' + hcourt(i.heure_prevue) + (i.statut === "En retard" ? '<small>' + retardTxt(i) + '</small>' : "") + '</div>' +
+      '<div class="mini-main">' +
+        '<div class="mini-l1">' + (opts && opts.statut ? badgeStatut(i.statut) : "") + (opts && opts.prio && i.priorite === "Haute" ? badgePrio(i.priorite) : "") +
+          '<span>' + esc(i.type) + '</span><span class="who">' + esc(tech(i.technicien).court) + '</span></div>' +
+        '<div class="mini-l2">' + esc(v.rue) + ' · ' + esc(v.cp.replace(" Lyon", "")) + ' · ' + esc(i.batiment) + ' · ' + esc(i.appareil) + '</div>' +
+        (i.note ? '<div class="mini-note' + (estAlerte(i) ? " alert" : "") + '">' + esc(i.note) + '</div>' : "") +
+      '</div></div></li>';
+  }
+
+  function vueChef(list) {
+    var retards = list.filter(function (i) { return i.statut === "En retard"; }).sort(parHeure);
+    var urgents = list.filter(function (i) { return i.priorite === "Haute" && i.statut !== "Terminée" && i.statut !== "En retard"; })
+      .sort(function (a, b) {
+        var ra = a.statut === "En cours" ? 0 : 1, rb = b.statut === "En cours" ? 0 : 1;
+        return ra - rb || parHeure(a, b);
+      });
+    var c = {}; STATUTS.forEach(function (s) { c[s.v] = list.filter(function (i) { return i.statut === s.v; }).length; });
+
+    var h = '<section aria-labelledby="t-synth"><h2 class="sec" id="t-synth">Vue d’ensemble <span class="hint">' + list.length + ' interventions aujourd’hui</span></h2>' +
+      '<div class="kpis">' +
+        kpi("k-retard", c["En retard"], "En retard", "En retard") +
+        kpi("k-cours", c["En cours"], "En cours", "En cours") +
+        kpi("k-faire", c["À faire"], "À faire", "À faire") +
+        kpi("k-fini", c["Terminée"], "Terminées", "Terminée") +
+      '</div></section>';
+
+    h += '<section aria-labelledby="t-attn"><h2 class="sec" id="t-attn">À surveiller</h2><div class="attn">' +
+      '<div class="panel p-retard"><div class="panel-h">En retard<span class="n">' + retards.length + '</span></div>' +
+        (retards.length ? '<ul class="mini">' + retards.map(function (i) { return miniLigne(i, { prio: true }); }).join("") + '</ul>' : '<div class="mini-empty">Aucune intervention en retard.</div>') + '</div>' +
+      '<div class="panel p-urgent"><div class="panel-h">Urgent · priorité haute, non terminé<span class="n">' + urgents.length + '</span></div>' +
+        (urgents.length ? '<ul class="mini">' + urgents.map(function (i) { return miniLigne(i, { statut: true }); }).join("") + '</ul>' : '<div class="mini-empty">Aucune urgence en attente.</div>') + '</div>' +
+      '</div></section>';
+
+    h += '<section aria-labelledby="t-team"><h2 class="sec" id="t-team">Équipe · en ce moment</h2><div class="team">' +
+      TECHNICIENS.map(function (t) { return carteTech(t, list); }).join("") + '</div></section>';
+    return h;
+  }
+
+  function kpi(cls, v, label, statut) {
+    return '<button type="button" class="kpi ' + cls + '" data-set-statut="' + statut + '" data-scroll aria-label="' + v + ' ' + label + ' — afficher la liste">' +
+      '<span class="v num">' + v + '</span><span class="l">' + label + '</span></button>';
+  }
+
+  function infosTech(nom, list) {
+    var siennes = list.filter(function (i) { return i.technicien === nom; }).sort(parHeure);
+    return {
+      toutes: siennes,
+      enCours: siennes.filter(function (i) { return i.statut === "En cours"; }),
+      prochaine: siennes.filter(function (i) { return i.statut === "À faire"; })[0] || null,
+      retards: siennes.filter(function (i) { return i.statut === "En retard"; }),
+      restantes: siennes.filter(function (i) { return i.statut === "À faire"; }).length,
+      finies: siennes.filter(function (i) { return i.statut === "Terminée"; }).length
+    };
+  }
+
+  function carteTech(t, list) {
+    var x = infosTech(t.nom, list);
+    var h = '<article class="tcard"><div class="tcard-h">' + avatar(t.nom) + '<span class="name">' + esc(t.nom) + '</span>' +
+      '<span class="stats num">' + x.finies + ' terminée' + (x.finies > 1 ? "s" : "") + ' · ' + x.restantes + ' à faire' +
+      (x.retards.length ? '<br><b class="r">' + x.retards.length + ' en retard</b>' : "") + '</span></div>';
+    h += '<div class="slot"><div class="slot-k">En cours</div>' + (x.enCours.length ? x.enCours.map(function (i) {
+      return '<div class="slot-v num">' + i.heure_prevue + ' · ' + esc(i.type) + (i.priorite === "Haute" ? " " + badgePrio("Haute") : "") + '</div>' +
+        '<div class="slot-s">' + esc(ville(i.adresse).rue) + ' · ' + esc(i.batiment) + '</div>' +
+        (i.note ? '<div class="slot-s' + (estAlerte(i) ? ' mini-note alert' : '') + '">' + esc(i.note) + '</div>' : "");
+    }).join("") : '<div class="slot-s">Aucune intervention en cours</div>') + '</div>';
+    var p = x.prochaine;
+    h += '<div class="slot"><div class="slot-k">Prochaine</div>' + (p ?
+      '<div class="slot-v num">' + p.heure_prevue + ' <span class="who">(dans ' + duree(min(p.heure_prevue) - NOW) + ')</span> · ' + esc(p.type) + (p.priorite === "Haute" ? " " + badgePrio("Haute") : "") + '</div>' +
+      '<div class="slot-s">' + esc(ville(p.adresse).rue) + ' · ' + esc(p.batiment) + '</div>'
+      : '<div class="slot-s">Plus d’intervention prévue</div>') + '</div>';
+    h += '<button type="button" class="btn ghost open" data-set-tech="' + esc(t.nom) + '" data-set-statut="tous">Voir la journée de ' + esc(t.court) + '</button></article>';
+    return h;
+  }
+
+  function vueTech(nom, list) {
+    var t = tech(nom), x = infosTech(nom, list), p = x.prochaine, h = "";
+    h += '<section aria-labelledby="t-focus"><h2 class="sec" id="t-focus">' + avatar(nom) + ' ' + esc(t.nom) +
+      ' <span class="hint">' + x.finies + ' terminée' + (x.finies > 1 ? "s" : "") + ' · ' + x.restantes + ' à faire</span></h2><div class="focus">';
+    if (p) {
+      var v = ville(p.adresse);
+      var delta = min(p.heure_prevue) - NOW;
+      h += '<article class="next" aria-label="Prochaine intervention">' +
+        '<div class="next-k">Prochaine intervention</div>' +
+        '<div class="next-time"><span class="t num">' + hh(p.heure_prevue) + '</span><span class="rel">' + (delta >= 0 ? "dans " + duree(delta) : "prévue il y a " + duree(delta)) + '</span>' +
+          (p.priorite === "Haute" ? badgePrio("Haute") : "") + '</div>' +
+        '<div class="next-addr">' + esc(v.rue) + '<small>' + esc(v.cp) + ' · ' + esc(p.batiment) + '</small></div>' +
+        '<div class="next-meta"><span>' + esc(p.type) + '</span><span>Appareil ' + esc(p.appareil) + '</span><span class="c-id">' + esc(p.id) + '</span></div>' +
+        (p.note ? '<div class="next-note">' + esc(p.note) + '</div>' : "") +
+        '<a class="btn" href="' + lienCarte(p.adresse) + '" target="_blank" rel="noopener">' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></svg>' +
+          'Itinéraire</a>' +
+        '</article>';
+    } else {
+      h += '<div class="done-day"><b>Plus d’intervention prévue aujourd’hui</b>Rien n’est encore planifié après celles-ci. Si besoin, voyez avec ' + CHEF + '.</div>';
+    }
+    h += '<div class="side">';
+    x.enCours.forEach(function (i) {
+      h += '<div class="now"><div class="k">En cours depuis ' + hh(i.heure_prevue) + '</div>' +
+        '<div class="v">' + esc(ville(i.adresse).rue) + '</div>' +
+        '<div class="s">' + esc(i.type) + ' · ' + esc(i.batiment) + ' · ' + esc(i.appareil) + (i.priorite === "Haute" ? " " + badgePrio("Haute") : "") + '</div>' +
+        (i.note ? '<div class="s' + (estAlerte(i) ? " alert" : "") + '">' + esc(i.note) + '</div>' : "") + '</div>';
+    });
+    if (x.retards.length) {
+      h += '<div class="panel p-retard"><div class="panel-h">En retard — à voir avec ' + CHEF + '<span class="n">' + x.retards.length + '</span></div><ul class="mini">' +
+        x.retards.map(function (i) { return miniLigne(i, { prio: true }); }).join("") + '</ul></div>';
+    }
+    h += '</div></div></section>';
+    return h;
+  }
+
+  function ligne(i, avecTech) {
+    var v = ville(i.adresse);
+    var cls = i.statut === "En retard" ? "is-retard" : i.statut === "En cours" ? "is-cours" : i.statut === "Terminée" ? "is-fini" : "";
+    return '<li><article class="row ' + cls + '" aria-label="' + esc(i.heure_prevue + ", " + i.statut + ", " + v.rue) + '">' +
+      '<div class="c-time num">' + i.heure_prevue + (i.statut === "En retard" ? '<small>' + retardTxt(i) + '</small>' : "") + '</div>' +
+      '<div class="c-badges">' + badgeStatut(i.statut) + badgePrio(i.priorite) + '</div>' +
+      '<div class="c-what"><div class="c-type"><b>' + esc(i.type) + '</b></div>' +
+        (i.note ? '<div class="c-note' + (estAlerte(i) ? " alert" : "") + '">' + esc(i.note) + '</div>' : "") + '</div>' +
+      '<div class="c-where"><div class="c-addr">' + esc(v.rue) + ' <small>' + esc(v.cp.replace(" Lyon", "")) + '</small></div>' +
+        '<div class="c-dev">' + esc(i.batiment) + ' · ' + esc(i.appareil) + '<span class="d-only" style="display:inline"> · ' + esc(i.id) + '</span></div></div>' +
+      (avecTech ? '<div class="c-tech-col d-only"><span class="c-tech">' + avatar(i.technicien) + esc(i.technicien) + '</span></div>' : "") +
+      '<div class="c-mob-foot">' + (avecTech ? '<span class="c-tech">' + avatar(i.technicien) + esc(i.technicien) + '</span>' : "") + '<span class="c-id">' + esc(i.id) + '</span></div>' +
+      '</article></li>';
+  }
+
+  function vueListe(list) {
+    var avecTech = etat.tech === "tous";
+    var f = list.filter(function (i) {
+      return (etat.tech === "tous" || i.technicien === etat.tech) && (etat.statut === "tous" || i.statut === etat.statut);
+    }).sort(parHeure);
+
+    var titre = (etat.tech === "tous" ? "Toutes les interventions" : "Journée de " + tech(etat.tech).court) +
+      (etat.statut !== "tous" ? " · " + etat.statut : "");
+    var h = '<section aria-labelledby="t-liste" id="liste" style="scroll-margin-top:200px"><div class="list-h"><h2 class="sec" id="t-liste">' + esc(titre) +
+      ' <span class="hint num">' + f.length + ' intervention' + (f.length > 1 ? "s" : "") + ' · par heure prévue</span></h2></div>';
+
+    if (!f.length) {
+      var qui = etat.tech === "tous" ? "dans l’équipe" : "pour " + tech(etat.tech).nom;
+      var st = etat.statut.toLowerCase();
+      var phrase = {
+        "en retard": "Aucune intervention en retard " + qui + ".",
+        "en cours": "Aucune intervention en cours " + qui + ".",
+        "à faire": "Plus aucune intervention à faire " + qui + " aujourd’hui.",
+        "terminée": "Aucune intervention terminée " + qui + " pour l’instant."
+      }[st] || "Aucune intervention " + qui + ".";
+      var bonne = etat.statut === "En retard";
+      h += '<div class="state" role="status">' +
+        (bonne
+          ? '<svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--fini)"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+          : '<svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>') +
+        '<h3>' + esc(phrase) + '</h3>' +
+        '<p>Le filtre « ' + esc(etat.statut === "tous" ? "Tous" : etat.statut) + ' » ne donne aucun résultat' + (etat.tech !== "tous" ? " pour " + esc(tech(etat.tech).court) : "") + '. Les autres interventions sont toujours là.</p>' +
+        '<div class="actions">' +
+          '<button type="button" class="btn" data-set-statut="tous">Voir tous les statuts</button>' +
+          (etat.tech !== "tous" ? '<button type="button" class="btn ghost" data-set-tech="tous">Voir toute l’équipe</button>' : "") +
+        '</div></div>';
+    } else {
+      h += '<ol class="list' + (avecTech ? "" : " hide-tech") + '">' +
+        '<li class="cols" aria-hidden="true"><span>Heure</span><span>Statut</span><span>Priorité</span><span>Intervention</span><span>Adresse · appareil</span>' + (avecTech ? '<span>Technicien</span>' : "") + '</li>' +
+        f.map(function (i) { return ligne(i, avecTech); }).join("") + '</ol>';
+    }
+    return h + '</section>';
+  }
+
+  /* ---------- Rendu ---------- */
+  function rendre() {
+    rendreFiltres(false);
+    var h = "";
+    if (horsLigne) {
+      h += '<div class="banner" role="alert"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex:none;color:var(--retard)"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10.5 10.5 0 0 1 14 0M8.5 15.5a5.5 5.5 0 0 1 7 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="19" r="1.6" fill="currentColor"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
+        '<div><strong>Connexion perdue — liste peut-être plus à jour.</strong><br>Vous voyez la dernière liste reçue, à ' + hh(HEURE_CONSULTATION) + '. Un statut a pu changer depuis : en cas de doute, appelez ' + CHEF + '.</div>' +
+        '<button type="button" class="btn" data-retry>Réessayer</button></div>';
+    }
+    h += etat.tech === "tous" ? vueChef(data) : vueTech(etat.tech, data);
+    h += vueListe(data);
+    main.innerHTML = h;
+    main.removeAttribute("aria-busy");
+  }
+
+  function rendreChargement() {
+    rendreFiltres(true);
+    main.setAttribute("aria-busy", "true");
+    main.innerHTML = '<p class="sr" role="status">Chargement des interventions du jour…</p>' +
+      '<div class="skel" aria-hidden="true"><div class="sk big"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>' +
+      '<p style="margin:0;color:var(--muted);text-align:center">Chargement des interventions du jour…</p>';
+  }
+
+  function rendreErreur(err) {
+    data = null;
+    rendreFiltres(true);
+    main.removeAttribute("aria-busy");
+    main.innerHTML = '<div class="state err" role="alert">' +
+      '<svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--retard)"><path d="M12 3l10 18H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="18" r="1.2" fill="currentColor"/></svg>' +
+      '<h3>Les interventions n’ont pas pu être chargées</h3>' +
+      '<p>La liste du jour n’est pas disponible pour le moment. Vérifiez la connexion (réseau mobile ou Wi-Fi), puis réessayez.</p>' +
+      '<p><strong>Ne vous fiez pas à une ancienne liste :</strong> en cas d’urgence, appelez ' + CHEF + ', chef d’équipe.</p>' +
+      '<div class="actions"><button type="button" class="btn" data-retry>Réessayer</button></div>' +
+      (err && err.message ? '<p style="font-size:.8rem;color:var(--muted)">Détail technique : ' + esc(err.message) + '</p>' : "") +
+      '</div>';
+  }
+
+  var demo = (new URLSearchParams(location.search).get("etat") || "").toLowerCase();
+
+  function demarrer(relance) {
+    if (relance && demo) {
+      // En aperçu d'état, "Réessayer" revient à l'écran normal.
+      history.replaceState(null, "", location.pathname);
+      demo = "";
+    }
+    rendreChargement();
+    if (demo === "chargement") return;
+    if (demo === "erreur") {
+      setTimeout(function () { rendreErreur(new Error("délai de connexion dépassé (aperçu)")); }, 400);
+      return;
+    }
+    var debut = Date.now();
+    charger().then(function (rows) {
+      if (!rows.length) throw new Error("Le fichier ne contient aucune intervention.");
+      data = rows;
+      horsLigne = demo === "hors-ligne";
+      // Laisse le squelette visible un court instant pour éviter un flash.
+      setTimeout(rendre, Math.max(0, 250 - (Date.now() - debut)));
+    }).catch(rendreErreur);
+  }
+
+  demarrer(false);
+})();
+</script>
+</body>
+</html>

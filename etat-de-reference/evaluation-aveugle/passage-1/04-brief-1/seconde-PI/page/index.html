@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saison 2026-2027 · Théâtre de la Halle</title>
+<meta name="description" content="Saison 2026-2027 du Théâtre de la Halle, à Lyon 7e : six spectacles, un tarif unique de 14 €. Théâtre, danse, théâtre d'objets, musique de chambre et scène ouverte.">
+<meta name="theme-color" content="#f5efe3">
+<style>
+@font-face {
+  font-family: "Fraunces";
+  src: url("fonts/fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("fonts/fraunces-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f5efe3;
+  --paper-2: #ebe3d3;
+  --ink: #1e1a16;
+  --ink-2: #4f463d;
+  --line: #d6cbb6;
+  --accent: #b8321f;        /* rouge rideau — 5,3:1 sur --paper */
+  --accent-ink: #ffffff;
+  --accent-soft: #f1d9cf;
+  --focus: #1f4fd1;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --wrap: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1.0625rem/1.6 var(--text);
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+
+.skip {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--ink); color: var(--paper); padding: .6rem 1rem; text-decoration: none;
+}
+.skip:focus { top: 1rem; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .5em;
+  min-height: 2.75rem; padding: .65rem 1.15rem;
+  font: 600 1rem/1.2 var(--text);
+  text-decoration: none; border-radius: 999px;
+  border: 2px solid var(--accent);
+  background: var(--accent); color: var(--accent-ink);
+  transition: background-color .15s, color .15s;
+}
+.btn:hover { background: #9a2817; border-color: #9a2817; }
+.btn--ghost { background: transparent; color: var(--accent); }
+.btn--ghost:hover { background: var(--accent); color: var(--accent-ink); }
+.btn svg { width: 1em; height: 1em; flex: none; }
+
+/* ---------- En-tête ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  min-height: 3.75rem;
+}
+.brand {
+  font: 600 1.15rem/1.1 var(--display); text-decoration: none; letter-spacing: -.01em;
+  display: flex; align-items: center; gap: .55rem;
+}
+.brand-mark { width: 1.6rem; height: 1.6rem; color: var(--accent); flex: none; }
+.site-nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.site-nav a { text-decoration: none; font-weight: 500; font-size: .95rem; }
+.site-nav a:hover { text-decoration: underline; }
+.site-header .btn { min-height: 2.4rem; padding: .45rem .95rem; font-size: .9rem; }
+@media (max-width: 52rem) { .site-nav { display: none; } }
+@media (max-width: 26rem) { .brand-text { font-size: 1rem; } .site-header .btn span.long { display: none; } }
+
+/* ---------- Ouverture ---------- */
+.hero { padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem); border-bottom: 1px solid var(--line); }
+.eyebrow {
+  font: 600 .8rem/1.2 var(--text); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 1.1rem;
+}
+.hero h1 {
+  font: 400 clamp(2.9rem, 10.5vw, 7.5rem)/.92 var(--display);
+  font-variation-settings: "SOFT" 50, "WONK" 1;
+  letter-spacing: -.035em; margin: 0;
+}
+.hero h1 em { font-style: italic; color: var(--accent); font-weight: 300; }
+.hero-lede {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2rem 3rem;
+  margin-top: clamp(2rem, 5vw, 3.25rem); align-items: end;
+}
+.hero-lede p.big {
+  font: 400 clamp(1.3rem, 2.6vw, 1.75rem)/1.35 var(--display); margin: 0; max-width: 32ch;
+}
+.price-badge {
+  justify-self: end; text-align: right;
+}
+.price-badge .amount {
+  display: block; font: 300 clamp(4rem, 11vw, 6.5rem)/.9 var(--display); letter-spacing: -.04em;
+}
+.price-badge .label { display: block; font-weight: 600; margin-top: .4rem; }
+.price-badge .sub { display: block; color: var(--ink-2); font-size: .95rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+@media (max-width: 44rem) {
+  .hero-lede { grid-template-columns: 1fr; }
+  .price-badge { justify-self: start; text-align: left; }
+}
+
+/* ---------- Coup d'œil (calendrier) ---------- */
+.glance { padding: 2rem 0 0; }
+.glance h2 { font: 600 .8rem/1.2 var(--text); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 .9rem; }
+.glance ol {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0;
+  border-top: 2px solid var(--ink);
+}
+.glance li { border-right: 1px solid var(--line); }
+.glance li:last-child { border-right: 0; }
+.glance a {
+  display: block; height: 100%; padding: .8rem .8rem 1rem; text-decoration: none;
+}
+.glance a:hover { background: var(--paper-2); }
+.glance .when { display: block; font: 600 .82rem/1.3 var(--text); color: var(--accent); }
+.glance .what { display: block; font: 500 1rem/1.25 var(--display); margin-top: .3rem; }
+@media (max-width: 60rem) {
+  .glance ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .glance li:nth-child(3) { border-right: 0; }
+  .glance li:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 34rem) {
+  .glance ol { grid-template-columns: 1fr; }
+  .glance li { border-right: 0; border-bottom: 1px solid var(--line); }
+  .glance a { display: grid; grid-template-columns: 8.5rem 1fr; gap: .75rem; align-items: baseline; padding: .7rem 0; }
+  .glance .what { margin-top: 0; }
+}
+
+/* ---------- Sections ---------- */
+section { scroll-margin-top: 4.5rem; }
+.section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 2rem; margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+.section-head h2 {
+  font: 400 clamp(2.1rem, 5.5vw, 3.6rem)/1 var(--display); letter-spacing: -.025em; margin: 0;
+}
+.section-head p { margin: 0; color: var(--ink-2); }
+
+/* ---------- Spectacles ---------- */
+.shows { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.show {
+  display: grid;
+  grid-template-columns: 4rem minmax(11rem, 15rem) minmax(0, 1fr) auto;
+  gap: 1rem 2rem;
+  padding: clamp(1.6rem, 4vw, 2.4rem) 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 4.5rem;
+}
+.show-num {
+  font: 300 2.6rem/1 var(--display); color: var(--accent); letter-spacing: -.03em;
+  font-variant-numeric: lining-nums;
+}
+.show-date { font-weight: 600; line-height: 1.35; }
+.show-date .days { display: block; font: 500 1.35rem/1.15 var(--display); letter-spacing: -.01em; }
+.show-date .hours { display: block; color: var(--ink-2); font-weight: 500; margin-top: .3rem; }
+.show-body h3 {
+  font: 500 clamp(1.6rem, 3.4vw, 2.3rem)/1.08 var(--display); letter-spacing: -.02em; margin: 0 0 .7rem;
+}
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0 0 1rem; padding: 0; }
+.tags li {
+  font-size: .85rem; font-weight: 500; line-height: 1.2;
+  padding: .3rem .65rem; border: 1px solid var(--line); border-radius: 999px; background: #fffaf1;
+}
+.tags li.genre { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.show-body p { margin: 0 0 .8rem; max-width: 62ch; }
+.show-body p.note {
+  font-size: .95rem; padding: .7rem .9rem; border-left: 3px solid var(--accent); background: var(--accent-soft); max-width: 58ch;
+}
+.show-cta { align-self: start; }
+.status {
+  display: none; font: 600 .75rem/1 var(--text); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .6rem;
+}
+.show.is-next .status--next { display: block; }
+.show.is-past .status--past { display: block; color: var(--ink-2); }
+.show.is-past .show-cta { display: none; }
+.show.is-past .show-body, .show.is-past .show-date { opacity: .62; }
+
+@media (max-width: 60rem) {
+  .show { grid-template-columns: 3rem minmax(0, 1fr); }
+  .show-date { grid-column: 2; }
+  .show-body { grid-column: 2; }
+  .show-cta { grid-column: 2; }
+  .show-num { grid-row: 1 / span 3; font-size: 2.1rem; }
+}
+@media (max-width: 30rem) {
+  .show { grid-template-columns: 1fr; gap: .75rem; }
+  .show-num, .show-date, .show-body, .show-cta { grid-column: 1; grid-row: auto; }
+  .show-num { font-size: 1.8rem; }
+}
+
+/* ---------- Tarifs ---------- */
+.band { background: var(--ink); color: var(--paper); }
+.band .section-head p { color: #cfc5b3; }
+.band a { color: var(--paper); }
+.prices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin: 0 0 2.25rem; }
+.price {
+  border: 1px solid #4a4239; border-radius: 6px; padding: 1.5rem 1.5rem 1.6rem;
+  display: flex; flex-direction: column; gap: .35rem;
+}
+.price .amount { font: 300 clamp(3.4rem, 8vw, 4.75rem)/1 var(--display); letter-spacing: -.035em; }
+.price h3 { font: 600 1.1rem/1.3 var(--text); margin: .3rem 0 0; }
+.price p { margin: 0; color: #cfc5b3; }
+.price--main { background: var(--accent); border-color: var(--accent); }
+.price--main p { color: #fbe9e3; }
+.booking {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem 2rem; align-items: center;
+  border-top: 1px solid #4a4239; padding-top: 2rem;
+}
+.booking p { margin: 0; max-width: 60ch; }
+.booking .url { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9rem; color: #cfc5b3; word-break: break-all; }
+.band .btn { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.band .btn:hover { background: #fff; border-color: #fff; }
+.band :focus-visible { outline-color: #8fb0ff; }
+@media (max-width: 40rem) {
+  .prices { grid-template-columns: 1fr; }
+  .booking { grid-template-columns: 1fr; }
+}
+
+/* ---------- Infos pratiques ---------- */
+.info-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.info { padding: 1.5rem 1.5rem 1.75rem 0; border-right: 1px solid var(--line); }
+.info + .info { padding-left: 1.5rem; }
+.info:last-child { border-right: 0; }
+.info h3 { font: 500 1.45rem/1.15 var(--display); margin: 0 0 .8rem; display: flex; align-items: center; gap: .55rem; }
+.info h3 svg { width: 1.3rem; height: 1.3rem; color: var(--accent); flex: none; }
+.info p, .info ul { margin: 0 0 .6rem; }
+.info ul { padding: 0; list-style: none; }
+.info li { padding: .35rem 0; border-bottom: 1px dashed var(--line); }
+.info li:last-child { border-bottom: 0; }
+.info address { font-style: normal; font-size: 1.15rem; line-height: 1.45; }
+.info-grid--contact { grid-template-columns: 1fr; margin-top: 2.5rem; }
+.info-grid--contact .info { border-right: 0; }
+.info-grid--contact p { font-size: 1.15rem; }
+@media (max-width: 56rem) {
+  .info-grid { grid-template-columns: 1fr; }
+  .info, .info + .info { padding: 1.5rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .info:last-child { border-bottom: 0; }
+}
+
+/* ---------- Pied ---------- */
+.site-footer { border-top: 2px solid var(--ink); padding: 2rem 0 2.5rem; font-size: .92rem; color: var(--ink-2); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; }
+.site-footer p { margin: 0; }
+.site-footer strong { color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 1.05rem; }
+
+/* ---------- Impression ---------- */
+@media print {
+  :root { --paper: #fff; }
+  .site-header, .skip, .hero-actions, .show-cta, .glance, .status { display: none !important; }
+  .band { background: #fff; color: #000; }
+  .band .section-head p, .price p, .booking .url { color: #333; }
+  .price, .price--main { background: #fff; border-color: #999; color: #000; }
+  .price--main p { color: #333; }
+  .band .btn { display: none; }
+  .show { break-inside: avoid; }
+  .show.is-past .show-body, .show.is-past .show-date { opacity: 1; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .8em; }
+  .btn::after { content: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#programme">Aller au programme</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Théâtre de la Halle — haut de page">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M3 29V11L16 3l13 8v18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M9 29V17c0-3.5 3-6 7-6s7 2.5 7 6v12" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      </svg>
+      <span class="brand-text">Théâtre de la Halle</span>
+    </a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#infos">Infos pratiques</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">
+      <span>Billetterie<span class="long visually-hidden"> (nouvel onglet)</span></span>
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+    <section class="hero" aria-labelledby="titre-saison">
+    <div class="wrap">
+      <p class="eyebrow">Théâtre de la Halle · Lyon 7<sup>e</sup></p>
+      <h1 id="titre-saison">Saison<br><em>2026–2027</em></h1>
+
+      <div class="hero-lede">
+        <p class="big">Six spectacles, de novembre à mai&#8239;: théâtre, danse, théâtre d’objets, musique de chambre et une nuit de scène ouverte. Une salle de 180&nbsp;places, un seul prix.</p>
+        <p class="price-badge">
+          <span class="amount">14&nbsp;€</span>
+          <span class="label">la place, quel que soit le spectacle</span>
+          <span class="sub">7&nbsp;€ pour les moins de 18&nbsp;ans et minima sociaux</span>
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">
+          Réserver sur la billetterie
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="visually-hidden">(site externe, nouvel onglet)</span>
+        </a>
+        <a class="btn btn--ghost" href="#programme">Voir les six spectacles</a>
+      </div>
+
+      <nav class="glance" aria-labelledby="coup-d-oeil">
+        <h2 id="coup-d-oeil">La saison en un coup d’œil</h2>
+        <ol>
+          <li><a href="#le-poids-des-cles"><span class="when">5–7 nov. 2026</span><span class="what">Le Poids des clés</span></a></li>
+          <li><a href="#bal-pour-les-pieds-qui-hesitent"><span class="when">12 déc. 2026</span><span class="what">Bal pour les pieds qui hésitent</span></a></li>
+          <li><a href="#ce-que-la-riviere-emporte"><span class="when">20–22 janv. 2027</span><span class="what">Ce que la rivière emporte</span></a></li>
+          <li><a href="#quatuor-lumen"><span class="when">14 févr. 2027</span><span class="what">Quatuor Lumen</span></a></li>
+          <li><a href="#les-gens-d-en-face"><span class="when">18–20 mars 2027</span><span class="what">Les Gens d’en face</span></a></li>
+          <li><a href="#nuit-de-la-parole-libre"><span class="when">22 mai 2027</span><span class="what">Nuit de la parole libre</span></a></li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+    <section class="section" id="programme" aria-labelledby="titre-programme">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="titre-programme">Programme</h2>
+        <p>Toutes les places à 14&nbsp;€ · réservation sur la billetterie en ligne</p>
+      </div>
+
+      <ol class="shows">
+
+        <li class="show" id="le-poids-des-cles" data-end="2026-11-07">
+          <div class="show-num" aria-hidden="true">01</div>
+          <p class="show-date">
+            <span class="days">Du jeudi 5 au samedi 7&nbsp;novembre&nbsp;2026</span>
+            <span class="hours"><time datetime="20:00">20&nbsp;h</time></span>
+          </p>
+          <div class="show-body">
+            <span class="status status--next">Prochain spectacle</span>
+            <span class="status status--past">Spectacle passé</span>
+            <h3>Le Poids des clés</h3>
+            <ul class="tags" aria-label="Informations">
+              <li class="genre">Théâtre</li>
+              <li>Création</li>
+              <li>1&nbsp;h&nbsp;20</li>
+              <li>Dès 14&nbsp;ans</li>
+            </ul>
+            <p>Une gardienne d’immeuble prend sa retraite et doit rendre, une à une, les quarante-deux clés qu’elle garde depuis trente ans. Chaque porte ouvre un souvenir, et toutes ne se referment pas. Seule en scène, Nadia Ferrand joue tous les habitants.</p>
+          </div>
+          <div class="show-cta">
+            <a class="btn btn--ghost" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">Réserver<span class="visually-hidden"> pour Le Poids des clés (site externe, nouvel onglet)</span></a>
+          </div>
+        </li>
+
+        <li class="show" id="bal-pour-les-pieds-qui-hesitent" data-end="2026-12-12">
+          <div class="show-num" aria-hidden="true">02</div>
+          <p class="show-date">
+            <span class="days">Samedi 12&nbsp;décembre&nbsp;2026</span>
+            <span class="hours"><time datetime="2026-12-12T19:00">19&nbsp;h</time></span>
+          </p>
+          <div class="show-body">
+            <span class="status status--next">Prochain spectacle</span>
+            <span class="status status--past">Spectacle passé</span>
+            <h3>Bal pour les pieds qui hésitent</h3>
+            <ul class="tags" aria-label="Informations">
+              <li class="genre">Danse participative</li>
+              <li>1&nbsp;h&nbsp;30</li>
+              <li>Tout public</li>
+            </ul>
+            <p>Trois danseurs et un orchestre de cinq musiciens apprennent au public les pas d’un bal populaire, puis s’effacent. Aucune expérience n’est demandée&#8239;; les chaises restent disponibles pour qui préfère regarder.</p>
+          </div>
+          <div class="show-cta">
+            <a class="btn btn--ghost" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">Réserver<span class="visually-hidden"> pour Bal pour les pieds qui hésitent (site externe, nouvel onglet)</span></a>
+          </div>
+        </li>
+
+        <li class="show" id="ce-que-la-riviere-emporte" data-end="2027-01-22">
+          <div class="show-num" aria-hidden="true">03</div>
+          <p class="show-date">
+            <span class="days">Du mercredi 20 au vendredi 22&nbsp;janvier&nbsp;2027</span>
+            <span class="hours"><time datetime="15:00">15&nbsp;h</time> et <time datetime="19:00">19&nbsp;h</time></span>
+          </p>
+          <div class="show-body">
+            <span class="status status--next">Prochain spectacle</span>
+            <span class="status status--past">Spectacle passé</span>
+            <h3>Ce que la rivière emporte</h3>
+            <ul class="tags" aria-label="Informations">
+              <li class="genre">Théâtre d’objets</li>
+              <li>55&nbsp;min</li>
+              <li>Dès 8&nbsp;ans</li>
+            </ul>
+            <p>Sur une table de cuisine inondée, des objets ordinaires racontent la crue qui a traversé un village. Un spectacle sur ce qu’on garde et ce qu’on laisse partir.</p>
+          </div>
+          <div class="show-cta">
+            <a class="btn btn--ghost" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">Réserver<span class="visually-hidden"> pour Ce que la rivière emporte (site externe, nouvel onglet)</span></a>
+          </div>
+        </li>
+
+        <li class="show" id="quatuor-lumen" data-end="2027-02-14">
+          <div class="show-num" aria-hidden="true">04</div>
+          <p class="show-date">
+            <span class="days">Dimanche 14&nbsp;février&nbsp;2027</span>
+            <span class="hours"><time datetime="2027-02-14T17:00">17&nbsp;h</time></span>
+          </p>
+          <div class="show-body">
+            <span class="status status--next">Prochain spectacle</span>
+            <span class="status status--past">Spectacle passé</span>
+            <h3>Quatuor Lumen — Haydn, Janáček</h3>
+            <ul class="tags" aria-label="Informations">
+              <li class="genre">Musique de chambre</li>
+              <li>1&nbsp;h&nbsp;10 sans entracte</li>
+            </ul>
+            <p>Le quatuor joue le Quatuor «&nbsp;L’Empereur&nbsp;» de Haydn puis les «&nbsp;Lettres intimes&nbsp;» de Janáček, présentées depuis la scène par l’altiste.</p>
+          </div>
+          <div class="show-cta">
+            <a class="btn btn--ghost" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">Réserver<span class="visually-hidden"> pour Quatuor Lumen (site externe, nouvel onglet)</span></a>
+          </div>
+        </li>
+
+        <li class="show" id="les-gens-d-en-face" data-end="2027-03-20">
+          <div class="show-num" aria-hidden="true">05</div>
+          <p class="show-date">
+            <span class="days">Du jeudi 18 au samedi 20&nbsp;mars&nbsp;2027</span>
+            <span class="hours"><time datetime="20:00">20&nbsp;h</time></span>
+          </p>
+          <div class="show-body">
+            <span class="status status--next">Prochain spectacle</span>
+            <span class="status status--past">Spectacle passé</span>
+            <h3>Les Gens d’en face</h3>
+            <ul class="tags" aria-label="Informations">
+              <li class="genre">Théâtre</li>
+              <li>Comédie</li>
+              <li>1&nbsp;h&nbsp;35</li>
+              <li>Dès 12&nbsp;ans</li>
+            </ul>
+            <p>Deux familles que tout oppose découvrent qu’elles se regardent vivre depuis dix ans, de part et d’autre d’une cour. Une fête des voisins tourne mal, puis bien, puis encore mal.</p>
+          </div>
+          <div class="show-cta">
+            <a class="btn btn--ghost" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">Réserver<span class="visually-hidden"> pour Les Gens d’en face (site externe, nouvel onglet)</span></a>
+          </div>
+        </li>
+
+        <li class="show" id="nuit-de-la-parole-libre" data-end="2027-05-22">
+          <div class="show-num" aria-hidden="true">06</div>
+          <p class="show-date">
+            <span class="days">Samedi 22&nbsp;mai&nbsp;2027</span>
+            <span class="hours"><time datetime="2027-05-22T20:00">20&nbsp;h</time></span>
+          </p>
+          <div class="show-body">
+            <span class="status status--next">Prochain spectacle</span>
+            <span class="status status--past">Spectacle passé</span>
+            <h3>Nuit de la parole libre</h3>
+            <ul class="tags" aria-label="Informations">
+              <li class="genre">Scène ouverte</li>
+              <li>3&nbsp;h environ</li>
+              <li>Tout public</li>
+            </ul>
+            <p>Habitants, poètes, slameurs et conteurs ont cinq minutes chacun.</p>
+            <p class="note"><strong>Pour monter sur scène&#8239;:</strong> inscription sur place à partir de 19&nbsp;h, dans la limite de vingt-cinq passages. Entrée au tarif unique, gratuite pour les participants.</p>
+          </div>
+          <div class="show-cta">
+            <a class="btn btn--ghost" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">Réserver<span class="visually-hidden"> pour Nuit de la parole libre (site externe, nouvel onglet)</span></a>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+    <section class="section band" id="tarifs" aria-labelledby="titre-tarifs">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="titre-tarifs">Tarifs &amp; billetterie</h2>
+        <p>Le même prix pour les six spectacles.</p>
+      </div>
+
+      <div class="prices">
+        <div class="price price--main">
+          <span class="amount">14&nbsp;€</span>
+          <h3>Tarif unique</h3>
+          <p>La place, quel que soit le spectacle.</p>
+        </div>
+        <div class="price">
+          <span class="amount">7&nbsp;€</span>
+          <h3>Moins de 18&nbsp;ans et minima sociaux</h3>
+          <p>Sur présentation d’un justificatif.</p>
+        </div>
+      </div>
+
+      <div class="booking">
+        <div>
+          <p>Les places se réservent sur notre billetterie en ligne, un site externe&#8239;: cette page ne permet pas de réserver.</p>
+          <p class="url">billetterie.example/theatre-de-la-halle</p>
+        </div>
+        <a class="btn" href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">
+          Ouvrir la billetterie
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="visually-hidden">(site externe, nouvel onglet)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <section class="section" id="infos" aria-labelledby="titre-infos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="titre-infos">Infos pratiques</h2>
+      </div>
+
+      <div class="info-grid">
+        <div class="info">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg>
+            Venir
+          </h3>
+          <address>
+            Théâtre de la Halle<br>
+            12, place de la Halle-aux-Grains<br>
+            69007 Lyon
+          </address>
+        </div>
+
+        <div class="info">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Les soirs de spectacle
+          </h3>
+          <ul>
+            <li><strong>Ouverture des portes</strong> 30&nbsp;minutes avant chaque représentation.</li>
+            <li><strong>Bar</strong> ouvert une heure avant et une heure après chaque représentation.</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20V9l8-5 8 5v11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="2"/></svg>
+            La salle
+          </h3>
+          <ul>
+            <li>180&nbsp;places en gradin</li>
+            <li>Accès de plain-pied</li>
+            <li>Boucle magnétique pour les personnes malentendantes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-grid info-grid--contact">
+        <div class="info">
+          <h3>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3.5 6.5 8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            Nous contacter
+          </h3>
+          <p>
+            <a href="mailto:accueil@theatre-halle.example">accueil@theatre-halle.example</a>
+            &nbsp;·&nbsp;
+            <a href="tel:+33400000000">04&nbsp;00&nbsp;00&nbsp;00&nbsp;00</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Théâtre de la Halle</strong><br>12, place de la Halle-aux-Grains, 69007 Lyon</p>
+    <p>Saison 2026–2027<br><a href="https://billetterie.example/theatre-de-la-halle" target="_blank" rel="noopener">Billetterie en ligne<span class="visually-hidden"> (site externe, nouvel onglet)</span></a> · <a href="#top">Haut de page</a></p>
+  </div>
+</footer>
+
+<script>
+/* Signale le prochain spectacle et estompe ceux qui sont passés.
+   Sans JavaScript, la page reste complète : rien n'est masqué. */
+(function () {
+  var today = new Date();
+  var y = today.getFullYear(), m = String(today.getMonth() + 1).padStart(2, "0"), d = String(today.getDate()).padStart(2, "0");
+  var iso = y + "-" + m + "-" + d;
+  var nextFound = false;
+  document.querySelectorAll(".show[data-end]").forEach(function (el) {
+    if (el.dataset.end < iso) {
+      el.classList.add("is-past");
+    } else if (!nextFound) {
+      el.classList.add("is-next");
+      nextFound = true;
+    }
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "PerformingArtsTheater", "@id": "#lieu", "name": "Théâtre de la Halle", "maximumAttendeeCapacity": 180,
+     "address": {"@type": "PostalAddress", "streetAddress": "12, place de la Halle-aux-Grains", "postalCode": "69007", "addressLocality": "Lyon", "addressCountry": "FR"},
+     "email": "accueil@theatre-halle.example", "telephone": "+33400000000"},
+    {"@type": "TheaterEvent", "name": "Le Poids des clés", "startDate": "2026-11-05T20:00+01:00", "endDate": "2026-11-07", "location": {"@id": "#lieu"},
+     "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR", "url": "https://billetterie.example/theatre-de-la-halle"}},
+    {"@type": "DanceEvent", "name": "Bal pour les pieds qui hésitent", "startDate": "2026-12-12T19:00+01:00", "location": {"@id": "#lieu"},
+     "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR", "url": "https://billetterie.example/theatre-de-la-halle"}},
+    {"@type": "TheaterEvent", "name": "Ce que la rivière emporte", "startDate": "2027-01-20T15:00+01:00", "endDate": "2027-01-22", "location": {"@id": "#lieu"},
+     "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR", "url": "https://billetterie.example/theatre-de-la-halle"}},
+    {"@type": "MusicEvent", "name": "Quatuor Lumen — Haydn, Janáček", "startDate": "2027-02-14T17:00+01:00", "location": {"@id": "#lieu"},
+     "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR", "url": "https://billetterie.example/theatre-de-la-halle"}},
+    {"@type": "TheaterEvent", "name": "Les Gens d’en face", "startDate": "2027-03-18T20:00+01:00", "endDate": "2027-03-20", "location": {"@id": "#lieu"},
+     "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR", "url": "https://billetterie.example/theatre-de-la-halle"}},
+    {"@type": "Event", "name": "Nuit de la parole libre", "startDate": "2027-05-22T20:00+02:00", "location": {"@id": "#lieu"},
+     "offers": {"@type": "Offer", "price": "14", "priceCurrency": "EUR", "url": "https://billetterie.example/theatre-de-la-halle"}}
+  ]
+}
+</script>
+</body>
+</html>

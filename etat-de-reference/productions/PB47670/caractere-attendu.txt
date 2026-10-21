@@ -1,0 +1,4 @@
+[RELEVÉ] 390px · Foyer · foyer distribué déclaré ; regard concentré (0.75 de la saillance sur 10 % des pixels) · savoir : BIBLIOTHEQUE/TENSION
+[SIGNAL] 1440px · Densité · compression déclarée ; rendu aéré (vide 0.79, bords 0.03) · savoir : BIBLIOTHEQUE/TENSION ; SAVOIR/CRAFT/CFT-03
+[RELEVÉ] 1440px · Foyer · foyer distribué déclaré ; regard concentré (0.84 de la saillance sur 10 % des pixels) · savoir : BIBLIOTHEQUE/TENSION
+1 signal(aux) à traiter dans la trace. Bornes provisoires [À CALIBRER] ; ni verdict de goût, ni preuve de qualité.

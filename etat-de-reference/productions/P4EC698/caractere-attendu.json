@@ -1,0 +1,36 @@
+[
+  {
+    "statut": "MESURES",
+    "ou": "390px",
+    "mesures": {
+      "densite": 0.103,
+      "vide": 0.38,
+      "bande_vide_px": 16,
+      "hauteur": 844,
+      "saillance_top10": 0.75,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 20.0,
+      "texte": 0.38,
+      "image": 0.01,
+      "aplats": 0.62
+    }
+  },
+  {
+    "statut": "MESURES",
+    "ou": "1440px",
+    "mesures": {
+      "densite": 0.069,
+      "vide": 0.55,
+      "bande_vide_px": 16,
+      "hauteur": 900,
+      "saillance_top10": 0.71,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 13.4,
+      "texte": 0.25,
+      "image": 0.0,
+      "aplats": 0.69
+    }
+  }
+]

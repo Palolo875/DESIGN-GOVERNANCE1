@@ -1,0 +1,10 @@
+{
+  "density": "compression",
+  "material": "plan",
+  "focus": "unique",
+  "intensity": "retenue",
+  "widths": [
+    390,
+    1440
+  ]
+}

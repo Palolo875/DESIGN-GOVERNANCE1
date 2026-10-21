@@ -1,0 +1,36 @@
+--- index.html
+<!--
+  Trace (proposition exploratoire, trace légère)
+  Mode : STANDARD (flow nouveau, flux d’engagement santé / résiliation : protection de niveau, pas de micro-delta).
+  Thèse : « savoir quoi, quand et pour qui avant d’envoyer » → objet de preuve : l’échéancier daté du foyer (Camille + Léo) → geste : choisir, vérifier, confirmer ou annuler à poids égal.
+  Trame modale (page compte → stepper → formulaire → coche verte) gardée pour le genre ; rompue par l’échéancier qui organise chaque étape et par « changer / résilier » présentés à égalité.
+  Plafond : maquette HTML interactive, données fictives du brief ; montants des prélèvements de novembre et adresse courriel = exemples « à confirmer » ; logotype = mot-marque provisoire.
+  Défaut dominant restant : non testé avec des adhérents ; prochaine preuve : test de tâche (5 adhérents, dont 2 de plus de 60 ans) + relecture juridique des libellés.
+-->
+
+--- index.html
+<!-- =============== 0 · MON CONTRAT =============== -->
+
+--- index.html
+<!-- =============== F1 · COMPARER =============== -->
+
+--- index.html
+<!-- =============== F2 · VÉRIFIER =============== -->
+
+--- index.html
+<!-- =============== F3 · ENREGISTRÉ =============== -->
+
+--- index.html
+<!-- =============== F· · INDISPONIBLE =============== -->
+
+--- index.html
+<!-- =============== R1 · VOTRE RÉSILIATION =============== -->
+
+--- index.html
+<!-- =============== R2 · CONFIRMER OU ANNULER =============== -->
+
+--- index.html
+<!-- =============== R3 · ENVOYÉE =============== -->
+
+--- index.html
+<!-- =============== R3 · ANNULÉE =============== -->

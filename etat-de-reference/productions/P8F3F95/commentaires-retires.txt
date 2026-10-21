@@ -1,0 +1,35 @@
+--- index.html
+<!--
+  Écran de suivi des interventions — Ascenseurs Rhône Maintenance (fictive), agence Lyon Sud.
+  Fichier unique : polices (Atkinson Hyperlegible Next et Mono, SIL OFL 1.1) et données
+  (copie verbatim de interventions.csv) sont intégrées, pour fonctionner hors réseau.
+
+  Trace (légère)
+  - Mode : STANDARD — écran opérationnel nouveau, sans charge identitaire.
+  - Thèse : « savoir quoi faire maintenant » → la journée coupée par la ligne de 10 h 30, avec la prochaine
+    intervention de chacun au-dessus de la liste → un appui sur son nom suffit (mémorisé sur le téléphone).
+  - Trame modale écartée : tableau de bord à tuiles de KPI + tableau à 10 colonnes. Parti : panneau
+    « à traiter / prochaine » + liste horaire, lisible au téléphone avec des gants (cibles ≥ 48 px).
+  - Plafond : maquette fonctionnelle sur données fictives figées ; heure de situation fixée à 10 h 30 ;
+    chargement réseau simulé (états chargement / erreur / hors ligne visibles via ?etat=…).
+  - Défaut dominant restant : densité du panneau équipe sur mobile (long avant la liste) — à tester avec Nathalie Roux.
+  - Prochaine preuve : essai sur téléphone réel, avec gants, en extérieur ; contraste plein soleil.
+-->
+
+--- _atelier/index.src.html
+<!--
+  Écran de suivi des interventions — Ascenseurs Rhône Maintenance (fictive), agence Lyon Sud.
+  Fichier unique : polices (Atkinson Hyperlegible Next et Mono, SIL OFL 1.1) et données
+  (copie verbatim de interventions.csv) sont intégrées, pour fonctionner hors réseau.
+
+  Trace (légère)
+  - Mode : STANDARD — écran opérationnel nouveau, sans charge identitaire.
+  - Thèse : « savoir quoi faire maintenant » → la journée coupée par la ligne de 10 h 30, avec la prochaine
+    intervention de chacun au-dessus de la liste → un appui sur son nom suffit (mémorisé sur le téléphone).
+  - Trame modale écartée : tableau de bord à tuiles de KPI + tableau à 10 colonnes. Parti : panneau
+    « à traiter / prochaine » + liste horaire, lisible au téléphone avec des gants (cibles ≥ 48 px).
+  - Plafond : maquette fonctionnelle sur données fictives figées ; heure de situation fixée à 10 h 30 ;
+    chargement réseau simulé (états chargement / erreur / hors ligne visibles via ?etat=…).
+  - Défaut dominant restant : densité du panneau équipe sur mobile (long avant la liste) — à tester avec Nathalie Roux.
+  - Prochaine preuve : essai sur téléphone réel, avec gants, en extérieur ; contraste plein soleil.
+-->

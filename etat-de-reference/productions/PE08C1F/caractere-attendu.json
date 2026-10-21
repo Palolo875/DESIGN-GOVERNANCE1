@@ -1,0 +1,57 @@
+[
+  {
+    "statut": "RELEVÉ",
+    "controle": "Foyer",
+    "detail": "foyer distribué déclaré ; regard concentré (0.65 de la saillance sur 10 % des pixels)",
+    "savoir": "BIBLIOTHEQUE/TENSION",
+    "ou": "390px"
+  },
+  {
+    "statut": "MESURES",
+    "ou": "390px",
+    "mesures": {
+      "densite": 0.122,
+      "vide": 0.39,
+      "bande_vide_px": 32,
+      "hauteur": 844,
+      "saillance_top10": 0.65,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 47.0,
+      "texte": 0.54,
+      "image": 0,
+      "aplats": 0.08
+    }
+  },
+  {
+    "statut": "SIGNAL",
+    "controle": "Densité",
+    "detail": "compression déclarée ; rendu aéré (vide 0.6, bords 0.065)",
+    "savoir": "BIBLIOTHEQUE/TENSION ; SAVOIR/CRAFT/CFT-03",
+    "ou": "1440px"
+  },
+  {
+    "statut": "RELEVÉ",
+    "controle": "Foyer",
+    "detail": "foyer distribué déclaré ; regard concentré (0.71 de la saillance sur 10 % des pixels)",
+    "savoir": "BIBLIOTHEQUE/TENSION",
+    "ou": "1440px"
+  },
+  {
+    "statut": "MESURES",
+    "ou": "1440px",
+    "mesures": {
+      "densite": 0.065,
+      "vide": 0.6,
+      "bande_vide_px": 32,
+      "hauteur": 900,
+      "saillance_top10": 0.71,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 27.1,
+      "texte": 0.33,
+      "image": 0,
+      "aplats": 0.04
+    }
+  }
+]

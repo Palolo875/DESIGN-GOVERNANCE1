@@ -1,0 +1,50 @@
+[
+  {
+    "statut": "SIGNAL",
+    "controle": "Matière dominante",
+    "detail": "typographie déclarée ; rendu dominé par plan (plan 79%, image 0%, typographie 35%)",
+    "savoir": "DIRECTION/VISUAL_TARGET (matière)",
+    "ou": "390px"
+  },
+  {
+    "statut": "MESURES",
+    "ou": "390px",
+    "mesures": {
+      "densite": 0.085,
+      "vide": 0.48,
+      "bande_vide_px": 16,
+      "hauteur": 844,
+      "saillance_top10": 0.8,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 6.5,
+      "texte": 0.35,
+      "image": 0,
+      "aplats": 0.79
+    }
+  },
+  {
+    "statut": "SIGNAL",
+    "controle": "Matière dominante",
+    "detail": "typographie déclarée ; rendu dominé par plan (plan 56%, image 0%, typographie 21%)",
+    "savoir": "DIRECTION/VISUAL_TARGET (matière)",
+    "ou": "1440px"
+  },
+  {
+    "statut": "MESURES",
+    "ou": "1440px",
+    "mesures": {
+      "densite": 0.049,
+      "vide": 0.69,
+      "bande_vide_px": 16,
+      "hauteur": 900,
+      "saillance_top10": 0.77,
+      "capture_preuve": null,
+      "surface_preuve": null,
+      "colorfulness": 7.3,
+      "texte": 0.21,
+      "image": 0,
+      "aplats": 0.56
+    }
+  }
+]

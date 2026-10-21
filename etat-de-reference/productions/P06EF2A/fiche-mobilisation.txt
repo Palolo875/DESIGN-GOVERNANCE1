@@ -1,0 +1,39 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 14:21:56 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 14:21:57 | read_route --help | code 0, rien servi | | |
+| 3 | 14:22:01 | ligne du mode STANDARD | consultée (routes citées, non lues) | | |
+| 4 | 14:22:04 | `ACTION/RUN-STANDARD` | consultée | | |
+| 4 | 14:22:04 | `ACTION/GATE-A` | consultée | | |
+| 4 | 14:22:04 | `ACTION/GATE-B/B2` | consultée | | |
+| 5 | 14:22:09 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 6 | 14:22:09 | `ACTION/RECETTE-RENDU` | consultée | | |
+| 7 | 14:22:12 | `BIBLIOTHEQUE/SELECT` | consultée | | |
+| 8 | 14:22:13 | recherche « résiliation » | proposée, non lue : `ACTION/UI-UX-REALITY` | | |
+| 9 | 14:22:14 | recherche « formulaire » | proposée, non lue : `ACTION/GATE-A`, `DIRECTION/CREATIVE-BOOT`, `DIRECTION/DIRECTION-ATELIER`, `DIRECTION/EXTERNAL-START`, `DIRECTION/FIRST-OBJECT`, `DIRECTION/START/TREE` | | |
+| 10 | 14:22:18 | `SAVOIR/STATE` | consultée | | |
+| 11 | 14:22:18 | `SAVOIR/TYPE` | consultée | | |
+| 12 | 14:24:01 | `SAVOIR/CRAFT/CFT-05` | consultée | | |
+| 13 | 14:24:01 | read_route --sommaire SAVOIR/TOOLS/MOYENS | code 0, rien servi | | |
+| 14 | 14:29:36 | check_render (--help) | exécuté, rien à traiter | | |
+| 15 | 14:29:50 | check_render sur `index.html` (--json) | exécuté : RETURN — Chevauchement et troncature de texte ; PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Taille des cibles (WCAG 2.2, 2.5.8), Parcours clavier | | |
+| 16 | 14:30:20 | check_render sur `index.html` (--json, --proof) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.choices) | | |
+| 17 | 14:30:35 | check_render sur `index.html` (--click ×2, --wait-after-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.ledger, .compare, .receipt, .alert, .error-msg) | | |
+| 18 | 14:30:50 | check_render sur `index.html` (--click ×2, --wait-after-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 19 | 14:31:05 | check_render sur `index.html` (--click ×2, --wait-after-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.ledger, .compare, .receipt, .alert, .error-msg) | | |
+| 20 | 14:31:20 | check_render sur `index.html` (--click ×2, --wait-after-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 21 | 14:31:35 | check_render sur `index.html` (--click ×2, --wait-after-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Parcours clavier | | |
+| 22 | 14:31:50 | check_render sur `index.html` (--click ×2, --wait-after-ms, --proof) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 23 | 14:33:00 | check_render sur `index.html` (--click ×2, --wait-after-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 24 | 14:33:15 | check_render sur `index.html` (--click ×2, --wait-after-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 25 | 14:33:31 | check_render sur `index.html` (--click ×2, --wait-after-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 26 | 14:33:46 | check_render sur `index.html` (--click ×2, --wait-after-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

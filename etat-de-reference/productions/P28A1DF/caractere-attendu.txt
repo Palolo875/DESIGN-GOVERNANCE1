@@ -1,0 +1,4 @@
+[SIGNAL] 390px · Densité · respiration déclarée ; rendu compressé (vide 0.44, bords 0.087) · savoir : BIBLIOTHEQUE/TENSION ; SAVOIR/CRAFT/CFT-03
+[SIGNAL] 390px · Matière dominante · typographie déclarée ; rendu dominé par plan (plan 82%, image 1%, typographie 39%) · savoir : DIRECTION/VISUAL_TARGET (matière)
+[SIGNAL] 1440px · Matière dominante · typographie déclarée ; rendu dominé par plan (plan 53%, image 0%, typographie 19%) · savoir : DIRECTION/VISUAL_TARGET (matière)
+3 signal(aux) à traiter dans la trace. Bornes provisoires [À CALIBRER] ; ni verdict de goût, ni preuve de qualité.

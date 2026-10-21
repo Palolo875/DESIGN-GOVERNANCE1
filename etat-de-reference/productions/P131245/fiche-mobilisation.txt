@@ -1,0 +1,43 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 10:36:55 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 10:36:59 | read_route --help | code 0, rien servi | | |
+| 3 | 10:36:59 | `ACTION/RUN-STANDARD` | consultée | | |
+| 3 | 10:36:59 | `ACTION/GATE-A` | consultée | | |
+| 3 | 10:36:59 | `ACTION/GATE-B/B2` | consultée | | |
+| 4 | 10:37:02 | `ACTION/RUN-STANDARD` | consultée | | |
+| 4 | 10:37:02 | `ACTION/GATE-A` | consultée | | |
+| 4 | 10:37:02 | `ACTION/GATE-B/B2` | consultée | | |
+| 5 | 10:37:06 | ligne du mode STANDARD | consultée (routes citées, non lues) | | |
+| 6 | 10:37:07 | `BIBLIOTHEQUE/SELECT` | consultée | | |
+| 7 | 10:37:11 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 8 | 10:37:11 | `ACTION/RECETTE-RENDU` | consultée | | |
+| 9 | 10:37:16 | recherche « tableau de bord » | proposée, non lue : `ACTION/RUN_CARD`, `BIBLIOTHEQUE/READ`, `DIRECTION/VISUAL_TARGET` | | |
+| 10 | 10:37:17 | recherche « dense » | proposée, non lue : `BIBLIOTHEQUE/MICRO`, `BIBLIOTHEQUE/READ`, `SAVOIR/STYLE`, `BIBLIOTHEQUE/SELECT`, `SAVOIR/CRAFT/CFT-03`, `SAVOIR/FRAME` | | |
+| 11 | 10:37:20 | `BIBLIOTHEQUE/MICRO` | consultée | | |
+| 12 | 10:37:25 | read_route --trouver gants | code 1, rien servi | | |
+| 13 | 10:37:26 | recherche « terrain » | proposée, non lue : `SAVOIR/CRAFT/CFT-06` | | |
+| 14 | 10:37:26 | recherche « chiffres tabulaires » | proposée, non lue : `BIBLIOTHEQUE/READ`, `SAVOIR/STATE`, `SAVOIR/TYPE`, `SAVOIR/CRAFT/CFT-06` | | |
+| 15 | 10:37:30 | `SAVOIR/TYPE` | consultée | | |
+| 16 | 10:37:30 | `SAVOIR/CRAFT/CFT-06` | consultée | | |
+| 17 | 10:44:05 | check_render (--help) | exécuté, rien à traiter | | |
+| 18 | 10:44:29 | check_render sur `index.html` (--proof, --json) | exécuté : RETURN — Débordement horizontal ; PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (#files .file) | | |
+| 19 | 10:45:10 | check_render sur `index.html` (--proof, --baseline, --json, --widths, --assert ×3) | exécuté : RETURN — Débordement horizontal ; PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (#files .file) | | |
+| 20 | 14:16:01 | check_render sur `index.html` (--proof, --baseline, --json, --widths, --captures, --assert ×3) | exécuté : PASS-WITH-RESERVATION — Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (#files .file) | | |
+| 21 | 14:16:24 | check_render sur `index.html` (--widths, --click, --wait-after-ms, --in-frame, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 22 | 14:16:42 | check_render sur `index.html` (--widths, --click ×2, --wait-after-ms, --in-frame, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) ; RETURN — Objet de l’état clé dans son cadre (--in-frame) | | |
+| 23 | 14:16:42 | check_render sur `index.html` ?etat=erreur (--serve-local, --widths, --click, --wait-after-ms, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 24 | 14:17:15 | check_render sur `index.html` (--widths, --click ×2, --wait-after-ms, --in-frame) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 25 | 14:17:15 | check_render sur `index.html` ?etat=erreur (--widths, --click, --wait-after-ms, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 26 | 14:17:20 | check_render sur `index.html` ?etat=erreur (--widths, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 27 | 14:17:20 | check_render sur `index.html` ?etat=erreur (--widths, --click, --wait-after-ms, --assert) | sollicité, en échec (code 2, aucun résultat) | | |
+| 28 | 14:18:03 | check_render sur `index.html` (--widths) | exécuté : PASS-WITH-RESERVATION — Nom accessible des contrôles (candidats DOM) | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

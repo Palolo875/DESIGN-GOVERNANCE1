@@ -1,0 +1,2 @@
+--- index.html
+<!-- Données du jour : copie de interventions.csv, intégrée pour que l'écran s'ouvre sans serveur ni réseau. -->

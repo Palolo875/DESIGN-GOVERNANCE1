@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saison 2026-2027 — Théâtre de la Halle, Lyon 7e</title>
+<meta name="description" content="Six spectacles de novembre 2026 à mai 2027 au Théâtre de la Halle, salle de quartier de 180 places à Lyon 7e. Tarif unique : 14 € la place.">
+<style>
+@font-face{font-family:"Halle Pochoir";src:url(fonts/bigshoulders-stencil-latin.woff2) format("woff2");font-weight:600 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Halle Pochoir";src:url(fonts/bigshoulders-stencil-latin-ext.woff2) format("woff2");font-weight:600 900;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Halle Texte";src:url(fonts/atkinson-next-latin.woff2) format("woff2");font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Halle Texte";src:url(fonts/atkinson-next-latin-ext.woff2) format("woff2");font-weight:400 700;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --papier:#f5f4ef;
+  --encre:#17213f;          /* bleu de travail très sombre : texte */
+  --encre-2:#4b536b;        /* texte secondaire, 6.9:1 sur papier */
+  --filet:rgba(23,33,63,.16);
+  --rouge:#c8331b;          /* encre d'affiche : traits, prix, action */
+  --bleu:#1e3170;           /* champ « venir » */
+  --pochoir:"Halle Pochoir","Arial Narrow","Roboto Condensed",sans-serif;
+  --texte:"Halle Texte",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --marge:clamp(16px,4vw,56px);
+  --large:1360px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:12px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--papier);color:var(--encre);font:400 1.0625rem/1.55 var(--texte);font-feature-settings:"kern"}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--encre);outline-offset:3px}
+[hidden]{display:none!important}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.evitement{position:absolute;left:var(--marge);top:-60px;background:var(--encre);color:var(--papier);padding:.6em 1em;z-index:10;text-decoration:none}
+.evitement:focus{top:8px}
+.cadre{max-width:var(--large);margin:0 auto;padding:0 var(--marge)}
+p{margin:0}
+
+/* boutons */
+.bouton{display:inline-flex;align-items:center;gap:.5em;min-height:48px;padding:.7em 1.25em;font:700 1.0625rem/1.1 var(--texte);text-decoration:none;border:2px solid transparent;letter-spacing:.01em}
+.bouton--rouge{background:var(--rouge);color:#fff}
+.bouton--rouge:hover{background:#a92812}
+.bouton--papier{background:var(--papier);color:var(--rouge)}
+.bouton--papier:hover{background:#fff}
+.bouton--papier:focus-visible{outline-color:var(--papier)}
+.fleche{font-weight:400}
+
+/* en-tête */
+.tete{border-bottom:2px solid var(--encre)}
+.tete .cadre{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.marque{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.marque__nom{font:800 2rem/0.95 var(--pochoir);letter-spacing:.01em;text-transform:uppercase}
+.nw{white-space:nowrap}
+.marque__lieu{font-size:.875rem;color:var(--encre-2);margin-top:.35rem;line-height:1.3}
+.nav{display:flex;align-items:center;gap:.25rem 1.5rem;flex-wrap:wrap}
+.nav a:not(.bouton){font-weight:700;text-decoration:none;padding:.6em 0;border-bottom:2px solid transparent}
+.nav a:not(.bouton):hover{border-bottom-color:currentColor}
+
+/* entrée : la saison sur une page */
+.entree{padding:clamp(28px,3vw,40px) 0 clamp(40px,5vw,72px)}
+.entree__titre{font:800 clamp(4rem,9.4vw,8.5rem)/.84 var(--pochoir);letter-spacing:-.01em;margin:0;text-transform:uppercase}
+.entree__titre .an{white-space:nowrap}
+.entree__titre .tiret{color:var(--rouge)}
+.entree__bas{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.25rem 3rem;align-items:end;margin-top:clamp(20px,1.8vw,26px)}
+.entree__chapo{font-size:clamp(1.125rem,1.6vw,1.375rem);line-height:1.4;max-width:34em}
+.entree__chapo strong{color:var(--rouge)}
+.entree__action{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
+.prochain{font-size:.9375rem;color:var(--encre-2)}
+.prochain b{color:var(--encre)}
+
+/* tableau de saison */
+.tableau{margin-top:clamp(28px,2.6vw,36px)}
+.tableau__grille,.tableau__lien{display:grid;grid-template-columns:3rem minmax(0,5fr) minmax(0,7fr);column-gap:1.5rem;align-items:center}
+.regle-tete{position:relative;height:1.6rem;grid-column:3;font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--encre-2)}
+.regle-tete span{position:absolute;left:var(--x);bottom:0;padding-left:6px;line-height:1}
+.regle-tete .regle-tete__an{bottom:auto;top:-1.1rem;font-weight:400;letter-spacing:.02em;color:var(--encre-2)}
+.tableau__legende{grid-column:1/3;font-size:.875rem;color:var(--encre-2);align-self:end;line-height:1.3}
+.tableau ol{list-style:none;margin:.5rem 0 0;padding:0;border-bottom:1px solid var(--filet)}
+.tableau__ligne{border-top:1px solid var(--filet)}
+.tableau__lien{text-decoration:none;padding:7px 0;min-height:60px}
+.tableau__lien:hover .tableau__titre{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.tableau__lien:hover{background:#eeede8}
+.tableau__num{font:700 1.375rem/1 var(--pochoir);color:var(--encre-2);padding-left:2px}
+.tableau__texte{display:flex;flex-direction:column;gap:.25rem;min-width:0}
+.tableau__titre{font:800 clamp(1.625rem,2.5vw,2.375rem)/1 var(--pochoir);text-wrap:balance}
+.tableau__genre{font-size:.9375rem;color:var(--encre-2)}
+.tableau__date{display:none}
+.etat{font-weight:700;color:var(--encre)}
+
+/* règle : un trait par représentation */
+.regle{position:relative;height:46px}
+.regle__mois{position:absolute;left:var(--x);top:0;bottom:0;width:1px;background:var(--filet)}
+.trait{position:absolute;left:calc(var(--x) - 1px);top:50%;width:2px;height:24px;transform:translateY(-50%);background:var(--rouge)}
+.trait[style*="--n:2"]{height:10px;transform:translateY(calc(-50% - 6px + var(--k) * 12px))}
+.trait--autre{background:rgba(23,33,63,.22)}
+.trait.passe{background:rgba(75,83,107,.55)}
+.trait--autre.passe{background:rgba(23,33,63,.14)}
+.regle__etiquette{position:absolute;left:var(--x);top:50%;transform:translate(10px,-50%);font-weight:700;font-size:.9375rem;white-space:nowrap;background:var(--papier);padding:2px 6px;line-height:1.2}
+.tableau__lien:hover .regle__etiquette{background:#eeede8}
+.regle__etiquette--g{transform:translate(calc(-100% - 10px),-50%)}
+.tableau__ligne.termine .tableau__titre,.tableau__ligne.termine .regle__etiquette{color:var(--encre-2)}
+
+/* fiches */
+.programme{padding:clamp(48px,6vw,96px) 0 clamp(24px,3vw,40px)}
+.section-titre{font:800 clamp(2.5rem,5vw,4.5rem)/.9 var(--pochoir);text-transform:uppercase;margin:0 0 clamp(24px,3vw,40px)}
+.fiche{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.5vw,40px);row-gap:28px;padding:clamp(32px,4vw,56px) 0 clamp(40px,5vw,72px);border-top:3px solid var(--encre)}
+.fiche__quand{grid-column:1/4}
+.fiche__corps{grid-column:4/10}
+.fiche__places{grid-column:10/13}
+.fiche__num{font:700 1.375rem/1 var(--pochoir);color:var(--encre-2)}
+.fiche__jours{font:800 clamp(4.5rem,7.6vw,7.25rem)/.82 var(--pochoir);margin-top:1rem;white-space:nowrap;letter-spacing:-.01em}
+.fiche__mois{font-weight:700;font-size:1.125rem;line-height:1.3;margin-top:.75rem}
+.fiche__mois span{font-weight:400}
+.fiche__quand .regle{height:30px;margin-top:1.25rem;border-left:1px solid var(--filet);border-right:1px solid var(--filet)}
+.fiche__quand .trait{height:16px}
+.lettres{position:relative;height:1.1rem;margin-top:4px;font-size:.75rem;font-weight:700;color:var(--encre-2)}
+.lettres span{position:absolute;left:var(--x);transform:translateX(-50%);line-height:1}
+.fiche__quand .trait[style*="--n:2"]{height:7px;transform:translateY(calc(-50% - 4px + var(--k) * 8px))}
+.fiche__genre{font-weight:700;font-size:.9375rem;text-transform:uppercase;letter-spacing:.06em;color:var(--rouge)}
+.fiche__titre{font:800 clamp(2.5rem,4.6vw,4.25rem)/.92 var(--pochoir);margin:.6rem 0 0;text-wrap:balance;letter-spacing:-.005em}
+.fiche__infos{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem 0;font-weight:700}
+.fiche__infos li+li::before{content:"·";padding:0 .6em;font-weight:400;color:var(--encre-2)}
+.fiche__texte{margin-top:1.25rem;font-size:1.1875rem;line-height:1.55;max-width:36em}
+.fiche__texte p+p{margin-top:.75em}
+.fiche__places{padding-top:.25rem}
+.fiche__places-titre{font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--encre-2);margin:0 0 .5rem}
+.reps{list-style:none;margin:0;padding:0;border-top:1px solid var(--filet)}
+.rep{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--filet);font-variant-numeric:tabular-nums}
+.rep__j{font-weight:700}
+.rep__hs{display:flex;gap:.9rem}
+.rep .passe{text-decoration:line-through;color:var(--encre-2)}
+.rep.passe .rep__j{text-decoration:line-through;color:var(--encre-2);font-weight:400}
+.rep__mention{font-weight:400}
+.rep__mention{font-size:.8125rem;color:var(--encre-2);margin-left:.4em;text-decoration:none;display:inline-block}
+.fiche__tarif{margin-top:.9rem;font-size:.9375rem;color:var(--encre-2)}
+.fiche__resa{margin-top:1rem;width:100%;justify-content:space-between}
+.fiche__fin{margin-top:1rem;font-weight:700;padding:.7em 0;border-top:2px solid var(--encre);border-bottom:2px solid var(--encre)}
+.fiche.termine .fiche__tarif{display:none}
+.fiche.termine .fiche__titre,.fiche.termine .fiche__jours{color:var(--encre-2)}
+
+/* champ rouge : tarif unique */
+.tarif{background:var(--rouge);color:var(--papier);padding:clamp(48px,7vw,104px) 0}
+.tarif .cadre{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.5rem clamp(32px,5vw,80px);align-items:center}
+.tarif__prix{font:800 clamp(8rem,24vw,21rem)/.78 var(--pochoir);letter-spacing:-.02em;white-space:nowrap;margin:0}
+.tarif__prix span{font-size:.5em;vertical-align:.7em;margin-left:.16em}
+.tarif h2{font:800 clamp(2rem,3.4vw,3rem)/.95 var(--pochoir);text-transform:uppercase;margin:0}
+.tarif__phrase{font-size:clamp(1.25rem,1.9vw,1.625rem);line-height:1.3;margin-top:.75rem;font-weight:700}
+.tarif__liste{list-style:none;padding:0;margin:1.5rem 0 0;border-top:1px solid rgba(245,244,239,.45)}
+.tarif__liste li{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1rem;padding:.75rem 0;border-bottom:1px solid rgba(245,244,239,.45);align-items:baseline}
+.tarif__liste b{font:800 1.75rem/1 var(--pochoir)}
+.tarif__note{margin-top:1.25rem;max-width:36em}
+.tarif .bouton{margin-top:1.5rem}
+
+/* champ bleu : venir */
+.venir{background:var(--bleu);color:var(--papier);padding:clamp(48px,6vw,96px) 0}
+.venir .section-titre{color:var(--papier)}
+.venir dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem clamp(24px,3vw,48px);margin:0}
+.venir dl>div{border-top:2px solid var(--papier);padding-top:1rem}
+.venir dt{font-weight:700;font-size:.875rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
+.venir dd{margin:0;font-size:1.125rem;line-height:1.5}
+.venir dd ul{list-style:none;margin:0;padding:0}
+.venir dd li+li{margin-top:.35rem}
+.venir a{text-underline-offset:3px}
+.venir :focus-visible{outline-color:var(--papier)}
+
+/* fin */
+.fin{padding:clamp(48px,6vw,96px) 0 0}
+.fin__phrase{font:800 clamp(2.25rem,5.4vw,5rem)/.92 var(--pochoir);text-transform:uppercase;max-width:14em;text-wrap:balance}
+.fin__phrase em{font-style:normal;color:var(--rouge)}
+.fin .bouton{margin-top:1.75rem}
+.colophon{margin-top:clamp(48px,6vw,88px);border-top:2px solid var(--encre);padding:18px 0 28px;display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-size:.875rem;color:var(--encre-2)}
+.colophon b{color:var(--encre)}
+
+/* recomposition */
+@media (max-width:1080px){
+  .entree__bas{grid-template-columns:1fr}
+  .entree__action{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem}
+  .entree__action .bouton{order:-1}
+  .fiche__quand{grid-column:1/5}
+  .fiche__corps{grid-column:5/13}
+  .fiche__places{grid-column:5/13;max-width:30rem}
+  .venir dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  body{font-size:1.0625rem}
+  .nav .nav__ancre{display:none}
+  .entree__titre{font-size:clamp(3.4rem,19vw,6rem);line-height:.86}
+  .entree__titre .an{display:block}
+  .entree__bas{grid-template-columns:1fr}
+  .tableau__grille{display:block}
+  .tableau__legende{display:block;margin-bottom:.4rem}
+  .tableau__grille .regle-tete{display:block;margin-top:1.9rem;font-size:.6875rem;letter-spacing:.03em}
+  .regle-tete span{padding-left:3px}
+  .tete .cadre{flex-wrap:nowrap}
+  .tete .bouton{min-height:44px;padding:.55em .8em;font-size:1rem;flex:none}
+  .marque__nom{font-size:1.5rem}
+  .marque__lieu{font-size:.8125rem;display:flex;flex-direction:column}
+  .marque__lieu .sep{display:none}
+  .tableau__lien{grid-template-columns:2.25rem minmax(0,1fr);row-gap:8px;padding:14px 0}
+  .tableau__lien .regle{grid-column:1/3;height:26px}
+  .tableau__lien .trait{height:16px}
+  .tableau__lien .trait[style*="--n:2"]{height:7px;transform:translateY(calc(-50% - 4px + var(--k) * 8px))}
+  .tableau__lien .regle__etiquette{display:none}
+  .tableau__date{display:inline;font-weight:700;color:var(--encre)}
+  .tableau__date::before{content:" · ";font-weight:400;color:var(--encre-2)}
+  .tableau__num{font-size:1.125rem}
+  .fiche{grid-template-columns:minmax(0,1fr);row-gap:22px}
+  .fiche__quand,.fiche__corps,.fiche__places{grid-column:1/-1;max-width:none}
+  .fiche__quand{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1rem;align-items:end}
+  .fiche__num{grid-column:1/-1}
+  .fiche__jours{font-size:4.25rem;margin-top:.5rem}
+  .fiche__quand .regle,.fiche__quand .lettres{grid-column:1/-1}
+  .fiche__texte{font-size:1.125rem}
+  .tarif .cadre{grid-template-columns:1fr}
+  .tarif__prix{font-size:clamp(8rem,46vw,12rem)}
+  .venir dl{grid-template-columns:1fr}
+  .fin__phrase{font-size:clamp(2.25rem,11vw,3.25rem)}
+}
+@media print{
+  .tete .nav,.bouton,.evitement{display:none}
+  .tarif,.venir{background:none;color:var(--encre)}
+  .venir dl>div{border-top-color:var(--encre)}
+}
+</style>
+</head>
+<body>
+<a class="evitement" href="#programme">Aller au programme</a>
+
+<header class="tete">
+  <div class="cadre">
+    <a class="marque" href="#saison">
+      <span class="marque__nom">Théâtre de la Halle</span>
+      <span class="marque__lieu"><span class="nw">12, place de la Halle-aux-Grains</span><span class="sep"> · </span><span class="nw">Lyon 7<sup>e</sup></span></span>
+    </a>
+    <nav class="nav" aria-label="Sur cette page">
+      <a class="nav__ancre" href="#programme">Programme</a>
+      <a class="nav__ancre" href="#tarif">Tarif</a>
+      <a class="nav__ancre" href="#venir">Venir</a>
+      <a class="bouton bouton--rouge" href="https://billetterie.example/theatre-de-la-halle">Billetterie<span class="vh"> (site externe)</span> <span class="fleche" aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="entree" id="saison" aria-labelledby="titre-saison">
+    <div class="cadre">
+      <h1 class="entree__titre" id="titre-saison"><span class="vh">Théâtre de la Halle — </span>Saison <span class="an">2026<span class="tiret">–</span>2027</span></h1>
+      <div class="entree__bas">
+        <p class="entree__chapo">Six spectacles, de novembre à mai, dans une salle de 180 places. <strong>14 € la place, quel que soit le spectacle</strong> — 7 € pour les moins de 18 ans et les minima sociaux.</p>
+        <div class="entree__action">
+          <p class="prochain" data-prochain>Ouverture de saison : <b>Le Poids des clés</b>, jeudi 5 novembre, 20 h</p>
+          <a class="bouton bouton--rouge" href="https://billetterie.example/theatre-de-la-halle">Réserver sur la billetterie<span class="vh"> (site externe)</span> <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="tableau">
+        <div class="tableau__grille">
+          <p class="tableau__legende">La saison d’un coup d’œil, à l’échelle du calendrier</p>
+          <div class="regle-tete" aria-hidden="true"><span style="--x:0.0%">nov.</span><span style="--x:14.151%">déc.</span><span style="--x:28.774%">janv.</span><span style="--x:43.396%">févr.</span><span style="--x:56.604%">mars</span><span style="--x:71.226%">avr.</span><span style="--x:85.377%">mai</span><span class="regle-tete__an" style="--x:0%">2026</span><span class="regle-tete__an" style="--x:28.774%">2027</span></div>
+        </div>
+        <ol aria-label="Les six spectacles de la saison">
+      <li class="tableau__ligne" data-show="0">
+        <a class="tableau__lien" href="#le-poids-des-cles">
+          <span class="tableau__num">01</span>
+          <span class="tableau__texte">
+            <span class="tableau__titre">Le Poids des clés</span>
+            <span class="tableau__genre">Théâtre · création<span class="vh"> — </span><span class="tableau__date">5 – 7 nov.</span><span class="etat" data-etat></span></span>
+          </span>
+          <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait" data-at="2026-11-05T20:00" style="--x:2.12%;--k:0;--n:1"></span><span class="trait" data-at="2026-11-06T20:00" style="--x:2.59%;--k:0;--n:1"></span><span class="trait" data-at="2026-11-07T20:00" style="--x:3.07%;--k:0;--n:1"></span><span class="regle__etiquette" style="--x:3.07%">5 – 7 nov.</span></div>
+        </a>
+      </li>
+      <li class="tableau__ligne" data-show="1">
+        <a class="tableau__lien" href="#bal-pour-les-pieds-qui-hesitent">
+          <span class="tableau__num">02</span>
+          <span class="tableau__texte">
+            <span class="tableau__titre">Bal pour les pieds qui hésitent</span>
+            <span class="tableau__genre">Danse participative<span class="vh"> — </span><span class="tableau__date">12 déc.</span><span class="etat" data-etat></span></span>
+          </span>
+          <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait" data-at="2026-12-12T19:00" style="--x:19.58%;--k:0;--n:1"></span><span class="regle__etiquette" style="--x:19.58%">12 déc.</span></div>
+        </a>
+      </li>
+      <li class="tableau__ligne" data-show="2">
+        <a class="tableau__lien" href="#ce-que-la-riviere-emporte">
+          <span class="tableau__num">03</span>
+          <span class="tableau__texte">
+            <span class="tableau__titre">Ce que la rivière emporte</span>
+            <span class="tableau__genre">Théâtre d’objets<span class="vh"> — </span><span class="tableau__date">20 – 22 janv.</span><span class="etat" data-etat></span></span>
+          </span>
+          <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait" data-at="2027-01-20T15:00" style="--x:37.97%;--k:0;--n:2"></span><span class="trait" data-at="2027-01-20T19:00" style="--x:37.97%;--k:1;--n:2"></span><span class="trait" data-at="2027-01-21T15:00" style="--x:38.44%;--k:0;--n:2"></span><span class="trait" data-at="2027-01-21T19:00" style="--x:38.44%;--k:1;--n:2"></span><span class="trait" data-at="2027-01-22T15:00" style="--x:38.92%;--k:0;--n:2"></span><span class="trait" data-at="2027-01-22T19:00" style="--x:38.92%;--k:1;--n:2"></span><span class="regle__etiquette" style="--x:38.92%">20 – 22 janv.</span></div>
+        </a>
+      </li>
+      <li class="tableau__ligne" data-show="3">
+        <a class="tableau__lien" href="#quatuor-lumen">
+          <span class="tableau__num">04</span>
+          <span class="tableau__texte">
+            <span class="tableau__titre">Quatuor Lumen — Haydn, Janáček</span>
+            <span class="tableau__genre">Musique de chambre<span class="vh"> — </span><span class="tableau__date">14 févr.</span><span class="etat" data-etat></span></span>
+          </span>
+          <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait" data-at="2027-02-14T17:00" style="--x:49.76%;--k:0;--n:1"></span><span class="regle__etiquette" style="--x:49.76%">14 févr.</span></div>
+        </a>
+      </li>
+      <li class="tableau__ligne" data-show="4">
+        <a class="tableau__lien" href="#les-gens-d-en-face">
+          <span class="tableau__num">05</span>
+          <span class="tableau__texte">
+            <span class="tableau__titre">Les Gens d’en face</span>
+            <span class="tableau__genre">Théâtre · comédie<span class="vh"> — </span><span class="tableau__date">18 – 20 mars</span><span class="etat" data-etat></span></span>
+          </span>
+          <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait" data-at="2027-03-18T20:00" style="--x:64.86%;--k:0;--n:1"></span><span class="trait" data-at="2027-03-19T20:00" style="--x:65.33%;--k:0;--n:1"></span><span class="trait" data-at="2027-03-20T20:00" style="--x:65.8%;--k:0;--n:1"></span><span class="regle__etiquette" style="--x:65.8%">18 – 20 mars</span></div>
+        </a>
+      </li>
+      <li class="tableau__ligne" data-show="5">
+        <a class="tableau__lien" href="#nuit-de-la-parole-libre">
+          <span class="tableau__num">06</span>
+          <span class="tableau__texte">
+            <span class="tableau__titre">Nuit de la parole libre</span>
+            <span class="tableau__genre">Scène ouverte<span class="vh"> — </span><span class="tableau__date">22 mai</span><span class="etat" data-etat></span></span>
+          </span>
+          <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait" data-at="2027-05-22T20:00" style="--x:95.52%;--k:0;--n:1"></span><span class="regle__etiquette regle__etiquette--g" style="--x:95.52%">22 mai</span></div>
+        </a>
+      </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="programme" id="programme" aria-labelledby="titre-programme">
+    <div class="cadre">
+      <h2 class="section-titre" id="titre-programme">Programme</h2>
+      
+    <article class="fiche" id="le-poids-des-cles" data-show="0" aria-labelledby="t-le-poids-des-cles">
+      <div class="fiche__quand">
+        <p class="fiche__num">01<span class="vh"> sur 6</span></p>
+        <p class="fiche__jours" aria-hidden="true">5 – 7</p>
+        <p class="fiche__mois" aria-hidden="true">novembre 2026<br><span>20 h</span></p>
+        <p class="vh">Du jeudi 5 au samedi 7 novembre 2026, 20 h</p>
+        <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait" data-at="2026-11-05T20:00" style="--x:2.12%;--k:0;--n:1"></span><span class="trait" data-at="2026-11-06T20:00" style="--x:2.59%;--k:0;--n:1"></span><span class="trait" data-at="2026-11-07T20:00" style="--x:3.07%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-12-12T19:00" style="--x:19.58%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-01-20T15:00" style="--x:37.97%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-20T19:00" style="--x:37.97%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T15:00" style="--x:38.44%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T19:00" style="--x:38.44%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T15:00" style="--x:38.92%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T19:00" style="--x:38.92%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-02-14T17:00" style="--x:49.76%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-18T20:00" style="--x:64.86%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-19T20:00" style="--x:65.33%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-20T20:00" style="--x:65.8%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-05-22T20:00" style="--x:95.52%;--k:0;--n:1"></span></div>
+        <div class="lettres" aria-hidden="true"><span style="--x:7.08%">N</span><span style="--x:21.46%">D</span><span style="--x:36.09%">J</span><span style="--x:50.00%">F</span><span style="--x:63.91%">M</span><span style="--x:78.30%">A</span><span style="--x:92.69%">M</span></div>
+      </div>
+      <div class="fiche__corps">
+        <p class="fiche__genre">Théâtre · création</p>
+        <h3 class="fiche__titre" id="t-le-poids-des-cles">Le Poids des clés</h3>
+        <ul class="fiche__infos"><li>1 h 20</li><li>dès 14 ans</li></ul>
+        <div class="fiche__texte"><p>Une gardienne d’immeuble prend sa retraite et doit rendre, une à une, les quarante-deux clés qu’elle garde depuis trente ans. Chaque porte ouvre un souvenir, et toutes ne se referment pas. Seule en scène, Nadia Ferrand joue tous les habitants.</p></div>
+      </div>
+      <div class="fiche__places">
+        <h4 class="fiche__places-titre">Représentations</h4>
+        <ul class="reps"><li class="rep" data-day="2026-11-05"><span class="rep__j">jeu. 5 nov.</span><span class="rep__hs"><span class="rep__h" data-at="2026-11-05T20:00">20 h</span></span></li><li class="rep" data-day="2026-11-06"><span class="rep__j">ven. 6 nov.</span><span class="rep__hs"><span class="rep__h" data-at="2026-11-06T20:00">20 h</span></span></li><li class="rep" data-day="2026-11-07"><span class="rep__j">sam. 7 nov.</span><span class="rep__hs"><span class="rep__h" data-at="2026-11-07T20:00">20 h</span></span></li></ul>
+        <p class="fiche__tarif">14 € · 7 € tarif réduit</p>
+        <a class="bouton bouton--rouge fiche__resa" href="https://billetterie.example/theatre-de-la-halle">Réserver<span class="vh"> pour Le Poids des clés, sur la billetterie en ligne (site externe)</span> <span aria-hidden="true" class="fleche">↗</span></a>
+        <p class="fiche__fin" hidden>Spectacle terminé</p>
+      </div>
+    </article>
+    <article class="fiche" id="bal-pour-les-pieds-qui-hesitent" data-show="1" aria-labelledby="t-bal-pour-les-pieds-qui-hesitent">
+      <div class="fiche__quand">
+        <p class="fiche__num">02<span class="vh"> sur 6</span></p>
+        <p class="fiche__jours" aria-hidden="true">12</p>
+        <p class="fiche__mois" aria-hidden="true">décembre 2026<br><span>19 h</span></p>
+        <p class="vh">Samedi 12 décembre 2026, 19 h</p>
+        <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait trait--autre" data-at="2026-11-05T20:00" style="--x:2.12%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-06T20:00" style="--x:2.59%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-07T20:00" style="--x:3.07%;--k:0;--n:1"></span><span class="trait" data-at="2026-12-12T19:00" style="--x:19.58%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-01-20T15:00" style="--x:37.97%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-20T19:00" style="--x:37.97%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T15:00" style="--x:38.44%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T19:00" style="--x:38.44%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T15:00" style="--x:38.92%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T19:00" style="--x:38.92%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-02-14T17:00" style="--x:49.76%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-18T20:00" style="--x:64.86%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-19T20:00" style="--x:65.33%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-20T20:00" style="--x:65.8%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-05-22T20:00" style="--x:95.52%;--k:0;--n:1"></span></div>
+        <div class="lettres" aria-hidden="true"><span style="--x:7.08%">N</span><span style="--x:21.46%">D</span><span style="--x:36.09%">J</span><span style="--x:50.00%">F</span><span style="--x:63.91%">M</span><span style="--x:78.30%">A</span><span style="--x:92.69%">M</span></div>
+      </div>
+      <div class="fiche__corps">
+        <p class="fiche__genre">Danse participative</p>
+        <h3 class="fiche__titre" id="t-bal-pour-les-pieds-qui-hesitent">Bal pour les pieds qui hésitent</h3>
+        <ul class="fiche__infos"><li>1 h 30</li><li>tout public</li></ul>
+        <div class="fiche__texte"><p>Trois danseurs et un orchestre de cinq musiciens apprennent au public les pas d’un bal populaire, puis s’effacent. Aucune expérience n’est demandée ; les chaises restent disponibles pour qui préfère regarder.</p></div>
+      </div>
+      <div class="fiche__places">
+        <h4 class="fiche__places-titre">Représentation</h4>
+        <ul class="reps"><li class="rep" data-day="2026-12-12"><span class="rep__j">sam. 12 déc.</span><span class="rep__hs"><span class="rep__h" data-at="2026-12-12T19:00">19 h</span></span></li></ul>
+        <p class="fiche__tarif">14 € · 7 € tarif réduit</p>
+        <a class="bouton bouton--rouge fiche__resa" href="https://billetterie.example/theatre-de-la-halle">Réserver<span class="vh"> pour Bal pour les pieds qui hésitent, sur la billetterie en ligne (site externe)</span> <span aria-hidden="true" class="fleche">↗</span></a>
+        <p class="fiche__fin" hidden>Spectacle terminé</p>
+      </div>
+    </article>
+    <article class="fiche" id="ce-que-la-riviere-emporte" data-show="2" aria-labelledby="t-ce-que-la-riviere-emporte">
+      <div class="fiche__quand">
+        <p class="fiche__num">03<span class="vh"> sur 6</span></p>
+        <p class="fiche__jours" aria-hidden="true">20 – 22</p>
+        <p class="fiche__mois" aria-hidden="true">janvier 2027<br><span>15 h et 19 h</span></p>
+        <p class="vh">Du mercredi 20 au vendredi 22 janvier 2027, 15 h et 19 h</p>
+        <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait trait--autre" data-at="2026-11-05T20:00" style="--x:2.12%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-06T20:00" style="--x:2.59%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-07T20:00" style="--x:3.07%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-12-12T19:00" style="--x:19.58%;--k:0;--n:1"></span><span class="trait" data-at="2027-01-20T15:00" style="--x:37.97%;--k:0;--n:2"></span><span class="trait" data-at="2027-01-20T19:00" style="--x:37.97%;--k:1;--n:2"></span><span class="trait" data-at="2027-01-21T15:00" style="--x:38.44%;--k:0;--n:2"></span><span class="trait" data-at="2027-01-21T19:00" style="--x:38.44%;--k:1;--n:2"></span><span class="trait" data-at="2027-01-22T15:00" style="--x:38.92%;--k:0;--n:2"></span><span class="trait" data-at="2027-01-22T19:00" style="--x:38.92%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-02-14T17:00" style="--x:49.76%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-18T20:00" style="--x:64.86%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-19T20:00" style="--x:65.33%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-20T20:00" style="--x:65.8%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-05-22T20:00" style="--x:95.52%;--k:0;--n:1"></span></div>
+        <div class="lettres" aria-hidden="true"><span style="--x:7.08%">N</span><span style="--x:21.46%">D</span><span style="--x:36.09%">J</span><span style="--x:50.00%">F</span><span style="--x:63.91%">M</span><span style="--x:78.30%">A</span><span style="--x:92.69%">M</span></div>
+      </div>
+      <div class="fiche__corps">
+        <p class="fiche__genre">Théâtre d’objets</p>
+        <h3 class="fiche__titre" id="t-ce-que-la-riviere-emporte">Ce que la rivière emporte</h3>
+        <ul class="fiche__infos"><li>55 min</li><li>dès 8 ans</li></ul>
+        <div class="fiche__texte"><p>Sur une table de cuisine inondée, des objets ordinaires racontent la crue qui a traversé un village. Un spectacle sur ce qu’on garde et ce qu’on laisse partir.</p></div>
+      </div>
+      <div class="fiche__places">
+        <h4 class="fiche__places-titre">Représentations</h4>
+        <ul class="reps"><li class="rep" data-day="2027-01-20"><span class="rep__j">mer. 20 janv.</span><span class="rep__hs"><span class="rep__h" data-at="2027-01-20T15:00">15 h</span><span class="rep__h" data-at="2027-01-20T19:00">19 h</span></span></li><li class="rep" data-day="2027-01-21"><span class="rep__j">jeu. 21 janv.</span><span class="rep__hs"><span class="rep__h" data-at="2027-01-21T15:00">15 h</span><span class="rep__h" data-at="2027-01-21T19:00">19 h</span></span></li><li class="rep" data-day="2027-01-22"><span class="rep__j">ven. 22 janv.</span><span class="rep__hs"><span class="rep__h" data-at="2027-01-22T15:00">15 h</span><span class="rep__h" data-at="2027-01-22T19:00">19 h</span></span></li></ul>
+        <p class="fiche__tarif">14 € · 7 € tarif réduit</p>
+        <a class="bouton bouton--rouge fiche__resa" href="https://billetterie.example/theatre-de-la-halle">Réserver<span class="vh"> pour Ce que la rivière emporte, sur la billetterie en ligne (site externe)</span> <span aria-hidden="true" class="fleche">↗</span></a>
+        <p class="fiche__fin" hidden>Spectacle terminé</p>
+      </div>
+    </article>
+    <article class="fiche" id="quatuor-lumen" data-show="3" aria-labelledby="t-quatuor-lumen">
+      <div class="fiche__quand">
+        <p class="fiche__num">04<span class="vh"> sur 6</span></p>
+        <p class="fiche__jours" aria-hidden="true">14</p>
+        <p class="fiche__mois" aria-hidden="true">février 2027<br><span>17 h</span></p>
+        <p class="vh">Dimanche 14 février 2027, 17 h</p>
+        <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait trait--autre" data-at="2026-11-05T20:00" style="--x:2.12%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-06T20:00" style="--x:2.59%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-07T20:00" style="--x:3.07%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-12-12T19:00" style="--x:19.58%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-01-20T15:00" style="--x:37.97%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-20T19:00" style="--x:37.97%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T15:00" style="--x:38.44%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T19:00" style="--x:38.44%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T15:00" style="--x:38.92%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T19:00" style="--x:38.92%;--k:1;--n:2"></span><span class="trait" data-at="2027-02-14T17:00" style="--x:49.76%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-18T20:00" style="--x:64.86%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-19T20:00" style="--x:65.33%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-20T20:00" style="--x:65.8%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-05-22T20:00" style="--x:95.52%;--k:0;--n:1"></span></div>
+        <div class="lettres" aria-hidden="true"><span style="--x:7.08%">N</span><span style="--x:21.46%">D</span><span style="--x:36.09%">J</span><span style="--x:50.00%">F</span><span style="--x:63.91%">M</span><span style="--x:78.30%">A</span><span style="--x:92.69%">M</span></div>
+      </div>
+      <div class="fiche__corps">
+        <p class="fiche__genre">Musique de chambre</p>
+        <h3 class="fiche__titre" id="t-quatuor-lumen">Quatuor Lumen — Haydn, Janáček</h3>
+        <ul class="fiche__infos"><li>1 h 10 sans entracte</li></ul>
+        <div class="fiche__texte"><p>Le quatuor joue le Quatuor « L’Empereur » de Haydn puis les « Lettres intimes » de Janáček, présentées depuis la scène par l’altiste.</p></div>
+      </div>
+      <div class="fiche__places">
+        <h4 class="fiche__places-titre">Représentation</h4>
+        <ul class="reps"><li class="rep" data-day="2027-02-14"><span class="rep__j">dim. 14 févr.</span><span class="rep__hs"><span class="rep__h" data-at="2027-02-14T17:00">17 h</span></span></li></ul>
+        <p class="fiche__tarif">14 € · 7 € tarif réduit</p>
+        <a class="bouton bouton--rouge fiche__resa" href="https://billetterie.example/theatre-de-la-halle">Réserver<span class="vh"> pour Quatuor Lumen — Haydn, Janáček, sur la billetterie en ligne (site externe)</span> <span aria-hidden="true" class="fleche">↗</span></a>
+        <p class="fiche__fin" hidden>Spectacle terminé</p>
+      </div>
+    </article>
+    <article class="fiche" id="les-gens-d-en-face" data-show="4" aria-labelledby="t-les-gens-d-en-face">
+      <div class="fiche__quand">
+        <p class="fiche__num">05<span class="vh"> sur 6</span></p>
+        <p class="fiche__jours" aria-hidden="true">18 – 20</p>
+        <p class="fiche__mois" aria-hidden="true">mars 2027<br><span>20 h</span></p>
+        <p class="vh">Du jeudi 18 au samedi 20 mars 2027, 20 h</p>
+        <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait trait--autre" data-at="2026-11-05T20:00" style="--x:2.12%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-06T20:00" style="--x:2.59%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-07T20:00" style="--x:3.07%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-12-12T19:00" style="--x:19.58%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-01-20T15:00" style="--x:37.97%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-20T19:00" style="--x:37.97%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T15:00" style="--x:38.44%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T19:00" style="--x:38.44%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T15:00" style="--x:38.92%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T19:00" style="--x:38.92%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-02-14T17:00" style="--x:49.76%;--k:0;--n:1"></span><span class="trait" data-at="2027-03-18T20:00" style="--x:64.86%;--k:0;--n:1"></span><span class="trait" data-at="2027-03-19T20:00" style="--x:65.33%;--k:0;--n:1"></span><span class="trait" data-at="2027-03-20T20:00" style="--x:65.8%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-05-22T20:00" style="--x:95.52%;--k:0;--n:1"></span></div>
+        <div class="lettres" aria-hidden="true"><span style="--x:7.08%">N</span><span style="--x:21.46%">D</span><span style="--x:36.09%">J</span><span style="--x:50.00%">F</span><span style="--x:63.91%">M</span><span style="--x:78.30%">A</span><span style="--x:92.69%">M</span></div>
+      </div>
+      <div class="fiche__corps">
+        <p class="fiche__genre">Théâtre · comédie</p>
+        <h3 class="fiche__titre" id="t-les-gens-d-en-face">Les Gens d’en face</h3>
+        <ul class="fiche__infos"><li>1 h 35</li><li>dès 12 ans</li></ul>
+        <div class="fiche__texte"><p>Deux familles que tout oppose découvrent qu’elles se regardent vivre depuis dix ans, de part et d’autre d’une cour. Une fête des voisins tourne mal, puis bien, puis encore mal.</p></div>
+      </div>
+      <div class="fiche__places">
+        <h4 class="fiche__places-titre">Représentations</h4>
+        <ul class="reps"><li class="rep" data-day="2027-03-18"><span class="rep__j">jeu. 18 mars</span><span class="rep__hs"><span class="rep__h" data-at="2027-03-18T20:00">20 h</span></span></li><li class="rep" data-day="2027-03-19"><span class="rep__j">ven. 19 mars</span><span class="rep__hs"><span class="rep__h" data-at="2027-03-19T20:00">20 h</span></span></li><li class="rep" data-day="2027-03-20"><span class="rep__j">sam. 20 mars</span><span class="rep__hs"><span class="rep__h" data-at="2027-03-20T20:00">20 h</span></span></li></ul>
+        <p class="fiche__tarif">14 € · 7 € tarif réduit</p>
+        <a class="bouton bouton--rouge fiche__resa" href="https://billetterie.example/theatre-de-la-halle">Réserver<span class="vh"> pour Les Gens d’en face, sur la billetterie en ligne (site externe)</span> <span aria-hidden="true" class="fleche">↗</span></a>
+        <p class="fiche__fin" hidden>Spectacle terminé</p>
+      </div>
+    </article>
+    <article class="fiche" id="nuit-de-la-parole-libre" data-show="5" aria-labelledby="t-nuit-de-la-parole-libre">
+      <div class="fiche__quand">
+        <p class="fiche__num">06<span class="vh"> sur 6</span></p>
+        <p class="fiche__jours" aria-hidden="true">22</p>
+        <p class="fiche__mois" aria-hidden="true">mai 2027<br><span>20 h</span></p>
+        <p class="vh">Samedi 22 mai 2027, 20 h</p>
+        <div class="regle" aria-hidden="true"><span class="regle__mois" style="--x:0.0%"></span><span class="regle__mois" style="--x:14.151%"></span><span class="regle__mois" style="--x:28.774%"></span><span class="regle__mois" style="--x:43.396%"></span><span class="regle__mois" style="--x:56.604%"></span><span class="regle__mois" style="--x:71.226%"></span><span class="regle__mois" style="--x:85.377%"></span><span class="trait trait--autre" data-at="2026-11-05T20:00" style="--x:2.12%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-06T20:00" style="--x:2.59%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-11-07T20:00" style="--x:3.07%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2026-12-12T19:00" style="--x:19.58%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-01-20T15:00" style="--x:37.97%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-20T19:00" style="--x:37.97%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T15:00" style="--x:38.44%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-21T19:00" style="--x:38.44%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T15:00" style="--x:38.92%;--k:0;--n:2"></span><span class="trait trait--autre" data-at="2027-01-22T19:00" style="--x:38.92%;--k:1;--n:2"></span><span class="trait trait--autre" data-at="2027-02-14T17:00" style="--x:49.76%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-18T20:00" style="--x:64.86%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-19T20:00" style="--x:65.33%;--k:0;--n:1"></span><span class="trait trait--autre" data-at="2027-03-20T20:00" style="--x:65.8%;--k:0;--n:1"></span><span class="trait" data-at="2027-05-22T20:00" style="--x:95.52%;--k:0;--n:1"></span></div>
+        <div class="lettres" aria-hidden="true"><span style="--x:7.08%">N</span><span style="--x:21.46%">D</span><span style="--x:36.09%">J</span><span style="--x:50.00%">F</span><span style="--x:63.91%">M</span><span style="--x:78.30%">A</span><span style="--x:92.69%">M</span></div>
+      </div>
+      <div class="fiche__corps">
+        <p class="fiche__genre">Scène ouverte</p>
+        <h3 class="fiche__titre" id="t-nuit-de-la-parole-libre">Nuit de la parole libre</h3>
+        <ul class="fiche__infos"><li>3 h environ</li><li>tout public</li></ul>
+        <div class="fiche__texte"><p>Habitants, poètes, slameurs et conteurs ont cinq minutes chacun.</p><p>Inscription sur place à partir de 19 h, dans la limite de vingt-cinq passages. Entrée au tarif unique, gratuite pour les participants.</p></div>
+      </div>
+      <div class="fiche__places">
+        <h4 class="fiche__places-titre">Représentation</h4>
+        <ul class="reps"><li class="rep" data-day="2027-05-22"><span class="rep__j">sam. 22 mai</span><span class="rep__hs"><span class="rep__h" data-at="2027-05-22T20:00">20 h</span></span></li></ul>
+        <p class="fiche__tarif">14 € · 7 € tarif réduit · gratuit pour les participants</p>
+        <a class="bouton bouton--rouge fiche__resa" href="https://billetterie.example/theatre-de-la-halle">Réserver<span class="vh"> pour Nuit de la parole libre, sur la billetterie en ligne (site externe)</span> <span aria-hidden="true" class="fleche">↗</span></a>
+        <p class="fiche__fin" hidden>Spectacle terminé</p>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="tarif" id="tarif" aria-labelledby="titre-tarif">
+    <div class="cadre">
+      <p class="tarif__prix" aria-hidden="true">14<span>€</span></p>
+      <div>
+        <h2 id="titre-tarif">Tarif unique</h2>
+        <p class="tarif__phrase">14 € la place, quel que soit le spectacle.</p>
+        <ul class="tarif__liste">
+          <li><b>14 €</b><span>Plein tarif, pour les six spectacles</span></li>
+          <li><b>7 €</b><span>Moins de 18 ans et minima sociaux, sur présentation d’un justificatif</span></li>
+          <li><b>0 €</b><span>Participants de la Nuit de la parole libre (inscription sur place)</span></li>
+        </ul>
+        <p class="tarif__note">Les places se réservent sur la billetterie en ligne, un site externe : on y choisit le spectacle et la date.</p>
+        <a class="bouton bouton--papier" href="https://billetterie.example/theatre-de-la-halle">Aller à la billetterie<span class="vh"> (site externe)</span> <span class="fleche" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="venir" id="venir" aria-labelledby="titre-venir">
+    <div class="cadre">
+      <h2 class="section-titre" id="titre-venir">Venir à la Halle</h2>
+      <dl>
+        <div>
+          <dt>Adresse</dt>
+          <dd>Théâtre de la Halle<br>12, place de la Halle-aux-Grains<br>69007 Lyon</dd>
+        </div>
+        <div>
+          <dt>La salle</dt>
+          <dd><ul><li>180 places en gradin</li><li>Accès de plain-pied</li><li>Boucle magnétique</li></ul></dd>
+        </div>
+        <div>
+          <dt>Les soirs de spectacle</dt>
+          <dd><ul><li>Ouverture des portes 30 minutes avant chaque représentation</li><li>Bar ouvert une heure avant et une heure après</li></ul></dd>
+        </div>
+        <div>
+          <dt>Contact</dt>
+          <dd><ul><li><a href="mailto:accueil@theatre-halle.example">accueil@theatre-halle.example</a></li><li><a href="tel:+33400000000">04 00 00 00 00</a></li></ul></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="fin" aria-label="Réserver">
+    <div class="cadre">
+      <p class="fin__phrase">Six spectacles, de novembre à mai. <em>Une place : 14 €.</em></p>
+      <a class="bouton bouton--rouge" href="https://billetterie.example/theatre-de-la-halle">Réserver sur la billetterie<span class="vh"> (site externe)</span> <span class="fleche" aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="cadre">
+  <div class="colophon">
+    <span><b>Théâtre de la Halle</b> · saison 2026-2027</span>
+    <span>12, place de la Halle-aux-Grains, 69007 Lyon</span>
+    <span>accueil@theatre-halle.example · 04 00 00 00 00</span>
+    <span>Lieu fictif — page de démonstration</span>
+  </div>
+</footer>
+
+<script>
+/* États datés : représentations passées, spectacle terminé, prochain rendez-vous.
+   ?date=AAAA-MM-JJTHH:MM simule une autre date (vérification). Sans script, la page reste complète. */
+(function () {
+  var q = new URLSearchParams(location.search).get("date");
+  var now = q ? new Date(q) : new Date();
+  if (isNaN(now.getTime())) now = new Date();
+  var JOURS = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+  var MOIS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+  function passe(el) { return new Date(el.getAttribute("data-at")) < now; }
+
+  document.querySelectorAll(".trait[data-at]").forEach(function (t) { if (passe(t)) t.classList.add("passe"); });
+
+  var prochain = null;
+  document.querySelectorAll(".fiche").forEach(function (f) {
+    var i = f.getAttribute("data-show");
+    var heures = f.querySelectorAll(".rep__h");
+    var restantes = 0;
+    heures.forEach(function (h) {
+      if (passe(h)) { h.classList.add("passe"); }
+      else { restantes++; if (!prochain || new Date(h.getAttribute("data-at")) < prochain.date) prochain = { date: new Date(h.getAttribute("data-at")), fiche: f }; }
+    });
+    f.querySelectorAll(".rep").forEach(function (r) {
+      var hs = r.querySelectorAll(".rep__h"), toutes = true;
+      hs.forEach(function (h) { if (!h.classList.contains("passe")) toutes = false; });
+      if (toutes) { r.classList.add("passe"); var m = document.createElement("span"); m.className = "rep__mention"; m.textContent = "passée"; r.querySelector(".rep__j").append(m); }
+    });
+    var ligne = document.querySelector('.tableau__ligne[data-show="' + i + '"]');
+    var etat = ligne && ligne.querySelector("[data-etat]");
+    if (restantes === 0) {
+      f.classList.add("termine");
+      f.querySelector(".fiche__resa").hidden = true;
+      f.querySelector(".fiche__fin").hidden = false;
+      if (ligne) { ligne.classList.add("termine"); etat.textContent = " · terminé"; }
+    } else if (restantes < heures.length && etat) {
+      etat.textContent = " · à l’affiche";
+    }
+  });
+
+  var cible = document.querySelector("[data-prochain]");
+  if (!cible) return;
+  if (!prochain) { cible.textContent = "La saison 2026-2027 est terminée."; return; }
+  var d = prochain.date, titre = prochain.fiche.querySelector(".fiche__titre").textContent;
+  var h = d.getHours() + " h" + (d.getMinutes() ? " " + String(d.getMinutes()).padStart(2, "0") : "");
+  var premier = document.querySelector(".fiche") === prochain.fiche && !document.querySelector(".rep__h.passe");
+  cible.innerHTML = "";
+  cible.append(premier ? "Ouverture de saison : " : "Prochaine représentation : ");
+  var b = document.createElement("b"); b.textContent = titre; cible.append(b);
+  cible.append(", " + JOURS[d.getDay()] + " " + d.getDate() + " " + MOIS[d.getMonth()] + ", " + h);
+  cible.setAttribute("data-titre", titre);
+})();
+</script>
+</body>
+</html>

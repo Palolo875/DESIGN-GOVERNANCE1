@@ -1,0 +1,301 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PCBE317/artefact/index.html",
+    "artifact_version": "adbbc0082928",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-21T14:32:24Z",
+    "scope": "état initial, largeurs 390,768,1440 px",
+    "external_requests_blocked": 0,
+    "settings": {
+      "proof": "",
+      "tab_stops": 60,
+      "allow_external": false,
+      "wait_ms": 1500
+    },
+    "captures": [
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PCBE317/captures/capture-390px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PCBE317/captures/capture-768px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9eb118b6-fb16-58eb-a57f-0f8fee2b65e7/scratchpad/plan/etat-de-reference/productions/PCBE317/captures/capture-1440px.png"
+    ],
+    "browser": {
+      "engine": "chromium",
+      "version": "141.0.7390.37",
+      "executable": "playwright-managed"
+    }
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "RETURN",
+      "detail": "390 px : 394 > 390 (label, select, span, span)"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "conteneur défilant horizontalement, voulu ou défaut : nav.subnav 676 > 390"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Chevauchement et troncature de texte",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "tronqué, à juger : 390 px : « Connecté : Camille Moreau, numér », 390 px : « Ma formule », 768 px : « Connecté : Camille Moreau, numér », 768 px : « Ma formule », 1440 px : « Connecté : Camille Moreau, numér », 1440 px : « Ma formule » ; texte SVG compris, calques fixes ou collants exclus"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 390 px : 70 texte(s) évalué(s), 74 candidat(s), 2 exclu(s) ; 768 px : 72 texte(s) évalué(s), 74 candidat(s), 0 exclu(s) ; 1440 px : 72 texte(s) évalué(s), 74 candidat(s), 0 exclu(s) ; 390 px : texte non évalué : #review-select (texte de contrôle natif), li (contenu ::before) ; 768 px : texte non évalué : #review-select (texte de contrôle natif), li (contenu ::before) ; 1440 px : texte non évalué : #review-select (texte de contrôle natif), li (contenu ::before)"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "7 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement ; 3 petite(s) cible(s) admise(s) par l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Images chargées",
+      "status": "PASS",
+      "detail": "aucune image visible illisible"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "8 arrêt(s) à 390 px ; 390 px : page, fin=end, 7 candidat(s) ; 7 arrêt(s) à 768 px ; 768 px : page, fin=end, 7 candidat(s) ; 7 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 7 candidat(s) ; 390 px : arrêt(s) hors inventaire de candidats : nav.subnav ; aucun changement de style au focus sur : nav.subnav ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant"
+    },
+    {
+      "check": "Contraste de l’indicateur de focus",
+      "status": "PASS",
+      "detail": "21 arrêt(s) mesuré(s) ou à contour du navigateur sans défaut"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation démarrée"
+    },
+    {
+      "check": "Objet de preuve au premier écran",
+      "status": "NOT-VERIFIED",
+      "detail": "aucun sélecteur fourni (--proof) : à juger à la main"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#review-select"
+        },
+        {
+          "key": "control-1",
+          "id": "#review-planche"
+        },
+        {
+          "key": "control-2",
+          "id": "#review-reset"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6"
+      ],
+      "unreached": [],
+      "unexpected": [
+        "nav.subnav"
+      ],
+      "observed_stops": 8
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#review-select"
+        },
+        {
+          "key": "control-1",
+          "id": "#review-planche"
+        },
+        {
+          "key": "control-2",
+          "id": "#review-reset"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 7
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "#review-select"
+        },
+        {
+          "key": "control-1",
+          "id": "#review-planche"
+        },
+        {
+          "key": "control-2",
+          "id": "#review-reset"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 7
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 74,
+      "evaluated": 70,
+      "excluded": 2,
+      "unmeasured": [
+        {
+          "sel": "#review-select",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        }
+      ]
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 74,
+      "evaluated": 72,
+      "excluded": 0,
+      "unmeasured": [
+        {
+          "sel": "#review-select",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        }
+      ]
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 74,
+      "evaluated": 72,
+      "excluded": 0,
+      "unmeasured": [
+        {
+          "sel": "#review-select",
+          "kind": "texte de contrôle natif"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        }
+      ]
+    }
+  },
+  "proof_observations": {
+    "390": null,
+    "768": null,
+    "1440": null
+  }
+}

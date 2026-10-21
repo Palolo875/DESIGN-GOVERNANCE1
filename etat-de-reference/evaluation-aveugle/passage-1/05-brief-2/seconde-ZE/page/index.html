@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interventions du jour</title>
+<meta name="description" content="Suivi des interventions du jour — Ascenseurs Rhône Maintenance, agence de Lyon Sud.">
+<meta name="color-scheme" content="light dark">
+<style>
+:root {
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --surface-2: #f8f9fb;
+  --text: #15181d;
+  --muted: #555d68;
+  --line: #d9dde3;
+  --line-strong: #b9c0c9;
+  --ink: #1d2733;          /* bouton sélectionné */
+  --ink-text: #ffffff;
+  --focus: #2563eb;
+
+  --late: #b42318;  --late-bg: #fdecea;  --late-line: #f2b8b2;
+  --high: #8a4100;  --high-bg: #ffefd6;  --high-line: #f3c98d;
+  --run: #1d4ed8;   --run-bg: #e7eeff;   --run-line: #b8c9f7;
+  --done: #2b6a3a;  --done-bg: #e5f3e8;  --done-line: #b7dcc0;
+  --todo: #46505c;  --todo-bg: #eceef2;  --todo-line: #cfd4db;
+
+  --radius: 14px;
+  --gutter: 16px;
+  --tap: 52px;
+  font-size: 17px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1115; --surface: #171b21; --surface-2: #1d222a; --text: #eef1f4; --muted: #a3acb7;
+    --line: #2b313a; --line-strong: #414955; --ink: #e8edf3; --ink-text: #0e1115; --focus: #7aa7ff;
+    --late: #ff9a8f; --late-bg: #3a1714; --late-line: #6b2a24;
+    --high: #ffc27a; --high-bg: #3a2610; --high-line: #6a4519;
+    --run: #9db8ff;  --run-bg: #18264a;  --run-line: #2f4580;
+    --done: #8fd3a0; --done-bg: #14301c; --done-line: #2a5a37;
+    --todo: #c3cad3; --todo-bg: #232931; --todo-line: #3a424d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1115; --surface: #171b21; --surface-2: #1d222a; --text: #eef1f4; --muted: #a3acb7;
+  --line: #2b313a; --line-strong: #414955; --ink: #e8edf3; --ink-text: #0e1115; --focus: #7aa7ff;
+  --late: #ff9a8f; --late-bg: #3a1714; --late-line: #6b2a24;
+  --high: #ffc27a; --high-bg: #3a2610; --high-line: #6a4519;
+  --run: #9db8ff;  --run-bg: #18264a;  --run-line: #2f4580;
+  --done: #8fd3a0; --done-bg: #14301c; --done-line: #2a5a37;
+  --todo: #c3cad3; --todo-bg: #232931; --todo-line: #3a424d;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.4;
+}
+.t, .v, .date, .maj, .d, .n, .pg, .count { font-variant-numeric: tabular-nums; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 8px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.page { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter) 40px; }
+
+/* ---------- En-tête ---------- */
+.top {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 16px;
+  padding: 18px 0 14px;
+}
+.top h1 { margin: 0; font-size: 1.45rem; line-height: 1.15; letter-spacing: -0.01em; }
+.top .org { margin: 2px 0 0; color: var(--muted); font-size: .88rem; }
+.clock { display: flex; align-items: center; gap: 10px; }
+@media (max-width: 619.98px) { .top > div { width: 100%; } .clock { justify-content: space-between; } .clock .btn span { display: none; } .clock .btn { width: 48px; height: 48px; padding: 0; } }
+.clock .date { font-weight: 600; }
+.clock .maj { color: var(--muted); font-size: .88rem; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 16px; border-radius: 12px;
+  border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover { background: var(--surface-2); }
+.btn.primary { background: var(--ink); color: var(--ink-text); border-color: var(--ink); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+
+/* ---------- Bandeau hors connexion ---------- */
+.banner {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  border: 1px solid var(--high-line); background: var(--high-bg); color: var(--text);
+  padding: 12px 14px; border-radius: var(--radius); margin-bottom: 14px;
+}
+.banner p { margin: 0; flex: 1 1 260px; }
+.banner strong { color: var(--high); }
+
+/* ---------- Filtres ---------- */
+.filter { border: 0; margin: 0 0 14px; padding: 0; min-width: 0; }
+.filter legend { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 0; margin-bottom: 6px; }
+.seg { display: grid; gap: 6px; }
+.seg.tech { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.seg.statut { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (min-width: 620px) { .seg.statut { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.seg button {
+  min-height: var(--tap); padding: 6px 8px; border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--line-strong); background: var(--surface);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  text-align: center; line-height: 1.15;
+}
+.seg button .lbl { font-weight: 650; }
+@media (max-width: 420px) { .seg button { padding: 6px 4px; } .seg button .lbl { font-size: .94rem; } }
+.seg button .n { font-size: .8rem; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--ink-text); border-color: var(--ink); }
+.seg button[aria-pressed="true"] .n { color: inherit; opacity: .8; }
+.seg button.is-late:not([aria-pressed="true"]) .n { color: var(--late); font-weight: 700; }
+.seg button:disabled { opacity: .45; cursor: default; }
+
+/* ---------- Pastilles ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+  font-size: .78rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; border: 1px solid transparent;
+}
+.badge svg { width: 13px; height: 13px; flex: none; }
+.b-retard { color: var(--late); background: var(--late-bg); border-color: var(--late-line); }
+.b-cours  { color: var(--run);  background: var(--run-bg);  border-color: var(--run-line); }
+.b-faire  { color: var(--todo); background: var(--todo-bg); border-color: var(--todo-line); }
+.b-fini   { color: var(--done); background: var(--done-bg); border-color: var(--done-line); }
+.b-haute  { color: var(--high); background: var(--high-bg); border-color: var(--high-line); }
+.b-basse  { color: var(--muted); background: transparent; border-color: var(--line); font-weight: 600; }
+
+/* ---------- Sections ---------- */
+.section-title { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin: 22px 0 10px; }
+.section-title h2 { margin: 0; font-size: 1.12rem; }
+.section-title .hint { color: var(--muted); font-size: .85rem; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+
+/* KPI */
+.kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 4px; }
+@media (min-width: 760px) { .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.kpi {
+  text-align: left; padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--line);
+  background: var(--surface); min-height: 84px; cursor: pointer; display: flex; flex-direction: column; gap: 2px;
+}
+.kpi:hover { border-color: var(--line-strong); }
+.kpi .v { font-size: 1.9rem; font-weight: 750; line-height: 1.05; }
+.kpi .v small { font-size: 1rem; color: var(--muted); font-weight: 600; }
+.kpi .l { font-weight: 650; }
+.kpi .s { font-size: .8rem; color: var(--muted); }
+.kpi.k-late { border-color: var(--late-line); background: var(--late-bg); }
+.kpi.k-late .v, .kpi.k-late .l { color: var(--late); }
+.kpi.k-high { border-color: var(--high-line); background: var(--high-bg); }
+.kpi.k-high .v, .kpi.k-high .l { color: var(--high); }
+.kpi.k-zero { background: var(--surface); border-color: var(--line); }
+.kpi.k-zero .v, .kpi.k-zero .l { color: var(--text); }
+.bar { height: 6px; background: var(--todo-bg); border-radius: 99px; overflow: hidden; margin-top: 6px; }
+.bar i { display: block; height: 100%; background: var(--done); border-radius: 99px; }
+
+/* Vue chef : attention + équipe */
+.overview { display: grid; gap: 0 20px; }
+@media (min-width: 980px) { .overview { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; } }
+
+.attn { padding: 4px 0; }
+.attn h3 { margin: 0; padding: 12px 14px 6px; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.attn h3 .c { color: var(--text); }
+.attn ul { list-style: none; margin: 0; padding: 0; }
+.attn li + li { border-top: 1px solid var(--line); }
+.attn .sep { border-top: 1px solid var(--line); margin-top: 6px; }
+.arow {
+  width: 100%; display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 2px 12px; align-items: start;
+  padding: 10px 14px; background: none; border: 0; text-align: left; cursor: pointer; min-height: var(--tap);
+}
+.arow:hover { background: var(--surface-2); }
+.arow .t { font-weight: 750; font-size: 1.02rem; }
+.arow .d { display: block; font-size: .78rem; font-weight: 700; color: var(--late); }
+.arow .w { min-width: 0; }
+.arow .a { font-weight: 650; }
+.arow .m { font-size: .86rem; color: var(--muted); }
+.arow .nt { font-size: .86rem; margin-top: 2px; }
+.arow .bd { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 3px; }
+.attn .none { padding: 6px 14px 12px; color: var(--muted); margin: 0; }
+
+.team { display: grid; gap: 10px; }
+.tcard { padding: 12px 14px; display: block; width: 100%; text-align: left; cursor: pointer; }
+.tcard:hover { border-color: var(--line-strong); }
+.tcard .hd { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.tcard .nm { font-weight: 750; font-size: 1.02rem; }
+.tcard .pg { font-size: .82rem; color: var(--muted); white-space: nowrap; }
+.tcard dl { margin: 0; display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); gap: 4px 10px; font-size: .9rem; }
+.tcard dt { color: var(--muted); }
+.tcard dd { margin: 0; min-width: 0; }
+.tcard .late-n { color: var(--late); font-weight: 700; }
+.tcard .ok-n { color: var(--muted); }
+
+/* Vue technicien */
+.focus { display: grid; gap: 12px; }
+@media (min-width: 900px) { .focus { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; } }
+.next { padding: 16px; border-width: 2px; border-color: var(--ink); }
+.next.is-late { border-color: var(--late); }
+.next .kicker { font-size: .8rem; font-weight: 750; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 6px; }
+.next.is-late .kicker { color: var(--late); }
+.next .when { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.next .when .t { font-size: 2.1rem; font-weight: 800; line-height: 1; }
+.next .when .rel { font-weight: 700; color: var(--muted); }
+.next.is-late .when .rel { color: var(--late); }
+.next .addr { font-size: 1.32rem; font-weight: 750; line-height: 1.2; margin: 0; }
+.next .city { font-size: 1.05rem; color: var(--muted); margin: 2px 0 10px; }
+.next .bd { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.next .facts { margin: 0 0 12px; display: grid; grid-template-columns: auto minmax(0,1fr); gap: 4px 12px; }
+.next .facts dt { color: var(--muted); }
+.next .facts dd { margin: 0; font-weight: 600; }
+.note {
+  margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line);
+  font-size: .95rem;
+}
+.note b { font-weight: 700; }
+.next .go { width: 100%; min-height: 56px; font-size: 1.05rem; }
+.side { display: grid; gap: 12px; }
+.mini { padding: 12px 14px; }
+.mini h3 { margin: 0 0 8px; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.mini ul { list-style: none; margin: 0; padding: 0; }
+.mini li { display: grid; grid-template-columns: 4.6rem minmax(0,1fr); gap: 2px 10px; padding: 8px 0; }
+.mini li + li { border-top: 1px solid var(--line); }
+.mini .t { font-weight: 750; }
+.mini .a { font-weight: 650; }
+.mini .m { font-size: .86rem; color: var(--muted); }
+.mini .empty { color: var(--muted); display: block; padding: 2px 0; }
+.mini .d { display: block; font-size: .78rem; font-weight: 700; color: var(--late); }
+.daydone { padding: 18px 16px; }
+.daydone p { margin: 4px 0 0; color: var(--muted); }
+
+/* ---------- Liste ---------- */
+.listhead { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 12px; margin: 26px 0 10px; }
+.listhead h2 { margin: 0; font-size: 1.12rem; }
+.count { color: var(--muted); font-size: .9rem; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.row {
+  position: relative; display: grid; grid-template-columns: 4.8rem minmax(0, 1fr); gap: 4px 12px;
+  padding: 12px 14px 12px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  scroll-margin-top: 16px;
+}
+.row::before { content: ""; position: absolute; left: -1px; top: -1px; bottom: -1px; width: 6px; border-radius: var(--radius) 0 0 var(--radius); background: var(--todo-line); }
+.row.s-retard { border-color: var(--late-line); }
+.row.s-retard::before { background: var(--late); }
+.row.s-cours::before { background: var(--run); }
+.row.s-fini { background: var(--surface-2); }
+.row.s-fini::before { background: var(--done-line); }
+.row.s-fini .r-addr, .row.s-fini .r-time .t { color: var(--muted); }
+.row.flash { animation: flash 1.6s ease-out; }
+@keyframes flash { 0%, 30% { box-shadow: 0 0 0 4px var(--focus); } 100% { box-shadow: 0 0 0 0 transparent; } }
+@media (prefers-reduced-motion: reduce) { .row.flash { animation: none; outline: 3px solid var(--focus); } }
+.r-time .t { display: block; font-weight: 800; font-size: 1.12rem; line-height: 1.2; }
+.r-time .d { display: block; font-size: .8rem; font-weight: 700; color: var(--late); margin-top: 2px; }
+.r-time .d.run { color: var(--run); }
+.r-main { min-width: 0; }
+.r-badges { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 4px; }
+.r-id { font-size: .8rem; color: var(--muted); margin-left: 2px; }
+.r-addr { display: inline-flex; align-items: flex-start; gap: 6px; font-weight: 700; font-size: 1.04rem; text-decoration: none; min-height: 32px; }
+.r-addr svg { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--muted); }
+.r-addr:hover .st { text-decoration: underline; }
+.r-addr .ct { font-weight: 500; color: var(--muted); }
+.r-meta { font-size: .9rem; color: var(--muted); margin-top: 2px; }
+.r-meta .who { color: var(--text); font-weight: 600; }
+.r-note { font-size: .92rem; margin: 6px 0 0; }
+.r-note::before { content: "Note : "; color: var(--muted); }
+@media (min-width: 900px) {
+  .row { grid-template-columns: 5.2rem minmax(0, 1.5fr) minmax(0, 1fr) 9.5rem; align-items: start; }
+  .r-main { display: contents; }
+  .r-left { grid-column: 2; min-width: 0; }
+  .r-mid { grid-column: 3; min-width: 0; font-size: .92rem; }
+  .r-who { grid-column: 4; font-weight: 650; text-align: right; }
+  .who-inline { display: none; }
+}
+@media (max-width: 899.98px) { .r-who { display: none; } .r-mid { margin-top: 2px; } }
+.r-mid .ty { font-weight: 650; }
+.r-mid .sub { color: var(--muted); }
+
+.now {
+  display: flex; align-items: center; gap: 10px; color: var(--run); font-weight: 750; font-size: .88rem;
+  padding: 4px 2px;
+}
+.now::before, .now::after { content: ""; flex: 1; height: 2px; background: var(--run); opacity: .55; border-radius: 2px; }
+
+/* ---------- États ---------- */
+.state { padding: 28px 20px; text-align: center; }
+.state .ico { width: 44px; height: 44px; margin: 0 auto 8px; color: var(--muted); }
+.state h2, .state h3 { margin: 0 0 6px; font-size: 1.15rem; }
+.state p { margin: 0 auto 14px; max-width: 46ch; color: var(--muted); }
+.state .acts { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.state.err { border-color: var(--late-line); }
+.state.err .ico { color: var(--late); }
+
+.skel { display: grid; gap: 8px; }
+.skel div { height: 86px; border-radius: var(--radius); background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%); background-size: 200% 100%; border: 1px solid var(--line); animation: sk 1.3s linear infinite; }
+.skel .s1 { height: 52px; }
+@keyframes sk { from { background-position: 200% 0; } to { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .skel div { animation: none; } }
+.loading-msg { color: var(--muted); margin: 18px 0 10px; font-weight: 600; }
+
+footer { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
+footer p { margin: 0 0 6px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <div>
+      <h1>Interventions du jour</h1>
+      <p class="org">Ascenseurs Rhône Maintenance · Agence Lyon Sud · Chef d'équipe : Nathalie Roux</p>
+    </div>
+    <div class="clock">
+      <div>
+        <div class="date">Mardi 20 octobre 2026 · 10&#8239;h&#8239;30</div>
+        <div class="maj" id="maj">&nbsp;</div>
+      </div>
+      <button class="btn" id="refresh" type="button" aria-label="Actualiser les données">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+        <span>Actualiser</span>
+      </button>
+    </div>
+  </header>
+
+  <div id="banner"></div>
+
+  <main id="app" aria-live="off">
+    <p class="loading-msg">Chargement des interventions…</p>
+  </main>
+
+  <p class="visually-hidden" aria-live="polite" id="annonce"></p>
+
+  <footer>
+    <p>Données fictives fournies par le client · 40 interventions · heure de consultation fixée à 10&#8239;h&#8239;30 pour la maquette.</p>
+    <nav aria-label="Aperçu des états de l'écran">
+      <span>Voir l'écran dans l'état :</span>
+      <a href="?">normal</a>
+      <a href="?etat=chargement">chargement</a>
+      <a href="?etat=erreur">données non chargées</a>
+      <a href="?etat=hors-ligne">hors connexion (données anciennes)</a>
+      <a href="?etat=vide">filtre sans résultat</a>
+    </nav>
+  </footer>
+</div>
+
+<script type="text/csv" id="donnees">
+id,heure_prevue,adresse,batiment,appareil,type,priorite,statut,technicien,note
+INT-2601,07:30,"118, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-1977,Entretien périodique,Normale,En retard,Sophie Lambert,technicien retenu sur une panne précédente
+INT-2602,07:55,"141, rue Chevreul-Basse, 69007 Lyon",hôtel,ASC-1707,Panne,Haute,En retard,Théo Girard,Porte palière ne se ferme plus ; pièce manquante
+INT-2603,08:00,"46, impasse des Glycines, 69008 Lyon",copropriété,ASC-2179,Entretien périodique,Normale,Terminée,Karim Benali,
+INT-2604,08:25,"115, impasse des Glycines, 69007 Lyon",école,ASC-2954,Panne,Haute,En retard,Sophie Lambert,"Appareil à l'arrêt, signalé par le gardien ; technicien retenu sur une panne précédente"
+INT-2605,08:30,"25, avenue des Frères-Ladoux, 69008 Lyon",clinique,ASC-1451,Réparation planifiée,Normale,Terminée,Théo Girard,"Pièce reçue, pose prévue"
+INT-2606,08:50,"145, boulevard des Tchécoslovaques-Sud, 69008 Lyon",résidence,ASC-1922,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2607,08:55,"2, rue Paul-Duvernay, 69008 Lyon",clinique,ASC-4231,Contrôle réglementaire,Normale,En retard,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer ; accès au local machinerie refusé"
+INT-2608,09:10,"107, rue Sébastien-Ory, 69007 Lyon",parking,ASC-2712,Réparation planifiée,Basse,Terminée,Théo Girard,Remplacement des câbles de traction
+INT-2609,09:15,"123, rue de la Charité-Haute, 69007 Lyon",résidence seniors,ASC-3590,Entretien périodique,Basse,Terminée,Karim Benali,
+INT-2610,09:25,"83, rue du Vieux-Moulin, 69007 Lyon",résidence,ASC-3059,Entretien périodique,Normale,Terminée,Sophie Lambert,
+INT-2611,09:30,"112, quai Claude-Arnaud, 69007 Lyon",parking,ASC-4753,Panne,Haute,En cours,Théo Girard,"Cabine bloquée entre deux étages, personne à l'intérieur ; pompiers prévenus"
+INT-2612,09:40,"115, cours Gambetta-Neuf, 69008 Lyon",clinique,ASC-4473,Entretien périodique,Normale,En cours,Karim Benali,
+INT-2613,09:45,"11, rue Pasteur-Prolongée, 69008 Lyon",école,ASC-4006,Entretien périodique,Basse,En cours,Sophie Lambert,
+INT-2614,10:45,"24, impasse des Glycines, 69008 Lyon",école,ASC-2409,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2615,10:55,"120, avenue Berthelot, 69008 Lyon",hôtel,ASC-4880,Entretien périodique,Basse,À faire,Karim Benali,
+INT-2616,11:20,"109, boulevard des Tchécoslovaques-Sud, 69007 Lyon",copropriété,ASC-1431,Réparation planifiée,Basse,À faire,Sophie Lambert,Remplacement des câbles de traction
+INT-2617,11:40,"134, rue Marcel-Rivière, 69007 Lyon",résidence,ASC-4249,Entretien périodique,Normale,À faire,Théo Girard,
+INT-2618,11:45,"93, quai Claude-Arnaud, 69007 Lyon",parking,ASC-1117,Panne,Haute,À faire,Karim Benali,"Appareil à l'arrêt, signalé par le gardien"
+INT-2619,12:20,"46, avenue Berthelot, 69008 Lyon",résidence,ASC-3954,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2620,12:25,"88, avenue Jean-Jaurès-Ouest, 69007 Lyon",résidence seniors,ASC-4257,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2621,12:50,"33, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-4305,Réparation planifiée,Normale,À faire,Sophie Lambert,Changement de l'opérateur de porte
+INT-2622,13:15,"104, rue des Tanneurs, 69008 Lyon",copropriété,ASC-1076,Réparation planifiée,Normale,À faire,Sophie Lambert,"Pièce reçue, pose prévue"
+INT-2623,13:20,"32, rue du Vieux-Moulin, 69007 Lyon",parking,ASC-4042,Contrôle réglementaire,Normale,À faire,Théo Girard,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2624,13:30,"97, place Jean-Macé-Haute, 69008 Lyon",école,ASC-2008,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2625,13:40,"148, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-2247,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2626,13:55,"64, rue Marcel-Rivière, 69007 Lyon",hôtel,ASC-2221,Réparation planifiée,Basse,À faire,Théo Girard,"Pièce reçue, pose prévue"
+INT-2627,14:00,"21, boulevard des Tchécoslovaques-Sud, 69008 Lyon",immeuble de bureaux,ASC-3115,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2628,14:15,"76, boulevard des Tchécoslovaques-Sud, 69008 Lyon",parking,ASC-4980,Réparation planifiée,Normale,À faire,Théo Girard,Changement de l'opérateur de porte
+INT-2629,14:40,"26, cours Gambetta-Neuf, 69008 Lyon",école,ASC-4354,Panne,Normale,À faire,Théo Girard,Bruit anormal au démarrage
+INT-2630,14:45,"147, place Jean-Macé-Haute, 69008 Lyon",clinique,ASC-1746,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2631,14:50,"91, rue des Trois-Pierres, 69008 Lyon",copropriété,ASC-4832,Entretien périodique,Basse,À faire,Sophie Lambert,
+INT-2632,15:05,"42, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3672,Panne,Normale,À faire,Théo Girard,Bouton d'appel du 3e hors service
+INT-2633,15:30,"85, place Jean-Macé-Haute, 69007 Lyon",copropriété,ASC-2794,Panne,Haute,À faire,Karim Benali,Bruit anormal au démarrage
+INT-2634,15:45,"137, rue du Vieux-Moulin, 69008 Lyon",clinique,ASC-3137,Panne,Haute,À faire,Sophie Lambert,Porte palière ne se ferme plus
+INT-2635,16:05,"66, place Jean-Macé-Haute, 69008 Lyon",résidence,ASC-4576,Contrôle réglementaire,Normale,À faire,Karim Benali,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2636,16:55,"122, avenue des Frères-Ladoux, 69008 Lyon",école,ASC-2868,Panne,Haute,À faire,Karim Benali,Porte palière ne se ferme plus
+INT-2637,17:00,"33, avenue Jean-Jaurès-Ouest, 69007 Lyon",hôtel,ASC-1548,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+INT-2638,17:15,"22, rue du Vieux-Moulin, 69007 Lyon",clinique,ASC-2323,Entretien périodique,Basse,À faire,Théo Girard,
+INT-2639,17:20,"115, place Jean-Macé-Haute, 69008 Lyon",hôtel,ASC-3255,Entretien périodique,Normale,À faire,Karim Benali,
+INT-2640,17:25,"22, avenue Jean-Jaurès-Ouest, 69008 Lyon",copropriété,ASC-2928,Contrôle réglementaire,Normale,À faire,Sophie Lambert,"Contrôle quinquennal, présence du bureau de contrôle à confirmer"
+</script>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ---------- Contexte fixe de la maquette ---------- */
+  const MAINTENANT = 10 * 60 + 30;          // 10 h 30
+  const TECHNICIENS = ["Karim Benali", "Sophie Lambert", "Théo Girard"];
+  const STATUTS = [
+    { v: "tous", l: "Tous" },
+    { v: "En retard", l: "En retard", cls: "is-late" },
+    { v: "En cours", l: "En cours" },
+    { v: "À faire", l: "À faire" },
+    { v: "Terminée", l: "Terminées" },
+  ];
+  const RANG_PRIO = { "Haute": 0, "Normale": 1, "Basse": 2 };
+  const CLE_TECH = "arm-suivi-technicien";
+
+  const params = new URLSearchParams(location.search);
+  const etatDemo = params.get("etat");
+
+  const state = {
+    etat: "chargement",      // chargement | ok | erreur
+    horsLigne: false,
+    tech: "tous",
+    statut: "tous",
+    data: [],
+  };
+
+  try { const t = localStorage.getItem(CLE_TECH); if (t && (t === "tous" || TECHNICIENS.includes(t))) state.tech = t; } catch (e) {}
+  if (etatDemo === "vide") { state.tech = "Karim Benali"; state.statut = "En retard"; }
+
+  /* ---------- Outils ---------- */
+  const NNBSP = " ";
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const hm = min => `${Math.floor(min / 60)}${NNBSP}h${NNBSP}${String(min % 60).padStart(2, "0")}`;
+  const duree = min => {
+    const h = Math.floor(min / 60), m = min % 60;
+    if (!h) return `${m}${NNBSP}min`;
+    return m ? `${h}${NNBSP}h${NNBSP}${String(m).padStart(2, "0")}` : `${h}${NNBSP}h`;
+  };
+  const prenom = n => n.split(" ")[0];
+  const decoupeAdresse = a => {
+    const i = a.lastIndexOf(",");
+    return i > 0 ? { rue: a.slice(0, i).trim(), ville: a.slice(i + 1).trim() } : { rue: a, ville: "" };
+  };
+  const lienCarte = a => "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(a);
+
+  const ICO = {
+    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    up: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 2 21h20L12 3zm-1 7h2v5h-2v-5zm0 7h2v2h-2v-2z"/></svg>',
+    nav: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 21 3l-8 18-2-8-8-2z"/></svg>',
+    alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v4M12 17.5v.01"/></svg>',
+    empty: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8.5 11h5"/></svg>',
+  };
+
+  /* ---------- Lecture CSV (gère les champs entre guillemets) ---------- */
+  function parseCSV(texte) {
+    const lignes = []; let champ = "", ligne = [], q = false;
+    for (let i = 0; i < texte.length; i++) {
+      const c = texte[i];
+      if (q) {
+        if (c === '"') { if (texte[i + 1] === '"') { champ += '"'; i++; } else q = false; }
+        else champ += c;
+      } else if (c === '"') q = true;
+      else if (c === ",") { ligne.push(champ); champ = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && texte[i + 1] === "\n") i++;
+        ligne.push(champ); champ = "";
+        if (ligne.some(x => x !== "")) lignes.push(ligne);
+        ligne = [];
+      } else champ += c;
+    }
+    ligne.push(champ); if (ligne.some(x => x !== "")) lignes.push(ligne);
+    const [tete, ...corps] = lignes;
+    const attendu = ["id", "heure_prevue", "adresse", "batiment", "appareil", "type", "priorite", "statut", "technicien", "note"];
+    if (!tete || attendu.some(k => !tete.includes(k))) throw new Error("Format de fichier inattendu");
+    return corps.map(r => {
+      const o = {}; tete.forEach((k, i) => o[k] = (r[i] ?? "").trim());
+      const [h, m] = o.heure_prevue.split(":").map(Number);
+      o.min = h * 60 + m;
+      return o;
+    });
+  }
+
+  /* ---------- Chargement ----------
+     En production : remplacer le contenu de lire() par fetch("interventions.csv") ou l'appel à l'API. */
+  function lire() {
+    return new Promise((ok, ko) => {
+      setTimeout(() => {
+        if (etatDemo === "erreur" && !state.reessai) return ko(new Error("Le serveur de l'agence ne répond pas."));
+        try { ok(parseCSV(document.getElementById("donnees").textContent)); }
+        catch (e) { ko(e); }
+      }, 450);
+    });
+  }
+
+  function charger() {
+    state.etat = "chargement";
+    render();
+    if (etatDemo === "chargement" && !state.reessai) return; // reste en chargement pour l'aperçu
+    lire().then(d => {
+      state.data = d.sort((a, b) => a.min - b.min || a.id.localeCompare(b.id));
+      state.etat = "ok";
+      state.horsLigne = etatDemo === "hors-ligne" && !state.reessai;
+      render();
+    }).catch(e => {
+      state.etat = "erreur"; state.erreur = e.message; render();
+    });
+  }
+
+  /* ---------- Calculs ---------- */
+  const deTech = t => state.data.filter(i => t === "tous" || i.technicien === t);
+  const retardDe = i => Math.max(0, MAINTENANT - i.min);
+  const parUrgence = (a, b) => (RANG_PRIO[a.priorite] - RANG_PRIO[b.priorite]) || (a.min - b.min);
+
+  /* File d'un technicien : d'abord ses retards (priorité haute d'abord, puis heure), puis ce qui est à faire, dans l'ordre horaire. */
+  function fileDe(t) {
+    const items = deTech(t);
+    const retards = items.filter(i => i.statut === "En retard").sort(parUrgence);
+    const aFaire = items.filter(i => i.statut === "À faire").sort((a, b) => a.min - b.min);
+    return [...retards, ...aFaire];
+  }
+
+  /* ---------- Fragments ---------- */
+  function badgeStatut(i) {
+    switch (i.statut) {
+      case "En retard": return `<span class="badge b-retard">${ICO.clock}En retard</span>`;
+      case "En cours": return `<span class="badge b-cours">En cours</span>`;
+      case "Terminée": return `<span class="badge b-fini">Terminée</span>`;
+      default: return `<span class="badge b-faire">À faire</span>`;
+    }
+  }
+  function badgePrio(i) {
+    if (i.priorite === "Haute") return `<span class="badge b-haute">${ICO.up}Priorité haute</span>`;
+    if (i.priorite === "Basse") return `<span class="badge b-basse">Priorité basse</span>`;
+    return "";
+  }
+  function relatif(i) {
+    if (i.statut === "En retard") return `${duree(retardDe(i))} de retard`;
+    if (i.statut === "En cours") return `en cours depuis ${duree(Math.max(0, MAINTENANT - i.min))}`;
+    if (i.statut === "Terminée") return "terminée";
+    const d = i.min - MAINTENANT;
+    return d > 0 ? `dans ${duree(d)}` : "maintenant";
+  }
+
+  /* ---------- Rendu ---------- */
+  const app = document.getElementById("app");
+
+  function render() {
+    document.getElementById("maj").textContent =
+      state.etat === "ok" ? (state.horsLigne ? `Dernière mise à jour réussie : 10${NNBSP}h${NNBSP}12` : `Mis à jour à 10${NNBSP}h${NNBSP}30`) : " ";
+    document.getElementById("refresh").disabled = state.etat === "chargement";
+
+    const banner = document.getElementById("banner");
+    banner.innerHTML = state.etat === "ok" && state.horsLigne ? `
+      <div class="banner" role="status">
+        <p><strong>Pas de connexion.</strong> Vous voyez les données de 10${NNBSP}h${NNBSP}12 : des statuts ont pu changer depuis. Vérifiez auprès de Nathalie Roux avant de vous déplacer.</p>
+        <button class="btn" type="button" data-act="retry">Réessayer</button>
+      </div>` : "";
+
+    if (state.etat === "chargement") {
+      app.setAttribute("aria-busy", "true");
+      app.innerHTML = `
+        <p class="loading-msg">Chargement des interventions…</p>
+        <div class="skel" aria-hidden="true"><div class="s1"></div><div class="s1"></div><div></div><div></div><div></div></div>`;
+      return;
+    }
+    app.removeAttribute("aria-busy");
+
+    if (state.etat === "erreur") {
+      app.innerHTML = `
+        <section class="panel state err" role="alert">
+          <div class="ico">${ICO.alert}</div>
+          <h2>Les interventions n'ont pas pu être chargées</h2>
+          <p>${esc(state.erreur || "Erreur inconnue.")} Aucune liste n'est affichée pour éviter de vous envoyer sur une intervention déjà prise ou annulée. Vérifiez votre connexion puis réessayez.</p>
+          <div class="acts">
+            <button class="btn primary" type="button" data-act="retry">Réessayer</button>
+          </div>
+          <p style="margin:14px auto 0;font-size:.9rem">Si le problème continue, appelez Nathalie Roux pour connaître votre prochaine intervention.</p>
+        </section>`;
+      return;
+    }
+
+    app.innerHTML = filtreTech() + (state.tech === "tous" ? vueChef() : vueTech(state.tech)) + liste();
+  }
+
+  function filtreTech() {
+    const opts = [{ v: "tous", l: "Équipe", n: state.data.length, full: "Toute l'équipe" },
+      ...TECHNICIENS.map(t => ({ v: t, l: prenom(t), n: deTech(t).length, full: t }))];
+    return `
+      <fieldset class="filter">
+        <legend>Technicien</legend>
+        <div class="seg tech">
+          ${opts.map(o => `<button type="button" data-tech="${esc(o.v)}" aria-pressed="${state.tech === o.v}" aria-label="${esc(o.full)}, ${o.n} interventions">
+            <span class="lbl">${esc(o.l)}</span><span class="n">${o.n} interv.</span></button>`).join("")}
+        </div>
+      </fieldset>`;
+  }
+
+  function vueChef() {
+    const d = state.data;
+    const retards = d.filter(i => i.statut === "En retard").sort(parUrgence);
+    const hautes = d.filter(i => i.priorite === "Haute" && i.statut !== "Terminée");
+    const hautesHorsRetard = hautes.filter(i => i.statut !== "En retard")
+      .sort((a, b) => (a.statut === "En cours" ? 0 : 1) - (b.statut === "En cours" ? 0 : 1) || a.min - b.min);
+    const enCours = d.filter(i => i.statut === "En cours");
+    const finies = d.filter(i => i.statut === "Terminée");
+    const hautesRetard = hautes.length - hautesHorsRetard.length;
+
+    const arow = i => `
+      <li><button type="button" class="arow" data-goto="${esc(i.id)}">
+        <span><span class="t">${hm(i.min)}</span>${i.statut === "En retard" ? `<span class="d">+${duree(retardDe(i))}</span>` : ""}</span>
+        <span class="w">
+          <span class="bd">${badgeStatut(i)}${badgePrio(i)}</span>
+          <span class="a">${esc(decoupeAdresse(i.adresse).rue)}</span>
+          <span class="m"> · ${esc(i.type)} · ${esc(prenom(i.technicien))}</span>
+          ${i.note ? `<span class="nt" style="display:block">${esc(i.note)}</span>` : ""}
+        </span>
+      </button></li>`;
+
+    return `
+      <div class="kpis" role="group" aria-label="Point de la journée">
+        <button type="button" class="kpi ${retards.length ? "k-late" : "k-zero"}" data-statut="En retard">
+          <span class="v">${retards.length}</span><span class="l">En retard</span>
+          <span class="s">${retards.length ? `le plus ancien : ${duree(retardDe(retards.slice().sort((a,b)=>a.min-b.min)[0]))}` : "aucun retard"}</span>
+        </button>
+        <button type="button" class="kpi ${hautes.length ? "k-high" : "k-zero"}" data-goto-section="attention">
+          <span class="v">${hautes.length}</span><span class="l">Priorité haute</span>
+          <span class="s">non terminées${hautesRetard ? `, dont ${hautesRetard} en retard` : ""}</span>
+        </button>
+        <button type="button" class="kpi" data-statut="En cours">
+          <span class="v">${enCours.length}</span><span class="l">En cours</span>
+          <span class="s">${d.filter(i => i.statut === "À faire").length} encore à faire</span>
+        </button>
+        <button type="button" class="kpi" data-statut="Terminée">
+          <span class="v">${finies.length}<small> / ${d.length}</small></span><span class="l">Terminées</span>
+          <span class="bar" aria-hidden="true"><i style="width:${Math.round(100 * finies.length / Math.max(1, d.length))}%"></i></span>
+        </button>
+      </div>
+
+      <div class="overview">
+        <section aria-labelledby="t-att" id="attention">
+          <div class="section-title"><h2 id="t-att">À surveiller</h2><span class="hint">Touchez une ligne pour la retrouver dans la liste</span></div>
+          <div class="panel attn">
+            <h3>En retard · <span class="c">${retards.length}</span></h3>
+            ${retards.length ? `<ul>${retards.map(arow).join("")}</ul>` : `<p class="none">Aucune intervention en retard.</p>`}
+            <div class="sep"></div>
+            <h3>Priorité haute en cours ou à venir · <span class="c">${hautesHorsRetard.length}</span></h3>
+            ${hautesHorsRetard.length ? `<ul>${hautesHorsRetard.map(arow).join("")}</ul>` : `<p class="none">Aucune autre intervention en priorité haute.</p>`}
+          </div>
+        </section>
+
+        <section aria-labelledby="t-eq">
+          <div class="section-title"><h2 id="t-eq">Où en est chacun</h2><span class="hint">Touchez un nom pour voir sa journée</span></div>
+          <div class="team">${TECHNICIENS.map(carteTech).join("")}</div>
+        </section>
+      </div>`;
+  }
+
+  function carteTech(t) {
+    const items = deTech(t);
+    const cours = items.filter(i => i.statut === "En cours");
+    const file = fileDe(t);
+    const nbRetard = items.filter(i => i.statut === "En retard").length;
+    const nbFini = items.filter(i => i.statut === "Terminée").length;
+    const prochaine = file[0];
+    const ligne = i => `${hm(i.min)} · ${esc(decoupeAdresse(i.adresse).rue)} <span style="color:var(--muted)">(${esc(i.type)}${i.priorite === "Haute" ? ", priorité haute" : ""})</span>`;
+    return `
+      <button type="button" class="panel tcard" data-tech="${esc(t)}" aria-label="Voir la journée de ${esc(t)}">
+        <div class="hd"><span class="nm">${esc(t)}</span><span class="pg">${nbFini} / ${items.length} terminées</span></div>
+        <dl>
+          <dt>En cours</dt><dd>${cours.length ? cours.map(ligne).join("<br>") : `<span style="color:var(--muted)">rien en cours</span>`}</dd>
+          <dt>Prochaine</dt><dd>${prochaine ? `${prochaine.statut === "En retard" ? `<span class="late-n">En retard · </span>` : ""}${ligne(prochaine)}${prochaine.statut === "À faire" ? ` — <b>${relatif(prochaine)}</b>` : ""}` : `<span style="color:var(--muted)">plus rien aujourd'hui</span>`}</dd>
+          <dt>Retards</dt><dd>${nbRetard ? `<span class="late-n">${nbRetard} en retard</span>` : `<span class="ok-n">aucun</span>`}</dd>
+        </dl>
+      </button>`;
+  }
+
+  function vueTech(t) {
+    const items = deTech(t);
+    const file = fileDe(t);
+    const cours = items.filter(i => i.statut === "En cours");
+    const p = file[0];
+    const ensuite = file.slice(1, 4);
+
+    let principal;
+    if (!p) {
+      principal = `<section class="panel daydone"><h2 style="margin:0;font-size:1.15rem">Plus aucune intervention prévue aujourd'hui</h2>
+        <p>${cours.length ? "Terminez l'intervention en cours, puis prévenez Nathalie Roux." : "Prévenez Nathalie Roux que vous êtes disponible."}</p></section>`;
+    } else {
+      const ad = decoupeAdresse(p.adresse);
+      const late = p.statut === "En retard";
+      principal = `
+        <section class="panel next ${late ? "is-late" : ""}" aria-labelledby="t-next">
+          <p class="kicker" id="t-next">${late ? "Prochaine intervention · déjà en retard" : "Prochaine intervention"}</p>
+          <div class="when"><span class="t">${hm(p.min)}</span><span class="rel">${relatif(p)}</span></div>
+          <p class="addr">${esc(ad.rue)}</p>
+          <p class="city">${esc(ad.ville)} · ${esc(p.batiment)}</p>
+          <div class="bd">${badgeStatut(p)}${badgePrio(p)}<span class="badge b-faire">${esc(p.type)}</span></div>
+          <dl class="facts"><dt>Appareil</dt><dd>${esc(p.appareil)}</dd><dt>N°</dt><dd>${esc(p.id)}</dd></dl>
+          ${p.note ? `<p class="note"><b>Note :</b> ${esc(p.note)}</p>` : ""}
+          <a class="btn primary go" href="${lienCarte(p.adresse)}" target="_blank" rel="noopener">${ICO.nav}Itinéraire vers cette adresse</a>
+        </section>`;
+    }
+
+    const mini = (titre, liste, vide) => `
+      <section class="panel mini"><h3>${titre}</h3>
+        ${liste.length ? `<ul>${liste.map(i => `<li>
+          <span><span class="t">${hm(i.min)}</span>${i.statut === "En retard" ? `<span class="d">+${duree(retardDe(i))}</span>` : ""}</span>
+          <span><span class="a">${esc(decoupeAdresse(i.adresse).rue)}</span><br>
+          <span class="m">${esc(i.type)}${i.priorite === "Haute" ? " · priorité haute" : ""}${i.statut === "En retard" ? " · en retard" : ""}${i.note ? " · " + esc(i.note) : ""}</span></span>
+        </li>`).join("")}</ul>` : `<span class="empty">${vide}</span>`}
+      </section>`;
+
+    return `
+      <div class="focus" style="margin-top:4px">
+        ${principal}
+        <div class="side">
+          ${mini("En cours", cours, "Aucune intervention en cours.")}
+          ${mini("Ensuite", ensuite, "Rien d'autre de prévu.")}
+        </div>
+      </div>`;
+  }
+
+  function liste() {
+    const base = deTech(state.tech);
+    const cnt = v => v === "tous" ? base.length : base.filter(i => i.statut === v).length;
+    const items = base.filter(i => state.statut === "tous" || i.statut === state.statut);
+    const qui = state.tech === "tous" ? "toute l'équipe" : state.tech;
+
+    const filtre = `
+      <fieldset class="filter">
+        <legend>Statut</legend>
+        <div class="seg statut">
+          ${STATUTS.map(s => `<button type="button" data-statut="${esc(s.v)}" class="${s.cls || ""}" aria-pressed="${state.statut === s.v}" aria-label="${esc(s.l)}, ${cnt(s.v)}">
+            <span class="lbl">${esc(s.l)}</span><span class="n">${cnt(s.v)}</span></button>`).join("")}
+        </div>
+      </fieldset>`;
+
+    let corps;
+    if (!items.length) {
+      const libStatut = (STATUTS.find(s => s.v === state.statut) || {}).l || "";
+      corps = `
+        <div class="panel state" role="status">
+          <div class="ico">${ICO.empty}</div>
+          <h3>Aucune intervention « ${esc(libStatut.toLowerCase())} » pour ${esc(qui)}</h3>
+          <p>${state.statut === "En retard" ? "Bonne nouvelle : rien n'est en retard. " : ""}Les autres interventions sont toujours là, il suffit de changer de filtre.</p>
+          <div class="acts">
+            <button class="btn primary" type="button" data-statut="tous">Voir tous les statuts</button>
+            ${state.tech !== "tous" ? `<button class="btn" type="button" data-tech="tous">Voir toute l'équipe</button>` : ""}
+          </div>
+        </div>`;
+    } else {
+      let html = "", trait = false;
+      const avant = items.some(i => i.min < MAINTENANT), apres = items.some(i => i.min >= MAINTENANT);
+      for (const i of items) {
+        if (!trait && avant && apres && i.min >= MAINTENANT) { html += `<li class="now" aria-label="Maintenant, 10 h 30">Maintenant · 10${NNBSP}h${NNBSP}30</li>`; trait = true; }
+        html += ligneListe(i);
+      }
+      corps = `<ol class="list">${html}</ol>`;
+    }
+
+    return `
+      <section aria-labelledby="t-list" id="liste">
+        <div class="listhead">
+          <h2 id="t-list">${state.tech === "tous" ? "Toutes les interventions" : "Journée de " + esc(state.tech)}</h2>
+          <span class="count">${items.length} intervention${items.length > 1 ? "s" : ""} · ordre horaire</span>
+        </div>
+        ${filtre}
+        ${corps}
+      </section>`;
+  }
+
+  function ligneListe(i) {
+    const ad = decoupeAdresse(i.adresse);
+    const cls = { "En retard": "s-retard", "En cours": "s-cours", "Terminée": "s-fini", "À faire": "s-faire" }[i.statut] || "";
+    let sous = "";
+    if (i.statut === "En retard") sous = `<span class="d">+${duree(retardDe(i))}</span>`;
+    else if (i.statut === "En cours") sous = `<span class="d run">depuis ${duree(Math.max(0, MAINTENANT - i.min))}</span>`;
+    return `
+      <li class="row ${cls}" id="r-${esc(i.id)}">
+        <div class="r-time"><span class="t">${hm(i.min)}</span>${sous}</div>
+        <div class="r-main">
+          <div class="r-left">
+            <div class="r-badges">${badgeStatut(i)}${badgePrio(i)}<span class="r-id">${esc(i.id)}</span></div>
+            <a class="r-addr" href="${lienCarte(i.adresse)}" target="_blank" rel="noopener" aria-label="Itinéraire vers ${esc(i.adresse)}">${ICO.pin}<span><span class="st">${esc(ad.rue)}</span><br><span class="ct">${esc(ad.ville)}</span></span></a>
+            ${i.note ? `<p class="r-note">${esc(i.note)}</p>` : ""}
+          </div>
+          <div class="r-mid">
+            <span class="ty">${esc(i.type)}</span><br>
+            <span class="sub">${esc(i.batiment)} · ${esc(i.appareil)}</span>${state.tech === "tous" ? `<span class="sub who-inline"> · <span class="r-meta"><span class="who">${esc(i.technicien)}</span></span></span>` : ""}
+          </div>
+        </div>
+        ${state.tech === "tous" ? `<div class="r-who">${esc(i.technicien)}</div>` : ""}
+      </li>`;
+  }
+
+  /* ---------- Interactions ---------- */
+  function annoncer() {
+    const base = deTech(state.tech).filter(i => state.statut === "tous" || i.statut === state.statut);
+    document.getElementById("annonce").textContent =
+      `${base.length} intervention${base.length > 1 ? "s" : ""} affichée${base.length > 1 ? "s" : ""}.`;
+  }
+
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-tech],[data-statut],[data-act],[data-goto],[data-goto-section]");
+    if (!b) return;
+    if (b.dataset.act === "retry") { state.reessai = true; charger(); return; }
+    if (b.dataset.tech) {
+      state.tech = b.dataset.tech;
+      try { localStorage.setItem(CLE_TECH, state.tech); } catch (err) {}
+      render(); annoncer();
+      if (b.classList.contains("tcard")) window.scrollTo({ top: 0, behavior: "smooth" });
+      const nb = document.querySelector(`.seg.tech [data-tech="${CSS.escape(state.tech)}"]`); if (nb) nb.focus({ preventScroll: true });
+      return;
+    }
+    if (b.dataset.statut) {
+      const depuisKpi = b.classList.contains("kpi");
+      state.statut = b.dataset.statut;
+      render(); annoncer();
+      if (depuisKpi) document.getElementById("liste").scrollIntoView({ behavior: "smooth", block: "start" });
+      const nb = document.querySelector(`.seg.statut [data-statut="${CSS.escape(state.statut)}"]`); if (nb) nb.focus({ preventScroll: true });
+      return;
+    }
+    if (b.dataset.gotoSection) { document.getElementById(b.dataset.gotoSection).scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+    if (b.dataset.goto) {
+      let el = document.getElementById("r-" + b.dataset.goto);
+      if (!el) { state.statut = "tous"; render(); el = document.getElementById("r-" + b.dataset.goto); }
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+        const a = el.querySelector("a"); if (a) a.focus({ preventScroll: true });
+      }
+    }
+  });
+
+  document.getElementById("refresh").addEventListener("click", () => { state.reessai = true; charger(); });
+
+  charger();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 10:24:18 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 10:24:22 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 2 | 10:24:22 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 2 | 10:24:22 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 2 | 10:24:22 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 2 | 10:24:22 | `SAVOIR/TYPE` | consultée | | |
+| 2 | 10:24:22 | `ACTION/FIRST-RENDER` | consultée | | |
+| 2 | 10:24:22 | `ACTION/GATE-A` | consultée | | |
+| 3 | 10:24:22 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 3 | 10:24:22 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 3 | 10:24:22 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 3 | 10:24:22 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 3 | 10:24:22 | `SAVOIR/TYPE` | consultée | | |
+| 3 | 10:24:22 | `ACTION/FIRST-RENDER` | consultée | | |
+| 3 | 10:24:22 | `ACTION/GATE-A` | consultée | | |
+| 4 | 10:24:33 | `SAVOIR/FRAME/COMPOSITION` | consultée | | |
+| 5 | 10:24:33 | `SAVOIR/FRAME/SINGULARITE` | consultée | | |
+| 6 | 10:24:33 | `SAVOIR/TOOLS/CONVERGENCE` | consultée | | |
+| 7 | 10:24:38 | `BIBLIOTHEQUE/SELECT` | consultée | | |
+| 8 | 10:24:38 | `BIBLIOTHEQUE/TENSION` | consultée | | |
+| 9 | 10:25:22 | `SAVOIR/TOOLS/MOYENS` | consultée | | |
+| 10 | 10:25:22 | `ACTION/RECETTE-RENDU` | consultée | | |
+| 11 | 10:31:00 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 12 | 10:31:08 | check_render sur `--help` | exécuté, rien à traiter | | |
+| 13 | 10:31:42 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 14 | 10:31:42 | check_render sur `index.html?date=2026-12-01 --widths 1440 --assert document.querySelector('#s1').classList.contains('est-passe') && document.querySelector('#s2 [data-statut]').textContent==='Prochain spectacle' && document.querySelector('.rouleau li[data-fin="2026-11-07"]').classList.contains('est-passe') && getComputedStyle(document.querySelector('#s1 .talon')).display==='none'` | sollicité, en échec (code 2, aucun résultat) | | |
+| 15 | 10:31:42 | check_render sur `index.html?date=2027-01-21 --widths 390 --assert document.querySelector('#s3 [data-statut]').textContent==='En ce moment' && document.querySelectorAll('.est-passe').length===4 --assert document.querySelector('#s1 [data-statut]').textContent==='Prochain spectacle'===false` | sollicité, en échec (code 2, aucun résultat) | | |
+| 16 | 10:31:42 | check_render sur `index.html` | sollicité, en échec (code 2, aucun résultat) | | |
+| 17 | 10:31:49 | check_render sur `index.html?date=2026-12-01 --widths 1440 --assert document.querySelector('#s1').classList.contains('est-passe') && document.querySelector('#s2 [data-statut]').textContent==='Prochain spectacle' && document.querySelector('.rouleau li[data-fin="2026-11-07"]').classList.contains('est-passe') && getComputedStyle(document.querySelector('#s1 .talon')).display==='none'` | sollicité, en échec (code 2, aucun résultat) | | |
+| 18 | 10:31:49 | check_render sur `index.html?date=2027-01-21 --widths 390 --assert document.querySelector('#s3 [data-statut]').textContent==='En ce moment' && document.querySelectorAll('article.est-passe').length===2` | sollicité, en échec (code 2, aucun résultat) | | |
+| 19 | 10:31:49 | check_render sur `index.html` | sollicité, en échec (code 2, aucun résultat) | | |
+| 20 | 10:32:04 | check_render sur `index.html?date=2026-12-01 --widths 1440 --assert document.querySelector('#s1').classList.contains('est-passe') && document.querySelector('#s2 [data-statut]').textContent==='Prochain spectacle' && document.querySelector('.rouleau li[data-fin="2026-11-07"]').classList.contains('est-passe') && getComputedStyle(document.querySelector('#s1 .talon')).display==='none'` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 21 | 10:32:13 | check_render sur `index.html?date=2027-01-21 --widths 390 --assert document.querySelector('#s3 [data-statut]').textContent==='En ce moment' && document.querySelectorAll('article.est-passe').length===2` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 22 | 10:32:21 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 23 | 10:33:10 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.rouleau) | | |
+| 24 | 10:33:35 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.rouleau) | | |
+| 25 | 10:33:48 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.rouleau) | | |
+| 26 | 10:34:09 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 27 | 10:34:25 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

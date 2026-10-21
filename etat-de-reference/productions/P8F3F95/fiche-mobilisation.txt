@@ -1,0 +1,41 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 10:36:57 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 10:37:00 | read_route --help | code 0, rien servi | | |
+| 3 | 10:37:01 | `ACTION/RUN-STANDARD` | consultée | | |
+| 3 | 10:37:01 | `ACTION/GATE-A` | consultée | | |
+| 3 | 10:37:01 | `ACTION/GATE-B/B2` | consultée | | |
+| 4 | 10:37:04 | ligne du mode STANDARD | consultée (routes citées, non lues) | | |
+| 5 | 10:37:07 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 6 | 10:37:07 | `BIBLIOTHEQUE/SELECT` | consultée | | |
+| 7 | 10:37:19 | `SAVOIR/TYPE` | consultée | | |
+| 8 | 10:37:20 | read_route --trouver gants | code 1, rien servi | | |
+| 9 | 10:37:21 | recherche « terrain » | proposée, non lue : `SAVOIR/CRAFT/CFT-06` | | |
+| 10 | 10:37:22 | recherche « tableau opérationnel » | proposée, non lue : `DIRECTION/VISUAL_TARGET`, `ACTION/RUN_CARD`, `BIBLIOTHEQUE/SELECT`, `BIBLIOTHEQUE/SEQUENCE` | | |
+| 11 | 10:37:26 | `SAVOIR/CRAFT/CFT-05` | consultée | | |
+| 12 | 10:40:22 | `ACTION/VISUAL_PROOF` | consultée | | |
+| 13 | 10:40:22 | check_render (--help) | exécuté, rien à traiter | | |
+| 14 | 10:43:18 | check_render sur `index.html` (--captures, --json) | exécuté : RETURN — Nom accessible des contrôles (candidats DOM) | | |
+| 15 | 14:16:18 | check_render sur `index.html` (--json, --assert ×3) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 16 | 14:16:41 | check_render sur `index.html` (--click, --proof, --in-frame, --assert ×2) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 17 | 14:17:06 | check_render sur `index.html` (--click ×2, --assert) | exécuté : PASS-WITH-RESERVATION — Chevauchement et troncature de texte, Nom accessible des contrôles (candidats DOM) | | |
+| 18 | 14:17:06 | check_render sur `index.html` ?etat=erreur (--serve-local) | sollicité, en échec (code 2, aucun résultat) | | |
+| 19 | 14:17:06 | check_render sur `index.html` ?etat=chargement (--serve-local) | sollicité, en échec (code 2, aucun résultat) | | |
+| 20 | 14:17:06 | check_render sur `index.html` ?etat=horsligne (--serve-local) | sollicité, en échec (code 2, aucun résultat) | | |
+| 21 | 14:17:51 | check_render sur `index.html` (--captures, --json, --mesures) | exécuté : PASS-WITH-RESERVATION — Nom accessible des contrôles (candidats DOM) | | |
+| 22 | 14:17:51 | check_render sur `index.html` ?etat=erreur (--serve-local) | sollicité, en échec (code 2, aucun résultat) | | |
+| 23 | 14:17:56 | check_render sur `index.html` ?etat=erreur (--wait-ms) | sollicité, en échec (code 2, aucun résultat) | | |
+| 24 | 14:17:56 | check_render sur `index.html` ?etat=chargement (--wait-ms) | sollicité, en échec (code 2, aucun résultat) | | |
+| 25 | 14:17:56 | check_render sur `index.html` ?etat=horsligne (--wait-ms) | sollicité, en échec (code 2, aucun résultat) | | |
+| 26 | 14:18:12 | check_render sur `etat-erreur.html` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Nom accessible des contrôles (candidats DOM) | | |
+| 27 | 14:18:21 | check_render sur `etat-chargement.html` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Nom accessible des contrôles (candidats DOM) | | |
+| 28 | 14:18:40 | check_render sur `etat-horsligne.html` (--wait-ms, --assert) | exécuté : PASS-WITH-RESERVATION — Nom accessible des contrôles (candidats DOM) | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

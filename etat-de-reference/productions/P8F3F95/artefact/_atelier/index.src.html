@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Interventions du jour · Lyon Sud</title>
+<style>
+@font-face {
+  font-family: "Atkinson Next";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(data:font/woff2;base64,__FONT_NEXT__) format("woff2");
+}
+@font-face {
+  font-family: "Atkinson Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(data:font/woff2;base64,__FONT_MONO__) format("woff2");
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f4f3ef;
+  --surface: #ffffff;
+  --surface-2: #ebe9e3;
+  --ink: #15171b;
+  --ink-2: #464b53;
+  --ink-3: #5c616a;
+  --line: #d6d3cb;
+  --line-strong: #15171b;
+
+  --late: #b42318;
+  --late-bg: #fdecea;
+  --late-line: #e9a39c;
+  --doing: #1747b8;
+  --doing-bg: #e8eefc;
+  --done: #2f6b3a;
+  --done-bg: #e9f2ea;
+  --urgent: #ffd31a;
+  --urgent-ink: #15171b;
+
+  --focus: #1747b8;
+  --now: #15171b;
+  --now-ink: #ffffff;
+
+  --radius: 10px;
+  --font: "Atkinson Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Atkinson Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111317;
+    --surface: #1a1d22;
+    --surface-2: #23272e;
+    --ink: #f2f1ed;
+    --ink-2: #b9bec7;
+    --ink-3: #a4a9b2;
+    --line: #343941;
+    --line-strong: #f2f1ed;
+    --late: #ff8f85;
+    --late-bg: #3a1916;
+    --late-line: #7c2e27;
+    --doing: #93b4ff;
+    --doing-bg: #172645;
+    --done: #8fd19b;
+    --done-bg: #16291a;
+    --urgent: #ffd31a;
+    --urgent-ink: #15171b;
+    --focus: #93b4ff;
+    --now: #ffd31a;
+    --now-ink: #15171b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111317; --surface: #1a1d22; --surface-2: #23272e;
+  --ink: #f2f1ed; --ink-2: #b9bec7; --ink-3: #a4a9b2;
+  --line: #343941; --line-strong: #f2f1ed;
+  --late: #ff8f85; --late-bg: #3a1916; --late-line: #7c2e27;
+  --doing: #93b4ff; --doing-bg: #172645;
+  --done: #8fd19b; --done-bg: #16291a;
+  --urgent: #ffd31a; --urgent-ink: #15171b;
+  --focus: #93b4ff; --now: #ffd31a; --now-ink: #15171b;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+}
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.mono { font-family: var(--mono); font-variant-numeric: normal; white-space: nowrap; }
+
+/* ---------- Mise en page ---------- */
+.page { max-width: 1400px; margin: 0 auto; padding: 0 16px 48px; }
+.entete {
+  display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between;
+  gap: 8px 24px; padding: 20px 0 18px; border-bottom: 2px solid var(--line-strong); margin-bottom: 20px;
+}
+.marque { font-size: 14px; font-weight: 700; letter-spacing: .02em; color: var(--ink-2); }
+.entete h1 { font-size: 30px; line-height: 1.1; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+.situation { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 15px; color: var(--ink-2); }
+.situation strong { color: var(--ink); }
+.heure-situation {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--now); color: var(--now-ink); font-weight: 700;
+  padding: 4px 10px; border-radius: 6px; font-size: 15px;
+}
+
+.colonnes { display: grid; gap: 28px; }
+.col-gauche, .col-droite { display: grid; gap: 22px; align-content: start; min-width: 0; }
+
+@media (min-width: 1024px) {
+  .page { padding: 0 32px 64px; }
+  .colonnes { grid-template-columns: minmax(380px, 440px) minmax(0, 1fr); gap: 40px; }
+  .entete h1 { font-size: 36px; }
+}
+
+/* ---------- Filtres ---------- */
+.filtre { border: 0; padding: 0; margin: 0; min-width: 0; }
+.filtre legend, .titre-bloc {
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--ink-2); margin-bottom: 8px; padding: 0;
+}
+.choix { display: grid; gap: 8px; }
+.choix-tech { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.choix-statut { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.choix-statut > :last-child { grid-column: 1 / -1; }
+@media (min-width: 560px) { .choix-statut { grid-template-columns: repeat(5, minmax(0, 1fr)); } .choix-statut > :last-child { grid-column: auto; } }
+.choix-statut .bouton-choix { white-space: nowrap; }
+@media (min-width: 560px) { .choix-tech { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .choix-tech { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.bouton-choix {
+  min-height: 52px; padding: 8px 12px;
+  display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center;
+  background: var(--surface); border: 2px solid var(--line); border-radius: var(--radius);
+  font-weight: 700; font-size: 16px; line-height: 1.15; cursor: pointer;
+}
+.bouton-choix:hover { border-color: var(--ink-3); }
+.bouton-choix[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.bouton-choix[disabled] { cursor: not-allowed; color: var(--ink-3); background: var(--surface-2); border-style: dashed; }
+.bouton-choix .compte {
+  font-family: var(--mono); font-weight: 700; font-size: 15px;
+  min-width: 2ch; padding: 1px 6px; border-radius: 5px; background: var(--surface-2); color: var(--ink);
+}
+.bouton-choix[aria-pressed="true"] .compte { background: var(--bg); color: var(--ink); }
+.bouton-choix .tech-court { display: none; }
+@media (max-width: 400px) {
+  .choix-tech .tech-long { display: none; }
+  .choix-tech .tech-court { display: inline; }
+}
+
+/* ---------- Pastilles ---------- */
+.pastille {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 700; line-height: 1; padding: 5px 8px 5px 6px; border-radius: 6px;
+  white-space: nowrap;
+}
+.pastille svg { width: 16px; height: 16px; flex: none; }
+.st-retard { color: var(--late); background: var(--late-bg); }
+.st-cours { color: var(--doing); background: var(--doing-bg); }
+.st-afaire { color: var(--ink); background: var(--surface-2); }
+.st-terminee { color: var(--done); background: var(--done-bg); }
+.urgent { color: var(--urgent-ink); background: var(--urgent); }
+
+/* ---------- Panneau : à traiter (équipe) ---------- */
+.panneau { display: grid; gap: 14px; }
+.alerte-critique {
+  border: 3px solid var(--late); background: var(--surface); border-radius: var(--radius);
+  padding: 14px 16px; display: grid; gap: 6px;
+}
+.alerte-critique .entete-alerte { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.alerte-critique .adresse { font-size: 20px; font-weight: 800; line-height: 1.2; }
+.alerte-critique .note { font-weight: 700; color: var(--late); }
+
+.groupe-alerte { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.groupe-alerte > h3 {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+  font-size: 16px; font-weight: 800; padding: 12px 16px 10px; border-bottom: 1px solid var(--line);
+}
+.groupe-alerte.retard > h3 { color: var(--late); border-bottom-color: var(--late-line); }
+.groupe-alerte > h3 .compte-titre { font-family: var(--mono); }
+.ligne-alerte {
+  display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 2px 12px;
+  padding: 10px 16px; border-top: 1px solid var(--line); text-decoration: none; min-height: 48px;
+}
+.groupe-alerte > h3 + .ligne-alerte { border-top: 0; }
+a.ligne-alerte:hover .la-adresse { text-decoration: underline; }
+.la-heure { font-family: var(--mono); font-weight: 700; font-size: 16px; padding-top: 1px; }
+.la-corps { display: grid; gap: 2px; min-width: 0; }
+.la-adresse { font-weight: 700; }
+.la-meta { font-size: 15px; color: var(--ink-2); }
+.la-note { font-size: 15px; color: var(--ink-2); }
+.la-retard { color: var(--late); font-weight: 700; }
+
+.equipe { display: grid; gap: 10px; }
+.carte-tech {
+  display: grid; gap: 4px; width: 100%; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px;
+}
+.carte-tech:hover { border-color: var(--ink-3); }
+.carte-tech .ct-nom { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 800; font-size: 17px; }
+.carte-tech .ct-voir { font-size: 14px; font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+.carte-tech .ct-ligne { font-size: 15px; color: var(--ink-2); }
+.carte-tech .ct-ligne b { color: var(--ink); font-weight: 700; }
+.carte-tech .ct-chiffres { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+
+/* ---------- Panneau : prochaine intervention (technicien) ---------- */
+.prochaine {
+  background: var(--surface); border: 2px solid var(--line-strong); border-radius: 14px;
+  padding: 18px 18px 16px; display: grid; gap: 10px;
+}
+.prochaine .p-surtitre { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.prochaine .p-heure { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.prochaine .p-heure .mono { font-size: 40px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+.prochaine .p-delai { font-size: 18px; font-weight: 700; }
+.prochaine .p-adresse { font-size: 26px; font-weight: 800; line-height: 1.15; letter-spacing: -0.005em; text-wrap: balance; }
+.prochaine .p-meta { color: var(--ink-2); }
+.prochaine .p-note { border-left: 4px solid var(--ink); padding: 2px 0 2px 10px; font-weight: 700; }
+.bouton-action {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 56px; padding: 10px 18px; border-radius: var(--radius);
+  background: var(--ink); color: var(--bg); font-weight: 800; font-size: 18px; text-decoration: none; border: 0; cursor: pointer;
+}
+.bouton-action svg { width: 22px; height: 22px; }
+.bouton-action:hover { filter: brightness(1.15); }
+.bouton-secondaire {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 8px 16px; border-radius: var(--radius);
+  background: var(--surface); color: var(--ink); border: 2px solid var(--ink); font-weight: 700; cursor: pointer; text-decoration: none;
+}
+.en-cours-tech {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; align-items: start;
+  background: var(--doing-bg); border-radius: var(--radius); padding: 12px 14px;
+}
+.en-cours-tech .ec-txt { display: grid; gap: 2px; }
+.en-cours-tech .ec-adresse { font-weight: 700; }
+.en-cours-tech .ec-meta { font-size: 15px; color: var(--ink-2); }
+.mention { font-size: 14px; color: var(--ink-2); padding: 0 16px 12px; }
+.fin-journee { background: var(--done-bg); border-radius: var(--radius); padding: 16px; font-weight: 700; }
+
+/* ---------- Liste ---------- */
+.liste-entete { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+.liste-entete h2 { font-size: 22px; font-weight: 800; }
+.liste-entete .resume { color: var(--ink-2); font-size: 15px; }
+.liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.inter {
+  display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 0 14px;
+  background: var(--surface); border: 1px solid var(--line); border-left-width: 6px; border-radius: var(--radius);
+  padding: 12px 14px 12px 12px; scroll-margin-top: 16px;
+}
+.inter.s-retard { border-left-color: var(--late); }
+.inter.s-cours { border-left-color: var(--doing); }
+.inter.s-afaire { border-left-color: var(--line); }
+.inter.s-terminee { border-left-color: var(--done); background: var(--bg); }
+.inter.s-terminee .i-adresse { font-weight: 700; color: var(--ink-2); }
+.inter:target, .inter.signale { outline: 3px solid var(--focus); outline-offset: 2px; }
+.i-heure { font-family: var(--mono); font-size: 20px; font-weight: 700; line-height: 1.15; }
+.i-heure small { display: block; white-space: nowrap; font-family: var(--font); font-size: 13px; font-weight: 700; color: var(--ink-2); margin-top: 4px; line-height: 1.2; }
+.i-corps { display: grid; gap: 4px; min-width: 0; }
+.i-tetes { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.i-tech { font-size: 15px; font-weight: 700; color: var(--ink-2); margin-left: 2px; }
+.i-adresse { font-size: 18px; font-weight: 800; line-height: 1.25; }
+.i-meta { font-size: 15px; color: var(--ink-2); }
+.i-meta .mono { color: var(--ink); }
+.i-note { font-size: 15px; }
+.i-retard { color: var(--late); font-weight: 700; font-size: 15px; }
+.i-actions { margin-top: 6px; }
+.i-actions .bouton-secondaire { min-height: 48px; font-size: 16px; }
+.i-actions svg { width: 18px; height: 18px; }
+
+.repli {
+  list-style: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px;
+  background: var(--done-bg); border-radius: var(--radius); padding: 8px 8px 8px 14px;
+}
+.repli p { font-weight: 700; color: var(--done); display: flex; align-items: center; gap: 8px; }
+.repli p svg { width: 18px; height: 18px; }
+.repli .bouton-secondaire { border-color: var(--done); color: var(--ink); }
+.ligne-maintenant {
+  display: flex; align-items: center; gap: 12px; margin: 10px 0; list-style: none;
+}
+.ligne-maintenant::before, .ligne-maintenant::after { content: ""; height: 3px; background: var(--now); flex: 1; border-radius: 2px; }
+.ligne-maintenant::before { flex: 0 0 12px; }
+.ligne-maintenant span { background: var(--now); color: var(--now-ink); font-weight: 800; padding: 6px 12px; border-radius: 6px; font-size: 15px; white-space: nowrap; }
+
+/* ---------- États ---------- */
+.etat {
+  background: var(--surface); border: 2px dashed var(--line); border-radius: 14px;
+  padding: 24px 20px; display: grid; gap: 12px; justify-items: start;
+}
+.etat h3 { font-size: 20px; font-weight: 800; }
+.etat p { color: var(--ink-2); max-width: 52ch; }
+.etat .actions-etat { display: flex; flex-wrap: wrap; gap: 10px; }
+.etat.erreur { border: 3px solid var(--late); border-style: solid; }
+.etat.erreur h3 { color: var(--late); }
+.bandeau-horsligne {
+  display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between;
+  background: var(--urgent); color: var(--urgent-ink); border-radius: var(--radius); padding: 12px 16px; font-weight: 700;
+}
+.bandeau-horsligne .bouton-secondaire { background: #fff; color: #15171b; border-color: #15171b; }
+.squelette { display: grid; gap: 8px; }
+.squelette div { height: 92px; border-radius: var(--radius); background: var(--surface-2); }
+.chargement-texte { font-weight: 700; color: var(--ink-2); }
+
+.pied { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); display: grid; gap: 8px; }
+.pied nav { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.pied nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; border-radius: 6px; font-weight: 700; }
+.pied nav a[aria-current="page"] { background: var(--surface-2); text-decoration: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="entete">
+    <div>
+      <p class="marque">Ascenseurs Rhône Maintenance · Agence Lyon Sud</p>
+      <h1>Interventions du jour</h1>
+    </div>
+    <div class="situation">
+      <span>Mardi 20 octobre 2026</span>
+      <span class="heure-situation">Situation à 10 h 30</span>
+      <span>Cheffe d’équipe : <strong>Nathalie Roux</strong></span>
+    </div>
+  </header>
+
+  <div class="colonnes">
+    <div class="col-gauche">
+      <fieldset class="filtre" id="filtre-tech">
+        <legend>Technicien</legend>
+        <div class="choix choix-tech" id="choix-tech"></div>
+      </fieldset>
+      <section id="panneau" class="panneau" aria-live="polite"></section>
+    </div>
+
+    <div class="col-droite">
+      <fieldset class="filtre" id="filtre-statut">
+        <legend>Statut</legend>
+        <div class="choix choix-statut" id="choix-statut"></div>
+      </fieldset>
+      <section aria-labelledby="titre-liste" class="panneau">
+        <div class="liste-entete">
+          <h2 id="titre-liste">Journée</h2>
+          <p class="resume" id="resume" role="status"></p>
+        </div>
+        <div id="zone-liste"></div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="pied">
+    <p>Données fictives fournies par le service (fichier interventions.csv, 40 interventions). L’heure de situation est fixée à 10 h 30 pour cette maquette.</p>
+    <nav aria-label="Aperçu des états de l’écran">
+      <span>Aperçu des états :</span>
+      <a href="?">Normal</a>
+      <a href="?etat=chargement">Chargement</a>
+      <a href="?etat=erreur">Échec du chargement</a>
+      <a href="?etat=horsligne">Liste hors ligne</a>
+    </nav>
+  </footer>
+</div>
+
+<script type="text/csv" id="donnees-csv">
+__CSV__
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Constantes ---------- */
+  var SITUATION = "10:30";            // heure de consultation fixée par le brief
+  var CLE_CACHE = "arm-lyonsud-interventions";
+  var CLE_TECH = "arm-lyonsud-technicien";
+  var COLONNES = ["id", "heure_prevue", "adresse", "batiment", "appareil", "type", "priorite", "statut", "technicien", "note"];
+  var TECHS = [
+    { id: "equipe", nom: "Toute l’équipe", court: "Équipe" },
+    { id: "Karim Benali", nom: "Karim Benali", court: "Karim B." },
+    { id: "Sophie Lambert", nom: "Sophie Lambert", court: "Sophie L." },
+    { id: "Théo Girard", nom: "Théo Girard", court: "Théo G." }
+  ];
+  var STATUTS = [
+    { id: "tous", label: "Tous" },
+    { id: "En retard", label: "En retard", cls: "retard" },
+    { id: "En cours", label: "En cours", cls: "cours" },
+    { id: "À faire", label: "À faire", cls: "afaire" },
+    { id: "Terminée", label: "Terminées", cls: "terminee" }
+  ];
+  var CLASSE = { "En retard": "retard", "En cours": "cours", "À faire": "afaire", "Terminée": "terminee" };
+  var ICONES = {
+    "En retard": '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><rect x="7" y="3.5" width="2" height="6" rx="1" fill="#fff"/><circle cx="8" cy="11.8" r="1.1" fill="#fff"/></svg>',
+    "En cours": '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg>',
+    "À faire": '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+    "Terminée": '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="currentColor"/><path d="M4.6 8.3l2.2 2.2 4.6-4.8" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    urgent: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l7 12.5H1z" fill="currentColor"/><rect x="7.1" y="5.6" width="1.8" height="4.6" rx=".9" fill="#ffd31a"/><circle cx="8" cy="11.9" r="1" fill="#ffd31a"/></svg>',
+    carte: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>'
+  };
+
+  /* ---------- État ---------- */
+  var params = new URLSearchParams(location.search);
+  var demo = params.get("etat");             // chargement | erreur | horsligne
+  var etat = { phase: "chargement", source: null, donnees: [], tech: lireTech(), statut: "tous", tentative: 0, voirTerminees: false };
+
+  /* ---------- Utilitaires ---------- */
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
+  }
+  function minutes(hhmm) { var p = hhmm.split(":"); return (+p[0]) * 60 + (+p[1]); }
+  function heureLongue(hhmm) { var p = hhmm.split(":"); return (+p[0]) + " h " + p[1]; }
+  function duree(min) {
+    var h = Math.floor(min / 60), m = min % 60;
+    if (h === 0) return m + " min";
+    return h + " h" + (m ? " " + String(m).padStart(2, "0") : "");
+  }
+  var NOW = minutes(SITUATION);
+  function lienItineraire(adresse) {
+    return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(adresse);
+  }
+  function lireTech() {
+    try { var t = localStorage.getItem(CLE_TECH); if (t && TECHS.some(function (x) { return x.id === t; })) return t; } catch (e) {}
+    return "equipe";
+  }
+  function ecrireTech(t) { try { localStorage.setItem(CLE_TECH, t); } catch (e) {} }
+  function prenom(nom) { return nom.split(" ")[0]; }
+
+  /* ---------- Lecture CSV ---------- */
+  function parseCSV(texte) {
+    var lignes = [], champ = "", ligne = [], i = 0, q = false;
+    texte = texte.replace(/^\s+|\s+$/g, "");
+    while (i < texte.length) {
+      var c = texte[i];
+      if (q) {
+        if (c === '"') { if (texte[i + 1] === '"') { champ += '"'; i++; } else q = false; }
+        else champ += c;
+      } else if (c === '"') q = true;
+      else if (c === ",") { ligne.push(champ); champ = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && texte[i + 1] === "\n") i++;
+        ligne.push(champ); lignes.push(ligne); ligne = []; champ = "";
+      } else champ += c;
+      i++;
+    }
+    ligne.push(champ); lignes.push(ligne);
+    var tete = lignes.shift().map(function (s) { return s.trim(); });
+    COLONNES.forEach(function (c) { if (tete.indexOf(c) < 0) throw new Error("colonne « " + c + " » absente"); });
+    var data = lignes.filter(function (l) { return l.length > 1; }).map(function (l) {
+      var o = {}; tete.forEach(function (c, k) { o[c] = (l[k] || "").trim(); });
+      if (!CLASSE[o.statut]) throw new Error("statut inconnu pour " + o.id);
+      return o;
+    });
+    if (!data.length) throw new Error("aucune ligne");
+    data.sort(function (a, b) { return minutes(a.heure_prevue) - minutes(b.heure_prevue); });
+    return data;
+  }
+
+  /* Source : copie intégrée de interventions.csv.
+     Pour la version réelle, remplacer par l’appel au service des interventions. */
+  function lireSource() {
+    return new Promise(function (ok, ko) {
+      etat.tentative++;
+      if (demo === "chargement") return;                       // reste en attente : aperçu
+      if ((demo === "erreur" || demo === "horsligne") && etat.tentative === 1) {
+        return setTimeout(function () { ko(new Error("réseau indisponible")); }, 300);
+      }
+      try { ok(document.getElementById("donnees-csv").textContent); } catch (e) { ko(e); }
+    });
+  }
+
+  function charger() {
+    etat.phase = "chargement"; rendre();
+    lireSource().then(function (texte) {
+      etat.donnees = parseCSV(texte);
+      etat.source = "direct"; etat.phase = "pret";
+      try { localStorage.setItem(CLE_CACHE, JSON.stringify({ situation: SITUATION, csv: texte })); } catch (e) {}
+      rendre();
+    }).catch(function (err) {
+      etat.erreur = err && err.message;
+      if (demo === "horsligne" && etat.tentative === 1) { utiliserCache(true); return; }
+      etat.phase = "erreur"; rendre();
+    });
+  }
+
+  function lireCache() {
+    try { var c = JSON.parse(localStorage.getItem(CLE_CACHE) || "null"); if (c && c.csv) return c; } catch (e) {}
+    if (demo === "horsligne") return { situation: SITUATION, csv: document.getElementById("donnees-csv").textContent };
+    return null;
+  }
+  function utiliserCache() {
+    var c = lireCache();
+    if (!c) { etat.phase = "erreur"; rendre(); return; }
+    try { etat.donnees = parseCSV(c.csv); } catch (e) { etat.phase = "erreur"; rendre(); return; }
+    etat.source = "cache"; etat.situationCache = c.situation; etat.phase = "pret"; rendre();
+  }
+
+  /* ---------- Sélections ---------- */
+  function duTech(t) { return etat.donnees.filter(function (d) { return t === "equipe" || d.technicien === t; }); }
+  function filtrees() {
+    return duTech(etat.tech).filter(function (d) { return etat.statut === "tous" || d.statut === etat.statut; });
+  }
+  function compter(liste, statut) { return liste.filter(function (d) { return d.statut === statut; }).length; }
+
+  /* ---------- Composants ---------- */
+  function pastilleStatut(s) {
+    return '<span class="pastille st-' + CLASSE[s] + '">' + ICONES[s] + esc(s) + "</span>";
+  }
+  function pastilleUrgent() { return '<span class="pastille urgent">' + ICONES.urgent + "Urgent</span>"; }
+  function retardDe(d) { return NOW - minutes(d.heure_prevue); }
+  function meta(d) {
+    return esc(cap(d.batiment)) + ' · <span class="mono">' + esc(d.appareil) + "</span> · " + esc(d.type);
+  }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  function ligneAlerte(d, opts) {
+    opts = opts || {};
+    var sous = [];
+    if (opts.tech) sous.push(esc(d.technicien));
+    sous.push(meta(d));
+    return '<a class="ligne-alerte" href="#' + esc(d.id) + '" data-cible="' + esc(d.id) + '">' +
+      '<span class="la-heure">' + esc(d.heure_prevue) + "</span>" +
+      '<span class="la-corps">' +
+        (d.statut === "En retard" ? '<span class="la-retard">Retard ' + duree(retardDe(d)) + (d.priorite === "Haute" ? " · urgent" : "") + "</span>" : "") +
+        '<span class="la-adresse">' + esc(d.adresse) + "</span>" +
+        '<span class="la-meta">' + sous.join(" · ") + "</span>" +
+        (d.note ? '<span class="la-note">' + esc(d.note) + "</span>" : "") +
+      "</span></a>";
+  }
+
+  /* ---------- Rendu : filtres ---------- */
+  function rendreFiltres() {
+    var off = etat.phase !== "pret";
+    document.getElementById("choix-tech").innerHTML = TECHS.map(function (t) {
+      var nb = etat.phase === "pret" ? duTech(t.id).length : null;
+      return '<button type="button" class="bouton-choix" data-tech="' + esc(t.id) + '" aria-pressed="' + (etat.tech === t.id) + '" aria-label="' + esc(t.nom) + '"' + (off ? " disabled" : "") + ">" +
+        '<span class="tech-long">' + esc(t.nom) + '</span><span class="tech-court">' + esc(t.court) + "</span>" +
+        "</button>";
+    }).join("");
+    var base = etat.phase === "pret" ? duTech(etat.tech) : [];
+    document.getElementById("choix-statut").innerHTML = STATUTS.map(function (s) {
+      var nb = etat.phase === "pret" ? (s.id === "tous" ? base.length : compter(base, s.id)) : "–";
+      return '<button type="button" class="bouton-choix" data-statut="' + esc(s.id) + '" aria-pressed="' + (etat.statut === s.id) + '"' + (off ? " disabled" : "") + ">" +
+        esc(s.label) + ' <span class="compte">' + nb + "</span></button>";
+    }).join("");
+  }
+
+  /* ---------- Rendu : panneau de gauche ---------- */
+  function rendrePanneau() {
+    var el = document.getElementById("panneau");
+    if (etat.phase === "chargement") { el.innerHTML = '<div class="squelette" aria-hidden="true"><div></div><div></div></div>'; return; }
+    if (etat.phase === "erreur") { el.innerHTML = ""; return; }
+    var html = "";
+    if (etat.source === "cache") {
+      html += '<div class="bandeau-horsligne" role="alert"><span>Liste hors ligne — situation de ' + heureLongue(etat.situationCache || SITUATION) +
+        ", enregistrée sur cet appareil. Elle a pu changer depuis.</span>" +
+        '<button type="button" class="bouton-secondaire" data-action="reessayer">Réessayer</button></div>';
+    }
+    html += etat.tech === "equipe" ? panneauEquipe() : panneauTech(etat.tech);
+    el.innerHTML = html;
+  }
+
+  function panneauEquipe() {
+    var d = etat.donnees;
+    var critiques = d.filter(function (x) { return x.priorite === "Haute" && x.statut === "En cours"; });
+    var retards = d.filter(function (x) { return x.statut === "En retard"; })
+      .sort(function (a, b) { return (a.priorite === "Haute" ? 0 : 1) - (b.priorite === "Haute" ? 0 : 1) || minutes(a.heure_prevue) - minutes(b.heure_prevue); });
+    var urgentes = d.filter(function (x) { return x.priorite === "Haute" && x.statut === "À faire"; });
+    var html = '<h2 class="titre-bloc">À traiter maintenant</h2>';
+
+    critiques.forEach(function (x) {
+      html += '<article class="alerte-critique" aria-label="Urgence en cours, ' + esc(x.id) + '">' +
+        '<div class="entete-alerte">' + pastilleUrgent() + pastilleStatut(x.statut) +
+        '<span class="la-meta">depuis ' + heureLongue(x.heure_prevue) + " (prévue) · " + esc(x.technicien) + "</span></div>" +
+        '<p class="adresse">' + esc(x.adresse) + "</p>" +
+        '<p class="la-meta">' + meta(x) + "</p>" +
+        (x.note ? '<p class="note">' + esc(x.note) + "</p>" : "") +
+        "</article>";
+    });
+
+    html += '<section class="groupe-alerte retard" aria-labelledby="t-retards"><h3 id="t-retards"><span>En retard</span><span class="compte-titre">' + retards.length + "</span></h3>" +
+      (retards.length ? retards.map(function (x) { return ligneAlerte(x, { tech: true }); }).join("") : '<p class="mention" style="padding-top:12px">Aucun retard.</p>') +
+      '<p class="mention">Prévues avant 10 h 30 et non commencées. À replanifier : elles ne sont pas comptées comme « prochaine » pour le technicien.</p>' +
+      "</section>";
+
+    html += '<section class="groupe-alerte" aria-labelledby="t-urgentes"><h3 id="t-urgentes"><span>Urgentes à venir</span><span class="compte-titre">' + urgentes.length + "</span></h3>" +
+      (urgentes.length ? urgentes.map(function (x) { return ligneAlerte(x, { tech: true }); }).join("") : '<p class="mention" style="padding-top:12px">Aucune urgence prévue.</p>') +
+      "</section>";
+
+    html += '<h2 class="titre-bloc" style="margin-top:6px">Équipe</h2><div class="equipe">' +
+      TECHS.slice(1).map(function (t) { return carteTech(t); }).join("") + "</div>";
+    return html;
+  }
+
+  function prochaineDe(nom) {
+    return etat.donnees.filter(function (x) { return x.technicien === nom && x.statut === "À faire"; })[0] || null;
+  }
+
+  function carteTech(t) {
+    var l = duTech(t.id);
+    var ec = l.filter(function (x) { return x.statut === "En cours"; })[0];
+    var p = prochaineDe(t.id);
+    var nR = compter(l, "En retard"), nA = compter(l, "À faire"), nT = compter(l, "Terminée");
+    return '<button type="button" class="carte-tech" data-tech="' + esc(t.id) + '">' +
+      '<span class="ct-nom"><span>' + esc(t.nom) + '</span><span class="ct-voir">Voir sa journée</span></span>' +
+      '<span class="ct-ligne">En cours : ' + (ec ? "<b>" + esc(ec.adresse) + "</b>" + (ec.priorite === "Haute" ? " (urgent)" : "") : "aucune") + "</span>" +
+      '<span class="ct-ligne">Prochaine : ' + (p ? '<b class="mono">' + esc(p.heure_prevue) + "</b>, dans " + duree(minutes(p.heure_prevue) - NOW) + " · " + esc(p.adresse) : "aucune") + "</span>" +
+      '<span class="ct-chiffres">' +
+        (nR ? '<span class="pastille st-retard">' + ICONES["En retard"] + nR + " en retard</span>" : "") +
+        '<span class="pastille st-afaire">' + ICONES["À faire"] + nA + " à faire</span>" +
+        '<span class="pastille st-terminee">' + ICONES["Terminée"] + nT + " terminée" + (nT > 1 ? "s" : "") + "</span>" +
+      "</span></button>";
+  }
+
+  function panneauTech(nom) {
+    var l = duTech(nom);
+    var ec = l.filter(function (x) { return x.statut === "En cours"; });
+    var p = prochaineDe(nom);
+    var retards = l.filter(function (x) { return x.statut === "En retard"; });
+    var html = "";
+    if (p) {
+      var dans = minutes(p.heure_prevue) - NOW;
+      html += '<article class="prochaine" aria-labelledby="t-prochaine">' +
+        '<h2 class="p-surtitre" id="t-prochaine">Prochaine intervention · ' + esc(prenom(nom)) + "</h2>" +
+        '<p class="p-heure"><span class="mono">' + esc(p.heure_prevue) + '</span><span class="p-delai">dans ' + duree(dans) + "</span></p>" +
+        '<p class="p-adresse">' + esc(p.adresse) + "</p>" +
+        '<div class="i-tetes">' + (p.priorite === "Haute" ? pastilleUrgent() : "") + '<span class="p-meta">' + meta(p) + " · priorité " + esc(p.priorite.toLowerCase()) + "</span></div>" +
+        (p.note ? '<p class="p-note">' + esc(p.note) + "</p>" : "") +
+        '<a class="bouton-action" href="' + lienItineraire(p.adresse) + '" target="_blank" rel="noopener">' + ICONES.carte + "Itinéraire vers cette adresse</a>" +
+        "</article>";
+    } else {
+      html += '<p class="fin-journee">Plus aucune intervention à faire aujourd’hui pour ' + esc(nom) + ".</p>";
+    }
+    ec.forEach(function (x) {
+      html += '<div class="en-cours-tech">' + pastilleStatut(x.statut) +
+        '<div class="ec-txt"><span class="ec-adresse">' + esc(x.adresse) + (x.priorite === "Haute" ? " · urgent" : "") + "</span>" +
+        '<span class="ec-meta"><span class="mono">' + esc(x.heure_prevue) + "</span> prévue · " + meta(x) + "</span>" +
+        (x.note ? '<span class="ec-meta"><b>' + esc(x.note) + "</b></span>" : "") + "</div></div>";
+    });
+    if (retards.length) {
+      html += '<section class="groupe-alerte retard" aria-labelledby="t-retards-tech"><h3 id="t-retards-tech"><span>En retard, à replanifier</span><span class="compte-titre">' + retards.length + "</span></h3>" +
+        retards.map(function (x) { return ligneAlerte(x); }).join("") +
+        '<p class="mention">Leur reprise se décide avec Nathalie Roux ; elles ne remplacent pas la prochaine intervention ci-dessus.</p></section>';
+    }
+    return html;
+  }
+
+  /* ---------- Rendu : liste ---------- */
+  function rendreListe() {
+    var zone = document.getElementById("zone-liste");
+    var resume = document.getElementById("resume");
+    var titre = document.getElementById("titre-liste");
+    if (etat.phase === "chargement") {
+      titre.textContent = "Journée";
+      resume.textContent = "Chargement…";
+      zone.setAttribute("aria-busy", "true");
+      zone.innerHTML = '<div class="etat"><p class="chargement-texte">Chargement des interventions du jour…</p></div>' +
+        '<div class="squelette" aria-hidden="true" style="margin-top:8px"><div></div><div></div><div></div><div></div></div>';
+      return;
+    }
+    zone.removeAttribute("aria-busy");
+    if (etat.phase === "erreur") {
+      titre.textContent = "Journée";
+      resume.textContent = "Liste indisponible";
+      var cache = lireCache();
+      zone.innerHTML = '<div class="etat erreur" role="alert">' +
+        "<h3>La liste du jour n’a pas pu être chargée</h3>" +
+        "<p>Le service des interventions ne répond pas" + (etat.erreur ? " (" + esc(etat.erreur) + ")" : "") +
+        ". En local machinerie ou en sous-sol, le réseau manque souvent : réessayez une fois revenu en surface.</p>" +
+        '<div class="actions-etat"><button type="button" class="bouton-action" data-action="reessayer">Réessayer</button>' +
+        (cache ? '<button type="button" class="bouton-secondaire" data-action="cache">Afficher la liste enregistrée (situation de ' + heureLongue(cache.situation || SITUATION) + ")</button>" : "") +
+        "</div>" +
+        (cache ? "" : "<p>Aucune liste n’est enregistrée sur cet appareil. En cas d’urgence, appelez Nathalie Roux.</p>") +
+        "</div>";
+      return;
+    }
+
+    var t = TECHS.filter(function (x) { return x.id === etat.tech; })[0];
+    var s = STATUTS.filter(function (x) { return x.id === etat.statut; })[0];
+    var liste = filtrees();
+    titre.textContent = etat.tech === "equipe" ? "Journée de l’équipe" : "Journée de " + prenom(t.nom);
+    resume.textContent = liste.length + " intervention" + (liste.length > 1 ? "s" : "") +
+      (etat.statut === "tous" ? "" : " · " + s.label.toLowerCase());
+
+    if (!liste.length) {
+      var base = duTech(etat.tech);
+      var detail = STATUTS.slice(1).map(function (x) { var n = compter(base, x.id); return n ? n + " " + x.label.toLowerCase() : null; })
+        .filter(Boolean).join(", ");
+      zone.innerHTML = '<div class="etat" id="etat-vide">' +
+        "<h3>Aucune intervention " + esc(s.label.toLowerCase()) + (etat.tech === "equipe" ? "" : " pour " + esc(t.nom)) + "</h3>" +
+        "<p>" + (etat.tech === "equipe" ? "L’équipe" : esc(prenom(t.nom))) + " a " + base.length + " interventions aujourd’hui : " + detail + ".</p>" +
+        '<div class="actions-etat"><button type="button" class="bouton-secondaire" data-statut="tous">Afficher tous les statuts</button></div></div>';
+      return;
+    }
+
+    var html = '<ol class="liste">', ligneFaite = false;
+    // Statut « Tous » : les terminées sont repliées en une ligne, pour que la ligne de 10 h 30 arrive vite.
+    var nTerm = compter(liste, "Terminée");
+    if (etat.statut === "tous" && nTerm) {
+      html += '<li class="repli"><p>' + ICONES["Terminée"] + nTerm + " intervention" + (nTerm > 1 ? "s terminées" : " terminée") + " ce matin</p>" +
+        '<button type="button" class="bouton-secondaire" data-action="terminees" aria-expanded="' + etat.voirTerminees + '">' +
+        (etat.voirTerminees ? "Masquer" : "Afficher") + "</button></li>";
+      if (!etat.voirTerminees) liste = liste.filter(function (d) { return d.statut !== "Terminée"; });
+    }
+    liste.forEach(function (d) {
+      if (!ligneFaite && minutes(d.heure_prevue) >= NOW) {
+        html += '<li class="ligne-maintenant" aria-label="Maintenant, 10 h 30"><span>10 h 30 · maintenant</span></li>';
+        ligneFaite = true;
+      }
+      html += ligneListe(d);
+    });
+    if (!ligneFaite) html += '<li class="ligne-maintenant" aria-label="Maintenant, 10 h 30 — rien de prévu ensuite dans ce filtre"><span>10 h 30 · maintenant</span></li>';
+    html += "</ol>";
+    zone.innerHTML = html;
+  }
+
+  function ligneListe(d) {
+    var c = CLASSE[d.statut];
+    var sous = "";
+    if (d.statut === "En retard") sous = "<small>+" + duree(retardDe(d)) + "</small>";
+    else if (d.statut === "À faire") sous = "<small>dans " + duree(minutes(d.heure_prevue) - NOW) + "</small>";
+    var actions = (etat.tech !== "equipe" && d.statut !== "Terminée")
+      ? '<div class="i-actions"><a class="bouton-secondaire" href="' + lienItineraire(d.adresse) + '" target="_blank" rel="noopener">' + ICONES.carte + "Itinéraire</a></div>"
+      : "";
+    return '<li class="inter s-' + c + '" id="' + esc(d.id) + '">' +
+      '<div class="i-heure">' + esc(d.heure_prevue) + sous + "</div>" +
+      '<div class="i-corps">' +
+        '<div class="i-tetes">' + pastilleStatut(d.statut) + (d.priorite === "Haute" && d.statut !== "Terminée" ? pastilleUrgent() : "") +
+          (etat.tech === "equipe" ? '<span class="i-tech">' + esc(d.technicien) + "</span>" : "") + "</div>" +
+        '<p class="i-adresse">' + esc(d.adresse) + "</p>" +
+        '<p class="i-meta">' + meta(d) + ' · <span class="mono">' + esc(d.id) + "</span>" + (d.priorite !== "Haute" ? " · priorité " + esc(d.priorite.toLowerCase()) : (d.statut === "Terminée" ? " · priorité haute" : "")) + "</p>" +
+        (d.note ? '<p class="i-note">' + esc(d.note) + "</p>" : "") +
+        actions +
+      "</div></li>";
+  }
+
+  function rendre() {
+    rendreFiltres(); rendrePanneau(); rendreListe();
+  }
+
+  /* ---------- Interactions ---------- */
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-tech],[data-statut],[data-action],[data-cible]");
+    if (!b || b.disabled) return;
+    if (b.hasAttribute("data-tech")) {
+      etat.tech = b.getAttribute("data-tech"); ecrireTech(etat.tech); rendre();
+      if (b.classList.contains("carte-tech")) {
+        var btn = document.querySelector('#choix-tech [data-tech="' + CSS.escape(etat.tech) + '"]');
+        if (btn) btn.focus();
+        document.getElementById("filtre-tech").scrollIntoView({ block: "start" });
+      } else {
+        var same = document.querySelector('#choix-tech [data-tech="' + CSS.escape(etat.tech) + '"]'); if (same) same.focus();
+      }
+    } else if (b.hasAttribute("data-statut")) {
+      etat.statut = b.getAttribute("data-statut"); rendre();
+      var s = document.querySelector('#choix-statut [data-statut="' + CSS.escape(etat.statut) + '"]'); if (s) s.focus();
+    } else if (b.hasAttribute("data-cible")) {
+      var id = b.getAttribute("data-cible");
+      if (!document.getElementById(id)) { etat.statut = "tous"; rendre(); }
+      e.preventDefault();
+      var row = document.getElementById(id);
+      if (row) {
+        document.querySelectorAll(".inter.signale").forEach(function (r) { r.classList.remove("signale"); });
+        row.classList.add("signale");
+        row.setAttribute("tabindex", "-1");
+        row.scrollIntoView({ block: "center" });
+        row.focus({ preventScroll: true });
+      }
+    } else if (b.getAttribute("data-action") === "reessayer") {
+      charger();
+    } else if (b.getAttribute("data-action") === "terminees") {
+      etat.voirTerminees = !etat.voirTerminees; rendre();
+      var t = document.querySelector('[data-action="terminees"]'); if (t) t.focus();
+    } else if (b.getAttribute("data-action") === "cache") {
+      utiliserCache();
+    }
+  });
+
+  // Liens d’aperçu : marquer l’état courant
+  document.querySelectorAll(".pied nav a").forEach(function (a) {
+    var e = new URLSearchParams(a.getAttribute("href").slice(1)).get("etat");
+    if ((e || null) === (demo || null)) a.setAttribute("aria-current", "page");
+  });
+
+  charger();
+})();
+</script>
+</body>
+</html>

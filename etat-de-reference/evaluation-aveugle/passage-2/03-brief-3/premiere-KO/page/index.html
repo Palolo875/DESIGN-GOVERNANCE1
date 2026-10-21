@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon contrat santé – Mutuelle des Trois Rivières</title>
+<meta name="description" content="Maquette du parcours en ligne pour changer de formule ou résilier son contrat santé – Mutuelle des Trois Rivières (fictive).">
+<style>
+:root{
+  --teal-900:#08404a; --teal-700:#0b5563; --teal-600:#11697a; --teal-100:#dcebed; --teal-50:#eef6f7;
+  --ink:#1b2630; --ink-2:#44525e; --line:#cfd6db; --line-2:#e4e8eb;
+  --bg:#f5f4ef; --card:#ffffff;
+  --err:#b42318; --err-bg:#fdf0ee;
+  --ok:#17663a; --ok-bg:#ebf6ef;
+  --warn:#8a5a00; --warn-bg:#fff6e0; --warn-line:#e7b54a;
+  --focus:#ffbf47;
+  --radius:10px;
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--font)}
+a{color:var(--teal-700);text-underline-offset:2px}
+a:hover{color:var(--teal-900)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;box-shadow:0 0 0 5px var(--ink)}
+input:focus-visible,textarea:focus-visible{box-shadow:0 0 0 5px var(--ink)}
+h1,h2,h3{line-height:1.25;margin:0 0 .5em}
+h1{font-size:1.85rem;letter-spacing:-.01em}
+h2{font-size:1.3rem}
+h3{font-size:1.08rem}
+p{margin:0 0 1em}
+sup{font-size:.68em;line-height:0;vertical-align:.45em}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Barre de revue (hors produit) ---------- */
+.review{background:#22262a;color:#e9ecef;font-size:14px}
+.review__in{max-width:1080px;margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.review__tag{background:#ffbf47;color:#22262a;font-weight:700;border-radius:4px;padding:1px 7px;font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.review label{display:flex;gap:8px;align-items:center}
+.review select{font:inherit;max-width:min(78vw,420px);padding:4px 6px;border-radius:5px;border:1px solid #6b737a;background:#2f3439;color:#fff}
+.review a{color:#ffd77f}
+.review__sp{flex:1}
+
+/* ---------- Enveloppe espace adhérent ---------- */
+.skip{position:absolute;left:-999px;top:0;background:var(--focus);color:var(--ink);padding:8px 14px;z-index:9;font-weight:600}
+.skip:focus{left:8px;top:8px}
+.site{background:var(--card);border-bottom:1px solid var(--line)}
+.site__in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--teal-900);text-decoration:none;font-weight:700;line-height:1.15}
+.brand small{display:block;font-weight:500;color:var(--ink-2);font-size:13px}
+.brand svg{flex:none}
+.who{margin-left:auto;text-align:right;font-size:14px;color:var(--ink-2);line-height:1.35}
+.who strong{color:var(--ink);font-size:15px}
+.page{max-width:1080px;margin:0 auto;padding:20px 16px 48px;display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:32px;align-items:start}
+@media (max-width:880px){.page{grid-template-columns:1fr;gap:24px}}
+.crumbs{grid-column:1/-1;font-size:14px;color:var(--ink-2);margin-bottom:-12px}
+.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.crumbs li+li::before{content:"›";margin:0 6px 0 2px;color:#8a959e}
+main{min-width:0}
+main h1:focus{outline:none}
+
+.help{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;font-size:15px}
+.help h2{font-size:1rem;margin-bottom:.4em}
+.help p{margin:.3em 0}
+.help .tel{font-size:1.15rem;font-weight:700}
+footer.foot{border-top:1px solid var(--line);color:var(--ink-2);font-size:13px}
+footer.foot div{max-width:1080px;margin:0 auto;padding:16px}
+
+/* ---------- Composants ---------- */
+.eyebrow{font-size:15px;color:var(--ink-2);margin:0 0 .3em;font-weight:600}
+.lead{font-size:1.08rem;color:var(--ink-2);max-width:60ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:0 0 20px}
+.card>:last-child{margin-bottom:0}
+.card--quiet{background:var(--teal-50);border-color:var(--teal-100)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.grid2 .card{margin:0;display:flex;flex-direction:column}
+.grid2 .card .actions{margin-top:auto;padding-top:8px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+
+.pill{display:inline-block;font-size:13px;font-weight:600;border-radius:99px;padding:2px 10px;background:var(--teal-100);color:var(--teal-900);vertical-align:middle}
+
+dl.sum{margin:0;display:grid;grid-template-columns:minmax(150px,34%) 1fr;border-top:1px solid var(--line-2)}
+dl.sum>div{display:contents}
+dl.sum dt,dl.sum dd{padding:11px 0;border-bottom:1px solid var(--line-2);margin:0}
+dl.sum dt{color:var(--ink-2);padding-right:16px}
+dl.sum dd{font-weight:600}
+dl.sum dd .sub{display:block;font-weight:400;color:var(--ink-2);font-size:15px}
+dl.sum dd a{font-weight:400;font-size:15px}
+@media (max-width:520px){dl.sum{grid-template-columns:1fr}dl.sum dt{border-bottom:0;padding-bottom:0}dl.sum dd{padding-top:2px}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border-radius:8px;font:600 1rem/1.2 var(--font);cursor:pointer;text-decoration:none;border:2px solid var(--teal-700);text-align:center}
+.btn--primary{background:var(--teal-700);color:#fff}
+.btn--primary:hover{background:var(--teal-900);border-color:var(--teal-900);color:#fff}
+.btn--secondary{background:#fff;color:var(--teal-700)}
+.btn--secondary:hover{background:var(--teal-50);color:var(--teal-900)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 0}
+@media (max-width:520px){.actions .btn{width:100%}}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--teal-700);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.back{display:inline-block;margin:0 0 14px;font-size:15px}
+.back::before{content:"‹ "}
+
+/* Étapes */
+.steps{list-style:none;margin:0 0 22px;padding:0;display:flex;gap:6px;counter-reset:s}
+.steps li{flex:1;font-size:13px;color:var(--ink-2);border-top:4px solid var(--line);padding-top:6px;counter-increment:s;line-height:1.3}
+.steps li::before{content:counter(s) ". "}
+.steps li.is-done{border-color:var(--teal-600)}
+.steps li[aria-current]{border-color:var(--teal-900);color:var(--ink);font-weight:700}
+@media (max-width:520px){.steps li:not([aria-current]) span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+
+/* Encadrés */
+.note{border-left:5px solid var(--teal-600);background:var(--teal-50);padding:14px 18px;border-radius:0 8px 8px 0;margin:0 0 20px}
+.note--warn{border-color:var(--warn-line);background:var(--warn-bg)}
+.note>:last-child{margin-bottom:0}
+.note h2,.note h3{font-size:1.02rem;margin-bottom:.35em}
+.banner{display:flex;gap:12px;border-radius:var(--radius);padding:14px 18px;margin:0 0 20px;border:1px solid}
+.banner--ok{background:var(--ok-bg);border-color:#a9d3b8}
+.banner--info{background:var(--teal-50);border-color:var(--teal-100)}
+.banner p{margin:0}
+.banner svg{flex:none;margin-top:3px}
+
+ul.facts{list-style:none;padding:0;margin:0}
+ul.facts li{padding:10px 0 10px 32px;border-bottom:1px solid var(--line-2);position:relative}
+ul.facts li:last-child{border-bottom:0}
+ul.facts li::before{content:"";position:absolute;left:4px;top:17px;width:12px;height:12px;border-radius:50%;background:var(--teal-600)}
+
+/* Tableau de comparaison */
+.tablewrap{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+table.cmp{border-collapse:collapse;width:100%;min-width:480px;font-size:15.5px}
+table.cmp caption{text-align:left;padding:14px 16px 4px;font-weight:700;font-size:1.05rem}
+table.cmp th,table.cmp td{padding:11px 14px;text-align:left;vertical-align:top;border-top:1px solid var(--line-2)}
+table.cmp thead th{border-top:0;font-size:15px;background:#fff}
+table.cmp thead th .pill{margin-top:4px}
+table.cmp tbody th{font-weight:500;color:var(--ink-2);width:38%}
+table.cmp td.cur{background:var(--teal-50)}
+table.cmp tr.total th,table.cmp tr.total td{font-weight:700;color:var(--ink);font-size:1.02rem;background:#fafaf7}
+table.cmp tr.total td.cur{background:var(--teal-100)}
+.down{display:block;font-size:13.5px;color:var(--ink-2)}
+.ok{color:var(--ok)}
+@media (max-width:600px){
+  table.cmp{min-width:0;display:block}
+  table.cmp caption{display:block}
+  table.cmp thead{display:none}
+  table.cmp tbody{display:block}
+  table.cmp tbody tr{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-2)}
+  table.cmp tbody th{grid-column:1/-1;width:auto;border:0;padding:10px 14px 2px;color:var(--ink);font-weight:700}
+  table.cmp td{border:0;padding:4px 14px 10px}
+  table.cmp td::before{content:attr(data-label);display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);text-transform:uppercase;letter-spacing:.03em}
+  table.cmp tr.total td.cur,table.cmp td.cur{background:transparent}
+}
+
+/* Formulaires */
+.field{margin:0 0 20px}
+.field label,.legend{display:block;font-weight:700;margin-bottom:4px}
+.hint{display:block;color:var(--ink-2);font-size:15px;margin-bottom:8px}
+input[type=email],input[type=text],textarea{font:inherit;width:100%;max-width:440px;padding:10px 12px;border:2px solid #5d6a74;border-radius:6px;background:#fff;color:var(--ink)}
+textarea{max-width:560px;min-height:96px;resize:vertical}
+.field--err{border-left:5px solid var(--err);padding-left:14px}
+.field--err input,.field--err textarea{border-color:var(--err)}
+.errmsg{display:block;color:var(--err);font-weight:700;margin:0 0 8px}
+.errmsg::before{content:"";display:inline-block;width:18px;height:18px;margin:-3px 6px 0 0;vertical-align:middle;background:no-repeat center/18px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10' fill='%23b42318'/%3E%3Cpath d='M10 4.5v7' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='10' cy='15' r='1.4' fill='%23fff'/%3E%3C/svg%3E")}
+fieldset{border:0;padding:0;margin:0 0 20px;min-width:0}
+legend{padding:0}
+.choice{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:2px solid var(--line);border-radius:8px;background:#fff;margin-bottom:8px;cursor:pointer;max-width:560px}
+.choice:hover{border-color:var(--teal-600)}
+.choice:has(input:checked){border-color:var(--teal-700);background:var(--teal-50)}
+.choice input{width:22px;height:22px;margin:2px 0 0;flex:none;accent-color:var(--teal-700)}
+.choice span{font-weight:600}
+.reveal{margin:4px 0 12px 16px;padding-left:20px;border-left:4px solid var(--line);max-width:560px}
+.count{font-size:14px;color:var(--ink-2);margin-top:4px}
+
+.check{display:flex;gap:12px;align-items:flex-start;max-width:640px}
+.check input{width:24px;height:24px;margin:1px 0 0;flex:none;accent-color:var(--teal-700)}
+.check label{font-weight:600}
+
+.errsum{border:3px solid var(--err);border-radius:var(--radius);padding:16px 20px;margin:0 0 24px;background:#fff}
+.errsum:focus{outline:3px solid var(--focus);outline-offset:2px}
+.errsum h2{font-size:1.12rem;color:var(--err);margin-bottom:.4em}
+.errsum ul{margin:0;padding-left:20px}
+.errsum a{color:var(--err);font-weight:700}
+
+.decision{border:2px solid var(--teal-700);border-radius:var(--radius);padding:20px 22px;background:#fff;margin-top:8px}
+.decision h2{font-size:1.15rem}
+.decision .actions{margin-top:14px}
+
+/* Confirmation */
+.done{background:var(--ok-bg);border:1px solid #a9d3b8;border-radius:var(--radius);padding:24px;margin:0 0 24px}
+.done h1{font-size:1.65rem;margin-bottom:.35em;display:flex;gap:12px;align-items:flex-start}
+.done h1 svg{flex:none;margin-top:4px}
+.done p{margin:.4em 0}
+.done .big{font-size:1.2rem;font-weight:700}
+.ref{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95em;letter-spacing:.02em}
+ol.next{padding-left:22px;margin:0}
+ol.next li{margin:0 0 .6em}
+
+/* ---------- Planche ---------- */
+.board{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+.board>h1{font-size:1.6rem}
+.board__intro{max-width:70ch;color:var(--ink-2)}
+.board__group{margin:36px 0 8px;font-size:1.25rem;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.frame{margin:20px 0 36px}
+.frame figcaption{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;margin-bottom:8px}
+.frame figcaption b{font-size:1.02rem}
+.frame figcaption em{font-style:normal;color:var(--ink-2);font-size:14px}
+.frame figcaption a{font-size:14px}
+.frame__screen{border:1px solid #9aa4ab;border-radius:12px;overflow:hidden;background:var(--bg);box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.frame__screen .page{padding-bottom:24px}
+
+@media print{
+  .review,.skip,.help,.foot,.no-print{display:none!important}
+  body{background:#fff}
+  .page{display:block}
+}
+</style>
+</head>
+<body>
+<div class="review no-print" role="region" aria-label="Outils de revue de la maquette (ne font pas partie du site)">
+  <div class="review__in">
+    <span class="review__tag">Maquette</span>
+    <label for="jump">Aller à l’écran
+      <select id="jump"></select>
+    </label>
+    <span class="review__sp"></span>
+    <a id="boardlink" href="#planche">Voir tous les écrans sur une planche</a>
+  </div>
+</div>
+<div id="app"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ==========================================================
+   Données (fournies par le brief, à utiliser telles quelles)
+   ========================================================== */
+const MUTUELLE = {
+  nom: "Mutuelle des Trois Rivières",
+  tel: "09 00 00 00 00", telHref: "tel:+33900000000",
+  horaires: "du lundi au vendredi, de 9 h à 18 h",
+  mail: "contact@trois-rivieres.example"
+};
+const ADHERENT = {
+  nom: "Camille Moreau",
+  numero: "TR-204-58817",
+  formule: "confort",
+  depuis: new Date(2024, 2, 1, 12),
+  enfant: "Léo Moreau",
+  enfantNe: 2015,
+  compte: "4412",
+  jourPrelevement: 5,
+  // Hypothèse : adresse fictive inventée pour la maquette (non fournie par le brief)
+  email: "camille.moreau@courriel.example"
+};
+const F = {
+  essentielle: { nom: "Essentielle", adulte: 38.40, enfant: 12.10,
+    generaliste: "100 % de la base de remboursement", hospi: "Non couverte", optique: "100 € par an",
+    dentaire: "125 % de la base", douces: "Non couvertes" },
+  confort: { nom: "Confort", adulte: 61.90, enfant: 19.80,
+    generaliste: "150 % de la base de remboursement", hospi: "60 € par jour, 30 jours par an", optique: "250 € par an",
+    dentaire: "250 % de la base", douces: "4 séances par an, 30 € chacune" }
+};
+const total = f => Math.round((F[f].adulte + F[f].enfant) * 100) / 100;
+const RAISONS = { prix: "Le prix", garanties: "Les garanties", demenagement: "Un déménagement", autre: "Une autre raison" };
+
+/* ==========================================================
+   Dates : calculées à partir du jour de la demande.
+   ?date=AAAA-MM-JJ permet de simuler un autre jour.
+   ========================================================== */
+function parseDate(s){ const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ""); return m ? new Date(+m[1], +m[2]-1, +m[3], 12) : null; }
+const TODAY = parseDate(new URLSearchParams(location.search).get("date")) || (() => { const d = new Date(); d.setHours(12,0,0,0); return d; })();
+function plusUnMois(d){
+  const r = new Date(d.getFullYear(), d.getMonth()+1, d.getDate(), 12);
+  if (r.getDate() !== d.getDate()) return new Date(d.getFullYear(), d.getMonth()+2, 0, 12); // 31 janv. -> 28/29 févr.
+  return r;
+}
+const D = {
+  jour: TODAY,
+  effetModif: new Date(TODAY.getFullYear(), TODAY.getMonth()+1, 1, 12),
+  prelevNouveau: new Date(TODAY.getFullYear(), TODAY.getMonth()+1, ADHERENT.jourPrelevement, 12),
+  effetResil: plusUnMois(TODAY),
+  annee: TODAY.getFullYear()
+};
+const MOIS = d => d.toLocaleDateString("fr-FR", { month: "long" });
+const date = d => (d.getDate() === 1 ? "1<sup>er</sup>" : d.getDate()) + " " + MOIS(d) + " " + d.getFullYear();
+const dateTxt = d => (d.getDate() === 1 ? "1er" : d.getDate()) + " " + MOIS(d) + " " + d.getFullYear();
+const moisAn = d => MOIS(d) + " " + d.getFullYear();
+const euro = n => n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+const pad = n => String(n).padStart(2, "0");
+const REF = "R-" + TODAY.getFullYear() + pad(TODAY.getMonth()+1) + pad(TODAY.getDate()) + "-58817"; // hypothèse de format
+const unAnOk = TODAY >= new Date(ADHERENT.depuis.getFullYear()+1, ADHERENT.depuis.getMonth(), ADHERENT.depuis.getDate());
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+
+/* ==========================================================
+   État du parcours
+   ========================================================== */
+const initial = () => ({ ack:false, errors:{}, reason:"", reasonOther:"", email:ADHERENT.email,
+  modifDone:false, resilDone:false, toast:"", fromResil:false });
+let S = initial();
+
+/* ==========================================================
+   Écrans et états (aussi listés dans la barre de revue)
+   ========================================================== */
+const SCREENS = [
+  { id:"contrat", group:"Point de départ", label:"Mon contrat", screen:"contrat",
+    note:"L’adhérent est déjà connecté. Les deux démarches sont visibles au même niveau." },
+
+  { id:"m1", group:"Changer de formule", label:"Étape 1/2 · Comparer les formules", screen:"m1",
+    note:"Ce qui change pour Camille et Léo, chiffré pour le foyer." },
+  { id:"m2", group:"Changer de formule", label:"Étape 2/2 · Vérifier et confirmer", screen:"m2",
+    note:"Récapitulatif, dates, cotisations et règle « une fois par année civile »." },
+  { id:"m2-erreur", group:"Changer de formule", label:"Étape 2/2 · Erreur de saisie (case non cochée)", screen:"m2",
+    preset:{ errors:{ ack:"Cochez la case pour confirmer que vous avez compris ce qui change." } },
+    note:"Résumé des erreurs en haut, message au niveau du champ, focus placé sur le résumé." },
+  { id:"m3", group:"Changer de formule", label:"Confirmation du changement", screen:"m3", preset:{ modifDone:true } },
+  { id:"contrat-modif", group:"Changer de formule", label:"Mon contrat, changement programmé", screen:"contrat", preset:{ modifDone:true } },
+  { id:"m-bloque", group:"Changer de formule", label:"Variante · Changement déjà utilisé cette année", screen:"mbloque",
+    note:"Ne concerne pas Camille (en Confort depuis 2024) : état prévu pour les adhérents qui ont déjà utilisé ce droit." },
+
+  { id:"r1", group:"Résilier", label:"Étape 1/3 · Ce qu’il faut savoir", screen:"r1",
+    note:"Date de fin, absence de frais, rappel discret du changement de formule (non bloquant)." },
+  { id:"r2", group:"Résilier", label:"Étape 2/3 · Questionnaire facultatif", screen:"r2" },
+  { id:"r2-autre", group:"Résilier", label:"Étape 2/3 · Questionnaire, « autre raison » précisée", screen:"r2",
+    preset:{ reason:"autre", reasonOther:"Ma nouvelle entreprise propose une mutuelle obligatoire." } },
+  { id:"r3", group:"Résilier", label:"Étape 3/3 · Vérifier, confirmer ou annuler", screen:"r3", preset:{ reason:"prix" },
+    note:"La demande n’est pas encore envoyée : confirmer ou annuler." },
+  { id:"r3-erreur", group:"Résilier", label:"Étape 3/3 · Erreur de saisie (adresse e-mail)", screen:"r3",
+    preset:{ reason:"prix", email:"camille.moreau@courriel", errors:{ email:"Cette adresse e-mail est incomplète. Vérifiez-la, par exemple nom@exemple.fr" } } },
+  { id:"r4", group:"Résilier", label:"Confirmation · Demande envoyée", screen:"r4", preset:{ reason:"prix", resilDone:true } },
+  { id:"r-annulee", group:"Résilier", label:"Résiliation annulée", screen:"rannul" },
+  { id:"contrat-resil", group:"Résilier", label:"Mon contrat, résiliation en cours", screen:"contrat", preset:{ resilDone:true } }
+];
+const byId = id => SCREENS.find(s => s.id === id);
+
+/* ==========================================================
+   Briques d’interface
+   ========================================================== */
+const LOGO = `<svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#0b5563"/><path d="M7 14c4-3 7 3 13 0s9 3 13 0M7 21c4-3 7 3 13 0s9 3 13 0M7 28c4-3 7 3 13 0s9 3 13 0" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>`;
+const ICON_OK = `<svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" fill="#17663a"/><path d="M8 14.5l4 4 8-9" stroke="#fff" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ICON_INFO = `<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#0b5563"/><path d="M11 10v6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="11" cy="6.5" r="1.5" fill="#fff"/></svg>`;
+
+function shell(crumbs, body){
+  const c = crumbs.map((x,i) => i < crumbs.length-1
+      ? `<li><a href="#${x[1]}" data-go="${x[1]}">${x[0]}</a></li>`
+      : `<li aria-current="page">${x[0]}</li>`).join("");
+  return `
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="site">
+  <div class="site__in">
+    <a class="brand" href="#contrat" data-go="contrat">${LOGO}<span>${MUTUELLE.nom}<small>Espace adhérent</small></span></a>
+    <p class="who" style="margin:0 0 0 auto"><strong>${ADHERENT.nom}</strong><br>N° d’adhérent ${ADHERENT.numero}</p>
+  </div>
+</header>
+<div class="page">
+  <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="#contrat" data-go="contrat">Espace adhérent</a></li>${c}</ol></nav>
+  <main id="main">${body}</main>
+  <aside class="help" aria-labelledby="help-t">
+    <h2 id="help-t">Une question ?</h2>
+    <p>Le service adhérents vous répond ${MUTUELLE.horaires}.</p>
+    <p class="tel"><a href="${MUTUELLE.telHref}">${MUTUELLE.tel}</a></p>
+    <p><a href="mailto:${MUTUELLE.mail}">${MUTUELLE.mail}</a></p>
+  </aside>
+</div>
+<footer class="foot"><div>${MUTUELLE.nom} · Organisme fictif · Maquette de parcours</div></footer>`;
+}
+
+function steps(list, current){
+  return `<ol class="steps" aria-label="Étapes de la démarche">${list.map((l,i) =>
+    `<li class="${i < current ? "is-done" : ""}"${i === current ? ' aria-current="step"' : ""}><span>${l}</span>${i < current ? '<span class="vh"> (terminée)</span>' : ""}</li>`).join("")}</ol>`;
+}
+const MODIF_STEPS = ["Comparer", "Vérifier et confirmer"];
+const RESIL_STEPS = ["Ce qu’il faut savoir", "Votre avis (facultatif)", "Vérifier et confirmer"];
+
+function errorSummary(){
+  const e = S.errors, keys = Object.keys(e);
+  if (!keys.length) return "";
+  const target = { ack:"ack", email:"email" };
+  return `<div class="errsum" role="alert" tabindex="-1" id="errsum">
+    <h2>${keys.length > 1 ? "Il y a " + keys.length + " points à corriger" : "Il y a un point à corriger"}</h2>
+    <ul>${keys.map(k => `<li><a href="#${target[k]}" data-focus="${target[k]}">${e[k]}</a></li>`).join("")}</ul>
+  </div>`;
+}
+
+/* ==========================================================
+   Écrans
+   ========================================================== */
+const R = {};
+
+R.contrat = () => {
+  const toast = S.toast ? `<div class="banner banner--info" role="status">${ICON_INFO}<p>${S.toast}</p></div>` : "";
+  const modif = S.modifDone ? `<div class="banner banner--ok">${ICON_OK}<p><strong>Changement de formule programmé.</strong> Vous passerez à la formule Essentielle le ${date(D.effetModif)}. Votre cotisation sera alors de ${euro(total("essentielle"))} par mois.</p></div>` : "";
+  const resil = S.resilDone ? `<div class="banner banner--ok">${ICON_OK}<p><strong>Résiliation demandée le ${date(D.jour)}.</strong> Votre contrat prend fin le ${date(D.effetResil)}. Jusqu’à cette date, Léo et vous restez couverts. Référence <span class="ref">${REF}</span>.</p></div>` : "";
+
+  const formuleActuelle = S.modifDone
+    ? `Confort <span class="sub">Essentielle à partir du ${date(D.effetModif)}</span>`
+    : `Confort <span class="sub">depuis le ${date(ADHERENT.depuis)}</span>`;
+
+  let evol;
+  if (S.resilDone) {
+    evol = `<div class="card card--quiet"><h2>Faire évoluer mon contrat</h2><p>Votre résiliation est en cours : aucune autre modification n’est possible en ligne. Pour toute question, contactez le service adhérents.</p></div>`;
+  } else {
+    const cardModif = S.modifDone
+      ? `<div class="card"><h3>Changer de formule</h3><p>Votre passage à Essentielle est déjà programmé pour le ${date(D.effetModif)}.</p><p>Pour revenir sur ce changement avant cette date, contactez le service adhérents.</p></div>`
+      : `<div class="card"><h3>Changer de formule</h3><p>Formule Essentielle : ${euro(total("essentielle"))} par mois pour Léo et vous, au lieu de ${euro(total("confort"))}. Le changement prend effet le 1<sup>er</sup> du mois suivant votre demande.</p><div class="actions"><a class="btn btn--primary" href="#m1" data-go="m1" data-reset-from="1">Changer de formule</a></div></div>`;
+    evol = `<h2>Faire évoluer mon contrat</h2>
+    <div class="grid2">
+      ${cardModif}
+      <div class="card"><h3>Résilier mon contrat</h3><p>Possible à tout moment, sans frais. La résiliation prend effet un mois après la réception de votre demande.</p><div class="actions"><a class="btn btn--secondary" href="#r1" data-go="r1">Résilier mon contrat</a></div></div>
+    </div>`;
+  }
+
+  return shell([["Mon contrat santé","contrat"]], `
+    <h1 tabindex="-1">Mon contrat santé</h1>
+    ${toast}${modif}${resil}
+    <section class="card" aria-labelledby="c-f">
+      <h2 id="c-f">Votre contrat <span class="pill">En cours</span></h2>
+      <dl class="sum">
+        <div><dt>Formule</dt><dd>${formuleActuelle}</dd></div>
+        <div><dt>Personnes couvertes</dt><dd>${ADHERENT.nom}<span class="sub">${ADHERENT.enfant}, enfant, né en ${ADHERENT.enfantNe}</span></dd></div>
+        <div><dt>Cotisation mensuelle</dt><dd>${euro(total("confort"))}<span class="sub">${euro(F.confort.adulte)} pour vous + ${euro(F.confort.enfant)} pour Léo</span></dd></div>
+        <div><dt>Prélèvement</dt><dd>Le ${ADHERENT.jourPrelevement} de chaque mois<span class="sub">Compte se terminant par ${ADHERENT.compte}</span></dd></div>
+      </dl>
+    </section>
+    ${evol}
+  `);
+};
+
+function cmpTable(){
+  const rows = [
+    ["Cotisation adulte, par mois", euro(F.confort.adulte), euro(F.essentielle.adulte)],
+    ["Cotisation par enfant, par mois", euro(F.confort.enfant), euro(F.essentielle.enfant)],
+    ["Consultation chez un généraliste", F.confort.generaliste, F.essentielle.generaliste],
+    ["Hospitalisation, chambre particulière", F.confort.hospi, F.essentielle.hospi],
+    ["Optique", F.confort.optique, F.essentielle.optique],
+    ["Dentaire, prothèses", F.confort.dentaire, F.essentielle.dentaire],
+    ["Médecines douces", F.confort.douces, F.essentielle.douces]
+  ];
+  return `<div class="tablewrap" role="region" aria-labelledby="cmp-cap" tabindex="0">
+  <table class="cmp">
+    <caption id="cmp-cap">Confort et Essentielle, garantie par garantie</caption>
+    <thead><tr><td></td><th scope="col">Confort<br><span class="pill">Votre formule</span></th><th scope="col">Essentielle</th></tr></thead>
+    <tbody>
+      <tr class="total"><th scope="row">Pour Léo et vous, par mois</th><td class="cur" data-label="Confort (actuelle)">${euro(total("confort"))}</td><td data-label="Essentielle">${euro(total("essentielle"))}<span class="down ok">${euro(total("confort")-total("essentielle"))} de moins</span></td></tr>
+      ${rows.map(r => `<tr><th scope="row">${r[0]}</th><td class="cur" data-label="Confort (actuelle)">${r[1]}</td><td data-label="Essentielle">${r[2]}</td></tr>`).join("")}
+    </tbody>
+  </table></div>`;
+}
+
+R.m1 = () => shell([["Mon contrat santé","contrat"],["Changer de formule","m1"]], `
+  ${S.fromResil ? `<p class="note">Vous étiez en train de résilier. <a href="#r1" data-go="r1">Reprendre ma résiliation</a></p>` : `<a class="back" href="#contrat" data-go="contrat">Mon contrat santé</a>`}
+  <p class="eyebrow">Changer de formule · Étape 1 sur 2</p>
+  ${steps(MODIF_STEPS, 0)}
+  <h1 tabindex="-1">Comparer les formules</h1>
+  <p class="lead">Vous avez la formule Confort. Voici ce que la formule Essentielle changerait pour Léo et vous.</p>
+  ${cmpTable()}
+  <section class="note" aria-labelledby="m1-k">
+    <h2 id="m1-k">Avant de choisir</h2>
+    <ul class="facts">
+      <li>Le changement prend effet le <strong>1<sup>er</sup> du mois suivant</strong> votre demande. Si vous le demandez aujourd’hui : le <strong>${date(D.effetModif)}</strong>.</li>
+      <li>La cotisation de ${MOIS(D.jour)} reste due au tarif Confort (${euro(total("confort"))}).</li>
+      <li>Le passage de Confort à Essentielle n’est possible <strong>qu’une fois par année civile</strong>.</li>
+    </ul>
+  </section>
+  <div class="actions">
+    <a class="btn btn--primary" href="#m2" data-go="m2">Choisir la formule Essentielle</a>
+    <button type="button" class="btn btn--secondary" data-action="keep-confort">Garder la formule Confort</button>
+  </div>
+`);
+
+R.m2 = () => {
+  const err = S.errors.ack;
+  return shell([["Mon contrat santé","contrat"],["Changer de formule","m1"]], `
+  <a class="back" href="#m1" data-go="m1">Étape précédente : comparer</a>
+  <p class="eyebrow">Changer de formule · Étape 2 sur 2</p>
+  ${steps(MODIF_STEPS, 1)}
+  ${errorSummary()}
+  <h1 tabindex="-1">Vérifier et confirmer</h1>
+  <p class="lead">Votre demande n’est pas encore envoyée. Vérifiez ce qui va changer.</p>
+
+  <section class="card" aria-labelledby="m2-a">
+    <h2 id="m2-a">Votre nouvelle formule</h2>
+    <dl class="sum">
+      <div><dt>Formule</dt><dd>Essentielle <span class="sub">au lieu de Confort</span></dd></div>
+      <div><dt>Date d’effet</dt><dd>${date(D.effetModif)}</dd></div>
+      <div><dt>Personnes couvertes</dt><dd>${ADHERENT.nom}, ${ADHERENT.enfant}<span class="sub">Inchangé</span></dd></div>
+    </dl>
+  </section>
+
+  <section class="card" aria-labelledby="m2-b">
+    <h2 id="m2-b">Votre cotisation</h2>
+    <dl class="sum">
+      <div><dt>${moisAn(D.jour).replace(/^./, c => c.toUpperCase())}</dt><dd>${euro(total("confort"))}<span class="sub">Tarif Confort, inchangé pour le mois en cours</span></dd></div>
+      <div><dt>À partir de ${moisAn(D.effetModif)}</dt><dd>${euro(total("essentielle"))} par mois<span class="sub">Premier prélèvement à ce tarif le ${date(D.prelevNouveau)}, sur le compte se terminant par ${ADHERENT.compte}</span></dd></div>
+      <div><dt>Différence</dt><dd>${euro(total("confort")-total("essentielle"))} de moins par mois</dd></div>
+    </dl>
+  </section>
+
+  <section class="card" aria-labelledby="m2-c">
+    <h2 id="m2-c">Vos garanties baissent, pour Léo comme pour vous</h2>
+    <ul class="facts">
+      <li>Généraliste : ${F.essentielle.generaliste} <span class="down">au lieu de ${F.confort.generaliste.replace(" de la base de remboursement","")}</span></li>
+      <li>Chambre particulière à l’hôpital : <strong>plus couverte</strong> <span class="down">au lieu de ${F.confort.hospi}</span></li>
+      <li>Optique : ${F.essentielle.optique} <span class="down">au lieu de ${F.confort.optique}</span></li>
+      <li>Dentaire, prothèses : ${F.essentielle.dentaire} <span class="down">au lieu de ${F.confort.dentaire}</span></li>
+      <li>Médecines douces : <strong>plus couvertes</strong> <span class="down">au lieu de ${F.confort.douces}</span></li>
+    </ul>
+  </section>
+
+  <div class="note note--warn">
+    <h2>Une seule fois par année civile</h2>
+    <p>Cette demande utilise votre passage de Confort à Essentielle pour ${D.annee}. Vous pourrez revenir à Confort plus tard, mais vous ne pourrez pas repasser à Essentielle avant le 1<sup>er</sup>&nbsp;janvier&nbsp;${D.annee+1}.</p>
+  </div>
+
+  <form id="f-modif" novalidate>
+    <div class="field${err ? " field--err" : ""}">
+      ${err ? `<p class="errmsg" id="ack-err"><span class="vh">Erreur :</span> ${err}</p>` : ""}
+      <div class="check">
+        <input type="checkbox" id="ack" name="ack" ${S.ack ? "checked" : ""} ${err ? 'aria-describedby="ack-err" aria-invalid="true"' : ""}>
+        <label for="ack">J’ai compris que mes garanties et celles de Léo baissent à partir du ${date(D.effetModif)} et que je ne pourrai pas repasser à Essentielle avant ${D.annee+1} si je reviens à Confort.</label>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn--primary">Confirmer le changement de formule</button>
+      <button type="button" class="btn btn--secondary" data-action="keep-confort">Annuler, garder Confort</button>
+    </div>
+  </form>
+`);
+};
+
+R.m3 = () => shell([["Mon contrat santé","contrat"],["Changer de formule","m1"]], `
+  <div class="done">
+    <h1 tabindex="-1">${ICON_OK}<span>Votre changement de formule est enregistré</span></h1>
+    <p class="big">Formule Essentielle à partir du ${date(D.effetModif)}</p>
+    <p>Une confirmation vous est envoyée par e-mail à <strong>${esc(ADHERENT.email)}</strong>.</p>
+  </div>
+  <section class="card" aria-labelledby="m3-n">
+    <h2 id="m3-n">La suite</h2>
+    <ol class="next">
+      <li>Jusqu’au ${dateTxt(new Date(D.effetModif.getFullYear(), D.effetModif.getMonth(), 0))}, vous gardez la formule Confort et ses garanties. La cotisation de ${MOIS(D.jour)} reste de ${euro(total("confort"))}.</li>
+      <li>À partir du ${date(D.effetModif)}, Léo et vous êtes couverts par la formule Essentielle.</li>
+      <li>Le ${date(D.prelevNouveau)}, ${euro(total("essentielle"))} seront prélevés sur le compte se terminant par ${ADHERENT.compte}, puis chaque mois.</li>
+    </ol>
+  </section>
+  <p>Vous voulez revenir sur ce changement avant le ${date(D.effetModif)} ? Contactez le service adhérents au <a href="${MUTUELLE.telHref}">${MUTUELLE.tel}</a>.</p>
+  <div class="actions"><a class="btn btn--primary" href="#contrat" data-go="contrat">Retour à mon contrat</a></div>
+`);
+
+R.mbloque = () => shell([["Mon contrat santé","contrat"],["Changer de formule","m1"]], `
+  <a class="back" href="#contrat" data-go="contrat">Mon contrat santé</a>
+  <h1 tabindex="-1">Changer de formule</h1>
+  <div class="note note--warn" role="status">
+    <h2>Ce changement n’est pas possible en ligne pour le moment</h2>
+    <p>Votre passage de Confort à Essentielle a déjà eu lieu en ${D.annee}. Ce passage n’est possible qu’une fois par année civile.</p>
+    <p>Vous pourrez de nouveau le demander à partir du <strong>1<sup>er</sup>&nbsp;janvier&nbsp;${D.annee+1}</strong>. Il prendra alors effet le 1<sup>er</sup> du mois suivant votre demande.</p>
+  </div>
+  <p>Vous gardez la formule Confort et ses garanties. Pour en parler, le service adhérents vous répond ${MUTUELLE.horaires} au <a href="${MUTUELLE.telHref}">${MUTUELLE.tel}</a>.</p>
+  ${cmpTable()}
+  <div class="actions"><a class="btn btn--primary" href="#contrat" data-go="contrat">Retour à mon contrat</a></div>
+`);
+
+R.r1 = () => shell([["Mon contrat santé","contrat"],["Résilier mon contrat","r1"]], `
+  <a class="back" href="#contrat" data-go="contrat">Mon contrat santé</a>
+  <p class="eyebrow">Résilier mon contrat · Étape 1 sur 3</p>
+  ${steps(RESIL_STEPS, 0)}
+  <h1 tabindex="-1">Résilier mon contrat santé</h1>
+  <p class="lead">Votre adhésion date du ${date(ADHERENT.depuis)}, il y a plus d’un an : vous pouvez résilier à tout moment.</p>
+
+  <section class="card" aria-labelledby="r1-a">
+    <h2 id="r1-a">Ce qu’il faut savoir</h2>
+    <ul class="facts">
+      <li>Votre contrat prend fin <strong>un mois après la réception de votre demande</strong>. Si vous l’envoyez aujourd’hui : le <strong>${date(D.effetResil)}</strong>.</li>
+      <li>Jusqu’à cette date, Léo et vous restez couverts et les cotisations restent dues.</li>
+      <li>La résiliation concerne <strong>les deux personnes couvertes</strong> : ${ADHERENT.nom} et ${ADHERENT.enfant}.</li>
+      <li><strong>Aucuns frais, aucune pénalité.</strong></li>
+      <li>Aucun justificatif de nouvelle mutuelle ne vous est demandé.</li>
+      <li>Avant l’envoi, vous pourrez vérifier votre demande, puis la confirmer ou l’annuler.</li>
+    </ul>
+  </section>
+
+  <aside class="note" aria-labelledby="r1-alt">
+    <h2 id="r1-alt">Vous cherchez surtout à payer moins ?</h2>
+    <p>Sans résilier, la formule Essentielle coûterait ${euro(total("essentielle"))} par mois pour Léo et vous, au lieu de ${euro(total("confort"))}. Ses garanties sont moins élevées.</p>
+    <p><a href="#m1" data-action="alt-modif">Comparer les formules</a> <span class="down" style="display:inline">(vous pourrez revenir à votre résiliation)</span></p>
+  </aside>
+
+  <div class="actions">
+    <a class="btn btn--primary" href="#r2" data-go="r2">Continuer la résiliation</a>
+    <a class="btn btn--secondary" href="#contrat" data-action="cancel-resil-early">Ne pas résilier</a>
+  </div>
+`);
+
+R.r2 = () => {
+  const other = S.reason === "autre";
+  return shell([["Mon contrat santé","contrat"],["Résilier mon contrat","r1"]], `
+  <a class="back" href="#r1" data-go="r1">Étape précédente</a>
+  <p class="eyebrow">Résilier mon contrat · Étape 2 sur 3</p>
+  ${steps(RESIL_STEPS, 1)}
+  <h1 tabindex="-1">Pourquoi nous quittez-vous ?</h1>
+  <p class="lead">Cette question est <strong>facultative</strong>. Votre réponse nous aide à améliorer nos offres et ne change rien à votre demande.</p>
+  <form id="f-avis" novalidate>
+    <fieldset>
+      <legend class="legend">Raison principale <span style="font-weight:400">(facultatif)</span></legend>
+      ${Object.entries(RAISONS).map(([k,v]) => `
+        <label class="choice"><input type="radio" name="reason" value="${k}" ${S.reason === k ? "checked" : ""}${k === "autre" ? ' aria-controls="autre-wrap"' : ""}><span>${v}</span></label>
+        ${k === "autre" ? `<div class="reveal" id="autre-wrap" ${other ? "" : "hidden"}>
+          <div class="field" style="margin:4px 0 0">
+            <label for="other">Précisez si vous le souhaitez <span style="font-weight:400">(facultatif)</span></label>
+            <textarea id="other" name="other" maxlength="300" aria-describedby="other-count">${esc(S.reasonOther)}</textarea>
+            <p class="count" id="other-count" aria-live="polite">${300 - S.reasonOther.length} caractères restants</p>
+          </div></div>` : ""}`).join("")}
+    </fieldset>
+    <div class="actions">
+      <button type="submit" class="btn btn--primary">Continuer</button>
+      <button type="button" class="btn btn--secondary" data-action="skip-avis">Passer cette question</button>
+    </div>
+  </form>
+`);
+};
+
+R.r3 = () => {
+  const err = S.errors.email;
+  const raison = S.reason ? RAISONS[S.reason] + (S.reason === "autre" && S.reasonOther.trim() ? ` <span class="sub">« ${esc(S.reasonOther.trim())} »</span>` : "") : `Non renseignée`;
+  return shell([["Mon contrat santé","contrat"],["Résilier mon contrat","r1"]], `
+  <a class="back" href="#r2" data-go="r2">Étape précédente</a>
+  <p class="eyebrow">Résilier mon contrat · Étape 3 sur 3</p>
+  ${steps(RESIL_STEPS, 2)}
+  ${errorSummary()}
+  <h1 tabindex="-1">Vérifier et confirmer votre résiliation</h1>
+  <p class="lead">Votre demande <strong>n’est pas encore envoyée</strong>.</p>
+
+  <section class="card" aria-labelledby="r3-a">
+    <h2 id="r3-a">Votre demande</h2>
+    <dl class="sum">
+      <div><dt>Contrat</dt><dd>Contrat santé, formule Confort<span class="sub">N° d’adhérent ${ADHERENT.numero}</span></dd></div>
+      <div><dt>Personnes concernées</dt><dd>${ADHERENT.nom}, ${ADHERENT.enfant}</dd></div>
+      <div><dt>Date de la demande</dt><dd>${date(D.jour)}</dd></div>
+      <div><dt>Fin du contrat</dt><dd>${date(D.effetResil)}<span class="sub">Vous restez couverts jusqu’à cette date</span></dd></div>
+      <div><dt>Frais</dt><dd>Aucun</dd></div>
+      <div><dt>Raison du départ</dt><dd>${raison} <a href="#r2" data-go="r2">Modifier<span class="vh"> la raison du départ</span></a></dd></div>
+    </dl>
+  </section>
+
+  <form id="f-resil" novalidate>
+    <div class="field${err ? " field--err" : ""}">
+      <label for="email">Adresse e-mail pour l’accusé de réception</label>
+      <span class="hint" id="email-hint">Nous y enverrons l’accusé de réception avec la date de fin de votre contrat.</span>
+      ${err ? `<p class="errmsg" id="email-err"><span class="vh">Erreur :</span> ${err}</p>` : ""}
+      <input type="email" id="email" name="email" autocomplete="email" spellcheck="false" value="${esc(S.email)}" aria-describedby="email-hint${err ? " email-err" : ""}"${err ? ' aria-invalid="true"' : ""}>
+    </div>
+
+    <div class="decision">
+      <h2>Confirmez-vous la résiliation de votre contrat ?</h2>
+      <p>En confirmant, votre demande est envoyée et votre contrat prendra fin le ${date(D.effetResil)}. En annulant, rien n’est envoyé et votre contrat continue.</p>
+      <div class="actions">
+        <button type="submit" class="btn btn--primary">Confirmer et envoyer la résiliation</button>
+        <button type="button" class="btn btn--secondary" data-action="cancel-resil">Annuler la résiliation</button>
+      </div>
+    </div>
+  </form>
+`);
+};
+
+R.r4 = () => shell([["Mon contrat santé","contrat"],["Résilier mon contrat","r1"]], `
+  <div class="done">
+    <h1 tabindex="-1">${ICON_OK}<span>Votre demande de résiliation est envoyée</span></h1>
+    <p class="big">Votre contrat prend fin le ${date(D.effetResil)}</p>
+    <p>Reçue le ${date(D.jour)} · Référence <span class="ref">${REF}</span></p>
+  </div>
+  <section class="card" aria-labelledby="r4-a">
+    <h2 id="r4-a">Accusé de réception</h2>
+    <p>Un accusé de réception vient d’être envoyé à <strong>${esc(S.email)}</strong>. Il indique la date de fin de votre contrat.</p>
+    <p>Vous ne le trouvez pas ? Pensez à regarder dans vos courriers indésirables, ou contactez le service adhérents.</p>
+  </section>
+  <section class="card" aria-labelledby="r4-b">
+    <h2 id="r4-b">La suite</h2>
+    <ol class="next">
+      <li>Jusqu’au ${date(D.effetResil)}, Léo et vous restez couverts. Vos soins continuent d’être remboursés normalement et les cotisations restent dues jusqu’à cette date.</li>
+      <li>Aucuns frais ni pénalité ne vous seront demandés.</li>
+      <li>Vous n’avez rien d’autre à faire.</li>
+    </ol>
+  </section>
+  <p>Une question sur votre résiliation ? Le service adhérents vous répond au <a href="${MUTUELLE.telHref}">${MUTUELLE.tel}</a>, ${MUTUELLE.horaires}.</p>
+  <div class="actions">
+    <a class="btn btn--primary" href="#contrat" data-go="contrat">Retour à mon espace</a>
+    <button type="button" class="btn btn--secondary no-print" data-action="print">Imprimer cette page</button>
+  </div>
+`);
+
+R.rannul = () => shell([["Mon contrat santé","contrat"],["Résilier mon contrat","r1"]], `
+  <div class="done">
+    <h1 tabindex="-1">${ICON_OK}<span>Vous avez annulé la résiliation</span></h1>
+    <p class="big">Votre contrat continue</p>
+    <p>Aucune demande n’a été envoyée. Votre formule Confort, vos garanties et vos prélèvements restent les mêmes.</p>
+  </div>
+  <p>Vous pourrez résilier plus tard, à tout moment, depuis la page « Mon contrat santé ».</p>
+  <div class="actions"><a class="btn btn--primary" href="#contrat" data-go="contrat">Retour à mon contrat</a></div>
+`);
+
+const TITLES = {
+  contrat:"Mon contrat santé", m1:"Étape 1 sur 2 · Comparer les formules · Changer de formule",
+  m2:"Étape 2 sur 2 · Vérifier et confirmer · Changer de formule", m3:"Changement de formule enregistré",
+  mbloque:"Changer de formule", r1:"Étape 1 sur 3 · Ce qu’il faut savoir · Résilier",
+  r2:"Étape 2 sur 3 · Votre avis · Résilier", r3:"Étape 3 sur 3 · Vérifier et confirmer · Résilier",
+  r4:"Résiliation envoyée", rannul:"Résiliation annulée"
+};
+
+/* ==========================================================
+   Moteur : rendu, navigation, événements
+   ========================================================== */
+const app = document.getElementById("app");
+const jump = document.getElementById("jump");
+let current = "contrat";
+let pendingFocus = null;
+
+function fillJump(){
+  const groups = [...new Set(SCREENS.map(s => s.group))];
+  jump.innerHTML = `<option value="planche">Planche : tous les écrans</option>` + groups.map(g =>
+    `<optgroup label="${g}">${SCREENS.filter(s => s.group === g).map(s => `<option value="${s.id}">${s.label}</option>`).join("")}</optgroup>`).join("");
+}
+
+function render(id, focus){
+  if (id === "planche") return renderBoard();
+  let entry = byId(id) || byId("contrat");
+  // Une demande déjà envoyée ne peut pas être renvoyée avec le bouton « Retour » du navigateur
+  if ((S.resilDone && ["r1","r2","r3"].includes(entry.screen)) || (S.modifDone && ["m1","m2"].includes(entry.screen))) entry = byId("contrat");
+  current = entry.id;
+  const scr = entry.screen;
+  app.innerHTML = R[scr]();
+  const hasErr = Object.keys(S.errors).length > 0;
+  document.title = (hasErr ? "Erreur : " : "") + TITLES[scr] + " – " + MUTUELLE.nom;
+  jump.value = entry.id;
+  if (focus) {
+    const el = hasErr ? document.getElementById("errsum") : app.querySelector("h1");
+    if (el) { el.focus(); if (!hasErr) window.scrollTo(0,0); }
+  }
+}
+
+function renderBoard(){
+  current = "planche";
+  jump.value = "planche";
+  document.title = "Planche des écrans – Modifier ou résilier – " + MUTUELLE.nom;
+  const saved = S;
+  let html = `<div class="board"><h1 tabindex="-1">Modifier ou résilier son contrat santé : tous les écrans</h1>
+    <p class="board__intro">Chaque écran est présenté dans l’état indiqué. Dates calculées pour une demande faite le ${dateTxt(D.jour)}. Cliquez sur « Ouvrir dans le prototype » pour manipuler un écran.</p>`;
+  let g = "";
+  SCREENS.forEach((s, i) => {
+    if (s.group !== g) { g = s.group; html += `<h2 class="board__group">${g}</h2>`; }
+    S = Object.assign(initial(), s.preset || {});
+    html += `<figure class="frame"><figcaption><b>${i+1}. ${s.label}</b>${s.note ? `<em>${s.note}</em>` : ""}<a href="#${s.id}" data-preset="${s.id}">Ouvrir dans le prototype</a></figcaption>
+      <div class="frame__screen" inert>${R[s.screen]()}</div></figure>`;
+  });
+  S = saved;
+  app.innerHTML = html + `</div>`;
+  app.querySelectorAll(".frame__screen [id]").forEach(el => el.removeAttribute("id"));
+  window.scrollTo(0,0);
+}
+
+function go(id, opts){
+  opts = opts || {};
+  if (!opts.keepErrors) S.errors = {};
+  if (id !== "contrat") S.toast = "";
+  if (location.hash.slice(1) === id) { render(id, true); return; }
+  pendingFocus = true;
+  if (opts.replace) location.replace("#" + id); else location.hash = id;
+}
+
+function applyPreset(id){
+  const e = byId(id);
+  S = Object.assign(initial(), (e && e.preset) || {});
+}
+
+window.addEventListener("hashchange", () => {
+  const id = location.hash.slice(1) || "contrat";
+  render(id, true);
+  pendingFocus = null;
+});
+
+jump.addEventListener("change", () => {
+  const id = jump.value;
+  if (id !== "planche") applyPreset(id);
+  if (location.hash.slice(1) === id) render(id, true);
+  else location.hash = id;
+});
+
+app.addEventListener("click", ev => {
+  const t = ev.target.closest("[data-go],[data-action],[data-focus],[data-preset]");
+  if (!t) return;
+  if (t.dataset.preset) { ev.preventDefault(); applyPreset(t.dataset.preset); go(t.dataset.preset); return; }
+  if (t.dataset.focus) { ev.preventDefault(); const f = document.getElementById(t.dataset.focus); if (f) { f.focus(); f.scrollIntoView({block:"center"}); } return; }
+  if (t.dataset.go) {
+    ev.preventDefault();
+    if (t.dataset.resetFrom) S.fromResil = false;
+    go(t.dataset.go);
+    return;
+  }
+  const a = t.dataset.action;
+  if (a === "keep-confort") {
+    S.ack = false;
+    S.toast = "Vous gardez la formule Confort. Aucune modification n’a été faite.";
+    go("contrat");
+  } else if (a === "alt-modif") {
+    ev.preventDefault(); S.fromResil = true; go("m1");
+  } else if (a === "cancel-resil-early") {
+    ev.preventDefault();
+    S.toast = "Votre contrat continue. Aucune demande de résiliation n’a été faite.";
+    go("contrat");
+  } else if (a === "skip-avis") {
+    S.reason = ""; S.reasonOther = ""; go("r3");
+  } else if (a === "cancel-resil") {
+    S.errors = {}; go("r-annulee", { replace:true });
+  } else if (a === "print") {
+    window.print();
+  }
+});
+
+app.addEventListener("change", ev => {
+  const t = ev.target;
+  if (t.name === "ack") S.ack = t.checked;
+  if (t.name === "reason") {
+    S.reason = t.value;
+    const w = document.getElementById("autre-wrap");
+    if (w) w.hidden = t.value !== "autre";
+  }
+});
+app.addEventListener("input", ev => {
+  const t = ev.target;
+  if (t.name === "other") {
+    S.reasonOther = t.value;
+    const c = document.getElementById("other-count");
+    if (c) c.textContent = (300 - t.value.length) + " caractères restants";
+  }
+  if (t.name === "email") S.email = t.value;
+});
+
+app.addEventListener("submit", ev => {
+  ev.preventDefault();
+  const f = ev.target;
+  if (f.id === "f-modif") {
+    if (!S.ack) { S.errors = { ack:"Cochez la case pour confirmer que vous avez compris ce qui change." }; render("m2", true); return; }
+    S.errors = {}; S.modifDone = true; S.fromResil = false;
+    go("m3", { replace:true });
+  }
+  if (f.id === "f-avis") {
+    if (S.reason !== "autre") S.reasonOther = "";
+    go("r3");
+  }
+  if (f.id === "f-resil") {
+    const v = S.email.trim();
+    S.email = v;
+    if (!v) S.errors = { email:"Indiquez l’adresse e-mail à laquelle envoyer l’accusé de réception." };
+    else if (!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[a-z]{2,}$/i.test(v)) S.errors = { email:"Cette adresse e-mail est incomplète. Vérifiez-la, par exemple nom@exemple.fr" };
+    else S.errors = {};
+    if (S.errors.email) { render("r3", true); return; }
+    S.resilDone = true;
+    go("r4", { replace:true });
+  }
+});
+
+/* Démarrage */
+fillJump();
+const start = location.hash.slice(1) || "contrat";
+if (start !== "planche") applyPreset(start);
+render(start, false);
+})();
+</script>
+</body>
+</html>

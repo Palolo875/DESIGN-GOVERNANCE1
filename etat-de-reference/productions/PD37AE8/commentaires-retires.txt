@@ -1,0 +1,4 @@
+--- index.html
+<!-- Emplacement de la photo d’archive (non fournie).
+             Remplacer le SVG et l’étiquette ci-dessous par :
+             <img src="pont-de-la-cle-1911.jpg" alt="Le pont de la Clé le jour de son inauguration, en 1911" width="1500" height="1000" loading="lazy"> -->
