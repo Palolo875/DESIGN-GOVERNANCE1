@@ -1340,4 +1340,5 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    import journal_mobilisation  # journal passif : n'écrit rien sans DG_JOURNAL
+    sys.exit(journal_mobilisation.executer("check_render", main, sys.argv[1:]))
