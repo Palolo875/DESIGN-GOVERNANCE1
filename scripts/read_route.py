@@ -1250,8 +1250,9 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
+    import journal_mobilisation  # journal passif : n'écrit rien sans DG_JOURNAL
     try:
-        code = main()
+        code = journal_mobilisation.executer("read_route", main, sys.argv[1:])
         sys.stdout.flush()
     except BrokenPipeError:  # sortie coupée par le lecteur (| head) : fin silencieuse
         os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
