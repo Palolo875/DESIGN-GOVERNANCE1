@@ -1,8 +1,6 @@
 # Notes de version — Design Governance V1.0.0
 
-**Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.
-**Usage recommandé :** pilote avec revue humaine.  
-**Révision livrée :** `R2026-10-21.2`, 21 octobre 2026.
+**Statut :** V1.0.0, révision `R2026-10-21.2` du 21 octobre 2026 ; une expérimentation maintenue, à utiliser en pilote avec revue humaine.
 
 ## Ce que permet la V1
 
@@ -10,7 +8,7 @@ Transformer une demande en proposition de design composée, crédible et observa
 
 L’agent lit un noyau commun (la skill, 30 440 octets UTF-8), classe le travail, lit le tronc de son mode puis charge les détails nécessaires au moment utile. Les sections propriétaires font foi à leur emplacement actuel ; guides et cartes les rendent plus faciles à trouver. La gouvernance sert le risque, la preuve, la décision et la reprise. Le langage visuel des documents n’impose aucun style aux productions des agents.
 
-Le savoir de fabrication arrive aussi au moment où il sert : trois cartes de moment (avant le build, après une capture, avant de proposer) et, sous les signaux des recettes, le geste lié du tableau de craft. Un registre local des choix rend visible d’un run à l’autre la répétition des polices et des palettes ; un spécimen compare des voix sur le vrai titre ; une planche demande à une personne une correction nommée sur la dernière finition. Ces ajouts sont à l’essai.
+Le savoir de fabrication arrive aussi au moment où il sert : trois cartes de moment (avant le build, après une capture, avant de proposer) et, sous les signaux des recettes, le geste lié du tableau de craft. Un registre local des choix rend visible d’un run à l’autre la répétition des polices et des palettes ; un spécimen compare des voix sur le vrai titre ; une planche demande à une personne une correction nommée sur la dernière finition. Leur statut d’essai est tenu dans [la fiche de version](maintenance/versions.md#sections-à-lessai).
 
 Le contenu détaillé du paquet est décrit dans [ce que contient le système](maintenance/versions.md).
 
@@ -32,8 +30,8 @@ Sans navigateur, les tests de pages restent non vérifiés ; l’option ci-dessu
 
 ## Ce que le validateur atteste
 
-Une `RUN_CARD` validée atteste la forme de la projection et les invariants de la liste close. Elle ne prouve ni la réalité des observations, ni la justesse des jugements, ni les droits et données, ni la qualité perceptuelle. La frontière exacte reste dans `ACTION/RUN_CARD`.
+Une validation du paquet ou d’une `RUN_CARD` confirme les contrôles exécutés et la forme de la trace ; la frontière exacte est dans `ACTION/RUN_CARD`.
 
 ## Limites de la V1
 
-**Efficacité : `NOT-VERIFIED`.** Aucune mesure comparative n’établit l’effet général du système sur la qualité, la variété ou le coût des rendus ; la portée exacte des contrôles est décrite dans [ce que contient le système](maintenance/versions.md#ce-qui-est-vérifié-ce-qui-ne-lest-pas). L’installation est vérifiée avec Claude Code et Codex ; les autres agents compatibles avec le format Agent Skills restent à vérifier.
+**Efficacité : `NOT-VERIFIED`.** Aucune mesure comparative n’établit l’effet du système ; le détail de ce qui est vérifié est dans [la fiche de version](maintenance/versions.md#ce-qui-est-vérifié-ce-qui-ne-lest-pas). L’installation est vérifiée avec Claude Code et Codex ; les autres agents compatibles avec le format Agent Skills restent à vérifier.

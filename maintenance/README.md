@@ -64,7 +64,7 @@ Les modifications doivent être apportées aux sources du dépôt, puis vérifi�
 <!-- origine:README.md -->
 ## Validation
 
-Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machine utilisent la bibliothèque standard Python. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus **Playwright et son navigateur Chromium** ; sans eux, ces tests restent `NOT-VERIFIED`. La recette de caractère (à l’essai) demande aussi **numpy et Pillow** ; sans eux, elle rend `NOT-VERIFIED`. La construction des archives de la distribution GitHub nécessite Bash, `zip` et les outils Unix utilisés par `scripts/build_distributions.sh` ; elle a été contrôlée sous Linux. <!-- références:github -->
+Utilisez Python **3.10 ou plus récent**. Les contrôles documentaires et machine utilisent la bibliothèque standard Python. La recette de rendu et les tests qui ouvrent des pages nécessitent en plus **Playwright et son navigateur Chromium** ; sans eux, ces tests restent `NOT-VERIFIED`. La recette de caractère demande aussi **numpy et Pillow** ; sans eux, elle rend `NOT-VERIFIED`. La construction des archives de la distribution GitHub nécessite Bash, `zip` et les outils Unix utilisés par `scripts/build_distributions.sh` ; elle a été contrôlée sous Linux. <!-- références:github -->
 
 Un Chromium déjà installé peut être choisi explicitement avec `--browser-executable CHEMIN` dans la recette, ou `DG_BROWSER_EXECUTABLE` pour la recette et ses tests. Sa version et son exécutable sont conservés dans la provenance ; ce choix ne remplace pas silencieusement le navigateur Playwright. Si la politique du navigateur interdit les fichiers locaux, `--serve-local` (ou `DG_RENDER_SERVE_LOCAL=1`) sert temporairement le dossier du fichier sur 127.0.0.1, puis ferme le serveur. Les autres origines restent bloquées par défaut.
 
@@ -88,13 +88,15 @@ La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`
 | `python3 gouvernance/outils/validate_contracts.py --type production_contracts chemin/contrat.json` | Valide un contrat ciblé, y compris hors du package ; sans `--type`, la famille est détectée par les clés racines. |
 | `python3 scripts/validate_reading_map.py` | Vérifie la carte de lecture, ses propriétaires, ses locators et sa frontière non normative. |
 | `python3 scripts/read_route.py --tronc MODE` | Affiche le tronc de la ligne d’un mode (routes lues à chaque run de ce mode), sa taille, sa marge et le respect du budget de 35 000 caractères ; signale une marge sous 10 % et rend le code 1 si le budget est dépassé. |
-| `DG_JOURNAL=run.jsonl python3 scripts/read_route.py …`, puis `python3 scripts/journal_mobilisation.py run.jsonl` | Journal de mobilisation, à l’essai : la variable `DG_JOURNAL` fait noter au lecteur de routes, à `check_render.py` et à `check_caractere.py` ce qu’ils ont servi ; le second script en tire une fiche de mobilisation (lectures, appels, résultats, tronc non consulté). Sans la variable, rien n’est écrit ; un journal impossible à écrire ne bloque aucun outil. Le journal observe des lectures et des appels, pas l’attention de l’agent. |
-| `python3 scripts/read_route.py --moment avant`, `regard` ou `sortie` | Carte d’un moment du run, à l’essai : routes existantes rangées au moment utile par la table « Cartes de moment » de `DIRECTION/CHARGE`, servies à la suite ; la fiche de mobilisation signale une carte sautée en `DIRECTION`. |
-| `python3 scripts/registre_choix.py page.html --registre choix.jsonl`, `python3 scripts/specimen.py`, `python3 scripts/planche.py` | Outils du regard, à l’essai : registre local des choix et convergence d’un run à l’autre ; spécimen du vrai titre dans plusieurs voix ; planche de correction humaine nommée. Navigateur requis ; sans lui, `NOT-VERIFIED` et rien n’est écrit. |
+| `DG_JOURNAL=run.jsonl python3 scripts/read_route.py …`, puis `python3 scripts/journal_mobilisation.py run.jsonl` | Journal de mobilisation : la variable `DG_JOURNAL` fait noter au lecteur de routes, à `check_render.py` et à `check_caractere.py` ce qu’ils ont servi ; le second script en tire une fiche de mobilisation (lectures, appels, résultats, tronc non consulté). Sans la variable, rien n’est écrit ; un journal impossible à écrire ne bloque aucun outil. Le journal observe des lectures et des appels, pas l’attention de l’agent. |
+| `python3 scripts/read_route.py --moment avant`, `regard` ou `sortie` | Carte d’un moment du run : routes existantes rangées au moment utile par la table « Cartes de moment » de `DIRECTION/CHARGE`, servies à la suite ; la fiche de mobilisation signale une carte sautée en `DIRECTION`. |
+| `python3 scripts/registre_choix.py page.html --registre choix.jsonl`, `python3 scripts/specimen.py`, `python3 scripts/planche.py` | Outils du regard : registre local des choix et convergence d’un run à l’autre ; spécimen du vrai titre dans plusieurs voix ; planche de correction humaine nommée. Navigateur requis ; sans lui, `NOT-VERIFIED` et rien n’est écrit. |
 | `python3 scripts/read_route.py --connexions` | Affiche le sommaire des connexions situées ; ajouter un identifiant comme `C03` pour lire condition, contributions, limites et sources résolues. |
 | `python3 scripts/test_audit_regressions.py` | Exécute les régressions de navigation, de capacités et de conditions de façade ; ne mesure ni la compréhension utilisateur ni la qualité esthétique. |
 | `python3 scripts/validate_all.py` | Exécute les contrôles documentaires, machine, CLI, fixtures négatives, compilation et reproductibilité des distributions. |
 | `python3 scripts/validate_all.py --lecture-seule` | Exécute les mêmes contrôles sans construire ni remplacer les distributions : `dist/`, `.build/` et les archives ne sont pas touchés (le runner le vérifie). Des caches Python et des copies temporaires de test peuvent être écrits ailleurs. Build et reproductibilité restent `NOT-VERIFIED`. |
+
+Le statut d’essai de ces outils est tenu dans [la fiche de version](versions.md#sections-à-lessai).
 
 Les chemins `exemple: chemin/run.json` et `exemple: chemin/contrat.json` sont des exemples à remplacer par ceux de vos fichiers. Pour exécuter les contrôles intégrés du package :
 
@@ -104,9 +106,7 @@ python3 gouvernance/outils/validate_run_card.py
 python3 scripts/validate_all.py
 ```
 
-Ces contrôles vérifient la forme du package, de ses projections et de ses distributions, ainsi que la liste close des conditions de façade ; une divergence hors de cette liste n’est pas détectée. Ils ne remplacent ni l’observation d’un rendu, ni un test utilisateur, ni une vérification d’accessibilité exécutée, ni une mesure de performance, ni une preuve d’adoption. Une projection `RUN_CARD` valide reste une trace structurée ; elle ne transforme pas une cible de conformité, une capture ou une validation CLI en preuve de résultat.
-
-Une `RUN_CARD` validée atteste la forme de la projection et les invariants de la liste close ; elle n’atteste ni la réalité des observations, ni la justesse des jugements, ni la qualité perceptuelle. La liste exacte vit en un seul lieu : la frontière de validation d’`ACTION/RUN_CARD`.
+Ces contrôles vérifient la forme du package, de ses projections et de ses distributions, ainsi que la liste close des conditions de façade ; une divergence hors de cette liste n’est pas détectée. Ils ne remplacent ni l’observation d’un rendu, ni un test utilisateur, ni une vérification d’accessibilité exécutée, ni une mesure de performance, ni une preuve d’adoption. Ce qu’atteste une `RUN_CARD` validée est fixé en un seul lieu : la frontière de validation d’`ACTION/RUN_CARD`.
 
 <!-- origine:READING_MAP.md -->
 ## Résolution des routes

@@ -124,7 +124,7 @@ cp -R chemin/vers/ce/dossier .claude/skills/design-governance-practice
 
 Pour mettre à jour, remplacez le dossier installé par le nouvel export complet, sans fusionner les deux versions.""",
     "titre-contenu": "## Ce que contient le paquet",
-    "outils": "Lecteur de routes, recette de rendu dans un navigateur, compilation du noyau et contrôles du paquet ; chaque commande est décrite dans [la validation](maintenance/README.md#validation).",
+    "outils": "Lecteur de routes et cartes de moment, recettes de rendu et de caractère dans un navigateur avec les gestes liés, outils du regard (registre des choix, spécimen, planche), journal de mobilisation, compilation du noyau et contrôles du paquet ; chaque commande est décrite dans [la validation](maintenance/README.md#validation).",
     "limite-ci": "Les contrôles inclus (`python3 scripts/validate_all.py`, voir les [notes de version](RELEASE_NOTES.md#contrôles-inclus)) attestent la cohérence du paquet, pas cette efficacité.",
 }
 pattern = re.compile(r"<!-- github:début ([a-z-]+) -->\n?(.*?)\n?<!-- github:fin \1 -->", re.S)

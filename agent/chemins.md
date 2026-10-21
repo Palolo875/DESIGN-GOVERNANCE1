@@ -202,7 +202,7 @@ Aucun détail n’est considéré lu parce qu’il porte un marqueur « noyau »
 
 ### Cartes de moment
 
-Quand la décision visuelle est ouverte (`DIRECTION`, ou `STANDARD` sur une surface nouvelle), trois moments du run servent chacun une carte : `python3 scripts/read_route.py --moment MOMENT`. Une carte réunit des routes qui existent déjà, servies à la suite, blocs du noyau repliés : elle ne crée ni règle, ni gate, ni seconde liste de chargement, et range au moment utile des détails que la ligne du mode active « selon le signal ». Elle remplace l’attente d’un signal que l’agent doit reconnaître seul par un rendez-vous fixe ; les lectures restent jugées sur leur conséquence. Statut `PILOT` : gain à observer sur l’état de référence (lectures des routes du regard, réserves de Gate C restantes), revue avant 2027-04.
+Quand la décision visuelle est ouverte (`DIRECTION`, ou `STANDARD` sur une surface nouvelle), trois moments du run servent chacun une carte : `python3 scripts/read_route.py --moment MOMENT`. Une carte réunit des routes qui existent déjà, servies à la suite, blocs du noyau repliés : elle ne crée ni règle, ni gate, ni seconde liste de chargement, et range au moment utile des détails que la ligne du mode active « selon le signal ». Elle remplace l’attente d’un signal que l’agent doit reconnaître seul par un rendez-vous fixe ; les lectures restent jugées sur leur conséquence. Statut `PILOT` : gain à observer sur des runs comparés avec et sans les cartes (lectures des routes du regard, réserves de Gate C restantes), revue avant 2027-04.
 
 | Moment | Quand | Routes servies |
 |---|---|---|

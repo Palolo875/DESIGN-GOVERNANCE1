@@ -7,5 +7,5 @@ Cadrer le produit et son public, choisir une direction, viser un premier objet, 
 | [`cadrer.md`](cadrer.md) | Cadrer une demande, y compris vague, et le domaine du produit |
 | [`diriger.md`](diriger.md) | Lancement créatif, cible visuelle et atelier de direction |
 | [`premier-objet.md`](premier-objet.md) | Le premier objet : ce que la première proposition doit rendre tangible |
-| [`boucle.md`](boucle.md) | Créer puis apprendre : observer, corriger, comparer, décider |
+| [`boucle.md`](boucle.md) | Créer puis apprendre : observer, corriger, comparer, décider ; regard humain sur la dernière finition |
 | [`standard.md`](standard.md) | Les cinq règles essentielles (les absolus) et les invariants de jugement |

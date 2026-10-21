@@ -1,11 +1,11 @@
 # Cartes du système
 
-Trois vues pour comprendre Design Governance V1 expérimentale. Elles orientent vers les sections propriétaires, qui font foi ; elles ne créent aucune règle ni nouvelle route pour l’agent.
+Trois vues pour comprendre Design Governance V1. Elles orientent vers les sections propriétaires, qui font foi ; elles ne créent aucune règle ni nouvelle route pour l’agent.
 
 | Vue | Lecture sur GitHub | SVG | Page interactive à ouvrir après extraction |
 |---|---|---|---|
 | Responsabilités et entrées | [Carte du système](systeme.md) | [Clair](systeme-clair.svg) · [Sombre](systeme-sombre.svg) | [HTML](index.html) |
-| De la demande à la sortie | [Parcours d’un travail](parcours.md) | [Clair](parcours-clair.svg) · [Sombre](parcours-sombre.svg) | [HTML](parcours.html) |
+| De la demande à la livraison | [Parcours d’un travail](parcours.md) | [Clair](parcours-clair.svg) · [Sombre](parcours-sombre.svg) | [HTML](parcours.html) |
 | Observer, modifier et décider | [Créer puis apprendre](boucle.md) | [Clair](boucle-clair.svg) · [Sombre](boucle-sombre.svg) | [HTML](boucle.html) |
 
 Sur GitHub, les textes Markdown sont directement lisibles ; les liens HTML ouvrent le code source. Les pages interactives se consultent après extraction du paquet. Chaque page garde le contexte lorsque vous choisissez un public ou une étape. Sur petit écran, les responsabilités se recomposent en texte lisible. Le thème clair/sombre et l’export de la sélection demandent JavaScript ; les cartes, textes et liens restent disponibles sans script. Les SVG embarquent une version WOFF2 de Manrope réduite aux caractères des supports, sous licence OFL, et gardent du texte sélectionnable. Les images des documents choisissent leur variante selon le thème clair ou sombre du lecteur.
@@ -34,4 +34,4 @@ La police source, la licence, les versions des outils et le relevé de couvertur
 
 Le contrôle refuse une sortie périmée ou une cible absente. Il ne juge ni la lisibilité du rendu ni la compréhension par une personne.
 
-Le langage documentaire retenu sert ces supports. Il n’impose ni Manrope, ni ces couleurs, ni une structure aux productions que le système aide à créer. La V1 reste expérimentale.
+Le langage documentaire retenu sert ces supports. Il n’impose ni Manrope, ni ces couleurs, ni une structure aux productions que le système aide à créer.

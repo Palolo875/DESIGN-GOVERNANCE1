@@ -5,9 +5,9 @@ Tout ce qui sert à décider, savoir, construire et finir un design de qualité 
 | Dossier | Ce qu’on y trouve |
 |---|---|
 | [`direction/`](direction/README.md) | Décider ce que la page doit être : [cadrer](direction/cadrer.md), [diriger](direction/diriger.md), [premier objet](direction/premier-objet.md), [la boucle](direction/boucle.md), [le standard](direction/standard.md) |
-| [`savoir/`](savoir/README.md) | Le savoir de référence : fondements, qualité créative, typographie, composition, images, styles, contexte, techniques, goût |
-| [`formes/`](formes/README.md) | Les structures : choisir une structure, catalogue des formes |
-| [`produit/`](produit/README.md) | Ce qui fait un vrai produit : premier rendu, plancher, finition, preuve visuelle, interface |
+| [`savoir/`](savoir/README.md) | Le savoir de référence : [fondements](savoir/fondements.md), [qualité créative](savoir/qualite-creative.md), [typographie](savoir/typographie.md), [composition](savoir/composition.md), [images et sources](savoir/images-et-sources.md), [styles](savoir/styles.md), [système de design](savoir/systeme-de-design.md), [contexte](savoir/contexte.md), [techniques](savoir/techniques.md), [goût et tendances](savoir/gout-et-tendances.md), [connexions](savoir/connexions.md) |
+| [`formes/`](formes/README.md) | Les structures : [choisir une structure](formes/choisir.md), [catalogue des formes](formes/catalogue.md) |
+| [`produit/`](produit/README.md) | Ce qui fait un vrai produit : [premier rendu](produit/premier-rendu.md), [plancher](produit/plancher.md), [finition](produit/finition.md), [preuve visuelle](produit/preuve-visuelle.md), [interface](produit/interface.md) |
 
 Chaque section se lit par son adresse lisible (`savoir/couleur`) ou par son code stable (`SAVOIR/CRAFT/CFT-05`) ; les deux désignent la même section.
 
@@ -22,7 +22,7 @@ Le système fait travailler deux boucles qui se répondent : l’une crée, l’
   </picture>
 </a>
 
-[Lire le parcours](../supports/boucle.md) · [Tous les supports](../supports/README.md).
+[Lire la boucle en texte](../supports/boucle.md) · [Tous les supports](../supports/README.md).
 
 | Créer | Observer et corriger |
 |---|---|
@@ -34,6 +34,6 @@ Le système fait travailler deux boucles qui se répondent : l’une crée, l’
 
 La seconde boucle ne se résume pas à une critique écrite. Quand une décision créative est en jeu, elle suit la boucle d’édition : observer le rendu, nommer le défaut principal, modifier l’artefact, comparer, décider (voir [la boucle](direction/boucle.md)).
 
-Pour les défauts de finesse, la route `savoir/composition#jugement-visuel`, activée par la skill, relie chaque symptôme à un geste possible (bord éclairé, alignement optique, chiffres stables, recadrage, regroupement) et à ce qu’il faut regarder de nouveau. Ces gestes se déclenchent selon le cas ; ils ne s’appliquent pas à tous les rendus. Les [formes](formes/README.md) relient de même une intention à un levier de construction et à son effet attendu : proportions, distances, typographie, cadrage, états. Ce n’est ni un catalogue de styles, ni une bibliothèque de composants prêts à l’emploi.
+Pour les défauts de finesse, la route `savoir/composition#jugement-visuel`, activée par la skill, relie chaque symptôme à un geste possible (bord éclairé, alignement optique, chiffres stables, recadrage, regroupement) et à ce qu’il faut regarder de nouveau. Ces gestes se déclenchent selon le cas ; ils ne s’appliquent pas à tous les rendus. Les recettes de rendu et de caractère servent le geste lié sous leurs signaux, et `python3 scripts/read_route.py --moment regard` sert le tableau entier après une capture. Les [formes](formes/README.md) relient de même une intention à un levier de construction et à son effet attendu : proportions, distances, typographie, cadrage, états. Ce n’est ni un catalogue de styles, ni une bibliothèque de composants prêts à l’emploi.
 
-La trace dit ce qui a changé, ce qui n’a pas été vérifié et ce qui vient ensuite. Une preuve technique ne vaut pas jugement esthétique ; une intention créative ne cache pas une preuve d’usage ou d’accessibilité manquante. L’effet de ces gestes sur des travaux réels reste à mesurer.
+La trace dit ce qui a changé, ce qui n’a pas été vérifié et ce qui vient ensuite. Une preuve technique ne vaut pas jugement esthétique ; une intention créative ne cache pas une preuve d’usage ou d’accessibilité manquante.

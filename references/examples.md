@@ -48,6 +48,8 @@ DÉFAUT DOMINANT RESTANT: aucun bloquant ; [défaut vu sur la capture mobile], c
 PROCHAINE PREUVE: vrais tarifs, horaires et numéro intégrés, puis capture mobile
 ```
 
+Les rendez-vous de lecture du run ne s’écrivent pas dans la trace : `--moment avant` avant le build, `--moment regard` après la capture mobile qui a ouvert la correction, `--moment sortie` avant de proposer.
+
 ## DIRECTION — première scène identitaire
 
 **Demande :** créer une première scène mémorable pour [un service au domaine précis], sans page générique.
