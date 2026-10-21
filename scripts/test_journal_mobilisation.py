@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Tests du journal de mobilisation : passif sans DG_JOURNAL, fidèle avec, jamais bloquant."""
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -82,6 +83,16 @@ class Journal(unittest.TestCase):
         self.assertIn("ligne du mode ITER", texte)
         self.assertIn("Tronc ITER non consulté", texte)
         self.assertEqual(jm.option(["--tronc=DIRECTION"], "--tronc"), "DIRECTION")
+
+    def test_appel_avec_parametres_et_expressions(self):
+        cmd = ["index.html?date=2026-12-01", "--widths", "1440", "--assert", "a || b", "--assert", "c", "--click=#go"]
+        e = [{"outil": "check_render", "commande": cmd, "code": 0, "non_verifie": False, "resultats": {"PASS": ["x"]}}]
+        ligne = [l for l in jm.fiche(e).splitlines() if l.startswith("| 1 |")][0]
+        self.assertIn("`index.html` ?date=2026-12-01", ligne)
+        self.assertIn("--assert ×2", ligne)
+        self.assertIn("--click", ligne)
+        self.assertNotIn("a || b", ligne)
+        self.assertEqual(len(re.split(r"(?<!\\)\|", ligne)), 8)  # six cellules, aucune cassée par un « | »
 
     def test_journal_absent(self):
         self.assertEqual(jm.main(["/chemin/inexistant.jsonl"]), 2)

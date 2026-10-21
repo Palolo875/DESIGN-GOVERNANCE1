@@ -133,6 +133,28 @@ def niveau_outil(e: dict) -> str:
     return "exécuté : " + " ; ".join(f"{k} — {', '.join(v)}" for k, v in utiles.items())
 
 
+def cellule(texte: str) -> str:
+    """Texte sûr dans une cellule de tableau Markdown."""
+    return texte.replace("|", "\\|").replace("\n", " ")
+
+
+def decrire_appel(cmd: list[str]) -> str:
+    """Page observée (sans ses paramètres d'URL) et options employées, sans recopier les expressions."""
+    page = next((c for c in cmd if ".html" in c and not c.startswith("-")), None)
+    if page is None:
+        return cellule(f"({' '.join(cmd)[:60]})")
+    base, _, requete = page.partition("?")
+    nom = f"`{Path(base).name}`" + (f" ?{cellule(requete[:40])}" if requete else "")
+    options: dict[str, int] = {}
+    for c in cmd:
+        if c.startswith("--"):
+            cle = c.split("=", 1)[0]
+            options[cle] = options.get(cle, 0) + 1
+    if options:
+        nom += " (" + ", ".join(k + (f" ×{n}" if n > 1 else "") for k, n in options.items()) + ")"
+    return "sur " + nom
+
+
 def fiche(entrees: list[dict]) -> str:
     lignes = ["# Fiche de mobilisation", "",
               "Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; "
@@ -160,8 +182,7 @@ def fiche(entrees: list[dict]) -> str:
                 else:
                     lignes.append(f"| {i} | {heure} | read_route {' '.join(cmd)} | code {e.get('code')}, rien servi | | |")
         else:
-            cible = next((c for c in cmd if c.endswith(".html")), " ".join(cmd))
-            lignes.append(f"| {i} | {heure} | {e.get('outil')} sur `{Path(cible).name}` | {niveau_outil(e)} | | |")
+            lignes.append(f"| {i} | {heure} | {e.get('outil')} {decrire_appel(cmd)} | {cellule(niveau_outil(e))} | | |")
     manques = []
     if modes:
         sys.path.insert(0, str(Path(__file__).resolve().parent))
