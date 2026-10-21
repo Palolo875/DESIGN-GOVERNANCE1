@@ -2,13 +2,15 @@
 
 **Statut expérimental :** Design Governance V1.0.0 est une expérimentation maintenue.
 **Usage recommandé :** pilote avec revue humaine.  
-**Révision livrée :** `R2026-10-21`, 21 octobre 2026.
+**Révision livrée :** `R2026-10-21.2`, 21 octobre 2026.
 
 ## Ce que permet la V1
 
 Transformer une demande en proposition de design composée, crédible et observable, puis l’améliorer à partir du rendu réel ; ou juger et analyser un existant. Le système relie direction, typographie, couleur, structure, contenu, interaction et qualité du produit. Les techniques de mouvement et de mobile se choisissent selon le travail ; une interface Web mobile ne prouve pas un fonctionnement natif.
 
-L’agent lit un noyau commun (la skill, 29 865 octets UTF-8), classe le travail, lit le tronc de son mode puis charge les détails nécessaires au moment utile. Les sections propriétaires font foi à leur emplacement actuel ; guides et cartes les rendent plus faciles à trouver. La gouvernance sert le risque, la preuve, la décision et la reprise. Le langage visuel des documents n’impose aucun style aux productions des agents.
+L’agent lit un noyau commun (la skill, 30 440 octets UTF-8), classe le travail, lit le tronc de son mode puis charge les détails nécessaires au moment utile. Les sections propriétaires font foi à leur emplacement actuel ; guides et cartes les rendent plus faciles à trouver. La gouvernance sert le risque, la preuve, la décision et la reprise. Le langage visuel des documents n’impose aucun style aux productions des agents.
+
+Le savoir de fabrication arrive aussi au moment où il sert : trois cartes de moment (avant le build, après une capture, avant de proposer) et, sous les signaux des recettes, le geste lié du tableau de craft. Un registre local des choix rend visible d’un run à l’autre la répétition des polices et des palettes ; un spécimen compare des voix sur le vrai titre ; une planche demande à une personne une correction nommée sur la dernière finition. Ces ajouts sont à l’essai.
 
 Le contenu détaillé du paquet est décrit dans [ce que contient le système](maintenance/versions.md).
 

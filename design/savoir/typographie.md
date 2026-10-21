@@ -43,7 +43,7 @@ LIMIT
 
 | Preuve | Cas |
 |---|---|
-| Spécimen de rôle | Display, corps, interface, données et légale sur contenu réel. |
+| Spécimen de rôle | Display, corps, interface, données et légale sur contenu réel ; pour comparer des voix sur le vrai titre, `python3 scripts/specimen.py` compose le titre dans chaque voix à 390 et 1440 px et signale une police de repli. |
 | Résilience | Texte long, locale, chiffres, zoom, ajustement d’espacement, reflow, petit corps, fallback et caractère absent. |
 | Rendu | Couple taille/interligne/mesure et axe variable si pertinent. |
 | Décision | Voix, lisibilité ou densité réellement améliorées ; contre-indication déclarée. |

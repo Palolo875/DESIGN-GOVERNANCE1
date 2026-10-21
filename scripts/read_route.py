@@ -649,6 +649,32 @@ def tronc_text(mode: str) -> tuple[list[tuple[str, str]], int]:
     return chunks, sum(len(text) for _, text in chunks)
 
 
+MOMENTS = ("avant", "regard", "sortie")
+
+
+def moment_routes(moment: str) -> list[str]:
+    """Routes de la carte d'un moment, lues dans la table « Cartes de moment » de DIRECTION/CHARGE.
+    Une carte range des routes existantes au moment utile ; aucune table concurrente n'est créée ici."""
+    _, lines, index = resolve("DIRECTION/CHARGE")
+    rows = [line for line in extract(lines, index) if line.startswith(f"| **{moment}** |")]
+    if len(rows) != 1:
+        raise RouteError(f"carte de moment absente ou ambiguë pour « {moment} » dans DIRECTION/CHARGE")
+    cells = [c.strip() for c in rows[0].strip().strip("|").split(" | ")]
+    routes = re.findall(r"`([A-Z]+(?:/[A-Za-z0-9_\-]+)+)`", cells[-1]) if len(cells) == 3 else []
+    if not routes:
+        raise RouteError(f"carte de moment vide pour « {moment} »")
+    return routes
+
+
+def moment_text(moment: str) -> tuple[list[tuple[str, str]], int]:
+    """Texte servi de chaque route de la carte (blocs du noyau repliés) et total."""
+    chunks = []
+    for locator in moment_routes(moment):
+        _, lines, index = resolve(locator)
+        chunks.append((locator, "\n".join(fold_core(lines, index))))
+    return chunks, sum(len(text) for _, text in chunks)
+
+
 def core_section(first_line: str) -> str | None:
     """Section de la skill compilée (« 7. Gestes de finition ») qui contient cette ligne de bloc."""
     for skill in (ROOT / "SKILL.md",):
@@ -1105,9 +1131,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--tronc", type=lambda value: "SYSTÈME" if value == "SYSTEME" else value,
                         choices=("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME"),
                         help=f"routes du tronc de la ligne du mode (lues à chaque run), servies à la suite, avec leur taille ; code 1 au-delà de {TRONC_BUDGET} caractères")
+    parser.add_argument("--moment", choices=MOMENTS,
+                        help="carte d’un moment du run (avant le build, après une capture, avant de proposer) : routes de DIRECTION/CHARGE servies à la suite")
     args = parser.parse_args(argv)
-    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None, args.mode is not None, args.tronc is not None)) != 1:
-        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR], soit --mode MODE, soit --tronc MODE")
+    if sum((args.locator is not None, args.trouver is not None, args.connexions is not None, args.sommaire is not None, args.mode is not None, args.tronc is not None, args.moment is not None)) != 1:
+        parser.error("donner soit un locator, soit --trouver TERME, soit --connexions [Cxx], soit --sommaire [LOCATOR], soit --mode MODE, soit --tronc MODE, soit --moment MOMENT")
     if args.complet and args.locator is None:
         parser.error("--complet exige un locator")
     if args.tout and not args.trouver:
@@ -1140,6 +1168,17 @@ def main(argv: list[str] | None = None) -> int:
         if absentes:
             print("ROUTES BLOQUANTES HORS DU TRONC — " + ", ".join(absentes) + " : citées dans la ligne du mode, absentes du tronc")
         return 0 if ok and not absentes else 1
+    if args.moment is not None:
+        try:
+            chunks, total = moment_text(args.moment)
+        except (RouteError, OSError) as exc:
+            fail(str(exc))
+        print(f"MOMENT — {args.moment} ; source : DIRECTION/CHARGE (« Cartes de moment ») ; routes existantes servies à la suite")
+        print("Lire ce qui peut changer la décision présente ; une lecture se juge à sa conséquence sur l’artefact.")
+        for locator, text in chunks:
+            print(f"\n======== {locator} ({len(text)} caractères)\n{text}")
+        print(f"\nTOTAL DE LA CARTE — {total} caractères pour {len(chunks)} route(s)")
+        return 0
     if args.mode is not None:
         try:
             selected = mode_row(args.mode)

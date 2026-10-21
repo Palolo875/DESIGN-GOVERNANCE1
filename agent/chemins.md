@@ -138,7 +138,7 @@ Un run `STANDARD`, `DIRECTION` ou `SYSTÈME` persistant, partagé ou audité con
 ## DIRECTION/CHARGE — classer, puis charger
 
 <!-- noyau:début CHARGE-REGLE -->
-> **Règle de vitesse.** Ouvre l’arbre `DIRECTION/START/TREE`, classe le mode, puis lis sa ligne avec `python3 scripts/read_route.py --mode MODE`. Le **tronc** de la ligne (au plus 35 000 caractères, `--tronc MODE`) se lit à chaque run de ce mode ; le reste de la ligne se lit quand son signal apparaît. `DIRECTION/START` complet reste disponible si le contexte de lancement ou les capacités doivent être précisés. Lis ce qui peut changer la décision présente ; les routes d’observation et de clôture attendent leur usage. Toute contrainte critique est lue avant le choix qu’elle protège. Pour une relation de craft ouverte, même dans un correctif local, lis les gestes de `SAVOIR/STATE` ; n’approfondis que le savoir qui peut modifier l’intervention, sans ouvrir de nouvelle direction. Avant de construire, déclare le mode, la décision dominante, le risque principal, la preuve minimale et la condition d’arrêt (absolu 4) : une ligne suffit, dans la trace.
+> **Règle de vitesse.** Ouvre l’arbre `DIRECTION/START/TREE`, classe le mode, puis lis sa ligne avec `python3 scripts/read_route.py --mode MODE`. Le **tronc** de la ligne (au plus 35 000 caractères, `--tronc MODE`) se lit à chaque run de ce mode ; le reste de la ligne se lit quand son signal apparaît. `DIRECTION/START` complet reste disponible si le contexte de lancement ou les capacités doivent être précisés. Lis ce qui peut changer la décision présente ; les routes d’observation et de clôture attendent leur usage. Toute contrainte critique est lue avant le choix qu’elle protège. Quand la décision visuelle est ouverte, trois rendez-vous servent le savoir au moment utile : `--moment avant` avant le premier build, `--moment regard` après chaque capture qui ouvre une correction, `--moment sortie` avant de proposer (cartes : `DIRECTION/CHARGE`). Pour une relation de craft ouverte, même dans un correctif local, lis les gestes de `SAVOIR/STATE` ; n’approfondis que le savoir qui peut modifier l’intervention, sans ouvrir de nouvelle direction. Avant de construire, déclare le mode, la décision dominante, le risque principal, la preuve minimale et la condition d’arrêt (absolu 4) : une ligne suffit, dans la trace.
 
 **Retrouver un savoir.** `python3 scripts/read_route.py --trouver "terme"` cherche une notion ; sans résultat, reformule, sans conclure à l’absence du savoir. `python3 scripts/read_route.py LOCATOR` lit une route en entier, blocs du noyau repliés ; `python3 scripts/read_route.py --connexions` relie plusieurs propriétaires. Le mode d’emploi complet du lecteur est servi par `DIRECTION/CHARGE`.
 <!-- noyau:fin CHARGE-REGLE -->
@@ -199,6 +199,18 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 
 Aucun détail n’est considéré lu parce qu’il porte un marqueur « noyau » dans sa source.
 <!-- noyau:fin CHARGE-DETAILS -->
+
+### Cartes de moment
+
+Quand la décision visuelle est ouverte (`DIRECTION`, ou `STANDARD` sur une surface nouvelle), trois moments du run servent chacun une carte : `python3 scripts/read_route.py --moment MOMENT`. Une carte réunit des routes qui existent déjà, servies à la suite, blocs du noyau repliés : elle ne crée ni règle, ni gate, ni seconde liste de chargement, et range au moment utile des détails que la ligne du mode active « selon le signal ». Elle remplace l’attente d’un signal que l’agent doit reconnaître seul par un rendez-vous fixe ; les lectures restent jugées sur leur conséquence. Statut `PILOT` : gain à observer sur l’état de référence (lectures des routes du regard, réserves de Gate C restantes), revue avant 2027-04.
+
+| Moment | Quand | Routes servies |
+|---|---|---|
+| **avant** | Après la ligne du mode, avant le premier build | `SAVOIR/CRAFT/CFT-01/Inventaire`, `BIBLIOTHEQUE/SELECT/Signaux`, `BIBLIOTHEQUE/SEQUENCE`, `SAVOIR/CRAFT/CFT-05/Relations` |
+| **regard** | Après chaque capture qui ouvre ou rouvre une correction | `SAVOIR/STATE/Vocabulaire`, `ACTION/GATE-C`, `ACTION/ATELIER-EDITION` |
+| **sortie** | Avant de proposer ou de livrer | `DIRECTION/DOUBLE-LOOP/Test`, `DIRECTION/DOUBLE-LOOP/Regard` |
+
+Les recettes de rendu et de caractère servent aussi, sous leurs signaux, le geste lié du tableau de `SAVOIR/STATE` (`scripts/gestes.py`) : le savoir arrive là où l’agent regarde. Un geste servi reste un point de départ pour le défaut dominant.
 
 
 **Déclenchement de l’atlas.** Si aucune famille ne peut être reliée à une décision modifiable, n’ouvre pas `SAVOIR/DESIGN-ATLAS` ; reste sur la route existante. Si le signal est ambigu, pose une seule clarification ciblée ou reviens à `DIRECTION/START` pour classer le mode et le risque. Si un risque critique apparaît, reclassifie avant de charger une famille. L’atlas ne sert jamais à résoudre par catalogue un JTBD, un mode ou une intention manquante.

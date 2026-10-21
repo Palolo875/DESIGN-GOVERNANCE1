@@ -79,7 +79,8 @@ def resumer(outil: str, texte: str) -> dict:
         statuts.setdefault(statut, [])
         if controle.strip() not in statuts[statut]:
             statuts[statut].append(controle.strip())
-    return {"resultats": statuts, "non_verifie": "NOT-VERIFIED —" in texte}
+    import gestes  # gestes de SAVOIR/STATE servis sous les résultats
+    return {"resultats": statuts, "non_verifie": "NOT-VERIFIED —" in texte, "gestes": gestes.servis_dans(texte)}
 
 
 def executer(outil: str, principal: Callable[[], int], argv: list[str]) -> int:
@@ -130,7 +131,8 @@ def niveau_outil(e: dict) -> str:
     utiles = {k: v for k, v in res.items() if k in ("RETURN", "PASS-WITH-RESERVATION", "SIGNAL", "RELEVÉ")}
     if not utiles:
         return "exécuté, rien à traiter"
-    return "exécuté : " + " ; ".join(f"{k} — {', '.join(v)}" for k, v in utiles.items())
+    servis = f" ; gestes servis : {', '.join(e['gestes'])}" if e.get("gestes") else ""
+    return "exécuté : " + " ; ".join(f"{k} — {', '.join(v)}" for k, v in utiles.items()) + servis
 
 
 def fiche(entrees: list[dict]) -> str:
@@ -140,6 +142,7 @@ def fiche(entrees: list[dict]) -> str:
               "| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |", "|---|---|---|---|---|---|"]
     lues: set[str] = set()
     modes: set[str] = set()
+    moments: set[str] = set()
     for i, e in enumerate(entrees, 1):
         heure = e.get("horodatage", "")[11:19]
         cmd = e.get("commande", [])
@@ -147,6 +150,8 @@ def fiche(entrees: list[dict]) -> str:
             valeur = option(cmd, opt)
             if valeur:
                 modes.add("SYSTÈME" if valeur == "SYSTEME" else valeur)
+        if e.get("outil") == "read_route" and option(cmd, "--moment") and e.get("code") == 0:
+            moments.add(option(cmd, "--moment"))
         if e.get("outil") == "read_route":
             for r in e.get("routes_lues", []):
                 lues.add(r)
@@ -175,6 +180,11 @@ def fiche(entrees: list[dict]) -> str:
             absentes = [r for r in tronc if r not in lues]
             if absentes:
                 manques.append(f"- Tronc {mode} non consulté : {', '.join(f'`{r}`' for r in absentes)}.")
+        if "DIRECTION" in modes:
+            sautes = [m for m in read_route.MOMENTS if m not in moments]
+            if sautes:
+                manques.append(f"- Cartes de moment non consultées (DIRECTION) : {', '.join(sautes)} "
+                               "(`read_route.py --moment`, DIRECTION/CHARGE).")
     lignes += ["", "## Manques", "",
                *(manques or ["- Aucun manque détecté dans le tronc des modes observés."]),
                "- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, "

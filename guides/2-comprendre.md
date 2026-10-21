@@ -43,6 +43,10 @@ Quand un sujet est traité à plusieurs endroits, cette carte dit où le lire d�
 | structure | `formes/choisir` | `formes/choisir#lire` |
 | séquence | `formes/catalogue#sequence` | `formes/catalogue#scenes` |
 | texte sur image | `savoir/composition` | — |
+| harmonie | `savoir/composition` | `savoir/couleur` |
+| surface | `produit/finition` | `savoir/composition#jugement-visuel`, `savoir/images-et-sources` |
+| finition | `savoir/composition#jugement-visuel` | `direction/boucle` |
+| geste | `savoir/composition#jugement-visuel` | `direction/boucle` |
 | graphique | `formes/catalogue#micro` | — |
 | état vide | `produit/interface` | `savoir/composition#jugement-visuel` |
 | pied de page | `formes/catalogue#sequence` | — |

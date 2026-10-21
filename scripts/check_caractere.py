@@ -5,7 +5,8 @@ Elle émet des SIGNAL et des RELEVÉ, jamais PASS ni RETURN : un signal attend u
 trace (corrigé, ou gardé avec sa raison) ; un relevé informe sans rien demander. Elle ne juge ni la
 qualité d'une direction, ni le goût, ni l'usage. Méthode, déclaration et limites : ACTION/RECETTE-CARACTERE.
 
-Usage : python3 scripts/check_caractere.py page.html declaration.json [--json SORTIE]
+Usage : python3 scripts/check_caractere.py page.html declaration.json [--json SORTIE] [--sans-gestes]
+Sous les signaux, le geste lié de SAVOIR/STATE est servi (scripts/gestes.py) ; --sans-gestes le retire.
 Requiert Playwright avec Chromium, numpy et Pillow ; sans eux, la recette rend NOT-VERIFIED (code 2).
 """
 from __future__ import annotations
@@ -102,6 +103,8 @@ def evaluer(m: dict, d: dict, polices_hors: dict | None = None) -> list[dict]:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Recette de caractère (à l'essai) : caractère déclaré face au rendu.")
     ap.add_argument("page"); ap.add_argument("declaration"); ap.add_argument("--json")
+    ap.add_argument("--sans-gestes", dest="sans_gestes", action="store_true",
+                    help="n'ajoute pas les gestes de SAVOIR/STATE liés aux signaux")
     a = ap.parse_args()
     d = json.loads(Path(a.declaration).read_text(encoding="utf-8"))
     try:
@@ -139,6 +142,11 @@ def main() -> int:
     for r in resultats:
         if r["statut"] != "MESURES":
             print(f"[{r['statut']}] {r['ou']} · {r['controle']} · {r['detail']} · savoir : {r['savoir']}")
+    if not a.sans_gestes:
+        import gestes  # geste lié à chaque signal, lu dans SAVOIR/STATE (bloc COMP-VOCABULAIRE)
+        servis = gestes.bloc("check_caractere", [(r["statut"], r["controle"], r["detail"]) for r in resultats if r["statut"] != "MESURES"])
+        if servis:
+            print(servis)
     n = sum(r["statut"] == "SIGNAL" for r in resultats)
     print(f"{n} signal(aux) à traiter dans la trace. Bornes provisoires [À CALIBRER] ; ni verdict de goût, ni preuve de qualité.")
     if a.json:

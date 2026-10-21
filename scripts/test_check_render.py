@@ -515,6 +515,8 @@ PAGES = {
                           'font-size:160px;font-weight:900;line-height:1;color:#ccc">2026</span><h1 style="position:relative;margin:0">Rapport annuel</h1></div>'),
     "etat.html": '<div id="cadre" style="position:relative;width:200px;height:120px;border:1px solid #000;overflow:hidden"><span id="point" style="position:absolute;left:20px;top:20px;width:10px;height:10px;background:#000"></span></div><p>Total : <b id="total">1</b></p><button id="go" type="button">Avancer</button><script>document.getElementById("go").addEventListener("click",function(){setTimeout(function(){document.getElementById("point").style.left="400px";document.getElementById("total").textContent="2";},800);});</script>',
     "oklch.html": '<p style="color:oklch(0.9 0 0)">Texte presque blanc</p>',
+    "verre.html": ('<div style="position:relative;height:200px;background:#111"><nav style="position:absolute;top:0;left:0;right:0;'
+                   'padding:12px;background:rgba(255,255,255,.2);backdrop-filter:blur(12px)"><a href="#a" style="color:#fff">Accueil</a></nav></div>'),
     "ombre.html": '<style>button{box-shadow:0 2px 6px rgba(0,0,0,.3);min-width:60px;min-height:40px}button:focus{outline:none}</style><button>Un</button> <button>Deux</button>',
     "zero.html": '<div id="preuve" style="height:0"></div><p>ok</p>',
     "espace.html": '<div style="padding:60px"><button aria-label="Fermer" style="width:20px;height:20px;padding:0">x</button></div>',
@@ -656,7 +658,8 @@ def part_b(require: bool) -> str:
                                          ('visiblerestauree.html','Nom accessible',RESERVE),('remplissage.html','Contraste',RETURN),
                                          ('remplissagefond.html','Contraste',RESERVE),
                                          ('iconesvg.html','Nom accessible',RETURN),('iconesvgtitre.html','Nom accessible',RESERVE),
-                                         ('iconesvgtexte.html','Nom accessible',RESERVE)]:
+                                         ('iconesvgtexte.html','Nom accessible',RESERVE),
+                                         ('verre.html','Contraste',RESERVE)]:
                 _,c=measure(str(d/filename));expect('B',filename,status(c,prefix),want)
             for filename, want in [('animcourte.html', RESERVE), ('animgardee.html', PASS), ('animopacite.html', RESERVE),
                                    ('animinfinie.html', RETURN), ('transitionjs.html', RESERVE),

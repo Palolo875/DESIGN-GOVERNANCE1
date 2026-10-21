@@ -212,6 +212,8 @@ def main() -> int:
     run([sys.executable, "scripts/test_check_caractere.py", *(["--require-browser"] if args.require_browser else [])])
     run([sys.executable, "scripts/test_read_route.py"])
     run([sys.executable, "scripts/test_journal_mobilisation.py"])
+    run([sys.executable, "scripts/test_gestes.py"])
+    run([sys.executable, "scripts/test_outils_regard.py", *(["--require-browser"] if args.require_browser else [])])
     run([sys.executable, "scripts/test_audit_regressions.py"])
     if (ROOT / "scripts/test_preparer_livraison.py").is_file():
         run([sys.executable, "scripts/test_preparer_livraison.py"])

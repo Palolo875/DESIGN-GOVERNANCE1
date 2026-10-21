@@ -83,6 +83,12 @@ cp -a "$ROOT/scripts/check_caractere.py" "$STAGE/github/scripts/check_caractere.
 cp -a "$ROOT/scripts/test_check_caractere.py" "$STAGE/github/scripts/test_check_caractere.py"
 cp -a "$ROOT/scripts/journal_mobilisation.py" "$STAGE/github/scripts/journal_mobilisation.py"
 cp -a "$ROOT/scripts/test_journal_mobilisation.py" "$STAGE/github/scripts/test_journal_mobilisation.py"
+cp -a "$ROOT/scripts/gestes.py" "$STAGE/github/scripts/gestes.py"
+cp -a "$ROOT/scripts/test_gestes.py" "$STAGE/github/scripts/test_gestes.py"
+cp -a "$ROOT/scripts/registre_choix.py" "$STAGE/github/scripts/registre_choix.py"
+cp -a "$ROOT/scripts/specimen.py" "$STAGE/github/scripts/specimen.py"
+cp -a "$ROOT/scripts/planche.py" "$STAGE/github/scripts/planche.py"
+cp -a "$ROOT/scripts/test_outils_regard.py" "$STAGE/github/scripts/test_outils_regard.py"
 mkdir -p "$STAGE/github/.github/workflows"
 cp -a "$ROOT/.github/workflows/validate.yml" "$STAGE/github/.github/workflows/validate.yml"
 

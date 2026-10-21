@@ -146,6 +146,9 @@ AUDIT_JS = r"""
     for (let e = el; e && e.nodeType === 1; e = e.parentElement) { const s = getComputedStyle(e);
       if (s.backgroundImage !== 'none') return {kind: 'image'};
       const c = color(s.backgroundColor); if (!c) return {kind: 'unknown', value: s.backgroundColor};
+      // Surface translucide sur flou d'arrière-plan : ce qu'elle laisse voir n'est pas son ancêtre, non mesuré.
+      const bf = s.backdropFilter || s.webkitBackdropFilter;
+      if (bf && bf !== 'none' && c[3] < 1) return {kind: 'image'};
       if (c[3] > 0) { layers.push(c); if (c[3] >= 1) break; } }
     let base = [255, 255, 255, 1]; for (let i = layers.length - 1; i >= 0; i--) base = over(layers[i], base);
     return {kind: 'solid', c: base}; };
@@ -1005,7 +1008,7 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     if group_opacity:
         limits.append('opacité de groupe, composition non évaluée : ' + ', '.join(group_opacity[:5]))
     if nonsolid:
-        limits.append("fond en dégradé ou en image, non évalué : " + ", ".join(nonsolid[:5]) + (f" +{len(nonsolid)-5}" if len(nonsolid) > 5 else ""))
+        limits.append("fond en dégradé, en image ou translucide sur flou d’arrière-plan, non évalué : " + ", ".join(nonsolid[:5]) + (f" +{len(nonsolid)-5}" if len(nonsolid) > 5 else ""))
     if svg_text:
         limits.append("texte SVG non évalué (" + ", ".join(svg_text[:3]) + ") : relever fill/stroke, opacités et fond réel, "
                       "puis calculer le contraste ; méthode dans ACTION/RECETTE-RENDU")
@@ -1266,6 +1269,11 @@ def run(args: argparse.Namespace) -> int:
     print(f"Recette AUTOMATED (GATE-A) — {target}\n")
     for title, status, detail in checks:
         print(f"[{status:<21}] {title} : {detail}")
+    if not getattr(args, "sans_gestes", False):
+        import gestes  # geste lié à chaque signal, lu dans SAVOIR/STATE (bloc COMP-VOCABULAIRE)
+        servis = gestes.bloc("check_render", [(s, t, d) for t, s, d in checks])
+        if servis:
+            print(servis)
     if getattr(args, "mesures", False):
         print("\nMesures de composition (relevés chiffrés, sans seuil ni verdict ; elles ne modifient ni les statuts ni le code de sortie) :")
         for line in format_mesures(raw["per_width"]):
@@ -1273,7 +1281,7 @@ def run(args: argparse.Namespace) -> int:
     print("\nProvenance : " + " · ".join(f"{k}={v}" for k, v in prov.items()))
     print("Limites : seules les fautes objectivables sont contrôlées, à l'état et aux largeurs observés. "
           f"{raw['blocked']} requête(s) externe(s) bloquée(s) : les mesures utilisent alors les polices de repli. "
-          "Les fonds en dégradé ou en image, les opacités de groupe, le texte SVG, le texte natif des contrôles et des pseudo-éléments ne sont pas évalués ; leur présence détectée conserve une réserve. "
+          "Les fonds en dégradé, en image ou translucides sur flou d’arrière-plan, les opacités de groupe, le texte SVG, le texte natif des contrôles et des pseudo-éléments ne sont pas évalués ; leur présence détectée conserve une réserve. "
           "La couverture du contraste est bornée au DOM inspecté ; le contraste non textuel des bordures et des icônes n'est pas mesuré ; celui de l'indicateur de focus ne l'est que pour un contour ou un anneau d'ombre net sur fond uni ; le ratio d'un texte qui passe n'est pas rapporté. L'objet de preuve mesure CSS et rectangle, sans vérifier les pixels ni l'occlusion. "
           "Les noms sont des candidats DOM, pas un calcul AccName ; leur présence conserve une réserve. "
           "Le clavier porte sur les candidats du périmètre actif et les arrêts observés ; une borne atteinte conserve une réserve. "
@@ -1326,6 +1334,8 @@ def parser() -> argparse.ArgumentParser:
                     help="écrit une capture pleine page par largeur (capture-<largeur>px.png), à l'état observé ; n'écrase rien")
     ap.add_argument("--mesures", action="store_true",
                     help="relève des mesures de composition (titres, corps, familles, images, bords), sans seuil ni verdict : aucun statut, aucun code de sortie")
+    ap.add_argument("--sans-gestes", dest="sans_gestes", action="store_true",
+                    help="n'ajoute pas, sous les résultats, les gestes de SAVOIR/STATE liés aux signaux")
     ap.add_argument("--baseline", default="", metavar="JSON",
                     help="comparer à une mesure --json antérieure du même périmètre (défauts introduits, préexistants ou disparus)")
     ap.add_argument("--browser-executable", default=os.environ.get("DG_BROWSER_EXECUTABLE", ""), metavar="CHEMIN",
