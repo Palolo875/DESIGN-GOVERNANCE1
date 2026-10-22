@@ -71,10 +71,12 @@ Issue de la synthèse de l’audit ; ordre fixé par les dépendances. Statut : 
 | Étape | Actions | Pourquoi dans cet ordre |
 |---|---|---|
 | 1. Préparer | A4, A7, A18, A23, corrections de A12 qui ne déplacent rien | Peu coûteux ; A23 évite que les déplacements suivants cassent la validation sans décision. |
-| 2. Rendre atteignable | A9 avec son contrôle, A24, A19, A20, A13, A6 si nécessaire | Q2 est le point le plus faible ; le noyau a 16 000 octets de marge, le tronc `DIRECTION` 669 caractères. |
-| 3. Réconcilier | A11 (règle de réconciliation d’abord), A10, A15 | Suppose que les textes à réconcilier soient d’abord atteignables. |
+| 2. Rendre atteignable | A9 avec son contrôle, A24, A19, A20, A13, A3 et A6 (même arbitrage du tronc `DIRECTION`) | Q2 est le point le plus faible ; le noyau a 16 000 octets de marge, le tronc `DIRECTION` 669 caractères. |
+| 3. Réconcilier | A11 (règle de réconciliation d’abord), A10 avec A8 (signal de `SAVOIR/CONTEXT` dans la table unique), A15 | Suppose que les textes à réconcilier soient d’abord atteignables. |
 | 4. Savoir et recherche | A22, A14, A17, A21, A1 | Indépendants ; à mener une fois la structure stabilisée. |
 | 5. Éprouver | A5 (contrat d’évaluation étendu, journal activé), puis A2, A16 | Mesure un système stabilisé ; A2 et A16 dépendent de ses résultats. |
+
+Les 24 actions y figurent. A3 et A8, restées « à décider », sont rangées avec les actions dont elles partagent l’arbitrage.
 
 ## Décisions
 
