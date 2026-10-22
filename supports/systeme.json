@@ -12,7 +12,8 @@
       "lines": [
         "Des repères pour les personnes.",
         "Trois niveaux : utiliser, comprendre, maîtriser."
-      ]
+      ],
+      "entree": true
     },
     {
       "id": "agent",
@@ -23,7 +24,8 @@
       "lines": [
         "Un noyau commun, puis les lectures utiles.",
         "Le chemin, la fabrication et la réponse."
-      ]
+      ],
+      "entree": true
     },
     {
       "id": "design",

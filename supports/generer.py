@@ -185,7 +185,7 @@ def equivalent(data):
         out += ['## ' + n.get('role', n['title']), '', '**' + n['title'] + ('** ' if n['title'].rstrip()[-1:] in '.!?…' else '**. ') + ' '.join(n['lines'] + n.get('conditions', [])), '']
         for child in n.get('children', []):
             out.append('- **' + child['title'] + '** : ' + ' '.join(child['lines']) + ' [Source](' + BASE + child['target'] + ').')
-        if n.get('target'): out += ['', '[Section propriétaire](' + BASE + n['target'] + ').', '']
+        if n.get('target'): out += ['', ('[Entrée](' if n.get('entree') else '[Section propriétaire](') + BASE + n['target'] + ').', '']  # une entrée oriente, sans autorité
     if data.get('relations'):
         out += ['## Relations', '']
         for e in data['relations']: out.append('- ' + e['from'].capitalize() + (' ↔ ' if e['kind'] == 'reciprocal' else ' → ') + e['to'].capitalize() + ' : ' + e['label'] + '.')

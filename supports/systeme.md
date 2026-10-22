@@ -9,14 +9,14 @@ Carte de responsabilités, pas un ordre fixe d’exécution.
 **Guides**. Des repères pour les personnes. Trois niveaux : utiliser, comprendre, maîtriser.
 
 
-[Section propriétaire](../guides/1-utiliser.md).
+[Entrée](../guides/1-utiliser.md).
 
 ## Agir
 
 **Agent**. Un noyau commun, puis les lectures utiles. Le chemin, la fabrication et la réponse.
 
 
-[Section propriétaire](../SKILL.md).
+[Entrée](../SKILL.md).
 
 ## Concevoir
 
