@@ -7,7 +7,7 @@ Comment l’agent classe une demande, choisit son chemin et décide quoi lire. L
 
 `START` est le point d’entrée quotidien d’un humain, d’une IA ou d’un pipeline. Il choisit le mode et la prochaine route ; il ne remplace ni les cinq absolus, ni les procédures, ni le jugement. Avant d’ouvrir un run, une proposition de cadrage reste possible (`DIRECTION/SERVICE-BOUNDARY`).
 
-**Source normative de classification.** `DIRECTION/START` est la source normative unique des modes et du risque dominant. `DIRECTION/CHARGE` est la liste de chargement par mode ; `FAST-PATH` est un raccourci pour un delta local ; `EXTERNAL-START` est une vue de transport pour un brief vague. Aucun de ces encadrés ne crée une classification concurrente. En cas de différence, `START` prévaut et le conflit est inscrit dans `maintenance/versions.md`.
+**Source normative de classification.** `DIRECTION/START` est la source normative unique des modes et du risque dominant. `DIRECTION/CHARGE` est la liste de chargement par mode ; `FAST-PATH` est un raccourci pour un delta local ; `EXTERNAL-START` est une vue de transport pour un brief vague. Aucun de ces encadrés ne crée une classification concurrente. En cas de différence, `START` prévaut et le conflit devient un risque explicite, corrigé selon la recette `ACTION/MAINTENANCE`.
 
 > **Ordre de lecture minimal.** 1) `START` classe le mode et le risque. 2) La protection de niveau interdit toute baisse silencieuse face à un risque critique. 3) `CHARGE` choisit la plus petite route utile ; `FAST-PATH` n’est qu’un encadré pour un correctif local ou une décision presque tranchée. 4) Une capacité n’est chargée que si elle change la construction ou la preuve. 5) `ACTION` porte la preuve et la clôture ; `SAVOIR` le jugement ; `BIBLIOTHEQUE` la structure. 6) Les modules `ATELIER`, grounding, réemploi et atlas restent silencieux tant qu’aucune décision ne peut être modifiée ; chacun n’est activé que si sa décision à modifier est identifiée, et plusieurs ne coexistent que si leurs décisions sont distinctes et utiles.
 
@@ -28,7 +28,7 @@ Une décision de système est l’objet direct du run lorsqu’elle doit être a
 
 **Protection de niveau.** Un risque critique de tâche, de santé, de sécurité, de confidentialité, de permission ou d’accessibilité interdit `LITE` ou `ITER` dès que le changement touche une action, un état, une sémantique, une donnée, une récupération ou une preuve de ce risque. Un nouvel onboarding, formulaire, consentement, flux de santé, permission ou mécanisme de récupération n’est jamais un micro-delta `LITE` ou `ITER`, même si une seule étape ou un seul libellé semble local. Reclassifie vers `STANDARD`, `DIRECTION` ou `SYSTÈME` selon le blast radius. `LITE` ou `ITER` restent possibles seulement lorsqu’il est démontré que le delta est strictement local, réversible et sans effet sur ces responsabilités.
 
-**Silence des micro-deltas.** Une correction de libellé, de traduction, d’overflow, de contraste, de focus, d’état ou de wrapping dans un composant existant ne constitue pas à elle seule une décision de style, de technique, d’effet, d’asset ou de structure. Ne charge pas la section `DESIGN-ATLAS` de `SAVOIR.md` pour ce type de delta ; reste sur la route locale tant qu’aucune responsabilité n’est réellement modifiée.
+**Silence des micro-deltas.** Une correction de libellé, de traduction, d’overflow, de contraste, de focus, d’état ou de wrapping dans un composant existant ne constitue pas à elle seule une décision de style, de technique, d’effet, d’asset ou de structure. Ne charge pas `SAVOIR/DESIGN-ATLAS` pour ce type de delta ; reste sur la route locale tant qu’aucune responsabilité n’est réellement modifiée.
 
 **Règle de conflit.** Si plusieurs signaux sont positifs, découpe le travail lorsque les risques sont indépendants. Deux risques sont indépendants si la preuve de l’un ne dépend pas de la décision de l’autre et si leur owner, leur artefact et leur condition de sortie peuvent être distincts. Sinon, retiens le mode qui protège le risque dominant, sans importer les artefacts sans rapport.
 
@@ -261,7 +261,7 @@ Ces déclencheurs disent quand ajouter une route à la ligne du mode dans `DIREC
 | Direction, matière ou composition | `SAVOIR/CRAFT`. |
 | Typographie | `SAVOIR/TYPE`. |
 | Ancre ou sourcing visuel | `SAVOIR/SOURCE`. |
-| Famille de design, technique, effet, asset ou médium | Après classification, décision et risque, section `DESIGN-ATLAS` de `SAVOIR.md`, puis la route spécialisée seulement si elle peut modifier la décision ; retour à `START` si le risque ou le mode change. |
+| Famille de design, technique, effet, asset ou médium | Après classification, décision et risque, `SAVOIR/DESIGN-ATLAS`, puis la route spécialisée seulement si elle peut modifier la décision ; retour à `START` si le risque ou le mode change. |
 | Profil de style | `SAVOIR/STYLE`. |
 | Tokens ou blast radius partagé | `SAVOIR/SYSTEM` et `ACTION/RUN-SYSTEM`. |
 | Contexte critique, responsive, performance ou motion | `SAVOIR/CONTEXT`. |
@@ -355,7 +355,7 @@ DIRECTION déclenche la classification générale. ACTION appelle ensuite les ro
 | Technique ou compatibilité | `SAVOIR/TECH`. |
 | Claim, outil ou tendance datée | `SAVOIR/TOOLS` et trace locale indiquant source, date, portée et limite. |
 | Doute d’application ou théâtre procédural | `SAVOIR/INTEGRITY`. |
-| Une famille de design peut modifier la prochaine décision | Section `DESIGN-ATLAS` de `SAVOIR.md`, puis seulement la route propriétaire utile. |
+| Une famille de design peut modifier la prochaine décision | `SAVOIR/DESIGN-ATLAS`, puis seulement la route propriétaire utile. |
 | Structure d’un écran | `BIBLIOTHEQUE/SELECT`, puis routes retenues. |
 | Token, composant ou blast radius | `SAVOIR/SYSTEM` si une décision partagée change, `BIBLIOTHEQUE/COMPONENTS` si un composant change, `ACTION/RUN-SYSTEM` si partagé. |
 
@@ -394,4 +394,4 @@ Les tags indiquent le statut de lecture. Ils ne transforment pas une heuristique
 
 Un principe `[DURABLE]` qui concerne perception, esthétique, émotion ou culture conserve son statut de principe de jugement mais doit être lu avec sa portée et sa contre-indication. Les claims externes, mesures, standards et outils suivent le contrat `SAVOIR/TOOLS`.
 
-Les routes stables suivantes sont les routes quotidiennes. Les anciens identifiants de section sont documentés dans la table de migration de `maintenance/evolution.md` et ne doivent pas être utilisés comme instructions actives.
+Les anciens identifiants de section sont documentés dans la table de migration de `maintenance/evolution.md` et ne doivent pas être utilisés comme instructions actives.
