@@ -384,6 +384,10 @@ __COLOR_JS__
 
 FOCUS_CUE_JS = FOCUS_CUE_JS.replace('__COLOR_JS__', COLOR_JS)
 
+# Défilement immédiat : une page en `scroll-behavior: smooth` ferait mesurer au milieu de l'animation de défilement.
+SCROLL_TOP = "window.scrollTo({top: 0, left: 0, behavior: 'instant'})"
+
+
 PROOF_JS = r"""
 s => { const el = document.querySelector(s); if (!el) return {found: false};
   const r = el.getBoundingClientRect(); let hidden = ['hidden', 'collapse'].includes(getComputedStyle(el).visibility), opacity = 1; const limits = [];
@@ -435,6 +439,8 @@ TEXT_LAYOUT_JS = r"""
   // visibility s'hérite : la valeur calculée du parent du texte suffit, et un descendant rendu visible reste mesuré.
   const hidden = (el, r) => {
     if (r.right <= 0 || r.left >= W || getComputedStyle(el).visibility === 'hidden') return true;
+    // Contenu non rendu sans display:none : volet <details> fermé, content-visibility: hidden.
+    if (el.checkVisibility && !el.checkVisibility()) return true;
     for (let e = el; e; e = e.parentElement) {
       const cs = getComputedStyle(e);
       if (cs.display === 'none' || cs.clip === 'rect(0px, 0px, 0px, 0px)' || cs.clipPath === 'inset(50%)') return true;
@@ -855,10 +861,10 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             # Défilement complet : déclenche le contenu révélé au scroll, qui sera ainsi mesuré et capturé.
             step, y = page.viewport_size["height"] // 2, 0
             while y < page.evaluate("document.documentElement.scrollHeight"):
-                page.evaluate(f"window.scrollTo(0, {y})")
+                page.evaluate(f"window.scrollTo({{top: {y}, behavior: 'instant'}})")
                 page.wait_for_timeout(120)
                 y += step
-            page.evaluate("window.scrollTo(0, 0)")
+            page.evaluate(SCROLL_TOP)
             page.wait_for_timeout(300)
             for sel in args.click:
                 page.click(sel)
@@ -883,7 +889,7 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             if args.captures:  # avant la tabulation, qui déplacerait le focus visible
                 shot = capture_paths(args.captures, [w])[0]
                 shot.parent.mkdir(parents=True, exist_ok=True)
-                page.evaluate("window.scrollTo(0, 0)")
+                page.evaluate(SCROLL_TOP)
                 page.screenshot(path=str(shot), full_page=True)
                 raw["captures"].append(str(shot))
             dims = page.evaluate("({sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth})")
@@ -893,7 +899,7 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
             audit = page.evaluate(AUDIT_JS, FOC)
             proof = None
             if args.proof:
-                page.evaluate("window.scrollTo(0, 0)")
+                page.evaluate(SCROLL_TOP)
                 proof = page.evaluate(PROOF_JS, args.proof)
             keyboard = page.evaluate(BASELINE_JS, FOC)
             stops: list[str] = []

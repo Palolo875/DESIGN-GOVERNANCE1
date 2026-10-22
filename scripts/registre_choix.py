@@ -137,7 +137,9 @@ def polices_rendues(page: str) -> dict[str, str | None]:
         pg.goto(Path(page).resolve().as_uri()); pg.wait_for_timeout(600)
         pg.evaluate("""() => { const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
           const h = [...document.querySelectorAll('h1,h2')].find(vis); if (h) h.setAttribute('data-registre', 'titre');
-          const c = [...document.querySelectorAll('p,li,dd,td')].find(e => vis(e) && e.textContent.trim().length >= 40);
+          // Corps : le plus long texte courant visible, pas le premier (un bandeau ou une légende peut précéder).
+          const c = [...document.querySelectorAll('p,li,dd,td')].filter(e => vis(e) && e.textContent.trim().length >= 40)
+            .sort((a, b) => b.textContent.trim().length - a.textContent.trim().length)[0];
           if (c) c.setAttribute('data-registre', 'corps'); }""")
         cdp = pg.context.new_cdp_session(pg); cdp.send("DOM.enable"); cdp.send("CSS.enable")
         root = cdp.send("DOM.getDocument", {"depth": -1})["root"]["nodeId"]
@@ -199,4 +201,5 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    import journal_mobilisation  # journal passif : n'écrit rien sans DG_JOURNAL
+    sys.exit(journal_mobilisation.executer("registre_choix", main, sys.argv[1:]))

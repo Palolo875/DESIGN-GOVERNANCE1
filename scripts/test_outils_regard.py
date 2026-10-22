@@ -123,6 +123,14 @@ def part_b(require: bool) -> str:
         expect("B", "registre : une seconde page identique est signalée", "déjà dans 1 des 1" in r.stdout, True)
         r = run("scripts/registre_choix.py", str(d / "page.html"))
         expect("B", "registre : rien sans fichier de registre", r.returncode, 2)
+        (d / "bandeau.html").write_text(
+            '<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Bandeau</title></head><body style="font-family:serif">'
+            '<p style="font-family:monospace">Maquette : le nom, l’adresse et les horaires sont des exemples.</p><h1>Atelier</h1>'
+            '<p>Un texte courant nettement plus long que le bandeau, qui donne la voix de lecture de la page entière, '
+            'avec plusieurs propositions et assez de mots pour être pris pour le corps.</p></body></html>', encoding="utf-8")
+        r = run("scripts/registre_choix.py", str(d / "bandeau.html"), "--registre", str(d / "r2.jsonl"))
+        corps = json.loads((d / "r2.jsonl").read_text().splitlines()[0])["rendue_corps"] if r.returncode == 0 else ""
+        expect("B", "registre : corps relevé sur le texte courant, pas sur un bandeau", bool(corps) and "mono" not in corps.lower(), True)
         r = run("scripts/specimen.py", "--titre", "Fromagerie Brunet", "--voix", "Police Absente Du Système", "--voix", "serif",
                 "--sortie", str(d / "spec"))
         expect("B", "spécimen : deux captures", all((d / "spec" / f"specimen-{w}px.png").is_file() for w in specimen.LARGEURS), True)

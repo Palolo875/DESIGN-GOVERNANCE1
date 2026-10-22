@@ -70,6 +70,8 @@ def resumer(outil: str, texte: str) -> dict:
         proposees = [r for r in re.findall(rf"^\s*({ROUTE})\s{{2,}}\d+ ligne", texte, re.M) if r not in lues]
         return {"routes_lues": list(dict.fromkeys(lues)), "routes_proposees": list(dict.fromkeys(proposees)),
                 "caracteres": len(texte)}
+    if outil in ("registre_choix", "specimen", "planche"):  # outils du regard : leur première ligne dit ce qui a été produit
+        return {"sortie": next((l.strip() for l in texte.splitlines() if l.strip()), ""), "non_verifie": "NOT-VERIFIED" in texte}
     if outil == "check_render":
         res = re.findall(r"^\[([A-Z-]+)\s*\] ([^:\n]+?) :", texte, re.M)
     else:
@@ -126,12 +128,16 @@ def niveau_outil(e: dict) -> str:
     res = e.get("resultats") or {}
     if e.get("non_verifie"):
         return "sollicité, en échec (NOT-VERIFIED)"
+    if "sortie" in e:
+        return f"exécuté : {e['sortie'][:160]}" if e.get("code") == 0 else f"sollicité, en échec (code {e.get('code')})"
     if not res and e.get("code") not in (0, None):
         return f"sollicité, en échec (code {e.get('code')}, aucun résultat)"
     utiles = {k: v for k, v in res.items() if k in ("RETURN", "PASS-WITH-RESERVATION", "SIGNAL", "RELEVÉ")}
     if not utiles:
         return "exécuté, rien à traiter"
     servis = f" ; gestes servis : {', '.join(e['gestes'])}" if e.get("gestes") else ""
+    if "--sans-gestes" in e.get("commande", []):
+        servis = " ; gestes retirés (--sans-gestes)"
     return "exécuté : " + " ; ".join(f"{k} — {', '.join(v)}" for k, v in utiles.items()) + servis
 
 
@@ -165,8 +171,9 @@ def fiche(entrees: list[dict]) -> str:
                 else:
                     lignes.append(f"| {i} | {heure} | read_route {' '.join(cmd)} | code {e.get('code')}, rien servi | | |")
         else:
-            cible = next((c for c in cmd if c.endswith(".html")), " ".join(cmd))
-            lignes.append(f"| {i} | {heure} | {e.get('outil')} sur `{Path(cible).name}` | {niveau_outil(e)} | | |")
+            cible = next((c for c in cmd if c.endswith(".html")), None)
+            objet = f"{e.get('outil')} sur `{Path(cible).name}`" if cible else f"{e.get('outil')} {' '.join(c for c in cmd if c.startswith('--'))}".strip()
+            lignes.append(f"| {i} | {heure} | {objet} | {niveau_outil(e)} | | |")
     manques = []
     if modes:
         sys.path.insert(0, str(Path(__file__).resolve().parent))

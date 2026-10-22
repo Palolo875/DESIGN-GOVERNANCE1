@@ -83,6 +83,18 @@ class Journal(unittest.TestCase):
         self.assertIn("Tronc ITER non consulté", texte)
         self.assertEqual(jm.option(["--tronc=DIRECTION"], "--tronc"), "DIRECTION")
 
+    def test_outils_du_regard_et_gestes_retires(self):
+        self.assertEqual(jm.resumer("specimen", "SPÉCIMEN — 3 voix sur « Titre » : s/specimen.html\nCaptures : …"),
+                         {"sortie": "SPÉCIMEN — 3 voix sur « Titre » : s/specimen.html", "non_verifie": False})
+        e = [{"outil": "registre_choix", "commande": ["--lire"], "code": 0, "sortie": "REGISTRE — 9 entrée(s)", "non_verifie": False},
+             {"outil": "planche", "commande": ["p.html", "--defaut", "x"], "code": 2, "sortie": "NOT-VERIFIED — navigateur", "non_verifie": True},
+             {"outil": "check_render", "commande": ["p.html", "--sans-gestes"], "code": 0, "non_verifie": False,
+              "resultats": {"PASS-WITH-RESERVATION": ["Contraste"]}, "gestes": []}]
+        texte = jm.fiche(e)
+        self.assertIn("registre_choix --lire | exécuté : REGISTRE — 9 entrée(s)", texte)
+        self.assertIn("planche sur `p.html` | sollicité, en échec (NOT-VERIFIED)", texte)
+        self.assertIn("gestes retirés (--sans-gestes)", texte)
+
     def test_journal_absent(self):
         self.assertEqual(jm.main(["/chemin/inexistant.jsonl"]), 2)
 

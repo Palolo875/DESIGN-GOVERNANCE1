@@ -517,6 +517,12 @@ PAGES = {
     "oklch.html": '<p style="color:oklch(0.9 0 0)">Texte presque blanc</p>',
     "verre.html": ('<div style="position:relative;height:200px;background:#111"><nav style="position:absolute;top:0;left:0;right:0;'
                    'padding:12px;background:rgba(255,255,255,.2);backdrop-filter:blur(12px)"><a href="#a" style="color:#fff">Accueil</a></nav></div>'),
+    "volets.html": ('<details open><summary>Premier volet</summary><p>Texte du premier volet, affiché.</p></details>'
+                    '<details><summary>Second volet</summary><p>Texte du second volet, masqué tant que le volet est fermé, '
+                    'avec une phrase assez longue pour passer à la ligne.</p></details>'
+                    '<details><summary>Troisième volet</summary><p>Encore un texte caché.</p></details><p>Paragraphe suivant.</p>'),
+    "defile_doux.html": ('<style>html{scroll-behavior:smooth}</style><div id="preuve" style="height:160px;background:#ddd"></div>'
+                         + '<p>Paragraphe de contenu pour allonger la page.</p>' * 120),
     "ombre.html": '<style>button{box-shadow:0 2px 6px rgba(0,0,0,.3);min-width:60px;min-height:40px}button:focus{outline:none}</style><button>Un</button> <button>Deux</button>',
     "zero.html": '<div id="preuve" style="height:0"></div><p>ok</p>',
     "espace.html": '<div style="padding:60px"><button aria-label="Fermer" style="width:20px;height:20px;padding:0">x</button></div>',
@@ -639,6 +645,10 @@ def part_b(require: bool) -> str:
             expect("B", "deux boutons sans id = deux arrêts", len(raw["per_width"][390]["stops"]), 2)
             _, c = measure(str(d / "zero.html"), "--proof", "#preuve")
             expect("B", "objet de preuve de hauteur nulle", status(c, "Objet de preuve"), RETURN)
+            _, c = measure(str(d / "volets.html"))
+            expect("B", "texte d’un volet <details> fermé : non mesuré", status(c, "Chevauchement"), PASS)
+            _, c = measure(str(d / "defile_doux.html"), "--proof", "#preuve")
+            expect("B", "défilement doux de la page : objet de preuve mesuré en haut", status(c, "Objet de preuve"), PASS)
             _, c = measure(str(d / "svgtexte.html"))
             expect("B", "texte SVG non mesuré sur forme sombre : réserve explicite", status(c, "Contraste"), RESERVE)
             _, c = measure(str(d / "svgforeignobject.html"))
