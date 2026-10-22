@@ -71,6 +71,12 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 | `sections/BIBLIOTHEQUE.md` | `c77a8bc` | 1–82 (entier) | 6 | toutes | 2026-10-22 |
 | `sections/SAVOIR.md` | `c77a8bc` | 1–172 (entier) | 6 | toutes | 2026-10-22 |
 | `sections/READING_MAP.md` | `c77a8bc` | 1–100 (entier) | 6 | COH, LIS | 2026-10-22 |
+| `scripts/read_route.py` | `c77a8bc` | 1–1260 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
+| `scripts/check_render.py` | `c77a8bc` | 1–1344 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
+| `scripts/check_caractere.py` | `c77a8bc` | 1–151 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
+| `scripts/journal_mobilisation.py` | `c77a8bc` | 1–199 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
+| `scripts/build_core.py` | `c77a8bc` | 1–331 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
+| `gouvernance/outils/validate_run_card.py` | `c77a8bc` | 1–1099 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
 
 ## Lot 1 — noyau et chemins de l’agent
 
@@ -430,3 +436,66 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 - Le test de trame (`choisir.md:242`) et sa reprise sur toute la page (`catalogue.md:238`) sont parmi les outils les plus utiles du corpus contre la convergence.
 - La séquence d’une page (`catalogue.md:225-238`), l’usage des cartes (`:240`), les graphiques qui écrivent leur conclusion et dont la couleur suit le sens de la mesure plutôt que son signe (`:301`), la recomposition mobile (`:244`) : savoir de niveau senior.
 - Le contrôle structurel (`sections/BIBLIOTHEQUE.md:56-68`) est concret, et les modes d’échec d’application (`sections/SAVOIR.md:80-92`) décrivent exactement les défauts que cet audit rencontre.
+
+
+## Lot 7a — outils de l’agent
+
+**Périmètre.** Lus en entier : `scripts/read_route.py` (1 260 lignes), `scripts/check_render.py` (1 344), `scripts/check_caractere.py` (151), `scripts/journal_mobilisation.py` (199), `scripts/build_core.py` (331), `gouvernance/outils/validate_run_card.py` (1 099). Exercés de bout en bout sur une page de test volontairement fautive (journal activé, lecteur, deux recettes, fiche de mobilisation), avec Playwright 1.56 aligné sur le Chromium installé. Les contrôles du paquet (validateurs de structure et de carte, construction des distributions) relèvent du lot 7b.
+
+**Synthèse.** Les outils sont soignés et honnêtes : la recette de rendu mesure juste (contraste de 2,32:1 pour `#aaaaaa` sur blanc, image sans texte alternatif, image introuvable, texte tronqué) et dit ce qu’elle ne voit pas ; la recette de caractère repère une police déclarée remplacée au rendu et nomme la route à lire ; le journal relie lectures, recherches et recettes ; le validateur de `RUN_CARD` refuse les mots-clés de schéma qu’il ne sait pas interpréter et porte quatre-vingt-treize cas unitaires. Le défaut principal est la recherche de secours, que le noyau recommande : sur des symptômes formulés autrement que dans les tests, elle renvoie au mode d’emploi d’un outil plutôt qu’au savoir qui traite le défaut.
+
+### L7-01 · Important · MOB — La recherche échoue sur des symptômes courants formulés librement
+
+- **Où.** `scripts/read_route.py:844-872` (ordre des modes de recherche) et `design/produit/plancher.md:88` (ligne de 6 009 caractères).
+- **Preuve.** Essais du 2026-10-22 :
+  - « l’image écrase le titre » : mode « mots séparés sur une même ligne », une seule route, `ACTION/RECETTE-RENDU` ;
+  - « la page fait générique » : une seule route, `ACTION/RECETTE-CARACTERE` ;
+  - « les boutons sont trop petits » : une seule route, `ACTION/RECETTE-RENDU`, et non le contrôle des cibles de `ACTION/GATE-A` ;
+  - « texte gris peu lisible » : `SAVOIR/STATE`, dont le geste « Texte secondaire » (`composition.md:59`) décrit exactement ce symptôme, n’arrive qu’en 33e position.
+  
+  La formulation testée, « le titre écrase la photo » (`scripts/test_read_route.py:394-400`), donne bien `SAVOIR/STATE` et `CFT-03`.
+- **Causes.** Le mode « mots séparés sur une même ligne » passe avant la recherche par phrase et s’arrête dès qu’une ligne contient tous les mots ; une ligne très longue en contient presque toutes les combinaisons ; certains alias manquent (« bouton » n’est pas dans le groupe « cible ») ; les tests valident deux ou trois formulations, et `validate_all.py:220` un seul terme.
+- **Effet.** Le noyau présente `--trouver` comme le moyen de retrouver un savoir (`SKILL.md:30`). Sur le défaut le plus redouté (la page générique), l’agent qui cherche est renvoyé au mode d’emploi d’une recette. Q2 directement.
+- **Proposition.** Placer le mode « mots séparés » après la recherche par phrase, ou le réserver aux lignes courtes ; découper `plancher.md:88` (L2-07) ; compléter les alias ; ajouter un jeu de vingt à trente symptômes formulés librement comme test de trouvabilité.
+
+### L7-02 · Mineur · COH — La cause du décompte « 110 routes »
+
+- **Où.** `scripts/read_route.py:1012` : `summary_rows` parcourt les fichiers de `LIEUX` sans retirer les doublons, alors que `sources_normatives` (`:329-336`) le fait. `agent/chemins.md`, rattaché à trois responsabilités, est donc listé trois fois.
+- **Proposition.** Dédoublonner comme `sources_normatives` (A4).
+
+### L7-03 · Mineur · MOB — La recherche ne montre que trois lignes hors route
+
+- **Où.** `scripts/read_route.py:1230` : `outside[:3]`, même avec `--tout`.
+- **Effet.** Avec L1-01, une obligation hors route reste presque invisible, même pour qui la cherche.
+- **Proposition.** Les montrer toutes avec `--tout` ; l’action A9 rendra ce cas rare.
+
+### L7-04 · Mineur · VER — La recette de caractère contrôle un champ non déclaré
+
+- **Où.** `scripts/check_caractere.py:97` : `if not d.get("intended_voids")` traite un champ absent comme `false`.
+- **Preuve.** La documentation dit : « Un champ absent n’est pas contrôlé » (`design/produit/preuve-visuelle.md:35`). Une bande vide est donc relevée même quand l’auteur n’a rien déclaré sur le vide.
+- **Proposition.** Ne relever le vide que si `intended_voids` est déclaré `false`.
+
+### L7-05 · Mineur · EXE — Les deux recettes ne traitent pas le navigateur de la même façon
+
+- **Preuve.** `check_render.py` bloque par défaut les requêtes vers d’autres origines (`--allow-external`) et accepte un navigateur explicite (`--browser-executable`, `DG_BROWSER_EXECUTABLE`) ; `check_caractere.py` ne bloque rien et lance toujours le navigateur géré par Playwright (`:117`). Ici, avec Playwright 1.64 face au Chromium installé, la première pouvait tourner par l’option, la seconde non. Elle rend aussi « navigateur indisponible » pour toute exception (`:137`), même une erreur de code.
+- **Effet.** Polices mesurées différemment d’une recette à l’autre ; diagnostic trompeur en cas d’erreur.
+- **Proposition.** Mêmes règles réseau et même option de navigateur pour les deux ; distinguer l’absence de navigateur d’une erreur interne.
+
+### L7-06 · Mineur · COH — Deux copies du calcul de contraste
+
+- **Où.** `scripts/check_render.py:119-151` (`AUDIT_JS`) et `:273-302` (`COLOR_JS`), assumé au commentaire `:272` ; les seuils de linéarisation diffèrent (0,03928 et 0,04045).
+- **Effet.** Négligeable sur les résultats, mais deux sources pour une même règle.
+
+### L7-07 · Question · SAV — Un contrôle « un seul h1 » dans le plancher objectivable
+
+- **Où.** `scripts/check_render.py:1061` : réserve si la page n’a pas exactement un titre de premier niveau visible.
+- **Question.** Ce n’est pas un critère WCAG, et plusieurs `h1` sont valides en HTML. La réserve se range pourtant parmi les « fautes objectivables » du gate A. Faut-il la garder comme relevé plutôt que comme réserve ?
+
+### Ce qui tient (vérifié par exécution)
+
+- Recette de rendu sur une page fautive : contraste calculé exact (2,32:1), image sans alternative, image introuvable, texte tronqué, cible de moins de 24 px admise par l’espacement selon WCAG 2.5.8 ; seuils de grand texte justes (24 px, ou 18,66 px en gras) ; limites imprimées à chaque exécution ; code de sortie 1 sur un `RETURN`.
+- Recette de caractère : police déclarée (Georgia) rendue par une autre (Liberation Serif) signalée, avec la route `SAVOIR/TYPE` : la mobilisation poussée existe déjà ici (C7).
+- Journal de mobilisation : tronc lu, recherche proposée, route consultée et résultats des deux recettes relevés dans l’ordre, avec le contrôle du tronc.
+- Validateur de `RUN_CARD` : témoin négatif avant tout `PASS`, refus des mots-clés de schéma non interprétés (`check_schema_keywords`), quatre-vingt-treize cas unitaires à faute unique, profil strict qui vérifie l’existence des fichiers locaux ; conforme à ce que la gouvernance en dit (`gouvernance/travail.md:186`).
+- `build_core.py` vérifie déjà qu’un bloc du noyau est commun ou servi par une route unique, et que le renvoi d’activation existe (`:179-218`) ; `read_route.py` a un mécanisme de routes bloquantes qui doivent rester dans le tronc (`BLOQUANTES`, `:633`). Ce sont les points d’appui naturels des contrôles proposés en A9 et A19.
+- Validation complète avec navigateur (`validate_all.py --require-browser`, Playwright 1.56, Chromium 141) : verte sur le dépôt et sur la distribution locale ; la recette de rendu passe ses 289 cas (126 d’interprétation, 65 de fonctions JavaScript, 98 pages pièges dans le navigateur), la recette de caractère ses 13 cas dont 6 dans le navigateur. La passe sur la seconde distribution a été coupée par la limite de quinze minutes que j’avais fixée, pas par un échec : avec navigateur, la validation rejoue les tests de page trois fois, ce que le lot 7b examinera.
