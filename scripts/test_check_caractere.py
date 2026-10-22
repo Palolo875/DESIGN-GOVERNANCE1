@@ -124,10 +124,13 @@ def navigateur(require: bool) -> str:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Tests de la recette de caractère.")
     ap.add_argument("--require-browser", action="store_true", help="échouer si Playwright, numpy ou Pillow manquent")
+    ap.add_argument("--skip-browser", action="store_true", help="exécuter seulement les règles, sans navigateur")
     args = ap.parse_args()
+    if args.skip_browser and args.require_browser:
+        print("CHECK_CARACTERE TESTS FAILED — options incompatibles : --skip-browser et --require-browser"); sys.exit(1)
     res = unittest.main(argv=[sys.argv[0]], exit=False, verbosity=0).result
     n = res.testsRun
     if res.failures or res.errors:
         print(f"CHECK_CARACTERE TESTS FAILED — {len(res.failures) + len(res.errors)} échec(s) sur {n}"); sys.exit(1)
-    nav = navigateur(args.require_browser)
+    nav = "NOT-VERIFIED : navigateur écarté explicitement" if args.skip_browser else navigateur(args.require_browser)
     print(f"CHECK_CARACTERE TESTS PASSED — règles : {n} cas ; {nav}")

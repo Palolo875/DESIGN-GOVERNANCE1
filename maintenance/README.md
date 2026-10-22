@@ -93,6 +93,7 @@ La projection machine comprend aussi les contrats de production : `DOMAIN_FRAME`
 | `python3 scripts/test_audit_regressions.py` | Exécute les régressions de navigation, de capacités et de conditions de façade ; ne mesure ni la compréhension utilisateur ni la qualité esthétique. |
 | `python3 scripts/validate_all.py` | Exécute les contrôles documentaires, machine, CLI, fixtures négatives, compilation et reproductibilité des distributions. |
 | `python3 scripts/validate_all.py --lecture-seule` | Exécute les mêmes contrôles sans construire ni remplacer les distributions : `dist/`, `.build/` et les archives ne sont pas touchés (le runner le vérifie). Des caches Python et des copies temporaires de test peuvent être écrits ailleurs. Build et reproductibilité restent `NOT-VERIFIED`. |
+| `python3 scripts/validate_all.py --skip-browser` | Exécute les mêmes contrôles sans lancer les tests de pages, déclarés `NOT-VERIFIED`. Le build l’emploie pour valider l’export Local, dont le code vient d’être testé dans le navigateur ; incompatible avec `--require-browser`. |
 
 Les chemins `exemple: chemin/run.json` et `exemple: chemin/contrat.json` sont des exemples à remplacer par ceux de vos fichiers. Pour exécuter les contrôles intégrés du package :
 

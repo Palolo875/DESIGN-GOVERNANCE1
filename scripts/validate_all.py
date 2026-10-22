@@ -194,8 +194,12 @@ def build_outputs() -> dict[str, tuple[int, int]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Contrôler le package et ses distributions ; les tests navigateur restent explicitement non vérifiés s’ils sont indisponibles.")
     parser.add_argument("--require-browser", action="store_true", help="exiger l’exécution des tests navigateur, sinon échouer")
+    parser.add_argument("--skip-browser", action="store_true", help="ne pas lancer les tests navigateur (déclarés NOT-VERIFIED) ; sert à la validation de l’export Local pendant le build, dont le code a déjà été testé dans le navigateur")
     parser.add_argument("--lecture-seule", action="store_true", help="tout contrôler sans construire : ni dist/ ni archives ne sont écrits ; build et reproductibilité restent non vérifiés")
     args = parser.parse_args()
+    if args.skip_browser and args.require_browser:
+        parser.error("--skip-browser et --require-browser sont incompatibles")
+    browser = ["--require-browser"] if args.require_browser else ["--skip-browser"] if args.skip_browser else []
     before = build_outputs() if args.lecture_seule else None
     scripts = sorted(p.relative_to(ROOT).as_posix() for d in ("scripts", "gouvernance/outils") for p in (ROOT / d).glob("*.py"))
     run([sys.executable, "-m", "py_compile", *scripts])
@@ -209,13 +213,13 @@ def main() -> int:
     check_craft_regressions()
     check_move_regression()
     run([sys.executable, "scripts/test_core_budget.py"])
-    run([sys.executable, "scripts/test_check_caractere.py", *(["--require-browser"] if args.require_browser else [])])
+    run([sys.executable, "scripts/test_check_caractere.py", *browser])
     run([sys.executable, "scripts/test_read_route.py"])
     run([sys.executable, "scripts/test_journal_mobilisation.py"])
     run([sys.executable, "scripts/test_audit_regressions.py"])
     if (ROOT / "scripts/test_preparer_livraison.py").is_file():
         run([sys.executable, "scripts/test_preparer_livraison.py"])
-    run([sys.executable, "scripts/test_check_render.py", *(["--require-browser"] if args.require_browser else [])])
+    run([sys.executable, "scripts/test_check_render.py", *browser])
     run([sys.executable, "scripts/read_route.py", "DIRECTION/START"])
     found = subprocess.run([sys.executable, "scripts/read_route.py", "--trouver", "Cohérence de rayon"], cwd=ROOT, capture_output=True, text=True)
     if found.returncode != 0 or "SAVOIR/STATE" not in found.stdout:

@@ -174,7 +174,8 @@ python3 "$STAGE/local/gouvernance/outils/validate_run_card.py"
 python3 "$STAGE/local/gouvernance/outils/validate_contracts.py"
 python3 "$STAGE/local/scripts/validate_reading_map.py"
 python3 "$STAGE/local/scripts/validate_structure.py"
-python3 "$STAGE/local/scripts/validate_all.py"
+# Les tests de pages ont déjà tourné sur ce même code avant le build : l’export Local les déclare NOT-VERIFIED ici.
+python3 "$STAGE/local/scripts/validate_all.py" --skip-browser
 
 # Archives déterministes du contenu, sans répertoire de travail caché.
 # Le build nettoie aussi les caches éventuels avant de copier les sources.
