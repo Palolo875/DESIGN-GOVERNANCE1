@@ -70,7 +70,7 @@ def resumer(outil: str, texte: str) -> dict:
         proposees = [r for r in re.findall(rf"^\s*({ROUTE})\s{{2,}}\d+ ligne", texte, re.M) if r not in lues]
         return {"routes_lues": list(dict.fromkeys(lues)), "routes_proposees": list(dict.fromkeys(proposees)),
                 "caracteres": len(texte)}
-    if outil in ("registre_choix", "specimen", "planche"):  # outils du regard : leur première ligne dit ce qui a été produit
+    if outil in ("registre_choix", "specimen", "planche", "vignettes"):  # outils du regard : leur première ligne dit ce qui a été produit
         return {"sortie": next((l.strip() for l in texte.splitlines() if l.strip()), ""), "non_verifie": "NOT-VERIFIED" in texte}
     if outil == "check_render":
         res = re.findall(r"^\[([A-Z-]+)\s*\] ([^:\n]+?) :", texte, re.M)

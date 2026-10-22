@@ -71,6 +71,10 @@ Le déclenchement appartient à `DIRECTION` (« Direction divergente ») et les 
 
 Matérialise l’alternative seulement au niveau nécessaire pour comparer la décision : phrase, schéma, cible ou rendu. Ne construis pas une variante qui ne peut modifier aucune décision. Si aucune alternative située ne change raisonnablement le choix, note cette condition et passe à la spec après avoir nommé la raison.
 
+#### Vignettes
+
+[MÉTHODE] Statut `PILOT` (`maintenance/evolution.md`). Quand le niveau nécessaire est le rendu, matérialise chaque position en premier écran brut, sans finition ni contenu complet, puis compare-les sur capture : `python3 scripts/vignettes.py a.html b.html [c.html] --sortie vignettes/` les pose côte à côte à 390 et 1440 px, floutées puis nettes. Lis d’abord à faible détail (silhouette, foyer, rapport texte/image), puis à taille réelle ; garde une position, nomme la raison en une phrase vérifiable (« Direction divergente ») et ne finis pas les autres. Deux ou trois positions suffisent ; ce n’est pas un quota, et une décision fermée n’en demande aucune. Les vignettes ne prouvent ni l’usage, ni l’accessibilité, ni la qualité du rendu final.
+
 ### 4. Produire la spec visuelle
 
 Une spec visuelle synthétique existe avant le premier code ou rendu d’une surface `DIRECTION`. La définition des voies `ANCHOR-GENERATED`, `ANCHOR-OBSERVED` et `ANCHOR-PROVIDED` appartient à `DIRECTION/VISUAL_TARGET` ; ACTION en conserve seulement la trace opératoire : type et identifiant de l’ancre, cible ou hypothèse, attributs observés, éléments retenus et rejetés, contre-indications, limites de transfert et preuve attendue.

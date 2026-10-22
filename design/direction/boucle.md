@@ -75,6 +75,10 @@ Avant la clôture d’une direction, choisis une transformation pertinente lorsq
 
 La réponse documente l’observation et la limite ; elle ne transforme pas un test perceptuel en preuve d’utilisabilité ou de conformité.
 
+### Moment fort avant de proposer
+
+[MÉTHODE] Statut `PILOT` (`maintenance/evolution.md`). Avant de proposer une page de plusieurs sections, regarde la capture entière à faible détail : a-t-elle son moment fort, un endroit où la composition prend un risque nommé au service de la thèse (« Moment de champ » ou « Arc » de `BIBLIOTHEQUE/SEQUENCE`) ? S’il manque et que la thèse gagne à être vue en grand une fois, transforme une section existante plutôt que d’en ajouter une. S’il existe, protège-le : une correction de recette se règle sans le lisser. Une vue de gestion, une tâche répétée ou un contexte critique n’en demandent pas ; aucun quota.
+
 ### Regard humain sur la dernière finition
 
 [MÉTHODE] Statut de route : `PILOT` (`maintenance/evolution.md`). Un agent juge l’ensemble d’une capture plus souvent qu’il ne localise et ne répare un défaut fin : sur des interfaces dégradées à dessein, le diagnostic exact plafonne autour d’un quart des cas, et un diagnostic juste n’entraîne pas toujours une réparation réussie (AUV-Bench, prépublication, 2026). Des retours de designers donnés par commentaire, croquis ou manipulation directe améliorent la génération d’interfaces mieux que des notes ou des classements (Wu et al., Apple, 2026). La boucle d’édition reste due ; elle ne se prolonge pas au-delà de ce qu’elle peut voir.

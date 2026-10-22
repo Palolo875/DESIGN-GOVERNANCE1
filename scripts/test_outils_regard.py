@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests des outils du regard : registre des choix, spécimen de voix, planche, cartes de moment.
+"""Tests des outils du regard : registre des choix, spécimen de voix, planche, vignettes, cartes de moment.
 
 Partie A, sans navigateur : catégories et comparaisons du registre, pages du spécimen et de la planche
 (échappement, repli, contenu), cartes de moment lues dans DIRECTION/CHARGE, manques de la fiche de mobilisation.
@@ -22,6 +22,7 @@ import planche  # noqa: E402
 import read_route  # noqa: E402
 import registre_choix as rc  # noqa: E402
 import specimen  # noqa: E402
+import vignettes  # noqa: E402
 
 failures: list[str] = []
 count = {"A": 0, "B": 0}
@@ -70,6 +71,10 @@ def part_a() -> None:
     expect("A", "planche : champ de correction nommée", 'id="changer"' in p and "Ce que je changerais d’abord" in p, True)
     expect("A", "planche : captures citées", 'src="capture-390px.png"' in p and 'src="capture-1440px.png"' in p, True)
 
+    v = vignettes.page([("Coupe <a>", "a.html"), ("Gravure & bois", "b.html")],
+                       {(i, w): f"position-{i + 1}-{w}px.png" for i in range(2) for w, _ in vignettes.LARGEURS})
+    expect("A", "vignettes : noms échappés", "Coupe &lt;a&gt;" in v and "Gravure &amp; bois" in v, True)
+    expect("A", "vignettes : image floutée et image nette par position et par largeur", v.count('class="flou"'), 4)
     for m_ in read_route.MOMENTS:
         routes = read_route.moment_routes(m_)
         expect("A", f"carte « {m_} » : routes lues dans DIRECTION/CHARGE et résolues",
@@ -138,6 +143,12 @@ def part_b(require: bool) -> str:
                and "REPLI" in r.stdout.split("Police Absente Du Système")[1].splitlines()[0], True)
         r = run("scripts/specimen.py", "--titre", "x", "--voix", "Seule", "--sortie", str(d / "spec2"))
         expect("B", "spécimen : une seule voix refusée", r.returncode, 2)
+        (d / "autre.html").write_text(PAGE.replace("#f5f3ee", "#1d2430").replace("<h1>", '<h1 style="color:#fff">'), encoding="utf-8")
+        r = run("scripts/vignettes.py", str(d / "page.html"), str(d / "autre.html"), "--sortie", str(d / "vg"), "--nom", "Clair", "--nom", "Sombre")
+        expect("B", "vignettes : page et quatre captures au premier écran", r.returncode == 0 and (d / "vg" / "vignettes.html").is_file()
+               and all((d / "vg" / f"position-{i}-{w}px.png").is_file() for i in (1, 2) for w, _ in vignettes.LARGEURS), True)
+        r = run("scripts/vignettes.py", str(d / "page.html"), "--sortie", str(d / "vg1"))
+        expect("B", "vignettes : une seule position refusée", r.returncode, 2)
         r = run("scripts/planche.py", str(d / "page.html"), "--sortie", str(d / "pl"), "--defaut", "le titre flotte")
         expect("B", "planche : page et captures écrites", r.returncode == 0 and (d / "pl" / "planche.html").is_file()
                and all((d / "pl" / f"capture-{w}px.png").is_file() for w in planche.LARGEURS), True)
