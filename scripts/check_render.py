@@ -1059,7 +1059,6 @@ def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     if not a0["title"]:
         struct.append("titre du document vide")
     checks.append(("Structure du document (alt, lang, titre)", RETURN if struct else PASS, "; ".join(struct) or "alt, lang et titre présents"))
-    checks.append(("Un seul titre de premier niveau visible", PASS if a0["h1"] == 1 else RESERVE, f"{a0['h1']} h1 visible(s)"))
 
     # Image cassée : aucune intention de design ne l'explique. Une image d'une autre origine, bloquée par la mesure
     # (pas de --allow-external), n'est pas vérifiée : réserve ; si rien n'a été bloqué, elle est réellement introuvable.
@@ -1267,6 +1266,10 @@ def run(args: argparse.Namespace) -> int:
     print(f"Recette AUTOMATED (GATE-A) — {target}\n")
     for title, status, detail in checks:
         print(f"[{status:<21}] {title} : {detail}")
+    # Relevé sans statut : un titre principal unique est une convention utile, pas un critère WCAG ni une faute objectivable.
+    h1 = raw["per_width"][raw["widths"][0]]["audit"]["h1"]
+    print(f"[RELEVÉ, sans statut      ] Titres de premier niveau visibles : {h1} à {raw['widths'][0]} px "
+          "(un titre principal unique est une convention, pas un critère WCAG)")
     if getattr(args, "mesures", False):
         print("\nMesures de composition (relevés chiffrés, sans seuil ni verdict ; elles ne modifient ni les statuts ni le code de sortie) :")
         for line in format_mesures(raw["per_width"]):
@@ -1299,6 +1302,7 @@ def run(args: argparse.Namespace) -> int:
     if args.json:
         coverage = {str(w): {**d.get('keyboard', {}), 'observed_stops': len(d['stops'])} for w, d in raw['per_width'].items()}
         Path(args.json).write_text(json.dumps({"provenance": prov, "checks": [{"check": t, "status": s, "detail": d} for t, s, d in checks],
+                                              'releves': {'h1_visibles': h1},
                                               'keyboard_coverage': coverage,
                                               'contrast_coverage': {str(w): d['audit'].get('contrastCoverage', {}) for w, d in raw['per_width'].items()},
                                               'proof_observations': {str(w): d['proof'] for w, d in raw['per_width'].items()},

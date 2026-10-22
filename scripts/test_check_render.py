@@ -146,6 +146,9 @@ def part_a() -> None:
     part_a_baseline()
     seuils = sorted(set(re.findall(r"v <= (0\.0\d+) \?", cr.AUDIT_JS + cr.COLOR_JS)))
     expect("A", "un seul seuil de linéarisation pour les deux copies du contraste", seuils, ["0.04045"])
+    deux = cr.interpret(raw_case({"h1": 2}))
+    expect("A", "plusieurs h1 : relevé sans statut, aucune réserve", ([c for c, _, _ in deux if "premier niveau" in c],
+           [s for _, s, _ in deux] == [s for _, s, _ in cr.interpret(raw_case())]), ([], True))
     with patch.dict(os.environ, {"DG_BROWSER_EXECUTABLE": "/browser/configure"}):
         expect("A", "navigateur explicitement configuré", cr.parser().parse_args(["page.html"]).browser_executable, "/browser/configure")
         expect("A", "option navigateur prioritaire sur la configuration", cr.parser().parse_args(["page.html", "--browser-executable", "/browser/choisi"]).browser_executable, "/browser/choisi")
