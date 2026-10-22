@@ -21,7 +21,7 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 
 **Format d’un constat.** Identifiant (`L<lot>-<n>`), gravité, perspectives, emplacement (`fichier:ligne`), preuve, effet, proposition.
 
-**Couverture.** Chaque fichier lu est inscrit avec le commit, les lignes lues et les perspectives appliquées. Une deuxième passe, transversale par perspective, suivra la lecture fichier par fichier.
+**Couverture.** Chaque fichier lu est inscrit avec le commit, les lignes lues et les perspectives appliquées. Une passe transversale (couverture des routes sur tout le corpus) et une synthèse par question du cap closent la lecture fichier par fichier ; elles sont en fin de document.
 
 ## Couverture
 
@@ -689,3 +689,87 @@ Fichiers dérivés échantillonnés : le README de l’export Local, comparé à
 - **Export Local.** Les quatre passages balisés du README sont bien remplacés par leur variante locale (comparaison des deux fichiers) ; le code est compatible Python 3.10 par la syntaxe.
 - **Supports.** Chaque étape renvoie à un propriétaire ; aucune règle n’y est créée ; les budgets de poids et la licence de la police sont contrôlés.
 - **Recette de maintenance.** `ACTION/MAINTENANCE` exige déjà que « chaque signal a une route principale ; les miroirs sont dérivés explicitement », que chaque obligation précise son mode, et qu’une modification substantielle soit exercée sur un run réel avant adoption. Les actions A10 et A15 appliquent donc des règles existantes plutôt qu’elles n’en ajoutent. L’écart relevé par l’audit est un écart d’application.
+
+## Passe transversale — couverture des routes sur tout le corpus
+
+**Méthode.** Le relevé couvre les 47 fichiers Markdown de `design/`, `agent/`, `gouvernance/`, `sections/` et `maintenance/`, au commit `c77a8bc`. Une ligne de plus de 25 caractères est « servie » si elle apparaît dans la sortie complète d’au moins une des 74 routes ou de `CHANGELOG`, ou dans `SKILL.md`. Les plages de lignes non servies ont ensuite été classées selon le moyen par lequel l’agent peut les atteindre ; les renvois de fichier ont été cherchés dans tout le texte servi, en-têtes du lecteur exclus. Le script et son résultat brut restent dans la session (`horsroute2.py`, `horsroute.json`).
+
+**Résultat.** Hors `maintenance/versions.md`, que sert la route `CHANGELOG`, il reste 55 plages non servies, environ 119 000 caractères, réparties en quatre catégories.
+
+| Catégorie | Contenu | Taille approximative | Suite |
+|---|---|---|---|
+| **A. Normatif, sans aucun chemin** | Règles écrites pour l’agent, servies par aucune route, absentes du noyau, et vers lesquelles aucun texte servi ne renvoie. | 55 000 caractères, dont 11 tags `[FORCÉ]` ou `[REQUIS]` | Rattacher, fusionner ou supprimer (A9). |
+| **B. Atteint par renvoi de fichier** | `maintenance/evolution.md:88-127` : cycle de vie des routes, contrats de maintenance, migration des anciens alias. Treize renvois vers ce fichier dans le texte servi. | 4 800 | Donner une route, ou accepter le renvoi de fichier pour la maintenance. |
+| **C. Servi autrement** | `design/savoir/connexions.md` (commande `--connexions`, activée dans le noyau) ; `sections/READING_MAP.md` (vue pour les personnes, contrôlée par les validateurs). | 19 600 | Aucune. |
+| **D. Navigation et lecture humaine** | README des dossiers, titre et phrase d’en-tête de chaque fichier, bandeaux générés de `sections/`, `maintenance/README.md`, `sections/README.md`. | 37 000 | Aucune ; vérifier qu’aucune règle n’y vit. |
+
+**Catégorie A, plage par plage.** C’est la liste de travail de A9.
+
+| Plage | Contenu | Taille | Constat |
+|---|---|---|---|
+| `agent/chemins.md:217-276` | Classification du mode, preuve et capacité ; huit tags `[FORCÉ]` ou `[REQUIS]` | 5 400 | L1-01 |
+| `design/direction/standard.md:6-31`, `:37-115` | Les cinq absolus (sauf le bloc `ANCRE`, compilé) et les invariants de jugement | 11 400 | L2-01 |
+| `design/direction/diriger.md:119-134` | Direction divergente, dont le concept protégé `ALT-01` | 1 900 | L2-02, L7-08 |
+| `design/produit/interface.md:6-27` | Cadrage du médium et des capacités | 2 400 | L3-01, L8-01 |
+| `gouvernance/principes.md:6-32` | Registres, ordre de preuve `P0` à `P3` | 3 100 | L3-01 |
+| `gouvernance/cloture.md:85-102` | Lien entre test de sortie et clôture de direction | 2 900 | L3-01 |
+| `gouvernance/structure.md:6-19`, `:71-85` | Contrats de structure, test de sortie BIBLIOTHEQUE | 3 300 | L3-01 |
+| `sections/DIRECTION.md:25-31`, `:37-152` | Posture, limite structurelle, règle de réconciliation des cadres, récapitulatif de protection ; trois tags | 17 000 | L6-01 |
+| `sections/ACTION.md:22-40`, `sections/BIBLIOTHEQUE.md:14-40`, `sections/SAVOIR.md:21-48` | Responsabilité, capacité positive, chemin de lecture, condition d’arrêt de chaque responsabilité | 9 000 | L6-01 |
+
+**Constats de la passe.**
+- La catégorie A ne contient aucune plage nouvelle : les lots 1 à 8 les avaient toutes relevées. La liste est désormais complète et mesurée. La catégorie B est nouvelle : le cycle de vie des routes n’a pas de route, mais il est atteint par renvoi de fichier.
+- La catégorie A pèse environ 1,6 fois le budget d’un tronc (35 000 caractères). Tout rattacher au tronc `DIRECTION`, plein à 98 %, est impossible. Le noyau a une marge de 16 000 octets (29 865 sur 46 000) : il peut recevoir des énoncés courts (absolus, test de trame, règle de réconciliation), pas les sections entières.
+- Une partie de la catégorie A double des textes servis (par exemple l’ordre de preuve, L5-05). Pour chaque plage, il faut donc décider « rattacher, fusionner ou supprimer » avant de déplacer quoi que ce soit, et relever d’abord les verrous de formulation qui la touchent (A23).
+- Les validateurs exigent du texte qui vit en catégorie A. Par exemple, `validate_design_governance.py:423-434` exige la « Carte de lecture par mode » dans ACTION, et `validate_structure.py:196-198` l’ordre des sections de `sections/DIRECTION.md`. Les supprimer fera échouer la validation : c’est un cas concret de L7-09.
+
+## Synthèse de l’audit
+
+**Couverture.** 87 fichiers sont inscrits au tableau de couverture, au commit `c77a8bc`. Ils comprennent tous les fichiers Markdown du paquet, les outils de l’agent, les validateurs, la construction, la CI et les tests. Le reste n’a pas été lu ligne à ligne :
+- les schémas JSON, les exemples et les 25 fixtures, exercés par les validateurs et inspectés en partie (`evaluation_case`, champ `direction` de la `RUN_CARD`) ;
+- le générateur des supports, ses données et sa police, contrôlés seulement par `validate_supports.py` ;
+- les fichiers générés, échantillonnés.
+
+Le corpus Markdown entier est passé au relevé de couverture des routes.
+
+**Bilan.** 64 constats : 2 bloquants, 23 importants, 34 mineurs, 5 questions.
+
+**Ce qui tient.**
+- **Le savoir.** Il est de niveau senior, daté, et ses contre-indications sont écrites.
+- **Les outils.** Ils mesurent juste et disent ce qu’ils ne voient pas.
+- **La construction du paquet.** Elle est rigoureuse.
+- **L’entrée des personnes.** Elle est claire.
+- **L’honnêteté sur l’efficacité.** Elle est constante : « `NOT-VERIFIED` » partout où il le faut.
+
+Le système ne manque ni de savoir ni de rigueur. Ses défauts portent sur la façon dont ce savoir parvient à l’agent, et sur la preuve de son effet.
+
+**Lecture par question du cap.**
+
+| Question | Ce que l’audit établit | Constats principaux | Actions |
+|---|---|---|---|
+| **Q2 — mobiliser les bons moyens** | Le point le plus faible. Environ 55 000 caractères de règles ne parviennent à l’agent par aucun chemin, dont les cinq absolus et des obligations `[FORCÉ]`. D’autres étapes dues ne sont atteintes que par un signal de défaut. La recherche de secours échoue sur des symptômes formulés librement. Une validation verte ne voit rien de tout cela. | L1-01, L2-01, L2-02, L3-01, L6-01 ; L2-04, L4-01, L4-03, L5-01, L6-02 ; L7-01, L7-08, L8-01 | A9, A13, A19, A20, A22, A24, A23 |
+| **Q1 — orienter les choix** | Les moyens d’orienter existent, mais ils sont multiples et non réconciliés : six tables de routage, six formats de lancement, plusieurs listes d’axes et formulaires, huit grilles de qualité. Le choix des voix typographiques n’a pas de méthode. Le catalogue penche vers le logiciel. | L1-02, L1-03, L1-04, L2-03, L4-02, L2-05, L6-04, L8-03 | A10, A11, A14, A21 |
+| **Q3 — conduire au niveau visé** | Le savoir pour juger et corriger est solide. L’étape qui confronte le rendu (atelier sur capture) et les méthodes qui créent l’idée arrivent trop tard ou par signal. | L2-04, L4-01, L8-02 | A13, A17, A1 |
+| **Hypothèse (comparaison avec et sans)** | Aucune mesure ; les seules observations disponibles montrent une convergence avec et sans le système. Le contrat machine d’évaluation ne sait pas porter la comparaison. | L4-04, L7-10 | A5, A18, A2 |
+| **Proportionnalité** | Le vocabulaire des statuts est lourd. Environ 190 formulations sont verrouillées par les validateurs. Des contrats dus à chaque run n’ont pas de portée de trace. | L3-03, L7-09, L3-02 | A16, A23, A15 |
+
+**Une cause commune.** La plupart des défauts importants viennent d’un même mécanisme : le système a grandi par ajout de sections, et chaque correction a été protégée par un verrou de formulation. Mais rien ne vérifie qu’un ajout atteint l’agent ni qu’il remplace l’ancien. La recette de maintenance du système l’exige pourtant (`ACTION/MAINTENANCE` : miroirs dérivés, obligations à portée déclarée, run réel avant adoption). L’écart est d’application, pas de principe.
+
+**Ordre proposé.** Il tient compte des dépendances relevées ; il reste à valider.
+1. **Préparer, à faible coût.**
+   - A4 (décompte du sommaire) ;
+   - A7 (inscrire le cap) ;
+   - A18 (verser les observations de convergence) ;
+   - A23 (relever les verrous touchés par la suite) ;
+   - les corrections de A12 qui ne déplacent rien.
+2. **Rendre atteignable.**
+   - A9, sur la liste de la catégorie A, avec son contrôle au validateur (L7-08) ;
+   - A24 (adresses), en même temps que les déplacements ;
+   - A19 et A20 (énoncés courts dans le noyau, qui a de la marge) ;
+   - A13 (atelier comme étape) ;
+   - A6 si le tronc `DIRECTION` doit absorber quelque chose.
+3. **Réconcilier.** A11, en commençant par compiler la règle de réconciliation, puis A10 et A15.
+4. **Renforcer le savoir et la recherche.** A22 (recherche), A14 (méthode typographique), A17, A21, A1.
+5. **Éprouver.** A5, après extension du contrat d’évaluation (L7-10), avec le journal activé ; puis A2 et A16, qui dépendent de ses résultats.
+
+**Limite de l’audit.** C’est une lecture experte, faite par un agent, du texte et du code. Les outils ont été exercés, mais aucun run de design complet n’a été observé. L’audit établit si les règles atteignent l’agent et si elles sont cohérentes. Il ne mesure pas leur effet sur un rendu : c’est la campagne A5 qui le dira.
