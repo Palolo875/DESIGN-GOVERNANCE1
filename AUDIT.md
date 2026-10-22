@@ -93,6 +93,27 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 | `scripts/test_audit_regressions.py` | `c77a8bc` | 1–560 (entier) | 7b | VER | 2026-10-22 |
 | `scripts/test_read_route.py` | `c77a8bc` | 355–470, et liste des cas | 7b | VER, MOB | 2026-10-22 |
 | `scripts/test_check_render.py` | `c77a8bc` | 1–30, et recherches ciblées | 7b | VER | 2026-10-22 |
+| `README.md` | `c77a8bc` | 1–127 (entier) | 8 | toutes | 2026-10-22 |
+| `RELEASE_NOTES.md` | `c77a8bc` | 1–37 (entier) | 8 | VER, LIS | 2026-10-22 |
+| `guides/README.md` | `c77a8bc` | 1–10 (entier) | 8 | LIS | 2026-10-22 |
+| `guides/1-utiliser.md` | `c77a8bc` | 1–20 (entier) | 8 | toutes | 2026-10-22 |
+| `guides/2-comprendre.md` | `c77a8bc` | 1–112 (entier) | 8 | toutes | 2026-10-22 |
+| `guides/3-maitriser.md` | `c77a8bc` | 1–298 (entier) | 8 | toutes | 2026-10-22 |
+| `guides/glossaire.md` | `c77a8bc` | 1–100 (entier) | 8 | COH, LIS | 2026-10-22 |
+| `maintenance/README.md` | `c77a8bc` | 1–123 (entier) | 8 | VER, LIS | 2026-10-22 |
+| `maintenance/evolution.md` | `c77a8bc` | 1–127 (entier) | 8 | toutes | 2026-10-22 |
+| `maintenance/versions.md` | `c77a8bc` | 1–70 (entier) | 8 | VER, MIS | 2026-10-22 |
+| `supports/README.md` | `c77a8bc` | 1–37 (entier) | 8 | LIS | 2026-10-22 |
+| `supports/systeme.md` | `c77a8bc` | 1–56 (entier) | 8 | COH, LIS | 2026-10-22 |
+| `supports/parcours.md` | `c77a8bc` | 1–73 (entier) | 8 | COH, LIS | 2026-10-22 |
+| `supports/boucle.md` | `c77a8bc` | 1–84 (entier) | 8 | COH, LIS | 2026-10-22 |
+| `references/canonical_minimum.md` | `c77a8bc` | 1–25 (entier) | 8 | COH | 2026-10-22 |
+| `references/flow.md` | `c77a8bc` | 1–13 (entier) | 8 | COH, MOB | 2026-10-22 |
+| `references/examples.md` | `c77a8bc` | 1–123 (entier) | 8 | toutes | 2026-10-22 |
+| `references/machine_projection.md` | `c77a8bc` | 1–129 (entier) | 8 | COH, VER | 2026-10-22 |
+| `scripts/README.md` | `c77a8bc` | 1–17 (entier) | 8 | LIS | 2026-10-22 |
+| `design/README.md` | `c77a8bc` | 1–39 (entier) | 8 | COH, LIS | 2026-10-22 |
+| `dist/local/README.md` | `c77a8bc` | comparé à la source (dérivé) | 8 | VER | 2026-10-22 |
 
 ## Lot 1 — noyau et chemins de l’agent
 
@@ -156,6 +177,7 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 
 - **Où.** `read_route.py SAVOIR/ROUTING` : adresse `guides/2-comprendre#routes`, propriétaire `sections/SAVOIR.md`.
 - **Question.** Les guides sont déclarés non normatifs (`README.md`, `sections/README.md`). Une route normative peut-elle avoir pour adresse lisible une section de guide ? À vérifier au lot 8.
+- **Réponse (lot 8).** Non : le niveau 2 des guides n’a pas de section « routes », et l’adresse désigne `sections/SAVOIR.md`. Voir L8-01.
 
 ### L1-10 · Question · EXE — Demander ou construire ?
 
@@ -579,3 +601,91 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 - `validate_all.py` vérifie que chaque échec attendu échoue pour son motif, pas pour une exception. Les tests de pages déclarent `NOT-VERIFIED` sans navigateur, jamais une réussite.
 - La CI épingle ses actions par empreinte et installe Playwright 1.56.0, la version qui fonctionne avec le Chromium de cette session.
 - La régression de déplacement prouve que la table `LIEUX` rend un rangement sûr : c’est l’outil dont A9 aura besoin.
+
+## Lot 8 — orientation des personnes
+
+**Périmètre.** Lus en entier :
+- `README.md`, `RELEASE_NOTES.md` ;
+- les guides (`guides/README.md`, niveaux 1 à 3, glossaire) ;
+- `maintenance/README.md`, `evolution.md`, `versions.md` ;
+- les supports en texte (`supports/README.md`, `systeme.md`, `parcours.md`, `boucle.md`) ;
+- les références de la skill (`canonical_minimum.md`, `flow.md`, `examples.md`, `machine_projection.md`) ;
+- `scripts/README.md`, `design/README.md`.
+
+Fichiers dérivés échantillonnés : le README de l’export Local, comparé à sa source, et la présence des notes de version dans cet export. Les 85 adresses lisibles ont été résolues pour vérifier qu’elles pointent vers le fichier dont elles portent le nom. La compatibilité Python 3.10 a été vérifiée par analyse syntaxique.
+
+**Synthèse.** L’entrée des personnes est la partie la plus aboutie du système. Le niveau 1 tient en quatre questions sans vocabulaire interne. La fiche de version déclare ses essais, leurs limites et leur critère d’adoption. Les notes de version disent honnêtement que l’efficacité n’est pas vérifiée. Les défauts sont ailleurs :
+- des adresses lisibles mènent une personne au mauvais fichier ;
+- le guide de pilotage ne montre pas deux étapes dont dépend la trace légère ;
+- les formats concurrents relevés côté agent se retrouvent côté humain.
+
+### L8-01 · Important · LIS, MOB — Des adresses lisibles mènent une personne au mauvais fichier
+
+- **Où.** 10 adresses sur 85 désignent un autre fichier que celui dont elles portent le nom (`read_route.py`, table `ADRESSES`). Parmi elles, les trois premières entrées de la carte des sujets du niveau 2 (`guides/2-comprendre.md:28-36`) :
+  - `savoir/couleur` : aucun fichier de ce nom ; la route vit dans `design/savoir/qualite-creative.md` ;
+  - `savoir/composition` : le fichier `design/savoir/composition.md` existe, mais la route (`CFT-03`) vit dans `qualite-creative.md` ;
+  - `produit/interface` : le fichier `design/produit/interface.md` existe et il est entièrement hors route (L3-01) ; la route vit dans `premier-rendu.md`.
+- **Autres cas.** `direction/cadrer#domaine` et `direction/diriger#lancement` mènent à `agent/chemins.md` ; `gouvernance/travail#deroule` à `sections/ACTION.md` ; `gouvernance/structure#avant-selection` à `design/formes/choisir.md` ; `gouvernance/structure#controle`, `gouvernance/integrite` et `guides/2-comprendre#routes` à `sections/`. Ce dernier cas répond à la question L1-09 : une route normative porte le nom d’un guide déclaré non normatif.
+- **Effet.** Les niveaux 2 et 3 s’adressent à des personnes sans expertise et supposent qu’elles lancent le lecteur en Python. Une personne qui lit sur GitHub ouvre le fichier du même nom. Elle n’y trouve rien, ou elle lit pour `produit/interface` un texte qu’aucune route ne sert, en le croyant normatif.
+- **Proposition.** Faire coïncider adresse et fichier lors des déplacements de A9, ou faire générer dans les guides des liens vers le fichier et l’ancre réels. Regroupe L1-09 et L2-08.
+
+### L8-02 · Important · MIS, EXE — Le guide de pilotage omet deux étapes dont dépend la trace légère
+
+- **Où.** `guides/3-maitriser.md` (§1, §3 et §8), `guides/glossaire.md:21` et `:74`, les supports.
+- **Preuve.**
+  - L’atelier sur capture (`ACTION/ATELIER-EDITION`, dû en `DIRECTION` même en trace légère, `design/direction/boucle.md:20`) n’apparaît dans aucun guide. Le glossaire le présente seulement comme `B1b`, « requis seulement dans son périmètre ».
+  - Le test de trame n’apparaît que dans une définition du glossaire. La liste du lancement créatif du guide 3 (`:49`) ne le cite pas, alors que la trace légère exige une ligne « modal, trame et parti » (`glossaire.md:66`).
+  - Cette liste du guide 3 et celle du glossaire (`:21`) diffèrent entre elles : deux variantes de plus de la famille L2-03.
+  - Le journal de mobilisation (`DG_JOURNAL`), seul moyen d’observer ce que l’agent a lu, n’est décrit que dans `maintenance/README.md:91` et `scripts/README.md`. Le §8 du guide 3, « Confier le travail à un agent », n’y renvoie pas.
+- **Effet.** Une personne qui pilote avec le guide 3 ne peut vérifier ni les deux étapes les plus directement tournées vers Q1 et Q3 (sortir de la trame attendue, améliorer à partir du rendu), ni la mobilisation (Q2).
+- **Proposition.** Dans A13 et A20, mettre à jour le guide 3 et le glossaire. Citer `DG_JOURNAL` au §8 (utile à A2 et A5).
+
+### L8-03 · Mineur · COH — Les formats concurrents se retrouvent côté humain
+
+- **Preuve.** Le guide 3 donne trois formats de lancement :
+  - `MODE — DECISION — RISK — NEXT-PROOF — OWNER` (`:18`) ;
+  - `ID — MODE — DECISION — RISK — NEXT-PROOF — STATE` (`:70`) ;
+  - `OBJECTIVE … OUTPUT` (`:188-193`).
+
+  La règle 4 du README (`:116`) et le noyau (`SKILL.md:28`) en donnent chacun une quatrième et une cinquième formulation. Le même guide liste trois fois les suites possibles, avec des termes différents (`:31`, `:81`, `:260`).
+- **Proposition.** Avec A11 : une déclaration, une liste de suites, les autres en renvoi.
+
+### L8-04 · Mineur · COH — La projection machine garde un vocabulaire retiré et n’a pas de champ pour la trame
+
+- **Où.** `gouvernance/schemas/run_card.schema.json:53` (`direction.anti_direction`, exigé non vide en `DIRECTION` par `validate_run_card.py:418-422`) ; correspondance dans `agent/chemins.md:62` et `gouvernance/travail.md:105`.
+- **Preuve.**
+  - « Anti-direction » est un vocabulaire retiré (garde 3 de `validate_structure.py`), remplacé par `MODAL` et `PARTI`. La fiche les range pourtant tous deux dans ce champ.
+  - Aucun champ ne porte la trame, que la trace légère exige.
+- **Proposition.** Avec A11 et A20 : champs `modal`, `parti` et `trame`, avec migration (changement de schéma, donc paquet `SYSTÈME`).
+
+### L8-05 · Mineur · VER — Dépendances incomplètes et affirmations non datées
+
+- **Preuve.**
+  - Le README (`:55`) et les notes de version (`:17`) ne citent que Playwright et Chromium. La recette de caractère demande aussi numpy et Pillow, comme le dit `maintenance/README.md:67`.
+  - Aucune version de Playwright n’est donnée. La CI épingle la 1.56.0 ; dans cette session, la 1.64 ne lançait pas le Chromium installé.
+  - Python 3.10 : syntaxe compatible (vérifié), mais la CI ne teste que 3.11.
+  - « Cette commande a été vérifiée […] pour Claude Code et Codex » (`README.md:38`) n’a ni date ni méthode.
+  - Deux commentaires sont périmés : `validate_design_governance.py:109` et `validate_reading_map.py:302` disent les notes de version absentes de l’export Local, alors qu’elles y sont (manifeste et export).
+- **Proposition.** Une seule ligne de dépendances (Python, Playwright 1.56 et Chromium, numpy, Pillow) dans le README et les notes ; dater l’affirmation d’installation.
+
+### L8-06 · Mineur · COH — La carte du système appelle « section propriétaire » des vues dérivées
+
+- **Où.** `supports/systeme.md:49` et `:56` : les guides et `SKILL.md` sont libellés « Section propriétaire ».
+- **Preuve.** La même carte dit que guides et noyau « orientent ou projettent les sources » (`:93`). Le dossier `agent/`, qui porte le classement, n’y figure pas.
+- **Proposition.** Distinguer « entrée » et « section propriétaire » dans le générateur ; ajouter `agent/chemins`.
+
+### L8-07 · Mineur · LIS — Le niveau 2 décrit la boucle d’amélioration, pas la création
+
+- **Où.** `guides/2-comprendre.md:10-15` : « Comment le système travaille » énumère classer, charger, produire, observer et corriger.
+- **Effet.** Rien sur la direction, le premier objet ou le parti face au modal, qui sont la part distinctive du système selon le README et `design/README.md`. Le niveau 2 « montre comment le système raisonne » sans sa moitié créative.
+- **Proposition.** Ajouter une étape « diriger avant de construire » avec renvoi.
+
+### Ce qui tient (vérifié)
+
+- **Niveau 1.** Quatre questions, aucun vocabulaire interne. L’agent construit dans le même tour avec au plus trois questions, marque ce qui est un exemple et demande l’accord avant une action irréversible. C’est l’utilité du cap, dite à la personne.
+- **README et notes de version.** L’utilité est formulée en termes proches du cap (`README.md:3`). Les limites sont honnêtes : efficacité `NOT-VERIFIED`, usage en pilote, CI qui n’atteste que la cohérence. La partie « Objectif » et la partie « Hypothèse » du cap restent à inscrire (A7).
+- **Fiche de version.** Chacun des onze essais porte sa limite, la preuve attendue avant adoption et la procédure de retrait. La fiche dit qu’aucun n’a été éprouvé sur un run complet.
+- **Exemples de la skill.** Les crochets empêchent de recopier thèse et objet ; l’exemple de brief flou montre la trace légère avec modal, trame et parti, et des contenus marqués.
+- **Export Local.** Les quatre passages balisés du README sont bien remplacés par leur variante locale (comparaison des deux fichiers) ; le code est compatible Python 3.10 par la syntaxe.
+- **Supports.** Chaque étape renvoie à un propriétaire ; aucune règle n’y est créée ; les budgets de poids et la licence de la police sont contrôlés.
+- **Recette de maintenance.** `ACTION/MAINTENANCE` exige déjà que « chaque signal a une route principale ; les miroirs sont dérivés explicitement », que chaque obligation précise son mode, et qu’une modification substantielle soit exercée sur un run réel avant adoption. Les actions A10 et A15 appliquent donc des règles existantes plutôt qu’elles n’en ajoutent. L’écart relevé par l’audit est un écart d’application.
