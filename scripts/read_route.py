@@ -1008,8 +1008,11 @@ def rank_routes(results: list[tuple[str | None, str, int, str]], terms: list[str
 
 def summary_rows() -> list[tuple[str, str, int, int, str]]:
     """(locator, fichier, taille servie, sous-sections, rôle) pour chaque route de premier niveau."""
-    rows = []
+    rows, seen = [], set()
     for path in [p for prefix in PREFIXES[:4] for p in lieu(f"{prefix}.md")]:
+        if path.resolve() in seen:  # un fichier qui porte plusieurs responsabilités n'est parcouru qu'une fois
+            continue
+        seen.add(path.resolve())
         lines = path.read_text(encoding="utf-8").splitlines()
         heads = headings(lines)
         for index, _, text in heads:

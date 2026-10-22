@@ -438,6 +438,12 @@ class SearchAndSummaryTests(unittest.TestCase):
                 if locator:
                     self.assertIn(f"\n{locator} ", out)
 
+    def test_summary_counts_each_route_once(self):
+        # Un fichier rattaché à plusieurs responsabilités (LIEUX) ne double pas ses routes dans le sommaire.
+        rows = reader.summary_rows()
+        self.assertEqual(len(rows), len({row[0] for row in rows}))
+        self.assertIn(f"SOMMAIRE — {len(rows)} routes", self.cli("--sommaire").stdout)
+
     def test_shared_file_split_by_origin(self):
         # Un fichier qui reçoit plusieurs sources marque l'origine de chaque section.
         with tempfile.TemporaryDirectory() as tmp:
