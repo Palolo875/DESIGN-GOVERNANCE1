@@ -62,6 +62,15 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 | `design/savoir/techniques.md` | `c77a8bc` | 1–84 (entier) | 5 | toutes | 2026-10-22 |
 | `design/savoir/systeme-de-design.md` | `c77a8bc` | 1–22 (entier) | 5 | toutes | 2026-10-22 |
 | `design/savoir/connexions.md` | `c77a8bc` | 1–140 (entier) | 5 | toutes | 2026-10-22 |
+| `design/formes/README.md` | `c77a8bc` | 1–8 (entier) | 6 | COH | 2026-10-22 |
+| `design/formes/choisir.md` | `c77a8bc` | 1–247 (entier) | 6 | toutes | 2026-10-22 |
+| `design/formes/catalogue.md` | `c77a8bc` | 1–471 (entier) | 6 | toutes | 2026-10-22 |
+| `sections/README.md` | `c77a8bc` | 1–25 (entier) | 6 | COH, LIS | 2026-10-22 |
+| `sections/DIRECTION.md` | `c77a8bc` | 1–152 (entier) | 6 | toutes | 2026-10-22 |
+| `sections/ACTION.md` | `c77a8bc` | 1–131 (entier) | 6 | toutes | 2026-10-22 |
+| `sections/BIBLIOTHEQUE.md` | `c77a8bc` | 1–82 (entier) | 6 | toutes | 2026-10-22 |
+| `sections/SAVOIR.md` | `c77a8bc` | 1–172 (entier) | 6 | toutes | 2026-10-22 |
+| `sections/READING_MAP.md` | `c77a8bc` | 1–100 (entier) | 6 | COH, LIS | 2026-10-22 |
 
 ## Lot 1 — noyau et chemins de l’agent
 
@@ -372,3 +381,52 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 - Les exemples de leviers CSS limités à un ou deux moteurs (`techniques.md:26`) et le format stable 2025.10 du W3C Design Tokens (`systeme-de-design.md:16`) sont conformes à ce que j’en connais ; non revérifiés en ligne.
 - Le « test anti-slop procédural » (`styles.md:96-102`) — « qu’est-ce qui change si cette ligne est vraie, fausse ou absente ? » — est le critère du système contre lui-même ; L1-03, L2-03 et L4-02 en sont des cas.
 - L2-05 confirmé : ni `SAVOIR/STYLE` (dial « voix typographique », `styles.md:77`) ni la connexion C02 (`connexions.md:36`) ne donnent de méthode pour trouver et comparer des voix typographiques.
+
+## Lot 6 — formes et sections de référence
+
+**Synthèse.** Le savoir structurel est riche et précis : traduire un caractère en leviers, test de trame, séquence d’une page, usage des cartes, graphiques qui écrivent leur conclusion, recomposition mobile, contrôle structurel concret. Deux constats changent la lecture des lots précédents. La règle qui réconcilie les cadres redondants (L1-04, L2-03) existe, mais elle est hors route ; le problème est donc en partie de mobilisation. Et le test de trame, sur lequel repose une ligne de toute trace légère, n’est pas dans le noyau. Les introductions des quatre fichiers de `sections/` sont hors route ; la carte de lecture est un guide non normatif, ce qui est cohérent.
+
+### L6-01 · Important · MOB, COH — La règle qui réconcilie les cadres est hors route
+
+- **Où.** `sections/DIRECTION.md:127`, dans la partie hors route `:37-152`.
+- **Preuve.** « `CREATIVE-BOOT`, `VISUAL_TARGET` et `DIRECTION-ATELIER` ne demandent pas trois descriptions concurrentes. Lorsque la même information apparaît sous plusieurs noms, conserve-la dans la vue qui la rend décisionnelle et renvoie les autres vues à cette sortie : la promesse devient la thèse […], le parti devient une exclusion […], et l’ancre devient une preuve de calibration […]. » La même partie hors route porte d’autres règles : le « défaut de qualité visuelle » (`:121`), le « standard créatif » (`:125`), une troisième copie de l’ordre `P0` à `P3` (`:119`), la légende des tags (`:135-146`) et la « chaîne de lecture interne » (`:113`). Les introductions de `sections/ACTION.md` (`:1-41`, dont le « socle pour tous les modes », `:32`), `sections/BIBLIOTHEQUE.md` (`:1-40`) et `sections/SAVOIR.md` (`:1-49`) sont aussi hors route.
+- **Effet.** L1-04 et L2-03 sont en partie un problème de mobilisation : la réponse du système à la multiplication des cadres existe, mais l’agent ne la lit jamais.
+- **Proposition.** Première étape de A11 : compiler cette règle dans le noyau (environ 500 caractères), puis l’étendre aux autres cadres ; le reste relève de A9.
+
+### L6-02 · Important · MOB — La ligne « trame » de la trace légère repose sur un test que le noyau ne contient pas
+
+- **Où.** Le test de trame (`design/formes/choisir.md:242`) : « Chaque brief a aussi sa trame modale : l’ordre de sections que n’importe quelle IA produirait pour lui […]. Avant de fixer la structure, écris-la en une ligne, puis romps-la ou garde-la en le justifiant. »
+- **Preuve.** Il appartient au bloc `STRUCT-SIGNAUX`, bloc de détail servi par `BIBLIOTHEQUE/SELECT` seulement quand la structure est ouverte (`scripts/build_core.py`, `DETAILS`) ; « trame modale » n’apparaît pas dans `SKILL.md`. Toute trace légère contient pourtant la ligne « modal, trame et parti » (`SKILL.md:152`).
+- **Effet.** Chaque run doit écrire une trame dont la définition et le test ne sont pas lus par défaut ; l’outil le plus direct contre la convergence au niveau de la structure reste inemployé, alors que la convergence est le premier indice défavorable observé (L4-04). C’est aussi la vraie cause de l’ambiguïté de L1-04.
+- **Proposition.** Compiler le test de trame dans le noyau (environ 600 caractères), section 4, à côté de « où elle vit ».
+
+### L6-03 · Mineur · MOB, COH — Une sixième table de routage
+
+- **Où.** `SAVOIR/ROUTING` (`sections/SAVOIR.md:50-66`), dont l’adresse lisible est un guide (L1-09).
+- **Proposition.** À intégrer à A10 (une seule table de signaux).
+
+### L6-04 · Mineur · SAV, MIS — Le catalogue penche vers le produit logiciel
+
+- **Où.** `design/formes/catalogue.md` : six scènes (instrument, champ éditorial, produit encadré, grille opérationnelle, preuve partagée, récit produit), neuf objets et sept micro-interfaces, pour l’essentiel tournés vers le logiciel et le B2B.
+- **Preuve.** Rien pour les commerces locaux que le système prend lui-même en exemple (boulangerie, chambres, menu, horaires : `qualite-creative.md:82-88`, `cadrer.md:34`), ni pour la fiche produit d’un commerce en ligne, la lecture d’un article ou un événement. « Objet du métier » (`catalogue.md:253`) et la dérivation locale (`choisir.md:196-224`) couvrent une partie du besoin. Les routes sont `SEED`, sans gain mesuré.
+- **Effet.** Les structures proposées tirent vers celles d’un produit logiciel, ce qui nourrit la convergence que le système combat.
+- **Proposition.** Ajouter quelques routes ou exemples d’« objet du métier » pour le commerce local, le commerce en ligne et la lecture, ou déclarer ce biais dans le catalogue.
+
+### L6-05 · Mineur · PRO — Formulaires structurels sans portée de trace
+
+- **Où.** Tension, sept champs persistés (`choisir.md:63`) ; signature, quatre (`:69-74`) ; dérivation, huit et plus (`:200-219`) ; contrat de grille, dont sept champs `MOBILE-*` (`catalogue.md:113-129`) ; contrat d’objet, dix (`:273-284`) ; grammaire de marque, quinze (`:408-424`).
+- **Proposition.** Même famille que L3-02 : dire ce qui en reste en trace légère (à intégrer à A15).
+
+### L6-06 · Mineur · COH — Compléments aux familles déjà ouvertes
+
+- La table des locators de la carte de lecture donne les fichiers historiques (`DIRECTION.md`, `ACTION.md`…) et non les emplacements actuels (`sections/READING_MAP.md:70-100`) ; le lecteur résout correctement, mais une personne est induite en erreur.
+- Une variante de plus de la liste d’axes (`sections/ACTION.md:56`, qui ajoute rythme et émotion) : L2-03.
+- Une grille de plus : la clôture créative en quatre questions (`sections/ACTION.md:123`) face au creative close en cinq rubriques (`cloture.md:22`) : L4-02.
+- Des jetons de plus : `CORRECTED`, `ACCEPTED-DIFFERENCE`, `REMAINING-RISK` (`sections/ACTION.md:115`) : L3-03.
+
+### Ce qui tient (vérifié)
+
+- « Traduire un caractère en leviers » (`choisir.md:27-40`) relie douze caractères à des leviers concrets et nomme le piège réflexe de chacun ; les valeurs de départ sont plausibles (mesure de 45 à 65 signes, base de 4 ou 8 px).
+- Le test de trame (`choisir.md:242`) et sa reprise sur toute la page (`catalogue.md:238`) sont parmi les outils les plus utiles du corpus contre la convergence.
+- La séquence d’une page (`catalogue.md:225-238`), l’usage des cartes (`:240`), les graphiques qui écrivent leur conclusion et dont la couleur suit le sens de la mesure plutôt que son signe (`:301`), la recomposition mobile (`:244`) : savoir de niveau senior.
+- Le contrôle structurel (`sections/BIBLIOTHEQUE.md:56-68`) est concret, et les modes d’échec d’application (`sections/SAVOIR.md:80-92`) décrivent exactement les défauts que cet audit rencontre.
