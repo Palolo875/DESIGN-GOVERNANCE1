@@ -1,0 +1,34 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 23:15:40 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 23:15:46 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 2 | 23:15:46 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 2 | 23:15:46 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 2 | 23:15:46 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 2 | 23:15:46 | `SAVOIR/TYPE` | consultée | | |
+| 2 | 23:15:46 | `ACTION/FIRST-RENDER` | consultée | | |
+| 2 | 23:15:46 | `ACTION/GATE-A` | consultée | | |
+| 3 | 23:15:54 | `DIRECTION/EXTERNAL-START` | consultée | | |
+| 4 | 23:15:54 | `SAVOIR/CRAFT/CFT-01/Inventaire` | consultée | | |
+| 4 | 23:15:54 | `BIBLIOTHEQUE/SELECT/Signaux` | consultée | | |
+| 4 | 23:15:54 | `BIBLIOTHEQUE/SEQUENCE` | consultée | | |
+| 4 | 23:15:54 | `SAVOIR/CRAFT/CFT-05/Relations` | consultée | | |
+| 5 | 23:16:01 | ligne du mode DIRECTION | consultée (routes citées, non lues) | | |
+| 6 | 23:16:09 | `DIRECTION/DIRECTION-ATELIER` | consultée | | |
+| 7 | 23:16:09 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 8 | 23:16:10 | `SAVOIR/TOOLS/CONVERGENCE` | consultée | | |
+| 9 | 23:24:18 | check_render sur `index.html` | exécuté : RETURN — Chevauchement et troncature de texte ; PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Taille des cibles (WCAG 2.2, 2.5.8), Parcours clavier, Contraste de l’indicateur de focus ; gestes servis : Gestion du vide, États | | |
+| 10 | 23:25:32 | check_render sur `index.html` | exécuté : RETURN — Chevauchement et troncature de texte ; PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Parcours clavier | | |
+| 11 | 23:26:04 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 12 | 23:26:22 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) | | |
+| 13 | 07:42:35 | `DIRECTION/DOUBLE-LOOP/Test` | consultée | | |
+| 13 | 07:42:35 | `DIRECTION/DOUBLE-LOOP/Regard` | consultée | | |
+
+## Manques
+
+- Cartes de moment non consultées (DIRECTION) : regard (`read_route.py --moment`, DIRECTION/CHARGE).
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

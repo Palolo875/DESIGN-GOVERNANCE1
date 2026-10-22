@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Mareuil — lutherie du quatuor</title>
+<meta name="description" content="Atelier de lutherie : réglages, réparations, restauration, fabrication et location de violons, altos et violoncelles. Sur rendez-vous. (Maquette, contenus d’exemple.)">
+<style>
+@font-face{font-family:"Barlow SC";src:url("fonts/barlow-semi-condensed-latin-600-normal.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Barlow SC";src:url("fonts/barlow-semi-condensed-latin-500-normal.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Spectral";src:url("fonts/spectral-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Spectral";src:url("fonts/spectral-latin-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Spectral";src:url("fonts/spectral-latin-500-normal.woff2") format("woff2");font-weight:500;font-display:swap}
+
+:root{
+  /* Lumière du nord : champ froid et accordé ; seule la matière de l'instrument est chaude. */
+  --fond:#e9edf0;
+  --papier:#f6f8f9;
+  --filet:#c5cdd5;
+  --encre:#17202b;
+  --encre-2:#46515e;
+  --action:#23467a;
+  --action-fonce:#183459;
+  --epicea:#efdcaa;
+  --erable:#dcc39b;
+  --vernis:#9b3f1b;
+  --vernis-clair:#f3cdb4;
+  --ebene:#14181d;
+  --sur-ebene:#e6eaee;
+  --sur-ebene-2:#a9b3be;
+  --titre:"Barlow SC","Barlow Semi Condensed","Arial Narrow",sans-serif;
+  --texte:"Spectral",Georgia,serif;
+  --gouttiere:clamp(16px,4vw,48px);
+  --max:1320px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--fond);color:var(--encre);font:400 19px/1.55 var(--texte);font-kerning:normal}
+a{color:var(--action);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{color:var(--action-fonce)}
+:focus-visible{outline:3px solid var(--action);outline-offset:3px;border-radius:2px}
+.cadre{max-width:var(--max);margin:0 auto;padding:0 var(--gouttiere)}
+.ex{font:500 .72rem/1 var(--titre);letter-spacing:.02em;color:var(--encre-2);border:1px dashed #8b96a3;border-radius:3px;padding:.18em .4em .22em;white-space:nowrap;vertical-align:.15em;margin-left:.35em}
+.sur-ebene .ex{color:var(--sur-ebene-2);border-color:#6f7a86}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Bandeau de maquette */
+.maquette{background:var(--papier);border-bottom:1px solid var(--filet);font:500 15px/1.35 var(--titre);color:var(--encre-2)}
+.maquette p{margin:0;padding:8px 0}
+
+/* En-tête */
+.entete{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
+.marque{font:600 22px/1 var(--titre);color:var(--encre);text-decoration:none;display:flex;flex-direction:column;gap:3px}
+.marque small{font:500 15px/1 var(--titre);color:var(--encre-2)}
+.nav{display:flex;align-items:center;gap:26px;font:500 17px/1 var(--titre)}
+.nav a{color:var(--encre);text-decoration:none;padding:10px 0}
+.nav a:hover{text-decoration:underline}
+.bouton{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:12px 22px;border-radius:3px;font:600 18px/1.1 var(--titre);text-decoration:none;border:1.5px solid var(--action)}
+.bouton.plein{background:var(--action);color:#fff}
+.bouton.plein:hover{background:var(--action-fonce);border-color:var(--action-fonce);color:#fff}
+.bouton.trait{color:var(--action);background:transparent}
+.bouton.trait:hover{background:var(--papier)}
+.nav .bouton{min-height:44px;padding:10px 16px;font-size:17px}
+@media (max-width:860px){.nav .lien{display:none}}
+
+/* Ouverture */
+.ouverture{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start;padding-top:clamp(20px,5vw,64px);padding-bottom:clamp(40px,6vw,88px)}
+.ouverture .texte{grid-column:1 / span 6;padding-top:clamp(0px,2vw,28px)}
+.ouverture .dessin{grid-column:7 / span 6;margin:0}
+h1{font:600 clamp(52px,7.6vw,112px)/.94 var(--titre);letter-spacing:-.012em;margin:0 0 .32em;text-wrap:balance}
+@media (min-width:901px){h1 .l{display:block}}
+.chapeau{font-size:clamp(19px,1.6vw,22px);line-height:1.55;max-width:34em;margin:0 0 30px}
+.chapeau em{font-style:italic}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.pratique{font:500 16px/1.4 var(--titre);color:var(--encre-2);margin:16px 0 0}
+.dessin .coupe{display:block;width:100%;height:auto;overflow:visible}
+.legende{font:500 15px/1.4 var(--titre);color:var(--encre-2);margin:6px 0 14px}
+.nomenclature{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 20px;margin:0;padding:14px 0 0;border-top:1px solid var(--filet);list-style:none;font:500 15px/1.3 var(--titre)}
+.nomenclature li{display:grid;grid-template-columns:1.6em 1fr;align-items:baseline}
+.nomenclature b{font-weight:600}
+.nomenclature span{color:var(--encre-2)}
+.nomenclature .n{font-weight:600;color:var(--encre)}
+@media (max-width:900px){
+  .ouverture .texte,.ouverture .dessin{grid-column:1 / -1}
+  .ouverture .dessin{margin-top:36px}
+  .nomenclature{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  .dessin .coupe{width:calc(100% + 2 * var(--gouttiere));margin-left:calc(-1 * var(--gouttiere))}
+  .actions .bouton{flex:1 1 auto}
+}
+
+/* Coupe */
+.coupe .part{stroke:var(--encre);stroke-width:1.15px;vector-effect:non-scaling-stroke;stroke-linejoin:round;transition:fill .25s,stroke .25s}
+.coupe .table,.coupe .barre,.coupe .ame,.coupe .contre{fill:var(--epicea)}
+.coupe .fond,.coupe .eclisse,.coupe .chevalet{fill:var(--erable)}
+.coupe .cordes circle{fill:var(--encre);stroke:none}
+.coupe .ouie{fill:none;stroke:transparent;stroke-width:3px}
+.coupe .ame{fill:var(--vernis);stroke:var(--vernis)}
+.coupe .rep line{stroke:var(--encre-2);stroke-width:.9px;vector-effect:non-scaling-stroke}
+.coupe .rep .pt{fill:var(--encre-2)}
+.coupe .rep .bulle{fill:var(--papier);stroke:var(--encre);stroke-width:1.1px;vector-effect:non-scaling-stroke}
+.coupe .rep text{font:600 4.6px var(--titre);text-anchor:middle;fill:var(--encre)}
+/* état « surligné » (diagnostic) */
+.coupe[data-hl] .part{fill-opacity:.38;stroke-opacity:.45}
+.coupe[data-hl] .cordes circle{opacity:.4}
+.coupe[data-hl] .rep{opacity:.28}
+.coupe .part.on{fill-opacity:1;stroke-opacity:1;stroke:var(--vernis);stroke-width:2.2px}
+.coupe .table.on,.coupe .fond.on,.coupe .eclisse.on,.coupe .contre.on,.coupe .barre.on,.coupe .chevalet.on{fill:var(--vernis-clair)}
+.coupe .ame.on{fill:var(--vernis)}
+.coupe .cordes.on circle{opacity:1;fill:var(--vernis)}
+.coupe .ouie.on{stroke:var(--vernis);stroke-width:4px;stroke-opacity:1}
+.coupe .rep.on{opacity:1}
+.coupe .rep.on .bulle{fill:var(--vernis);stroke:var(--vernis)}
+.coupe .rep.on text{fill:#fff}
+
+/* Sections */
+section{scroll-margin-top:16px}
+.section{padding-top:clamp(56px,8vw,112px);padding-bottom:clamp(56px,8vw,112px);border-top:1px solid var(--filet)}
+h2{font:600 clamp(34px,4.4vw,60px)/1 var(--titre);letter-spacing:-.008em;margin:0 0 .45em;text-wrap:balance}
+h3{font:600 clamp(24px,2.2vw,30px)/1.1 var(--titre);margin:0}
+.intro{max-width:36em;margin:0 0 36px}
+
+/* Diagnostic */
+.diag{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start}
+.diag .tete{grid-column:1 / -1}
+.diag .vue{grid-column:1 / span 5;position:sticky;top:24px;margin:0}
+.diag .liste{grid-column:7 / span 6}
+.diag .vue .legende{margin-top:8px}
+.diag .vue[hidden]{display:none}
+details.symptome{border-top:1px solid var(--filet)}
+details.symptome:last-child{border-bottom:1px solid var(--filet)}
+details.symptome summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:18px 0;font:600 clamp(21px,1.9vw,26px)/1.15 var(--titre)}
+details.symptome summary::-webkit-details-marker{display:none}
+details.symptome summary::after{content:"";width:12px;height:12px;border-right:2px solid var(--encre);border-bottom:2px solid var(--encre);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+details.symptome[open] summary::after{transform:rotate(-135deg) translate(-3px,-3px)}
+details.symptome[open] summary{color:var(--vernis)}
+.reponse{padding:0 0 24px;max-width:34em}
+details.symptome:not([open]) .reponse{display:none}
+.reponse p{margin:0 0 12px}
+.fiche{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin:14px 0 16px;font:500 16px/1.4 var(--titre);color:var(--encre-2)}
+.fiche dt{font-weight:600;color:var(--encre)}
+.fiche dd{margin:0}
+.ecrire{font:600 17px/1.3 var(--titre);display:inline-block;padding:10px 0;min-height:44px}
+@media (max-width:900px){
+  .diag .vue{display:none}
+  .diag .liste{grid-column:1 / -1}
+}
+
+/* Travaux */
+.travaux{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--filet)}
+.travaux li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:baseline;border-top:1px solid var(--filet);padding:24px 0}
+.travaux li:first-child{border-top:2px solid var(--encre)}
+.travaux h3{grid-column:1 / span 4}
+.travaux p{grid-column:5 / span 5;margin:0;max-width:32em}
+.travaux .meta{grid-column:10 / span 3;font:500 16px/1.4 var(--titre);color:var(--encre-2)}
+@media (max-width:760px){.travaux li{display:block}.travaux p{margin:10px 0 8px}}
+
+/* Tailles */
+.tailles{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.tailles .tete{grid-column:1 / span 5}
+.tailles table{grid-column:7 / span 6;border-collapse:collapse;width:100%;font:500 17px/1.3 var(--titre)}
+.tailles caption{caption-side:bottom;text-align:left;color:var(--encre-2);font-size:15px;padding-top:12px}
+.tailles th,.tailles td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--filet);vertical-align:middle}
+.tailles thead th{font-size:15px;color:var(--encre-2);font-weight:500;border-bottom:1.5px solid var(--encre)}
+.tailles tbody th{font-weight:600;font-size:21px;width:3.2em;font-variant-numeric:tabular-nums}
+.tailles td.bras{white-space:nowrap;font-variant-numeric:tabular-nums;width:7.5em}
+.tailles td.corps{width:100%}
+.barre-corps{display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums;color:var(--encre-2);font-size:15px}
+.barre-corps i{display:block;height:10px;background:var(--erable);border:1px solid var(--encre);border-radius:6px 2px 2px 6px;flex:none}
+@media (max-width:900px){.tailles .tete,.tailles table{grid-column:1 / -1}}
+@media (max-width:480px){.barre-corps span{display:none}.tailles td.bras{width:auto}}
+
+/* Venir */
+.venir{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start}
+.venir figure{grid-column:1 / span 6;margin:0}
+.photo-a-fournir{aspect-ratio:3/2;border:1.5px dashed #8b96a3;background:var(--papier);display:flex;align-items:flex-end;padding:20px;font:500 16px/1.45 var(--titre);color:var(--encre-2)}
+.photo-a-fournir strong{display:block;color:var(--encre);font-weight:600;font-size:18px;margin-bottom:4px}
+.venir .infos{grid-column:8 / span 5}
+.venir dl{margin:0 0 28px}
+.venir dt{font:600 15px/1.2 var(--titre);color:var(--encre-2);margin-top:18px}
+.venir dd{margin:4px 0 0;font-size:20px}
+@media (max-width:900px){.venir figure,.venir .infos{grid-column:1 / -1}.venir .infos{margin-top:32px}}
+
+/* Fin */
+.fin{background:var(--ebene);color:var(--sur-ebene)}
+.fin .cadre{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:center;padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(48px,7vw,88px)}
+.fin .phrase{grid-column:1 / span 6}
+.fin h2{color:#fff}
+.fin p{color:var(--sur-ebene);max-width:30em}
+.fin .bouton.plein{background:var(--sur-ebene);border-color:var(--sur-ebene);color:var(--ebene)}
+.fin .bouton.plein:hover{background:#fff;color:var(--ebene)}
+.fin a{color:#c9d8ee}
+.fin :focus-visible{outline-color:var(--sur-ebene)}
+.etiquette-zone{grid-column:8 / span 5;display:flex;justify-content:center}
+.etiquette{background:var(--epicea);color:#2a2116;width:min(100%,340px);aspect-ratio:2.1/1;padding:14px 18px;display:flex;flex-direction:column;justify-content:center;text-align:center;box-shadow:0 0 0 1px #2a2116 inset,0 0 0 4px var(--epicea) inset,0 0 0 5px #2a2116 inset;transform:rotate(-1.2deg)}
+.etiquette p{margin:0;color:#2a2116;max-width:none}
+.etiquette .l1{font:italic 400 19px/1.25 var(--texte)}
+.etiquette .l2{font:500 15px/1.3 var(--texte);letter-spacing:.06em;margin-top:6px}
+.etiquette-note{font:500 14px/1.3 var(--titre);color:var(--sur-ebene-2);text-align:center;margin-top:12px}
+@media (max-width:900px){.fin .phrase,.etiquette-zone{grid-column:1 / -1}.etiquette-zone{margin-top:40px;flex-direction:column;align-items:center}}
+.colophon{border-top:1px solid #2c333b;font:500 15px/1.5 var(--titre);color:var(--sur-ebene-2)}
+.colophon .cadre{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:24px;padding-bottom:32px}
+.colophon p{margin:0}
+</style>
+</head>
+<body>
+
+<div class="maquette"><div class="cadre"><p>Maquette — le nom, l’adresse, le numéro, les horaires et les délais sont des exemples à remplacer.</p></div></div>
+
+<header class="cadre entete">
+  <a class="marque" href="#" aria-label="Atelier Mareuil, lutherie du quatuor — accueil">Atelier Mareuil <small>lutherie du quatuor</small></a>
+  <nav class="nav" aria-label="Sections">
+    <a class="lien" href="#diagnostic">Diagnostic</a>
+    <a class="lien" href="#travaux">Travaux</a>
+    <a class="lien" href="#tailles">Tailles</a>
+    <a class="lien" href="#venir">Venir</a>
+    <a class="bouton plein" href="mailto:atelier@mareuil.example?subject=Demande%20de%20rendez-vous">Rendez-vous</a>
+  </nav>
+</header>
+
+<main>
+<div class="cadre ouverture">
+  <div class="texte">
+    <h1><span class="l">Le son</span> <span class="l">se règle</span> <span class="l">de l’intérieur.</span></h1>
+    <p class="chapeau">Sous le chevalet, une baguette d’épicéa de six millimètres tient la table et le fond, sans colle : <em>l’âme</em>. La déplacer d’un demi-millimètre change le son. Réglages, réparations, restaurations et instruments neufs&nbsp;: l’atelier travaille le violon, l’alto et le violoncelle.</p>
+    <div class="actions">
+      <a class="bouton plein" href="mailto:atelier@mareuil.example?subject=Demande%20de%20rendez-vous&amp;body=Instrument%20%3A%20%0AObjet%20du%20rendez-vous%20%3A%20%0AJours%20possibles%20%3A%20">Prendre rendez-vous</a>
+      <a class="bouton trait" href="tel:+33199001234">01 99 00 12 34</a>
+    </div>
+    <p class="pratique">Sur rendez-vous, du mardi au samedi <span class="ex">exemple</span></p>
+  </div>
+
+  <figure class="dessin" id="dessin">
+    <svg class="coupe" viewBox="-82 -74 164 142" role="img" aria-labelledby="coupe-titre coupe-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="coupe-titre">Coupe schématique d’un violon au droit du chevalet</title>
+<desc id="coupe-desc">Vue en coupe : les quatre cordes passent sur le chevalet, posé sur la table voûtée en épicéa. Sous le pied gauche, la barre d’harmonie est collée sous la table ; sous le pied droit, l’âme, une baguette d’épicéa de six millimètres, tient la table et le fond sans colle. Les éclisses en érable relient la table et le fond.</desc>
+<g class="bois">
+<path class="part fond" data-part="fond" d="M-62.00 34.60 L-59.93 34.73 L-57.87 35.00 L-55.80 35.37 L-53.73 35.82 L-51.67 36.33 L-49.60 36.89 L-47.53 37.50 L-45.47 38.16 L-43.40 38.84 L-41.33 39.55 L-39.27 40.27 L-37.20 41.01 L-35.13 41.75 L-33.07 42.49 L-31.00 43.22 L-28.93 43.93 L-26.87 44.62 L-24.80 45.29 L-22.73 45.92 L-20.67 46.52 L-18.60 47.07 L-16.53 47.58 L-14.47 48.04 L-12.40 48.44 L-10.33 48.79 L-8.27 49.08 L-6.20 49.31 L-4.13 49.47 L-2.07 49.57 L0.00 49.60 L2.07 49.57 L4.13 49.47 L6.20 49.31 L8.27 49.08 L10.33 48.79 L12.40 48.44 L14.47 48.04 L16.53 47.58 L18.60 47.07 L20.67 46.52 L22.73 45.92 L24.80 45.29 L26.87 44.62 L28.93 43.93 L31.00 43.22 L33.07 42.49 L35.13 41.75 L37.20 41.01 L39.27 40.27 L41.33 39.55 L43.40 38.84 L45.47 38.16 L47.53 37.50 L49.60 36.89 L51.67 36.33 L53.73 35.82 L55.80 35.37 L57.87 35.00 L59.93 34.73 L62.00 34.60 L62.00 31.00 L59.93 31.13 L57.87 31.40 L55.80 31.77 L53.73 32.22 L51.67 32.73 L49.60 33.29 L47.53 33.90 L45.47 34.56 L43.40 35.24 L41.33 35.95 L39.27 36.67 L37.20 37.41 L35.13 38.15 L33.07 38.89 L31.00 39.62 L28.93 40.33 L26.87 41.02 L24.80 41.69 L22.73 42.32 L20.67 42.92 L18.60 43.47 L16.53 43.98 L14.47 44.44 L12.40 44.84 L10.33 45.19 L8.27 45.48 L6.20 45.71 L4.13 45.87 L2.07 45.97 L0.00 46.00 L-2.07 45.97 L-4.13 45.87 L-6.20 45.71 L-8.27 45.48 L-10.33 45.19 L-12.40 44.84 L-14.47 44.44 L-16.53 43.98 L-18.60 43.47 L-20.67 42.92 L-22.73 42.32 L-24.80 41.69 L-26.87 41.02 L-28.93 40.33 L-31.00 39.62 L-33.07 38.89 L-35.13 38.15 L-37.20 37.41 L-39.27 36.67 L-41.33 35.95 L-43.40 35.24 L-45.47 34.56 L-47.53 33.90 L-49.60 33.29 L-51.67 32.73 L-53.73 32.22 L-55.80 31.77 L-57.87 31.40 L-59.93 31.13 L-62.00 31.00 Z"/>
+<path class="part eclisse" data-part="eclisse" d="M-59.50 0 h1.2 v31.0 h-1.2 Z M58.30 0 h1.2 v31.0 h-1.2 Z"/>
+<path class="part contre" data-part="contre" d="M-58.30 0.20 l2.20 0 l-2.20 6.5 Z M-58.30 30.80 l2.20 0 l-2.20 -6.5 Z M58.30 0.20 l-2.20 0 l2.20 6.5 Z M58.30 30.80 l-2.20 0 l2.20 -6.5 Z"/>
+<path class="part table" data-part="table" d="M-62.00 -2.80 L-61.55 -2.81 L-61.10 -2.84 L-60.65 -2.87 L-60.20 -2.91 L-59.75 -2.96 L-59.30 -3.02 L-58.85 -3.08 L-58.40 -3.15 L-57.95 -3.22 L-57.50 -3.29 L-57.05 -3.37 L-56.60 -3.46 L-56.15 -3.55 L-55.70 -3.64 L-55.25 -3.74 L-54.80 -3.84 L-54.35 -3.95 L-53.90 -4.06 L-53.45 -4.17 L-53.00 -4.28 L-52.55 -4.40 L-52.10 -4.52 L-51.65 -4.65 L-51.20 -4.77 L-50.75 -4.90 L-50.30 -5.03 L-49.85 -5.17 L-49.40 -5.31 L-48.95 -5.44 L-48.50 -5.59 L-48.05 -5.73 L-47.60 -5.88 L-47.15 -6.02 L-46.70 -6.17 L-46.25 -6.33 L-45.80 -6.48 L-45.35 -6.63 L-44.90 -6.79 L-44.45 -6.95 L-44.00 -7.11 L-43.55 -7.27 L-43.10 -7.43 L-42.65 -7.59 L-42.20 -7.76 L-41.75 -7.92 L-41.30 -8.09 L-40.85 -8.26 L-40.40 -8.43 L-39.95 -8.59 L-39.50 -8.76 L-39.05 -8.93 L-38.60 -9.10 L-38.15 -9.28 L-37.70 -9.45 L-37.25 -9.62 L-36.80 -9.79 L-36.35 -9.96 L-35.90 -10.13 L-35.45 -10.31 L-35.00 -10.48 L-35.00 -7.68 L-35.45 -7.51 L-35.90 -7.33 L-36.35 -7.16 L-36.80 -6.99 L-37.25 -6.82 L-37.70 -6.65 L-38.15 -6.48 L-38.60 -6.30 L-39.05 -6.13 L-39.50 -5.96 L-39.95 -5.79 L-40.40 -5.63 L-40.85 -5.46 L-41.30 -5.29 L-41.75 -5.12 L-42.20 -4.96 L-42.65 -4.79 L-43.10 -4.63 L-43.55 -4.47 L-44.00 -4.31 L-44.45 -4.15 L-44.90 -3.99 L-45.35 -3.83 L-45.80 -3.68 L-46.25 -3.53 L-46.70 -3.37 L-47.15 -3.22 L-47.60 -3.08 L-48.05 -2.93 L-48.50 -2.79 L-48.95 -2.64 L-49.40 -2.51 L-49.85 -2.37 L-50.30 -2.23 L-50.75 -2.10 L-51.20 -1.97 L-51.65 -1.85 L-52.10 -1.72 L-52.55 -1.60 L-53.00 -1.48 L-53.45 -1.37 L-53.90 -1.26 L-54.35 -1.15 L-54.80 -1.04 L-55.25 -0.94 L-55.70 -0.84 L-56.15 -0.75 L-56.60 -0.66 L-57.05 -0.57 L-57.50 -0.49 L-57.95 -0.42 L-58.40 -0.35 L-58.85 -0.28 L-59.30 -0.22 L-59.75 -0.16 L-60.20 -0.11 L-60.65 -0.07 L-61.10 -0.04 L-61.55 -0.01 L-62.00 -0.00 Z M-29.00 -12.73 L-28.03 -13.07 L-27.07 -13.42 L-26.10 -13.76 L-25.13 -14.09 L-24.17 -14.41 L-23.20 -14.73 L-22.23 -15.03 L-21.27 -15.33 L-20.30 -15.62 L-19.33 -15.90 L-18.37 -16.17 L-17.40 -16.42 L-16.43 -16.67 L-15.47 -16.90 L-14.50 -17.13 L-13.53 -17.34 L-12.57 -17.53 L-11.60 -17.72 L-10.63 -17.89 L-9.67 -18.04 L-8.70 -18.19 L-7.73 -18.31 L-6.77 -18.43 L-5.80 -18.53 L-4.83 -18.61 L-3.87 -18.68 L-2.90 -18.73 L-1.93 -18.77 L-0.97 -18.79 L0.00 -18.80 L0.97 -18.79 L1.93 -18.77 L2.90 -18.73 L3.87 -18.68 L4.83 -18.61 L5.80 -18.53 L6.77 -18.43 L7.73 -18.31 L8.70 -18.19 L9.67 -18.04 L10.63 -17.89 L11.60 -17.72 L12.57 -17.53 L13.53 -17.34 L14.50 -17.13 L15.47 -16.90 L16.43 -16.67 L17.40 -16.42 L18.37 -16.17 L19.33 -15.90 L20.30 -15.62 L21.27 -15.33 L22.23 -15.03 L23.20 -14.73 L24.17 -14.41 L25.13 -14.09 L26.10 -13.76 L27.07 -13.42 L28.03 -13.07 L29.00 -12.73 L29.00 -9.93 L28.03 -10.27 L27.07 -10.62 L26.10 -10.96 L25.13 -11.29 L24.17 -11.61 L23.20 -11.93 L22.23 -12.23 L21.27 -12.53 L20.30 -12.82 L19.33 -13.10 L18.37 -13.37 L17.40 -13.62 L16.43 -13.87 L15.47 -14.10 L14.50 -14.33 L13.53 -14.54 L12.57 -14.73 L11.60 -14.92 L10.63 -15.09 L9.67 -15.24 L8.70 -15.39 L7.73 -15.51 L6.77 -15.63 L5.80 -15.73 L4.83 -15.81 L3.87 -15.88 L2.90 -15.93 L1.93 -15.97 L0.97 -15.99 L0.00 -16.00 L-0.97 -15.99 L-1.93 -15.97 L-2.90 -15.93 L-3.87 -15.88 L-4.83 -15.81 L-5.80 -15.73 L-6.77 -15.63 L-7.73 -15.51 L-8.70 -15.39 L-9.67 -15.24 L-10.63 -15.09 L-11.60 -14.92 L-12.57 -14.73 L-13.53 -14.54 L-14.50 -14.33 L-15.47 -14.10 L-16.43 -13.87 L-17.40 -13.62 L-18.37 -13.37 L-19.33 -13.10 L-20.30 -12.82 L-21.27 -12.53 L-22.23 -12.23 L-23.20 -11.93 L-24.17 -11.61 L-25.13 -11.29 L-26.10 -10.96 L-27.07 -10.62 L-28.03 -10.27 L-29.00 -9.93 Z M35.00 -10.48 L35.45 -10.31 L35.90 -10.13 L36.35 -9.96 L36.80 -9.79 L37.25 -9.62 L37.70 -9.45 L38.15 -9.28 L38.60 -9.10 L39.05 -8.93 L39.50 -8.76 L39.95 -8.59 L40.40 -8.43 L40.85 -8.26 L41.30 -8.09 L41.75 -7.92 L42.20 -7.76 L42.65 -7.59 L43.10 -7.43 L43.55 -7.27 L44.00 -7.11 L44.45 -6.95 L44.90 -6.79 L45.35 -6.63 L45.80 -6.48 L46.25 -6.33 L46.70 -6.17 L47.15 -6.02 L47.60 -5.88 L48.05 -5.73 L48.50 -5.59 L48.95 -5.44 L49.40 -5.31 L49.85 -5.17 L50.30 -5.03 L50.75 -4.90 L51.20 -4.77 L51.65 -4.65 L52.10 -4.52 L52.55 -4.40 L53.00 -4.28 L53.45 -4.17 L53.90 -4.06 L54.35 -3.95 L54.80 -3.84 L55.25 -3.74 L55.70 -3.64 L56.15 -3.55 L56.60 -3.46 L57.05 -3.37 L57.50 -3.29 L57.95 -3.22 L58.40 -3.15 L58.85 -3.08 L59.30 -3.02 L59.75 -2.96 L60.20 -2.91 L60.65 -2.87 L61.10 -2.84 L61.55 -2.81 L62.00 -2.80 L62.00 -0.00 L61.55 -0.01 L61.10 -0.04 L60.65 -0.07 L60.20 -0.11 L59.75 -0.16 L59.30 -0.22 L58.85 -0.28 L58.40 -0.35 L57.95 -0.42 L57.50 -0.49 L57.05 -0.57 L56.60 -0.66 L56.15 -0.75 L55.70 -0.84 L55.25 -0.94 L54.80 -1.04 L54.35 -1.15 L53.90 -1.26 L53.45 -1.37 L53.00 -1.48 L52.55 -1.60 L52.10 -1.72 L51.65 -1.85 L51.20 -1.97 L50.75 -2.10 L50.30 -2.23 L49.85 -2.37 L49.40 -2.51 L48.95 -2.64 L48.50 -2.79 L48.05 -2.93 L47.60 -3.08 L47.15 -3.22 L46.70 -3.37 L46.25 -3.53 L45.80 -3.68 L45.35 -3.83 L44.90 -3.99 L44.45 -4.15 L44.00 -4.31 L43.55 -4.47 L43.10 -4.63 L42.65 -4.79 L42.20 -4.96 L41.75 -5.12 L41.30 -5.29 L40.85 -5.46 L40.40 -5.63 L39.95 -5.79 L39.50 -5.96 L39.05 -6.13 L38.60 -6.30 L38.15 -6.48 L37.70 -6.65 L37.25 -6.82 L36.80 -6.99 L36.35 -7.16 L35.90 -7.33 L35.45 -7.51 L35.00 -7.68 Z"/>
+<path class="part barre" data-part="barre" d="M-19.60 -13.02 L-14.40 -14.35 L-14.40 -2.73 L-19.60 -2.73 Z"/>
+<path class="part ame" data-part="ame" d="M14.00 -14.44 L20.00 -12.91 L20.00 43.10 L14.00 44.53 Z"/>
+<path class="part chevalet" data-part="chevalet" d="M-20.50 -15.56 L-13.00 -17.45 C-11.00 -22.45 -6.00 -24.45 -4.00 -23.95 Q0 -24.80 4 -23.95 C6 -24.45 11 -22.45 13 -17.45 L20.5 -15.56 C19.5 -23.56 17 -27.56 17.2 -31.56 C19 -34.56 20.5 -42.73 20.6 -46.40 L20.60 -46.40 L19.23 -47.14 L17.85 -47.82 L16.48 -48.43 L15.11 -48.99 L13.73 -49.49 L12.36 -49.94 L10.99 -50.34 L9.61 -50.69 L8.24 -50.98 L6.87 -51.23 L5.49 -51.44 L4.12 -51.60 L2.75 -51.71 L1.37 -51.78 L0.00 -51.80 L-1.37 -51.78 L-2.75 -51.71 L-4.12 -51.60 L-5.49 -51.44 L-6.87 -51.23 L-8.24 -50.98 L-9.61 -50.69 L-10.99 -50.34 L-12.36 -49.94 L-13.73 -49.49 L-15.11 -48.99 L-16.48 -48.43 L-17.85 -47.82 L-19.23 -47.14 L-20.60 -46.40 C-20.5 -42.73 -19 -34.56 -17.2 -31.56 C-17 -27.56 -19.5 -23.56 -20.5 -15.56 Z M0 -35.80 C-3.5 -38.80 -3 -43.30 0 -41.80 C3 -43.30 3.5 -38.80 0 -35.80 Z" fill-rule="evenodd"/>
+<g class="part cordes" data-part="cordes"><circle cx="-16.50" cy="-49.41" r="1.44"/><circle cx="-5.50" cy="-52.32" r="1.28"/><circle cx="5.50" cy="-52.21" r="1.12"/><circle cx="16.50" cy="-48.97" r="0.80"/></g>
+<path class="part ouie" data-part="ouie" d="M-35.00 -10.48 L-29.00 -12.73 M29.00 -12.73 L35.00 -10.48"/>
+</g>
+<g class="reperes"><g class="rep" data-rep="cordes"><line x1="27.23" y1="-62.71" x2="16.50" y2="-49.92"/><circle class="pt" cx="16.50" cy="-49.92" r="0.9"/><circle class="bulle" cx="30.00" cy="-66.00" r="4.3"/><text x="30.00" y="-66.00" dy="0.36em">1</text></g><g class="rep" data-rep="chevalet"><line x1="-32.17" y1="-52.05" x2="-10.00" y2="-40.80"/><circle class="pt" cx="-10.00" cy="-40.80" r="0.9"/><circle class="bulle" cx="-36.00" cy="-54.00" r="4.3"/><text x="-36.00" y="-54.00" dy="0.36em">2</text></g><g class="rep" data-rep="table"><line x1="-70.20" y1="-17.99" x2="-46.00" y2="-5.21"/><circle class="pt" cx="-46.00" cy="-5.21" r="0.9"/><circle class="bulle" cx="-74.00" cy="-20.00" r="4.3"/><text x="-74.00" y="-20.00" dy="0.36em">3</text></g><g class="rep" data-rep="ouie"><line x1="49.23" y1="-30.71" x2="32.00" y2="-10.22"/><circle class="pt" cx="32.00" cy="-10.22" r="0.9"/><circle class="bulle" cx="52.00" cy="-34.00" r="4.3"/><text x="52.00" y="-34.00" dy="0.36em">4</text></g><g class="rep" data-rep="barre"><line x1="-69.85" y1="6.86" x2="-17.00" y2="-7.73"/><circle class="pt" cx="-17.00" cy="-7.73" r="0.9"/><circle class="bulle" cx="-74.00" cy="8.00" r="4.3"/><text x="-74.00" y="8.00" dy="0.36em">5</text></g><g class="rep" data-rep="ame"><line x1="69.73" y1="6.47" x2="20.00" y2="12.00"/><circle class="pt" cx="20.00" cy="12.00" r="0.9"/><circle class="bulle" cx="74.00" cy="6.00" r="4.3"/><text x="74.00" y="6.00" dy="0.36em">6</text></g><g class="rep" data-rep="eclisse"><line x1="-70.20" y1="27.99" x2="-58.90" y2="22.00"/><circle class="pt" cx="-58.90" cy="22.00" r="0.9"/><circle class="bulle" cx="-74.00" cy="30.00" r="4.3"/><text x="-74.00" y="30.00" dy="0.36em">7</text></g><g class="rep" data-rep="contre"><line x1="69.82" y1="29.00" x2="57.30" y2="26.00"/><circle class="pt" cx="57.30" cy="26.00" r="0.9"/><circle class="bulle" cx="74.00" cy="30.00" r="4.3"/><text x="74.00" y="30.00" dy="0.36em">8</text></g><g class="rep" data-rep="fond"><line x1="34.64" y1="55.92" x2="30.00" y2="42.06"/><circle class="pt" cx="30.00" cy="42.06" r="0.9"/><circle class="bulle" cx="36.00" cy="60.00" r="4.3"/><text x="36.00" y="60.00" dy="0.36em">9</text></g></g>
+</svg>
+    <figcaption class="legende">Coupe d’un violon au droit du chevalet — schéma, proportions approchées.</figcaption>
+    <ol class="nomenclature" aria-label="Nomenclature de la coupe">
+      <li><span class="n">1</span><b>Cordes <span>sol, ré, la, mi</span></b></li>
+      <li><span class="n">2</span><b>Chevalet <span>érable</span></b></li>
+      <li><span class="n">3</span><b>Table <span>épicéa</span></b></li>
+      <li><span class="n">4</span><b>Ouïe <span>coupée par le plan</span></b></li>
+      <li><span class="n">5</span><b>Barre d’harmonie <span>épicéa</span></b></li>
+      <li><span class="n">6</span><b>Âme <span>épicéa, Ø 6 mm</span></b></li>
+      <li><span class="n">7</span><b>Éclisse <span>érable</span></b></li>
+      <li><span class="n">8</span><b>Contre-éclisse <span>saule ou épicéa</span></b></li>
+      <li><span class="n">9</span><b>Fond <span>érable</span></b></li>
+    </ol>
+  </figure>
+</div>
+
+<section id="diagnostic" class="section" aria-labelledby="t-diag">
+  <div class="cadre diag">
+    <div class="tete">
+      <h2 id="t-diag">Ce que votre instrument vous dit</h2>
+      <p class="intro">Choisissez ce que vous entendez ou voyez. La réponse donne une piste et l’endroit de l’instrument concerné ; c’est l’examen à l’atelier qui tranche.</p>
+    </div>
+    <figure class="vue" id="vue-diag" hidden aria-hidden="true">
+      <div class="slot"></div>
+      <figcaption class="legende" id="vue-legende">Repère surligné : l’endroit concerné.</figcaption>
+    </figure>
+    <div class="liste">
+      <details class="symptome" name="symptome" data-hl="cordes" open>
+        <summary>Une corde frise ou grésille</summary>
+        <div class="reponse">
+          <p>Souvent une touche creusée sous les doigts, un sillet trop bas, ou une pièce qui vibre&nbsp;: mentonnière, cordier, filet décollé. On cherche d’abord la vibration, instrument en main, avant de toucher au bois.</p>
+          <dl class="fiche"><dt>Où</dt><dd>Repère 1, les cordes — et, hors de cette coupe, la touche et le sillet</dd><dt>À l’atelier</dt><dd>Recherche de la vibration, recollage, dressage de touche si besoin</dd><dt>Délai</dt><dd>Souvent dans la journée <span class="ex">exemple</span></dd></dl>
+          <a class="ecrire" href="mailto:atelier@mareuil.example?subject=Une%20corde%20frise&amp;body=Instrument%20%3A%20%0ACorde%20concern%C3%A9e%20%3A%20%0ADepuis%20quand%20%3A%20">Écrire à l’atelier à ce sujet</a>
+        </div>
+      </details>
+      <details class="symptome" name="symptome" data-hl="ame chevalet">
+        <summary>Le son est sourd, ou au contraire criard</summary>
+        <div class="reponse">
+          <p>Avant de changer de cordes, regardez l’âme et le chevalet&nbsp;: une âme qui a bougé, un chevalet trop épais ou mal ajusté suffisent à éteindre ou durcir un instrument. Le réglage se fait avec vous&nbsp;: vous jouez, on déplace l’âme, vous rejouez.</p>
+          <dl class="fiche"><dt>Où</dt><dd>Repère 6, l’âme, et repère 2, le chevalet</dd><dt>À l’atelier</dt><dd>Réglage d’âme et de chevalet, instrument joué</dd><dt>Délai</dt><dd>Une séance d’une heure environ <span class="ex">exemple</span></dd></dl>
+          <a class="ecrire" href="mailto:atelier@mareuil.example?subject=R%C3%A9glage%20du%20son&amp;body=Instrument%20%3A%20%0ACe%20que%20j%E2%80%99entends%20%3A%20%0ADernier%20r%C3%A9glage%20%3A%20">Écrire à l’atelier à ce sujet</a>
+        </div>
+      </details>
+      <details class="symptome" name="symptome" data-hl="chevalet">
+        <summary>Le chevalet penche vers la touche</summary>
+        <div class="reponse">
+          <p>À chaque accordage, les cordes tirent le haut du chevalet vers la touche. Laissé ainsi, il se voile ou tombe, et l’âme peut suivre. Ne le forcez pas&nbsp;: on le redresse, ou on le remplace s’il est voilé.</p>
+          <dl class="fiche"><dt>Où</dt><dd>Repère 2, le chevalet</dd><dt>À l’atelier</dt><dd>Redressage, ou chevalet neuf taillé pour l’instrument</dd><dt>Délai</dt><dd>Redressage immédiat ; chevalet neuf en quelques jours <span class="ex">exemple</span></dd></dl>
+          <a class="ecrire" href="mailto:atelier@mareuil.example?subject=Chevalet%20qui%20penche&amp;body=Instrument%20%3A%20%0APhoto%20jointe%20si%20possible%20%3A%20">Écrire à l’atelier à ce sujet</a>
+        </div>
+      </details>
+      <details class="symptome" name="symptome" data-hl="ame">
+        <summary>Quelque chose bouge à l’intérieur</summary>
+        <div class="reponse">
+          <p>C’est souvent l’âme, tombée. Détendez un peu les cordes et ne jouez plus&nbsp;: sans âme, la table porte seule la pression du chevalet. Apportez l’instrument tel quel, la pièce dans la caisse.</p>
+          <dl class="fiche"><dt>Où</dt><dd>Repère 6, l’âme</dd><dt>À l’atelier</dt><dd>Repose de l’âme, ou âme neuve ajustée, puis réglage</dd><dt>Délai</dt><dd>En général rapide <span class="ex">exemple</span></dd></dl>
+          <a class="ecrire" href="mailto:atelier@mareuil.example?subject=%C3%82me%20tomb%C3%A9e&amp;body=Instrument%20%3A%20%0AQuand%20%3A%20">Écrire à l’atelier à ce sujet</a>
+        </div>
+      </details>
+      <details class="symptome" name="symptome" data-hl="table eclisse ouie">
+        <summary>Une fissure, ou un bord qui s’ouvre</summary>
+        <div class="reponse">
+          <p>La table est collée aux éclisses avec une colle volontairement faible&nbsp;: quand le bois travaille — l’hiver surtout, avec le chauffage —, c’est le joint qui cède plutôt que la table. Un décollage se recolle ; une fissure se traite tôt, avant qu’elle ne gagne.</p>
+          <dl class="fiche"><dt>Où</dt><dd>Repère 3, la table, souvent près de l’ouïe (4) ; repère 7, le joint avec l’éclisse</dd><dt>À l’atelier</dt><dd>Recollage, ou réparation de fissure avec taquets</dd><dt>Délai</dt><dd>De quelques jours à plusieurs semaines <span class="ex">exemple</span></dd></dl>
+          <a class="ecrire" href="mailto:atelier@mareuil.example?subject=Fissure%20ou%20d%C3%A9collage&amp;body=Instrument%20%3A%20%0AO%C3%B9%20%3A%20%0APhoto%20jointe%20si%20possible%20%3A%20">Écrire à l’atelier à ce sujet</a>
+        </div>
+      </details>
+      <details class="symptome" name="symptome" data-hl="">
+        <summary>Les chevilles glissent ou coincent</summary>
+        <div class="reponse">
+          <p>Le bois des chevilles et du chevillier bouge avec l’humidité. Un ajustage remet chaque cheville à la bonne portée. Ne forcez pas une cheville qui coince.</p>
+          <dl class="fiche"><dt>Où</dt><dd>Hors de cette coupe : le chevillier, au bout du manche</dd><dt>À l’atelier</dt><dd>Ajustage des chevilles, rebouchage si les trous sont usés</dd><dt>Délai</dt><dd>Dans la journée à quelques jours <span class="ex">exemple</span></dd></dl>
+          <a class="ecrire" href="mailto:atelier@mareuil.example?subject=Chevilles&amp;body=Instrument%20%3A%20">Écrire à l’atelier à ce sujet</a>
+        </div>
+      </details>
+      <details class="symptome" name="symptome" data-hl="">
+        <summary>Il faut un instrument pour un enfant</summary>
+        <div class="reponse">
+          <p>La location commence au 1/16 et suit l’enfant jusqu’au 4/4. La taille se choisit à la longueur du bras, puis à l’essai.</p>
+          <a class="ecrire" href="#tailles">Voir les tailles</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="travaux" class="section" aria-labelledby="t-travaux">
+  <div class="cadre">
+    <h2 id="t-travaux">Les travaux de l’atelier</h2>
+    <ul class="travaux">
+      <li><h3>Réglages</h3><p>Âme, chevalet, cordes, sillets, touche. Le réglage se fait l’instrument joué, avec vous, pour qu’il réponde à votre jeu plutôt qu’à une norme.</p><p class="meta">Une heure environ, sur rendez-vous <span class="ex">exemple</span></p></li>
+      <li><h3>Réparations et restauration</h3><p>Fissures, décollages, chevilles, touche, vernis abîmé. Sur un instrument ancien, la restauration garde ce qui peut l’être et consigne ce qui est remplacé.</p><p class="meta">Devis après examen de l’instrument</p></li>
+      <li><h3>Fabrication</h3><p>Violons, altos et violoncelles sur commande. Le modèle, les bois et la teinte du vernis se choisissent ensemble, à l’atelier, instruments en main.</p><p class="meta">Environ six mois pour un violon <span class="ex">exemple</span></p></li>
+      <li><h3>Location et vente</h3><p>Instruments d’étude du 1/16 au 4/4 pour les jeunes élèves, réglés avant chaque location. Instruments d’occasion révisés, à l’essai avant achat.</p><p class="meta">Tarifs de location à préciser <span class="ex">exemple</span></p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="tailles" class="section" aria-labelledby="t-tailles">
+  <div class="cadre tailles">
+    <div class="tete">
+      <h2 id="t-tailles">Quelle taille de violon pour un enfant&nbsp;?</h2>
+      <p class="intro">Bras tendu sur le côté, paume vers le haut&nbsp;: mesurez du cou au milieu de la paume. Le tableau donne des repères courants&nbsp;; l’essai à l’atelier, instrument sous le menton, tranche. Pour l’alto et le violoncelle, la taille se choisit à l’essai.</p>
+    </div>
+    <table>
+      <caption>Repères courants pour le violon ; longueur de caisse approchée, barres à l’échelle à partir de zéro.</caption>
+      <thead><tr><th scope="col">Taille</th><th scope="col">Bras</th><th scope="col">Longueur de la caisse</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1/16</th><td class="bras">35–39 cm</td><td class="corps"><div class="barre-corps"><i style="width:calc(230 / 356 * 70%)"></i><span>230 mm</span></div></td></tr>
+        <tr><th scope="row">1/10</th><td class="bras">39–43 cm</td><td class="corps"><div class="barre-corps"><i style="width:calc(240 / 356 * 70%)"></i><span>240 mm</span></div></td></tr>
+        <tr><th scope="row">1/8</th><td class="bras">43–47 cm</td><td class="corps"><div class="barre-corps"><i style="width:calc(255 / 356 * 70%)"></i><span>255 mm</span></div></td></tr>
+        <tr><th scope="row">1/4</th><td class="bras">47–51 cm</td><td class="corps"><div class="barre-corps"><i style="width:calc(280 / 356 * 70%)"></i><span>280 mm</span></div></td></tr>
+        <tr><th scope="row">1/2</th><td class="bras">51–56 cm</td><td class="corps"><div class="barre-corps"><i style="width:calc(310 / 356 * 70%)"></i><span>310 mm</span></div></td></tr>
+        <tr><th scope="row">3/4</th><td class="bras">56–58 cm</td><td class="corps"><div class="barre-corps"><i style="width:calc(335 / 356 * 70%)"></i><span>335 mm</span></div></td></tr>
+        <tr><th scope="row">4/4</th><td class="bras">58 cm et plus</td><td class="corps"><div class="barre-corps"><i style="width:70%"></i><span>356 mm</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="venir" class="section" aria-labelledby="t-venir">
+  <div class="cadre venir">
+    <figure>
+      <div class="photo-a-fournir" role="img" aria-label="Emplacement pour une photo de l’atelier, à fournir">
+        <div><strong>Photo de l’atelier, à fournir</strong>L’établi côté fenêtre, un instrument en cours, lumière du jour. Une vraie photo de l’atelier, pas une image d’illustration.</div>
+      </div>
+    </figure>
+    <div class="infos">
+      <h2 id="t-venir">Venir à l’atelier</h2>
+      <dl>
+        <dt>Adresse</dt><dd>14 rue des Tanneurs, Ville <span class="ex">exemple</span></dd>
+        <dt>Horaires</dt><dd>Du mardi au samedi, sur rendez-vous <span class="ex">exemple</span></dd>
+        <dt>Téléphone</dt><dd><a href="tel:+33199001234">01 99 00 12 34</a> <span class="ex">exemple</span></dd>
+        <dt>Courriel</dt><dd><a href="mailto:atelier@mareuil.example">atelier@mareuil.example</a> <span class="ex">exemple</span></dd>
+      </dl>
+      <p>Apportez l’instrument dans son étui, avec l’archet si le réglage le concerne. Un rendez-vous laisse le temps de l’écouter jouer.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="fin sur-ebene">
+  <div class="cadre">
+    <div class="phrase">
+      <h2>Et ce qui sort de l’atelier se signe à l’intérieur.</h2>
+      <p>Dans chaque instrument fait ici, une étiquette collée sur le fond se lit par l’ouïe. Pour un réglage, une réparation ou une commande, le plus simple est d’écrire ou d’appeler.</p>
+      <div class="actions">
+        <a class="bouton plein" href="mailto:atelier@mareuil.example?subject=Demande%20de%20rendez-vous&amp;body=Instrument%20%3A%20%0AObjet%20du%20rendez-vous%20%3A%20%0AJours%20possibles%20%3A%20">Prendre rendez-vous</a>
+        <a href="tel:+33199001234">01 99 00 12 34</a>
+      </div>
+    </div>
+    <div class="etiquette-zone">
+      <div class="etiquette" role="img" aria-label="Étiquette de luthier, exemple : Fait par l’atelier Mareuil, Ville, 2026">
+        <p class="l1">Fait par l’atelier Mareuil</p>
+        <p class="l2">VILLE · 2026</p>
+      </div>
+      <p class="etiquette-note">Étiquette d’exemple : texte et dessin à reprendre de la vraie.</p>
+    </div>
+  </div>
+  <div class="colophon">
+    <div class="cadre">
+      <p>Atelier Mareuil — lutherie du quatuor <span class="ex">nom d’exemple</span></p>
+      <p>Maquette : contenus d’exemple à remplacer</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var vue=document.getElementById('vue-diag');
+  var src=document.querySelector('#dessin svg.coupe');
+  if(!vue||!src) return;
+  var clone=src.cloneNode(true);
+  clone.removeAttribute('aria-labelledby');
+  clone.setAttribute('aria-hidden','true');
+  clone.querySelectorAll('[id]').forEach(function(n){n.removeAttribute('id');});
+  vue.querySelector('.slot').appendChild(clone);
+  vue.hidden=false;
+  var legende=document.getElementById('vue-legende');
+  function surligner(parts){
+    clone.querySelectorAll('.on').forEach(function(n){n.classList.remove('on');});
+    if(!parts){clone.removeAttribute('data-hl');legende.textContent='Hors de cette coupe : voir la réponse.';return;}
+    clone.setAttribute('data-hl',parts);
+    parts.split(' ').forEach(function(p){
+      clone.querySelectorAll('[data-part="'+p+'"],[data-rep="'+p+'"]').forEach(function(n){n.classList.add('on');});
+    });
+    legende.textContent='Repère surligné : l’endroit concerné.';
+  }
+  var items=document.querySelectorAll('details.symptome');
+  items.forEach(function(d){
+    d.addEventListener('toggle',function(){
+      if(d.open){
+        items.forEach(function(o){if(o!==d&&o.open)o.open=false;});
+        surligner(d.getAttribute('data-hl'));
+      }
+    });
+  });
+  var ouvert=document.querySelector('details.symptome[open]');
+  surligner(ouvert?ouvert.getAttribute('data-hl'):'');
+})();
+</script>
+</body>
+</html>

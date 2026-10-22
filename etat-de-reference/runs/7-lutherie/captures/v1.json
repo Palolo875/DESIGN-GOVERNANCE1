@@ -1,0 +1,1258 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run7/projet/site/index.html",
+    "artifact_version": "aec47643b2a0",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-21T23:24:18Z",
+    "scope": "état initial, largeurs 390,768,1440 px",
+    "external_requests_blocked": 0,
+    "settings": {
+      "proof": "#dessin svg",
+      "tab_stops": 60,
+      "allow_external": false,
+      "wait_ms": 1500
+    },
+    "captures": [
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run7/captures/v1/capture-390px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run7/captures/v1/capture-768px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run7/captures/v1/capture-1440px.png"
+    ],
+    "browser": {
+      "engine": "chromium",
+      "version": "141.0.7390.37",
+      "executable": "playwright-managed"
+    }
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Chevauchement et troncature de texte",
+      "status": "RETURN",
+      "detail": "390 px : « Avant de changer de cordes, rega » et « Le chevalet penche vers la touch » (282×11 px); 390 px : « Le chevalet penche vers la touch » et « Avant de changer de cordes, rega » (282×13 px); 390 px : « Avant de changer de cordes, rega » et « À chaque accordage, les cordes t » (300×27 px); 768 px : « Avant de changer de cordes, rega » et « Le chevalet penche vers la touch » (282×11 px); 768 px : « Le chevalet penche vers la touch » et « Avant de changer de cordes, rega » (282×13 px); 768 px : « Avant de changer de cordes, rega » et « À chaque accordage, les cordes t » (599×27 px); 1440 px : « Avant de changer de cordes, rega » et « Le chevalet penche vers la touch » (349×10 px); 1440 px : « Le chevalet penche vers la touch » et « Avant de changer de cordes, rega » (349×19 px); 1440 px : « Avant de changer de cordes, rega » et « À chaque accordage, les cordes t » (546×21 px) ; texte SVG compris, calques fixes ou collants exclus"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 390 px : 166 texte(s) évalué(s), 200 candidat(s), 23 exclu(s) ; 768 px : 173 texte(s) évalué(s), 200 candidat(s), 16 exclu(s) ; 1440 px : 178 texte(s) évalué(s), 200 candidat(s), 0 exclu(s) ; 390 px : candidat(s) restant hors évaluation ; 768 px : candidat(s) restant hors évaluation ; 1440 px : candidat(s) restant hors évaluation ; texte SVG non évalué (#coupe-desc, #coupe-titre, desc) : relever fill/stroke, opacités et fond réel, puis calculer le contraste ; méthode dans ACTION/RECETTE-RENDU"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "26 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "moins de 24 px sans l'espacement requis : a.ecrire 173×20, a.ecrire 94×20 ; exceptions « équivalent » ou « essentiel » à juger ; 2 petite(s) cible(s) admise(s) par l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Images chargées",
+      "status": "PASS",
+      "detail": "aucune image visible illisible"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "16 arrêt(s) à 390 px ; 390 px : page, fin=end, 22 candidat(s) ; 16 arrêt(s) à 768 px ; 768 px : page, fin=end, 22 candidat(s) ; 20 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 26 candidat(s) ; 390 px : candidat(s) non atteint(s) : a, a, a, a, a, a ; vérifier aussi la navigation alternative ; 768 px : candidat(s) non atteint(s) : a, a, a, a, a, a ; vérifier aussi la navigation alternative ; 1440 px : candidat(s) non atteint(s) : a, a, a, a, a, a ; vérifier aussi la navigation alternative ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant"
+    },
+    {
+      "check": "Contraste de l’indicateur de focus",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "indicateur sous le seuil de 3:1 (WCAG 1.4.11) : a.bouton : contour #23467a sur #14181d = 1.89:1 ; a : contour #23467a sur #14181d = 1.89:1 ; 46 arrêt(s) mesuré(s) ou à contour du navigateur sans défaut"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation démarrée"
+    },
+    {
+      "check": "Objet de preuve au premier écran (#dessin svg)",
+      "status": "PASS",
+      "detail": "390 px : intersection verticale 205.875 px sur 337.671875, horizontale 390 px sur 390; 768 px : intersection verticale 385.328125 px sur 611.765625, horizontale 706.5625 px sur 706.5625; 1440 px : intersection verticale 519.5 px sur 519.5, horizontale 600 px sur 600 ; rectangle et CSS observés, pixels et occlusion non vérifiés"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "summary"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "summary"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "summary"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "summary"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "summary"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "summary"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "summary"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        },
+        {
+          "key": "control-21",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-12",
+        "control-14",
+        "control-16",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-8"
+      ],
+      "unreached": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "unexpected": [],
+      "observed_stops": 16
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "summary"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "summary"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "summary"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "summary"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "summary"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "summary"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "summary"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "a"
+        },
+        {
+          "key": "control-21",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-12",
+        "control-14",
+        "control-16",
+        "control-18",
+        "control-19",
+        "control-2",
+        "control-20",
+        "control-21",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-8"
+      ],
+      "unreached": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "unexpected": [],
+      "observed_stops": 16
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "summary"
+        },
+        {
+          "key": "control-9",
+          "id": "a"
+        },
+        {
+          "key": "control-10",
+          "id": "summary"
+        },
+        {
+          "key": "control-11",
+          "id": "a"
+        },
+        {
+          "key": "control-12",
+          "id": "summary"
+        },
+        {
+          "key": "control-13",
+          "id": "a"
+        },
+        {
+          "key": "control-14",
+          "id": "summary"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "summary"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "summary"
+        },
+        {
+          "key": "control-19",
+          "id": "a"
+        },
+        {
+          "key": "control-20",
+          "id": "summary"
+        },
+        {
+          "key": "control-21",
+          "id": "a"
+        },
+        {
+          "key": "control-22",
+          "id": "a"
+        },
+        {
+          "key": "control-23",
+          "id": "a"
+        },
+        {
+          "key": "control-24",
+          "id": "a"
+        },
+        {
+          "key": "control-25",
+          "id": "a"
+        }
+      ],
+      "excluded": [],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-12",
+        "control-14",
+        "control-16",
+        "control-18",
+        "control-2",
+        "control-20",
+        "control-22",
+        "control-23",
+        "control-24",
+        "control-25",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "unexpected": [],
+      "observed_stops": 20
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 200,
+      "evaluated": 166,
+      "excluded": 23,
+      "unmeasured": []
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 200,
+      "evaluated": 173,
+      "excluded": 16,
+      "unmeasured": []
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 200,
+      "evaluated": 178,
+      "excluded": 0,
+      "unmeasured": []
+    }
+  },
+  "proof_observations": {
+    "390": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 390,
+      "h": 337.671875,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 390,
+      "visible": 205.875,
+      "limits": []
+    },
+    "768": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 706.5625,
+      "h": 611.765625,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 706.5625,
+      "visible": 385.328125,
+      "limits": []
+    },
+    "1440": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 600,
+      "h": 519.5,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 600,
+      "visible": 519.5,
+      "limits": []
+    }
+  },
+  "mesures": {
+    "390": {
+      "viewport": 390,
+      "titre": {
+        "balise": "h1",
+        "texte": "Le son se règle de l’intérieur.",
+        "mots": 6,
+        "caracteres": 31,
+        "lignes": 2,
+        "taille": 52,
+        "vw": 13.3,
+        "interligne": 0.94,
+        "approche": -0.012,
+        "graisse": "600",
+        "famille": "Barlow SC"
+      },
+      "titres": [
+        {
+          "balise": "h1",
+          "texte": "Le son se règle de l’intérieur.",
+          "mots": 6,
+          "caracteres": 31,
+          "lignes": 2,
+          "taille": 52,
+          "vw": 13.3,
+          "interligne": 0.94,
+          "approche": -0.012,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Ce que votre instrument vous dit",
+          "mots": 6,
+          "caracteres": 32,
+          "lignes": 2,
+          "taille": 34,
+          "vw": 8.7,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Les travaux de l’atelier",
+          "mots": 4,
+          "caracteres": 24,
+          "lignes": 1,
+          "taille": 34,
+          "vw": 8.7,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Réglages",
+          "mots": 1,
+          "caracteres": 8,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 6.2,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Réparations et restauration",
+          "mots": 3,
+          "caracteres": 27,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 6.2,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Fabrication",
+          "mots": 1,
+          "caracteres": 11,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 6.2,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Location et vente",
+          "mots": 3,
+          "caracteres": 17,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 6.2,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Quelle taille de violon pour un enfant ?",
+          "mots": 8,
+          "caracteres": 40,
+          "lignes": 2,
+          "taille": 34,
+          "vw": 8.7,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        }
+      ],
+      "corps": 19,
+      "tailles_distinctes": 14,
+      "familles": [
+        "Barlow SC",
+        "Spectral"
+      ],
+      "plus_petit": {
+        "taille": 4.5,
+        "part": 0
+      },
+      "gros_textes": {
+        "testes": 5,
+        "couverts": [],
+        "hauts_rognes": []
+      },
+      "palette": {
+        "fond": {
+          "hex": "#e9edf0",
+          "L": 0.94,
+          "C": 0.006,
+          "H": 240
+        },
+        "fonds": [
+          {
+            "hex": "#e9edf0",
+            "L": 0.94,
+            "C": 0.006,
+            "H": 240
+          },
+          {
+            "hex": "#14181d",
+            "L": 0.21,
+            "C": 0.012,
+            "H": 254
+          }
+        ],
+        "fonds_non_evalues": 0,
+        "ecarts": [
+          {
+            "dL": 0.73,
+            "dH": null
+          }
+        ],
+        "encres": [
+          {
+            "hex": "#17202b",
+            "L": 0.24,
+            "C": 0.025,
+            "H": 254,
+            "part": 60
+          },
+          {
+            "hex": "#46515e",
+            "L": 0.43,
+            "C": 0.026,
+            "H": 253,
+            "part": 28
+          },
+          {
+            "hex": "#e6eaee",
+            "L": 0.94,
+            "C": 0.007,
+            "H": 248,
+            "part": 5
+          }
+        ],
+        "chromatiques": [
+          {
+            "hex": "#23467a",
+            "L": 0.4,
+            "C": 0.097,
+            "H": 258,
+            "surface": 0,
+            "caracteres": 4
+          },
+          {
+            "hex": "#9b3f1b",
+            "L": 0.49,
+            "C": 0.132,
+            "H": 40,
+            "surface": 0,
+            "caracteres": 0
+          }
+        ],
+        "teintes": 1
+      },
+      "premier_ecran": {
+        "actions": 0,
+        "textes": [],
+        "navigation": {
+          "liens": 2,
+          "fixe": false,
+          "hauteur": 80,
+          "part": 9
+        }
+      },
+      "mesure_max": 62,
+      "mesure_mediane": 36,
+      "images": {
+        "raster": 0,
+        "video": 0,
+        "canvas": 0,
+        "svg": 1
+      },
+      "media_premier_ecran": 0,
+      "centre_pour_cent": 2,
+      "fonds_distincts": 1,
+      "bords_gauches": 5,
+      "mots": 1043,
+      "ecrans": 7.2
+    },
+    "768": {
+      "viewport": 768,
+      "titre": {
+        "balise": "h1",
+        "texte": "Le son se règle de l’intérieur.",
+        "mots": 6,
+        "caracteres": 31,
+        "lignes": 1,
+        "taille": 58.4,
+        "vw": 7.6,
+        "interligne": 0.94,
+        "approche": -0.012,
+        "graisse": "600",
+        "famille": "Barlow SC"
+      },
+      "titres": [
+        {
+          "balise": "h1",
+          "texte": "Le son se règle de l’intérieur.",
+          "mots": 6,
+          "caracteres": 31,
+          "lignes": 1,
+          "taille": 58.4,
+          "vw": 7.6,
+          "interligne": 0.94,
+          "approche": -0.012,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Ce que votre instrument vous dit",
+          "mots": 6,
+          "caracteres": 32,
+          "lignes": 1,
+          "taille": 34,
+          "vw": 4.4,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Les travaux de l’atelier",
+          "mots": 4,
+          "caracteres": 24,
+          "lignes": 1,
+          "taille": 34,
+          "vw": 4.4,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Réglages",
+          "mots": 1,
+          "caracteres": 8,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 3.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Réparations et restauration",
+          "mots": 3,
+          "caracteres": 27,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 3.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Fabrication",
+          "mots": 1,
+          "caracteres": 11,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 3.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Location et vente",
+          "mots": 3,
+          "caracteres": 17,
+          "lignes": 1,
+          "taille": 24,
+          "vw": 3.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Quelle taille de violon pour un enfant ?",
+          "mots": 8,
+          "caracteres": 40,
+          "lignes": 1,
+          "taille": 34,
+          "vw": 4.4,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        }
+      ],
+      "corps": 19,
+      "tailles_distinctes": 14,
+      "familles": [
+        "Barlow SC",
+        "Spectral"
+      ],
+      "plus_petit": {
+        "taille": 4.5,
+        "part": 0
+      },
+      "gros_textes": {
+        "testes": 5,
+        "couverts": [],
+        "hauts_rognes": []
+      },
+      "palette": {
+        "fond": {
+          "hex": "#e9edf0",
+          "L": 0.94,
+          "C": 0.006,
+          "H": 240
+        },
+        "fonds": [
+          {
+            "hex": "#e9edf0",
+            "L": 0.94,
+            "C": 0.006,
+            "H": 240
+          },
+          {
+            "hex": "#14181d",
+            "L": 0.21,
+            "C": 0.012,
+            "H": 254
+          }
+        ],
+        "fonds_non_evalues": 0,
+        "ecarts": [
+          {
+            "dL": 0.73,
+            "dH": null
+          }
+        ],
+        "encres": [
+          {
+            "hex": "#17202b",
+            "L": 0.24,
+            "C": 0.025,
+            "H": 254,
+            "part": 59
+          },
+          {
+            "hex": "#46515e",
+            "L": 0.43,
+            "C": 0.026,
+            "H": 253,
+            "part": 28
+          },
+          {
+            "hex": "#e6eaee",
+            "L": 0.94,
+            "C": 0.007,
+            "H": 248,
+            "part": 5
+          }
+        ],
+        "chromatiques": [
+          {
+            "hex": "#23467a",
+            "L": 0.4,
+            "C": 0.097,
+            "H": 258,
+            "surface": 0,
+            "caracteres": 4
+          },
+          {
+            "hex": "#9b3f1b",
+            "L": 0.49,
+            "C": 0.132,
+            "H": 40,
+            "surface": 0,
+            "caracteres": 0
+          }
+        ],
+        "teintes": 1
+      },
+      "premier_ecran": {
+        "actions": 0,
+        "textes": [],
+        "navigation": {
+          "liens": 2,
+          "fixe": false,
+          "hauteur": 80,
+          "part": 9
+        }
+      },
+      "mesure_max": 98,
+      "mesure_mediane": 62,
+      "images": {
+        "raster": 0,
+        "video": 0,
+        "canvas": 0,
+        "svg": 1
+      },
+      "media_premier_ecran": 0,
+      "centre_pour_cent": 2,
+      "fonds_distincts": 1,
+      "bords_gauches": 7,
+      "mots": 1057,
+      "ecrans": 6.1
+    },
+    "1440": {
+      "viewport": 1440,
+      "titre": {
+        "balise": "h1",
+        "texte": "Le son se règle de l’intérieur.",
+        "mots": 6,
+        "caracteres": 31,
+        "lignes": 3,
+        "taille": 109.4,
+        "vw": 7.6,
+        "interligne": 0.94,
+        "approche": -0.012,
+        "graisse": "600",
+        "famille": "Barlow SC"
+      },
+      "titres": [
+        {
+          "balise": "h1",
+          "texte": "Le son se règle de l’intérieur.",
+          "mots": 6,
+          "caracteres": 31,
+          "lignes": 3,
+          "taille": 109.4,
+          "vw": 7.6,
+          "interligne": 0.94,
+          "approche": -0.012,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Ce que votre instrument vous dit",
+          "mots": 6,
+          "caracteres": 32,
+          "lignes": 1,
+          "taille": 60,
+          "vw": 4.2,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Les travaux de l’atelier",
+          "mots": 4,
+          "caracteres": 24,
+          "lignes": 1,
+          "taille": 60,
+          "vw": 4.2,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Réglages",
+          "mots": 1,
+          "caracteres": 8,
+          "lignes": 1,
+          "taille": 30,
+          "vw": 2.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Réparations et restauration",
+          "mots": 3,
+          "caracteres": 27,
+          "lignes": 1,
+          "taille": 30,
+          "vw": 2.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Fabrication",
+          "mots": 1,
+          "caracteres": 11,
+          "lignes": 1,
+          "taille": 30,
+          "vw": 2.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h3",
+          "texte": "Location et vente",
+          "mots": 3,
+          "caracteres": 17,
+          "lignes": 1,
+          "taille": 30,
+          "vw": 2.1,
+          "interligne": 1.1,
+          "approche": 0,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        },
+        {
+          "balise": "h2",
+          "texte": "Quelle taille de violon pour un enfant ?",
+          "mots": 8,
+          "caracteres": 40,
+          "lignes": 2,
+          "taille": 60,
+          "vw": 4.2,
+          "interligne": 1,
+          "approche": -0.008,
+          "graisse": "600",
+          "famille": "Barlow SC"
+        }
+      ],
+      "corps": 19,
+      "tailles_distinctes": 15,
+      "familles": [
+        "Barlow SC",
+        "Spectral"
+      ],
+      "plus_petit": {
+        "taille": 4.5,
+        "part": 0
+      },
+      "gros_textes": {
+        "testes": 3,
+        "couverts": [],
+        "hauts_rognes": []
+      },
+      "palette": {
+        "fond": {
+          "hex": "#e9edf0",
+          "L": 0.94,
+          "C": 0.006,
+          "H": 240
+        },
+        "fonds": [
+          {
+            "hex": "#e9edf0",
+            "L": 0.94,
+            "C": 0.006,
+            "H": 240
+          },
+          {
+            "hex": "#14181d",
+            "L": 0.21,
+            "C": 0.012,
+            "H": 254
+          }
+        ],
+        "fonds_non_evalues": 0,
+        "ecarts": [
+          {
+            "dL": 0.73,
+            "dH": null
+          }
+        ],
+        "encres": [
+          {
+            "hex": "#17202b",
+            "L": 0.24,
+            "C": 0.025,
+            "H": 254,
+            "part": 59
+          },
+          {
+            "hex": "#46515e",
+            "L": 0.43,
+            "C": 0.026,
+            "H": 253,
+            "part": 28
+          },
+          {
+            "hex": "#e6eaee",
+            "L": 0.94,
+            "C": 0.007,
+            "H": 248,
+            "part": 5
+          }
+        ],
+        "chromatiques": [
+          {
+            "hex": "#23467a",
+            "L": 0.4,
+            "C": 0.097,
+            "H": 258,
+            "surface": 0,
+            "caracteres": 4
+          },
+          {
+            "hex": "#9b3f1b",
+            "L": 0.49,
+            "C": 0.132,
+            "H": 40,
+            "surface": 0,
+            "caracteres": 0
+          }
+        ],
+        "teintes": 1
+      },
+      "premier_ecran": {
+        "actions": 0,
+        "textes": [],
+        "navigation": {
+          "liens": 6,
+          "fixe": false,
+          "hauteur": 80,
+          "part": 9
+        }
+      },
+      "mesure_max": 98,
+      "mesure_mediane": 49,
+      "images": {
+        "raster": 0,
+        "video": 0,
+        "canvas": 0,
+        "svg": 2
+      },
+      "media_premier_ecran": 0,
+      "centre_pour_cent": 2,
+      "fonds_distincts": 1,
+      "bords_gauches": 10,
+      "mots": 1075,
+      "ecrans": 5.3
+    }
+  }
+}
