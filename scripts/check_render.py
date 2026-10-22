@@ -131,7 +131,7 @@ AUDIT_JS = r"""
     const d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2], d[3] / 255];
   };
   const over = (f, b) => { const a = f[3]; return [f[0]*a + b[0]*(1-a), f[1]*a + b[1]*(1-a), f[2]*a + b[2]*(1-a), 1]; };
-  const lum = c => { const s = c.slice(0, 3).map(v => { v /= 255; return v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4); });
+  const lum = c => { const s = c.slice(0, 3).map(v => { v /= 255; return v <= 0.04045 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4); });
     return 0.2126*s[0] + 0.7152*s[1] + 0.0722*s[2]; };
   const ratio = (a, b) => { const l1 = lum(a), l2 = lum(b); return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05); };
   const hex = c => '#' + c.slice(0, 3).map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
@@ -269,7 +269,8 @@ AUDIT_JS = AUDIT_JS.replace('__NAME_JS__', NAME_JS)
 # pas la simple présence d'un contour ou d'une ombre (une ombre décorative permanente ne compte pas).
 # Brique couleur partagée par la mesure du focus et les relevés : conversion de toute couleur CSS en sRGB par le canvas (une couleur
 # non convertible est déclarée, jamais ignorée), composition sur un fond, rapport de contraste WCAG, fond uni effectif et OKLCH.
-# AUDIT_JS garde sa propre copie : ses tests de DOM simulés l'évaluent tel quel.
+# AUDIT_JS garde sa propre copie : ses tests de DOM simulés l'évaluent tel quel. Les deux copies linéarisent avec le seuil sRGB
+# (0,04045), le même pour toute couleur sur 8 bits que l'ancien seuil 0,03928 cité par WCAG 2.0.
 COLOR_JS = r"""
   const cv = document.createElement('canvas'); cv.width = cv.height = 1;
   const cx = cv.getContext('2d', {willReadFrequently: true}); const SENT = '#123457';

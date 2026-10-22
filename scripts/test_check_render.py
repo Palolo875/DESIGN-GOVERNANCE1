@@ -21,6 +21,7 @@ import importlib.util
 import io
 import json
 import os
+import re
 import shutil
 import socket
 import subprocess
@@ -143,6 +144,8 @@ def part_a_state() -> None:
 
 def part_a() -> None:
     part_a_baseline()
+    seuils = sorted(set(re.findall(r"v <= (0\.0\d+) \?", cr.AUDIT_JS + cr.COLOR_JS)))
+    expect("A", "un seul seuil de linéarisation pour les deux copies du contraste", seuils, ["0.04045"])
     with patch.dict(os.environ, {"DG_BROWSER_EXECUTABLE": "/browser/configure"}):
         expect("A", "navigateur explicitement configuré", cr.parser().parse_args(["page.html"]).browser_executable, "/browser/configure")
         expect("A", "option navigateur prioritaire sur la configuration", cr.parser().parse_args(["page.html", "--browser-executable", "/browser/choisi"]).browser_executable, "/browser/choisi")
