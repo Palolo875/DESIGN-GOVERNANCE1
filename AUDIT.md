@@ -56,6 +56,12 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 | `design/savoir/composition.md` | `c77a8bc` | 1–79 (entier) | 4 | toutes | 2026-10-22 |
 | `design/savoir/fondements.md` | `c77a8bc` | 1–118 (entier) | 4 | toutes | 2026-10-22 |
 | `design/savoir/gout-et-tendances.md` | `c77a8bc` | 1–99 (entier) | 4 | toutes | 2026-10-22 |
+| `design/savoir/images-et-sources.md` | `c77a8bc` | 1–139 (entier) | 5 | toutes | 2026-10-22 |
+| `design/savoir/styles.md` | `c77a8bc` | 1–120 (entier) | 5 | toutes | 2026-10-22 |
+| `design/savoir/contexte.md` | `c77a8bc` | 1–44 (entier) | 5 | toutes | 2026-10-22 |
+| `design/savoir/techniques.md` | `c77a8bc` | 1–84 (entier) | 5 | toutes | 2026-10-22 |
+| `design/savoir/systeme-de-design.md` | `c77a8bc` | 1–22 (entier) | 5 | toutes | 2026-10-22 |
+| `design/savoir/connexions.md` | `c77a8bc` | 1–140 (entier) | 5 | toutes | 2026-10-22 |
 
 ## Lot 1 — noyau et chemins de l’agent
 
@@ -276,6 +282,7 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 - **Preuve.** Le tag est `[REQUIS PAR LE MODULE — toute tâche de surface]` : cadrer public, JTBD (avec sa formule), décision, preuve et contraintes ; puis, pour « toute hypothèse importante », quatre champs « dans la ligne de run ou la `RUN_CARD` ». `SAVOIR/FRAME` n’est chargée que « si le cadrage est ambigu » (`agent/chemins.md:161-162`) et n’est dans aucun tronc ; rien ne dit ce que deviennent ces champs en trace légère.
 - **Effet.** Même famille que L3-02 : une obligation large, inaccessible par le chemin ordinaire et concurrente de la trace légère.
 - **Proposition.** Les cinq questions de cadrage sont courtes : les compiler dans le noyau, où l’absolu 4 en porte déjà une partie ; réserver l’enregistrement par hypothèse à la trace complète. À intégrer à A15.
+- **Nuance (lot 5).** Le système prévoit que le plancher d’une obligation `[REQUIS]` soit dans le noyau et son détail dans la route (`agent/chemins.md:373`) : le défaut est que ce plancher manque ici, pas le principe. Voir L5-01.
 
 ### L4-04 · Important · MIS, VER — Les seules observations de l’effet du système ne sont pas versées à son dossier
 
@@ -311,3 +318,57 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 - La carte des moyens (`gout-et-tendances.md:66-84`) cite des licences conformes à ce que j’en connais (GSAP et sa clause sur les outils d’animation sans code, Motion sous MIT hors extension payante, Fontshare, CC0 de Poly Haven et ambientCG, OpenFreeMap sans clé) et dit honnêtement qu’une ressource nommée n’est ni atteinte ni vérifiée. Non revérifié en ligne.
 - La référence OKLab (Ottosson, 2020) est juste, et les repères de contraste sont exacts sur fond clair.
 - Suivi de L2-05 : `SAVOIR/TOOLS/MOYENS` donne des sources typographiques et des outils d’inspection (`gout-et-tendances.md:70`), pas de méthode pour comparer deux voix ; reste `SAVOIR/STYLE`, au lot 5.
+
+## Lot 5 — savoir, seconde partie
+
+**Synthèse.** Savoir solide et à jour : recherche d’images dans les collections ouvertes avec des règles d’honnêteté et de droits concrètes, calibration culturelle par références locales, méthode des transitions interactives, distinction entre Web mobile et natif, format de tokens du W3C. Aucune section hors route (les connexions sont servies par `--connexions`, comme prévu). Le constat principal nuance L4-03 : le système prévoit que le plancher de chaque obligation `[REQUIS]` soit compilé dans le noyau, et cette règle ne tient pas partout, notamment pour le mode SYSTÈME. L2-05 est confirmé : aucune méthode pour choisir une voix typographique dans tout le savoir.
+
+### L5-01 · Important · MOB, COH — La règle du plancher des obligations `[REQUIS]` ne tient pas partout
+
+- **Où.** La règle : « le plancher de ces obligations est compilé dans le noyau de la skill (composition, typographie, couleur, états, vérité) ; leur détail s’applique lorsque la route est chargée » (`agent/chemins.md:373`).
+- **Preuve.** Elle tient pour la typographie (`COMP-TYPO`), la couleur (`COMP-COULEUR`), la composition (`COMP-CONTROLES`, `COMP-TEXTE-IMAGE`), l’ancre (`ANCRE`) et le plancher d’accessibilité (`GATE-A`, dans quatre troncs). Elle ne tient pas pour :
+  - `SAVOIR/SYSTEM`, `[REQUIS — blast radius partagé, token ou primitive]` (`systeme-de-design.md:8`) : c’est la définition même du mode SYSTÈME, dont le tronc ne contient que `ACTION/RUN-SYSTEM` (1 027 caractères, 2 % du budget) ; le noyau ne cite pas `SAVOIR/SYSTEM` et ne dit rien des tokens primitifs et sémantiques ;
+  - `FND-03`, `[REQUIS — toute tâche de surface]` : le noyau porte la déclaration de l’absolu 4, pas les questions de cadrage (qui, pourquoi, quelle décision, quelle preuve, quelles contraintes) ;
+  - `SAVOIR/STATE` : le tableau des gestes est un bloc de détail, non compilé ; le noyau dit seulement de lire ces gestes pour une relation de craft ouverte (`SKILL.md:28`).
+- **Effet.** Nuance L4-03 : la conception prévoit bien un plancher dans le noyau, mais rien ne vérifie qu’il existe pour chaque obligation. Le cas le plus net est le mode SYSTÈME, qui ne lit jamais la route qui le définit.
+- **Proposition.** Ajouter `SAVOIR/SYSTEM` au tronc SYSTÈME (la marge est là) ; compiler les cinq questions de `FND-03` (A15) ; ajouter au validateur un contrôle : chaque tag `[REQUIS]` a son plancher dans le noyau ou sa route dans le tronc des modes qu’il vise.
+
+### L5-02 · Mineur · MOB — `SAVOIR/CONTEXT` n’a pas de signal dans le noyau
+
+- **Où.** `design/savoir/contexte.md`.
+- **Preuve.** La route est atteinte par des renvois (« Mouvement » de `CFT-00`, `qualite-creative.md:43` ; gestes « Texte secondaire » et « Mouvement » de `SAVOIR/STATE`, `composition.md:59`, `:63`) et par les tables hors route du lot 1. Le tableau des signaux du noyau ne la cite pas.
+- **Proposition.** Pour clore A8 : ajouter au tableau des signaux « Mouvement, responsive ou contexte à fort enjeu → `SAVOIR/CONTEXT` ».
+
+### L5-03 · Mineur · MIS, MOB — La connexion générative ne cite pas l’inventaire du sujet
+
+- **Où.** `design/savoir/connexions.md:100-112` (C07 « Ambition vers construction », qui précise qu’« aucun défaut observé n’est requis »).
+- **Preuve.** Ses sources sont `CREATIVE-BOOT`, `VISUAL_TARGET`, `CFT-00`, `STYLE`, `SELECT` et `CONTRACTS` ; ni l’inventaire du sujet (`CFT-01`) ni l’écriture (`CFT-06`).
+- **Proposition.** Les ajouter (avec A17).
+
+### L5-04 · Mineur · EXE — Une quatrième liste d’axes : les dials de style
+
+- **Où.** `design/savoir/styles.md:70-80` (neuf dials) et `:37-45` (taxonomie en sept dimensions).
+- **Proposition.** Complète L2-03 : à intégrer à la liste d’axes unique de A11.
+
+### L5-05 · Mineur · COH — Doublons et classement
+
+- **Où et preuve.**
+  - Le test d’utilité de l’ancre figure deux fois, presque mot pour mot (`design/direction/diriger.md:38-46`, `design/savoir/images-et-sources.md:14-22`).
+  - L’ordre de preuve `P0` à `P3` figure dans `design/savoir/techniques.md:22` (servi par `SAVOIR/TECH`) et dans `gouvernance/principes.md:19` (hors route, L3-01) : supprimer le second règle une partie de A9.
+  - `SAVOIR/DESIGN-ATLAS`, index de toutes les familles (médium, style, technique, effet, asset, structure), est rangé dans `images-et-sources.md` et se décrit encore comme « la section atlas de `SAVOIR.md` » (`:97`).
+  - `styles.md:31` renvoie aux profils « ci-dessus » ; le tableau des profils vient après.
+- **Proposition.** Une seule source par règle ; déplacer l’atlas ou corriger sa description.
+
+### L5-06 · Question · SAV — Échéance de l’AI Act
+
+- **Où.** `design/savoir/images-et-sources.md:82` : étiquetage des contenus générés, « article 50 de l’AI Act, applicable depuis août 2026 [VEILLE 2026-10] ».
+- **Question.** La date est celle du règlement (2 août 2026). Des propositions de report de certaines échéances ont été discutées fin 2025 ; je ne peux pas confirmer leur effet sur l’article 50. À revérifier au moment de citer la règle à une personne.
+
+### Ce qui tient (vérifié)
+
+- Collections ouvertes (`images-et-sources.md:59-68`) : une image trouvée montre le monde autour du client, jamais son produit ou son équipe ; licence lue image par image, usage commercial exigé, crédits enregistrés. Calibration culturelle par références locales nommées, jamais par registre régional (`:70`).
+- Transitions interactives (`techniques.md:43-56`) : état correct d’abord, FLIP, Web Animations API, gestion de l’interruption, lecture puis écriture de la géométrie. Juste et directement applicable.
+- Web mobile et natif bien distingués ; repères de 44 points iOS et 48 dp Android présentés comme repères, pas comme conversions (`techniques.md:62`).
+- Les exemples de leviers CSS limités à un ou deux moteurs (`techniques.md:26`) et le format stable 2025.10 du W3C Design Tokens (`systeme-de-design.md:16`) sont conformes à ce que j’en connais ; non revérifiés en ligne.
+- Le « test anti-slop procédural » (`styles.md:96-102`) — « qu’est-ce qui change si cette ligne est vraie, fausse ou absente ? » — est le critère du système contre lui-même ; L1-03, L2-03 et L4-02 en sont des cas.
+- L2-05 confirmé : ni `SAVOIR/STYLE` (dial « voix typographique », `styles.md:77`) ni la connexion C02 (`connexions.md:36`) ne donnent de méthode pour trouver et comparer des voix typographiques.
