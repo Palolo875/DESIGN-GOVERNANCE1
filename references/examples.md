@@ -40,7 +40,7 @@ Les crochets marquent ce que chaque run tire de son propre brief : l’exemple n
 **Trace (trace légère, écrite à côté de l’artefact) :**
 
 ```text
-MODE: DIRECTION
+MODE: DIRECTION — décision : la première scène ; risque : contenu d’exemple pris pour réel ; preuve minimale : capture mobile et recette de rendu ; arrêt : défaut dominant corrigé et réobservé
 THÈSE: [ce que le client veut savoir] → [objet de preuve, composant codé, contenus marqués « exemple »] → [ce que l’objet remplace dans la trame attendue]
 MODAL, TRAME ET PARTI: photo pleine largeur, titre centré, trois cartes « nos services » ; trame héros → services → avis → contact, rompue : l’objet de preuve ouvre la page ; s’écarter pour la première scène seulement, garder la navigation et le contact attendus
 PLAFOND ET CONTENUS MARQUÉS: typographie et couleur au plafond (polices libres, palette choisie pour la thèse) ; pas encore de photos : route SANS-ASSET assumée, l’objet codé porte la scène, aucune fausse photo ; tarifs, horaires et numéro marqués « exemple »

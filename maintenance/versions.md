@@ -1,7 +1,7 @@
 # Ce que contient Design Governance V1.0.0
 
 **Version expérimentale :** `V1.0.0`, une expérimentation maintenue.  
-**Révision :** `R2026-10-22.2`, 22 octobre 2026.  
+**Révision :** `R2026-10-22.3`, 22 octobre 2026.  
 **Usage recommandé :** pilote avec revue humaine et preuves adaptées au risque.
 
 Cette fiche décrit ce que le système possède aujourd’hui et ce qui en est vérifié. Elle ne retrace pas son histoire.
@@ -27,7 +27,7 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 ## Ce que le système sait faire
 
 - **Classer un travail** en cinq modes (retouche, itération, écran cadré, direction, système), lire le noyau de fabrication (premier objet, composition, typographie, couleur, boucle d’édition), puis le tronc de son mode (routes lues à chaque run, sous un budget de 35 000 caractères, `read_route.py --tronc`) ; le reste se charge quand son signal apparaît.
-- **Diriger une proposition** : premier objet, cible visuelle, alternative située, direction lisible dans le rendu ; une reprise se compare à ses antécédents sur six champs (teinte, paire typographique, ossature, objet de preuve, thèse, registre).
+- **Diriger une proposition** : références observées cherchées d’abord en `DIRECTION` quand l’accès le permet, premier objet, cible visuelle, alternative située comparée en vignettes, direction lisible dans le rendu, moment fort vérifié avant de proposer ; une reprise se compare à ses antécédents sur six champs (teinte, paire typographique, ossature, objet de preuve, thèse, registre).
 - **Construire avec un contenu vrai** : exemples marqués plutôt qu’emplacements vides, données et graphiques d’exemple cohérents, sources et droits vérifiés au moment de l’intégration, provenance des images générées conservée.
 - **Protéger la personne** : dans les flux d’inscription, de paiement, de consentement ou de résiliation, refuser reste aussi visible et aussi court qu’accepter ; une culture se calibre par des références locales nommées, jamais par un registre régional générique.
 - **Choisir ses moyens** : une carte datée nomme, par couche, des sources gratuites avec leurs restrictions connues : bases techniques, typographie, couleur, icônes, composants, mouvement et 3D, données et cartes, textures, photographie, illustration, références à observer. Une ressource nommée n’est ni atteinte ni vérifiée ; sa licence se relit au moment de l’intégrer.

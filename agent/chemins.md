@@ -206,7 +206,7 @@ Quand la décision visuelle est ouverte (`DIRECTION`, ou `STANDARD` sur une surf
 
 | Moment | Quand | Routes servies |
 |---|---|---|
-| **avant** | Après la ligne du mode, avant le premier build | `SAVOIR/CRAFT/CFT-01/Inventaire`, `BIBLIOTHEQUE/SELECT/Signaux`, `BIBLIOTHEQUE/SEQUENCE`, `SAVOIR/CRAFT/CFT-05/Relations`, `ACTION/PIPELINE-DIRECTION/Vignettes` |
+| **avant** | Après la ligne du mode, avant le premier build | `SAVOIR/CRAFT/CFT-01/Inventaire`, `BIBLIOTHEQUE/SELECT/Signaux`, `BIBLIOTHEQUE/SEQUENCE`, `SAVOIR/CRAFT/CFT-05/Relations`, `SAVOIR/SOURCE/Chercher`, `ACTION/PIPELINE-DIRECTION/Vignettes` |
 | **regard** | Après chaque capture qui ouvre ou rouvre une correction | `SAVOIR/STATE/Vocabulaire`, `ACTION/GATE-C`, `ACTION/ATELIER-EDITION` |
 | **sortie** | Avant de proposer ou de livrer | `DIRECTION/DOUBLE-LOOP/Moment`, `DIRECTION/DOUBLE-LOOP/Test`, `DIRECTION/DOUBLE-LOOP/Regard`, `ACTION/RECETTE-CARACTERE` |
 
