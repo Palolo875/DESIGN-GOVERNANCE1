@@ -2,6 +2,8 @@
 
 Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une vraie direction, qui sont réellement construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu ; il sert aussi à juger et analyser un existant. Quand un travail doit être livré ou audité, le système garde la trace de ce qui a été vérifié, et de ce qui ne l’a pas été.
 
+Son objectif : obtenir un niveau élevé plus régulièrement, avec moins d’oublis, de tâtonnements et de reprises inutiles. C’est une hypothèse à éprouver, pas un résultat acquis ; [le cap](maintenance/versions.md#cap) dit comment elle se juge.
+
 > **Statut :** V1.0.0, révision `R2026-10-21`. Expérimentation maintenue, pensée pour un usage avec revue humaine (voir [les limites](#limites)). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
 
 ## Par où entrer

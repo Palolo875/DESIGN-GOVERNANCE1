@@ -11,6 +11,16 @@ Cette fiche décrit ce que le système possède aujourd’hui et ce qui en est v
 
 Design Governance aide un agent, ou une personne, à concevoir des pages, des écrans et des identités visuelles qui ont une direction, qui sont construits et soignés dès la première proposition, puis à les améliorer en regardant le rendu. Quand un travail doit être repris, livré ou accepté, il garde la trace de ce qui a été vérifié et de ce qui ne l’a pas été.
 
+## Cap
+
+| Niveau | Contenu |
+|---|---|
+| **Utilité** | Aider une personne ou un agent à transformer une demande en réalisation de design pertinente, avec une vraie direction, construite et soignée dès la première proposition, puis améliorée à partir du rendu réel ; analyser et corriger un existant. |
+| **Objectif** | Obtenir un niveau élevé plus régulièrement, avec moins d’oublis, de tâtonnements et de reprises inutiles : esthétique, identité, usage et solidité de l’exécution. |
+| **Hypothèse à éprouver** | Le système oriente-t-il les choix ? Mobilise-t-il les bons moyens ? Conduit-il au niveau visé ? Chaque question se juge par comparaison avec un travail fait sans lui, sur des demandes comparables. |
+
+Aucune comparaison de ce type n’a encore été faite : l’efficacité reste `NOT-VERIFIED` (voir plus bas). Toute évolution du système dit quelle question elle sert et comment on le saura.
+
 ## Ce que contient le paquet
 
 | Partie | Contenu |
