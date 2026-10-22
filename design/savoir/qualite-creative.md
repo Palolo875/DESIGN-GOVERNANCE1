@@ -195,6 +195,8 @@ Sépare :
 - **Comportemental :** ressenti pendant l’usage ;
 - **Réflexif :** ce que le produit dit à l’utilisateur après l’interaction.
 
+Ces trois niveaux viennent de Donald Norman (*Emotional Design*, 2004) ; ils aident à situer l’émotion visée, sans en mesurer aucune.
+
 Les intentions ci-dessous sont des hypothèses de travail, non des effets garantis :
 
 | Intention | Leviers à explorer | Contre-indication à vérifier |
@@ -250,7 +252,7 @@ Les claims sur chroma, statut perçu ou tendances de palette passent par `SAVOIR
 
 [MÉTHODE] Statut de route : `PILOT` (`maintenance/evolution.md`). Les relations de couleur servent à fixer un rôle et à nommer ce sur quoi une palette repose ; elles ne fournissent pas de recette.
 
-**La valeur d’abord.** `[À ADAPTER]` Décide la luminosité de chaque rôle avant sa teinte : en OKLCH, fixe L, puis choisis la chroma C et la teinte H ; le contraste se lit alors dans l’écart de L. Pour des neutres, un écart de L d’environ 0,3 à 0,33 donne 3:1 et d’environ 0,37 à 0,43 donne 4,5:1 (sur un noir pur : environ 0,47 et 0,56). Une teinte saturée s’écarte de ces repères, surtout dans les bleus et les jaunes : le calcul d’`ACTION/GATE-A` tranche toujours. Un accent se règle sur ses trois usages, texte sur le fond, fond portant son texte, contour ou anneau de focus à 3:1 ; une seule valeur les tient rarement tous sur un fond clair comme sur un fond sombre, d’où souvent deux valeurs d’accent.
+**La valeur d’abord.** `[À ADAPTER]` Décide la luminosité de chaque rôle avant sa teinte : en OKLCH, fixe L, puis choisis la chroma C et la teinte H ; le contraste se lit alors dans l’écart de L. Pour des neutres, un écart de L d’environ 0,3 à 0,33 donne 3:1 et d’environ 0,37 à 0,43 donne 4,5:1 (sur un noir pur : environ 0,47 et 0,56 ; sur un fond sombre de thème, L entre 0,10 et 0,15 : environ 0,33 à 0,37 et 0,43 à 0,46). Une teinte saturée s’écarte de ces repères, surtout dans les bleus et les jaunes : le calcul d’`ACTION/GATE-A` tranche toujours. Un accent se règle sur ses trois usages, texte sur le fond, fond portant son texte, contour ou anneau de focus à 3:1 ; une seule valeur les tient rarement tous sur un fond clair comme sur un fond sombre, d’où souvent deux valeurs d’accent.
 
 **Nommer la relation.** Une palette repose sur un écart de valeur, de teinte, de chaleur (chaud contre froid), de saturation ou de surface (une couleur étendue, une autre rare) : dis lequel. Test en niveaux de gris : si les rôles ne se distinguent plus, la palette ne tenait que par la teinte et risque de vibrer ou de se confondre.
 
