@@ -11,25 +11,32 @@ Gardes :
   4. FIDÉLITÉ DES RÉSUMÉS — tout lieu qui résume une règle en garde la condition canonique.
   5. GLOSSAIRE — chaque terme du vocabulaire de fabrication a sa ligne dans GLOSSAIRE.md.
   6. LIGNES DE TABLE UNIQUES — dans un même fichier, deux lignes de table d'au moins 8 mots ne sont pas identiques.
-  7. REGISTRE — les façades humaines vouvoient (formes de tutoiement impératif refusées dans QUICKSTART).
+  7. REGISTRE — le guide opérateur (`QUICKSTART.md`, aujourd'hui `guides/3-maitriser.md`) vouvoie : formes de tutoiement
+     impératif refusées. Les autres façades ne sont contrôlées que par l'entrée humaine (garde 13).
   8. NOYAU — les blocs `<!-- noyau:début ID -->` / `<!-- noyau:fin ID -->` sont appariés, uniques et placés
      dans les sources normatives ; la section compilée de la skill est identique à `scripts/build_core.py`.
- 11. CHOIX CONTEXTUELS (garde bornée) — refuse le retour des formulations universelles retirées et les impératifs
-     universels explicites (« toujours », « à tous les »…) sur un traitement ou une famille unique ; accepte un choix situé.
- 10. ORDRE — dans DIRECTION, rôle, posture et récapitulatif de protection précèdent les sections détaillées.
-  9. CHARGEMENT — une seule table de chargement (`DIRECTION/CHARGE`, sa ligne servie à la demande) ;
+  9. CHARGEMENT — une seule table de chargement par mode (`DIRECTION/CHARGE`, sa ligne servie à la demande) ;
      les façades y renvoient ; la ligne `DIRECTION` garde le build et l'ordre cible → premier objet ;
      Gate B n'y est chargée qu'en trace complète ; la carte de lecture d'ACTION renvoie à CHARGE (D2).
+     Les tables qui associent un signal à une route ne sont pas couvertes par cette garde.
+ 10. ORDRE — dans DIRECTION, rôle, posture et récapitulatif de protection précèdent les sections détaillées.
+ 11. CHOIX CONTEXTUELS (garde bornée) — refuse le retour des formulations universelles retirées et les impératifs
+     universels explicites (« toujours », « à tous les »…) sur un traitement ou une famille unique ; accepte un choix situé.
  12. LOCATORS DU VALIDATEUR — un message de `validate_run_card.py` cite un lieu nommé, jamais un numéro de ligne.
  13. ENTRÉE HUMAINE — une seule entrée balisée (niveau 1 des guides, lié depuis le README), quatre questions,
      aucun mode demandé, vouvoiement ; une seule constitution minimale (ENT-01, CST-01).
+ 14. CARTES — une seule section « Combinaisons par résultat recherché », dans READING_MAP (MAP-01).
  15. PRÉAMBULE DE BIBLIOTHEQUE — ni catégories de lecture ni contrat de promotion avant les routes (MNT-01).
  16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » ou serait lue comme nul, booléen, nombre ou date (SKL-01).
  17. DÉCLENCHEUR UI/UX — `CHARGE` appelle `ACTION/UI-UX-REALITY` en STANDARD et DIRECTION avant fabrication, pas en LITE (UIX-01).
  18. FAÇADES — trace légère et proposition dans les guides, glossaire et carte ; exemple hors domaine de référence ; liens vers « Commencer » (FAC-01).
 
-Une reformulation ne casse pas ces gardes ; une suppression, un déplacement, une copie ou un retour du
-vocabulaire retiré les cassent. `scripts/read_route.py` retire les balises à la lecture.
+Ces gardes protègent des propriétés et des formulations connues ; elles ne vérifient pas qu'une règle est servie par
+une route ou compilée dans le noyau.
+
+Une reformulation qui garde la formulation protégée ne casse pas ces gardes ; une suppression, une copie, un retour du
+vocabulaire retiré ou une reformulation qui perd la formulation protégée les cassent. Un déplacement dans la même
+responsabilité les garde, une fois la table `LIEUX` du lecteur mise à jour. `scripts/read_route.py` retire les balises à la lecture.
 
 Usage : python3 scripts/validate_structure.py
 """

@@ -299,7 +299,7 @@ def lcf_20(t: dict[str, str]) -> bool:
 
 
 def lcf_21(t: dict[str, str]) -> bool:
-    present = [t[k] for k in ("README", "NOTES", "C") if t[k]]  # RELEASE_NOTES n’existe pas dans la distribution Local
+    present = [t[k] for k in ("README", "NOTES", "C") if t[k]]  # un fichier absent n'est pas contrôlé ici ; l'inventaire le refuse
     return all("NOT-VERIFIED" in text for text in present) and not UNBOUNDED.search(t["D"])
 
 

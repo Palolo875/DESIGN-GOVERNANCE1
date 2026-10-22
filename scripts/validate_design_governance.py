@@ -106,7 +106,7 @@ def check_manifest(errors: list[str]) -> None:
               ("RELEASE_NOTES.md", ROOT / "RELEASE_NOTES.md")]
     for label, path in titles:
         if path == ROOT / "RELEASE_NOTES.md" and not path.is_file():
-            continue  # RELEASE_NOTES n’existe pas dans l’export Local
+            continue  # garde-fou : RELEASE_NOTES est livré dans les deux distributions (manifeste)
         text = read(path, errors) if path else read_source(label.split(" ")[0], errors)
         first = text.splitlines()[:1]
         if first and f"V{match.group(1)}" not in first[0]:
