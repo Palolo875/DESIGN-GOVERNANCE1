@@ -48,9 +48,15 @@ class GestesTests(unittest.TestCase):
         self.assertEqual([t for t, _ in gestes.termes_pour("check_render", [("PASS-WITH-RESERVATION", "Contraste du texte sur fond uni",
                                                                              "fond en dégradé, en image ou translucide")])], ["Image intégrée"])
         self.assertEqual(gestes.termes_pour("check_render", [("PASS", "Contraste du texte sur fond uni", "x")]), [])
-        # sans doublon, dans l'ordre des résultats
+        # un geste par contrôle, sans doublon, dans l'ordre des résultats
+        self.assertEqual(gestes.termes_pour("check_caractere", [("SIGNAL", "Densité", "x")]), [("Gestion du vide", "Densité")])
         termes = [t for t, _ in gestes.termes_pour("check_caractere", [("SIGNAL", "Densité", "x"), ("RELEVÉ", "Vide", "y")])]
+        self.assertEqual(termes, ["Gestion du vide"])
+        termes = [t for t, _ in gestes.termes_pour("check_caractere", [("SIGNAL", "Densité", "x"), ("SIGNAL", "Matière dominante", "y")])]
         self.assertEqual(termes, ["Gestion du vide", "Masse visuelle"])
+        # un terme pas encore servi passe avant un terme déjà servi
+        self.assertEqual(gestes.termes_pour("check_caractere", [("SIGNAL", "Densité", "x")], {"Gestion du vide"}),
+                         [("Masse visuelle", "Densité")])
         self.assertEqual(gestes.termes_pour("check_caractere", [("SIGNAL", "Densité", "x")]),
                          gestes.termes_pour("check_caractere", [("SIGNAL", "Densité", "x")]))
         self.assertEqual(gestes.termes_pour("autre", [("SIGNAL", "Densité", "x")]), [])
@@ -58,6 +64,7 @@ class GestesTests(unittest.TestCase):
     def test_bloc_borne_et_vide_sans_signal(self):
         self.assertEqual(gestes.bloc("check_render", [("PASS", "Débordement horizontal", "aucun")]), "")
         res = [("SIGNAL", "Densité", "x"), ("SIGNAL", "Matière dominante", "y"), ("RELEVÉ", "Foyer", "z"), ("RELEVÉ", "Intensité", "w")]
+        self.assertNotIn("Signal :", gestes.bloc("check_caractere", res[:1]), "le signal est déjà imprimé par la recette")
         texte = gestes.bloc("check_caractere", res)
         self.assertEqual(texte.count(gestes.PUCE), gestes.PLAFOND)
         self.assertIn("autre(s)", texte)
@@ -67,11 +74,14 @@ class GestesTests(unittest.TestCase):
     def test_rappel_si_deja_servi_dans_le_journal(self):
         with tempfile.TemporaryDirectory() as tmp:
             journal = Path(tmp) / "run.jsonl"
-            journal.write_text(json.dumps({"outil": "check_caractere", "gestes": ["Gestion du vide"]}) + "\n", encoding="utf-8")
+            journal.write_text(json.dumps({"outil": "check_caractere", "gestes": ["Gestion du vide", "Masse visuelle"]}) + "\n", encoding="utf-8")
             os.environ["DG_JOURNAL"] = str(journal)
             texte = gestes.bloc("check_caractere", [("SIGNAL", "Densité", "x")])
+            journal.write_text(json.dumps({"outil": "check_caractere", "gestes": ["Gestion du vide"]}) + "\n", encoding="utf-8")
+            autre = gestes.bloc("check_caractere", [("SIGNAL", "Densité", "x")])
         self.assertIn("Gestion du vide [Densité] — déjà servi", texte)
-        self.assertIn("Masse visuelle [Densité] — Signal :", texte)
+        self.assertEqual(texte.count(gestes.PUCE), 1)
+        self.assertIn("Masse visuelle [Densité] — Geste :", autre)
 
     def test_journal_releve_les_gestes_sans_fausser_les_resultats(self):
         sortie = ("[RETURN               ] Contraste du texte sur fond uni : #999 sur #fff\n"
@@ -84,7 +94,32 @@ class GestesTests(unittest.TestCase):
                      + gestes.bloc("check_caractere", [("SIGNAL", "Densité", "x")]))
         resume = journal_mobilisation.resumer("check_caractere", caractere)
         self.assertEqual(resume["resultats"], {"SIGNAL": ["Densité"]})
-        self.assertEqual(resume["gestes"], ["Gestion du vide", "Masse visuelle"])
+        self.assertEqual(resume["gestes"], ["Gestion du vide"])
+
+    def test_rendez_vous_regard_et_planche(self):
+        retour = [("RETURN", "Contraste du texte sur fond uni", "x")]
+        propre = [("PASS", "Débordement horizontal", "aucun")]
+        self.assertIn("--moment regard", gestes.suite("check_render", retour, "p.html"))
+        self.assertIn("--moment regard", gestes.suite("check_caractere", [("SIGNAL", "Densité", "x")], "p.html"))
+        self.assertEqual(gestes.suite("check_caractere", [("RELEVÉ", "Foyer", "x")], "p.html"), "")
+        self.assertEqual(gestes.suite("check_render", propre, "p.html"), "", "un seul passage connu : pas de planche")
+        self.assertIn("planche.py p.html", gestes.suite("check_render", propre, "p.html", True))
+        with tempfile.TemporaryDirectory() as tmp:
+            page = str(Path(tmp) / "p.html")
+            journal = Path(tmp) / "run.jsonl"
+            os.environ["DG_JOURNAL"] = str(journal)
+            entrees = [{"outil": "read_route", "commande": ["--moment", "regard"], "code": 0},
+                       {"outil": "check_render", "commande": [page], "code": 0, "resultats": {"PASS": ["Débordement"]}}]
+            journal.write_text("".join(json.dumps(e) + "\n" for e in entrees), encoding="utf-8")
+            self.assertEqual(gestes.suite("check_render", retour, page), "", "carte « regard » déjà lue")
+            self.assertIn("Deux passages", gestes.suite("check_render", propre, page))
+            self.assertEqual(gestes.suite("check_render", propre, str(Path(tmp) / "autre.html")), "", "autre page")
+            journal.write_text("".join(json.dumps(e) + "\n" for e in entrees + [{"outil": "planche", "commande": [page], "code": 0}]),
+                               encoding="utf-8")
+            self.assertEqual(gestes.suite("check_render", propre, page), "", "planche déjà faite")
+            journal.write_text("".join(json.dumps(e) + "\n" for e in [{"outil": "read_route", "commande": ["--tronc", "STANDARD"], "code": 0}] + entrees),
+                               encoding="utf-8")
+            self.assertEqual(gestes.suite("check_render", propre, page), "", "hors DIRECTION : pas de planche")
 
     def test_commande_directe(self):
         self.assertEqual(gestes.main(["Surface"]), 0)

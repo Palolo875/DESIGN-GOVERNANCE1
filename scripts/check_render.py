@@ -1280,6 +1280,12 @@ def run(args: argparse.Namespace) -> int:
         servis = gestes.bloc("check_render", [(s, t, d) for t, s, d in checks])
         if servis:
             print(servis)
+    import gestes  # rendez-vous : carte « regard » si une correction s'ouvre, planche après deux passages sans RETURN
+    sans_retour_avant = baseline is not None and not any(c.get("status") == RETURN for c in baseline["checks"] if isinstance(c, dict))
+    rendez_vous = gestes.suite("check_render", [(s, t, d) for t, s, d in checks],
+                               "" if re.match(r"^https?://", args.page) else args.page, sans_retour_avant)
+    if rendez_vous:
+        print(rendez_vous)
     if getattr(args, "mesures", False):
         print("\nMesures de composition (relevés chiffrés, sans seuil ni verdict ; elles ne modifient ni les statuts ni le code de sortie) :")
         for line in format_mesures(raw["per_width"]):

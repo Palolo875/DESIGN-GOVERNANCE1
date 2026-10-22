@@ -208,9 +208,9 @@ Quand la décision visuelle est ouverte (`DIRECTION`, ou `STANDARD` sur une surf
 |---|---|---|
 | **avant** | Après la ligne du mode, avant le premier build | `SAVOIR/CRAFT/CFT-01/Inventaire`, `BIBLIOTHEQUE/SELECT/Signaux`, `BIBLIOTHEQUE/SEQUENCE`, `SAVOIR/CRAFT/CFT-05/Relations` |
 | **regard** | Après chaque capture qui ouvre ou rouvre une correction | `SAVOIR/STATE/Vocabulaire`, `ACTION/GATE-C`, `ACTION/ATELIER-EDITION` |
-| **sortie** | Avant de proposer ou de livrer | `DIRECTION/DOUBLE-LOOP/Test`, `DIRECTION/DOUBLE-LOOP/Regard` |
+| **sortie** | Avant de proposer ou de livrer | `DIRECTION/DOUBLE-LOOP/Test`, `DIRECTION/DOUBLE-LOOP/Regard`, `ACTION/RECETTE-CARACTERE` |
 
-Les recettes de rendu et de caractère servent aussi, sous leurs signaux, le geste lié du tableau de `SAVOIR/STATE` (`scripts/gestes.py`) : le savoir arrive là où l’agent regarde. Un geste servi reste un point de départ pour le défaut dominant.
+Les recettes de rendu et de caractère servent aussi, sous leurs signaux, le geste lié du tableau de `SAVOIR/STATE` (`scripts/gestes.py`), un par contrôle signalé : le savoir arrive là où l’agent regarde. Un geste servi reste un point de départ pour le défaut dominant. Elles rappellent enfin deux rendez-vous : la carte « regard » quand elles ouvrent une correction, si le journal ne la montre pas déjà lue ; la planche de `DIRECTION/DOUBLE-LOOP` quand deux passages de la recette de rendu sur la même page ne relèvent plus rien de bloquant. La fiche de mobilisation signale en `DIRECTION` une carte sautée et une recette de caractère jamais lancée.
 
 
 **Déclenchement de l’atlas.** Si aucune famille ne peut être reliée à une décision modifiable, n’ouvre pas `SAVOIR/DESIGN-ATLAS` ; reste sur la route existante. Si le signal est ambigu, pose une seule clarification ciblée ou reviens à `DIRECTION/START` pour classer le mode et le risque. Si un risque critique apparaît, reclassifie avant de charger une famille. L’atlas ne sert jamais à résoudre par catalogue un JTBD, un mode ou une intention manquante.

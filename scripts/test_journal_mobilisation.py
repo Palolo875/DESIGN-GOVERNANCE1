@@ -95,6 +95,14 @@ class Journal(unittest.TestCase):
         self.assertIn("planche sur `p.html` | sollicité, en échec (NOT-VERIFIED)", texte)
         self.assertIn("gestes retirés (--sans-gestes)", texte)
 
+    def test_recette_de_caractere_attendue_en_direction(self):
+        tronc = {"outil": "read_route", "commande": ["--tronc", "DIRECTION"], "code": 0, "routes_lues": [], "routes_proposees": []}
+        self.assertIn("Recette de caractère non lancée (DIRECTION)", jm.fiche([tronc]))
+        lancee = {"outil": "check_caractere", "commande": ["p.html", "d.json"], "code": 0, "non_verifie": False, "resultats": {}}
+        self.assertNotIn("Recette de caractère non lancée", jm.fiche([tronc, lancee]))
+        standard = dict(tronc, commande=["--tronc", "STANDARD"])
+        self.assertNotIn("Recette de caractère non lancée", jm.fiche([standard]))
+
     def test_journal_absent(self):
         self.assertEqual(jm.main(["/chemin/inexistant.jsonl"]), 2)
 

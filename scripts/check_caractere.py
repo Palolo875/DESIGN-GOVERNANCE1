@@ -147,6 +147,10 @@ def main() -> int:
         servis = gestes.bloc("check_caractere", [(r["statut"], r["controle"], r["detail"]) for r in resultats if r["statut"] != "MESURES"])
         if servis:
             print(servis)
+    import gestes  # rendez-vous : carte « regard » quand un signal ouvre une correction
+    rendez_vous = gestes.suite("check_caractere", [(r["statut"], r["controle"], r["detail"]) for r in resultats if r["statut"] != "MESURES"], a.page)
+    if rendez_vous:
+        print(rendez_vous)
     n = sum(r["statut"] == "SIGNAL" for r in resultats)
     print(f"{n} signal(aux) à traiter dans la trace. Bornes provisoires [À CALIBRER] ; ni verdict de goût, ni preuve de qualité.")
     if a.json:
