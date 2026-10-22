@@ -1230,8 +1230,10 @@ def main(argv: list[str] | None = None) -> int:
                     print(f"    {name}:{number:<5}{mark} {_excerpt_any(line, terms)}")
             if len(ranked) > len(shown):
                 print(f"… {len(ranked) - len(shown)} autre(s) route(s) : ajouter --tout")
-            for _, name, number, line in outside[:3]:
+            for _, name, number, line in (outside if args.tout else outside[:3]):
                 print(f"(hors route)                       {name}:{number:<5} {_excerpt_any(line, terms)}")
+            if len(outside) > 3 and not args.tout:
+                print(f"… {len(outside) - 3} autre(s) ligne(s) hors route : ajouter --tout")
         if guides:
             print("GUIDES — orientation, sans autorité normative")
             for _, name, number, line in guides:

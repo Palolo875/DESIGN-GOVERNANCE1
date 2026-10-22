@@ -438,6 +438,15 @@ class SearchAndSummaryTests(unittest.TestCase):
                 if locator:
                     self.assertIn(f"\n{locator} ", out)
 
+    def test_all_unrouted_lines_shown_with_tout(self):
+        # Une ligne normative hors route reste visible en entier avec --tout (trois au plus sans --tout).
+        _, _, results = reader.search("absolu")
+        sources = {reader.nom(p) for p in reader.sources_normatives()}
+        outside = sum(1 for r in results if r[1] in sources and r[0] is None)
+        count = lambda *a: self.cli("--trouver", "absolu", *a).stdout.count("(hors route)")
+        self.assertEqual(count("--tout"), outside)
+        self.assertEqual(count(), min(outside, 3))
+
     def test_summary_counts_each_route_once(self):
         # Un fichier rattaché à plusieurs responsabilités (LIEUX) ne double pas ses routes dans le sommaire.
         rows = reader.summary_rows()
