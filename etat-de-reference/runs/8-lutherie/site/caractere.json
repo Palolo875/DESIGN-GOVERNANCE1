@@ -1,0 +1,11 @@
+{
+  "_note": "Déclaration tirée du boot (cible visuelle et axes DENSITY / FIELD-MATERIAL / FOCUS), écrite après le premier build et non avant : écart de méthode déclaré dans la trace.",
+  "fonts": ["Libre Caslon Text", "IBM Plex Sans", "IBM Plex Sans Condensed"],
+  "density": "respiration",
+  "material": "image",
+  "focus": "unique",
+  "proof": ".plan",
+  "intensity": "retenue",
+  "intended_voids": false,
+  "widths": [390, 1440]
+}

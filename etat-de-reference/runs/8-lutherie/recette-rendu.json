@@ -1,0 +1,590 @@
+{
+  "provenance": {
+    "artifact_locator": "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run8/projet/site/index.html",
+    "artifact_version": "2dbdf7e57de2",
+    "method": "AUTOMATED",
+    "observed_at": "2026-10-22T10:53:22Z",
+    "scope": "état initial, largeurs 390,768,1440 px",
+    "external_requests_blocked": 0,
+    "settings": {
+      "proof": ".plan",
+      "tab_stops": 60,
+      "allow_external": false,
+      "wait_ms": 1500
+    },
+    "captures": [
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run8/projet/captures/capture-390px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run8/projet/captures/capture-768px.png",
+      "/tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run8/projet/captures/capture-1440px.png"
+    ],
+    "browser": {
+      "engine": "chromium",
+      "version": "141.0.7390.37",
+      "executable": "playwright-managed"
+    }
+  },
+  "checks": [
+    {
+      "check": "Débordement horizontal",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px"
+    },
+    {
+      "check": "Défilement horizontal interne",
+      "status": "PASS",
+      "detail": "aucun"
+    },
+    {
+      "check": "Erreurs JavaScript au chargement",
+      "status": "PASS",
+      "detail": "aucune"
+    },
+    {
+      "check": "Chevauchement et troncature de texte",
+      "status": "PASS",
+      "detail": "aucun à 390, 768, 1440 px ; texte SVG compris, calques fixes ou collants exclus"
+    },
+    {
+      "check": "Contraste du texte sur fond uni",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "aucun texte évalué sous le seuil WCAG 2.2 AA ; 390 px : 145 texte(s) évalué(s), 212 candidat(s), 59 exclu(s) ; 768 px : 146 texte(s) évalué(s), 212 candidat(s), 50 exclu(s) ; 1440 px : 146 texte(s) évalué(s), 212 candidat(s), 50 exclu(s) ; 390 px : texte non évalué : li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before) ; 390 px : candidat(s) restant hors évaluation ; 768 px : texte non évalué : li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before) ; 768 px : candidat(s) restant hors évaluation ; 1440 px : texte non évalué : li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before), li (contenu ::before) ; 1440 px : candidat(s) restant hors évaluation ; texte SVG non évalué (#plan-desc, #plan-titre, text) : relever fill/stroke, opacités et fond réel, puis calculer le contraste ; méthode dans ACTION/RECETTE-RENDU"
+    },
+    {
+      "check": "Nom accessible des contrôles (candidats DOM)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "19 contrôle(s) DOM inspecté(s) ; nom accessible calculé non vérifié"
+    },
+    {
+      "check": "Taille des cibles (WCAG 2.2, 2.5.8)",
+      "status": "PASS",
+      "detail": "toutes les cibles hors texte courant satisfont la taille ou l'espacement ; 1 petite(s) cible(s) admise(s) par l'espacement"
+    },
+    {
+      "check": "Structure du document (alt, lang, titre)",
+      "status": "PASS",
+      "detail": "alt, lang et titre présents"
+    },
+    {
+      "check": "Un seul titre de premier niveau visible",
+      "status": "PASS",
+      "detail": "1 h1 visible(s)"
+    },
+    {
+      "check": "Images chargées",
+      "status": "PASS",
+      "detail": "aucune image visible illisible"
+    },
+    {
+      "check": "Parcours clavier : arrêts et indicateur de focus",
+      "status": "PASS",
+      "detail": "19 arrêt(s) à 390 px ; 390 px : page, fin=end, 19 candidat(s) ; 19 arrêt(s) à 768 px ; 768 px : page, fin=end, 19 candidat(s) ; 19 arrêt(s) à 1440 px ; 1440 px : page, fin=end, 19 candidat(s) ; style observé, visibilité du focus à vérifier ; contraste : contrôle suivant"
+    },
+    {
+      "check": "Contraste de l’indicateur de focus",
+      "status": "PASS",
+      "detail": "57 arrêt(s) mesuré(s) ou à contour du navigateur sans défaut"
+    },
+    {
+      "check": "Mouvement réduit respecté",
+      "status": "PASS",
+      "detail": "aucune animation démarrée"
+    },
+    {
+      "check": "Objet de preuve au premier écran (.plan)",
+      "status": "PASS-WITH-RESERVATION",
+      "detail": "390 px : intersection verticale 23.09375 px sur 335, horizontale 118 px sur 118; 768 px : intersection verticale 238.578125 px sur 902.390625, horizontale 300 px sur 300; 1440 px : intersection verticale 739.40625 px sur 1081.640625, horizontale 440 px sur 440 ; rectangle et CSS observés, pixels et occlusion non vérifiés ; à juger : recomposition voulue ou défaut"
+    }
+  ],
+  "keyboard_coverage": {
+    "390": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "button"
+        },
+        {
+          "key": "control-9",
+          "id": "button"
+        },
+        {
+          "key": "control-10",
+          "id": "button"
+        },
+        {
+          "key": "control-11",
+          "id": "button"
+        },
+        {
+          "key": "control-12",
+          "id": "button"
+        },
+        {
+          "key": "control-13",
+          "id": "button"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 19
+    },
+    "768": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "button"
+        },
+        {
+          "key": "control-9",
+          "id": "button"
+        },
+        {
+          "key": "control-10",
+          "id": "button"
+        },
+        {
+          "key": "control-11",
+          "id": "button"
+        },
+        {
+          "key": "control-12",
+          "id": "button"
+        },
+        {
+          "key": "control-13",
+          "id": "button"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 19
+    },
+    "1440": {
+      "expected": [
+        {
+          "key": "control-0",
+          "id": "a"
+        },
+        {
+          "key": "control-1",
+          "id": "a"
+        },
+        {
+          "key": "control-2",
+          "id": "a"
+        },
+        {
+          "key": "control-3",
+          "id": "a"
+        },
+        {
+          "key": "control-4",
+          "id": "a"
+        },
+        {
+          "key": "control-5",
+          "id": "a"
+        },
+        {
+          "key": "control-6",
+          "id": "a"
+        },
+        {
+          "key": "control-7",
+          "id": "a"
+        },
+        {
+          "key": "control-8",
+          "id": "button"
+        },
+        {
+          "key": "control-9",
+          "id": "button"
+        },
+        {
+          "key": "control-10",
+          "id": "button"
+        },
+        {
+          "key": "control-11",
+          "id": "button"
+        },
+        {
+          "key": "control-12",
+          "id": "button"
+        },
+        {
+          "key": "control-13",
+          "id": "button"
+        },
+        {
+          "key": "control-14",
+          "id": "a"
+        },
+        {
+          "key": "control-15",
+          "id": "a"
+        },
+        {
+          "key": "control-16",
+          "id": "a"
+        },
+        {
+          "key": "control-17",
+          "id": "a"
+        },
+        {
+          "key": "control-18",
+          "id": "a"
+        }
+      ],
+      "excluded": [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "a"
+      ],
+      "scope": "page",
+      "reason": "end",
+      "tab_limit": 60,
+      "visited": [
+        "control-0",
+        "control-1",
+        "control-10",
+        "control-11",
+        "control-12",
+        "control-13",
+        "control-14",
+        "control-15",
+        "control-16",
+        "control-17",
+        "control-18",
+        "control-2",
+        "control-3",
+        "control-4",
+        "control-5",
+        "control-6",
+        "control-7",
+        "control-8",
+        "control-9"
+      ],
+      "unreached": [],
+      "unexpected": [],
+      "observed_stops": 19
+    }
+  },
+  "contrast_coverage": {
+    "390": {
+      "method": "dom-text-bounded",
+      "candidates": 212,
+      "evaluated": 145,
+      "excluded": 59,
+      "unmeasured": [
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        }
+      ]
+    },
+    "768": {
+      "method": "dom-text-bounded",
+      "candidates": 212,
+      "evaluated": 146,
+      "excluded": 50,
+      "unmeasured": [
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        }
+      ]
+    },
+    "1440": {
+      "method": "dom-text-bounded",
+      "candidates": 212,
+      "evaluated": 146,
+      "excluded": 50,
+      "unmeasured": [
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        },
+        {
+          "sel": "li",
+          "kind": "contenu ::before"
+        }
+      ]
+    }
+  },
+  "proof_observations": {
+    "390": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 118,
+      "h": 335,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 118,
+      "visible": 23.09375,
+      "limits": []
+    },
+    "768": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 300,
+      "h": 902.390625,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 300,
+      "visible": 238.578125,
+      "limits": []
+    },
+    "1440": {
+      "found": true,
+      "method": "css-rectangle-bounded",
+      "w": 440,
+      "h": 1081.640625,
+      "hidden": false,
+      "opacity": 1,
+      "intersectionWidth": 440,
+      "visible": 739.40625,
+      "limits": []
+    }
+  }
+}

@@ -1,0 +1,58 @@
+# Fiche de mobilisation
+
+Présent dans le contexte à chaque run : le noyau de la skill. Les lectures et appels ci-dessous sont observés ; la conséquence et la preuve restent à établir sur la trace et l'artefact.
+
+| Ordre | Heure (UTC) | Élément | Niveau observé | Conséquence | Preuve |
+|---|---|---|---|---|---|
+| 1 | 10:34:22 | `DIRECTION/START/TREE` | consultée | | |
+| 2 | 10:34:26 | `ACTION/RUN-DIRECTION` | consultée | | |
+| 2 | 10:34:26 | `DIRECTION/CREATIVE-BOOT` | consultée | | |
+| 2 | 10:34:26 | `DIRECTION/VISUAL_TARGET` | consultée | | |
+| 2 | 10:34:26 | `DIRECTION/FIRST-OBJECT` | consultée | | |
+| 2 | 10:34:26 | `SAVOIR/TYPE` | consultée | | |
+| 2 | 10:34:26 | `ACTION/FIRST-RENDER` | consultée | | |
+| 2 | 10:34:26 | `ACTION/GATE-A` | consultée | | |
+| 3 | 10:34:37 | `DIRECTION/EXTERNAL-START` | consultée | | |
+| 4 | 10:34:37 | `SAVOIR/CRAFT/CFT-01/Inventaire` | consultée | | |
+| 4 | 10:34:37 | `BIBLIOTHEQUE/SELECT/Signaux` | consultée | | |
+| 4 | 10:34:37 | `BIBLIOTHEQUE/SEQUENCE` | consultée | | |
+| 4 | 10:34:37 | `SAVOIR/CRAFT/CFT-05/Relations` | consultée | | |
+| 4 | 10:34:37 | `SAVOIR/SOURCE/Chercher` | consultée | | |
+| 4 | 10:34:37 | `ACTION/PIPELINE-DIRECTION/Vignettes` | consultée | | |
+| 5 | 10:34:45 | ligne du mode DIRECTION | consultée (routes citées, non lues) | | |
+| 6 | 10:34:50 | ligne du mode DIRECTION | consultée (routes citées, non lues) | | |
+| 7 | 10:34:56 | `ACTION/UI-UX-REALITY` | consultée | | |
+| 8 | 10:34:56 | `DIRECTION/DIRECTION-ATELIER` | consultée | | |
+| 9 | 10:34:56 | `SAVOIR/TOOLS/CONVERGENCE` | consultée | | |
+| 10 | 10:35:02 | registre_choix --lire | exécuté : REGISTRE — 9 entrée(s), 9 page(s) | | |
+| 11 | 10:35:02 | `SAVOIR/TOOLS/MOYENS` | consultée | | |
+| 12 | 10:36:45 | `ACTION/PIPELINE-DIRECTION` | consultée | | |
+| 13 | 10:36:45 | `ACTION/RECETTE-RENDU` | consultée | | |
+| 14 | 10:38:18 | specimen --titre --voix --voix --voix --corps --sortie | exécuté : SPÉCIMEN — 3 voix sur « Atelier Fontanes, luthiers » : /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run8/travail/ | | |
+| 15 | 10:45:35 | check_render sur `index.html` | exécuté : RETURN — Erreurs JavaScript au chargement ; PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.plan) | | |
+| 16 | 10:46:14 | `SAVOIR/STATE/Vocabulaire` | consultée | | |
+| 16 | 10:46:14 | `ACTION/GATE-C` | consultée | | |
+| 16 | 10:46:14 | `ACTION/ATELIER-EDITION` | consultée | | |
+| 17 | 10:47:22 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.plan) | | |
+| 18 | 10:48:02 | check_render sur `index.html` | exécuté : RETURN — Objet de l’état clé dans son cadre (--in-frame) ; PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) ; gestes retirés (--sans-gestes) | | |
+| 19 | 10:48:39 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) ; gestes retirés (--sans-gestes) | | |
+| 20 | 10:49:01 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) ; gestes retirés (--sans-gestes) | | |
+| 21 | 10:49:15 | `ACTION/RECETTE-CARACTERE` | consultée | | |
+| 22 | 10:49:29 | check_caractere sur `index.html` | exécuté : SIGNAL — Matière dominante ; gestes servis : Masse visuelle | | |
+| 23 | 10:49:47 | check_caractere sur `index.html` | exécuté : SIGNAL — Matière dominante ; gestes retirés (--sans-gestes) | | |
+| 24 | 10:50:14 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.plan) | | |
+| 25 | 10:50:58 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.plan) ; gestes retirés (--sans-gestes) | | |
+| 26 | 10:51:01 | planche sur `index.html` | exécuté : PLANCHE — /tmp/claude-0/-home-user-DESIGN-GOVERNANCE1/9cbe5330-87f1-5109-8fe8-94037066e62f/scratchpad/run8/projet/planche/planche.html ; captures : capture-390p | | |
+| 27 | 10:51:48 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.plan) ; gestes retirés (--sans-gestes) | | |
+| 28 | 10:51:57 | registre_choix sur `index.html` | exécuté : CHOIX RELEVÉS (1440 px) — titre : Libre Caslon Text (rendu : Libre Caslon Text) ; corps rendu : IBM Plex Sans ; familles : IBM Plex Sans, Libre Caslon Text, IBM | | |
+| 29 | 10:52:15 | `DIRECTION/DOUBLE-LOOP/Moment` | consultée | | |
+| 29 | 10:52:15 | `DIRECTION/DOUBLE-LOOP/Test` | consultée | | |
+| 29 | 10:52:15 | `DIRECTION/DOUBLE-LOOP/Regard` | consultée | | |
+| 29 | 10:52:15 | `ACTION/RECETTE-CARACTERE` | consultée | | |
+| 30 | 10:52:39 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM) ; gestes retirés (--sans-gestes) | | |
+| 31 | 10:53:22 | check_render sur `index.html` | exécuté : PASS-WITH-RESERVATION — Contraste du texte sur fond uni, Nom accessible des contrôles (candidats DOM), Objet de preuve au premier écran (.plan) ; gestes retirés (--sans-gestes) | | |
+
+## Manques
+
+- Aucun manque détecté dans le tronc des modes observés.
+- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, moyen absent ou en échec.

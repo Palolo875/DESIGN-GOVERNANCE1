@@ -8,6 +8,7 @@ Hors paquet. Il accompagne `../protocole-etat-de-reference.md`, qui décrit la m
 | `evaluateur/` | Ce que chaque brief met à l'épreuve, pièges attendus, caractères attendus validés (`caractere-N.json`) ; jamais donné à l'agent |
 | `productions/<ID>/` | Une production par identifiant anonyme : `artefact/` (la page évaluée, commentaires HTML retirés et gardés dans `commentaires-retires.txt`), `captures/`, sorties des recettes, `reponse.md` de l'agent ; avec le système, `journal.jsonl` et `fiche-mobilisation.txt` |
 | `runs/N-nom/` | Run instrumenté hors évaluation aveugle (condition C) : site, captures, réponse et trace de l'agent, journal et fiche de mobilisation, planche, et `analyse.md` (pièges, mobilisation, défauts d'outils révélés) |
+| `runs/comparaison-7-8/` | Premiers écrans des runs 7 et 8 côte à côte, à 390 et 1440 px, floutés puis nets (`vignettes.py`) |
 | `evaluation-aveugle/` | Sept paires en deux passages, `LISEZ-MOI.md` et `evaluation.csv` à remplir |
 
 **À ne pas ouvrir avant l'évaluation :** `productions/` révèle la condition (seules les productions avec le système ont un journal). La clé qui relie les codes de l'évaluation aux productions n'est pas dans ce dossier.
