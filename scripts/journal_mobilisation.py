@@ -194,7 +194,7 @@ def fiche(entrees: list[dict]) -> str:
                                "(`read_route.py --moment`, DIRECTION/CHARGE).")
             if not any(e.get("outil") == "check_caractere" for e in entrees):
                 manques.append("- Recette de caractère non lancée (DIRECTION) : caractère déclaré non confronté au rendu "
-                               "(`ACTION/RECETTE-CARACTERE`, carte « sortie »).")
+                               "(`ACTION/RECETTE-CARACTERE`, carte « avant »).")
     lignes += ["", "## Manques", "",
                *(manques or ["- Aucun manque détecté dans le tronc des modes observés."]),
                "- À établir sur la trace : routes pertinentes jamais ouvertes, déclencheur mal formulé, problème non reconnu, "

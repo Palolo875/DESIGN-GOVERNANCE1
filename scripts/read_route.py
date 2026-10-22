@@ -640,12 +640,58 @@ def bloquantes_hors_tronc(mode: str) -> list[str]:
     return [r for r in BLOQUANTES if f"`{r}`" in row and r not in tronc]
 
 
+# Sous-section écartée du tronc par la ligne du mode : « `ROUTE` (sans « Titre », quand la lire) ».
+# Une parenthèse peut en écarter plusieurs, séparées par « ; », à côté d'une précision ordinaire.
+REPLI = re.compile(r"`([A-Z]+(?:/[A-Za-z0-9_\-]+)+)`\s*\(([^)]*)\)")
+SANS = re.compile(r"^\s*sans « ([^»]+) »,\s*(.+?)\s*$")
+TITRE = re.compile(r"^(#{2,6})\s+(.*)$")
+
+
+def tronc_replis(mode: str) -> dict[str, list[tuple[str, str]]]:
+    """Sous-sections que la ligne du mode garde hors du tronc, par route : (début du titre, quand la lire)."""
+    cells = [c.strip() for c in mode_row(mode)[2].strip().strip("|").split(" | ")]
+    found = TRONC.search(cells[1]) if len(cells) >= 2 else None
+    out: dict[str, list[tuple[str, str]]] = {}
+    for route, parenthese in REPLI.findall(found.group(1) if found else ""):
+        for morceau in parenthese.split(";"):
+            m = SANS.match(morceau)
+            if m:
+                out.setdefault(route, []).append((m.group(1).strip(), m.group(2).strip()))
+    return out
+
+
+def replier_sous_sections(text: str, route: str, replis: list[tuple[str, str]]) -> str:
+    """Remplace chaque sous-section écartée par une ligne de renvoi lisible avec son sous-locator."""
+    out: list[str] = []
+    saut = None
+    for line in text.split("\n"):
+        m = TITRE.match(line)
+        if m:
+            niveau, titre = len(m.group(1)), m.group(2).replace("`", "").strip()
+            if saut is not None and niveau <= saut:
+                saut = None
+            if saut is None:
+                pris = next(((t, q) for t, q in replis if titre.startswith(t)), None)
+                if pris:
+                    out.append(f"> [Hors du tronc — {pris[1]} : `{route}/{pris[0].split()[0]}`]")
+                    saut = niveau
+                    continue
+        if saut is None:
+            out.append(line)
+    return "\n".join(out)
+
+
 def tronc_text(mode: str) -> tuple[list[tuple[str, str]], int]:
-    """Texte servi de chaque route du tronc (blocs du noyau repliés, comme une lecture ordinaire) et total."""
+    """Texte servi de chaque route du tronc (blocs du noyau repliés, comme une lecture ordinaire ; sous-sections
+    écartées par la ligne du mode remplacées par un renvoi) et total."""
     chunks = []
+    replis = tronc_replis(mode)
     for locator in tronc_routes(mode):
         _, lines, index = resolve(locator)
-        chunks.append((locator, "\n".join(fold_core(lines, index))))
+        text = "\n".join(fold_core(lines, index))
+        if locator in replis:
+            text = replier_sous_sections(text, locator, replis[locator])
+        chunks.append((locator, text))
     return chunks, sum(len(text) for _, text in chunks)
 
 
@@ -1155,7 +1201,8 @@ def main(argv: list[str] | None = None) -> int:
         except (RouteError, OSError) as exc:
             fail(str(exc))
         print(f"TRONC — {args.tronc} ; source : DIRECTION/CHARGE ; budget {TRONC_BUDGET} caractères")
-        print("Le reste de la ligne du mode se lit quand son signal apparaît : python3 scripts/read_route.py --mode " + args.tronc)
+        print("Ligne du mode, servie ici (inutile de relancer --mode) : le tronc suit ; le reste de la ligne se lit quand son signal apparaît.\n")
+        print("\n".join(mode_row(args.tronc)))
         for locator, text in chunks:
             print(f"\n======== {locator} ({len(text)} caractères)\n{text}")
         ok = total <= TRONC_BUDGET

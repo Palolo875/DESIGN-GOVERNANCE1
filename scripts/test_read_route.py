@@ -652,7 +652,7 @@ class TroncTests(unittest.TestCase):
 
     def test_blocking_route_moved_out_of_trunk_fails(self):
         row = reader.mode_row("DIRECTION")[2]
-        moved = row.replace(", `ACTION/FIRST-RENDER` et `ACTION/GATE-A` (contrôles applicables).",
+        moved = row.replace(", `ACTION/FIRST-RENDER` et `ACTION/GATE-A` (contrôles applicables ; sans « Contrat », lu quand la conformité est dans le périmètre ou en trace complète ; sans « Familles », lu en trace complète).",
                             " et `ACTION/FIRST-RENDER`. Selon le signal : `ACTION/GATE-A`.")
         self.assertNotEqual(moved, row)
         with patch.object(reader, "mode_row", lambda mode: ["", "", moved]):
@@ -672,6 +672,30 @@ class TroncTests(unittest.TestCase):
         self.assertIn("TOTAL DU TRONC", out.stdout)
         self.assertIn("marge", out.stdout)
         self.assertIn("======== DIRECTION/FIRST-OBJECT", out.stdout)
+
+    def test_trunk_serves_the_mode_line_and_folds_excluded_subsections(self):
+        self.assertEqual(reader.tronc_replis("DIRECTION"),
+                         {"DIRECTION/VISUAL_TARGET": [("Réserve", "lue en trace complète")],
+                          "DIRECTION/FIRST-OBJECT": [("Réutilisation", "lue quand un antécédent peut orienter le brief")],
+                          "ACTION/GATE-A": [("Contrat", "lu quand la conformité est dans le périmètre ou en trace complète"),
+                                            ("Familles", "lu en trace complète")]})
+        self.assertIn("### Contrôles applicables", dict(reader.tronc_text("DIRECTION")[0])["ACTION/GATE-A"],
+                      "la partie bloquante de GATE-A reste dans le tronc")
+        text = dict(reader.tronc_text("DIRECTION")[0])
+        cible, objet = text["DIRECTION/VISUAL_TARGET"], text["DIRECTION/FIRST-OBJECT"]
+        self.assertNotIn("### Réserve", cible)
+        self.assertIn("`DIRECTION/VISUAL_TARGET/Réserve`", cible)
+        self.assertIn("Passage à `SPECCED`", cible, "le paragraphe général reste dans le tronc")
+        self.assertNotIn("REUSE-CHALLENGE", objet)
+        self.assertIn("`DIRECTION/FIRST-OBJECT/Réutilisation`", objet)
+        for locator in ("DIRECTION/VISUAL_TARGET/Réserve", "DIRECTION/FIRST-OBJECT/Réutilisation"):
+            with self.subTest(locator=locator):
+                self.assertTrue(reader.resolve(locator), "le renvoi se lit avec le lecteur")
+        self.assertEqual(reader.tronc_replis("LITE"), {})
+        out = subprocess.run([sys.executable, str(ROOT / "scripts" / "read_route.py"), "--tronc", "DIRECTION"],
+                             capture_output=True, text=True, encoding="utf-8")
+        self.assertIn("| **DIRECTION** |", out.stdout, "la ligne du mode est servie avec le tronc")
+        self.assertIn("inutile de relancer --mode", out.stdout)
 
     def test_trunk_is_exclusive_with_other_reads(self):
         out = subprocess.run([sys.executable, str(ROOT / "scripts" / "read_route.py"), "--tronc", "LITE", "--mode", "LITE"],

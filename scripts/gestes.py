@@ -150,7 +150,7 @@ def suite(outil: str, resultats: list[tuple[str, str, str]], page: str = "", pre
                     and e.get("code") == 0 for e in entrees)
     if ouvre and not regard_lu:
         lignes.append("Correction ouverte : avant de modifier, `python3 scripts/read_route.py --moment regard` sert les gestes "
-                      "du regard et des cas observés (`DIRECTION/CHARGE`).")
+                      "du regard et des cas observés, si elle n’est pas déjà lue dans ce run (`DIRECTION/CHARGE`).")
     if outil == "check_render" and not ouvre:
         modes = {_option(e.get("commande", []), o) for e in entrees for o in ("--mode", "--tronc")} - {None}
         avant = [e for e in entrees if e.get("outil") == "check_render" and page and _meme_page(e.get("commande", []), page)]

@@ -64,13 +64,13 @@ La génération ne reçoit ni le rôle de défaut, ni celui de rattrapage décor
 
 Une route est insuffisante si elle n’explique pas pourquoi l’asset, à son crop réel et dans son contexte réel, augmente la preuve, la compréhension ou la singularité de la surface. Sources par couche : carte des moyens (`SAVOIR/TOOLS`, `[VEILLE]`) ; un asset moyen reçoit le traitement que justifie la thèse (`SAVOIR`, section `DESIGN-ATLAS`), jamais un dessin de remplacement.
 
-### Réserve `ANCHOR-GENERATED` en enjeu identitaire élevé
-
-Lorsque l’enjeu identitaire est élevé et que seule la voie `ANCHOR-GENERATED` — hypothèse visuelle générée — est utilisée, la `RUN_CARD` porte une réserve explicite : « Direction calibrée uniquement sur hypothèse générée, sans référence observée ni contrainte réelle. » Le statut de direction ne peut pas être `HELD` sans cette réserve ou sans calibration complémentaire par `ANCHOR-OBSERVED`, `ANCHOR-PROVIDED` ou contrainte réelle. Cette réserve décrit une limite de calibration ; elle ne déclare ni l’image fausse, ni la direction invalide par principe. Dans une `RUN_CARD`, cette base est `direction.calibration.basis` : `real_constraint` lorsqu’une contrainte réelle calibre la direction, sinon `generated_only_reserved`, qui interdit `ACCEPTED` (`ACTION/PIPELINE-DIRECTION`).
-
 > **Passage à `SPECCED`.** Dans `ACTION/STATUS`, `SPECCED` signifie que la direction, la hiérarchie, le contrat ou l’ancre nécessaires sont disponibles ; cela ne signifie ni construit, ni observé, ni accepté. Une surface `DIRECTION` est prête à construire lorsque chaque champ de la table de `VISUAL_TARGET` est renseigné ou `N/A-JUSTIFIED` ; la route d’asset seulement si nécessaire.
 
 La cible peut vivre dans la `RUN_CARD`, le ticket ou le manifeste local. Après le build, `ACTION/VISUAL_PROOF` vérifie le rendu réel contre cette cible.
+
+### Réserve `ANCHOR-GENERATED` en enjeu identitaire élevé
+
+Lorsque l’enjeu identitaire est élevé et que seule la voie `ANCHOR-GENERATED` — hypothèse visuelle générée — est utilisée, la `RUN_CARD` porte une réserve explicite : « Direction calibrée uniquement sur hypothèse générée, sans référence observée ni contrainte réelle. » Le statut de direction ne peut pas être `HELD` sans cette réserve ou sans calibration complémentaire par `ANCHOR-OBSERVED`, `ANCHOR-PROVIDED` ou contrainte réelle. Cette réserve décrit une limite de calibration ; elle ne déclare ni l’image fausse, ni la direction invalide par principe. Dans une `RUN_CARD`, cette base est `direction.calibration.basis` : `real_constraint` lorsqu’une contrainte réelle calibre la direction, sinon `generated_only_reserved`, qui interdit `ACCEPTED` (`ACTION/PIPELINE-DIRECTION`).
 
 ---
 
