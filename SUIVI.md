@@ -25,7 +25,7 @@ Relevés le 2026-10-22 sur `main` au commit `c77a8bc`.
 | C1 | Le tronc DIRECTION est presque plein : 34 331 caractères sur 35 000 (98 %), marge 669. `DIRECTION/VISUAL_TARGET` en occupe 9 209. | `read_route.py --tronc DIRECTION` |
 | C2 | `ACTION/GATE-A` (8 073 caractères) est lue par quatre modes sur cinq et occupe 23 % de chaque budget de tronc. | `read_route.py --tronc MODE` |
 | C3 | Le sommaire annonce « 110 routes » pour 74 routes distinctes : un fichier qui héberge plusieurs responsabilités y est listé plusieurs fois. | `read_route.py --sommaire`, lignes dédoublonnées |
-| C4 | 25 routes ne sont citées ni par le noyau ni par `DIRECTION/CHARGE`. La plupart le sont à dessein (catalogue des formes, atteint par `BIBLIOTHEQUE/SELECT`). À examiner : `ACTION/STRUCTURED-PROOF`, `ACTION/RECETTE-RENDU`, `SAVOIR/CONTEXT`. | Recherche des codes dans `SKILL.md` et la ligne de `CHARGE` |
+| C4 | 25 routes ne sont citées ni par le noyau ni par `DIRECTION/CHARGE`. La plupart le sont à dessein (catalogue des formes, atteint par `BIBLIOTHEQUE/SELECT`). À examiner : `ACTION/STRUCTURED-PROOF`, `ACTION/RECETTE-RENDU`, `SAVOIR/CONTEXT`. Cause en partie expliquée par l’audit (L1-01, L1-02). | Recherche des codes dans `SKILL.md` et la ligne de `CHARGE` |
 | C5 | La mobilisation est presque entièrement tirée : une route n’est lue que si l’agent reconnaît son signal. Les signaux les plus importants (« motif générique », « finesse sans geste concret », « direction faible ») décrivent des défauts que l’agent voit mal en lui-même. | Tableau des signaux du noyau, section 10 |
 | C6 | Le journal de mobilisation voit les lectures et les appels, pas un problème non reconnu. Il ne voit que `read_route.py` et les recettes : un fichier ouvert directement n’y apparaît pas. | `scripts/journal_mobilisation.py` |
 | C7 | `check_caractere.py` nomme les routes à lire pour chaque signal ; `check_render.py` ne renvoie qu’à `ACTION/GATE-A`. | Codes de route cités dans les deux scripts |
@@ -47,8 +47,13 @@ Statuts : `À FAIRE`, `EN COURS`, `FAIT`, `À DÉCIDER`, `ABANDONNÉ`.
 | A6 | Redonner de la marge au tronc DIRECTION, par exemple en séparant dans `DIRECTION/VISUAL_TARGET` ce qui doit être lu à chaque run de ce qui peut l’être sur signal. | Q1 (C1) | `À DÉCIDER` | Marge rendue sans retirer de contrainte bloquante du tronc. |
 | A7 | Inscrire le cap : version courte en tête du README, texte complet relié depuis le README et la fiche de version. | Cap | `À FAIRE` | README et fiche à jour ; validation verte. |
 | A8 | Examiner les trois routes atteintes seulement en cascade (C4) : faut-il un signal, un renvoi plus direct, ou rien ? | Q2 (C4) | `À FAIRE` | Décision notée pour chacune. |
+| A9 | Rattacher à une route ou supprimer les sections hors route de `agent/chemins.md` ; refuser au validateur une obligation `[FORCÉ]` ou `[REQUIS]` hors route. | Q2 (L1-01) | `À FAIRE` | Plus aucune ligne normative « (hors route) » dans `agent/chemins.md` ; contrôle ajouté. |
+| A10 | Une seule table de signaux de routage, celle du noyau, enrichie ; supprimer ou générer les autres. | Q2 (L1-02) | `À FAIRE` | Une table source ; les correspondances manquantes (`SAVOIR/CONTEXT`, `ACTION/ANTI-SLOP`, `SAVOIR/INTEGRITY`) y figurent. |
+| A11 | Une seule déclaration de lancement et un vocabulaire de cadrage unique ; les autres formats deviennent des projections de la trace complète ; définir « trame » ou la retirer. | Q1, Q2 (L1-03, L1-04) | `À DÉCIDER` | Trace légère sans obligation concurrente ; correspondance des cadres écrite une fois. |
+| A12 | Corrections locales du lot 1 : renvois périmés (L1-06), signal vers `ACTION/RECETTE-RENDU` (L1-07), définitions dans le noyau (L1-08), lien entre proposition légère et `EXPLORATORY` (L1-05). | Cohérence | `À FAIRE` | Renvois corrigés ; validation verte. |
 
 ## Décisions
 
 - **2026-10-22.** Création de ce fichier de suivi, sur une branche à part (`suivi`) pour ne pas entrer dans le paquet ; une copie de travail reste dans la session.
 - **2026-10-22.** Le texte de mission est retenu comme cap de travail, en trois niveaux : utilité, objectif, hypothèse à éprouver (voir « Cap »).
+- **2026-10-22.** Audit lancé : sept perspectives (P1 à P7, plus P8 pour les fichiers destinés aux personnes), quatre gravités, lecture intégrale par lots. Constats dans `AUDIT.md`. Lot 1 (`SKILL.md`, `agent/chemins.md`) terminé : un bloquant, trois importants.
