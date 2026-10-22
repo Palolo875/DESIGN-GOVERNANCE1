@@ -51,6 +51,11 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 | `gouvernance/verification.md` | `c77a8bc` | 1–226 (entier) | 3 | toutes | 2026-10-22 |
 | `gouvernance/cloture.md` | `c77a8bc` | 1–102 (entier) | 3 | toutes | 2026-10-22 |
 | `gouvernance/structure.md` | `c77a8bc` | 1–85 (entier) | 3 | toutes | 2026-10-22 |
+| `design/savoir/README.md` | `c77a8bc` | 1–19 (entier) | 4 | COH | 2026-10-22 |
+| `design/savoir/qualite-creative.md` | `c77a8bc` | 1–293 (entier) | 4 | toutes | 2026-10-22 |
+| `design/savoir/composition.md` | `c77a8bc` | 1–79 (entier) | 4 | toutes | 2026-10-22 |
+| `design/savoir/fondements.md` | `c77a8bc` | 1–118 (entier) | 4 | toutes | 2026-10-22 |
+| `design/savoir/gout-et-tendances.md` | `c77a8bc` | 1–99 (entier) | 4 | toutes | 2026-10-22 |
 
 ## Lot 1 — noyau et chemins de l’agent
 
@@ -246,3 +251,63 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 - Le gate C associe déjà chaque critère manqué à un geste et à une route à charger (`finition.md:16-23`) : c’est le modèle de mobilisation poussée que A1 propose d’étendre à `check_render.py`.
 - `FAIL-ASSUMED` ne peut jamais couvrir un risque de sécurité, de dommage grave ou de conformité critique (`verification.md:214`).
 - Le protocole de la campagne existe en grande partie : mesures de série (`cloture.md:78-80`), contrat `EVALUATION_CASE` pour un pilote (`verification.md:20`) et signaux d’apprentissage par run (`design/direction/boucle.md:78-80`).
+
+## Lot 4 — savoir, première partie
+
+**Synthèse.** C’est le meilleur savoir du corpus lu jusqu’ici : le vocabulaire perceptuel relie chaque symptôme à un geste, à sa condition et à une réinspection ; les gestes de composition, la récupération après erreur, l’écriture et la micro-typographie française sont précis et vérifiables ; la carte des moyens est honnête sur ce qu’elle vaut. Aucune section hors route. Les défauts sont ailleurs : les méthodes qui font naître l’idée et le texte sont rangées derrière des signaux de correction, huit grilles se partagent le jugement de la qualité, et les seules observations de l’effet du système (sur la convergence) ne figurent pas dans ce qu’il dit de lui-même.
+
+### L4-01 · Important · MOB, MIS — Les méthodes qui créent l’idée et le texte arrivent par des signaux de correction
+
+- **Où.** « Inventaire du sujet et phrase d’idée » (`design/savoir/qualite-creative.md:80-98`) et `SAVOIR/CRAFT/CFT-06`, écriture et contenu (`:267-291`), toutes deux à l’essai.
+- **Preuve.** L’inventaire se fait « avant de choisir la forme », « lorsque l’idée est ouverte » (`:82`) ; sa route n’est pourtant atteinte que par le signal « Motif générique ou réflexe » du noyau (`SKILL.md:175`), c’est-à-dire une fois le motif générique apparu. `CFT-06` a son propre déclencheur (« lorsque le contenu, le titre, l’ordre des sections ou le nom des actions sont une décision du run », `:269`), absent du tableau des signaux ; elle n’est atteinte que par le renvoi « Longueur d’un titre » de `SAVOIR/TYPE` (`typographie.md:27`), donc seulement en DIRECTION.
+- **Effet.** Le savoir qui sert le plus directement Q1 et Q3 (d’où viennent l’idée et les mots) est lu tard ou pas du tout. Ces deux méthodes étant à l’essai, leur faible mobilisation empêche aussi de les éprouver.
+- **Proposition.** Placer « inventaire → phrase d’idée → test du concurrent » au moment du premier objet (noyau, section 3, ou tronc DIRECTION avec la marge regagnée par A6) ; ajouter le déclencheur de `CFT-06` au tableau des signaux.
+
+### L4-02 · Important · EXE, PRO — Huit grilles pour juger la qualité
+
+- **Où.** Huit dimensions de `CFT-00` (`qualite-creative.md:28-37`) ; six questions de la revue créative (`:48`) ; six lentilles et trois niveaux du jugement visuel situé (`composition.md:14-33`) ; huit dimensions du contrat du premier objet (`premier-objet.md:23-32`) ; six critères du gate C (`finition.md:16-23`) ; cinq rubriques du creative close (`cloture.md:22`) ; six termes du premium perçu (`fondements.md:24`) ; trois décisions de l’absolu 1 (`standard.md:18-22`).
+- **Preuve.** Seul le contrat du premier objet se rattache explicitement à une autre grille (sa colonne « Dimension CFT-00 »). Les autres se recouvrent sans correspondance écrite.
+- **Effet.** Après le rendu, comme avant lui (L1-04, L2-03), l’agent ne sait pas quelle grille appliquer ; le risque est de remplir des grilles au lieu de regarder.
+- **Proposition.** Une seule grille de revue, celle de la revue créative compilée dans le noyau ; les autres deviennent des vues détaillées qui s’y rattachent. À intégrer à A11.
+
+### L4-03 · Important · MOB, PRO — Une obligation « pour toute tâche de surface » dans une route conditionnelle
+
+- **Où.** `design/savoir/fondements.md:91-110` (`FND-03`).
+- **Preuve.** Le tag est `[REQUIS PAR LE MODULE — toute tâche de surface]` : cadrer public, JTBD (avec sa formule), décision, preuve et contraintes ; puis, pour « toute hypothèse importante », quatre champs « dans la ligne de run ou la `RUN_CARD` ». `SAVOIR/FRAME` n’est chargée que « si le cadrage est ambigu » (`agent/chemins.md:161-162`) et n’est dans aucun tronc ; rien ne dit ce que deviennent ces champs en trace légère.
+- **Effet.** Même famille que L3-02 : une obligation large, inaccessible par le chemin ordinaire et concurrente de la trace légère.
+- **Proposition.** Les cinq questions de cadrage sont courtes : les compiler dans le noyau, où l’absolu 4 en porte déjà une partie ; réserver l’enregistrement par hypothèse à la trace complète. À intégrer à A15.
+
+### L4-04 · Important · MIS, VER — Les seules observations de l’effet du système ne sont pas versées à son dossier
+
+- **Où.** `design/savoir/gout-et-tendances.md:57` (`SAVOIR/TOOLS/CONVERGENCE`).
+- **Preuve.** « 6 rendus sur 6 sur fond crème et brun, avec ou sans système » (26 et 27-09-2026) ; « même objet central par brief […] et même grotesque de titre sur un brief, avec ou sans système (30-09-2026, auto-comparaison, 6 rendus) ». Ce sont les seules comparaisons avec et sans le système que contient le corpus. Elles sont petites, internes et en auto-comparaison, mais elles indiquent que, sur la convergence, le système n’a pas fait de différence observable. Elles servent ici à dater des marqueurs de vague ; la fiche de version ne les mentionne pas et dit seulement `NOT-VERIFIED`.
+- **Effet.** L’hypothèse Q1 a déjà un premier indice défavorable sur un point précis (palette et police par défaut), et le système ne le dit pas là où il parle de son efficacité.
+- **Proposition.** Inscrire ces observations, avec leurs limites, dans « Ce qui est vérifié, ce qui ne l’est pas » de la fiche de version, et en faire le point de départ de la campagne (A5) : la question de convergence et le `MODAL` nommé changent-ils la palette et la police de titre ?
+
+### L4-05 · Mineur · SAV — Les repères OKLCH sous-estiment l’écart sur fond sombre non noir
+
+- **Où.** `design/savoir/qualite-creative.md:253` : pour des neutres, un écart de L « d’environ 0,3 à 0,33 donne 3:1 et d’environ 0,37 à 0,43 donne 4,5:1 (sur un noir pur : environ 0,47 et 0,56) ».
+- **Preuve.** Calcul exact pour des gris (la luminosité OKLab d’un gris est la racine cubique de sa luminance relative) : sur fond clair (L de 0,93 à 1), il faut 0,31 à 0,33 pour 3:1 et 0,41 à 0,43 pour 4,5:1, ce qui confirme le texte ; sur fond moyen (L de 0,25 à 0,8), 0,27 à 0,30 et 0,37 à 0,40 suffisent ; sur fond sombre non noir (L de 0,10 à 0,15, la zone des thèmes sombres courants), il faut 0,33 à 0,37 pour 3:1 et 0,43 à 0,46 pour 4,5:1, au-delà de la fourchette donnée.
+- **Effet.** Limité, puisque le texte dit que le calcul de `GATE-A` tranche toujours ; mais un réglage de thème sombre fait avec ces repères peut tomber sous 4,5:1.
+- **Proposition.** Ajouter une ligne pour les fonds sombres non noirs (« compter 0,43 à 0,46 pour 4,5:1 »).
+
+### L4-06 · Mineur · SAV — Le modèle émotionnel n’est pas sourcé
+
+- **Où.** `design/savoir/qualite-creative.md:192-196` : viscéral, comportemental, réflexif.
+- **Proposition.** Citer Donald Norman, *Emotional Design* (2004), comme `CFT-05` cite ses sources.
+
+### L4-07 · Mineur · EXE — Complément à L2-03 : deux ordres de travail de plus
+
+- **Où.** « Comprendre, ouvrir, converger, prouver » (`fondements.md:30`) et « JTBD → structure → hiérarchie → lisibilité → accessibilité → système visuel → polish » (`fondements.md:44`).
+- **Effet.** Cinq ordres au total. Le second est un ordre de priorité, le noyau un ordre de composition : ils se concilient, mais rien ne le dit.
+- **Proposition.** Dans A11, dire en une phrase lequel sert à quoi.
+
+### Ce qui tient (vérifié)
+
+- Le vocabulaire perceptuel (`composition.md:49-63`) relie treize symptômes à un geste, sa condition et sa réinspection : le savoir le plus directement actionnable du corpus pour Q3. La règle des rayons emboîtés (`rayon intérieur = max(0, rayon extérieur − inset)`, bordure comprise) est juste.
+- La récupération après erreur (`composition.md:77`) suit les bonnes pratiques accessibles : message près du champ, saisie conservée, focus selon le moment, région live pendant la saisie.
+- Les gestes de composition de `CFT-03` (texte sur image, mot et image dans le même plan, échelle et champ calme, franchissement) sont précis et ont chacun leur test.
+- L’écriture (`CFT-06`) est testable (« une autre entreprise pourrait-elle imprimer la phrase telle quelle ? ») et la micro-typographie française est correcte.
+- La carte des moyens (`gout-et-tendances.md:66-84`) cite des licences conformes à ce que j’en connais (GSAP et sa clause sur les outils d’animation sans code, Motion sous MIT hors extension payante, Fontshare, CC0 de Poly Haven et ambientCG, OpenFreeMap sans clé) et dit honnêtement qu’une ressource nommée n’est ni atteinte ni vérifiée. Non revérifié en ligne.
+- La référence OKLab (Ottosson, 2020) est juste, et les repères de contraste sont exacts sur fond clair.
+- Suivi de L2-05 : `SAVOIR/TOOLS/MOYENS` donne des sources typographiques et des outils d’inspection (`gout-et-tendances.md:70`), pas de méthode pour comparer deux voix ; reste `SAVOIR/STYLE`, au lot 5.
