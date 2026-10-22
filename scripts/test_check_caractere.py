@@ -41,15 +41,20 @@ class Regles(unittest.TestCase):
 
     def test_indicateurs_a_l_essai_restent_des_releves(self):
         r = statuts({"capture_preuve": .13, "surface_preuve": .26, "colorfulness": 69, "bande_vide_px": 144},
-                    {"focus": "unique", "intensity": "retenue"})
+                    {"focus": "unique", "intensity": "retenue", "intended_voids": False})
         self.assertEqual({s for s, _ in r}, {"RELEVÉ"})
         self.assertEqual({c for _, c in r}, {"Foyer", "Intensité", "Vide"})
 
     def test_vide_declare_muet(self):
         self.assertEqual(statuts({"bande_vide_px": 300}, {"intended_voids": True}), [])
 
+    def test_champ_absent_non_controle(self):
+        # « Un champ absent n'est pas contrôlé » (ACTION/RECETTE-CARACTERE) : sans intended_voids, aucun relevé de vide.
+        self.assertEqual(statuts({"bande_vide_px": 300}, {"density": "respiration", "vide": .52}), [])
+
 
 PAGES = {
+    "externe.html": '<link rel="stylesheet" href="https://fonts.example.invalid/police.css"><p style="margin:40px;font:16px serif">Texte.</p>',
     "aeree.html": '<p style="margin:40px;font:16px serif">Une seule ligne dans une page vide.</p>',
     "dense.html": '<div style="margin:0;font:16px/1.15 serif;text-align:justify">' + "Texte serré qui remplit tout l’écran sans respiration. " * 900 + "</div>",
     "aplats.html": ('<div style="display:grid;grid-template-columns:1fr 1fr;height:100vh">'
@@ -77,7 +82,7 @@ def navigateur(require: bool) -> str:
         if require:
             print("CHECK_CARACTERE TESTS FAILED — navigateur requis"); sys.exit(1)
         return msg
-    echecs = []
+    echecs, indisponible = [], None
     with tempfile.TemporaryDirectory() as tmp:
         d = Path(tmp)
         for nom, corps in PAGES.items():
@@ -87,6 +92,8 @@ def navigateur(require: bool) -> str:
             dfile.write_text(json.dumps({"widths": [1280], **decl}), encoding="utf-8")
             r = subprocess.run([sys.executable, str(Path(__file__).with_name("check_caractere.py")), str(d / page), str(dfile), "--json", str(out)],
                                capture_output=True, text=True)
+            if r.returncode == 2 and "navigateur indisponible" in r.stdout:
+                indisponible = r.stdout.strip(); break
             if r.returncode != 0:
                 echecs.append(f"{page} {decl} : code {r.returncode} {r.stdout.strip()[:120]}"); continue
             vus = {(x["statut"], x["controle"]) for x in json.loads(out.read_text(encoding="utf-8")) if x["statut"] != "MESURES"}
@@ -95,9 +102,23 @@ def navigateur(require: bool) -> str:
             print(f"  [{'ok' if ok else 'ÉCHEC'}] {page} {decl} : {sorted(vus) or 'aucun signal'}")
             if not ok:
                 echecs.append(f"{page} {decl}")
+        if indisponible is None:  # une ressource hébergée ailleurs est bloquée par défaut, comme dans check_render.py
+            dfile = d / "externe.json"; dfile.write_text(json.dumps({"widths": [1280]}), encoding="utf-8")
+            r = subprocess.run([sys.executable, str(Path(__file__).with_name("check_caractere.py")), str(d / "externe.html"), str(dfile)],
+                               capture_output=True, text=True)
+            ok = r.returncode == 0 and "externe(s) bloquée(s)" in r.stdout
+            print(f"  [{'ok' if ok else 'ÉCHEC'}] externe.html : ressource externe bloquée par défaut")
+            if not ok:
+                echecs.append("externe.html : blocage externe non signalé")
+    if indisponible is not None:
+        msg = f"NOT-VERIFIED : Chromium indisponible, mesures dans le navigateur non exécutées ({indisponible[:160]})"
+        print("  " + msg)
+        if require:
+            print("CHECK_CARACTERE TESTS FAILED — navigateur requis"); sys.exit(1)
+        return msg
     if echecs:
         print(f"CHECK_CARACTERE TESTS FAILED — {len(echecs)} échec(s) dans le navigateur : {'; '.join(echecs)}"); sys.exit(1)
-    return f"{len(CAS)} cas dans le navigateur"
+    return f"{len(CAS) + 1} cas dans le navigateur"
 
 
 if __name__ == "__main__":

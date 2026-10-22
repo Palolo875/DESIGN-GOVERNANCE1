@@ -42,11 +42,11 @@ Recette `AUTOMATED` facultative qui confronte le caractère déclaré d’un run
 | `focus` | `unique`, `distribué` | Saillance captée par l’objet de preuve, ou concentration du regard |
 | `proof` | sélecteur CSS | Objet de preuve, pour `focus` |
 | `intensity` | `retenue`, `intensité` | Colorfulness du premier écran |
-| `intended_voids` | `true`, `false` | Bandes vides entre deux contenus |
+| `intended_voids` | `true`, `false` | Avec `false`, bandes vides entre deux contenus |
 | `widths`, `states` | largeurs en px ; suffixes d’URL | Vues mesurées (par défaut 390 et 1440 px) |
 
 **Sorties.** Un `SIGNAL` (polices, densité, matière) attend une réponse dans la trace : l’écart est corrigé dans l’artefact, ou gardé avec sa raison lorsque la déclaration était fausse ou l’écart voulu ; la trace dit lequel, sur la ligne du défaut dominant restant en trace légère. Un `RELEVÉ` (foyer, intensité, vide) informe sans rien exiger. Aucune sortie ne vaut `PASS`.
 
-**Limites.** Statut `PILOT` : bornes provisoires `[À CALIBRER]`, réglées sur peu de pages. Elles restent figées entre deux recalibrations : un run ne les retouche pas ; une recalibration se fait par lot, sur au moins cinq runs qui n’ont pas servi à les régler, et la fiche de version en donne la date. La saillance est un modèle classique (résidu spectral), non entraîné sur des interfaces. Le caractère générique d’une page n’est pas mesuré. Une graisse synthétisée par le navigateur et une coupure de titre ne sont pas détectées. Sans Playwright, numpy et Pillow, la recette rend `NOT-VERIFIED`. Ses règles sont testées par `scripts/test_check_caractere.py`.
+**Limites.** Statut `PILOT` : bornes provisoires `[À CALIBRER]`, réglées sur peu de pages. Elles restent figées entre deux recalibrations : un run ne les retouche pas ; une recalibration se fait par lot, sur au moins cinq runs qui n’ont pas servi à les régler, et la fiche de version en donne la date. La saillance est un modèle classique (résidu spectral), non entraîné sur des interfaces. Le caractère générique d’une page n’est pas mesuré. Une graisse synthétisée par le navigateur et une coupure de titre ne sont pas détectées. Sans Playwright, numpy et Pillow, ou si le navigateur ne démarre pas, la recette rend `NOT-VERIFIED` ; une erreur interne rend un échec, jamais `NOT-VERIFIED`. Comme la recette de rendu, elle bloque par défaut les ressources hébergées ailleurs (`--allow-external` pour les laisser passer) et accepte un Chromium explicite (`--browser-executable`). Ses règles sont testées par `scripts/test_check_caractere.py`.
 
 ---

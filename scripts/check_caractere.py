@@ -5,8 +5,12 @@ Elle émet des SIGNAL et des RELEVÉ, jamais PASS ni RETURN : un signal attend u
 trace (corrigé, ou gardé avec sa raison) ; un relevé informe sans rien demander. Elle ne juge ni la
 qualité d'une direction, ni le goût, ni l'usage. Méthode, déclaration et limites : ACTION/RECETTE-CARACTERE.
 
-Usage : python3 scripts/check_caractere.py page.html declaration.json [--json SORTIE]
-Requiert Playwright avec Chromium, numpy et Pillow ; sans eux, la recette rend NOT-VERIFIED (code 2).
+Usage : python3 scripts/check_caractere.py page.html declaration.json [--json SORTIE] [--allow-external]
+        [--browser-executable CHEMIN]
+Requiert Playwright avec Chromium, numpy et Pillow ; sans eux, ou si le navigateur ne démarre pas, la recette rend
+NOT-VERIFIED (code 2). Comme check_render.py, elle bloque par défaut les ressources hébergées ailleurs (polices,
+images) et accepte un Chromium explicite (DG_BROWSER_EXECUTABLE) : les deux recettes mesurent la même page.
+Une erreur interne rend ÉCHEC (code 1), jamais NOT-VERIFIED.
 """
 from __future__ import annotations
 
@@ -14,6 +18,8 @@ import argparse
 import io
 import json
 import math
+import os
+import re
 import sys
 from pathlib import Path
 
@@ -94,30 +100,46 @@ def evaluer(m: dict, d: dict, polices_hors: dict | None = None) -> list[dict]:
         add("RELEVÉ", "Foyer", f"foyer distribué déclaré ; regard concentré ({m['saillance_top10']:.2f} de la saillance sur 10 % des pixels)", "BIBLIOTHEQUE/TENSION")
     if d.get("intensity") == "retenue" and m["colorfulness"] > B["retenue_max"] or d.get("intensity") == "intensité" and m["colorfulness"] < B["intensite_min"]:
         add("RELEVÉ", "Intensité", f"{d['intensity']} déclarée ; colorfulness {m['colorfulness']}", "SAVOIR/CRAFT/CFT-05")
-    if not d.get("intended_voids") and m["bande_vide_px"] >= B["bande_vide_vh"] * m["hauteur"]:
-        add("RELEVÉ", "Vide", f"bande vide de {m['bande_vide_px']} px entre deux contenus, non déclarée", "SAVOIR/FRAME/COMPOSITION")
+    # Un champ absent n'est pas contrôlé (ACTION/RECETTE-CARACTERE) : seul `intended_voids: false` déclare l'absence de vide voulu.
+    if d.get("intended_voids") is False and m["bande_vide_px"] >= B["bande_vide_vh"] * m["hauteur"]:
+        add("RELEVÉ", "Vide", f"bande vide de {m['bande_vide_px']} px entre deux contenus, alors qu'aucun vide n'est déclaré voulu", "SAVOIR/FRAME/COMPOSITION")
     return out
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Recette de caractère (à l'essai) : caractère déclaré face au rendu.")
     ap.add_argument("page"); ap.add_argument("declaration"); ap.add_argument("--json")
+    ap.add_argument("--allow-external", action="store_true",
+                    help="laisser charger les ressources hébergées ailleurs (bloquées par défaut, comme dans check_render.py)")
+    ap.add_argument("--browser-executable", default=os.environ.get("DG_BROWSER_EXECUTABLE", ""), metavar="CHEMIN",
+                    help="Chromium installé à utiliser explicitement (ou DG_BROWSER_EXECUTABLE) ; sinon navigateur Playwright")
     a = ap.parse_args()
     d = json.loads(Path(a.declaration).read_text(encoding="utf-8"))
     try:
         import numpy  # noqa: F401
         from PIL import Image  # noqa: F401
-        from playwright.sync_api import sync_playwright
+        from playwright.sync_api import Error as PlaywrightError, sync_playwright
     except ImportError as exc:
         print(f"NOT-VERIFIED — dépendance absente ({exc.name}) : numpy, Pillow et Playwright sont requis."); return 2
     url, polices = Path(a.page).resolve().as_uri(), [f.lower() for f in d.get("fonts", [])]
-    resultats = []
+    resultats, bloquees = [], [0]
+
+    def bloquer(route):  # même règle que check_render.py pour une page locale : aucune origine externe sans --allow-external
+        if a.allow_external:
+            route.continue_()
+        else:
+            bloquees[0] += 1
+            route.abort()
     try:
         with sync_playwright() as p:
-            b = p.chromium.launch()
+            try:
+                b = p.chromium.launch(**({"executable_path": a.browser_executable} if a.browser_executable else {}))
+            except PlaywrightError as exc:  # navigateur indisponible : jamais simulé
+                print(f"NOT-VERIFIED — navigateur indisponible ({str(exc).splitlines()[0][:160]})."); return 2
             for w in d.get("widths", [390, 1440]):
                 for st in d.get("states", [""]):
                     pg = b.new_page(viewport={"width": w, "height": 844 if w < 900 else 900})
+                    pg.route(re.compile(r"^https?://"), bloquer)
                     pg.goto(url + st); pg.wait_for_timeout(600)
                     dom = pg.evaluate(COLLECTE, d.get("proof")); png = pg.screenshot()
                     hors = {}
@@ -134,8 +156,10 @@ def main() -> int:
                     resultats.append({"statut": "MESURES", "ou": f"{w}px{(' ' + st) if st else ''}", "mesures": m})
                     pg.close()
             b.close()
-    except Exception as exc:  # navigateur indisponible : jamais simulé
-        print(f"NOT-VERIFIED — navigateur indisponible ({exc.__class__.__name__})."); return 2
+    except Exception as exc:  # erreur pendant la mesure : un échec de la recette, pas une indisponibilité
+        print(f"ÉCHEC — erreur interne de la recette ({exc.__class__.__name__} : {str(exc).splitlines()[0][:160] if str(exc) else ''})."); return 1
+    if bloquees[0]:
+        print(f"{bloquees[0]} requête(s) externe(s) bloquée(s) ; --allow-external pour les laisser passer.")
     for r in resultats:
         if r["statut"] != "MESURES":
             print(f"[{r['statut']}] {r['ou']} · {r['controle']} · {r['detail']} · savoir : {r['savoir']}")
