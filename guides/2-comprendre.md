@@ -11,8 +11,9 @@ Les adresses entre accents graves, comme `savoir/couleur`, se lisent avec le lec
 
 1. Il classe la demande avec `DIRECTION/START` : mode et risque dominant ; il note la décision à changer, la prochaine preuve et l’owner.
 2. Il charge la ligne de ce mode dans `DIRECTION/CHARGE`, puis seulement la section utile.
-3. Il produit ou modifie l’artefact, puis l’observe dans le périmètre déclaré.
-4. Il isole le défaut dominant, corrige l’artefact lorsque c’est nécessaire, observe à nouveau et sépare ce qui a été observé de ce qui reste non vérifié.
+3. Si la décision visuelle est ouverte, il dirige avant de construire : il nomme ce que n’importe quel agent produirait pour cette demande (`MODAL`), décide où s’en écarter et pourquoi (`PARTI`), et choisit le premier objet qui rendra la direction visible (`direction/diriger#lancement`).
+4. Il produit ou modifie l’artefact, puis l’observe dans le périmètre déclaré.
+5. Il isole le défaut dominant, corrige l’artefact lorsque c’est nécessaire, observe à nouveau et sépare ce qui a été observé de ce qui reste non vérifié.
 
 La direction est la position globale ; la direction artistique en est l’expression visuelle située. Le craft décrit la qualité de fabrication, le polish sa résolution cohérente, et la spécificité le lien non interchangeable avec le produit et le contexte.
 

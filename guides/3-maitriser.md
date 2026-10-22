@@ -197,6 +197,8 @@ L’agent localise le package réellement fourni, lit le noyau de la skill, clas
 
 Il demande confirmation avant toute action externe, irréversible, publique, destructive, financière ou durable hors du périmètre autorisé. Il ne choisit pas un mode plus léger parce qu’un moyen manque : il le dit, ajuste la protection nécessaire ou garde explicitement la limite.
 
+Pour savoir ce que l’agent a réellement lu et lancé, activez le journal de mobilisation, à l’essai : la variable `DG_JOURNAL=run.jsonl` dans l’environnement de l’agent, puis `python3 scripts/journal_mobilisation.py run.jsonl` après le run. La fiche relève les sections lues ou proposées et les appels des recettes avec leurs résultats ; elle n’observe ni l’attention de l’agent, ni les fichiers qu’il ouvre directement.
+
 ## 9. Exemple complet minimal
 
 Exemple d’une nouvelle page d’accueil dont la direction visuelle est ouverte :
