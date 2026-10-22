@@ -37,7 +37,7 @@ Le paquet entier est la skill : `SKILL.md` est à sa racine, avec à côté les 
 npx skills add Palolo875/DESIGN-GOVERNANCE1 --skill design-governance-practice
 ```
 
-L’outil demande pour quels agents installer (Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot…) et où : dans le projet ou dans votre dossier personnel. `npx skills update` met la skill à jour. Cette commande a été vérifiée depuis une copie locale du paquet, pour Claude Code et Codex.
+L’outil demande pour quels agents installer (Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot…) et où : dans le projet ou dans votre dossier personnel. `npx skills update` met la skill à jour. Cette commande a été vérifiée le 14 octobre 2026 depuis une copie locale du paquet, pour Claude Code et Codex.
 
 **Sans cet outil**, clonez le paquet dans le dossier de skills de votre agent :
 
@@ -54,7 +54,7 @@ git clone https://github.com/Palolo875/DESIGN-GOVERNANCE1 .claude/skills/design-
 Pour mettre à jour un clone : `git -C .claude/skills/design-governance-practice pull`.
 <!-- github:fin installation -->
 
-Un agent sans gestion de skills reçoit `SKILL.md` comme instructions et travaille depuis le dossier du paquet. Python 3.10 ou plus récent suffit ; la recette de rendu demande aussi Playwright et Chromium. Évitez d’activer dans le même projet une autre skill générale de design : deux skills se déclencheraient sur la même demande avec des consignes différentes.
+Un agent sans gestion de skills reçoit `SKILL.md` comme instructions et travaille depuis le dossier du paquet. Python 3.10 ou plus récent suffit (la CI teste 3.11). Les recettes demandent aussi Playwright avec son Chromium (version testée : 1.56.0) ; la recette de caractère, numpy et Pillow. Évitez d’activer dans le même projet une autre skill générale de design : deux skills se déclencheraient sur la même demande avec des consignes différentes.
 
 **Vérifier.** Le fichier principal est à la racine du dossier installé, et le lecteur y affiche une route :
 
