@@ -50,6 +50,8 @@ Quand un sujet est traité à plusieurs endroits, cette carte dit où le lire d�
 | graphique | `formes/catalogue#micro` | — |
 | état vide | `produit/interface` | `savoir/composition#jugement-visuel` |
 | pied de page | `formes/catalogue#sequence` | — |
+| lisière | `savoir/composition#jugement-visuel` | `formes/catalogue#sequence` |
+| pont de couleur | `savoir/couleur` | — |
 | cartes | `formes/catalogue#sequence` | `formes/choisir` |
 
 <!-- origine:READING_MAP.md -->

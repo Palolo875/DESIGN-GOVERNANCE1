@@ -14,6 +14,9 @@ Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-trav
 | **Craft** | La qualité de construction qu’on perçoit : hiérarchie, composition, typographie, matière, contenu, états et comportement. |
 | **Polish** | La résolution précise des détails du rendu réel : un défaut mène à un geste concret, choisi pour ce cas, puis regardé de nouveau (`savoir/composition#jugement-visuel`), sans accumuler d’effets décoratifs. |
 | **Geste** | Une action de finition nommée dans le tableau de `savoir/composition#jugement-visuel` : un symptôme, le geste qui y répond et ce qu’il faut regarder de nouveau. Les recettes servent le geste lié sous leurs signaux ; c’est un point de départ, pas une correction. |
+| **Lisière** | Le bord entre deux zones d’une page, dessiné d’après le sujet (horizon, cime, étiquette qui dépasse) au lieu d’une coupe droite par défaut ; un geste à l’essai de `savoir/composition#jugement-visuel`. |
+| **Pont de couleur** | Une couleur prélevée dans une image pour la zone voisine, ou l’accent d’une image repris dans un seul élément, pour que deux zones se lisent comme un objet (`savoir/couleur`, à l’essai). |
+| **Composant-objet** | Un composant qui reprend un trait réel de l’objet du métier qu’il représente (format d’une valeur, graduation, étiquette), sans perdre son rôle ni ses états ; un geste à l’essai de `savoir/composition#jugement-visuel`. |
 | **Créativité située** | Un écart, une relation ou une reformulation qui apporte une réponse propre au projet et utile ; pas la nouveauté pour elle-même. |
 | **Goût situé** | La sélection, la proportion et la retenue adaptées au contexte ; pas une préférence universelle. |
 | **Spécificité** | Ce qui relie le rendu au produit et à son contexte, au point qu’un modèle générique ne pourrait pas le remplacer sans perte. |

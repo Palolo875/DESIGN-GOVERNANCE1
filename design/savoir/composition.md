@@ -67,6 +67,23 @@ Si le défaut vient de l’organisation de la scène, reprends la traduction de 
 
 La silhouette n’exige pas une identité spectaculaire. Dans une vue administrative ou transactionnelle, elle vérifie surtout la lecture prioritaire au flou.
 
+**Gestes à l’essai.** [MÉTHODE] Statut `PILOT` (`maintenance/evolution.md`). Ces lignes complètent la table ci-dessus selon le même principe : un signal, un geste avec sa condition, une réinspection. Elles viennent de pratiques de studio observées sur des références publiées, pas d’une mesure ; elles se retirent si elles n’apportent rien sur des runs réels.
+
+| Geste à l’essai | Signal à traiter | Geste concret et condition | Réinspection |
+|---|---|---|---|
+| Lisière | Deux zones se touchent par une coupe droite par défaut alors que la page porte un monde (sujet, matière, horizon), ou la fin de page s’éteint en liste de liens. | Tirer la forme du bord du sujet (horizon, cime, voûte, étiquette qui dépasse, dentelure, bord déchiré) et la dessiner en CSS ou SVG ; ou poser un élément à cheval sur la jonction pour relier les deux zones. Un seul dispositif, repris là où il a un rôle ; une vague sans origine dans le sujet reste un décor. | À 390 px et au zoom : aucun texte rogné, aucune cible mangée, contraste tenu des deux côtés ; retirer le bord s’il ne relie plus rien. Fin de page : `BIBLIOTHEQUE/SEQUENCE` ; détail révélateur ci-dessus. |
+| Composant-objet | Un composant qui porte une donnée ou une action propre au produit reste un gabarit interchangeable (carte, tuile, liste). | Lui donner un trait réel de l’objet du domaine qu’il représente : format de la valeur tel qu’on le lit dans le métier, graduation exacte, tirages qui débordent du cadre, étiquette. Un trait suffit ; le composant garde son rôle, son nom accessible et ses états standard. | Se lit-il sans légende, reste-t-il utilisable au clavier et cohérent avec la page ? Retirer le trait s’il n’apporte qu’un décor rétro. `SAVOIR/CRAFT/CFT-01` ; `SAVOIR/STATE`. |
+| Objet dessiné | Un objet dessiné ou une illustration produite par code reste visiblement sous le niveau de la typographie et de la mise en page : proportions fausses, formes disjointes, schéma de notice. | Le simplifier jusqu’au niveau tenu (silhouette, un trait juste, un seul détail exact), ou le refaire d’après une référence observée ; sinon le déclarer au plafond et passer par une route d’image autorisée. Ne pas compenser par plus de repères, de légendes ou d’effets. | Comparer l’objet seul, à taille réelle, à sa référence : une personne du métier le reconnaîtrait-elle ? Aucune recette ne voit ce défaut : le nommer dans la trace ou le soumettre au regard humain (`DIRECTION/DOUBLE-LOOP`). `SAVOIR/SOURCE`. |
+
+**Cas observés.** [MÉTHODE] Statut `PILOT`. Un geste se comprend mieux sur un cas que dans sa règle. Ces cas viennent de runs réels (10-2026) ; chacun montre l’avant, l’après et ce qui a été regardé de nouveau. Ils illustrent le geste, ils ne fixent pas de valeur.
+
+| Geste | Avant | Après | Réobservé |
+|---|---|---|---|
+| Silhouette (titre) | À 1440 px, le titre se coupe contre le sens : « Le son se / règle de / l’intérieur. » | Coupes posées sur le sens : « Le son / se règle / de l’intérieur. » | Capture à 390, 768 et 1440 px ; la coupe reste juste aux trois largeurs. |
+| États (focus) | Indicateur de focus à 1,89:1 sur une section à fond très sombre. | Couleur de l’indicateur redéfinie pour cette section seulement, le reste de la page gardant la sienne. | Parcours clavier et contraste de l’indicateur mesurés par la recette de rendu. |
+| Masse visuelle (liste de services) | Quatre blocs égaux en grille, aucun ne prime : lecture de gabarit. | Un registre en lignes : intitulé, description, délai, alignés sur trois colonnes. | Silhouette au flou, puis lecture à taille réelle et à 390 px. |
+| Objet dessiné | Coupe d’instrument en SVG : table en trois planches disjointes, chevalet sur la moitié de la largeur, pastilles de notice. | Non corrigé dans le run : défaut nommé dans la trace et soumis au regard humain. | — |
+
 ### États pertinents
 
 Un composant ne possède pas tous les états imaginables, mais aucun état nécessaire ne peut être implicite : focus clavier, empty de liste, erreur de formulaire, overflow, chargement, permission refusée, image absente, valeur extrême et contenu long lorsque pertinents.

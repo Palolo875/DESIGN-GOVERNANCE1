@@ -1,6 +1,6 @@
 # Notes de version — Design Governance V1.0.0
 
-**Statut :** V1.0.0, révision `R2026-10-21.2` du 21 octobre 2026 ; une expérimentation maintenue, à utiliser en pilote avec revue humaine.
+**Statut :** V1.0.0, révision `R2026-10-22.1` du 22 octobre 2026 ; une expérimentation maintenue, à utiliser en pilote avec revue humaine.
 
 ## Ce que permet la V1
 
