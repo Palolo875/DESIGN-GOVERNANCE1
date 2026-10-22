@@ -77,6 +77,22 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 | `scripts/journal_mobilisation.py` | `c77a8bc` | 1–199 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
 | `scripts/build_core.py` | `c77a8bc` | 1–331 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
 | `gouvernance/outils/validate_run_card.py` | `c77a8bc` | 1–1099 (entier) | 7a | MOB, COH, EXE, VER | 2026-10-22 |
+| `scripts/validate_all.py` | `c77a8bc` | 1–293 (entier) | 7b | VER, PRO | 2026-10-22 |
+| `scripts/validate_design_governance.py` | `c77a8bc` | 1–506 (entier) | 7b | VER, COH | 2026-10-22 |
+| `scripts/validate_structure.py` | `c77a8bc` | 1–889 (entier) | 7b | VER, COH, PRO, LIS | 2026-10-22 |
+| `scripts/validate_reading_map.py` | `c77a8bc` | 1–784 (entier) | 7b | VER, COH, PRO | 2026-10-22 |
+| `scripts/validate_supports.py` | `c77a8bc` | 1–76 (entier) | 7b | VER | 2026-10-22 |
+| `gouvernance/outils/validate_contracts.py` | `c77a8bc` | 1–496 (entier) | 7b | VER, MIS | 2026-10-22 |
+| `scripts/build_distributions.sh` | `c77a8bc` | 1–265 (entier) | 7b | VER, PRO | 2026-10-22 |
+| `scripts/preparer_livraison.py` | `c77a8bc` | 1–94 (entier) | 7b | VER | 2026-10-22 |
+| `.github/workflows/validate.yml` | `c77a8bc` | 1–29 (entier) | 7b | VER | 2026-10-22 |
+| `scripts/test_core_budget.py` | `c77a8bc` | 1–155 (entier) | 7b | VER | 2026-10-22 |
+| `scripts/test_check_caractere.py` | `c77a8bc` | 1–112 (entier) | 7b | VER | 2026-10-22 |
+| `scripts/test_preparer_livraison.py` | `c77a8bc` | 1–180 (entier) | 7b | VER | 2026-10-22 |
+| `scripts/test_journal_mobilisation.py` | `c77a8bc` | 1–94 (entier) | 7b | VER | 2026-10-22 |
+| `scripts/test_audit_regressions.py` | `c77a8bc` | 1–560 (entier) | 7b | VER | 2026-10-22 |
+| `scripts/test_read_route.py` | `c77a8bc` | 355–470, et liste des cas | 7b | VER, MOB | 2026-10-22 |
+| `scripts/test_check_render.py` | `c77a8bc` | 1–30, et recherches ciblées | 7b | VER | 2026-10-22 |
 
 ## Lot 1 — noyau et chemins de l’agent
 
@@ -499,3 +515,67 @@ Ce fichier conserve les constats de l’audit de Design Governance, lot par lot.
 - Validateur de `RUN_CARD` : témoin négatif avant tout `PASS`, refus des mots-clés de schéma non interprétés (`check_schema_keywords`), quatre-vingt-treize cas unitaires à faute unique, profil strict qui vérifie l’existence des fichiers locaux ; conforme à ce que la gouvernance en dit (`gouvernance/travail.md:186`).
 - `build_core.py` vérifie déjà qu’un bloc du noyau est commun ou servi par une route unique, et que le renvoi d’activation existe (`:179-218`) ; `read_route.py` a un mécanisme de routes bloquantes qui doivent rester dans le tronc (`BLOQUANTES`, `:633`). Ce sont les points d’appui naturels des contrôles proposés en A9 et A19.
 - Validation complète avec navigateur (`validate_all.py --require-browser`, Playwright 1.56, Chromium 141) : verte sur le dépôt et sur la distribution locale ; la recette de rendu passe ses 289 cas (126 d’interprétation, 65 de fonctions JavaScript, 98 pages pièges dans le navigateur), la recette de caractère ses 13 cas dont 6 dans le navigateur. La passe sur la seconde distribution a été coupée par la limite de quinze minutes que j’avais fixée, pas par un échec : avec navigateur, la validation rejoue les tests de page trois fois, ce que le lot 7b examinera.
+
+## Lot 7b — contrôles du paquet
+
+**Périmètre.** Lus en entier : `scripts/validate_all.py`, `scripts/validate_design_governance.py`, `scripts/validate_structure.py`, `scripts/validate_reading_map.py`, `scripts/validate_supports.py`, `gouvernance/outils/validate_contracts.py`, `scripts/build_distributions.sh`, `scripts/preparer_livraison.py`, `.github/workflows/validate.yml`, et les tests `test_core_budget.py`, `test_check_caractere.py`, `test_preparer_livraison.py`, `test_journal_mobilisation.py`, `test_audit_regressions.py`. Pour `test_read_route.py` et `test_check_render.py`, déjà exercés au lot 7a, lecture des cas de recherche et de l’en-tête, et liste des cas. Chaque garde a été confrontée à ce qu’elle annonce ; les concepts protégés ont été passés au relevé de couverture des routes ; les conditions de façade ont été évaluées sur des textes vides.
+
+**Synthèse.** La chaîne de construction est rigoureuse : verrou, promotion transactionnelle avec restauration, archives identiques au manifeste, reproductibilité vérifiée par double construction. Les validateurs refusent ce qu’ils ne savent pas interpréter et disent leurs limites. Leur angle mort est structurel : ils protègent contre le retour de défauts déjà corrigés, formulation par formulation, mais aucun ne vérifie qu’une règle est atteignable. C’est pourquoi les deux bloquants de l’audit passent une validation verte. Ce choix a aussi un coût : environ 190 formulations sont verrouillées, et les réorganisations prévues les rencontreront. Enfin, le contrat d’évaluation machine ne sait pas porter la comparaison qu’exige l’hypothèse du cap.
+
+### L7-08 · Important · VER, MOB — Une validation verte ne dit rien de l’atteignabilité
+
+- **Où.** `scripts/validate_structure.py:5-9` (garde 1 : un concept existe une fois ; garde 2 : neuf renvois seulement), `:570-574` (`CHG-05` : seules les tables « Mode | Charger d’abord » sont reconnues), `:600-611` (`CHG-09` : une seule route bloquante, `ACTION/GATE-A`).
+- **Preuve.**
+  - Les constats L1-01, L2-01, L2-02 et L6-01 portent sur des obligations hors route ; la validation complète est verte sur ce commit.
+  - Sur les 26 concepts protégés du registre, 25 sont servis par une route ou compilés dans le noyau. Le vingt-sixième, `ALT-01` (« déclenchement en un seul lieu »), est à `design/direction/diriger.md:125` : hors de toute route et absent du noyau. La garde vérifie qu’il existe une fois, pas qu’un agent puisse le lire.
+  - Les tables qui associent un signal à une route (L1-02, L6-03) échappent à `CHG-05`, dont l’intitulé promet pourtant un « chargement unique ».
+- **Effet.** Une CI verte, citée dans les notes de version, peut être lue comme une santé structurelle qu’elle n’atteste pas. Les défauts les plus graves de l’audit sont d’une classe qu’aucune garde ne voit.
+- **Proposition.** Dans le contrôle de A9 : toute balise `concept:` doit être servie par une route ou compilée dans le noyau. Dans A10 : étendre `CHG-05` aux tables signal → route.
+
+### L7-09 · Important · PRO, EXE — Environ 190 formulations verrouillées
+
+- **Où.** `scripts/validate_structure.py` : 37 vocabulaires retirés, 65 résumés fidèles, 10 planchers du noyau, 10 lignes de façade ; `scripts/validate_reading_map.py` : 15 éléments obligatoires, 56 conditions de façade.
+- **Preuve.** Chaque verrou lie une phrase ou un fragment précis (« au plus trois », « de préférence **codé** », « ### Contrat positif du premier objet ») à un fichier ou à une façade. Il empêche le retour d’un défaut corrigé, ce qui est utile. Mais il fige la forme autant que le fond. Certains libellés citent des positions périmées : `LCF-07` parle encore de « DIRECTION 72 » et « DIRECTION 55 ».
+- **Effet.** Les réorganisations prévues (A9, A10, A11, A15, A20) déplacent ou reformulent justement ces textes. Chacune fera tomber des verrous, qu’il faudra migrer un à un. Le coût d’une correction de fond s’en trouve multiplié, ce qui peut décourager de la faire.
+- **Point d’appui.** La régression de déplacement de `validate_all.py:114-185` montre qu’un déplacement de texte, une fois la table `LIEUX` mise à jour, est suivi par le lecteur, le noyau et les validateurs. Les verrous de lieu ne sont donc pas le problème ; les verrous de formulation le sont.
+- **Proposition.** Avant A9 à A11, relever les verrous qui touchent les textes visés et décider pour chacun : garder, déplacer, ou remplacer par un contrôle structurel. Pour les corrections issues de cet audit, préférer un contrôle structurel à un nouveau verrou de formulation.
+
+### L7-10 · Important · MIS, VER — Le contrat d’évaluation machine ne porte pas la comparaison
+
+- **Où.** `gouvernance/schemas/production_contracts.schema.json`, propriété `evaluation_case` ; `gouvernance/outils/validate_contracts.py:297-309`. Contrat de gain réel : `BIBLIOTHEQUE/EVOLUTION`.
+- **Preuve.**
+  - `evaluation_case` a onze champs : brief, domaine, capacités, profondeur, artefact, observations, résultats de tâche, résultats d’accessibilité, revue visuelle, corrections, limites. Aucun ne nomme la condition (avec ou sans le système), la référence, l’évaluateur ou le protocole.
+  - Le contrat de gain réel, lui, exige `BASELINE`, `CONTEXT`, `LIMIT`, `OWNER` et `NEXT-REVIEW`.
+  - Le validateur annonce « evaluation contracts » dans son message de réussite, mais ne contrôle que la forme de ce contrat, sans règle sémantique.
+  - Les résultats de tâche de l’exemple sont marqués « illustratif, non observé ».
+- **Effet.** La campagne A5 ne peut pas reprendre `EVALUATION_CASE` tel quel pour éprouver l’hypothèse du cap, qui est une comparaison. Le texte demande une référence que le contrat machine ne sait pas recevoir.
+- **Proposition.** Dans A5, ajouter à `evaluation_case` la condition, la référence, l’évaluateur (avec son indépendance) et le protocole, ou définir un contrat de campagne. Ajouter un contrôle : un résultat qui affirme un gain cite sa référence.
+
+### L7-11 · Mineur · PRO — Les tests de pages tournent trois fois
+
+- **Où.** `scripts/build_distributions.sh:177` lance `validate_all.py` dans l’export Local, et `scripts/validate_all.py:281-285` construit deux fois pour vérifier la reproductibilité.
+- **Preuve.** Avec navigateur, la suite de pages tourne sur le dépôt, puis dans chaque export Local construit. Environ cinq minutes par passe ici ; la troisième passe a été coupée par ma limite de quinze minutes (lot 7a). Le code testé est identique aux trois passes.
+- **Proposition.** Valider l’export Local une seule fois, ou passer `--skip-browser`, que `test_check_render.py` connaît déjà, à la validation imbriquée.
+
+### L7-12 · Mineur · VER — La « mutation rouge » de chaque condition de façade n’est pas conservée
+
+- **Où.** `scripts/validate_reading_map.py:8-10` : « Une entrée n’entre que par une décision écrite, avec sa mutation rouge. »
+- **Preuve.** Dix conditions sur cinquante-six ont une mutation conservée : neuf dans `test_audit_regressions.py`, et `LCF-46` dans `validate_all.py`. Pour les autres, la mutation a pu être faite à l’entrée, mais rien n’empêche qu’une condition devienne vide sans que personne le voie. Trois conditions sont vraies sur des textes vides (`LCF-12`, `LCF-13`, `LCF-21`), ce qui est voulu : elles ne s’appliquent que si le passage existe.
+- **Proposition.** Conserver une mutation par condition, ou préciser que la règle vaut seulement à l’entrée.
+
+### L7-13 · Mineur · COH, LIS — Compléments aux constats du lot 7a et lisibilité des validateurs
+
+- Le test `test_check_caractere.py:42-46` attend un relevé « Vide » sans que `intended_voids` soit déclaré : il fige le comportement de L7-04, contraire à la documentation.
+- Un navigateur qui ne démarre pas fait échouer `test_check_caractere.py`, alors que `test_check_render.py:623` le déclare `NOT-VERIFIED` (complète L7-05).
+- La docstring de `validate_structure.py` numérote ses gardes dans le désordre (1 à 8, puis 11, 10, 9, 12…). La garde 14 n’y figure pas.
+- Le registre des façades n’est contrôlé que dans `QUICKSTART.md` (aujourd’hui `guides/3-maitriser.md`), alors que la docstring dit que « les façades humaines vouvoient ». Le relevé du motif sur le README, les guides, les supports et la maintenance ne trouve qu’un faux positif.
+
+### Ce qui tient (vérifié)
+
+- Construction : verrou avec diagnostic du propriétaire, sauvegardes jamais supprimées à l’aveugle, promotion transactionnelle de `dist/` et des deux archives, archives déterministes dont les membres égalent le manifeste ; les tests exercent réellement le verrou et le refus d’un noyau trop gros, archives conservées.
+- Inventaire : tout fichier inattendu et tout lien symbolique sont refusés ; les dossiers d’installation d’un agent sont exclus et testés.
+- Contrats : mots-clés de schéma non interprétés refusés jusque dans les branches non visitées, clés JSON répétées refusées, témoins négatifs de schéma, vingt-six cas unitaires à faute unique.
+- Le validateur de la carte déclare sa limite (« une contradiction nouvelle hors de la LCF n’est pas détectée »), et les notes de version disent exactement ce qu’une `RUN_CARD` validée atteste.
+- `validate_all.py` vérifie que chaque échec attendu échoue pour son motif, pas pour une exception. Les tests de pages déclarent `NOT-VERIFIED` sans navigateur, jamais une réussite.
+- La CI épingle ses actions par empreinte et installe Playwright 1.56.0, la version qui fonctionne avec le Chromium de cette session.
+- La régression de déplacement prouve que la table `LIEUX` rend un rangement sûr : c’est l’outil dont A9 aura besoin.
