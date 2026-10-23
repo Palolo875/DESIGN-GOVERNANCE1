@@ -8,7 +8,7 @@
 > - [`agent/chemins.md`](../agent/chemins.md) : `SAVOIR/READ`, `SAVOIR/JUGEMENT-COURT`, `SAVOIR/ROUTING`
 > - [`design/savoir/fondements.md`](../design/savoir/fondements.md) : `SAVOIR/FRAME`
 > - [`design/savoir/qualite-creative.md`](../design/savoir/qualite-creative.md) : `SAVOIR/CRAFT`
-> - [`design/savoir/typographie.md`](../design/savoir/typographie.md) : `SAVOIR/TYPE`
+> - [`design/savoir/typographie.md`](../design/savoir/typographie.md) : `SAVOIR/TYPE`, `SAVOIR/TYPE-VOIX`
 > - [`design/savoir/composition.md`](../design/savoir/composition.md) : `SAVOIR/STATE`
 > - [`design/savoir/images-et-sources.md`](../design/savoir/images-et-sources.md) : `SAVOIR/SOURCE`, `SAVOIR/DESIGN-ATLAS`
 > - [`design/savoir/styles.md`](../design/savoir/styles.md) : `SAVOIR/STYLE`

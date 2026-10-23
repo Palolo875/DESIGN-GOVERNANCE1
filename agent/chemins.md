@@ -119,7 +119,7 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 | Structure ouverte | `BIBLIOTHEQUE/READ`, `BIBLIOTHEQUE/SELECT` ; `BIBLIOTHEQUE/TENSION` si l’alternative peut changer le choix |
 | Caractère perceptuel à traduire en leviers (calme, tension, intimité…) | `BIBLIOTHEQUE/READ`, « Traduire un caractère en leviers » |
 | Brief vague | `DIRECTION/EXTERNAL-START` ; le premier objet et son plafond suivent la ligne du mode |
-| Typographie ouverte | `SAVOIR/TYPE`, sur le vrai contenu |
+| Typographie ouverte | `SAVOIR/TYPE`, sur le vrai contenu ; `SAVOIR/TYPE-VOIX` pour choisir une voix |
 | Relation de couleur ouverte | `SAVOIR/CRAFT/CFT-05` |
 | Texte sur image, densité ou harmonie | `SAVOIR/CRAFT/CFT-03` |
 | Choix de style utile | `SAVOIR/STYLE` |

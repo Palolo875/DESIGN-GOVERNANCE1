@@ -179,7 +179,7 @@ ADRESSES: dict[str, str] = {
     "savoir/qualite-creative#premier-contact": "SAVOIR/CRAFT/CFT-04a", "savoir/qualite-creative#ecriture": "SAVOIR/CRAFT/CFT-06",
     "savoir/qualite-creative#composition": "SAVOIR/CRAFT/CFT-03",
     "savoir/composition#jugement-visuel": "SAVOIR/STATE", "savoir/qualite-creative#couleur": "SAVOIR/CRAFT/CFT-05",
-    "savoir/typographie": "SAVOIR/TYPE", "savoir/images-et-sources": "SAVOIR/SOURCE",
+    "savoir/typographie": "SAVOIR/TYPE", "savoir/typographie#voix": "SAVOIR/TYPE-VOIX", "savoir/images-et-sources": "SAVOIR/SOURCE",
     "savoir/images-et-sources#familles": "SAVOIR/DESIGN-ATLAS", "savoir/styles": "SAVOIR/STYLE",
     "savoir/systeme-de-design": "SAVOIR/SYSTEM", "savoir/contexte": "SAVOIR/CONTEXT", "savoir/techniques": "SAVOIR/TECH",
     "savoir/gout-et-tendances": "SAVOIR/TOOLS", "savoir/gout-et-tendances#tendances-datees": "SAVOIR/TOOLS/CONVERGENCE",

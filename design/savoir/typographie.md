@@ -28,6 +28,19 @@ Une signature typographique ne tient pas si zoom, reflow, locale ou ajustement d
 
 **Réglage d’un grand texte.** `[À ADAPTER]` Points de départ, **non des mesures**, à essayer sur la police livrée et le vrai texte. Plus un texte grandit, plus il se resserre : au-delà d’environ 40 px, rapproche l’interligne de 1,0 (moins pour des capitales ou une police condensée) et rends l’approche légèrement négative, réglée par palier de taille, car une approche juste en très grand corps étouffe un titre moyen. Surveille les collisions entre jambages et accents d’une ligne à l’autre. Les capitales demandent au contraire une approche un peu ouverte. Une lettre ronde ou oblique en début de ligne peut demander un léger retrait optique pour paraître alignée. Pas de césure dans un titre ; laisse plus d’espace au-dessus d’un titre qu’en dessous, pour qu’il appartienne à ce qu’il annonce. Une ombre, un contour ou un dégradé sur un grand texte se juge par retrait (que perd le titre sans eux ?), non par interdit. Contre-indications : police déjà réglée pour l’affichage, écriture non latine ou à ligatures, marque qui impose ses valeurs, texte long. Preuve : capture à 390 et 1440 px sur le vrai titre (`COMP-TITRE`).
 
+### SAVOIR/TYPE-VOIX — trouver, apparier et comparer des voix
+
+`[MÉTHODE]` Une voix typographique se choisit par ce qu’elle fait au texte, pas par son nom.
+
+1. **Partir du texte et du registre.** Prends le vrai titre (longueur, langue, accents, chiffres) et le vrai corps (paragraphes, données). Dis en une phrase ce que la voix doit faire, d’après la thèse et les axes de `SAVOIR/CRAFT/CFT-02` (voix, formalité, temporalité) : affirmer avec calme, faire sentir la main, tenir des chiffres serrés…
+2. **Chercher des candidats par construction, pas par nom.** Retiens deux ou trois voix qui diffèrent sur au moins un levier : contraste des pleins et déliés, largeur (condensée ↔ étendue), ouverture et axe des formes (humaniste ↔ géométrique), empattements (absents, incisés, mécanes, didones), hauteur d’x. Le candidat modal, celui qu’un modèle prendrait sans brief (`SAVOIR/TOOLS/CONVERGENCE`), peut en faire partie, nommé comme tel. Cherche dans les fonderies de `SAVOIR/TOOLS/MOYENS`, pas dans une liste de polices connues.
+3. **Filtrer avant de comparer.** Écarte un candidat qui manque de glyphes ou d’accents, de chiffres adaptés (tabulaires pour les données), de graisses, de licence compatible, ou dont le poids de chargement est déraisonnable.
+4. **Apparier pour une seule raison.** Soit une famille et ses variantes, soit deux voix qui contrastent sur un levier et s’accordent sur un autre (hauteur d’x, proportions, axe). Deux voix expressives qui se disputent le titre, ou deux familles presque pareilles, ne donnent ni contraste ni unité.
+5. **Comparer sur le vrai titre, côte à côte.** Même texte, même taille, même mise en page, en desktop et en mobile. Regarde la silhouette du bloc au flou, le rythme, les accents et les chiffres, et ce que la voix dit du produit. Une phrase par candidat : ce qu’il fait au titre, ce qu’il coûte.
+6. **Trancher par la thèse.** Retiens la voix dont l’effet sert la thèse et le parti, et nomme l’alternative écartée (trace légère). À effet égal, prends celle qui tient le mieux le corps et les données, puis la moins modale.
+
+Contre-indications : une marque qui impose sa police (la méthode porte alors sur les réglages et le corps), un système existant (interroge-le d’abord), une écriture non latine (vérifie d’abord la couverture : le choix est restreint).
+
 ### Preuve typographique
 
 La preuve est documentée dans `ACTION/STRUCTURED-PROOF` lorsque la typographie peut changer la décision. Sépare, lorsque nécessaire :
