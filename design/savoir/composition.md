@@ -5,7 +5,9 @@ Jugement visuel situé, vocabulaire perceptuel et états.
 <!-- origine:SAVOIR.md -->
 # SAVOIR/STATE — craft, composants et états
 
+<!-- noyau:début STATE-PLANCHER -->
 [REQUIS PAR LE MODULE — composant, état, surface `DIRECTION` ou Gate C] Le craft n’est pas une couche de polish. Il concerne états, alignements, contenus réels, microcopie, données extrêmes, récupération et détails qui empêchent l’interface de paraître héritée d’un défaut de stack.
+<!-- noyau:fin STATE-PLANCHER -->
 
 ### Jugement visuel situé
 

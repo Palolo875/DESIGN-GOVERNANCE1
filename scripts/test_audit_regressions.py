@@ -505,6 +505,41 @@ class ReachabilityTests(unittest.TestCase):
         self.assertEqual(errors, [])
 
 
+class FloorTests(unittest.TestCase):
+    """Garde 20 (REQ-01) : chaque obligation [REQUIS] a son plancher dans le noyau ou dans le tronc des modes visés."""
+
+    def test_current_corpus_has_a_floor_for_each_obligation(self):
+        errors = []
+        structure.check_floors(errors)
+        self.assertEqual(errors, [])
+
+    def test_unregistered_obligation_is_refused(self):
+        planchers = dict(structure.PLANCHERS)
+        planchers.pop("blast radius partagé, token ou primitive")
+        errors = []
+        structure.check_floors(errors, planchers)
+        self.assertTrue(any("obligation sans plancher inscrit" in e and "systeme-de-design.md" in e for e in errors), errors)
+
+    def test_floor_outside_core_or_trunk_is_refused(self):
+        planchers = dict(structure.PLANCHERS)
+        planchers["composant, état, surface `DIRECTION` ou Gate C"] = ("noyau", "COMP-VOCABULAIRE")  # bloc différé
+        planchers["blast radius partagé, token ou primitive"] = ("tronc", "SAVOIR/SYSTEM", ("STANDARD",))
+        errors = []
+        structure.check_floors(errors, planchers)
+        self.assertTrue(any("COMP-VOCABULAIRE n'est pas compilé" in e for e in errors), errors)
+        self.assertTrue(any("SAVOIR/SYSTEM absent du tronc STANDARD" in e for e in errors), errors)
+
+    def test_stale_entry_is_refused(self):
+        planchers = dict(structure.PLANCHERS)
+        planchers["scope disparu"] = ("noyau", "ANCRE")
+        errors = []
+        structure.check_floors(errors, planchers)
+        self.assertTrue(any("obligation introuvable" in e for e in errors), errors)
+
+    def test_legend_in_backticks_is_not_an_obligation(self):
+        self.assertNotIn("scope", structure.obligations())
+
+
 class ReviewFindingsTests(unittest.TestCase):
     """Témoins des défauts reproduits par la revue du système (carnet de revue, branche refonte)."""
 

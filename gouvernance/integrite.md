@@ -11,7 +11,9 @@ Avant de conserver un artefact de jugement, demande : « Quelle décision concr�
 
 ## Modes d’échec d’application
 
+<!-- noyau:début INTEG-RECITATION -->
 [REQUIS PAR LE MODULE — avant verdict `DIRECTION` ou lorsqu’une règle risque d’être satisfaite dans la forme] Le danger principal n’est pas l’absence de règles ; c’est l’artefact textuel qui affirme qu’une règle a été suivie sans que décision, observation ou preuve aient réellement eu lieu.
+<!-- noyau:fin INTEG-RECITATION -->
 
 Les échecs récurrents sont :
 
@@ -50,9 +52,13 @@ Lorsque la règle est satisfaite par le texte mais qu’aucun objet ou changemen
 
 ## Limites, délégation et critique
 
+<!-- noyau:début INTEG-LIMITES -->
 [REQUIS PAR LE MODULE — capacité incertaine, direction ambiguë, asset critique ou besoin de second regard] Distingue ce qui est connu, inféré, vérifié et hors de portée.
 
-Une capacité disponible modifie le type de preuve possible ; elle ne permet jamais d’affirmer une qualité sans examen du résultat. Toute délégation conserve délégataire, rôle, capacité déclarée, méthode, scope, artefact/résultat consulté, date/version, limite, owner de décision finale, `NEXT-PROOF` et condition de reprise ou d’escalade.
+Une capacité disponible modifie le type de preuve possible ; elle ne permet jamais d’affirmer une qualité sans examen du résultat.
+<!-- noyau:fin INTEG-LIMITES -->
+
+Toute délégation conserve délégataire, rôle, capacité déclarée, méthode, scope, artefact/résultat consulté, date/version, limite, owner de décision finale, `NEXT-PROOF` et condition de reprise ou d’escalade.
 
 <!-- noyau:début VER-FAUX-ASSET -->
 <!-- concept:HON-02 -->

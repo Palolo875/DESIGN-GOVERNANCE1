@@ -33,9 +33,12 @@ Gardes :
  19. ATTEIGNABILITÉ — toute ligne écrite sous une origine DIRECTION, ACTION, SAVOIR ou BIBLIOTHEQUE est servie par une
      route ou compilée dans le noyau, sauf l'en-tête du fichier, les bandeaux `lieux:` et les zones `orientation:`
      destinées aux personnes (ATT-01). La maintenance (origine CHANGELOG) se lit par renvoi de fichier.
+ 20. PLANCHERS — chaque obligation `[REQUIS PAR LE MODULE — scope]` d'une source normative a un plancher inscrit au
+     registre `PLANCHERS` : un bloc compilé dans le noyau, ou une route présente dans le tronc des modes visés.
+     Une obligation absente du registre, un plancher perdu ou une entrée sans obligation font échouer (REQ-01).
 
-Les gardes 1 à 18 protègent des propriétés et des formulations connues ; seule la garde 19 vérifie qu'une règle est
-servie par une route ou compilée dans le noyau.
+Les gardes 1 à 18 protègent des propriétés et des formulations connues ; les gardes 19 et 20 vérifient qu'une règle est
+servie par une route ou compilée dans le noyau, et qu'une obligation a son plancher sur le chemin du run.
 
 Une reformulation qui garde la formulation protégée ne casse pas ces gardes ; une suppression, une copie, un retour du
 vocabulaire retiré ou une reformulation qui perd la formulation protégée les cassent. Un déplacement dans la même
@@ -906,6 +909,62 @@ def check_reachability(errors: list[str]) -> None:
         errors.append(f"[ATT-01] lignes normatives servies par aucune route ni par le noyau : {rr.nom(path)}:{', '.join(ranges)}")
 
 
+# Garde 20 : plancher de chaque obligation [REQUIS], repérée par son scope.
+# ("noyau", bloc) : le bloc est compilé à chaque run ; ("tronc", route, modes) : la route est lue à chaque run de ces modes.
+PLANCHERS: dict[str, tuple] = {
+    "surface identitaire, hiérarchie complexe ou revue perceptuelle": ("noyau", "COMP-CONTROLES"),
+    "couleur, thème, statut ou surface identitaire": ("noyau", "COMP-COULEUR"),
+    "lecture, ton, données, hiérarchie ou surface identitaire": ("noyau", "COMP-TYPO"),
+    "surface `DIRECTION`": ("noyau", "ANCRE"),
+    "claim qui influence une décision, un seuil, une route, une tendance ou un livrable": ("noyau", "CHARGE-DETAILS"),
+    "toute tâche de surface ; une ligne compacte peut suffire en LITE uniquement si le changement est réellement local":
+        ("noyau", "FND-CADRAGE"),
+    "composant, état, surface `DIRECTION` ou Gate C": ("noyau", "STATE-PLANCHER"),
+    "avant verdict `DIRECTION` ou lorsqu’une règle risque d’être satisfaite dans la forme": ("noyau", "INTEG-RECITATION"),
+    "capacité incertaine, direction ambiguë, asset critique ou besoin de second regard": ("noyau", "INTEG-LIMITES"),
+    "blast radius partagé, token ou primitive": ("tronc", "SAVOIR/SYSTEM", ("SYSTÈME",)),
+    "contrôle applicable dans ACTION": ("tronc", "ACTION/GATE-A", ("LITE", "ITER", "STANDARD", "DIRECTION", "SYSTÈME")),
+}
+# Les légendes citent le tag entre accents graves (`[REQUIS PAR LE MODULE — scope]`) : elles ne sont pas des obligations.
+REQUIS = re.compile(r"(?<!`)\[REQUIS PAR LE MODULE — ([^\]]+)\]")
+
+
+def obligations() -> dict[str, list[str]]:
+    """Scope → lieux (fichier:ligne) des obligations [REQUIS] des sources normatives, hors blocs de code."""
+    found: dict[str, list[str]] = {}
+    for path in rr.sources_normatives():
+        if not path.is_file():
+            continue
+        for i, line in rr.non_code_lines(path.read_text(encoding="utf-8").split("\n")):
+            for m in REQUIS.finditer(line):
+                found.setdefault(m.group(1), []).append(f"{rr.nom(path)}:{i + 1}")
+    return found
+
+
+def check_floors(errors: list[str], planchers: dict[str, tuple] | None = None) -> None:
+    planchers = PLANCHERS if planchers is None else planchers
+    found = obligations()
+    for scope, places in sorted(found.items()):
+        if scope not in planchers:
+            errors.append(f"[REQ-01] obligation sans plancher inscrit : [REQUIS PAR LE MODULE — {scope}] ({', '.join(places)})")
+    for scope, floor in planchers.items():
+        if scope not in found:
+            errors.append(f"[REQ-01] plancher inscrit pour une obligation introuvable : « {scope} »")
+            continue
+        if floor[0] == "noyau":
+            if floor[1] not in bc.COMMUN:
+                errors.append(f"[REQ-01] plancher de « {scope} » : le bloc {floor[1]} n'est pas compilé dans le noyau")
+        else:
+            for mode in floor[2]:
+                try:
+                    tronc = rr.tronc_routes(mode)
+                except rr.RouteError as exc:
+                    errors.append(f"[REQ-01] plancher de « {scope} » : {exc}")
+                    continue
+                if floor[1] not in tronc:
+                    errors.append(f"[REQ-01] plancher de « {scope} » : {floor[1]} absent du tronc {mode}")
+
+
 def check() -> list[str]:
     errors: list[str] = []
     corpus = texts()
@@ -929,6 +988,7 @@ def check() -> list[str]:
     check_ui_trigger(errors)
     check_facades(errors)
     check_reachability(errors)
+    check_floors(errors)
     return errors
 
 
@@ -946,7 +1006,7 @@ def main() -> int:
     print(f"STRUCTURE VALIDATION PASSED — {len(CONCEPTS)} concepts, {len(REFERENCES)} renvois, "
           f"{len(RETIRED)} vocabulaire(s) retiré(s), {len(FIDELITY)} résumé(s) fidèle(s), "
           f"{len(GLOSSARY_TERMS)} termes de glossaire, lignes de table uniques, registre des façades, "
-          f"noyau compilé, chargement unique, règles atteignables")
+          f"noyau compilé, chargement unique, règles atteignables, {len(PLANCHERS)} planchers d’obligation")
     return 0
 
 

@@ -42,14 +42,14 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
                                ("CHARGE-LECTEUR", "DIRECTION.md", None)]),
     ("Avant de construire — contenu réel et premier objet", [("BRIEF", "DIRECTION.md", None), ("CONTENU", "DIRECTION.md", None),
                                                     ("PREMIER-OBJET", "DIRECTION.md", None), ("MOY-PLAFOND", "DIRECTION.md", None),
-                                                    ("RECONCILIATION", "DIRECTION.md", None)]),
+                                                    ("RECONCILIATION", "DIRECTION.md", None), ("FND-CADRAGE", "SAVOIR.md", None)]),
     ("Avant de construire — situer l’interface et son caractère", [("STRUCT-OU", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-EXPRESSION", "BIBLIOTHEQUE.md", None), ("STRUCT-LEVIERS", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-TENSION", "BIBLIOTHEQUE.md", None), ("STRUCT-TRAME", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-ACTIVATION", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-SIGNAUX", "BIBLIOTHEQUE.md", None)]),
     ("En construisant — composition et typographie", [("COMP-GRAMMAIRE", "SAVOIR.md", None), ("COMP-SINGULARITE", "SAVOIR.md", None),
-                     ("COMP-FORME", "SAVOIR.md", None), ("COMP-CONTROLES", "SAVOIR.md", None),
+                     ("COMP-FORME", "SAVOIR.md", None), ("COMP-CONTROLES", "SAVOIR.md", None), ("STATE-PLANCHER", "SAVOIR.md", None),
                      ("COMP-TYPO", "SAVOIR.md", None), ("COMP-TITRE", "SAVOIR.md", None), ("COMP-TEXTE-IMAGE", "SAVOIR.md", None)]),
     ("Gestes de finition", [("COMP-VOCABULAIRE", "SAVOIR.md", None)]),
     ("En construisant — couleur et convergence", [("COMP-COULEUR", "SAVOIR.md", None), ("COMP-CONVERGENCE", "SAVOIR.md", None),
@@ -63,7 +63,8 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
                           ("BOUCLE-QUESTIONS", "DIRECTION.md", None), ("BOUCLE-REPASSE", "SAVOIR.md", None),
                           ("BOUCLE-AXE", "SAVOIR.md", None)]),
     ("En répondant — proposition, sortie et trace", [("CHECKPOINT", "ACTION.md", None), ("SORTIE", "ACTION.md", None),
-                                      ("TRACE", "ACTION.md", None)]),
+                                      ("TRACE", "ACTION.md", None), ("INTEG-RECITATION", "SAVOIR.md", None),
+                                      ("INTEG-LIMITES", "SAVOIR.md", None)]),
     ("Lire les détails selon le signal", [("CHARGE-DETAILS", "DIRECTION.md", None)]),
 ]
 
@@ -77,7 +78,7 @@ COMMUN = frozenset({
     # Savoir de fabrication chargé à chaque run : premier objet, composition, typographie,
     # convergence et revue créative. Une section à l'essai reste servie par sa route.
     "PREMIER-OBJET", "MOY-PLAFOND", "RECONCILIATION", "STRUCT-EXPRESSION", "STRUCT-TENSION",
-    "STRUCT-TRAME", "BOUCLE-ATELIER",
+    "STRUCT-TRAME", "BOUCLE-ATELIER", "FND-CADRAGE", "STATE-PLANCHER", "INTEG-RECITATION", "INTEG-LIMITES",
     "COMP-GRAMMAIRE", "COMP-SINGULARITE", "COMP-FORME", "COMP-CONTROLES",
     "COMP-TITRE", "COMP-TEXTE-IMAGE", "COMP-CONVERGENCE", "BOUCLE-REVUE", "BOUCLE-AXE",
 })

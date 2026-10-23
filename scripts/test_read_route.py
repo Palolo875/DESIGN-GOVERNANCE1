@@ -524,10 +524,14 @@ class SearchAndSummaryTests(unittest.TestCase):
         r = self.cli("SAVOIR/STATE")
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("Cohérence de rayon", r.stdout)
-        self.assertNotIn("Déjà dans le noyau de la skill", r.stdout)
+        # Seul le plancher compilé (A19) est replié ; la table des gestes, différée, est servie en entier.
+        folded = [l for l in r.stdout.splitlines() if "Déjà dans le noyau de la skill" in l]
+        self.assertEqual(len(folded), 1, folded)
+        self.assertIn("[REQUIS PAR LE MODULE — composant, état", folded[0])
         self.assertNotIn("<!-- noyau:", r.stdout)
         full = self.cli("SAVOIR/STATE", "--complet").stdout
-        self.assertEqual(r.stdout, full)
+        self.assertEqual(r.stdout.replace(folded[0], ""), full.replace(
+            next(l for l in full.splitlines() if l.startswith("[REQUIS PAR LE MODULE — composant, état")), ""))
 
     def test_loaded_typography_floor_folds_but_title_details_remain(self):
         r = self.cli("SAVOIR/TYPE")

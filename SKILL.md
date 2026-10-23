@@ -53,6 +53,8 @@ Avant le premier rendu, le boot doit conduire à un artefact complet, crédible 
 
 `CREATIVE-BOOT`, `VISUAL_TARGET` et `DIRECTION-ATELIER` ne demandent pas trois descriptions concurrentes. Lorsque la même information apparaît sous plusieurs noms, conserve-la dans la vue qui la rend décisionnelle et renvoie les autres vues à cette sortie : la promesse devient la thèse si elle est transformée en position, le parti devient une exclusion s’il gouverne la scène, et l’ancre devient une preuve de calibration si elle modifie la composition. Les champs non transformés ne sont pas recopiés.
 
+[REQUIS PAR LE MODULE — toute tâche de surface ; une ligne compacte peut suffire en LITE uniquement si le changement est réellement local] Ne dessine pas avant d’avoir cadré public, JTBD, décision dominante, preuves et contraintes. Si un élément manque, formule une hypothèse et son impact.
+
 ### 4. Avant de construire — situer l’interface et son caractère
 
 > L’interface ne commence ni avec une « landing premium », ni avec une grille de cartes, ni avec une image inspirante. Elle déclare d’abord **où elle vit**, **comment le regard circule**, **quelle preuve devient tangible** et **comment la personne agit**.
@@ -94,6 +96,8 @@ Le test de singularité demande : si le logo et le nom disparaissent, qu’est-c
 Le phénomène ou la métaphore est facultatif. Il peut rendre perceptible un seuil, une trace, une séquence, une origine, un volume ou une relation matérielle. Il n’est jamais ajouté pour éviter un rectangle ou paraître créatif.
 
 Les contrôles principaux sont : alignements nets, compensation optique, proximité qui révèle les groupes, priorités lisibles, et responsive pensé comme recomposition. Une grille desktop peut devenir liste ; un panneau peut devenir écran ; un bloc dense peut devenir séquence progressive.
+
+[REQUIS PAR LE MODULE — composant, état, surface `DIRECTION` ou Gate C] Le craft n’est pas une couche de polish. Il concerne états, alignements, contenus réels, microcopie, données extrêmes, récupération et détails qui empêchent l’interface de paraître héritée d’un défaut de stack.
 
 [REQUIS PAR LE MODULE — lecture, ton, données, hiérarchie ou surface identitaire] Choisis une typographie pour ses langues, chiffres, ponctuation, graisses, lisibilité, licence, performance, fallback et ton.
 
@@ -170,6 +174,12 @@ Ces rubriques servent une proposition fabriquée ; omets celle qui n’a pas de 
 L’agent active le système en silence : la personne donne l’objectif, le périmètre et l’autonomie ; l’agent choisit le mode, charge les sources et tient la trace. Le mode, la conséquence décisionnelle d’`ACTION/STATUS` (décision changée, confirmée ou abandonnée, `N/A-JUSTIFIED` ou `NOT-OBSERVED`), la preuve et l’owner restent dans la trace et sont exposés sur demande (« pourquoi ? », « qu’as-tu vérifié ? »). Les codes de route, de concept et de statut n’apparaissent dans la réponse visible que si la personne travaille sur le système lui-même ou les demande explicitement ; quand la trace est écrite dans le fichier livré, la réponse ne la recopie pas sauf demande explicite. Les limites de vérification qui affectent l’usage ou la décision restent visibles, même lorsque la trace est persistée. La réponse visible ne remplace jamais le handoff d’un run persistant.
 
 **Trace légère par défaut.** Adapte contrôles et trace au risque et à la décision ; réutilise la trace existante. Chaque ajout doit vérifier une affirmation, protéger un risque, permettre une reprise ou préparer une acceptation. Hors run persistant, partagé ou audité, la trace tient en six lignes au plus : mode ; thèse (promesse → objet de preuve → geste) ; modal, trame et parti ; plafond atteint et contenus marqués ; défaut dominant restant ; prochaine preuve. Lorsque la qualité perceptuelle est une décision du run, la ligne du défaut dominant résume la revue de `SAVOIR/CRAFT/CFT-00` : ce qui retient, ce qui reste générique, puis le geste de `SAVOIR/STATE` appliqué et réinspecté, ou seulement envisagé, ou la raison de conserver. Elle s’écrit à côté de l’artefact quand l’agent écrit des fichiers (fichier de trace ou en-tête du fichier livré) ; sinon, après la réponse visible, sous « Trace ». Les planchers s’appliquent pendant la fabrication (vérité, `ACTION/GATE-A` selon le profil de surface, boucle d’édition) ; seule leur écriture s’allège. Le run livre une **proposition** `EXPLORATORY` : ni verdict, ni acceptation, ni clôture, ni `RUN_CARD`. **Trace complète** (handoff, paquet de clôture, gates écrits et projection selon `ACTION/CLOSE-PACKAGE`, `B1b` dans son scope) si le run est persistant, partagé, audité, ou si une acceptation ou une clôture est demandée. Montrer, enregistrer ou envoyer une proposition pour avis ne rend pas le run persistant ni partagé : ces mots désignent un travail transmis pour être repris par un autre, adopté ou accepté. La forme courte LITE conserve une trace complète sans RUN_CARD (`ACTION/HANDOFF`).
+
+[REQUIS PAR LE MODULE — avant verdict `DIRECTION` ou lorsqu’une règle risque d’être satisfaite dans la forme] Le danger principal n’est pas l’absence de règles ; c’est l’artefact textuel qui affirme qu’une règle a été suivie sans que décision, observation ou preuve aient réellement eu lieu.
+
+[REQUIS PAR LE MODULE — capacité incertaine, direction ambiguë, asset critique ou besoin de second regard] Distingue ce qui est connu, inféré, vérifié et hors de portée.
+
+Une capacité disponible modifie le type de preuve possible ; elle ne permet jamais d’affirmer une qualité sans examen du résultat.
 
 ### 10. Lire les détails selon le signal
 

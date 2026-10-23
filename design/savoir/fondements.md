@@ -88,7 +88,9 @@ Les compromis alimentent les axes V/U/A/T d’ACTION sans devenir une note concu
 
 ## FND-03 — cadrage et preuve de contexte
 
+<!-- noyau:début FND-CADRAGE -->
 [REQUIS PAR LE MODULE — toute tâche de surface ; une ligne compacte peut suffire en LITE uniquement si le changement est réellement local] Ne dessine pas avant d’avoir cadré public, JTBD, décision dominante, preuves et contraintes. Si un élément manque, formule une hypothèse et son impact.
+<!-- noyau:fin FND-CADRAGE -->
 
 | Question | Décision attendue |
 |---|---|
