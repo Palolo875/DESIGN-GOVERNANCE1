@@ -63,3 +63,4 @@ Décisions proposées :
 
 - **2026-10-23, plage 2 (déclencheurs).** Un verrou de plus est apparu au déplacement : la garde de fidélité « détail final conditionnel, par CHARGE » (`validate_structure.py`, `FIDELITY`), qui ne tombait pas quand la plage était vidée, puisque la ligne disparaissait avec elle. Limite de la méthode : vider une plage révèle les verrous de présence, pas les verrous de fidélité qui suivent le texte déplacé. Résolu en gardant la précision dans la ligne déplacée.
 - `LCF-06` et `LCF-17` contrôlent désormais la table des signaux du noyau ; chacune a sa mutation rouge conservée.
+- **2026-10-23, A6.** Le renvoi `MOY-01` (garde 2) suivait la sous-section « route de production » : il pointe désormais vers `DIRECTION/ASSET-ROUTE`. Trois contrôles de la carte (`LCF-43`, `LCF-48`, `LCF-49`) découpent le texte entre les titres de cette sous-section et de la suivante : leurs bornes suivent les nouveaux titres.
