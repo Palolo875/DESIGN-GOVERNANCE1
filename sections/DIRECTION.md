@@ -7,6 +7,7 @@
 >
 > - [`agent/chemins.md`](../agent/chemins.md) : `DIRECTION/START`, `DIRECTION/CREATIVE-BOOT`, `DIRECTION/DOMAIN-FRAME`, `DIRECTION/CHARGE`, `DIRECTION/FAST-PATH`
 > - [`gouvernance/principes.md`](../gouvernance/principes.md) : `DIRECTION/SERVICE-BOUNDARY`
+> - [`gouvernance/cloture.md`](../gouvernance/cloture.md) : `DIRECTION/LECTURE-INSTRUMENTEE`
 > - [`design/direction/cadrer.md`](../design/direction/cadrer.md) : `DIRECTION/EXTERNAL-START`
 > - [`design/direction/premier-objet.md`](../design/direction/premier-objet.md) : `DIRECTION/FIRST-OBJECT`
 > - [`design/direction/diriger.md`](../design/direction/diriger.md) : `DIRECTION/VISUAL_TARGET`, `DIRECTION/DIRECTION-ATELIER`, `DIRECTION/DIVERGENCE`

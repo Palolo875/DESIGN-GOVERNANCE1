@@ -1,6 +1,6 @@
 # Gouvernance — clôture
 
-Le dossier de clôture, le test de sortie et la clôture de direction.
+Le dossier de clôture, le test de sortie et la lecture instrumentée d’un run.
 
 <!-- origine:ACTION.md -->
 ## ACTION/CLOSE-PACKAGE — paquet de clôture
@@ -75,20 +75,14 @@ Avant de clôturer un run, vérifie :
 
 Si une réponse reste inconnue, utilise le statut approprié. Ne transforme jamais une lacune de preuve en `PASS` implicite. Une trace complète ne compense pas un artefact faible ; un premier rendu très fort ne compense pas une preuve requise absente.
 
+**Surface `DIRECTION`.** Avant ce test, vérifie que la thèse, la conséquence observable, l’ancre utile, l’opération visuelle dominante, la preuve attendue et, lorsque nécessaire, la route d’asset restent reliées à des observations du rendu ; une non-applicabilité réelle est `N/A-JUSTIFIED`, et une preuve nécessaire non vérifiable reste `NOT-VERIFIED` ou l’issue ACTION appropriée. Pour une `RUN_CARD DIRECTION` décidée ou clôturée, ACTION conserve séparément `closure.state`, `closure.issue`, `closure.direction_status`, `closure.verdict`, `closure.limitations` et `creative_close` selon `ACTION/CLOSE-PACKAGE`. Cette vérification ne ferme pas le run : elle établit seulement que la direction déclarée est encore identifiable, que sa preuve attendue est nommée et que les limites de preuve ne sont pas dissimulées.
+
 ### Mesure expérimentale de la méthode
 
 Au niveau d’un pilote ou d’une série de runs, et non comme score individuel, observe le temps jusqu’au premier rendu jugeable, la part des premiers rendus nécessitant une correction structurelle, la part des corrections qui changent réellement l’artefact, les preuves encore `NOT-VERIFIED` à la clôture, les défauts récurrents par mode et la perception de qualité par plusieurs regards situés. Ces mesures servent à améliorer V1 ; elles ne créent ni verdict esthétique, ni quota d’itérations, ni obligation de variante.
 
 <!-- origine:DIRECTION.md -->
-## Clôture de direction
-
-`ACTION/CLOSE-EXIT-CHECK` est l’unique test de sortie canonique. Avant de l’appeler, `DIRECTION` vérifie que la thèse, la conséquence observable, l’ancre utile, l’opération visuelle dominante, la preuve attendue et, lorsque nécessaire, la route d’asset restent reliées à des observations du rendu ; une non-applicabilité réelle est `N/A-JUSTIFIED`, et une preuve nécessaire non vérifiable reste `NOT-VERIFIED` ou l’issue ACTION appropriée. Pour une `RUN_CARD DIRECTION` décidée ou clôturée, ACTION conserve séparément `closure.state`, `closure.issue`, `closure.direction_status`, `closure.verdict`, `closure.limitations` et `creative_close` selon `ACTION/CLOSE-PACKAGE`.
-
-Les gates, verdicts, exceptions, preuves et statuts relèvent des sections propriétaires ACTION ; le jugement et le craft, de SAVOIR ; les structures, de BIBLIOTHEQUE. Leur autorité reste dans chaque section à son emplacement actuel, selon le sommaire `sections/README.md`. Le cycle de vie et les migrations sont dans `maintenance/evolution.md` ; la version et les décisions conservées, dans `maintenance/versions.md`.
-
-`DIRECTION` ne ferme pas un run à la place d’`ACTION`. Il vérifie seulement que la direction déclarée est encore identifiable, que sa preuve attendue est nommée et que les limites de preuve ne sont pas dissimulées.
-
-### Lecture instrumentée et règle de passage
+## DIRECTION/LECTURE-INSTRUMENTEE — lecture instrumentée d’un run
 
 Pour éviter de présenter une hypothèse de proportion comme un gain démontré, dans un run instrumenté ou audité, distingue dans la trace :
 
@@ -97,6 +91,4 @@ Pour éviter de présenter une hypothèse de proportion comme un gain démontré
 - `AUDIT-READ` — fichiers ouverts pour contrôler le corpus ou le protocole, sans être nécessaires au run ;
 - `ACTUAL-READ` — fichiers effectivement lus dans un run instrumenté.
 
-La chaîne de lecture est définie une seule fois : « Chaîne de lecture interne », dans la constitution du document. Dans un run instrumenté ou audité, déclare dans la trace la catégorie de lecture applicable (en trace légère, cette déclaration n’est pas demandée) ; ne compte jamais un `AUDIT-READ` comme une lecture nécessaire au run. La règle de lecture proportionnelle décrit un chemin nominal : elle ne constitue pas une mesure de temps, de volume, de charge cognitive ou de qualité. Toute affirmation de réduction doit préciser la méthode, le périmètre et la limite.
-
-Le passage entre propriétaires reste celui de la règle de passage de `DIRECTION/CHARGE`. Pour une route partagée ou candidate à la promotion, l’ordre de décision est `DIRECTION/START` → `ACTION/RUN-SYSTEM` → `BIBLIOTHEQUE/EVOLUTION` si la route est structurelle, sinon la source normative propriétaire (`SAVOIR` pour une heuristique de jugement, `ACTION` pour un gate ou un champ de `RUN_CARD`) → `maintenance/versions.md`. Cet ordre ne constitue ni une promotion, ni un nouveau gate, ni une nouvelle source d’autorité.
+La chaîne de lecture est celle de `DIRECTION/CHARGE`. Dans un run instrumenté ou audité, déclare dans la trace la catégorie de lecture applicable (en trace légère, cette déclaration n’est pas demandée) ; ne compte jamais un `AUDIT-READ` comme une lecture nécessaire au run. La règle de lecture proportionnelle décrit un chemin nominal : elle ne constitue pas une mesure de temps, de volume, de charge cognitive ou de qualité. Toute affirmation de réduction doit préciser la méthode, le périmètre et la limite.
