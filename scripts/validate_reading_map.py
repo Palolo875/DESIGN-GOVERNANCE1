@@ -283,12 +283,23 @@ def lcf_15_16_17(t: dict[str, str]) -> tuple[bool, bool, bool]:
     header = next((l for l in t["D"][t["D"].find("### Contrat positif du premier objet"):].splitlines() if l.startswith("| Dimension")), "")
     col = next((k for k, c in enumerate(cells(header)) if "CFT-00" in c), None)
     mapped = [v.strip() for r in first if col is not None and len(r) > col for v in re.split(r"[,+/]| et ", plain(r[col])) if v.strip()]
-    triggers = {plain(r[0]): r[1] for r in rows_between(t["D"], "### Déclencheurs critiques", "\n#") if len(r) > 1}
+    triggers = {plain(r[0]): r[1] for r in signal_rows(t) if len(r) > 1}  # table des signaux du noyau, seule table de routage par signal
     pick = lambda start: next((v for k, v in triggers.items() if k.startswith(start)), "")
-    motif, scene, density = pick("Motif possiblement générique"), pick("Asset, motion, scène"), pick("Détail final")
+    motif, scene, density = pick("Motif générique"), pick("Asset, motion, scène"), pick("Détail final")
     return (bool(dims) and quick == dims,
             col is not None and bool(mapped) and all(v in cft or v in {"—", "DIRECTION"} for v in mapped),
             "SAVOIR/CRAFT/CFT-01" in motif and "ACTION/ANTI-SLOP" in motif and "BIBLIOTHEQUE/" in scene and "SAVOIR/CRAFT" in density)
+
+
+def signal_rows(t: dict[str, str]) -> list[list[str]]:
+    """Lignes de la table des signaux compilée dans le noyau (bloc CHARGE-DETAILS de DIRECTION/CHARGE)."""
+    return rows_between(t["D"], "| Signal | Route |", "Aucun détail n’est considéré lu")
+
+
+def lcf_06(t: dict[str, str]) -> bool:
+    """Une table de signaux ajoute une lecture ; elle ne classe pas : la structure ouverte ne mène à aucune route RUN-*."""
+    rows = [r for r in signal_rows(t) if plain(r[0]).startswith("Structure ouverte")]
+    return len(rows) == 1 and len(rows[0]) > 1 and "ACTION/RUN-" not in rows[0][1]
 
 
 def lcf_20(t: dict[str, str]) -> bool:
@@ -651,7 +662,6 @@ def check_facades(errors: list[str]) -> None:
     t = load_texts()
     rm33, rm49 = row(t["RM"], "Direction identitaire"), row(t["RM"], "Accessibilité")
     qs_dir, rd_dir, rd_iter = row(t["Q"], "`DIRECTION`", 1), row(t["README"], "`DIRECTION`", 1), row(t["README"], "`ITER`", 1)
-    index = row(t["D"], "Nouvelle structure d’écran")
     entry = after(t["D"], "Ce gabarit est une vue d’activation", 600)
     fast = next(([l, l] for l in t["A"].splitlines() if l.startswith("Pour `LITE` et les petits `ITER`")), None)  # C22 : questions dans ACTION/FAST-PATH
     prio = fenced_after(t["D"], "```text\nRUN-PRIORITY")
@@ -672,8 +682,7 @@ def check_facades(errors: list[str]) -> None:
         ("LCF-05", "QUICKSTART, ITER dans l'ordre canonique ; aucune ligne ITER dans le README",
          "DIRECTION/START (ITER : direction existante et retrouvable)",
          re.search(r"\*\*`ITER`\*\*[^\n]*(retrouvable|existante)", t["Q"]) is not None and rd_iter is None),
-        ("LCF-06", "DIRECTION, index « Nouvelle structure d’écran »", "DIRECTION/START (classification)",
-         bool(index) and "classification `ACTION/RUN-STANDARD`" not in index[1]),
+        ("LCF-06", "table des signaux du noyau, ligne « Structure ouverte »", "DIRECTION/START (classification)", lcf_06(t)),
         ("LCF-07", "DIRECTION 72, RUN-PRIORITY, READING_MAP (routage et combinaisons), skill", "DIRECTION 55 (cible avant premier objet)", lcf_07(t)),
         ("LCF-08", "DIRECTION, gabarit START et FAST-PATH", "DIRECTION/START (OWNER et SCOPE jamais omis)",
          re.search(r"`?OWNER`? et `?SCOPE`?[^.]*jamais omis", entry) is not None and bool(fast) and "et son owner" in fast[1] and "si nécessaire" not in fast[1]),
@@ -695,7 +704,7 @@ def check_facades(errors: list[str]) -> None:
         ("LCF-14", "exemples de la skill, EVIDENCE fondées sur des captures", "ACTION (claims et protocole)", lcf_14(t)),
         ("LCF-15", "QUICKSTART §6", "DIRECTION/FIRST-OBJECT (dimensions)", f15),
         ("LCF-16", "DIRECTION, contrat du premier objet, colonne CFT-00", "SAVOIR/CRAFT/CFT-00", f16),
-        ("LCF-17", "DIRECTION, déclencheurs critiques", "SAVOIR/CRAFT ; BIBLIOTHEQUE ; ACTION/ANTI-SLOP", f17),
+        ("LCF-17", "table des signaux du noyau : motif générique, scène, détail final", "SAVOIR/CRAFT ; BIBLIOTHEQUE ; ACTION/ANTI-SLOP", f17),
         ("LCF-20", "BIBLIOTHEQUE, listes des statuts de route", "CHANGELOG, cycle de vie", lcf_20(t)),
         ("LCF-21", "DIRECTION, README, RELEASE_NOTES, CHANGELOG", "CHANGELOG (efficacité NOT-VERIFIED)", lcf_21(t)),
         ("LCF-22", "ACTION (table RUN_CARD, réponse visible, paquets), GLOSSAIRE et façades : DECISION-CHANGE", "ACTION/STATUS (triade) ; RET-1", lcf_22(t)),

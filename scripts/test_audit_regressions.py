@@ -83,6 +83,12 @@ class MobilisationFacadeTests(unittest.TestCase):
             texts[key] = texts[key].replace('`DIRECTION/EXTERNAL-START`', 'renvoi retiré')
         self.assertFalse(reading_map.lcf_44(texts))
 
+    def test_signal_table_keeps_gate_consequence_of_generic_motif(self):
+        self.assert_rejected('D', 'conséquence de gate : `ACTION/ANTI-SLOP`', 'conséquence de gate : aucune', 'LCF-17')
+
+    def test_signal_table_does_not_classify(self):
+        self.assert_rejected('D', '| Structure ouverte | `BIBLIOTHEQUE/READ`', '| Structure ouverte | `ACTION/RUN-STANDARD`, `BIBLIOTHEQUE/READ`', 'LCF-06')
+
     def test_asset_treatment_rule_stays_at_its_current_owner(self):
         self.assert_rejected('S', '**Traitement des assets moyens.**', '**Règle supprimée.**', 'LCF-49')
 

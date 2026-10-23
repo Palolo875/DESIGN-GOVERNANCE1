@@ -191,7 +191,15 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 | Finesse sans geste concret | `SAVOIR/STATE`, avant l’intervention |
 | Revue créative | `SAVOIR/CRAFT/CFT-00` |
 | Alternative située | `SAVOIR/CRAFT/CFT-02` |
-| Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` |
+| Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` (test motivation/construction) ; conséquence de gate : `ACTION/ANTI-SLOP` |
+| Détail final susceptible de modifier le caractère, l’état, la hiérarchie, la densité ou la robustesse d’une surface `DIRECTION` | `SAVOIR/CRAFT/CFT-03`, `SAVOIR/STATE` ou `SAVOIR/INTEGRITY` selon la question ouverte, et capture rendue ; conditionnel, comme la colonne « Ajouter seulement si » de `DIRECTION/CHARGE` |
+| Asset, motion, scène ou type spécifique à construire | Le contrat correspondant d’ACTION et la route SAVOIR utile ; pour une scène, `BIBLIOTHEQUE/SELECT` puis la route `BIBLIOTHEQUE/SCENE` retenue |
+| Cadrage ambigu : public, tâche ou compromis | `SAVOIR/FRAME` |
+| Contexte critique, responsive, performance ou mouvement | `SAVOIR/CONTEXT` |
+| Famille de design, technique, effet ou médium qui peut modifier la décision | `SAVOIR/DESIGN-ATLAS`, après la classification, puis seulement la route spécialisée utile |
+| Claim daté, tendance ou outil externe | `SAVOIR/TOOLS`, avec source, date, portée et limite dans la trace |
+| Doute sur l’application d’une règle, limite, délégation ou théâtre procédural | `SAVOIR/INTEGRITY`, avant tout verdict |
+| Échec connu à assumer malgré un gate | `ACTION/OVERRIDE` (`FAIL-ASSUMED`), jamais pour une preuve qui manque |
 | Repasse | `SAVOIR/INTEGRITY/REPASSE`, dans son périmètre |
 | Texte calculé, état animé ou résultat d’une action à prouver | `ACTION/VISUAL_PROOF`, à l’état qui compte (`--assert`, `--in-frame`) |
 | Comparaison sur capture en `DIRECTION` | `ACTION/ATELIER-EDITION`, même en trace légère ; la formalisation B1b reste limitée à son scope |
@@ -213,66 +221,6 @@ Si la réponse à la quatrième question (ce que la preuve changera) est « rien
 
 ---
 
-<!-- origine:DIRECTION.md -->
-## 0. Classification du mode, preuve et capacité
-
-`START` est la source normative de classification. Cette section est une vue contractuelle des capacités, de la preuve minimale et de la condition d’arrêt ; elle ne redéfinit pas l’ordre de routage. Pour `DIRECTION`, `ACTION` renseigne séparément `closure.state`, `closure.issue`, `closure.direction_status`, `closure.verdict` et `closure.limitations` ; `HELD` n’équivaut jamais à `ACCEPTED`.
-
-Classe d’abord la tâche ; vérifie ensuite les capacités nécessaires pour la produire et la vérifier. Les outils disponibles déterminent la voie de preuve et le statut de vérification, jamais une rétrogradation silencieuse du mode.
-
-Portée : `DIRECTION/START`. Preuve minimale : `ACTION/PRECONDITION` et `ACTION/RUN-<MODE>`. Condition d’arrêt : `ACTION/CLOSE-EXIT-CHECK`.
-
-Les axes détaillés de jugement et les statuts V/U/A/T sont canoniques dans `ACTION`. Ne transforme pas une note de jugement en verdict global. Les axes V/U/A/T sont évalués lorsque leurs risques sont touchés ; lorsqu’un axe ne concerne pas le run, il est `N/A-JUSTIFIED`, pas implicitement ignoré. Les lettres A/B/C désignent les gates, jamais les axes de verdict.
-
-### ITER se souvient
-
-`ITER` n’est possible que si la direction précédente, le périmètre, le dernier artefact, la décision, la preuve et le risque restant sont retrouvables dans la session, la trace légère (ligne de thèse), la `RUN_CARD` ou le manifeste local. Si la direction est absente, reconstitue le contexte et reclassifie en `LITE`, `STANDARD`, `DIRECTION` ou `SYSTÈME` selon la décision retrouvée. Si la retouche remet en cause un axe de direction, passe en `DIRECTION`. Si elle touche une règle partagée, passe en `SYSTÈME`.
-
----
-
-<!-- origine:DIRECTION.md -->
-## 2. Routage — quoi charger et quand
-
-Ne charge pas `ACTION`, `SAVOIR` et `BIBLIOTHEQUE` en bloc. Charge la route canonique déclenchée par le signal qui peut modifier la prochaine décision. Si un fichier ou une preuve manque, déclare la limite et applique le statut prévu ; n’invente pas son contenu.
-
-### Déclencheurs critiques
-
-Ces déclencheurs disent quand ajouter une route à la ligne du mode dans `DIRECTION/CHARGE` ; ils ne forment pas une seconde liste de chargement.
-
-| Signal | Charger ou exécuter | Statut |
-|---|---|---|
-| Surface identitaire | Après `DIRECTION/START`, `ACTION/RUN-DIRECTION`; charger `SAVOIR/CRAFT`, `SAVOIR/TYPE` ou `SAVOIR/SOURCE` seulement si la composition, la typographie, l’ancrage ou le sourcing peuvent modifier la décision. | `[FORCÉ]` pour la route ACTION ; conditionnel pour les routes SAVOIR |
-| Mode `DIRECTION` | Après `DIRECTION/START`, `ACTION/RUN-DIRECTION`, puis le pipeline par étapes. | `[FORCÉ]` |
-| Toute livraison | `ACTION/RUN-*`, puis les gates applicables. | `[FORCÉ]` |
-| Asset, motion, scène ou type spécifique | Contrat correspondant d’ACTION, route SAVOIR nécessaire ; pour une scène, `BIBLIOTHEQUE/SELECT` puis la route `BIBLIOTHEQUE/SCENE` retenue. | `[FORCÉ]` si la capacité est requise. |
-| Retouche `ITER` | `RUN_CARD` ou manifeste local ; charger `SAVOIR/INTEGRITY` si une question de limite, délégation, capacité ou théâtre procédural est active avant verdict. | Conditionnel |
-| Doute sur l’application d’une règle | `SAVOIR/INTEGRITY`. | `[FORCÉ]` |
-| Ancre absente pour une surface identitaire | En exploration : limite déclarée, run `EXPLORATORY`. Avant l’acceptation : retour à l’ancrage, ou statut prévu par ACTION (absolu 2). | `[FORCÉ]` |
-| FAIL exigé malgré un gate | Protocole `FAIL-ASSUMED` d’ACTION. | `[REQUIS PAR LE MODULE]` |
-| Motif possiblement générique ou réflexe | Test motivation/construction `SAVOIR/CRAFT/CFT-01` ; conséquence de gate `ACTION/ANTI-SLOP`. | `[REQUIS PAR LE MODULE]` |
-| Détail final susceptible de modifier le caractère, l’état, la hiérarchie, la densité ou la robustesse d’une surface `DIRECTION` | `SAVOIR/CRAFT/CFT-03` (composition, densité et harmonie), `SAVOIR/STATE` ou `SAVOIR/INTEGRITY` selon la question ouverte, et capture rendue. | Conditionnel : colonne « Ajouter seulement si » de `DIRECTION/CHARGE` |
-
-### Index à la demande
-
-| Besoin | Route principale |
-|---|---|
-| Nouvelle structure d’écran | Après la classification par `DIRECTION/START` (une nouvelle structure peut relever de `STANDARD`, `DIRECTION` ou `SYSTÈME`), `BIBLIOTHEQUE/SELECT`, puis la route ACTION du mode. |
-| Cadrage ambigu | `SAVOIR/FRAME`. |
-| Direction, matière ou composition | `SAVOIR/CRAFT`. |
-| Typographie | `SAVOIR/TYPE`. |
-| Ancre ou sourcing visuel | `SAVOIR/SOURCE`. |
-| Famille de design, technique, effet, asset ou médium | Après classification, décision et risque, `SAVOIR/DESIGN-ATLAS`, puis la route spécialisée seulement si elle peut modifier la décision ; retour à `START` si le risque ou le mode change. |
-| Profil de style | `SAVOIR/STYLE`. |
-| Tokens ou blast radius partagé | `SAVOIR/SYSTEM` et `ACTION/RUN-SYSTEM`. |
-| Contexte critique, responsive, performance ou motion | `SAVOIR/CONTEXT`. |
-| Technique ou compatibilité | `SAVOIR/TECH`. |
-| Limite, délégation ou théâtre procédural | `SAVOIR/INTEGRITY`. |
-| Claim daté ou outil externe | `SAVOIR/TOOLS`, avec source, date, portée et limite dans la trace locale du run. |
-
-Les routes stables sont les routes quotidiennes. Les anciens renvois de section sont documentés dans la table de migration de `maintenance/evolution.md` et ne doivent jamais servir d’instruction principale à un nouveau run.
-
----
-
 <!-- origine:ACTION.md -->
 ## ACTION/RUN — routes d’exécution
 
@@ -290,7 +238,7 @@ Les blocs `RUN-*` donnent l’entrée, la sortie et le contrôle minimal de chaq
 
 ### `ACTION/RUN-ITER`
 
-**Entrée.** Direction, composants, tokens et périmètre précédent retrouvables dans la trace légère (ligne de thèse), la `RUN_CARD`, le manifeste ou le projet. Dans une `RUN_CARD`, le rappel de direction est porté par `direction.thesis` et la trace par `trace_locator`.
+**Entrée.** Direction, composants, tokens et périmètre précédent retrouvables dans la trace légère (ligne de thèse), la `RUN_CARD`, le manifeste ou le projet. Dans une `RUN_CARD`, le rappel de direction est porté par `direction.thesis` et la trace par `trace_locator`. Si la direction n’est pas retrouvable, reconstitue le contexte et reclasse avec `DIRECTION/START` : `DIRECTION` si la retouche remet en cause un axe de direction, `SYSTÈME` si elle touche une règle partagée.
 
 **Faire.** Rappeler la direction en une phrase, déclarer `DECISION-INTENT`, appliquer le delta et vérifier la non-régression pertinente : visuelle, fonctionnelle, responsive, typographique ou systémique.
 

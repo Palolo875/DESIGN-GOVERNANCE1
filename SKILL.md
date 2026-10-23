@@ -180,7 +180,15 @@ L’agent active le système en silence : la personne donne l’objectif, le pé
 | Finesse sans geste concret | `SAVOIR/STATE`, avant l’intervention |
 | Revue créative | `SAVOIR/CRAFT/CFT-00` |
 | Alternative située | `SAVOIR/CRAFT/CFT-02` |
-| Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` |
+| Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` (test motivation/construction) ; conséquence de gate : `ACTION/ANTI-SLOP` |
+| Détail final susceptible de modifier le caractère, l’état, la hiérarchie, la densité ou la robustesse d’une surface `DIRECTION` | `SAVOIR/CRAFT/CFT-03`, `SAVOIR/STATE` ou `SAVOIR/INTEGRITY` selon la question ouverte, et capture rendue ; conditionnel, comme la colonne « Ajouter seulement si » de `DIRECTION/CHARGE` |
+| Asset, motion, scène ou type spécifique à construire | Le contrat correspondant d’ACTION et la route SAVOIR utile ; pour une scène, `BIBLIOTHEQUE/SELECT` puis la route `BIBLIOTHEQUE/SCENE` retenue |
+| Cadrage ambigu : public, tâche ou compromis | `SAVOIR/FRAME` |
+| Contexte critique, responsive, performance ou mouvement | `SAVOIR/CONTEXT` |
+| Famille de design, technique, effet ou médium qui peut modifier la décision | `SAVOIR/DESIGN-ATLAS`, après la classification, puis seulement la route spécialisée utile |
+| Claim daté, tendance ou outil externe | `SAVOIR/TOOLS`, avec source, date, portée et limite dans la trace |
+| Doute sur l’application d’une règle, limite, délégation ou théâtre procédural | `SAVOIR/INTEGRITY`, avant tout verdict |
+| Échec connu à assumer malgré un gate | `ACTION/OVERRIDE` (`FAIL-ASSUMED`), jamais pour une preuve qui manque |
 | Repasse | `SAVOIR/INTEGRITY/REPASSE`, dans son périmètre |
 | Texte calculé, état animé ou résultat d’une action à prouver | `ACTION/VISUAL_PROOF`, à l’état qui compte (`--assert`, `--in-frame`) |
 | Comparaison sur capture en `DIRECTION` | `ACTION/ATELIER-EDITION`, même en trace légère ; la formalisation B1b reste limitée à son scope |
