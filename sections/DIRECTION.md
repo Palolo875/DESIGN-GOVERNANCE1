@@ -11,6 +11,7 @@
 > - [`design/direction/premier-objet.md`](../design/direction/premier-objet.md) : `DIRECTION/FIRST-OBJECT`
 > - [`design/direction/diriger.md`](../design/direction/diriger.md) : `DIRECTION/VISUAL_TARGET`, `DIRECTION/DIRECTION-ATELIER`
 > - [`design/direction/boucle.md`](../design/direction/boucle.md) : `DIRECTION/DOUBLE-LOOP`
+> - [`design/direction/standard.md`](../design/direction/standard.md) : `DIRECTION/STANDARD`
 <!-- lieux:fin -->
 
 ## Rôle

@@ -3,7 +3,17 @@
 Le standard de qualité visuelle, les cinq règles essentielles et les invariants de jugement.
 
 <!-- origine:DIRECTION.md -->
-## LES CINQ RÈGLES ABSOLUES
+## DIRECTION/STANDARD — les cinq règles absolues
+
+<!-- noyau:début ABSOLUS -->
+**Les cinq absolus.** Ils valent pour tout run, quel que soit le mode ; leur texte complet est servi par `DIRECTION/STANDARD`.
+
+1. **Direction visible.** Une surface identitaire conforme mais sans direction perceptible est un échec de livraison ; la conformité est un plancher, pas un résultat.
+2. **Ancrage.** Aucune direction identitaire n’est acceptée sans ancre ; sans elle, elle reste `EXPLORATORY`, avec sa limite.
+3. **Preuves.** Aucune livraison sans les preuves applicables au mode ; un gate non applicable est `N/A-JUSTIFIED`, un gate non vérifiable `NOT-VERIFIED`, jamais `PASS`.
+4. **Déclarer avant d’agir.** Mode, décision dominante, risque principal, preuve minimale et condition d’arrêt. Un moyen ou une preuve qui manque ne fait jamais baisser le mode en silence : la propriété concernée devient `NOT-VERIFIED`.
+5. **Réel et beau ensemble.** Le produit, la tâche, le contenu réel et les contraintes sont la matière de la direction : pas de faux réalisme pour faire joli ; en contexte à enjeu, clarté, prévention d’erreur et robustesse priment sur le spectaculaire.
+<!-- noyau:fin ABSOLUS -->
 
 Il y en a cinq. Elles sont les seuls **absolus transversaux de DIRECTION**. Une obligation spécialisée reste la propriété du module qui la définit ; `DIRECTION` la route sans lui voler son statut ni dupliquer sa procédure.
 
@@ -91,24 +101,21 @@ Lorsque le risque dominant concerne une population, une accessibilité réelle, 
 
 Une capture, une lecture perceptuelle ou une comparaison peut établir une observation de caractère visuel ou de compréhensibilité présumée. Elle ne constitue une preuve d’utilisabilité que si un utilisateur, un objectif, une tâche, un contexte et un résultat observé sont définis.
 
----
+### Invariants de jugement
 
-<!-- origine:DIRECTION.md -->
-## 3. Invariants de jugement
-
-### Convergence de genre ≠ slop
+#### Convergence de genre ≠ slop
 
 Une structure conventionnelle peut être la bonne réponse. Ne juge pas la ressemblance du squelette seul : juge le contenu, la microcopie, les états, les données, la résolution des détails et la spécificité du produit.
 
 Si les détails sont interchangeables, cherche d’abord ce qui peut devenir spécifique à partir du produit réel — contenu, donnée, relation, interaction ou hiérarchie. N’ajoute un signal distinctif que s’il améliore la tâche, la compréhension, la preuve ou le positionnement.
 
-### PASS technique ≠ direction tenue
+#### PASS technique ≠ direction tenue
 
 Le gate A garantit l’absence de certaines fautes. Il ne prouve ni la direction, ni le goût, ni l’adéquation au produit. Sur une surface identitaire, l’ancre, la cible, la capture et les écarts nommés restent nécessaires.
 
 De même, une capture, une lecture perceptuelle, une conformité WCAG ou un avis externe ne prouve pas seul l’utilisabilité globale. Lorsque U est dominant, la preuve doit relier un utilisateur, un objectif, une tâche, un contexte et un résultat observé.
 
-### Les listes ne sont pas un canon
+#### Les listes ne sont pas un canon
 
 Références, designers, matières, outils et registres sont des amorces de jugement. Une liste appliquée mécaniquement recrée la convergence qu’elle cherchait à empêcher.
 

@@ -23,6 +23,14 @@ Tu vises l’excellence appropriée au produit, au public, au risque et au conte
 
 **Piège de conformité.** Ce système est plus facile à satisfaire qu’à honorer. Si tu es en train de passer le gate plutôt que de concevoir, reviens aux ABSOLUS 1 et 5 : direction perceptible, tâche prioritaire, contenu réel et contraintes d’usage.
 
+**Les cinq absolus.** Ils valent pour tout run, quel que soit le mode ; leur texte complet est servi par `DIRECTION/STANDARD`.
+
+1. **Direction visible.** Une surface identitaire conforme mais sans direction perceptible est un échec de livraison ; la conformité est un plancher, pas un résultat.
+2. **Ancrage.** Aucune direction identitaire n’est acceptée sans ancre ; sans elle, elle reste `EXPLORATORY`, avec sa limite.
+3. **Preuves.** Aucune livraison sans les preuves applicables au mode ; un gate non applicable est `N/A-JUSTIFIED`, un gate non vérifiable `NOT-VERIFIED`, jamais `PASS`.
+4. **Déclarer avant d’agir.** Mode, décision dominante, risque principal, preuve minimale et condition d’arrêt. Un moyen ou une preuve qui manque ne fait jamais baisser le mode en silence : la propriété concernée devient `NOT-VERIFIED`.
+5. **Réel et beau ensemble.** Le produit, la tâche, le contenu réel et les contraintes sont la matière de la direction : pas de faux réalisme pour faire joli ; en contexte à enjeu, clarté, prévention d’erreur et robustesse priment sur le spectaculaire.
+
 ### 2. Classer, puis charger
 
 > **Règle de vitesse.** Ouvre l’arbre `DIRECTION/START/TREE`, classe le mode, puis lis sa ligne avec `python3 scripts/read_route.py --mode MODE`. Le **tronc** de la ligne (au plus 35 000 caractères, `--tronc MODE`) se lit à chaque run de ce mode ; le reste de la ligne se lit quand son signal apparaît. `DIRECTION/START` complet reste disponible si le contexte de lancement ou les capacités doivent être précisés. Lis ce qui peut changer la décision présente ; les routes d’observation et de clôture attendent leur usage. Toute contrainte critique est lue avant le choix qu’elle protège. Pour une relation de craft ouverte, même dans un correctif local, lis les gestes de `SAVOIR/STATE` ; n’approfondis que le savoir qui peut modifier l’intervention, sans ouvrir de nouvelle direction. Avant de construire, déclare le mode, la décision dominante, le risque principal, la preuve minimale et la condition d’arrêt (absolu 4) : une ligne suffit, dans la trace.

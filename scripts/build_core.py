@@ -36,7 +36,7 @@ CORE_BUDGET_BYTES = 46_000
 NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
     # Ordre par moment du run : posture, classement, avant de construire, en construisant,
     # en regardant, en répondant, puis renvois. Les blocs restent normatifs dans leur source.
-    ("Rôle et posture", [("ROLE", "DIRECTION.md", None), ("POSTURE", "DIRECTION.md", None)]),
+    ("Rôle et posture", [("ROLE", "DIRECTION.md", None), ("POSTURE", "DIRECTION.md", None), ("ABSOLUS", "DIRECTION.md", None)]),
     ("Classer, puis charger", [("CHARGE-REGLE", "DIRECTION.md", None), ("CHARGE-RECHERCHE", "DIRECTION.md", None),
                                ("CHARGE-TABLE", "DIRECTION.md", None), ("CHARGE-FIN", "DIRECTION.md", None),
                                ("CHARGE-LECTEUR", "DIRECTION.md", None)]),
@@ -68,7 +68,7 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
 # Le registre conserve tous les blocs protégés ; seule cette partie est chargée
 # systématiquement. Les autres restent entiers dans leur route propriétaire.
 COMMUN = frozenset({
-    "ROLE", "POSTURE", "CHARGE-REGLE", "CHARGE-FIN", "CHARGE-DETAILS",
+    "ROLE", "POSTURE", "ABSOLUS", "CHARGE-REGLE", "CHARGE-FIN", "CHARGE-DETAILS",
     "CONTENU", "ANCRE", "MOY-CARTE", "VER-FAUX-ASSET", "VER-SCENE", "VER-AUDIENCE",
     "STRUCT-OU", "COMP-TYPO", "COMP-COULEUR", "COMP-VAGUES", "BOUCLE",
     "BOUCLE-DIAGNOSTIC", "CHECKPOINT", "SORTIE", "TRACE",
