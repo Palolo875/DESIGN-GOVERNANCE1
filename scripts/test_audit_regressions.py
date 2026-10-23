@@ -78,9 +78,12 @@ class MobilisationFacadeTests(unittest.TestCase):
         self.assert_rejected('D', 'de préférence **codé**', 'décoratif par défaut', 'LCF-47')
 
     def test_missing_brief_relay_cannot_pass_as_a_shorter_skill(self):
+        # Le bloc BRIEF est compilé (L2-09) : sans lui ni renvoi, la skill ne porte plus la règle.
         texts = dict(self.texts)
         for key in ('D', 'SK'):
             texts[key] = texts[key].replace('`DIRECTION/EXTERNAL-START`', 'renvoi retiré')
+        self.assertTrue(reading_map.lcf_44(texts))
+        texts['SK'] = texts['SK'].replace('Au plus trois demandes', 'Des demandes')
         self.assertFalse(reading_map.lcf_44(texts))
 
     def test_signal_table_keeps_gate_consequence_of_generic_motif(self):

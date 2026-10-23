@@ -41,7 +41,7 @@ Une couleur de marque, une contrainte de contenu ou une construction technique s
 ## ACTION/ATELIER-EDITION — opération observable
 
 <!-- noyau:début BOUCLE-ATELIER -->
-**Atelier sur capture (`ACTION/ATELIER-EDITION`).** Sur une surface `DIRECTION`, après la première capture, fais au moins un tour d’atelier, même en trace légère : lecture légère, édition d’une décision principale, nouvelle capture comparée ; la paire n’est pas exigée en trace. Dans le scope de B1b (surface `DIRECTION` qui accepte avec l’axe V positif, en trace complète : `ACTION/GATE-B/B1b`), cet atelier est requis, sauf deux motifs `N/A-JUSTIFIED` : aucune décision principale éditable, ou une paire équivalente encore valide qui couvre la même décision.
+**Atelier sur capture (`ACTION/ATELIER-EDITION`).** Sur une surface `DIRECTION`, après la première capture, fais au moins un tour d’atelier, même en trace légère : lecture légère, édition d’une décision principale, nouvelle capture comparée ; la paire n’est pas exigée en trace. Dans le scope de B1b (surface `DIRECTION` qui accepte avec l’axe V (caractère visuel, `ACTION/STATUS`) positif, en trace complète : `ACTION/GATE-B/B1b`), cet atelier est requis, sauf deux motifs `N/A-JUSTIFIED` : aucune décision principale éditable, ou une paire équivalente encore valide qui couvre la même décision.
 
 Après la première capture, fais une lecture légère en ignorant le texte explicatif et nomme en une phrase la catégorie, la marque et le niveau de preuve que la surface semble raconter. Nomme ensuite la décision principale à mettre à l’épreuve. Édite-la par **retrait, réduction ou transformation** ; une décision peut coordonner plusieurs diffs, mais l’unité de compte n’est pas le nombre de changements. N’ajoute rien pour compenser.
 

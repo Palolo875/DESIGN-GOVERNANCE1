@@ -136,6 +136,7 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 | Alternative située | `DIRECTION/DIVERGENCE` (déclenchement), puis `SAVOIR/CRAFT/CFT-02` (leviers) |
 | Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` (test motivation/construction) ; conséquence de gate : `ACTION/ANTI-SLOP` |
 | Détail final susceptible de modifier le caractère, l’état, la hiérarchie, la densité ou la robustesse d’une surface `DIRECTION` | `SAVOIR/CRAFT/CFT-03`, `SAVOIR/STATE` ou `SAVOIR/INTEGRITY` selon la question ouverte, et capture rendue ; conditionnel, comme la colonne « Ajouter seulement si » de `DIRECTION/CHARGE` |
+| Recette de rendu exécutée ou citée (options, états, captures, comparaison) | `ACTION/RECETTE-RENDU` |
 | Un asset, ou son absence, porte une décision perceptible | `DIRECTION/ASSET-ROUTE`, avant le build : une route de production nommée |
 | Asset, motion, scène ou type spécifique à construire | Le contrat correspondant d’ACTION et la route SAVOIR utile ; pour une scène, `BIBLIOTHEQUE/SELECT` puis la route `BIBLIOTHEQUE/SCENE` retenue |
 | Cadrage ambigu : public, tâche ou compromis | `SAVOIR/FRAME` |

@@ -13,13 +13,7 @@ Utilise les voies `ANCHOR-GENERATED` / `ANCHOR-OBSERVED` / `ANCHOR-PROVIDED` dé
 
 ### Test d’utilité de l’ancre
 
-Une ancre est utile si elle fournit :
-
-1. une décision structurelle ou perceptuelle qu’elle change réellement ;
-2. une contre-indication identifiable ;
-3. des attributs retenus, rejetés et non transférables.
-
-Une image jolie mais sans conséquence de décision est décorative et ne suffit pas. Une ancre ne prouve ni qualité finale, ni utilisabilité, ni droit de réemploi.
+Le test d’utilité de l’ancre est celui de `DIRECTION/VISUAL_TARGET` : décision changée, contre-indication, attributs retenus, rejetés et non transférables. Une ancre ne prouve ni qualité finale, ni utilisabilité, ni droit de réemploi.
 
 Les galeries de composants, templates et bibliothèques sont utiles pour observer conventions, états et accessibilité. Elles ne suffisent pas à fournir matière, direction ou singularité. Cherche hors écran lorsqu’une affiche, une signalétique, un packaging, une photo, une édition ou une architecture apporte une contrainte de composition utile.
 
@@ -94,7 +88,7 @@ Une trame ou un grain proches des marqueurs de vague datés (`SAVOIR/TOOLS/CONVE
 
 # SAVOIR/DESIGN-ATLAS — familles et responsabilités
 
-`DESIGN-ATLAS` est la section atlas de `SAVOIR.md` : un index de jugement, pas un catalogue de recettes. Commence par la décision et le risque ; si aucune famille ne peut modifier la prochaine décision, ne charge pas l’atlas. Il aide à nommer la famille d’un choix avant de charger la route spécialisée. Il ne choisit ni le mode, ni le JTBD, ni une esthétique par défaut. Il ne peut jamais réduire un mode, un niveau de preuve ou une protection déjà imposée par `DIRECTION/START` ou par un risque critique ; s’il révèle un risque supérieur, retourne à `DIRECTION/START` pour mettre à jour `MODE`, `RISK` et `SCOPE`, puis laisse ACTION recalculer owner, preuve, gates et prochaine action avant toute reprise.
+`SAVOIR/DESIGN-ATLAS` est l’index des familles de SAVOIR (médium, style, technique, effet, asset, structure) : un index de jugement, pas un catalogue de recettes. Commence par la décision et le risque ; si aucune famille ne peut modifier la prochaine décision, ne charge pas l’atlas. Il aide à nommer la famille d’un choix avant de charger la route spécialisée. Il ne choisit ni le mode, ni le JTBD, ni une esthétique par défaut. Il ne peut jamais réduire un mode, un niveau de preuve ou une protection déjà imposée par `DIRECTION/START` ou par un risque critique ; s’il révèle un risque supérieur, retourne à `DIRECTION/START` pour mettre à jour `MODE`, `RISK` et `SCOPE`, puis laisse ACTION recalculer owner, preuve, gates et prochaine action avant toute reprise.
 
 | Famille | Responsabilité | Route approfondie | Question de sélection |
 |---|---|---|---|
