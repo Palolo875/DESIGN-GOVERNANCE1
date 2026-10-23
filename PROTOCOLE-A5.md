@@ -1,6 +1,6 @@
 # Protocole de la campagne d’évaluation (A5)
 
-Brouillon soumis à relecture. Une fois validé, il rejoint le paquet dans `maintenance/evaluation.md` et sert de `campaign.protocol` aux contrats `EVALUATION_CASE`.
+Validé le 2026-10-23 avec les décisions de la section 10. Sert de `campaign.protocol` aux contrats `EVALUATION_CASE`.
 
 ## 1. Ce que la campagne éprouve
 
@@ -34,11 +34,11 @@ Huit briefs fixés à l’avance, écrits une fois et donnés tels quels dans le
 - **A — avec le système** : la skill installée, le journal de mobilisation activé (`DG_JOURNAL`).
 - **B — sans le système** : même modèle, mêmes outils (navigateur compris), même brief, sans la skill.
 - Même budget de temps ou de tours par run. L’ordre des conditions est tiré au sort pour chaque brief.
-- Si le budget le permet, deux runs par brief et par condition, pour voir la variance d’un même agent.
+- Un run par brief et par condition (décision du 2026-10-23) : la variance d’un même agent n’est pas mesurée, ce qui est une limite déclarée.
 
 ## 4. Jugement
 
-- **Évaluateurs** : au moins deux personnes, dont au moins un designer senior qui n’est pas l’auteur du système. Leur rôle et leur indépendance vont dans `evaluator`.
+- **Évaluateurs** : la personne qui pilote le système (non indépendante : `author`) et un agent juge d’une autre instance (`agent`), qui ne connaît ni la condition ni le système. Aucun designer humain indépendant n’est disponible : c’est une limite déclarée. Leur rôle et leur indépendance vont dans `evaluator`.
 - **À l’aveugle** : les rendus sont anonymisés avant le jugement (trace retirée, noms de fichiers neutres, ordre de présentation tiré au sort).
 - **Grille** : les six questions de la revue créative du noyau (présent, spécifique, culturellement transformé, encore générique, manque de résolution, intervention la plus utile). Pour chaque paire A/B et chaque question : préférence A, B ou égalité, avec une phrase de justification ; puis une préférence d’ensemble.
 - **Mesures objectives, par run** : nombre de `RETURN` et de réserves de `check_render.py` sur le rendu final ; preuves `NOT-VERIFIED` à la sortie ; temps jusqu’au premier rendu jugeable ; nombre de passes de correction qui ont réellement changé l’artefact (mesure expérimentale de `ACTION/CLOSE-EXIT-CHECK`).
@@ -68,9 +68,9 @@ Relever dans les traces des runs A les jetons de statut employés (issue, verdic
 - Une dégradation dans la condition A (préférence B majoritaire, plus de `RETURN`, plus de temps sans gain) est rapportée comme telle et ouvre une action.
 - Les méthodes à l’essai (`PILOT`) ne passent en `ADOPTED` que sur un gain observé ici.
 
-## 10. À décider avant le lancement
+## 10. Décisions du 2026-10-23
 
-- Qui lance les runs, et avec quel agent ou modèle.
-- Qui juge (au moins deux personnes, dont une indépendante).
-- Le budget : nombre de runs par condition (un ou deux) et temps par run.
-- La date de revue des résultats.
+- Les runs sont faits par des agents Sonnet 5.5, effort moyen, lancés depuis la session de maintenance ; un run par brief et par condition.
+- Juges : la personne qui pilote le système et un agent juge (Sonnet 5.5), à l’aveugle.
+- Pas de limite de temps ni de jetons ; les deux sont relevés par run pour estimer les coûts.
+- Briefs fixés dans `briefs.md` ; consignes des conditions dans `consignes-A.md` et `consignes-B.md`.
