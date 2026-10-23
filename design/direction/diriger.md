@@ -77,7 +77,7 @@ Le boot et l’atelier n’ajoutent que ce que la cible ne porte pas : la décis
 
 ### Compilation de la première proposition
 
-Pour une surface visuelle ouverte, ne traite pas les champs de `VISUAL_TARGET` comme une liste indépendante. Compile-les dans cet ordre : **contexte réel → promesse → tension → relation perceptible → objet de preuve → geste → composition → matière, typographie et asset → états et contraintes → premier rendu jugeable**. La sortie attendue est une relation visible dans l’artefact, pas un dossier complet autour d’un artefact générique.
+Pour une surface visuelle ouverte, ne traite pas les champs de `VISUAL_TARGET` comme une liste indépendante. Compile-les dans cet ordre : **contexte réel → promesse → tension → relation perceptible → objet de preuve → geste → composition → matière, typographie et asset → états et contraintes → premier rendu jugeable**. La sortie attendue est une relation visible dans l’artefact, pas un dossier complet autour d’un artefact générique. Cet ordre décide quoi construire ; la séquence de composition du noyau (intention → … → retenue) dit comment le construire, à partir de la relation compilée.
 
 Les décisions de compilation se lisent dans la table : promesse = thèse + conséquence observable ; relation = opération dominante + relations de plans ; composition = silhouette + relations de plans ; résolution initiale = ligne du même nom.
 

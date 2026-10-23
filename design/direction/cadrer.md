@@ -25,6 +25,8 @@ NO-GO — faux réalisme, dashboard décoratif, cartes avant mécanisme, ou reto
         automatique au dernier style, asset ou rendu disponible.
 ```
 
+Cet ordre arbitre les priorités ; ce n’est pas un ordre de construction. La compilation de `DIRECTION/VISUAL_TARGET` décide quoi construire, la séquence de composition du noyau dit comment.
+
 <!-- noyau:début BRIEF -->
 **Prise de brief.** Au plus trois demandes, en un seul échange, par gain de plafond : contenu réel (textes, chiffres, preuves, noms), marque, asset principal ou route autorisée, destination si elle est incertaine. Brief riche : aucune. Le build se fait dans le même tour, avec des hypothèses nommées ; les demandes accompagnent la proposition, sous « Ce qui manque pour la vraie version ». Une réponse n’est attendue avant le build que si la personne l’a demandé ou si l’action est irréversible ou coûteuse. Sans personne pour répondre : plafond déclaré, demandes listées à la livraison. La réponse est une proposition, pas un compte rendu de cadrage ; le raisonnement de cadrage reste dans la trace. Si une ligne ne peut modifier ni artefact, claim, preuve, limite ou décision, elle est omise ; `N/A-JUSTIFIED` reste réservé à une non-applicabilité réelle et justifiée selon ACTION.
 <!-- noyau:fin BRIEF -->

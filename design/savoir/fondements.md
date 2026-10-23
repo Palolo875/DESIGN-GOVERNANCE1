@@ -48,7 +48,7 @@ Une architecture faible ne se répare pas par un dégradé, une typographie rare
 ### Grammaire positive de composition
 
 <!-- noyau:début COMP-GRAMMAIRE -->
-Lorsque la décision visuelle est ouverte, construis dans cet ordre : **intention → tension → foyer → masse → rythme → matière et type → contenu réel → états → résolution → retenue**. Cette séquence n’est ni une recette de style ni une checklist obligatoire ; elle vérifie que les choix se renforcent au lieu d’être ajoutés séparément.
+Lorsque la décision visuelle est ouverte, construis dans cet ordre : **intention → tension → foyer → masse → rythme → matière et type → contenu réel → états → résolution → retenue**. Cette séquence n’est ni une recette de style ni une checklist obligatoire ; elle vérifie que les choix se renforcent au lieu d’être ajoutés séparément. Elle prend la suite de la compilation de `DIRECTION/VISUAL_TARGET` : l’intention est la relation compilée.
 
 | Élément | Question de composition |
 |---|---|

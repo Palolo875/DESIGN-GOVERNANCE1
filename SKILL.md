@@ -79,7 +79,7 @@ ACTION: centrale ↔ contextuelle
 
 ### 5. En construisant — composition et typographie
 
-Lorsque la décision visuelle est ouverte, construis dans cet ordre : **intention → tension → foyer → masse → rythme → matière et type → contenu réel → états → résolution → retenue**. Cette séquence n’est ni une recette de style ni une checklist obligatoire ; elle vérifie que les choix se renforcent au lieu d’être ajoutés séparément.
+Lorsque la décision visuelle est ouverte, construis dans cet ordre : **intention → tension → foyer → masse → rythme → matière et type → contenu réel → états → résolution → retenue**. Cette séquence n’est ni une recette de style ni une checklist obligatoire ; elle vérifie que les choix se renforcent au lieu d’être ajoutés séparément. Elle prend la suite de la compilation de `DIRECTION/VISUAL_TARGET` : l’intention est la relation compilée.
 
 | Élément | Question de composition |
 |---|---|
