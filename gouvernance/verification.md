@@ -5,7 +5,7 @@ Contrats de décision et leur preuve, vérification en contexte, dérogation et 
 <!-- origine:ACTION.md -->
 ## ACTION/STRUCTURED-PROOF — contrats de décision et leur preuve
 
-Ces artefacts rendent les décisions inspectables. Chacun n’est dû que si son déclencheur est actif ; sinon il est `N/A-JUSTIFIED`, avec sa raison. Zéro contrat est valide lorsqu’aucun déclencheur n’est actif : aucun fichier `production_contracts` n’est alors produit ; un fichier présent en porte au moins un.
+Ces artefacts rendent les décisions inspectables. Chacun n’est dû que si son déclencheur est actif ; sinon il est `N/A-JUSTIFIED`, avec sa raison. En trace légère, ses décisions sont tenues dans l’artefact, sans contrat écrit (règle « Contrats et formulaires écrits » de `ACTION/HANDOFF`) ; le contrat écrit relève de la trace complète. Zéro contrat est valide lorsqu’aucun déclencheur n’est actif : aucun fichier `production_contracts` n’est alors produit ; un fichier présent en porte au moins un.
 
 | Contrat | Déclencheur |
 |---|---|

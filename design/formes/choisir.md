@@ -60,7 +60,7 @@ ACTION: centrale ↔ contextuelle
 
 La route devient une conséquence de cette tension, de la tâche, du contenu réel, du mécanisme de preuve et du risque ; elle ne constitue pas la direction créative à elle seule. Une tension est retenue seulement si son pôle choisi change une décision d’espace, de hiérarchie, de comportement, de preuve ou de mémoire et peut être observé dans le premier objet. Si aucun axe ne peut modifier la prochaine décision, conserve l’héritage ou justifie `N/A-JUSTIFIED`.
 
-La trace persiste `TENSION-AXES`, `SELECTED-POLE`, `DECISION-IMPACT`, `OWNER`, `SCOPE`, `NEXT-OBSERVATION` et `EXIT-CONDITION`. Pour un axe à trois pôles comme `PROOF-POSITION`, le pôle retenu et sa conséquence doivent être explicites. Une absence de tension structurelle relève d’un héritage ou d’un cas documentaire ; elle ne devient `N/A-JUSTIFIED` que si un contrôle ou une preuve est réellement non applicable selon ACTION.
+En trace légère, l’axe retenu se lit dans l’artefact. En trace complète, la trace persiste `TENSION-AXES`, `SELECTED-POLE`, `DECISION-IMPACT`, `OWNER`, `SCOPE`, `NEXT-OBSERVATION` et `EXIT-CONDITION`. Pour un axe à trois pôles comme `PROOF-POSITION`, le pôle retenu et sa conséquence doivent être explicites. Une absence de tension structurelle relève d’un héritage ou d’un cas documentaire ; elle ne devient `N/A-JUSTIFIED` que si un contrôle ou une preuve est réellement non applicable selon ACTION.
 
 ### BIBLIOTHEQUE/SIGNATURE — rendre l’écart vérifiable
 

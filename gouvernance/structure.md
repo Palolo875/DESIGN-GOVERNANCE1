@@ -5,6 +5,8 @@ Les contrats et contrôles qui encadrent l’usage des formes.
 <!-- origine:BIBLIOTHEQUE.md -->
 ## BIBLIOTHEQUE/CONTRACTS — contrat commun de route
 
+En trace légère, les formulaires de BIBLIOTHEQUE (signature, dérivation, grille, objet, grammaire de marque) sont tenus dans l’artefact : seule leur décision, si elle change la proposition, entre dans la trace ; leur forme écrite relève de la trace complète (`ACTION/HANDOFF`).
+
 Une route locale commence par un contrat réduit : décision initiale, responsabilité, contre-indication, preuve attendue et limite. C’est la seule définition du contrat réduit ; la ligne `Local` du contrat minimal par périmètre et les lignes « avant build » de `BIBLIOTHEQUE/DERIVE` y renvoient. Lorsqu’elle est suivie comme candidate, elle peut porter le statut de cycle de vie `PILOT`, distinct du niveau de contrat et des statuts de run. Après observation, renseigne `DECISION-CHANGE` ou l’issue ACTION appropriée. Le contrat complet est nécessaire, mais non suffisant, pour `ADOPTED` : la promotion exige aussi usages contrastés, gain observé ou mesuré, maintenance, compatibilité, owner, prochaine revue et décision persistée dans `maintenance/versions.md`.
 
 Toute route durable déclare :

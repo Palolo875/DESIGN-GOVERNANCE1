@@ -100,7 +100,7 @@ Les compromis alimentent les axes V/U/A/T d’ACTION sans devenir une note concu
 | **Quelle preuve ?** | Données, états, explications ou sources qui rendent l’action crédible. |
 | **Quelles contraintes ?** | Plateforme, permissions, contenu, localisation, accessibilité, performance, droits et temps. |
 
-Toute hypothèse importante indique, dans la ligne de run ou la `RUN_CARD` existante :
+En trace légère, toute hypothèse importante est nommée dans la proposition. En trace complète, elle indique, dans la `RUN_CARD` ou la trace équivalente :
 
 | Champ | Rôle |
 |---|---|
