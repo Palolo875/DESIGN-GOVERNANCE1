@@ -294,6 +294,16 @@ def check_ui_ux_reality_pack(reality: dict[str, Any]) -> None:
                 raise ValidationError(f"coverage_map : exigence déclarée non couverte : {name}: {item}")
 
 
+def check_evaluation_case(case: dict[str, Any]) -> None:
+    """L7-10 : un gain affirmé cite sa référence, et se mesure sur un cas avec le système."""
+    claims = case.get("gain_claims") or []
+    for i, claim in enumerate(claims):
+        if not filled(claim.get("reference")):
+            raise ValidationError(f"evaluation_case : un gain affirmé cite sa référence (gain_claims[{i}])")
+    if claims and case.get("condition") != "with_system":
+        raise ValidationError("evaluation_case : un gain du système s'affirme sur un cas avec le système (condition with_system)")
+
+
 def semantic_check(name: str, document: Any) -> None:
     if name == "domain_frame":
         check_domain_frame(document)
@@ -307,6 +317,8 @@ def semantic_check(name: str, document: Any) -> None:
             check_creative_direction_set(document["creative_direction_set"])
         if "ui_ux_reality_pack" in document:
             check_ui_ux_reality_pack(document["ui_ux_reality_pack"])
+        if "evaluation_case" in document:
+            check_evaluation_case(document["evaluation_case"])
 
 
 DELETE = object()
@@ -319,6 +331,9 @@ UNIT_CASES: list[tuple[Any, ...]] = [
     ("K-07", PC, [(CS + ("selected_direction",), "Z")], "doit référencer une direction existante"),
     ("K-09", PC, [(UI + ("coverage_map",), [])], "nombre minimal d'éléments non atteint"),
     ("C2-2", PC, [(("creative_direction_set",), DELETE), (("ui_ux_reality_pack",), DELETE), (("evaluation_case",), DELETE)], "au moins un contrat"),
+    ("L7-10-1", PC, [(("evaluation_case", "gain_claims", 0, "reference"), "?")], "un gain affirmé cite sa référence"),
+    ("L7-10-2", PC, [(("evaluation_case", "condition"), "without_system")], "un gain du système s'affirme sur un cas avec le système"),
+    ("L7-10-3", PC, [(("evaluation_case", "evaluator"), DELETE)], "champ obligatoire absent"),
     ("C2-3", PC, [(UI + ("coverage_map", 0, "proof_status"), "N/A-JUSTIFIED")], "N/A-JUSTIFIED exige une raison"),
     ("C2-4", PC, [(UI + ("observed_scope",), None)], "exige observed_scope"),
     ("C3-1", PC, [(CS + ("directions", 1, "tension"), None), (CS + ("directions", 1, "structural_changes"), None)], "directions non distinctes"),

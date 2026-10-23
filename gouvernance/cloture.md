@@ -79,7 +79,7 @@ Si une réponse reste inconnue, utilise le statut approprié. Ne transforme jama
 
 ### Mesure expérimentale de la méthode
 
-Au niveau d’un pilote ou d’une série de runs, et non comme score individuel, observe le temps jusqu’au premier rendu jugeable, la part des premiers rendus nécessitant une correction structurelle, la part des corrections qui changent réellement l’artefact, les preuves encore `NOT-VERIFIED` à la clôture, les défauts récurrents par mode et la perception de qualité par plusieurs regards situés. Ces mesures servent à améliorer V1 ; elles ne créent ni verdict esthétique, ni quota d’itérations, ni obligation de variante.
+Au niveau d’un pilote ou d’une série de runs, et non comme score individuel, observe le temps jusqu’au premier rendu jugeable, la part des premiers rendus nécessitant une correction structurelle, la part des corrections qui changent réellement l’artefact, les preuves encore `NOT-VERIFIED` à la clôture, les défauts récurrents par mode et la perception de qualité par plusieurs regards situés. Ces mesures servent à améliorer V1 ; elles ne créent ni verdict esthétique, ni quota d’itérations, ni obligation de variante. Une comparaison avec et sans le système se projette dans `EVALUATION_CASE` (`gouvernance/schemas/production_contracts.schema.json`) : condition, campagne et cas apparié, évaluateur et son indépendance ; un gain affirmé cite sa référence, et `validate_contracts.py` refuse celui qui ne la cite pas.
 
 <!-- origine:DIRECTION.md -->
 ## DIRECTION/LECTURE-INSTRUMENTEE — lecture instrumentée d’un run

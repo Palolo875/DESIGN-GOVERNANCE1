@@ -50,7 +50,11 @@
     "accessibility_results":["focus visible vérifié", "contraste vérifié", "test lecteur d'écran non exécuté"],
     "visual_review":["présence instrumentale", "signature par hiérarchie des alertes", "défaut dominant: historique trop discret"],
     "corrections":["renforcer le lien entre alerte et historique", "réobserver le scénario tablette"],
-    "final_limits":["pas de données de production", "pas de test en situation d'incident réel", "lecteur d'écran non vérifié"]
+    "final_limits":["pas de données de production", "pas de test en situation d'incident réel", "lecteur d'écran non vérifié"],
+    "condition":"with_system",
+    "campaign":{"id":"illustratif-incidents","protocol":"protocole de campagne (illustratif)","paired_case":"incidents-sans-systeme"},
+    "evaluator":{"role":"designer senior extérieur au run","independence":"independent","blind":true},
+    "gain_claims":[{"claim":"illustratif, non observé : l'alerte critique est repérée plus vite qu'avec le cas apparié","reference":"incidents-sans-systeme","observation":"illustratif, non observé","limit":"un brief, un évaluateur, aucune mesure de temps"}]
   }
 }
 
