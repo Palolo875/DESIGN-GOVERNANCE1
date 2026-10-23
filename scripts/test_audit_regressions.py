@@ -558,6 +558,23 @@ class FacadeSensitivityTests(unittest.TestCase):
         self.assert_added_defect_fails("A", "La conséquence `DECISION-CHANGE` vaut `N/A-JUSTIFIED` par défaut.", "LCF-22")
 
 
+class SignalTableTests(unittest.TestCase):
+    """Garde 21 (SIG-01) : la table des signaux du noyau est la seule table signal → route."""
+
+    def test_current_corpus_has_one_signal_table(self):
+        self.assertEqual(structure.signal_tables(), [])
+
+    def test_second_signal_table_is_refused(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            extra = Path(tmp) / "extra.md"
+            extra.write_text("# X\n\n| Situation | Routes ciblées |\n|---|---|\n| Couleur | `SAVOIR/CRAFT` |\n", encoding="utf-8")
+            with patch.object(structure.rr, "sources_normatives", return_value=structure.rr.sources_normatives() + [extra]):
+                errors = []
+                structure.check_signal_tables(errors)
+        self.assertEqual(len(errors), 1, errors)
+        self.assertIn("[SIG-01]", errors[0])
+
+
 class FloorTests(unittest.TestCase):
     """Garde 20 (REQ-01) : chaque obligation [REQUIS] a son plancher dans le noyau ou dans le tronc des modes visés."""
 

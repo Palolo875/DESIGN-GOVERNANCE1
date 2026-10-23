@@ -203,7 +203,7 @@ Une capacité disponible modifie le type de preuve possible ; elle ne permet jam
 | Un fait, un claim, un asset, un terme métier, une contrainte, un droit ou une capacité réelle peut modifier la scène, la preuve ou l’action | `DIRECTION/GROUNDING` |
 | Levier CSS récent ou limité à un moteur, compatibilité | `SAVOIR/TECH` |
 | Médium non Web, plateforme ou capacité spéciale à choisir (CMS, primitive, motion d’état, 3D) | `DIRECTION/CAPACITY`, puis `SAVOIR/TECH` pour la preuve propre au médium |
-| Finesse sans geste concret | `SAVOIR/STATE`, avant l’intervention |
+| Finesse sans geste concret, craft ou états | `SAVOIR/STATE`, avant l’intervention |
 | Revue créative | `SAVOIR/CRAFT/CFT-00` |
 | Alternative située | `DIRECTION/DIVERGENCE` (déclenchement), puis `SAVOIR/CRAFT/CFT-02` (leviers) |
 | Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` (test motivation/construction) ; conséquence de gate : `ACTION/ANTI-SLOP` |
@@ -211,6 +211,7 @@ Une capacité disponible modifie le type de preuve possible ; elle ne permet jam
 | Recette de rendu exécutée ou citée (options, états, captures, comparaison) | `ACTION/RECETTE-RENDU` |
 | Un asset, ou son absence, porte une décision perceptible | `DIRECTION/ASSET-ROUTE`, avant le build : une route de production nommée |
 | Asset, motion, scène ou type spécifique à construire | Le contrat correspondant d’ACTION et la route SAVOIR utile ; pour une scène, `BIBLIOTHEQUE/SELECT` puis la route `BIBLIOTHEQUE/SCENE` retenue |
+| Token, composant partagé, theming ou blast radius | `SAVOIR/SYSTEM` si une décision partagée change, `BIBLIOTHEQUE/COMPONENTS` si un composant change, `ACTION/RUN-SYSTEM` si partagé |
 | Cadrage ambigu : public, tâche ou compromis | `SAVOIR/FRAME` |
 | Contexte critique, responsive, performance ou mouvement | `SAVOIR/CONTEXT` |
 | Famille de design, technique, effet ou médium qui peut modifier la décision | `SAVOIR/DESIGN-ATLAS`, après la classification, puis seulement la route spécialisée utile |

@@ -41,7 +41,7 @@ SAVOIR ne remplace pas :
 
 ### Orientation interne et sortie vers ACTION
 
-`SAVOIR/ROUTING` (`agent/chemins#routes-du-savoir`) est la carte de décision principale de SAVOIR. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `sections/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
+La carte de décision de SAVOIR est la table des signaux du noyau (`DIRECTION/CHARGE`) ; `SAVOIR/ROUTING` (`agent/chemins#routes-du-savoir`) en rappelle la règle. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `sections/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
 
 **Condition d’arrêt de lecture :** arrêter lorsque la question de jugement, le levier choisi, la contre-indication, la limite et la prochaine observation sont explicites.
 <!-- orientation:fin -->

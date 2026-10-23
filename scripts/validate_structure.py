@@ -36,9 +36,11 @@ Gardes :
  20. PLANCHERS — chaque obligation `[REQUIS PAR LE MODULE — scope]` d'une source normative a un plancher inscrit au
      registre `PLANCHERS` : un bloc compilé dans le noyau, ou une route présente dans le tronc des modes visés.
      Une obligation absente du registre, un plancher perdu ou une entrée sans obligation font échouer (REQ-01).
+ 21. TABLE DE SIGNAUX — une seule table signal → route, celle du noyau dans `DIRECTION/CHARGE` : toute autre table dont
+     l'en-tête associe un signal, une situation, une question ou un déclencheur à une route est refusée (SIG-01).
 
-Les gardes 1 à 18 protègent des propriétés et des formulations connues ; les gardes 19 et 20 vérifient qu'une règle est
-servie par une route ou compilée dans le noyau, et qu'une obligation a son plancher sur le chemin du run.
+Les gardes 1 à 18 protègent des propriétés et des formulations connues ; les gardes 19 à 21 vérifient qu'une règle est
+servie par une route ou compilée dans le noyau, qu'une obligation a son plancher sur le chemin du run et qu'un signal a une seule table.
 
 Une reformulation qui garde la formulation protégée ne casse pas ces gardes ; une suppression, une copie, un retour du
 vocabulaire retiré ou une reformulation qui perd la formulation protégée les cassent. Un déplacement dans la même
@@ -813,7 +815,7 @@ ROW_NEEDLES = [  # (fichier, début de ligne, mot attendu, constat)
     ("DIRECTION.md", "| **STANDARD** |", "DIRECTION/DOMAIN-FRAME", "C25"),
     ("DIRECTION.md", "| **DIRECTION** |", "DIRECTION/DOMAIN-FRAME", "C25"),
     ("DIRECTION.md", "| Détail final susceptible", "selon la question ouverte", "C26"),
-    ("ACTION.md", "| Token, composant ou blast radius |", "si un composant change", "C26"),
+    ("DIRECTION.md", "| Token, composant partagé, theming ou blast radius |", "si un composant change", "C26"),
 ]
 EXAMPLE_SECTION = "## DIRECTION — fabrication depuis un brief flou"
 COMMENCER = re.compile(r"\]\((?:\.\./)*(?:guides/)?1-utiliser\.md#commencer\)")
@@ -965,6 +967,29 @@ def check_floors(errors: list[str], planchers: dict[str, tuple] | None = None) -
                     errors.append(f"[REQ-01] plancher de « {scope} » : {floor[1]} absent du tronc {mode}")
 
 
+# Garde 21 : une seule table signal → route (A10).
+SIGNAL_HEADER = re.compile(r"^\|\s*(?:Signal|Situation|Question|Déclencheur)s?\s*\|\s*Routes?\b")
+
+
+def signal_tables() -> list[str]:
+    """Lieux (fichier:ligne) des en-têtes de table signal → route hors de DIRECTION/CHARGE."""
+    path, lines, index = rr.resolve("DIRECTION/CHARGE")
+    allowed = {(path.resolve(), i) for i, _ in rr.served_lines(lines, index)}
+    found = []
+    for source in rr.sources_normatives():
+        if not source.is_file():
+            continue
+        for i, line in rr.non_code_lines(source.read_text(encoding="utf-8").split("\n")):
+            if SIGNAL_HEADER.match(line) and (source.resolve(), i) not in allowed:
+                found.append(f"{rr.nom(source)}:{i + 1}")
+    return found
+
+
+def check_signal_tables(errors: list[str]) -> None:
+    for place in signal_tables():
+        errors.append(f"[SIG-01] table signal → route hors de DIRECTION/CHARGE ({place}) : la table des signaux du noyau est la seule")
+
+
 def check() -> list[str]:
     errors: list[str] = []
     corpus = texts()
@@ -989,6 +1014,7 @@ def check() -> list[str]:
     check_facades(errors)
     check_reachability(errors)
     check_floors(errors)
+    check_signal_tables(errors)
     return errors
 
 
@@ -1006,7 +1032,7 @@ def main() -> int:
     print(f"STRUCTURE VALIDATION PASSED — {len(CONCEPTS)} concepts, {len(REFERENCES)} renvois, "
           f"{len(RETIRED)} vocabulaire(s) retiré(s), {len(FIDELITY)} résumé(s) fidèle(s), "
           f"{len(GLOSSARY_TERMS)} termes de glossaire, lignes de table uniques, registre des façades, "
-          f"noyau compilé, chargement unique, règles atteignables, {len(PLANCHERS)} planchers d’obligation")
+          f"noyau compilé, chargement unique, règles atteignables, {len(PLANCHERS)} planchers d’obligation, une table de signaux")
     return 0
 
 

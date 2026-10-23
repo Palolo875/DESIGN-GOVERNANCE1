@@ -129,7 +129,7 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 | Un fait, un claim, un asset, un terme métier, une contrainte, un droit ou une capacité réelle peut modifier la scène, la preuve ou l’action | `DIRECTION/GROUNDING` |
 | Levier CSS récent ou limité à un moteur, compatibilité | `SAVOIR/TECH` |
 | Médium non Web, plateforme ou capacité spéciale à choisir (CMS, primitive, motion d’état, 3D) | `DIRECTION/CAPACITY`, puis `SAVOIR/TECH` pour la preuve propre au médium |
-| Finesse sans geste concret | `SAVOIR/STATE`, avant l’intervention |
+| Finesse sans geste concret, craft ou états | `SAVOIR/STATE`, avant l’intervention |
 | Revue créative | `SAVOIR/CRAFT/CFT-00` |
 | Alternative située | `DIRECTION/DIVERGENCE` (déclenchement), puis `SAVOIR/CRAFT/CFT-02` (leviers) |
 | Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` (test motivation/construction) ; conséquence de gate : `ACTION/ANTI-SLOP` |
@@ -137,6 +137,7 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 | Recette de rendu exécutée ou citée (options, états, captures, comparaison) | `ACTION/RECETTE-RENDU` |
 | Un asset, ou son absence, porte une décision perceptible | `DIRECTION/ASSET-ROUTE`, avant le build : une route de production nommée |
 | Asset, motion, scène ou type spécifique à construire | Le contrat correspondant d’ACTION et la route SAVOIR utile ; pour une scène, `BIBLIOTHEQUE/SELECT` puis la route `BIBLIOTHEQUE/SCENE` retenue |
+| Token, composant partagé, theming ou blast radius | `SAVOIR/SYSTEM` si une décision partagée change, `BIBLIOTHEQUE/COMPONENTS` si un composant change, `ACTION/RUN-SYSTEM` si partagé |
 | Cadrage ambigu : public, tâche ou compromis | `SAVOIR/FRAME` |
 | Contexte critique, responsive, performance ou mouvement | `SAVOIR/CONTEXT` |
 | Famille de design, technique, effet ou médium qui peut modifier la décision | `SAVOIR/DESIGN-ATLAS`, après la classification, puis seulement la route spécialisée utile |
@@ -235,18 +236,7 @@ Reviens à un mode plus riche si le changement touche une règle partagée, l’
 
 DIRECTION déclenche la classification générale. ACTION appelle ensuite les routes de `SAVOIR` et `BIBLIOTHEQUE` qui peuvent modifier la prochaine décision : elles s’ajoutent à la ligne du mode dans `DIRECTION/CHARGE` (colonne « Ajouter seulement si ») et ne forment pas une seconde liste.
 
-| Situation | Routes ciblées |
-|---|---|
-| Spec `DIRECTION` | `SAVOIR/CRAFT`, `SAVOIR/TYPE` ou `SAVOIR/SOURCE` si la composition, la typographie ou l’ancrage restent ouverts, `SAVOIR/STYLE` si registre, `BIBLIOTHEQUE/SELECT` si structure ouverte. |
-| Craft ou états | `SAVOIR/STATE`. |
-| Couleur, contraste ou theming | `SAVOIR/CRAFT`, `SAVOIR/SYSTEM` et politique de contraste ACTION. |
-| Risque critique, responsive, performance ou motion | `SAVOIR/CONTEXT`. |
-| Technique ou compatibilité | `SAVOIR/TECH`. |
-| Claim, outil ou tendance datée | `SAVOIR/TOOLS` et trace locale indiquant source, date, portée et limite. |
-| Doute d’application ou théâtre procédural | `SAVOIR/INTEGRITY`. |
-| Une famille de design peut modifier la prochaine décision | `SAVOIR/DESIGN-ATLAS`, puis seulement la route propriétaire utile. |
-| Structure d’un écran | `BIBLIOTHEQUE/SELECT`, puis routes retenues. |
-| Token, composant ou blast radius | `SAVOIR/SYSTEM` si une décision partagée change, `BIBLIOTHEQUE/COMPONENTS` si un composant change, `ACTION/RUN-SYSTEM` si partagé. |
+Les routes de `SAVOIR` et de `BIBLIOTHEQUE` se choisissent dans la table des signaux du noyau (« Lire les détails selon le signal », `DIRECTION/CHARGE`) ; ACTION n’en tient pas de seconde liste.
 
 Les anciennes références de section ne sont pas des routes quotidiennes. Leur migration est documentée dans `maintenance/evolution.md`, et un nouveau run utilise uniquement les routes stables.
 
@@ -296,16 +286,4 @@ Les anciens identifiants de section sont documentés dans la table de migration 
 
 Une question possède une route principale. Les autres routes sont des renvois qui ne créent pas une seconde procédure.
 
-| Question | Route principale | Renvoi |
-|---|---|---|
-| Public, JTBD, décision, compromis | `SAVOIR/FRAME` | `ACTION` pour preuve et sortie. |
-| Direction, matière, composition, émotion | `SAVOIR/CRAFT` | `SOURCE` ou `STYLE` si nécessaire. |
-| Langue, lecture, données, ton | `SAVOIR/TYPE` | `CONTEXT` pour accessibilité et `ACTION` pour preuve. |
-| États, contenu extrême, récupération | `SAVOIR/STATE` | `CONTEXT` et `ACTION/GATE-A`. |
-| Ancre, référence, asset, droit | `SAVOIR/SOURCE` | `TOOLS` pour claims et `ACTION` pour trace. |
-| Profil ou dial d’expression | `SAVOIR/STYLE` | `CRAFT` et `BIBLIOTHEQUE`. |
-| Token, consumer, composant partagé | `SAVOIR/SYSTEM` | `ACTION/RUN-SYSTEM`. |
-| Accessibilité, responsive, performance, motion, risque critique | `SAVOIR/CONTEXT` | `TECH` ; `ACTION/GATE-A` pour le contrôle objectivable et l’axe `T` dans la portée de preuve d’ACTION. |
-| Technique, compatibilité, mesure | `SAVOIR/TECH` | `TOOLS` si claim daté. |
-| Source, tendance, outil, claim | `SAVOIR/TOOLS` | `maintenance/versions.md` si promotion. |
-| Récitation, limite, délégation | `SAVOIR/INTEGRITY` | `ACTION` pour issue et verdict. |
+La route principale d’une question est celle que donne la table des signaux du noyau (« Lire les détails selon le signal », `DIRECTION/CHARGE`) ; chaque route de SAVOIR nomme elle-même ses renvois. SAVOIR n’en tient pas de seconde liste.
