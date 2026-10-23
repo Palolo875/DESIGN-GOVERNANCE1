@@ -512,6 +512,52 @@ class ReachabilityTests(unittest.TestCase):
         self.assertEqual(errors, [])
 
 
+class FacadeSensitivityTests(unittest.TestCase):
+    """L7-12 : chaque condition de façade tombe quand on lui retire son texte, ou quand on y ajoute le défaut qu'elle interdit."""
+
+    # Conditions d'interdiction, vraies sur un texte vide par construction : leur mutation est un ajout ciblé.
+    PROHIBITIONS = {"LCF-12", "LCF-13", "LCF-21", "LCF-22"}
+
+    def setUp(self):
+        self.texts = reading_map.load_texts()
+
+    def failing(self, texts):
+        errors = []
+        with patch.object(reading_map, "load_texts", return_value=texts):
+            reading_map.check_facades(errors)
+        return {re.match(r"(LCF-[0-9A-Z]+)", e).group(1) for e in errors if re.match(r"LCF-", e)}
+
+    def test_each_condition_falls_when_its_text_is_removed(self):
+        source = (Path(reading_map.__file__)).read_text(encoding="utf-8")
+        ids = set(re.findall(r"""\(["'](LCF-[0-9A-Z]+)["'],""", source))
+        self.assertEqual(self.failing(dict(self.texts)), set())
+        fallen = set()
+        for key in self.texts:
+            texts = dict(self.texts)
+            texts[key] = ""
+            fallen |= self.failing(texts)
+        self.assertEqual(ids - fallen, self.PROHIBITIONS)
+
+    def assert_added_defect_fails(self, key, addition, lcf_id):
+        texts = dict(self.texts)
+        texts[key] += "\n" + addition + "\n"
+        self.assertIn(lcf_id, self.failing(texts))
+
+    def test_reservation_without_conditions_fails(self):
+        self.assert_added_defect_fails("EX", "```text\nVERDICT: ACCEPTED-WITH-RESERVATION\n```", "LCF-12")
+
+    def test_not_observed_as_verdict_fails(self):
+        self.assert_added_defect_fails("EX", "```text\nNOT-OBSERVED: rendu\n```", "LCF-13")
+
+    def test_efficacy_claim_without_not_verified_fails(self):
+        texts = dict(self.texts)
+        texts["README"] = texts["README"].replace("NOT-VERIFIED", "vérifiée")
+        self.assertIn("LCF-21", self.failing(texts))
+
+    def test_decision_change_without_not_observed_fails(self):
+        self.assert_added_defect_fails("A", "La conséquence `DECISION-CHANGE` vaut `N/A-JUSTIFIED` par défaut.", "LCF-22")
+
+
 class FloorTests(unittest.TestCase):
     """Garde 20 (REQ-01) : chaque obligation [REQUIS] a son plancher dans le noyau ou dans le tronc des modes visés."""
 

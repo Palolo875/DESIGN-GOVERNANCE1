@@ -7,7 +7,9 @@ Deux contrôles :
    la résolution est celle de read_route.py (un seul résolveur) ;
 2. façades : liste close des conditions de façade (LCF). Chaque entrée nomme une
    façade, la condition du propriétaire qu’elle doit conserver et sa source. Une
-   entrée n’entre que par une décision écrite, avec sa mutation rouge.
+   entrée n’entre que par une décision écrite, avec sa mutation rouge ; `FacadeSensitivityTests`
+   (test_audit_regressions.py) vérifie que chaque condition tombe quand son texte est retiré
+   ou, pour une interdiction, quand le défaut interdit est ajouté.
 Limite déclarée : une contradiction nouvelle hors de la LCF n’est pas détectée ;
 la revue bornée des façades avant release la complète.
 """
