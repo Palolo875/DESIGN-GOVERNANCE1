@@ -18,13 +18,14 @@
 > - [`design/savoir/gout-et-tendances.md`](../design/savoir/gout-et-tendances.md) : `SAVOIR/TOOLS`
 <!-- lieux:fin -->
 
+<!-- orientation:début -->
 ## Responsabilité
 
 SAVOIR explique **comment exercer le jugement** : cadrer, choisir, comparer, retirer, vérifier et reconnaître une limite. Il contient les fondations, le craft, les profils de style, la production, la veille et la gouvernance de principes.
 
 **Capacité positive de SAVOIR.** SAVOIR transforme une impression visuelle ou une question de craft en décision située : il aide à comprendre ce qui doit être perceptible, à choisir les leviers de composition et de fabrication, à comparer des options, à retirer ce qui détourne l’attention et à formuler une limite honnête. Il augmente la précision du jugement et la qualité de l’artefact ; il ne remplace ni l’observation réelle d’ACTION, ni la décision de clôture, ni le contexte humain.
 
-**Chemin par problème.** Charge SAVOIR lorsqu’une décision de jugement peut modifier le prochain artefact ou sa preuve : `FRAME` pour le problème, le public et le compromis ; `CRAFT` pour la composition et la fabrication ; `TYPE`, `STATE` ou `CONTEXT` pour la lisibilité, les états et les contraintes ; `SOURCE`, `STYLE`, `SYSTEM`, `TECH`, `TOOLS` ou `INTEGRITY` seulement lorsque leur question est active. Le bénéfice attendu de chaque route doit être identifiable avant son chargement.
+**Chemin par problème.** Charge SAVOIR lorsqu’une décision de jugement peut modifier le prochain artefact ou sa preuve : `FRAME` pour le problème, le public et le compromis ; `CRAFT` pour la composition et la fabrication ; `TYPE`, `STATE` ou `CONTEXT` pour la lisibilité, les états et les contraintes ; `SOURCE`, `STYLE`, `SYSTEM`, `TECH`, `TOOLS` ou `INTEGRITY` seulement lorsque leur question est active.
 
 SAVOIR ne remplace pas :
 
@@ -35,17 +36,14 @@ SAVOIR ne remplace pas :
 | `BIBLIOTHEQUE.md` | Structures, supports, grilles, scènes, objets, micro-interfaces et composants. |
 | `maintenance/versions.md` | État courant du système, modifié par les décisions de gouvernance retenues. |
 
-> Un principe SAVOIR guide une décision ; une méthode décrit comment formuler la raison ; une preuve ACTION établit ce qui a été observé ou mesuré. Aucun principe, ancre, profil ou texte de justification ne produit seul un `PASS` d’usage, d’accessibilité ou de qualité.
-
 ---
 
 ### Orientation interne et sortie vers ACTION
 
 `SAVOIR/ROUTING` est la carte de décision principale de ce fichier. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `sections/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
 
-La sortie de SAVOIR n’est pas un verdict. Elle doit transmettre à ACTION la décision jugée, le principe ou la méthode utilisés, la conséquence observable, la preuve attendue, la limite, le propriétaire et la prochaine preuve. Si aucune décision ne peut changer, ne chargez pas une route supplémentaire. À la clôture, si aucune décision n’est changée, confirmée ou abandonnée, les valeurs de repli d’`ACTION/STATUS` s’appliquent : `N/A-JUSTIFIED` lorsqu’aucune conséquence n’était applicable, `NOT-OBSERVED` lorsqu’une conséquence attendue n’a pas été observée.
-
 **Condition d’arrêt de lecture :** arrêter lorsque la question de jugement, le levier choisi, la contre-indication, la limite et la prochaine observation sont explicites.
+<!-- orientation:fin -->
 
 ## SAVOIR/ROUTING — routes stables
 

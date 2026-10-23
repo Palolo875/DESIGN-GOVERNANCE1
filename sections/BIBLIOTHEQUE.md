@@ -11,6 +11,7 @@
 > - [`maintenance/evolution.md`](../maintenance/evolution.md) : `BIBLIOTHEQUE/EVOLUTION`
 <!-- lieux:fin -->
 
+<!-- orientation:début -->
 ## Responsabilité
 
 BIBLIOTHEQUE est le système de sélection des **structures d’interface**. Elle décrit où une surface vit, comment le regard circule, comment texte, information, média et preuve se rencontrent, et quelles unités rendent une action tangible.
@@ -37,6 +38,7 @@ Toute sélection ou non-sélection doit transmettre : `DECISION`, niveau ou hér
 **Condition d’arrêt de lecture :** arrêter lorsque la relation structurelle à modifier, la route ou l’héritage, la conséquence observable, la preuve, la limite et le propriétaire suivant sont explicites.
 
 En run local, le contrat réduit de `BIBLIOTHEQUE/CONTRACTS` suffit ; si la structure existante suffit, conserve l’héritage ou le cas documentaire avec sa source et sa justification. `N/A-JUSTIFIED` est réservé à une non-applicabilité réelle selon ACTION. Les exigences par périmètre de contribution (pilote, partagé, durable) et les statuts de cycle de vie relèvent de `BIBLIOTHEQUE/EVOLUTION`.
+<!-- orientation:fin -->
 
 <!-- noyau:début STRUCT-OU -->
 > L’interface ne commence ni avec une « landing premium », ni avec une grille de cartes, ni avec une image inspirante. Elle déclare d’abord **où elle vit**, **comment le regard circule**, **quelle preuve devient tangible** et **comment la personne agit**.
