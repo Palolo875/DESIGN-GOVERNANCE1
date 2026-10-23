@@ -19,7 +19,7 @@ Gardes :
      les façades y renvoient ; la ligne `DIRECTION` garde le build et l'ordre cible → premier objet ;
      Gate B n'y est chargée qu'en trace complète ; la carte de lecture d'ACTION renvoie à CHARGE (D2).
      Les tables qui associent un signal à une route ne sont pas couvertes par cette garde.
- 10. ORDRE — dans DIRECTION, rôle, posture et récapitulatif de protection précèdent les sections détaillées.
+ 10. ORDRE — dans DIRECTION, rôle et posture précèdent les sections détaillées.
  11. CHOIX CONTEXTUELS (garde bornée) — refuse le retour des formulations universelles retirées et les impératifs
      universels explicites (« toujours », « à tous les »…) sur un traitement ou une famille unique ; accepte un choix situé.
  12. LOCATORS DU VALIDATEUR — un message de `validate_run_card.py` cite un lieu nommé, jamais un numéro de ligne.
@@ -199,10 +199,9 @@ def check_universal(corpus: dict[Path, list[str]], errors: list[str]) -> None:
                     errors.append(f"[UNI-01] choix présenté comme universel ({rr.nom(path)}) : « {sentence[:90]}… »")
 
 
-# 10. Ordre de DIRECTION : rôle, posture et récapitulatif de protection avant les sections détaillées.
+# 10. Ordre de DIRECTION : rôle et posture avant les sections détaillées.
 ORDER: list[tuple[str, str]] = [("## Rôle", "## DIRECTION/START"),
-                                ("## Posture — à lire avant toute action", "## DIRECTION/START"),
-                                ("### Récapitulatif de protection", "## DIRECTION/START")]
+                                ("## Posture — à lire avant toute action", "## DIRECTION/START")]
 
 # 4. Fidélité des résumés : tout paragraphe qui contient le déclencheur contient la condition canonique.
 FIDELITY: list[tuple[str, str, str]] = [

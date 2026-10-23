@@ -8,7 +8,7 @@ Le standard de qualité visuelle, les cinq règles essentielles et les invariant
 <!-- noyau:début ABSOLUS -->
 **Les cinq absolus.** Ils valent pour tout run, quel que soit le mode ; leur texte complet est servi par `DIRECTION/STANDARD`.
 
-1. **Direction visible.** Une surface identitaire conforme mais sans direction perceptible est un échec de livraison ; la conformité est un plancher, pas un résultat.
+1. **Direction visible.** Une surface identitaire conforme mais sans direction perceptible est un échec de livraison ; la conformité est un plancher, pas un résultat. Un écart de direction se corrige ; il ne se compense pas par la preuve d’un autre axe.
 2. **Ancrage.** Aucune direction identitaire n’est acceptée sans ancre ; sans elle, elle reste `EXPLORATORY`, avec sa limite.
 3. **Preuves.** Aucune livraison sans les preuves applicables au mode ; un gate non applicable est `N/A-JUSTIFIED`, un gate non vérifiable `NOT-VERIFIED`, jamais `PASS`.
 4. **Déclarer avant d’agir.** Mode, décision dominante, risque principal, preuve minimale et condition d’arrêt. Un moyen ou une preuve qui manque ne fait jamais baisser le mode en silence : la propriété concernée devient `NOT-VERIFIED`.
@@ -100,6 +100,29 @@ En santé, finance, légal, secteur public ou tout contexte à enjeu, la clarté
 Lorsque le risque dominant concerne une population, une accessibilité réelle, une tâche critique ou un coût d’erreur élevé, DIRECTION signale ce risque ; le choix de méthode — observation avec des personnes représentatives, revue experte ou contrôle technique — relève d’`ACTION/GATE-B` et de `SAVOIR/CONTEXT`, avec owner et prochaine preuve. Une méthode non utilisateur ne soutient pas un claim d’usage.
 
 Une capture, une lecture perceptuelle ou une comparaison peut établir une observation de caractère visuel ou de compréhensibilité présumée. Elle ne constitue une preuve d’utilisabilité que si un utilisateur, un objectif, une tâche, un contexte et un résultat observé sont définis.
+
+### Légende
+
+| Tag | Sens |
+|---|---|
+| `[ABSOLU]` | Contrat transversal de DIRECTION. |
+| `[FORCÉ]` | Chargement ou action déclenché par un signal objectif. |
+| `[REQUIS PAR LE MODULE]` | Obligation définie par ACTION, SAVOIR ou BIBLIOTHEQUE dans son propre périmètre. |
+| `[RECOMMANDÉ]` | Défaut solide, infléchissable si l’exception est nommée. |
+| `[À ADAPTER]` | Point de départ contextuel, jamais validation automatique. |
+| `[VEILLE]` | Information datée ou évolutive à vérifier avant de la transformer en règle. |
+
+Légende commune à DIRECTION et SAVOIR pour les seuls tags partagés : `[REQUIS PAR LE MODULE]`, `[À ADAPTER]` et `[VEILLE]`, au même sens. SAVOIR tient sa propre table (« Niveaux d’autorité ») pour ses autres tags ; `[RECOMMANDÉ]` n’y est pas employé.
+
+Les valeurs chiffrées sont des points de départ. **La vérification exigée ne l’est pas.** Une heuristique de craft peut guider une décision ; elle ne devient pas une loi universelle sans portée, source et preuve appropriées. De même, « premium », « beau », « moderne », « innovant » ou « haut de gamme » ne sont jamais des décisions suffisantes : ils doivent être traduits en relation visible, contenu, geste, contrainte ou preuve. Une réponse concise reste valide si elle est située ; la longueur de la trace ne compense jamais son absence de conséquence.
+
+**Repères de vocabulaire.** *Craft* désigne la qualité de fabrication et de résolution du design ; *JTBD* signifie la tâche que la personne cherche réellement à accomplir ; *scope* désigne le périmètre de la preuve ; *grounding* désigne l’ancrage factuel ou contextuel susceptible de modifier la décision ; `BASIS` désigne la base déclarée d’un claim ou d’une capacité.
+
+---
+
+### Comment lire les repères
+
+Ces repères ne fusionnent pas les taxonomies. **Le risque dominant** détermine la protection à préserver et aide à choisir le mode ; **le mode** détermine la proportion de trace et de preuve ; **P0–P3** décrivent l’ordre de protection à examiner dans ce contexte ; **V/U/A/T** sont les axes de questions et de preuve tenus par `ACTION`. Si deux repères semblent entrer en conflit, ne baisse pas la protection : pose une clarification ciblée ou retiens le risque dominant.
 
 ### Invariants de jugement
 

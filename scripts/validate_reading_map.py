@@ -233,11 +233,11 @@ def load_texts() -> dict[str, str]:
 
 
 def lcf_07(t: dict[str, str]) -> bool:
-    chain = after(t["D"], "**Chaîne de lecture interne.**", 700)
     prio = fenced_after(t["D"], "```text\nRUN-PRIORITY")
     pointers = [row(t["RM"], "Direction identitaire"), row(t["RM"], "Direction forte et spécifique")]
     rows = [charge_row(t, "DIRECTION")]
-    return (before(chain, "`VISUAL_TARGET`", "`FIRST-OBJECT`") and before(prio, "DIRECTION —", "FIRST-OBJECT —")
+    # L'ordre cible → premier objet de la ligne DIRECTION de CHARGE est aussi tenu par CHG-07 (validate_structure.py).
+    return (before(prio, "DIRECTION —", "FIRST-OBJECT —")
             and all(r and before(" ".join(r), "VISUAL_TARGET", "FIRST-OBJECT") for r in rows)
             and all(p and "`DIRECTION/CHARGE`" in " ".join(p) for p in pointers))
 
@@ -683,10 +683,10 @@ def check_facades(errors: list[str]) -> None:
          "DIRECTION/START (ITER : direction existante et retrouvable)",
          re.search(r"\*\*`ITER`\*\*[^\n]*(retrouvable|existante)", t["Q"]) is not None and rd_iter is None),
         ("LCF-06", "table des signaux du noyau, ligne « Structure ouverte »", "DIRECTION/START (classification)", lcf_06(t)),
-        ("LCF-07", "DIRECTION 72, RUN-PRIORITY, READING_MAP (routage et combinaisons), skill", "DIRECTION 55 (cible avant premier objet)", lcf_07(t)),
+        ("LCF-07", "RUN-PRIORITY, ligne DIRECTION de CHARGE, READING_MAP (routage et combinaisons)", "DIRECTION/VISUAL_TARGET avant DIRECTION/FIRST-OBJECT", lcf_07(t)),
         ("LCF-08", "DIRECTION, gabarit START et FAST-PATH", "DIRECTION/START (OWNER et SCOPE jamais omis)",
          re.search(r"`?OWNER`? et `?SCOPE`?[^.]*jamais omis", entry) is not None and bool(fast) and "et son owner" in fast[1] and "si nécessaire" not in fast[1]),
-        ("LCF-09", "DIRECTION, RUN-PRIORITY et récapitulatif de protection (point 4)", "BIBLIOTHEQUE/SELECT, SCENE",
+        ("LCF-09", "DIRECTION, RUN-PRIORITY", "BIBLIOTHEQUE/SELECT, SCENE",
          bool(re.search(r"FIRST-OBJECT —[\s\S]*?sauf si", prio))),
         ("LCF-10", "QUICKSTART, table de mode ; README sans table de mode", "D-FAC-1 (classement : voir DIRECTION/START)",
          re.search(r"(?i)classement\s*:\s*voir `DIRECTION/START`", t["Q"]) is not None and rd_dir is None and rd_iter is None),

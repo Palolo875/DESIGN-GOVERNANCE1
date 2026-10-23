@@ -41,7 +41,8 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
                                ("CHARGE-TABLE", "DIRECTION.md", None), ("CHARGE-FIN", "DIRECTION.md", None),
                                ("CHARGE-LECTEUR", "DIRECTION.md", None)]),
     ("Avant de construire — contenu réel et premier objet", [("BRIEF", "DIRECTION.md", None), ("CONTENU", "DIRECTION.md", None),
-                                                    ("PREMIER-OBJET", "DIRECTION.md", None), ("MOY-PLAFOND", "DIRECTION.md", None)]),
+                                                    ("PREMIER-OBJET", "DIRECTION.md", None), ("MOY-PLAFOND", "DIRECTION.md", None),
+                                                    ("RECONCILIATION", "DIRECTION.md", None)]),
     ("Avant de construire — situer l’interface et son caractère", [("STRUCT-OU", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-EXPRESSION", "BIBLIOTHEQUE.md", None), ("STRUCT-LEVIERS", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-TENSION", "BIBLIOTHEQUE.md", None), ("STRUCT-ACTIVATION", "BIBLIOTHEQUE.md", None),
@@ -74,7 +75,7 @@ COMMUN = frozenset({
     "BOUCLE-DIAGNOSTIC", "CHECKPOINT", "SORTIE", "TRACE",
     # Savoir de fabrication chargé à chaque run : premier objet, composition, typographie,
     # convergence et revue créative. Une section à l'essai reste servie par sa route.
-    "PREMIER-OBJET", "MOY-PLAFOND", "STRUCT-EXPRESSION", "STRUCT-TENSION",
+    "PREMIER-OBJET", "MOY-PLAFOND", "RECONCILIATION", "STRUCT-EXPRESSION", "STRUCT-TENSION",
     "COMP-GRAMMAIRE", "COMP-SINGULARITE", "COMP-FORME", "COMP-CONTROLES",
     "COMP-TITRE", "COMP-TEXTE-IMAGE", "COMP-CONVERGENCE", "BOUCLE-REVUE", "BOUCLE-AXE",
 })
