@@ -20,7 +20,7 @@ La première proposition oriente la suite ; la valider ne vaut pas l’accepter.
 
 ## Contrôles inclus
 
-La validation couvre inventaire, liens, références, noyau compilé, projections machine, carte de lecture, lecteur de routes et fraîcheur des cartes. Dans le dépôt GitHub, elle reconstruit aussi les deux distributions et vérifie leur reproductibilité ; l’export Local contrôle le paquet exporté, sans les outils de construction.
+La validation couvre inventaire, liens, références, noyau compilé, projections machine, carte de lecture, lecteur de routes, atteignabilité des règles (toute règle est servie par une route ou compilée dans le noyau) et fraîcheur des cartes. Dans le dépôt GitHub, elle reconstruit aussi les deux distributions et vérifie leur reproductibilité ; l’export Local contrôle le paquet exporté, sans les outils de construction.
 
 ```sh
 python3 scripts/validate_all.py --require-browser

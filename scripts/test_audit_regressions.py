@@ -475,6 +475,36 @@ class CoreResourceActivationTests(unittest.TestCase):
                     self.assertIn(fragment, served)
 
 
+class ReachabilityTests(unittest.TestCase):
+    """Garde 19 (ATT-01) : une règle qu'aucune route ne sert et que le noyau ne porte pas est refusée."""
+
+    def unreachable(self, text: str) -> list[int]:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "source.md"
+            path.write_text(text, encoding="utf-8")
+            return structure.unreachable_lines(path)
+
+    def test_rule_outside_any_route_is_refused(self):
+        text = ("# Titre\n\n<!-- origine:DIRECTION.md -->\n## Section libre\n\nUne règle que rien ne sert.\n\n"
+                "## DIRECTION/START — classer\n\nTexte servi.\n")
+        self.assertEqual(self.unreachable(text), [6])
+
+    def test_orientation_zone_and_non_normative_origin_are_admitted(self):
+        text = ("<!-- origine:DIRECTION.md -->\n<!-- orientation:début -->\n## Pour une personne\n\nOrientation.\n"
+                "<!-- orientation:fin -->\n\n<!-- origine:READING_MAP.md -->\n## Carte\n\nVue dérivée.\n")
+        self.assertEqual(self.unreachable(text), [])
+
+    def test_compiled_core_block_is_reachable(self):
+        text = ("<!-- origine:DIRECTION.md -->\n## Rôle\n\n<!-- noyau:début ROLE -->\nTexte compilé dans le noyau.\n"
+                "<!-- noyau:fin ROLE -->\n\nTexte qui ne l'est pas.\n")
+        self.assertEqual(self.unreachable(text), [8])
+
+    def test_current_corpus_has_no_unreachable_rule(self):
+        errors = []
+        structure.check_reachability(errors)
+        self.assertEqual(errors, [])
+
+
 class ReviewFindingsTests(unittest.TestCase):
     """Témoins des défauts reproduits par la revue du système (carnet de revue, branche refonte)."""
 

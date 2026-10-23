@@ -30,9 +30,12 @@ Gardes :
  16. EN-TÊTE DE LA SKILL — métadonnées `name` et `description` lisibles en YAML : valeur citée dès qu'elle porte « : » ou serait lue comme nul, booléen, nombre ou date (SKL-01).
  17. DÉCLENCHEUR UI/UX — `CHARGE` appelle `ACTION/UI-UX-REALITY` en STANDARD et DIRECTION avant fabrication, pas en LITE (UIX-01).
  18. FAÇADES — trace légère et proposition dans les guides, glossaire et carte ; exemple hors domaine de référence ; liens vers « Commencer » (FAC-01).
+ 19. ATTEIGNABILITÉ — toute ligne écrite sous une origine DIRECTION, ACTION, SAVOIR ou BIBLIOTHEQUE est servie par une
+     route ou compilée dans le noyau, sauf l'en-tête du fichier, les bandeaux `lieux:` et les zones `orientation:`
+     destinées aux personnes (ATT-01). La maintenance (origine CHANGELOG) se lit par renvoi de fichier.
 
-Ces gardes protègent des propriétés et des formulations connues ; elles ne vérifient pas qu'une règle est servie par
-une route ou compilée dans le noyau.
+Les gardes 1 à 18 protègent des propriétés et des formulations connues ; seule la garde 19 vérifie qu'une règle est
+servie par une route ou compilée dans le noyau.
 
 Une reformulation qui garde la formulation protégée ne casse pas ces gardes ; une suppression, une copie, un retour du
 vocabulaire retiré ou une reformulation qui perd la formulation protégée les cassent. Un déplacement dans la même
@@ -848,6 +851,61 @@ def check_facades(errors: list[str]) -> None:
                 errors.append(f"[FAC-01] RELEASE_NOTES : « {needle} » absent")
 
 
+# 19. Atteignabilité : une règle qu'aucune route ne sert et que le noyau ne porte pas n'atteint jamais l'agent.
+ATTEIGNABLES = {"DIRECTION.md", "ACTION.md", "SAVOIR.md", "BIBLIOTHEQUE.md"}
+ZONE = re.compile(r"^<!-- (orientation|lieux):(début|fin) -->$")
+
+
+def unreachable_lines(path: Path) -> list[int]:
+    """Numéros (base 1) des lignes d'origine normative qu'aucune route ne sert et qu'aucun bloc compilé ne porte."""
+    lines = path.read_text(encoding="utf-8").splitlines()
+    heads = rr.headings(lines)
+    served = set()
+    for index, _, text in heads:
+        if rr.heading_locator(text):
+            served.update(range(index, rr.block_end(lines, heads, index)))
+    # Sans marque d'origine, tout le fichier vient de sa source (rr.part_de) ; son en-tête (titre et statut) précède
+    # le premier titre de niveau 2.
+    marked = any(rr.ORIGINE.match(l.strip()) for l in lines)
+    sources = rr.origines(path) & ATTEIGNABLES
+    default = next(iter(sources)) if not marked and len(sources) == 1 else None
+    out, origin, zone, block = [], None, None, None
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if default and origin is None and s.startswith("## "):
+            origin = default
+        m = rr.ORIGINE.match(s)
+        if m:
+            origin = m[1]
+            continue
+        z = ZONE.match(s)
+        if z:
+            zone = z[1] if z[2] == "début" else None
+            continue
+        n = NOYAU_MARK.match(s)
+        if n:
+            block = n[2] if n[1] == "début" else None
+            continue
+        if (not s or s == "---" or s.startswith(("#", "<!--")) or origin not in ATTEIGNABLES or zone
+                or i in served or (block and (block in bc.COMMUN or block in bc.DETAILS))):
+            continue
+        out.append(i + 1)
+    return out
+
+
+def check_reachability(errors: list[str]) -> None:
+    for path in rr.sources_normatives():
+        found = unreachable_lines(path)
+        if not found:
+            continue
+        ranges, start = [], found[0]
+        for a, b in zip(found, found[1:] + [None]):
+            if b != a + 1:
+                ranges.append(f"{start}" if start == a else f"{start}-{a}")
+                start = b
+        errors.append(f"[ATT-01] lignes normatives servies par aucune route ni par le noyau : {rr.nom(path)}:{', '.join(ranges)}")
+
+
 def check() -> list[str]:
     errors: list[str] = []
     corpus = texts()
@@ -870,6 +928,7 @@ def check() -> list[str]:
     check_skill_header(errors)
     check_ui_trigger(errors)
     check_facades(errors)
+    check_reachability(errors)
     return errors
 
 
@@ -887,7 +946,7 @@ def main() -> int:
     print(f"STRUCTURE VALIDATION PASSED — {len(CONCEPTS)} concepts, {len(REFERENCES)} renvois, "
           f"{len(RETIRED)} vocabulaire(s) retiré(s), {len(FIDELITY)} résumé(s) fidèle(s), "
           f"{len(GLOSSARY_TERMS)} termes de glossaire, lignes de table uniques, registre des façades, "
-          f"noyau compilé, chargement unique")
+          f"noyau compilé, chargement unique, règles atteignables")
     return 0
 
 

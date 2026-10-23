@@ -74,7 +74,7 @@ Exemple pour un environnement où Chromium est déjà installé à cet emplaceme
 DG_BROWSER_EXECUTABLE=/usr/bin/chromium DG_RENDER_SERVE_LOCAL=1 python3 scripts/validate_all.py --require-browser
 ```
 
-Les chemins d’exemple entre accents graves portent le préfixe `exemple:` ; les chemins opérationnels doivent se résoudre vers un fichier livré ou une route. Une référence destinée à une seule distribution se marque sur sa ligne par le commentaire HTML « références:github » ou « références:local » : son chemin doit être déclaré dans le manifeste de cette distribution. Les contrôles ignorent les blocs d’exemple, mais vérifient les liens Markdown.
+Une règle écrite dans une source normative (DIRECTION, ACTION, SAVOIR, BIBLIOTHEQUE) doit être servie par une route ou compilée dans le noyau : `validate_structure.py` refuse toute autre ligne (garde ATT-01). Un texte destiné aux personnes s’y place entre `<!-- orientation:début -->` et `<!-- orientation:fin -->`. Les chemins d’exemple entre accents graves portent le préfixe `exemple:` ; les chemins opérationnels doivent se résoudre vers un fichier livré ou une route. Une référence destinée à une seule distribution se marque sur sa ligne par le commentaire HTML « références:github » ou « références:local » : son chemin doit être déclaré dans le manifeste de cette distribution. Les contrôles ignorent les blocs d’exemple, mais vérifient les liens Markdown.
 
 Les tests JavaScript sur DOM simulés utilisent un runtime Node déjà disponible ; son absence laisse cette partie `NOT-VERIFIED`. `python3 scripts/test_check_render.py --skip-browser` exécute seulement les tests synthétiques et les DOM simulés, sans ouvrir de page ni installer de dépendance.
 
