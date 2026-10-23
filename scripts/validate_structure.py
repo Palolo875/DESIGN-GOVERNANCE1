@@ -252,7 +252,7 @@ FIDELITY: list[tuple[str, str, str]] = [
     # Une seule liste de chargement, plancher SAVOIR dans le noyau, lieu de la trace légère
     ("carte d'ACTION : vue de CHARGE", r"\*\*Socle pour tous les modes", "DIRECTION/CHARGE"),
     ("ACTION, responsabilité : chargement par CHARGE", r"est le propriétaire des preuves exécutables, des gates, des statuts de run", "DIRECTION/CHARGE"),
-    ("déclencheurs critiques : conditionnels, par CHARGE", r"\| Détail final susceptible", "DIRECTION/CHARGE"),
+    ("table des signaux : détail final conditionnel, par CHARGE", r"\| Détail final susceptible", "DIRECTION/CHARGE"),
     ("ACTION/ROUTING : renvoi à CHARGE", r"DIRECTION déclenche la classification générale", "DIRECTION/CHARGE"),
     ("SAVOIR/READ : plancher dans le noyau", r"\*\*Chemin minimal\.\*\* Décide d’abord", "noyau"),
     ("trace légère : lieu", r"\*\*Trace légère par défaut\.\*\*", "à côté de l’artefact"),

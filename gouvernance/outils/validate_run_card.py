@@ -524,7 +524,7 @@ def check_semantic_contract(document: Any) -> None:
     if mode == "ITER":
         direction = card.get("direction")
         if not isinstance(direction, dict) or not filled(direction.get("thesis")):
-            raise ValidationError("ITER exige un rappel de direction (direction.thesis) ; sinon reclasser (DIRECTION, ITER se souvient)")
+            raise ValidationError("ITER exige un rappel de direction (direction.thesis) ; sinon reclasser (ACTION/RUN-ITER, entrée)")
 
     if closure.get("direction_status") == "LOST-IN-BUILD" and verdict in ACCEPTED:
         raise ValidationError("LOST-IN-BUILD ne peut pas produire un verdict accepté")
