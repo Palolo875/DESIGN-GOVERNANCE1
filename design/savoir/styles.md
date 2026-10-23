@@ -67,17 +67,7 @@ BIBLIOTHEQUE fournit l’architecture, pas l’habillage. Un même objet ou une 
 
 [À ADAPTER] Les dials sont des relations perceptuelles qualitatives, non des recettes de layout, des valeurs machine ou des scores. Un dial peut rester inchangé si aucune décision du run ne le concerne ; sa position, sa contre-indication, son médium, son scope et sa conséquence observable doivent être formulés sans fabriquer de seuil esthétique.
 
-| Dial | Pôle bas | Pôle haut | Vérification |
-|---|---|---|---|
-| Variance | Prévisibilité, répétition, repères stables. | Surprise, contraste et rupture justifiée. | La variation aide-t-elle le parcours ? |
-| Motion | Continuité minimale, feedback discret. | Expressivité au service du repérage, de la causalité ou de la matière. | La motion améliore-t-elle la compréhension ? |
-| Densité | Respiration et focalisation. | Information utile par viewport et accès rapide. | La densité reflète-t-elle une décision réelle ? |
-| Contraste | Différence contenue, transitions douces et hiérarchie calme. | Seuils nets, opposition et signal prioritaire. | Le contraste clarifie-t-il sans écraser les états ou la lecture ? |
-| Matérialité | Planéité, abstraction et économie de surface. | Texture, volume ou présence tactile. | La matière porte-t-elle une relation ou seulement une décoration ? |
-| Voix typographique | Neutralité fonctionnelle et continuité. | Personnalité, rythme éditorial ou expressivité contrôlée. | La voix survit-elle à la locale, au contenu long et au reflow ? |
-| Formalité | Proximité, spontanéité et adresse directe. | Institution, précision et distance maîtrisée. | Le registre correspond-il au contexte de confiance et au public ? |
-| Intensité émotionnelle | Retenue, calme et juste distance. | Énergie, chaleur ou impact immédiat. | L’intensité sert-elle la relation sans masquer la tâche ? |
-| Originalité | Convention appropriée et repères familiers. | Écart structurel ou expressif défendu. | L’écart produit-il une compréhension, une mémoire ou une valeur située ? |
+Les dials sont les axes d’expression de `SAVOIR/CRAFT/CFT-02`, seule liste d’axes : variance et originalité y forment l’axe « convention ↔ écart », la voix typographique l’axe « voix », la matérialité l’axe « matière » ; motion, densité, contraste, formalité et intensité émotionnelle y ont leur ligne.
 
 Aucun dial ne neutralise une exigence d’accessibilité, de contexte critique, de preuve ou de direction retenue. Les dials sont des hypothèses de jugement de SAVOIR ; ACTION vérifie leurs conséquences avec ses méthodes, gates, statuts et verdicts. Ils sont choisis après `DOMAIN-FRAME` et `CREATIVE-BOOT`, seulement s’ils changent une décision ; une position extrême est une décision à défendre, non un style à démontrer. La position retenue, l’alternative ou l’absence justifiée, la contre-indication et la conséquence observable doivent pouvoir être reliées au premier objet.
 

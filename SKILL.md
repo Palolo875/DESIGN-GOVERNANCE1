@@ -63,7 +63,7 @@ Avant le premier rendu, le boot doit conduire à un artefact complet, crédible 
 
 Une structure ne choisit pas seule le goût, mais elle ouvre ou ferme des possibilités de présence. Lorsqu’une décision esthétique est active, décris aussi le caractère perceptuel que la structure doit favoriser : **calme ou tension, intimité ou monumentalité, précision ou spontanéité, continuité ou rupture, collection ou instrument, retenue ou intensité**. Ces termes ne sont pas des styles à appliquer ; ils doivent être traduits par des relations observables de masse, de rythme, de matière, de typographie, de lumière, de contenu ou de comportement.
 
-Lorsqu’une décision structurelle ou créative est ouverte, déclare un ou deux axes de tension observables avant de choisir une route. Ces axes ne sont ni des styles, ni des scores, ni des verdicts ; ils décrivent la relation que la composition doit rendre perceptible.
+Lorsqu’une décision structurelle ou créative est ouverte, déclare un ou deux axes de tension observables avant de choisir une route. Ils décrivent la structure ; les axes d’expression sont ceux de `SAVOIR/CRAFT/CFT-02`. Ces axes ne sont ni des styles, ni des scores, ni des verdicts ; ils décrivent la relation que la composition doit rendre perceptible.
 
 ```text
 DENSITY: respiration ↔ compression
@@ -150,7 +150,7 @@ Conserve et compare la capture suivante. La trace nomme le changement, sa direct
 
 [MÉTHODE] Pour une décision où la qualité visuelle est dominante, conduis une revue courte après la première scène et après la repasse de craft : **ce qui est présent**, **ce qui est spécifique**, **ce qui est culturellement transformé**, **ce qui est encore générique**, **ce qui manque de résolution** et **l’intervention au gain attendu le plus utile**. Relie le défaut à un geste du vocabulaire perceptuel de `SAVOIR/STATE`, avec sa condition et l’effet à réinspecter. Les gestes proposés sont des points de départ, pas une liste fermée ; un autre geste reste recevable s’il traite le défaut et rend son effet observable. Nomme l’objet, le terme et la modification. Une incohérence de direction appelle une réouverture, pas une accumulation de détails. Si aucun geste ne promet de gain utile, justifie la conservation. La revue produit une prochaine action, sans score esthétique ni substitution aux preuves d’ACTION.
 
-Pour produire du beau varié sans produire du bruit, fais varier **un axe situé à la fois** : public, JTBD, promesse, geste, structure, densité, matière ou ton. Pour chaque alternative, précise en trace complète (en trace légère, la première proposition nomme l’alternative écartée) :
+Pour produire du beau varié sans produire du bruit, fais varier **un axe situé à la fois** : public, JTBD, promesse, geste, ou un axe d’expression de `SAVOIR/CRAFT/CFT-02` (structure, densité, matière, ton…). Pour chaque alternative, précise en trace complète (en trace légère, la première proposition nomme l’alternative écartée) :
 
 - la décision qu’elle peut changer ;
 - le public, le contexte, le risque ou le JTBD qui la justifie ;

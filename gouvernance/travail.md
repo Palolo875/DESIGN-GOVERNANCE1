@@ -206,7 +206,7 @@ La branche `one-shot` est une exécution raccourcie de cette même boucle, jamai
 
 ### 1. Situer les positions
 
-Lorsque la décision est ouverte, formule des positions distinctes sur les axes pertinents : structure, matière, voix, temporalité, densité, rapport texte/image, rythme ou émotion traduite en levier visuel.
+Lorsque la décision est ouverte, formule des positions distinctes sur les axes pertinents de `SAVOIR/CRAFT/CFT-02`, l’émotion traduite en levier visuel ; pour la structure, sur les axes de tension de `BIBLIOTHEQUE/TENSION`.
 
 Il n’existe aucun quota obligatoire de directions. Une position retenue et une alternative située suffisent lorsque le risque dominant et les tensions sont déjà clairs.
 

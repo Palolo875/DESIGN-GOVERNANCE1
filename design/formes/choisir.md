@@ -45,7 +45,7 @@ Une sélection structurelle est créativement utile lorsqu’elle améliore au m
 ### BIBLIOTHEQUE/TENSION — diverger avant de sélectionner
 
 <!-- noyau:début STRUCT-TENSION -->
-Lorsqu’une décision structurelle ou créative est ouverte, déclare un ou deux axes de tension observables avant de choisir une route. Ces axes ne sont ni des styles, ni des scores, ni des verdicts ; ils décrivent la relation que la composition doit rendre perceptible.
+Lorsqu’une décision structurelle ou créative est ouverte, déclare un ou deux axes de tension observables avant de choisir une route. Ils décrivent la structure ; les axes d’expression sont ceux de `SAVOIR/CRAFT/CFT-02`. Ces axes ne sont ni des styles, ni des scores, ni des verdicts ; ils décrivent la relation que la composition doit rendre perceptible.
 
 ```text
 DENSITY: respiration ↔ compression

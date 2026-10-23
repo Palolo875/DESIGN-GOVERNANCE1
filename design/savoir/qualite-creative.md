@@ -127,17 +127,23 @@ Ne crée ni quota de variantes ni obligation de nouveauté. Une variation est re
 |---|---|---|
 | Structure | Grille stricte ↔ tension sur grille ↔ hors grille | Où la lecture est-elle stabilisée puis décalée ? |
 | Matière | Plat ↔ texturé ↔ photographique ↔ illustré/peint/spatial | Quelle matérialité transmet une information ou un registre ? |
-| Voix | Neutre ↔ expressif ↔ bruyant | Quelle intensité aide la tâche et le public ? |
+| Voix, dont la voix typographique | Neutre ↔ expressif ↔ bruyant | Quelle intensité aide la tâche et le public, et survit-elle à la locale, au contenu long et au reflow ? |
 | Temporalité | Intemporel ↔ contemporain ↔ nostalgique ↔ prospectif | Quelle relation au temps est justifiée ? |
 | Densité | Respiration focalisée ↔ information concentrée | Quelle densité sert la décision ? |
 | Texte / image | Texte souverain ↔ preuve souveraine ↔ relation équilibrée | Quel élément porte la crédibilité ? |
+| Rythme | Régulier ↔ cadencé ↔ rompu | Comment le regard, la lecture ou la révélation progressent-ils ? |
+| Contraste | Différence contenue, hiérarchie calme ↔ seuils nets, signal prioritaire | Le contraste clarifie-t-il sans écraser les états ou la lecture ? |
+| Mouvement | Continuité minimale, feedback discret ↔ expressivité au service du repérage, de la causalité ou de la matière | Le mouvement améliore-t-il la compréhension ? |
+| Formalité | Proximité, adresse directe ↔ institution, précision, distance maîtrisée | Le registre correspond-il au contexte de confiance et au public ? |
+| Intensité émotionnelle | Retenue, calme ↔ énergie, chaleur, impact immédiat | L’intensité sert-elle la relation sans masquer la tâche ? |
+| Convention ↔ écart | Repères familiers, prévisibilité ↔ surprise, écart structurel ou expressif défendu | L’écart produit-il une compréhension, une mémoire ou une valeur située ? |
 
-Ces axes servent à produire une **alternative située**, jamais un menu de styles ni une obligation de marginalité.
+Ces axes servent à produire une **alternative située**, jamais un menu de styles ni une obligation de marginalité. C’est la seule liste d’axes d’expression : les dials de `SAVOIR/STYLE` et les positions du pipeline de direction y renvoient. Les axes de tension (`BIBLIOTHEQUE/TENSION`) décrivent la structure, et l’axe de variation de la boucle (ci-dessous) choisit ce que l’on fait varier, produit compris (public, JTBD, promesse, geste).
 
 > **Alternative située :** position différente parce qu’elle répond à une contrainte, un public, un JTBD ou une opportunité distincte.
 
 <!-- noyau:début BOUCLE-AXE -->
-Pour produire du beau varié sans produire du bruit, fais varier **un axe situé à la fois** : public, JTBD, promesse, geste, structure, densité, matière ou ton. Pour chaque alternative, précise en trace complète (en trace légère, la première proposition nomme l’alternative écartée) :
+Pour produire du beau varié sans produire du bruit, fais varier **un axe situé à la fois** : public, JTBD, promesse, geste, ou un axe d’expression de `SAVOIR/CRAFT/CFT-02` (structure, densité, matière, ton…). Pour chaque alternative, précise en trace complète (en trace légère, la première proposition nomme l’alternative écartée) :
 
 - la décision qu’elle peut changer ;
 - le public, le contexte, le risque ou le JTBD qui la justifie ;
