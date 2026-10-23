@@ -48,6 +48,19 @@ Une **proposition premium** se juge avec l’heuristique [« Premium perçu »](
 [MÉTHODE] Pour une décision où la qualité visuelle est dominante, conduis une revue courte après la première scène et après la repasse de craft : **ce qui est présent**, **ce qui est spécifique**, **ce qui est culturellement transformé**, **ce qui est encore générique**, **ce qui manque de résolution** et **l’intervention au gain attendu le plus utile**. Relie le défaut à un geste du vocabulaire perceptuel de `SAVOIR/STATE`, avec sa condition et l’effet à réinspecter. Les gestes proposés sont des points de départ, pas une liste fermée ; un autre geste reste recevable s’il traite le défaut et rend son effet observable. Nomme l’objet, le terme et la modification. Une incohérence de direction appelle une réouverture, pas une accumulation de détails. Si aucun geste ne promet de gain utile, justifie la conservation. La revue produit une prochaine action, sans score esthétique ni substitution aux preuves d’ACTION.
 <!-- noyau:fin BOUCLE-REVUE -->
 
+**Rattachement des grilles.** La revue créative est la grille de lecture du rendu. Les autres grilles en sont des vues détaillées, à ouvrir quand leur moment ou leur scope l’exige :
+
+| Question de la revue | `CFT-00` | Contrat du premier objet (`DIRECTION/FIRST-OBJECT`) | Gate C (`ACTION/GATE-C`) | Creative close (`ACTION/CLOSE-PACKAGE`) |
+|---|---|---|---|---|
+| Ce qui est présent | Présence ; composition ; désirabilité | Présence ; foyer ; désirabilité située | C3 ; C4 | `presence` |
+| Ce qui est spécifique | Spécificité ; point de vue | Signature ; intégration | C1 ; C2 | `signature` |
+| Ce qui est culturellement transformé | Culture visuelle | — | — | — |
+| Ce qui est encore générique | Point de vue et spécificité, en négatif | Signature (« retour si ») | C1 à C3 (« retour si ») | `dominant_defect` |
+| Ce qui manque de résolution | Résolution | Résolution ; vérité de scène ; résilience visible | C5 ; C6 | `craft_detail` |
+| L’intervention au gain le plus utile | Retenue | — | — | `next_polish_action` |
+
+Le jugement visuel situé (`SAVOIR/STATE`) et le premium perçu (`SAVOIR/FRAME`) sont des lentilles de lecture, pas des grilles de verdict ; l’absolu 1 de `DIRECTION/STANDARD` reste un plancher, pas une grille.
+
 Un rendu n’est pas considéré comme suffisamment travaillé parce qu’il contient davantage de détails. Il l’est lorsque chaque détail important renforce la hiérarchie, le sens, la relation au produit ou la qualité de présence. La beauté pertinente peut venir de l’intensité comme de la retenue ; elle peut être éditoriale, technique, tactile, chaleureuse, colorée, ludique ou silencieuse selon le contexte.
 
 Un **composant authored** est un objet visible conçu pour le produit : sa silhouette, son contenu, sa hiérarchie, sa matière et son comportement forment une unité. Il peut être construit à partir de primitives robustes ; authored ne signifie ni inédit dans le code, ni inhabituel par obligation. Les primitives critiques restent sémantiques, accessibles et fiables.
