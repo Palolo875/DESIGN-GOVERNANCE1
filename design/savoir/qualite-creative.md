@@ -59,7 +59,7 @@ Une **proposition premium** se juge avec l’heuristique [« Premium perçu »](
 | Ce qui manque de résolution | Résolution | Résolution ; vérité de scène ; résilience visible | C5 ; C6 | `craft_detail` |
 | L’intervention au gain le plus utile | Retenue | — | — | `next_polish_action` |
 
-Le jugement visuel situé (`SAVOIR/STATE`) et le premium perçu (`SAVOIR/FRAME`) sont des lentilles de lecture, pas des grilles de verdict ; l’absolu 1 de `DIRECTION/STANDARD` reste un plancher, pas une grille.
+Le jugement visuel situé (composition et détails) et le premium perçu (fondements) sont des lentilles de lecture, pas des grilles de verdict ; l’absolu 1 de `DIRECTION/STANDARD` reste un plancher, pas une grille.
 
 Un rendu n’est pas considéré comme suffisamment travaillé parce qu’il contient davantage de détails. Il l’est lorsque chaque détail important renforce la hiérarchie, le sens, la relation au produit ou la qualité de présence. La beauté pertinente peut venir de l’intensité comme de la retenue ; elle peut être éditoriale, technique, tactile, chaleureuse, colorée, ludique ou silencieuse selon le contexte.
 
