@@ -58,3 +58,8 @@ Décisions proposées :
   - 2 dépendent de la décision d’A11.
 - **Rattacher plutôt que réécrire.** Les rattachements de A9 peuvent commencer sans toucher aux verrous, à condition de rattacher la plage à une route de sa responsabilité plutôt que de la réécrire.
 - **Le seul vrai conflit de fond est `LCF-08`.** Il impose « `OWNER` et `SCOPE` jamais omis », alors que la trace légère tient en six lignes. Il se tranche avec A11.
+
+## Constaté en exécution
+
+- **2026-10-23, plage 2 (déclencheurs).** Un verrou de plus est apparu au déplacement : la garde de fidélité « détail final conditionnel, par CHARGE » (`validate_structure.py`, `FIDELITY`), qui ne tombait pas quand la plage était vidée, puisque la ligne disparaissait avec elle. Limite de la méthode : vider une plage révèle les verrous de présence, pas les verrous de fidélité qui suivent le texte déplacé. Résolu en gardant la précision dans la ligne déplacée.
+- `LCF-06` et `LCF-17` contrôlent désormais la table des signaux du noyau ; chacune a sa mutation rouge conservée.
