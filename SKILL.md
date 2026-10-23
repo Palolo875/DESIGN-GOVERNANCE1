@@ -195,6 +195,8 @@ Une capacité disponible modifie le type de preuve possible ; elle ne permet jam
 | Structure ouverte | `BIBLIOTHEQUE/READ`, `BIBLIOTHEQUE/SELECT` ; `BIBLIOTHEQUE/TENSION` si l’alternative peut changer le choix |
 | Caractère perceptuel à traduire en leviers (calme, tension, intimité…) | `BIBLIOTHEQUE/READ`, « Traduire un caractère en leviers » |
 | Brief vague | `DIRECTION/EXTERNAL-START` ; le premier objet et son plafond suivent la ligne du mode |
+| Sujet réel (client, lieu, objet) et idée encore ouverte, avant de choisir la forme | `SAVOIR/CRAFT/CFT-01`, « Inventaire du sujet et phrase d’idée » : inventaire, phrase d’idée, test du concurrent |
+| Contenu, titre, ordre des sections ou nom des actions à écrire | `SAVOIR/CRAFT/CFT-06` |
 | Typographie ouverte | `SAVOIR/TYPE`, sur le vrai contenu ; `SAVOIR/TYPE-VOIX` pour choisir une voix |
 | Relation de couleur ouverte | `SAVOIR/CRAFT/CFT-05` |
 | Texte sur image, densité ou harmonie | `SAVOIR/CRAFT/CFT-03` |

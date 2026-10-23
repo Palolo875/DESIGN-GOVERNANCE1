@@ -101,7 +101,7 @@ Une condition établie peut appeler la contribution utile ; une relation déjà 
 
 **Condition et décision.** Une relation visuelle reste ouverte : présence, caractère ou crédibilité doivent être construits. Aucun défaut observé n’est requis pour préparer cette relation.
 
-**Sources.** `DIRECTION/CREATIVE-BOOT` ; `DIRECTION/VISUAL_TARGET` ; `SAVOIR/CRAFT/CFT-00` ; `SAVOIR/STYLE` ; `BIBLIOTHEQUE/SELECT` ; `BIBLIOTHEQUE/CONTRACTS`.
+**Sources.** `DIRECTION/CREATIVE-BOOT` ; `DIRECTION/VISUAL_TARGET` ; `SAVOIR/CRAFT/CFT-00` ; `SAVOIR/CRAFT/CFT-01` (inventaire du sujet et phrase d’idée) ; `SAVOIR/CRAFT/CFT-06` (écriture et contenu) ; `SAVOIR/STYLE` ; `BIBLIOTHEQUE/SELECT` ; `BIBLIOTHEQUE/CONTRACTS`.
 
 **Intervention et effet attendu.** Relier promesse et objet de preuve à une masse, un rythme, une voix, une matière, un contenu ou un comportement concret ; préparer le premier objet complet avec les qualités prioritaires utiles.
 
