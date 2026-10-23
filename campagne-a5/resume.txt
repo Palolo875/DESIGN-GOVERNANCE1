@@ -1,0 +1,8 @@
+1 | RETURN 0 réserve 3  | RETURN 0 réserve 1 
+2 | RETURN 0 réserve 2  | RETURN 0 réserve 3 
+3 | RETURN 0 réserve 3  | RETURN 0 réserve 2 
+4 | RETURN 0 réserve 3  | RETURN 1 réserve 4 [Chevauchement et troncature de texte]
+5 | RETURN 1 réserve 3 [Chevauchement et troncature de texte] | RETURN 0 réserve 3 
+6 | RETURN 0 réserve 1  | RETURN 0 réserve 2 
+7 | RETURN 0 réserve 3  | RETURN 0 réserve 2 
+8 | RETURN 0 réserve 3  | RETURN 1 réserve 3 [Mouvement réduit respecté]

@@ -1,0 +1,1 @@
+- 5-A : faux positif possible de check_render (chevauchement sur liens masqués d'un sommaire replié) — à examiner.
