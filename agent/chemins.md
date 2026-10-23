@@ -34,7 +34,7 @@ Une décision de système est l’objet direct du run lorsqu’elle doit être a
 
 ### Entrée minimale
 
-Avant toute construction, vérifie que l’entrée courte rend retrouvables les décisions qui peuvent changer l’artefact :
+En trace complète, l’entrée de lancement rend retrouvables les décisions qui peuvent changer l’artefact :
 
 ```text
 DECISION — ce qui doit être tranché
@@ -45,19 +45,17 @@ NEXT-PROOF — observation ou test qui permettra de trancher
 OWNER — responsable de la décision et de la prochaine action
 ```
 
-Ce gabarit est une vue d’activation, pas un second schéma : `ACTION/RUN_CARD` reste propriétaire des champs complets, des états, des issues, des verdicts et de la clôture. `OWNER` et `SCOPE` ne sont jamais omis : ils rendent la reprise et la portée vérifiables. Les autres lignes sont omises ou `N/A-JUSTIFIED` si elles ne peuvent rien changer.
+Ce gabarit est la projection de la ligne `RUN` (« Sortie immédiate ») pour la trace complète, pas un second schéma : `ACTION/RUN_CARD` reste propriétaire des champs complets, des états, des issues, des verdicts et de la clôture. En trace complète, `OWNER` et `SCOPE` ne sont jamais omis : ils rendent la reprise et la portée vérifiables. Les autres lignes sont omises ou `N/A-JUSTIFIED` si elles ne peuvent rien changer. En trace légère, la ligne `RUN` suffit.
 
 ### Sortie immédiate
 
-Crée ou mets à jour une ligne de run :
+Crée ou mets à jour une ligne de run. C’est la seule déclaration de lancement (absolu 4 de `DIRECTION/STANDARD`) :
 
-> `RUN — [ID] — [MODE] — [décision dominante] — [risque principal] — [preuve suivante] — [état].`
+> `RUN — [MODE] — [décision dominante] — [risque principal] — [preuve suivante] — [condition d’arrêt].`
 
-La ligne de run doit exister dès qu’une action de production, une vérification ou un changement d’état commence. Lorsque le risque ou la reprise l’exige, l’owner doit être retrouvable depuis cette ligne ou son identifiant.
+En trace complète, elle porte aussi un identifiant et l’état du run (`ACTION/STATUS`) : `RUN — [ID] — … — [état]`. La ligne de run doit exister dès qu’une action de production, une vérification ou un changement d’état commence. Lorsque le risque ou la reprise l’exige, l’owner doit être retrouvable depuis cette ligne ou son identifiant.
 
-Au lancement, ajoute :
-
-> `DECISION-INTENT — [décision que la procédure doit permettre de trancher].`
+Sa décision dominante est la `DECISION-INTENT` : la décision que la procédure doit permettre de trancher. Aucune ligne séparée n’est écrite en trace légère ; en trace complète, elle se reporte dans `decision_intent`.
 
 Après une observation qui modifie, confirme ou abandonne effectivement une décision, ajoute :
 
@@ -67,7 +65,7 @@ Après une observation qui modifie, confirme ou abandonne effectivement une déc
 
 ### Mémoire de lancement et renvoi de `RUN_CARD`
 
-La ligne de run constitue une mémoire de lancement, sous-ensemble de lancement de `ACTION/HANDOFF`, non un handoff ni une `RUN_CARD` ; la ligne compacte de la sortie immédiate en est l’affichage : `ID`, `MODE`, `DECISION`, `RISK`, `SCOPE`, `ARTIFACT` attendu, `OWNER`, `NEXT-PROOF`, `LIMIT` et `EXIT-CONDITION`. Elle peut vivre dans un ticket, un manifeste de projet, un espace de travail ou un fichier local.
+En trace complète, la ligne de run s’étend en mémoire de lancement, sous-ensemble de lancement de `ACTION/HANDOFF`, non un handoff ni une `RUN_CARD` : `ID`, `MODE`, `DECISION`, `RISK`, `SCOPE`, `ARTIFACT` attendu, `OWNER`, `NEXT-PROOF`, `LIMIT` et `EXIT-CONDITION`. Elle peut vivre dans un ticket, un manifeste de projet, un espace de travail ou un fichier local.
 
 Le schéma complet de `RUN_CARD` appartient exclusivement à **`ACTION/RUN_CARD`**. DIRECTION ne le reproduit pas et transmet la projection `ACTION/HANDOFF`; les champs non applicables sont `N/A-JUSTIFIED`, les observations non vérifiées restent `NOT-VERIFIED`. Une surface `DIRECTION` qui accepte avec V en `PASS` ou `PASS-WITH-RESERVATION`, dont le risque V/craft est dominant ou dont le verdict V dépend d’une intention encore non confrontée doit suivre `ACTION/GATE-B — B1b` avant clôture. Pour une `RUN_CARD DIRECTION` en `CLOSED`, `creative_close` contient `presence`, `signature`, `craft_detail`, `dominant_defect` et `next_polish_action` ; `direction_status`, `issue` et `verdict` restent les registres séparés d’ACTION.
 

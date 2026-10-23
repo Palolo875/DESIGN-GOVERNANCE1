@@ -71,6 +71,10 @@ class MobilisationFacadeTests(unittest.TestCase):
     def test_compiled_trace_keeps_short_lite_exception(self):
         self.assert_rejected('SK','La forme courte LITE conserve une trace complète sans RUN_CARD','Toute clôture exige une RUN_CARD','LCF-56')
 
+    def test_owner_and_scope_stay_due_in_full_trace(self):
+        # A11 : la ligne RUN suffit en trace légère ; OWNER et SCOPE restent dus en trace complète.
+        self.assert_rejected('D', 'En trace complète, `OWNER` et `SCOPE` ne sont jamais omis', '`OWNER` et `SCOPE` sont facultatifs', 'LCF-08')
+
     def test_brief_rule_stays_protected_when_loaded_by_reference(self):
         self.assert_rejected('D', 'Au plus trois demandes', 'Questionnaire sans limite', 'LCF-44')
 

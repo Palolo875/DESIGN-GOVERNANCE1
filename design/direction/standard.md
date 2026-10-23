@@ -11,7 +11,7 @@ Le standard de qualité visuelle, les cinq règles essentielles et les invariant
 1. **Direction visible.** Une surface identitaire conforme mais sans direction perceptible est un échec de livraison ; la conformité est un plancher, pas un résultat. Un écart de direction se corrige ; il ne se compense pas par la preuve d’un autre axe.
 2. **Ancrage.** Aucune direction identitaire n’est acceptée sans ancre ; sans elle, elle reste `EXPLORATORY`, avec sa limite.
 3. **Preuves.** Aucune livraison sans les preuves applicables au mode ; un gate non applicable est `N/A-JUSTIFIED`, un gate non vérifiable `NOT-VERIFIED`, jamais `PASS`.
-4. **Déclarer avant d’agir.** Mode, décision dominante, risque principal, preuve minimale et condition d’arrêt. Un moyen ou une preuve qui manque ne fait jamais baisser le mode en silence : la propriété concernée devient `NOT-VERIFIED`.
+4. **Déclarer avant d’agir.** Mode, décision dominante, risque principal, preuve minimale et condition d’arrêt, en une ligne `RUN` (`DIRECTION/START`). Un moyen ou une preuve qui manque ne fait jamais baisser le mode en silence : la propriété concernée devient `NOT-VERIFIED`.
 5. **Réel et beau ensemble.** Le produit, la tâche, le contenu réel et les contraintes sont la matière de la direction : pas de faux réalisme pour faire joli ; en contexte à enjeu, clarté, prévention d’erreur et robustesse priment sur le spectaculaire.
 <!-- noyau:fin ABSOLUS -->
 

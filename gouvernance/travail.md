@@ -20,7 +20,7 @@ Un gate non applicable est `N/A-JUSTIFIED`. Un gate nécessaire mais non vérifi
 
 ### Contrat de décision et de preuve
 
-Au lancement, la `RUN_CARD` contient :
+Au lancement, la `RUN_CARD` contient la décision dominante de la ligne `RUN` (`DIRECTION/START`) :
 
 ```text
 DECISION-INTENT — décision que la procédure doit permettre de trancher.

@@ -15,10 +15,10 @@ Dans ce guide, un **run** est un travail délimité : une décision, un risque, 
 Pour piloter un run, commencez ici ; la suite ne sert que si le risque, le périmètre ou la décision le demande. Une fois la demande classée avec `agent/chemins#classer` (par l’opérateur ou l’agent, jamais par la personne qui demande), notez :
 
 ```text
-MODE — DECISION — RISK — NEXT-PROOF — OWNER
+RUN — MODE — DECISION — RISK — NEXT-PROOF — STOP
 ```
 
-Soit : le chemin choisi, la décision, le risque, la prochaine preuve, le responsable. Répondez ensuite à ces cinq questions :
+Soit : le chemin choisi, la décision dominante, le risque principal, la prochaine preuve et la condition d’arrêt. C’est la seule déclaration de lancement (`agent/chemins#classer`). Répondez ensuite à ces cinq questions :
 
 | Question | Réponse minimale |
 |---|---|
@@ -64,13 +64,7 @@ Les cinq règles essentielles protègent chaque run : leur résumé est dans la 
 
 Avant de construire ou de modifier, répondez aux cinq questions du parcours commun.
 
-Écrivez ensuite la ligne minimale : celle du parcours commun, avec un identifiant et l’état du run (`gouvernance/statuts`) ; le responsable reste nommé dans l’entrée minimale de `agent/chemins#classer`.
-
-```text
-ID — MODE — DECISION — RISK — NEXT-PROOF — STATE
-```
-
-Ajoutez `DECISION-INTENT` (la décision visée) au lancement. N’écrivez `DECISION-CHANGE` qu’après une observation qui a réellement confirmé, modifié ou abandonné une décision. Ne prétendez jamais avoir construit, observé ou vérifié ce qui n’était pas disponible. Un moyen qui manque limite ce qu’on peut affirmer ; il ne baisse jamais en silence le niveau de protection.
+Écrivez ensuite la ligne de run du parcours commun. En trace complète, ajoutez-lui un identifiant et l’état du run (`gouvernance/statuts`) ; le responsable et le périmètre sont nommés dans l’entrée minimale de `agent/chemins#classer`. La décision de la ligne est la `DECISION-INTENT` (la décision visée). N’écrivez `DECISION-CHANGE` qu’après une observation qui a réellement confirmé, modifié ou abandonné une décision. Ne prétendez jamais avoir construit, observé ou vérifié ce qui n’était pas disponible. Un moyen qui manque limite ce qu’on peut affirmer ; il ne baisse jamais en silence le niveau de protection.
 
 Si le paquet ou une section qui fait foi est indisponible, dites-le. Une proposition créative peut rester explicitement hypothétique, mais elle ne doit pas être présentée comme un run conforme.
 
@@ -78,7 +72,7 @@ Si le paquet ou une section qui fait foi est indisponible, dites-le. Une proposi
 
 Le parcours complet est le suivant ; chaque mode n’en garde que les étapes de sa route (`agent/chemins#modes`) :
 
-> **Classer → diriger → construire → observer → corriger, résoudre, rouvrir ou décider → conserver.**
+> **Classer → diriger → construire → observer → choisir une suite (corriger, approfondir la preuve, rouvrir, reclasser, proposer ou fermer) → conserver.**
 
 Il comporte deux boucles liées :
 
@@ -261,7 +255,7 @@ Regardez le rendu ou le comportement réel dans le périmètre déclaré. Toute 
 | Qu’a-t-on réellement observé ? | Rendu, état, taille d’écran, tâche, participant, mesure, version et date. |
 | Que peut-on en déduire ? | Une interprétation limitée au périmètre et à la méthode. |
 | Que ne peut-on pas en déduire ? | La limite explicite : usage, accessibilité, robustesse, droits, préférence ou performance. |
-| Quelle décision change maintenant ? | Correction, résolution, réouverture, reclassement, réserve ou clôture. |
+| Quelle décision change maintenant ? | Une des suites du parcours commun, avec sa réserve éventuelle. |
 
 Une capture prouve un rendu dans son périmètre ; à elle seule, elle ne prouve ni une tâche utilisateur, ni un lecteur d’écran, ni la sécurité, la performance ou une intégration réelle. Une mesure d’accessibilité limitée ne certifie pas toute l’expérience. Une revue experte du craft ne remplace pas un test d’usage.
 

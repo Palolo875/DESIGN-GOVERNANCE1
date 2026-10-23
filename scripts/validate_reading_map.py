@@ -662,7 +662,7 @@ def check_facades(errors: list[str]) -> None:
     t = load_texts()
     rm33, rm49 = row(t["RM"], "Direction identitaire"), row(t["RM"], "Accessibilité")
     qs_dir, rd_dir, rd_iter = row(t["Q"], "`DIRECTION`", 1), row(t["README"], "`DIRECTION`", 1), row(t["README"], "`ITER`", 1)
-    entry = after(t["D"], "Ce gabarit est une vue d’activation", 600)
+    entry = after(t["D"], "Ce gabarit est la projection de la ligne `RUN`", 600)  # A11 : OWNER et SCOPE dus en trace complète
     fast = next(([l, l] for l in t["A"].splitlines() if l.startswith("Pour `LITE` et les petits `ITER`")), None)  # C22 : questions dans ACTION/FAST-PATH
     prio = fenced_after(t["D"], "```text\nRUN-PRIORITY")
     canon = HANDOFF_TOKENS.findall(fenced_after(t["A"], "### ACTION/HANDOFF"))
@@ -685,7 +685,7 @@ def check_facades(errors: list[str]) -> None:
         ("LCF-06", "table des signaux du noyau, ligne « Structure ouverte »", "DIRECTION/START (classification)", lcf_06(t)),
         ("LCF-07", "RUN-PRIORITY, ligne DIRECTION de CHARGE, READING_MAP (routage et combinaisons)", "DIRECTION/VISUAL_TARGET avant DIRECTION/FIRST-OBJECT", lcf_07(t)),
         ("LCF-08", "DIRECTION, gabarit START et FAST-PATH", "DIRECTION/START (OWNER et SCOPE jamais omis)",
-         re.search(r"`?OWNER`? et `?SCOPE`?[^.]*jamais omis", entry) is not None and bool(fast) and "et son owner" in fast[1] and "si nécessaire" not in fast[1]),
+         re.search(r"En trace complète, `?OWNER`? et `?SCOPE`?[^.]*jamais omis", entry) is not None and bool(fast) and "et son owner" in fast[1] and "si nécessaire" not in fast[1]),
         ("LCF-09", "DIRECTION, RUN-PRIORITY", "BIBLIOTHEQUE/SELECT, SCENE",
          bool(re.search(r"FIRST-OBJECT —[\s\S]*?sauf si", prio))),
         ("LCF-10", "QUICKSTART, table de mode ; README sans table de mode", "D-FAC-1 (classement : voir DIRECTION/START)",
