@@ -3,7 +3,7 @@
 Cadrage du médium et des capacités disponibles.
 
 <!-- origine:DIRECTION.md -->
-## Cadrage de médium et de capacité
+## DIRECTION/CAPACITY — cadrage de médium et de capacité
 
 Après le choix du mode, choisis la capacité minimale qui permet de construire ou de vérifier la décision : code et runtime, fichier de design et handoff, CMS, primitive accessible, typographie variable, motion d’état, scène spatiale ou aucune capacité spéciale. Pour un médium non Web, parcours explicitement **médium réel → capacité → preuve propre au médium → fallback** ; ne transpose pas un critère Web sans vérifier son équivalent réel.
 

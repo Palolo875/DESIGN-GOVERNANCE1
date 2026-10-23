@@ -171,7 +171,7 @@ ADRESSES: dict[str, str] = {
     "maintenance/versions": "CHANGELOG",
     "direction/cadrer#demande-vague": "DIRECTION/EXTERNAL-START", "direction/cadrer#domaine": "DIRECTION/DOMAIN-FRAME",
     "direction/diriger#lancement": "DIRECTION/CREATIVE-BOOT", "direction/diriger#cible-visuelle": "DIRECTION/VISUAL_TARGET",
-    "direction/diriger#atelier": "DIRECTION/DIRECTION-ATELIER", "direction/premier-objet": "DIRECTION/FIRST-OBJECT",
+    "direction/diriger#atelier": "DIRECTION/DIRECTION-ATELIER", "direction/diriger#divergence": "DIRECTION/DIVERGENCE", "produit/interface#capacite": "DIRECTION/CAPACITY", "direction/premier-objet": "DIRECTION/FIRST-OBJECT",
     "direction/boucle": "DIRECTION/DOUBLE-LOOP", "direction/standard": "DIRECTION/STANDARD",
     "savoir/fondements": "SAVOIR/FRAME", "savoir/qualite-creative": "SAVOIR/CRAFT",
     "savoir/qualite-creative#ambition": "SAVOIR/CRAFT/CFT-00", "savoir/qualite-creative#forme-situee": "SAVOIR/CRAFT/CFT-01",

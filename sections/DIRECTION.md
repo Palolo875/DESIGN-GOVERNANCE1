@@ -9,9 +9,10 @@
 > - [`gouvernance/principes.md`](../gouvernance/principes.md) : `DIRECTION/SERVICE-BOUNDARY`
 > - [`design/direction/cadrer.md`](../design/direction/cadrer.md) : `DIRECTION/EXTERNAL-START`
 > - [`design/direction/premier-objet.md`](../design/direction/premier-objet.md) : `DIRECTION/FIRST-OBJECT`
-> - [`design/direction/diriger.md`](../design/direction/diriger.md) : `DIRECTION/VISUAL_TARGET`, `DIRECTION/DIRECTION-ATELIER`
+> - [`design/direction/diriger.md`](../design/direction/diriger.md) : `DIRECTION/VISUAL_TARGET`, `DIRECTION/DIRECTION-ATELIER`, `DIRECTION/DIVERGENCE`
 > - [`design/direction/boucle.md`](../design/direction/boucle.md) : `DIRECTION/DOUBLE-LOOP`
 > - [`design/direction/standard.md`](../design/direction/standard.md) : `DIRECTION/STANDARD`
+> - [`design/produit/interface.md`](../design/produit/interface.md) : `DIRECTION/CAPACITY`
 <!-- lieux:fin -->
 
 ## Rôle

@@ -116,7 +116,7 @@ Après le build, utilise la capture et les preuves applicables d’ACTION. La cr
 Le module est terminé lorsqu’il a changé, confirmé ou abandonné une décision visible, ou documenté honnêtement qu’il ne pouvait pas le faire : `N/A-JUSTIFIED` si aucune conséquence n’était applicable, `NOT-OBSERVED` si la conséquence attendue n’a pas été observée (`ACTION/STATUS`). Il reste un conseil de craft instrumenté : il ne garantit ni goût universel, ni préférence, ni compréhension utilisateur, ni conformité, ni qualité de sortie par simple invocation.
 
 <!-- origine:DIRECTION.md -->
-## 1. Direction divergente — déclenchement `DIRECTION`
+## DIRECTION/DIVERGENCE — direction divergente, déclenchement
 
 Le mode `DIRECTION` exige une comparaison de positions réellement distinctes lorsque la décision est ouverte. Il ne demande pas un catalogue de variantes et n’impose aucun quota de nouveauté.
 

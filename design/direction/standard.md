@@ -64,7 +64,7 @@ Les gates et leurs conditions d’exécution sont définis par `ACTION`. DIRECTI
 
 Un gate non applicable est `N/A-JUSTIFIED`. Un gate non vérifiable est `NOT-VERIFIED`, jamais `PASS` par défaut.
 
-Une alternative ou un retrait n’est requis que si un choix plausible pourrait modifier la décision. En `DIRECTION`, l’alternative située suit « Direction divergente » (déclenchement), `SAVOIR/CRAFT/CFT-02` (leviers) et `ACTION/PIPELINE-DIRECTION` (matérialisation, trace et comparaison) ; une alternative qui ne peut rien changer n’est pas produite, et sa non-production est justifiée.
+Une alternative ou un retrait n’est requis que si un choix plausible pourrait modifier la décision. En `DIRECTION`, l’alternative située suit `DIRECTION/DIVERGENCE` (déclenchement), `SAVOIR/CRAFT/CFT-02` (leviers) et `ACTION/PIPELINE-DIRECTION` (matérialisation, trace et comparaison) ; une alternative qui ne peut rien changer n’est pas produite, et sa non-production est justifiée.
 
 Le verdict nomme le risque ou conflit le plus important. **Aucun quota de retraits, de variantes ou de différences n’est imposé.**
 

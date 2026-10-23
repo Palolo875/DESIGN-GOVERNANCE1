@@ -188,9 +188,10 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 | Bibliothèque, police, icônes, texture, données ou 3D à choisir | `SAVOIR/TOOLS/MOYENS`, par couche, licence relue à l’intégration |
 | Ancien projet, préférence, profil, asset ou composant qui peut orienter le brief | `DIRECTION/FIRST-OBJECT`, « Réutilisation située » (`REUSE-CHALLENGE`) |
 | Levier CSS récent ou limité à un moteur, compatibilité | `SAVOIR/TECH` |
+| Médium non Web, plateforme ou capacité spéciale à choisir (CMS, primitive, motion d’état, 3D) | `DIRECTION/CAPACITY`, puis `SAVOIR/TECH` pour la preuve propre au médium |
 | Finesse sans geste concret | `SAVOIR/STATE`, avant l’intervention |
 | Revue créative | `SAVOIR/CRAFT/CFT-00` |
-| Alternative située | `SAVOIR/CRAFT/CFT-02` |
+| Alternative située | `DIRECTION/DIVERGENCE` (déclenchement), puis `SAVOIR/CRAFT/CFT-02` (leviers) |
 | Motif générique ou réflexe | `SAVOIR/CRAFT/CFT-01` (test motivation/construction) ; conséquence de gate : `ACTION/ANTI-SLOP` |
 | Détail final susceptible de modifier le caractère, l’état, la hiérarchie, la densité ou la robustesse d’une surface `DIRECTION` | `SAVOIR/CRAFT/CFT-03`, `SAVOIR/STATE` ou `SAVOIR/INTEGRITY` selon la question ouverte, et capture rendue ; conditionnel, comme la colonne « Ajouter seulement si » de `DIRECTION/CHARGE` |
 | Asset, motion, scène ou type spécifique à construire | Le contrat correspondant d’ACTION et la route SAVOIR utile ; pour une scène, `BIBLIOTHEQUE/SELECT` puis la route `BIBLIOTHEQUE/SCENE` retenue |
