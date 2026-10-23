@@ -31,8 +31,8 @@ Quand un sujet est traité à plusieurs endroits, cette carte dit où le lire d�
 | contraste | `produit/plancher` | `savoir/qualite-creative#couleur`, `produit/plancher#contraste` |
 | typographie | `savoir/typographie` | `savoir/qualite-creative#couleur`, `produit/finition` |
 | couleur | `savoir/qualite-creative#couleur` | `produit/plancher` |
-| mobile | `produit/premier-rendu#interface` | `savoir/composition#jugement-visuel`, `savoir/contexte`, `formes/catalogue#sequence` |
-| état | `savoir/composition#jugement-visuel` | `produit/premier-rendu#interface` |
+| mobile | `produit/interface` | `savoir/composition#jugement-visuel`, `savoir/contexte`, `formes/catalogue#sequence` |
+| état | `savoir/composition#jugement-visuel` | `produit/interface` |
 | performance | `savoir/techniques` | `savoir/contexte` |
 | accessibilité | `savoir/contexte` | `produit/plancher`, `produit/plancher#contraste` |
 | densité | `savoir/qualite-creative#composition` | `produit/finition` |
@@ -45,7 +45,7 @@ Quand un sujet est traité à plusieurs endroits, cette carte dit où le lire d�
 | séquence | `formes/catalogue#sequence` | `formes/catalogue#scenes` |
 | texte sur image | `savoir/qualite-creative#composition` | — |
 | graphique | `formes/catalogue#micro` | — |
-| état vide | `produit/premier-rendu#interface` | `savoir/composition#jugement-visuel` |
+| état vide | `produit/interface` | `savoir/composition#jugement-visuel` |
 | pied de page | `formes/catalogue#sequence` | — |
 | cartes | `formes/catalogue#sequence` | `formes/choisir` |
 
@@ -63,7 +63,7 @@ La combinaison choisie n’est notée dans la trace du travail que si elle peut 
 | **Direction forte et spécifique** | `agent/chemins#quoi-lire`, chemin « direction ouverte » (`DIRECTION`) | `direction/diriger#lancement`, `direction/cadrer#domaine`, `savoir/qualite-creative`, `savoir/images-et-sources`, `savoir/styles`, `formes/choisir` | Un premier objet réel, une revue créative, le défaut principal observé puis réellement corrigé. |
 | **Beauté, goût et craft situés** | `direction/premier-objet` + `savoir/qualite-creative` + `produit/premier-rendu` | La traduction de `formes/choisir` si l’intention n’a pas encore de levier ; le réglage de `gouvernance/structure` si la fabrication reste ouverte ; les gestes conditionnels de `savoir/composition#jugement-visuel` (à lire selon le défaut) ; puis `savoir/styles`, le contenu, la matière, la typographie ou l’ancre, seulement si la décision l’exige (`agent/chemins#quoi-lire`) | La relation et l’effet attendu sont nommés avant de construire, puis vérifiés sur le même périmètre ; le jugement créatif reste séparé des preuves d’usage, d’accessibilité et de robustesse. |
 | **Créativité variée mais utile** | `direction/diriger#lancement` + `direction/diriger#cible-visuelle` + une alternative adaptée au projet | `direction/cadrer#domaine`, `savoir/images-et-sources` ou l’atelier, seulement si l’axe de divergence change une décision | Une comparaison sur le même périmètre : public, tâche visée, promesse, geste, structure ou expression. |
-| **UI/UX habitable** | `produit/premier-rendu#interface` + `formes/choisir` + `produit/plancher` (contrôles applicables) + contenus et états réels | Responsive, focus, récupération après erreur, exécution technique ou `savoir/contexte`, selon le risque | Tâche, états, tailles d’écran, contenus extrêmes, clavier, ou méthode adaptée à ce qu’on affirme. |
+| **UI/UX habitable** | `produit/interface` + `formes/choisir` + `produit/plancher` (contrôles applicables) + contenus et états réels | Responsive, focus, récupération après erreur, exécution technique ou `savoir/contexte`, selon le risque | Tâche, états, tailles d’écran, contenus extrêmes, clavier, ou méthode adaptée à ce qu’on affirme. |
 | **Preuve et décision fiables** | `gouvernance/verification#contrats` + rendu réel + vérification (gate) adaptée au risque + `gouvernance/cloture#test-de-sortie` | Une preuve croisée, ou une fiche de travail (`RUN_CARD`) stricte si la trace doit durer | Ce qu’on affirme, la méthode, le périmètre, la date, le rendu, la limite et l’emplacement de la trace, retrouvables. |
 | **Vitesse sans appauvrissement** | `agent/chemins#classer` + `agent/chemins#chemin-court` + une retouche (`LITE`) ou une itération (`ITER`) bien classée | Une seule capacité de plus, si elle peut changer la décision ; reclasser si le risque ou le périmètre grandit | Rendu réel, observation ciblée, preuve minimale applicable et prochaine étape. |
 | **Système maintenable** | `agent/chemins#systeme` + `savoir/systeme-de-design` + `formes/catalogue#composants` si un composant change + migration, retour arrière (rollback) et `maintenance/versions.md` (paquet SYSTÈME) | `maintenance/evolution#routes` ou `savoir/systeme-de-design`, selon la décision partagée | Qui utilise le composant, compatibilité, non-régression, responsable, migration et condition de reprise. |
@@ -97,9 +97,9 @@ Un angle (usage, accessibilité, contenu…) ne s’examine que si son déclench
 |---|---|---|---|---|
 | Direction | Identité, présence, premier objet ou composition ouverte | `design/direction/` et la cible visuelle (`direction/diriger#cible-visuelle`) | Thèse, objet, ancre, relation, défaut principal | Décision visuelle intacte et changement strictement local |
 | Production | Un rendu ou une modification à construire | La section du chemin choisi (`agent/chemins#modes`) | Rendu, périmètre, état et prochaine preuve | Aucun rendu, ou simple clarification |
-| Usage | Tâche visée, action, confiance, récupération ou tâche critique | `produit/premier-rendu#interface` | Geste, résultat, état, limite | Aucun effet sur l’usage déclaré |
+| Usage | Tâche visée, action, confiance, récupération ou tâche critique | `produit/interface` | Geste, résultat, état, limite | Aucun effet sur l’usage déclaré |
 | Contenu | Données, longueur, langue, affirmation ou état | `savoir/typographie` ou `savoir/composition#jugement-visuel` | Contenu crédible, hiérarchie, limite | Contenu inchangé et sans effet |
-| Responsive | Mobile, zoom, réagencement ou taille d’écran critique | `produit/premier-rendu#interface` + `savoir/contexte` | Recomposition, priorité, preuve sur le périmètre | Aucun changement de taille d’écran ni risque déclaré |
+| Responsive | Mobile, zoom, réagencement ou taille d’écran critique | `produit/interface` + `savoir/contexte` | Recomposition, priorité, preuve sur le périmètre | Aucun changement de taille d’écran ni risque déclaré |
 | Accessibilité | Focus, clavier, sémantique, contraste, mouvement ou public critique | `savoir/contexte` + `produit/plancher` | Méthode, périmètre, résultat, limite | Aucun risque d’accessibilité au-delà des contrôles applicables de `produit/plancher`, qui restent dus |
 | Exécution technique | Compatibilité, performance, solution de repli ou plateforme | `savoir/techniques` + la qualité du produit (`design/produit/`) | Environnement, méthode, erreur, repli, preuve | Aucune affirmation technique |
 | Preuve | Affirmation, capture, mesure, verdict ou clôture | `produit/preuve-visuelle`, puis le module de gouvernance si le travail est tracé | Affirmation, méthode, périmètre, date, limite, emplacement | Aucune affirmation de résultat |

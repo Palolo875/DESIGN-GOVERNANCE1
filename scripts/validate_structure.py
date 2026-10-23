@@ -97,7 +97,7 @@ CONCEPTS: list[tuple[str, str, str]] = [
 # 2. Renvois : la route cite un locator dont le bloc contient le concept.
 REFERENCES: list[tuple[str, str]] = [
     ("DIRECTION/CREATIVE-BOOT", "ANT-01"),
-    ("DIRECTION/VISUAL_TARGET", "MOY-01"),
+    ("DIRECTION/ASSET-ROUTE", "MOY-01"),
     ("ACTION/GATE-C", "PRC-01"),
     ("ACTION/GATE-C", "RCV-01"),
     ("SAVOIR/CRAFT/CFT-00", "FIN-01"),

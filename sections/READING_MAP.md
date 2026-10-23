@@ -80,7 +80,7 @@ Cette table liste des **raccourcis et sous-locators** ; elle n’est pas un inve
 | `ACTION/RUN-SYSTEM` | `ACTION.md` — `### \`ACTION/RUN-SYSTEM\`` |
 | `ACTION/FIRST-RENDER` | `ACTION.md` — `## ACTION/FIRST-RENDER — qualité initiale attendue` |
 | `ACTION/FAST-PATH` | `ACTION.md` — `## ACTION/FAST-PATH — preuve minimale sans rituel` |
-| `ACTION/UI-UX-REALITY` | `ACTION.md` — `### ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble` |
+| `ACTION/UI-UX-REALITY` | `ACTION.md` — `## ACTION/UI-UX-REALITY — construire l’interface et la tâche ensemble` |
 | `ACTION/CLOSE-PACKAGE` | `ACTION.md` — `## ACTION/CLOSE-PACKAGE — paquet de clôture` |
 | `ACTION/GATE-A` | `ACTION.md` — `## ACTION/GATE-A — plancher objectivable` |
 | `ACTION/RECETTE-CARACTERE` | `ACTION.md` — `## ACTION/RECETTE-CARACTERE — recette de caractère, à l’essai` |

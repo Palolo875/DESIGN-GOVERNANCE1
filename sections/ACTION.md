@@ -12,7 +12,8 @@
 > - [`gouvernance/travail.md`](../gouvernance/travail.md) : `ACTION/PRECONDITION`, `ACTION/RUN_CARD`, `ACTION/PIPELINE-DIRECTION`
 > - [`gouvernance/verification.md`](../gouvernance/verification.md) : `ACTION/STRUCTURED-PROOF`, `ACTION/GATE-B`, `ACTION/OVERRIDE`
 > - [`gouvernance/cloture.md`](../gouvernance/cloture.md) : `ACTION/CLOSE-PACKAGE`, `ACTION/CLOSE-EXIT-CHECK`
-> - [`design/produit/premier-rendu.md`](../design/produit/premier-rendu.md) : `ACTION/FIRST-RENDER`, `ACTION/UI-UX-REALITY`
+> - [`design/produit/premier-rendu.md`](../design/produit/premier-rendu.md) : `ACTION/FIRST-RENDER`
+> - [`design/produit/interface.md`](../design/produit/interface.md) : `ACTION/UI-UX-REALITY`
 > - [`design/produit/plancher.md`](../design/produit/plancher.md) : `ACTION/GATE-A`, `ACTION/RECETTE-RENDU`, `ACTION/POLICIES`
 > - [`design/produit/finition.md`](../design/produit/finition.md) : `ACTION/GATE-C`, `ACTION/ANTI-SLOP`, `ACTION/ATELIER-EDITION`
 > - [`design/produit/preuve-visuelle.md`](../design/produit/preuve-visuelle.md) : `ACTION/VISUAL_PROOF`, `ACTION/RECETTE-CARACTERE`

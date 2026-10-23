@@ -35,7 +35,7 @@ Un retour déclenché par cette table renvoie à la décision responsable — ci
 
 La vérité de scène relève de DIRECTION (marquage `TRUTH`, `DIRECTION/DIRECTION-ATELIER`). **Perte déclarée :** « Culture visuelle » n’a pas de seuil au premier objet ; elle est jugée par la revue créative (ce qui est culturellement transformé), et vaut `N/A-JUSTIFIED` sans référence.
 
-### Grounding contestable
+### DIRECTION/GROUNDING — grounding contestable
 
 Charge `GROUNDING-DECISION` seulement si un fait, claim, asset, terme métier, contrainte, droit ou capacité réelle peut modifier la scène, la preuve, l’action ou la limite.
 

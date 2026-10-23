@@ -534,7 +534,7 @@ def skill_activates(t: dict[str, str], locator: str, mode: str | None = None) ->
 def lcf_43(t: dict[str, str]) -> bool:
     entry = fenced_after(t["D"], "### Entrée minimale").splitlines()
     boot = boot_block(t)
-    vt = t["D"][t["D"].find("### Décider la route de production"):t["D"].find("### Réserve `ANCHOR-GENERATED`")]
+    vt = t["D"][t["D"].find("### DIRECTION/ASSET-ROUTE"):t["D"].find("### DIRECTION/ANCHOR-RESERVE")]
     return (any(l.startswith("CONSTRAINT —") and "destination" in l for l in entry) and any(l.startswith("FABRICATION:") for l in boot)
             and not any(l.startswith(("ANCHOR-BASIS:", "ANCHOR-LIMIT:")) for l in boot)
             and "jamais un faux asset" in vt and "bilan `FABRICATION`" in t["A"]
@@ -593,7 +593,7 @@ def lcf_47(t: dict[str, str]) -> bool:
 
 
 def lcf_48(t: dict[str, str]) -> bool:
-    vt = t["D"][t["D"].find("### Décider la route de production"):t["D"].find("### Réserve `ANCHOR-GENERATED`")]
+    vt = t["D"][t["D"].find("### DIRECTION/ASSET-ROUTE"):t["D"].find("### DIRECTION/ANCHOR-RESERVE")]
     carte = [l for l in t["S"].splitlines() if l.startswith("[VEILLE 20") and "Carte des moyens par couche" in l]
     return bool(carte) and "jamais des styles" in carte[0] and "carte des moyens" in vt
 
@@ -601,7 +601,7 @@ def lcf_48(t: dict[str, str]) -> bool:
 def lcf_49(t: dict[str, str]) -> bool:
     atlas = savoir_section(t, "# SAVOIR/DESIGN-ATLAS", "# SAVOIR/STYLE")
     source = savoir_section(t, "# SAVOIR/SOURCE", "# SAVOIR/DESIGN-ATLAS")
-    vt = t["D"][t["D"].find("### Décider la route de production"):t["D"].find("### Réserve `ANCHOR-GENERATED`")]
+    vt = t["D"][t["D"].find("### DIRECTION/ASSET-ROUTE"):t["D"].find("### DIRECTION/ANCHOR-RESERVE")]
     return ("**Traitement des assets moyens.**" in source and "`SAVOIR/SOURCE`" in atlas
             and "jamais un dessin de remplacement" in vt and skill_activates(t, "SAVOIR/SOURCE"))
 
