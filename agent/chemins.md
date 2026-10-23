@@ -203,7 +203,6 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 | Échec connu à assumer malgré un gate | `ACTION/OVERRIDE` (`FAIL-ASSUMED`), jamais pour une preuve qui manque |
 | Repasse | `SAVOIR/INTEGRITY/REPASSE`, dans son périmètre |
 | Texte calculé, état animé ou résultat d’une action à prouver | `ACTION/VISUAL_PROOF`, à l’état qui compte (`--assert`, `--in-frame`) |
-| Comparaison sur capture en `DIRECTION` | `ACTION/ATELIER-EDITION`, même en trace légère ; la formalisation B1b reste limitée à son scope |
 | Diagnostic ou condition d’arrêt encore ouvert | `DIRECTION/DOUBLE-LOOP` |
 
 Aucun détail n’est considéré lu parce qu’il porte un marqueur « noyau » dans sa source.

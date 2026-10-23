@@ -45,7 +45,8 @@ NOYAU: list[tuple[str, list[tuple[str, str, tuple[int, ...] | None]]]] = [
                                                     ("RECONCILIATION", "DIRECTION.md", None)]),
     ("Avant de construire — situer l’interface et son caractère", [("STRUCT-OU", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-EXPRESSION", "BIBLIOTHEQUE.md", None), ("STRUCT-LEVIERS", "BIBLIOTHEQUE.md", None),
-                   ("STRUCT-TENSION", "BIBLIOTHEQUE.md", None), ("STRUCT-ACTIVATION", "BIBLIOTHEQUE.md", None),
+                   ("STRUCT-TENSION", "BIBLIOTHEQUE.md", None), ("STRUCT-TRAME", "BIBLIOTHEQUE.md", None),
+                   ("STRUCT-ACTIVATION", "BIBLIOTHEQUE.md", None),
                    ("STRUCT-SIGNAUX", "BIBLIOTHEQUE.md", None)]),
     ("En construisant — composition et typographie", [("COMP-GRAMMAIRE", "SAVOIR.md", None), ("COMP-SINGULARITE", "SAVOIR.md", None),
                      ("COMP-FORME", "SAVOIR.md", None), ("COMP-CONTROLES", "SAVOIR.md", None),
@@ -76,6 +77,7 @@ COMMUN = frozenset({
     # Savoir de fabrication chargé à chaque run : premier objet, composition, typographie,
     # convergence et revue créative. Une section à l'essai reste servie par sa route.
     "PREMIER-OBJET", "MOY-PLAFOND", "RECONCILIATION", "STRUCT-EXPRESSION", "STRUCT-TENSION",
+    "STRUCT-TRAME", "BOUCLE-ATELIER",
     "COMP-GRAMMAIRE", "COMP-SINGULARITE", "COMP-FORME", "COMP-CONTROLES",
     "COMP-TITRE", "COMP-TEXTE-IMAGE", "COMP-CONVERGENCE", "BOUCLE-REVUE", "BOUCLE-AXE",
 })
@@ -90,7 +92,6 @@ DETAILS = {
     "STRUCT-ACTIVATION": "BIBLIOTHEQUE/SELECT",
     "STRUCT-SIGNAUX": "BIBLIOTHEQUE/SELECT",
     "COMP-VOCABULAIRE": "SAVOIR/STATE",
-    "BOUCLE-ATELIER": "ACTION/ATELIER-EDITION",
     "BOUCLE-QUESTIONS": "DIRECTION/DOUBLE-LOOP",
     "BOUCLE-REPASSE": "SAVOIR/INTEGRITY/REPASSE",
 }

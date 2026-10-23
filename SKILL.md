@@ -71,6 +71,8 @@ NAVIGATION: guidée ↔ exploratoire
 ACTION: centrale ↔ contextuelle
 ```
 
+**Test de trame.** Chaque brief a aussi sa trame modale : l’ordre de sections que n’importe quelle IA produirait pour lui (pour un SaaS : promesse, logos, trois bénéfices, tarifs, FAQ). Avant de fixer la structure, écris-la en une ligne, puis romps-la ou garde-la en le justifiant par ce que la personne doit voir, comprendre ou faire d’abord. Rompre, c’est changer l’ordre, le foyer ou l’objet qui organise la page ; renommer ou restyler les sections ne suffit pas. En trace légère, cette ligne rejoint « modal, trame et parti ».
+
 ### 5. En construisant — composition et typographie
 
 Lorsque la décision visuelle est ouverte, construis dans cet ordre : **intention → tension → foyer → masse → rythme → matière et type → contenu réel → états → résolution → retenue**. Cette séquence n’est ni une recette de style ni une checklist obligatoire ; elle vérifie que les choix se renforcent au lieu d’être ajoutés séparément.
@@ -134,6 +136,12 @@ La seconde boucle n’est pas une suite de petits polish. Après observation, ch
 | Preuve insuffisante | Déclarer la limite et produire la prochaine preuve proportionnée. |
 | Décision suffisamment établie | Proposer (trace légère : la proposition vaut checkpoint) ; en trace complète, décider et persister la trace. Ne pas prolonger le polish sans changement attendu. |
 
+**Atelier sur capture (`ACTION/ATELIER-EDITION`).** Sur une surface `DIRECTION`, après la première capture, fais au moins un tour d’atelier, même en trace légère : lecture légère, édition d’une décision principale, nouvelle capture comparée ; la paire n’est pas exigée en trace. Dans le scope de B1b (surface `DIRECTION` qui accepte avec l’axe V positif, en trace complète : `ACTION/GATE-B/B1b`), cet atelier est requis, sauf deux motifs `N/A-JUSTIFIED` : aucune décision principale éditable, ou une paire équivalente encore valide qui couvre la même décision.
+
+Après la première capture, fais une lecture légère en ignorant le texte explicatif et nomme en une phrase la catégorie, la marque et le niveau de preuve que la surface semble raconter. Nomme ensuite la décision principale à mettre à l’épreuve. Édite-la par **retrait, réduction ou transformation** ; une décision peut coordonner plusieurs diffs, mais l’unité de compte n’est pas le nombre de changements. N’ajoute rien pour compenser.
+
+Conserve et compare la capture suivante. La trace nomme le changement, sa direction, son effet et la décision qu’il confirme, modifie ou abandonne. Garder l’original lorsqu’il résout mieux la décision est un résultat valide : la variante a alors confirmé une décision par comparaison plutôt que par déclaration.
+
 [MÉTHODE] Pour une décision où la qualité visuelle est dominante, conduis une revue courte après la première scène et après la repasse de craft : **ce qui est présent**, **ce qui est spécifique**, **ce qui est culturellement transformé**, **ce qui est encore générique**, **ce qui manque de résolution** et **l’intervention au gain attendu le plus utile**. Relie le défaut à un geste du vocabulaire perceptuel de `SAVOIR/STATE`, avec sa condition et l’effet à réinspecter. Les gestes proposés sont des points de départ, pas une liste fermée ; un autre geste reste recevable s’il traite le défaut et rend son effet observable. Nomme l’objet, le terme et la modification. Une incohérence de direction appelle une réouverture, pas une accumulation de détails. Si aucun geste ne promet de gain utile, justifie la conservation. La revue produit une prochaine action, sans score esthétique ni substitution aux preuves d’ACTION.
 
 Pour produire du beau varié sans produire du bruit, fais varier **un axe situé à la fois** : public, JTBD, promesse, geste, structure, densité, matière ou ton. Pour chaque alternative, précise en trace complète (en trace légère, la première proposition nomme l’alternative écartée) :
@@ -196,7 +204,6 @@ L’agent active le système en silence : la personne donne l’objectif, le pé
 | Échec connu à assumer malgré un gate | `ACTION/OVERRIDE` (`FAIL-ASSUMED`), jamais pour une preuve qui manque |
 | Repasse | `SAVOIR/INTEGRITY/REPASSE`, dans son périmètre |
 | Texte calculé, état animé ou résultat d’une action à prouver | `ACTION/VISUAL_PROOF`, à l’état qui compte (`--assert`, `--in-frame`) |
-| Comparaison sur capture en `DIRECTION` | `ACTION/ATELIER-EDITION`, même en trace légère ; la formalisation B1b reste limitée à son scope |
 | Diagnostic ou condition d’arrêt encore ouvert | `DIRECTION/DOUBLE-LOOP` |
 
 Aucun détail n’est considéré lu parce qu’il porte un marqueur « noyau » dans sa source.
