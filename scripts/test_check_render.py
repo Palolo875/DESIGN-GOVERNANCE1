@@ -794,6 +794,26 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def part_a_routes() -> None:
+    """A1 : chaque contrôle nomme la route qui traite son défaut, et cette route existe."""
+    print("Partie A — route proposée sous chaque défaut")
+    sys.path.insert(0, str(HERE))
+    import read_route
+    titles = {title for title, _, _ in cr.interpret(raw_case())}
+    titles |= set(re.findall(r'checks\.append\(\(f?"([^"(]+)', (HERE / "check_render.py").read_text(encoding="utf-8")))
+    sans = sorted(t for t in titles if not cr.route_savoir(t))
+    expect("A", "chaque contrôle a une route proposée", sans, [])
+    absentes = []
+    for prefix, route in cr.ROUTES_SAVOIR:
+        for locator in route.split(" ; "):
+            try:
+                read_route.resolve(locator)
+            except read_route.RouteError:
+                absentes.append(locator)
+    expect("A", "chaque route proposée existe", absentes, [])
+    expect("A", "titre inconnu : aucune route", cr.route_savoir("Contrôle inconnu"), "")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Tests de comportement de check_render.py.")
     ap.add_argument("--require-browser", action="store_true", help="échouer si Playwright est absent")
@@ -801,6 +821,7 @@ def main() -> int:
     args = ap.parse_args()
     part_a()
     part_a_state()
+    part_a_routes()
     c = part_c()
     b = 'NOT-VERIFIED : navigateur écarté explicitement' if args.skip_browser else part_b(args.require_browser)
     if args.skip_browser and args.require_browser:

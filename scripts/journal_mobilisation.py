@@ -70,8 +70,11 @@ def resumer(outil: str, texte: str) -> dict:
         proposees = [r for r in re.findall(rf"^\s*({ROUTE})\s{{2,}}\d+ ligne", texte, re.M) if r not in lues]
         return {"routes_lues": list(dict.fromkeys(lues)), "routes_proposees": list(dict.fromkeys(proposees)),
                 "caracteres": len(texte)}
+    routes: list[str] = []
     if outil == "check_render":
         res = re.findall(r"^\[([A-Z-]+)\s*\] ([^:\n]+?) :", texte, re.M)
+        for ligne in re.findall(r"^\s+→ savoir : (.+)$", texte, re.M):  # route proposée sous un défaut (A1)
+            routes += [r.strip() for r in ligne.split(";") if r.strip()]
     else:
         res = re.findall(r"^\[([A-ZÉ]+)\] [^·\n]+· ([^·\n]+?) ·", texte, re.M)
     statuts: dict[str, list[str]] = {}
@@ -79,7 +82,7 @@ def resumer(outil: str, texte: str) -> dict:
         statuts.setdefault(statut, [])
         if controle.strip() not in statuts[statut]:
             statuts[statut].append(controle.strip())
-    return {"resultats": statuts, "non_verifie": "NOT-VERIFIED —" in texte}
+    return {"resultats": statuts, "non_verifie": "NOT-VERIFIED —" in texte, "routes_proposees": list(dict.fromkeys(routes))}
 
 
 def executer(outil: str, principal: Callable[[], int], argv: list[str]) -> int:
@@ -130,7 +133,9 @@ def niveau_outil(e: dict) -> str:
     utiles = {k: v for k, v in res.items() if k in ("RETURN", "PASS-WITH-RESERVATION", "SIGNAL", "RELEVÉ")}
     if not utiles:
         return "exécuté, rien à traiter"
-    return "exécuté : " + " ; ".join(f"{k} — {', '.join(v)}" for k, v in utiles.items())
+    proposees = e.get("routes_proposees") or []
+    return ("exécuté : " + " ; ".join(f"{k} — {', '.join(v)}" for k, v in utiles.items())
+            + (f" ; savoir proposé : {', '.join(f'`{r}`' for r in proposees)}" if proposees else ""))
 
 
 def fiche(entrees: list[dict]) -> str:

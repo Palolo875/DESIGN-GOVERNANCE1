@@ -936,6 +936,32 @@ def measure_url(args: argparse.Namespace, url: str) -> dict:
     return raw
 
 
+# Route qui traite le défaut d'un contrôle (A1), sur le modèle du gate C et de check_caractere.py : la recette la
+# propose sous chaque réserve ou RETURN ; elle ne la lit pas à la place de l'agent et ne change aucun statut.
+ROUTES_SAVOIR = (
+    ("Débordement horizontal", "SAVOIR/CONTEXT ; BIBLIOTHEQUE/SEQUENCE"),
+    ("Défilement horizontal interne", "SAVOIR/CONTEXT"),
+    ("Erreurs JavaScript", "SAVOIR/TECH"),
+    ("Chevauchement et troncature de texte", "SAVOIR/TYPE ; SAVOIR/STATE"),
+    ("Assertions d’état", "ACTION/VISUAL_PROOF"),
+    ("Objet de l’état clé", "ACTION/VISUAL_PROOF"),
+    ("Contraste du texte", "SAVOIR/CRAFT/CFT-05 ; SAVOIR/CRAFT/CFT-03"),
+    ("Nom accessible", "SAVOIR/CONTEXT"),
+    ("Taille des cibles", "SAVOIR/CONTEXT"),
+    ("Structure du document", "SAVOIR/CONTEXT"),
+    ("Images chargées", "SAVOIR/SOURCE ; DIRECTION/ASSET-ROUTE"),
+    ("Parcours clavier", "SAVOIR/CONTEXT ; SAVOIR/STATE"),
+    ("Contraste de l’indicateur de focus", "SAVOIR/STATE ; SAVOIR/CRAFT/CFT-05"),
+    ("Mouvement réduit", "SAVOIR/CONTEXT"),
+    ("Objet de preuve au premier écran", "DIRECTION/FIRST-OBJECT ; SAVOIR/CRAFT/CFT-04a"),
+)
+
+
+def route_savoir(title: str) -> str:
+    """Route proposée pour le défaut d'un contrôle ; chaîne vide si aucune n'est déclarée."""
+    return next((route for prefix, route in ROUTES_SAVOIR if title.startswith(prefix)), "")
+
+
 def interpret(raw: dict, proof_sel: str = "") -> list[tuple[str, str, str]]:
     """Transforme les mesures brutes en contrôles. Fonction pure, testable sans navigateur."""
     widths, per = raw["widths"], raw["per_width"]
@@ -1266,6 +1292,8 @@ def run(args: argparse.Namespace) -> int:
     print(f"Recette AUTOMATED (GATE-A) — {target}\n")
     for title, status, detail in checks:
         print(f"[{status:<21}] {title} : {detail}")
+        if status in (RETURN, RESERVE) and route_savoir(title):
+            print(f"{'':<24}→ savoir : {route_savoir(title)}")
     # Relevé sans statut : un titre principal unique est une convention utile, pas un critère WCAG ni une faute objectivable.
     h1 = raw["per_width"][raw["widths"][0]]["audit"]["h1"]
     print(f"[RELEVÉ, sans statut      ] Titres de premier niveau visibles : {h1} à {raw['widths'][0]} px "
@@ -1301,7 +1329,7 @@ def run(args: argparse.Namespace) -> int:
                   + ". Les statuts et le code de sortie restent ceux de la mesure : un RETURN préexistant reste un défaut.")
     if args.json:
         coverage = {str(w): {**d.get('keyboard', {}), 'observed_stops': len(d['stops'])} for w, d in raw['per_width'].items()}
-        Path(args.json).write_text(json.dumps({"provenance": prov, "checks": [{"check": t, "status": s, "detail": d} for t, s, d in checks],
+        Path(args.json).write_text(json.dumps({"provenance": prov, "checks": [{"check": t, "status": s, "detail": d, "route": route_savoir(t) or None} for t, s, d in checks],
                                               'releves': {'h1_visibles': h1},
                                               'keyboard_coverage': coverage,
                                               'contrast_coverage': {str(w): d['audit'].get('contrastCoverage', {}) for w, d in raw['per_width'].items()},

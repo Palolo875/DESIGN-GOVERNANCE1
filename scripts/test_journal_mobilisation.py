@@ -50,6 +50,10 @@ class Journal(unittest.TestCase):
     def test_resume_des_recettes(self):
         rendu = "[RETURN               ] Contraste du texte sur fond uni : 2 textes\n[PASS                 ] Débordement : aucun\n"
         self.assertEqual(jm.resumer("check_render", rendu)["resultats"], {"RETURN": ["Contraste du texte sur fond uni"], "PASS": ["Débordement"]})
+        avec_route = rendu.replace("2 textes\n", "2 textes\n                        → savoir : SAVOIR/CRAFT/CFT-05 ; SAVOIR/CRAFT/CFT-03\n")
+        self.assertEqual(jm.resumer("check_render", avec_route)["routes_proposees"], ["SAVOIR/CRAFT/CFT-05", "SAVOIR/CRAFT/CFT-03"])
+        entree = {"outil": "check_render", "commande": ["p.html"], "code": 1, **jm.resumer("check_render", avec_route)}
+        self.assertIn("savoir proposé : `SAVOIR/CRAFT/CFT-05`", jm.niveau_outil(entree))
         caractere = "[SIGNAL] 390px · Polices rendues · glyphes hors · savoir : SAVOIR/TYPE\n[RELEVÉ] 390px · Foyer · x · savoir : y\n"
         self.assertEqual(jm.resumer("check_caractere", caractere)["resultats"], {"SIGNAL": ["Polices rendues"], "RELEVÉ": ["Foyer"]})
         self.assertTrue(jm.resumer("check_caractere", "NOT-VERIFIED — navigateur indisponible")["non_verifie"])

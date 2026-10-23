@@ -85,7 +85,7 @@ Pour un verdict global `ACCEPTED` ou `ACCEPTED-WITH-RESERVATION`, la `RUN_CARD` 
 
 Mode d’emploi de la recette `AUTOMATED` citée par `ACTION/GATE-A`. Elle se lit quand la recette est exécutée ou qu’un de ses résultats est cité ; elle ne fait pas partie du tronc. Les statuts qu’elle rend (`RETURN`, réserve, `NOT-VERIFIED`) s’appliquent aux contrôles qu’elle mesure, jamais à la direction, au goût ou à l’usage.
 
-La recette `AUTOMATED` du paquet pour un rendu HTML est `scripts/check_render.py` (optionnelle, navigateur requis). Elle produit la provenance minimale ci-dessus. Sans navigateur, elle rend `NOT-VERIFIED`. Ses comportements sont testés par `scripts/test_check_render.py` ; `--require-browser` exige les tests de pages et fait échouer leur contrôle si le navigateur est indisponible.
+La recette `AUTOMATED` du paquet pour un rendu HTML est `scripts/check_render.py` (optionnelle, navigateur requis). Elle produit la provenance minimale ci-dessus. Sous chaque contrôle en réserve ou en `RETURN`, elle propose la route qui traite le défaut (« → savoir : … », aussi dans `--json` et le journal) ; elle ne la lit pas et ne change aucun statut. Sans navigateur, elle rend `NOT-VERIFIED`. Ses comportements sont testés par `scripts/test_check_render.py` ; `--require-browser` exige les tests de pages et fait échouer leur contrôle si le navigateur est indisponible.
 
 **Ce qu’elle contrôle.**
 - Le débordement, de la page et des feuilles ouvertes.
