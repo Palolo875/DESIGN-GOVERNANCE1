@@ -149,6 +149,8 @@ Une scène règle la relation entre promesse, contenu, média, preuve et action.
 
 Le support reste la condition spatiale ; la scène est le scénario de lecture et de preuve.
 
+**Portée du catalogue.** Les scènes, objets et micro-unités de ce catalogue viennent surtout du produit logiciel et du B2B. Pour un commerce local, une boutique en ligne, une lecture ou un événement, pars de l’objet du métier (`BIBLIOTHEQUE/OBJECT`) et de la dérivation locale (`BIBLIOTHEQUE/DERIVE`) plutôt que d’une scène de logiciel ; une scène de ce catalogue n’y entre que si elle sert la tâche.
+
 ### `SCENE/INSTRUMENT`
 
 Champ expressif et panneau de mesure fonctionnel au premier plan.
@@ -250,7 +252,7 @@ Sur petit écran, la séquence se recompose au lieu de se comprimer (`SAVOIR/CON
 
 Un objet donne une forme locale et réutilisable à une preuve, une sélection, une comparaison, une mémoire, un contrôle ou une action. Il possède un rôle informationnel, des slots, des contextes et des états. Il ne compose pas un écran complet.
 
-**Objet du métier.** Un document ou un instrument que le domaine utilise déjà (formulaire, ticket, carnet, relevé, cadran, règle graduée) peut donner sa forme à l’objet de preuve ou le gabarit d’une section. Choisis-le s’il rend le mécanisme plus clair ; écarte-le s’il n’est qu’un décor ou s’il imite un document officiel au point de tromper.
+**Objet du métier.** Un document ou un instrument que le domaine utilise déjà (formulaire, ticket, carnet, relevé, cadran, règle graduée ; hors logiciel, l’ardoise ou le menu d’un restaurant, le tableau des fournées et des horaires d’une boulangerie, le guide des tailles ou la fiche d’entretien d’une boutique, le sommaire ou les notes d’un article, le programme ou le billet d’un événement) peut donner sa forme à l’objet de preuve ou le gabarit d’une section. Choisis-le s’il rend le mécanisme plus clair ; écarte-le s’il n’est qu’un décor ou s’il imite un document officiel au point de tromper.
 
 ### Routes d’objet
 
