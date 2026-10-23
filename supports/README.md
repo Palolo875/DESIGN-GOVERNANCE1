@@ -1,6 +1,6 @@
 # Cartes du système
 
-Trois vues pour comprendre Design Governance V1 expérimentale. Elles orientent vers les sections propriétaires, qui font foi ; elles ne créent aucune règle ni nouvelle route pour l’agent.
+Trois vues pour comprendre Design Governance. Elles orientent vers les sections propriétaires, qui font foi ; elles ne créent aucune règle ni nouvelle route pour l’agent.
 
 | Vue | Lecture sur GitHub | SVG | Page interactive à ouvrir après extraction |
 |---|---|---|---|
@@ -34,4 +34,4 @@ La police source, la licence, les versions des outils et le relevé de couvertur
 
 Le contrôle refuse une sortie périmée ou une cible absente. Il ne juge ni la lisibilité du rendu ni la compréhension par une personne.
 
-Le langage documentaire retenu sert ces supports. Il n’impose ni Manrope, ni ces couleurs, ni une structure aux productions que le système aide à créer. La V1 reste expérimentale.
+Le langage documentaire retenu sert ces supports. Il n’impose ni Manrope, ni ces couleurs, ni une structure aux productions que le système aide à créer.

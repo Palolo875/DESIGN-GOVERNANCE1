@@ -1,6 +1,6 @@
 # Créer, observer. Apprendre par le geste.
 
-V1 expérimentale. Vue dérivée : les sections propriétaires font foi.
+V1.0.0 expérimentale. Vue dérivée : les sections propriétaires font foi.
 
 Boucle d’édition : aucun quota de retouches, aucune acceptation automatique.
 

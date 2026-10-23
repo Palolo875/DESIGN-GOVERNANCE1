@@ -1,6 +1,6 @@
 # De la demande à la livraison.
 
-V1 expérimentale. Vue dérivée : les sections propriétaires font foi.
+V1.0.0 expérimentale. Vue dérivée : les sections propriétaires font foi.
 
 Vue de lecture : les retours et protections adaptent le parcours.
 

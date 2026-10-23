@@ -7,4 +7,4 @@ Ce que l’agent fait à chaque demande, au-delà du noyau de la [skill](../SKIL
 | [`chemins.md`](chemins.md) | Classer une demande, choisir le mode, savoir quoi lire et quand |
 | [`repondre.md`](repondre.md) | La réponse visible, la trace légère ou complète et la transmission pour reprise |
 
-Les références de la skill (exemples, flux, projection machine, aide-mémoire) sont dans [`references/`](../references/canonical_minimum.md).
+Les références de la skill (exemples, flux, projection machine, aide-mémoire) sont dans [`references/`](../references/README.md).

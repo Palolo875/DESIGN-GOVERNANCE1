@@ -4,7 +4,7 @@ Design Governance aide un agent, ou une personne, à concevoir des pages, des é
 
 Son objectif : obtenir un niveau élevé plus régulièrement, avec moins d’oublis, de tâtonnements et de reprises inutiles. C’est une hypothèse à éprouver, pas un résultat acquis ; [le cap](maintenance/versions.md#cap) dit comment elle se juge.
 
-> **Statut :** V1.0.0, révision `R2026-10-21`. Expérimentation maintenue, pensée pour un usage avec revue humaine (voir [les limites](#limites)). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
+> **Statut :** V1.0.0, révision `R2026-10-23`. Expérimentation maintenue, pensée pour un usage avec revue humaine (voir [les limites](#limites)). Le contenu complet est décrit dans [ce que contient le système](maintenance/versions.md).
 
 ## Par où entrer
 
@@ -85,7 +85,7 @@ Deux boucles se répondent. La première **crée** : cadrer le produit et son pu
 |---|---|---|
 | **Guides** | [`guides/`](guides/README.md) | Trois niveaux de maîtrise (utiliser, comprendre, maîtriser) et un glossaire. |
 | **Design** | [`design/`](design/README.md) | Le cœur : direction, savoir, formes, qualité du produit. |
-| **Skill** | [`SKILL.md`](SKILL.md), `references/` | Le point d’entrée de l’agent (noyau commun) et ses références : [exemples de runs](references/examples.md), [flux de décision](references/flow.md), [aide-mémoire minimal](references/canonical_minimum.md), [projection machine](references/machine_projection.md). |
+| **Skill** | [`SKILL.md`](SKILL.md), [`references/`](references/README.md) | Le point d’entrée de l’agent (noyau commun) et ses références : [exemples de runs](references/examples.md), [flux de décision](references/flow.md), [aide-mémoire minimal](references/canonical_minimum.md), [projection machine](references/machine_projection.md). |
 | **Agent** | [`agent/`](agent/README.md) | Le chemin de l’agent par mode et la forme de sa réponse. |
 | **Gouvernance** (selon le besoin) | [`gouvernance/`](gouvernance/README.md) | Contrôles et trace adaptés au risque, à la décision et aux besoins de reprise ; schémas et outils de validation. |
 | **Supports** | [`supports/`](supports/README.md) | Trois cartes du système, en HTML, SVG clair et sombre, et texte. |

@@ -1,6 +1,6 @@
 # Niveau 3 — Maîtriser
 
-Ce niveau sert à piloter un travail de bout en bout : cadrer, confier à un agent, vérifier, décider, conserver et transmettre, seul avec un agent ou à plusieurs. Il suppose les niveaux [1](1-utiliser.md) et [2](2-comprendre.md). Design Governance V1.0.0 est une expérimentation maintenue, pensée pour un usage supervisé.
+Ce niveau sert à piloter un travail de bout en bout : cadrer, confier à un agent, vérifier, décider, conserver et transmettre, seul avec un agent ou à plusieurs. Il suppose les niveaux [1](1-utiliser.md) et [2](2-comprendre.md). Design Governance V1.0.0 est une expérimentation maintenue.
 
 > **Ce que fait ce guide :** il oriente la lecture et l’action, sans ajouter aucune règle. Ce sont les sections citées qui font foi.
 

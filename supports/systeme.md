@@ -1,6 +1,6 @@
 # Le design au cœur. Un chemin pour chaque besoin.
 
-V1 expérimentale. Vue dérivée : les sections propriétaires font foi.
+V1.0.0 expérimentale. Vue dérivée : les sections propriétaires font foi.
 
 Carte de responsabilités, pas un ordre fixe d’exécution.
 

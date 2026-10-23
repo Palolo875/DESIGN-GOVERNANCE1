@@ -180,7 +180,7 @@ def text_sections(data):
 
 
 def equivalent(data):
-    out = ['# ' + data['title'].replace('\n', ' '), '', 'V1 expérimentale. Vue dérivée : les sections propriétaires font foi.', '', data['scope'], '']
+    out = ['# ' + data['title'].replace('\n', ' '), '', VERSION_LABEL + '. Vue dérivée : les sections propriétaires font foi.', '', data['scope'], '']
     for n in text_sections(data):
         out += ['## ' + n.get('role', n['title']), '', '**' + n['title'] + ('** ' if n['title'].rstrip()[-1:] in '.!?…' else '**. ') + ' '.join(n['lines'] + n.get('conditions', [])), '']
         for child in n.get('children', []):

@@ -1,6 +1,6 @@
 # Sections de référence — Design Governance V1.0.0
 
-Ce dossier contient les sections propriétaires regroupées par domaine (ACTION, BIBLIOTHEQUE, DIRECTION, SAVOIR) et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Leur autorité suit la section propriétaire, comme dans les autres dossiers. Le sommaire reste le point d’entrée vers toutes les responsabilités historiques.
+Ce dossier contient les sections propriétaires regroupées par domaine (ACTION, BIBLIOTHEQUE, DIRECTION, SAVOIR) et la carte de lecture de **Design Governance V1.0.0**, une expérimentation maintenue. Leur autorité suit la section propriétaire, comme dans les autres dossiers. Ce sommaire relie chaque responsabilité aux fichiers qui la portent.
 
 Pour commencer, lisez le [niveau 1](../guides/1-utiliser.md#commencer) : vous n’avez pas à choisir de mode. Pour piloter un run, lisez le [niveau 3](../guides/3-maitriser.md) ; un agent entre par la skill `design-governance-practice`. Le vocabulaire est défini dans [`guides/glossaire.md`](../guides/glossaire.md).
 
@@ -10,16 +10,16 @@ L’autorité appartient à la **section propriétaire à son emplacement actuel
 
 | Source | Responsabilité |
 |---|---|
-| `DIRECTION` | Mode et chargement : [chemins de l’agent](../agent/chemins.md) ; cadrage et direction : [design](../design/README.md) ; rôle et posture : [sections conservées](DIRECTION.md). |
-| `ACTION` | Production : [qualité du produit](../design/produit/README.md) ; réponse et trace : [répondre](../agent/repondre.md) ; preuve et clôture : [gouvernance](../gouvernance/README.md) ; [sections conservées](ACTION.md). |
-| `SAVOIR` | Jugement, craft, contenu, contexte et sources : [savoir](../design/savoir/README.md) ; [sections conservées](SAVOIR.md). |
-| `BIBLIOTHEQUE` | Structures : [formes](../design/formes/README.md) ; contrats : [gouvernance](../gouvernance/structure.md) ; évolution : [maintenance](../maintenance/evolution.md) ; [sections conservées](BIBLIOTHEQUE.md). |
+| `DIRECTION` | Mode et chargement : [chemins de l’agent](../agent/chemins.md) ; cadrage et direction : [design](../design/README.md) ; rôle et posture : [page de la responsabilité](DIRECTION.md). |
+| `ACTION` | Production : [qualité du produit](../design/produit/README.md) ; réponse et trace : [répondre](../agent/repondre.md) ; preuve et clôture : [gouvernance](../gouvernance/README.md) ; [page de la responsabilité](ACTION.md). |
+| `SAVOIR` | Jugement, craft, contenu, contexte et sources : [savoir](../design/savoir/README.md) ; [page de la responsabilité](SAVOIR.md). |
+| `BIBLIOTHEQUE` | Structures : [formes](../design/formes/README.md) ; contrats : [gouvernance](../gouvernance/structure.md) ; évolution : [maintenance](../maintenance/evolution.md) ; [page de la responsabilité](BIBLIOTHEQUE.md). |
 | `CHANGELOG` | Version : [versions](../maintenance/versions.md) ; cycle de vie et migrations : [évolution](../maintenance/evolution.md). Pour lire, ouvrir ces fichiers actuels. |
 
 Les marqueurs de provenance ne rendent pas un guide normatif : une section de règle fait foi, un guide ou une carte l’oriente. Le noyau de la skill est une projection générée ; les archives sont des distributions dérivées. En cas de divergence, corriger la projection ou le guide depuis la section propriétaire, puis régénérer et valider.
 
 Les codes stables et les adresses lisibles sont deux noms pour une même section. L’agent utilise les codes stables du noyau ; une personne peut utiliser les adresses lisibles. Aucune seconde lecture n’est requise. Les noms de fichiers inscrits dans le registre et dans les marqueurs servent à la provenance ; ce ne sont pas des chemins à ouvrir.
 
-Le README et les guides (`guides/`) sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `DESIGN-ATLAS` appartient à `SAVOIR.md` ; ce n’est pas un fichier séparé. La carte [`sections/READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
+Le README et les guides (`guides/`) sont des **guides d’entrée non normatifs**. Ils orientent la lecture, mais ne créent aucune route, gate, statut, score ou autorité concurrente. `SAVOIR/DESIGN-ATLAS` est une section de la responsabilité SAVOIR (`design/savoir/images-et-sources.md`), pas un fichier séparé. La carte [`sections/READING_MAP.md`](./READING_MAP.md) (chemin, combinaisons par résultat et locators) est dérivée et non normative.
 
 Lorsqu’une décision exige une trace structurée, la `RUN_CARD` rassemble le mode, le risque, la décision, l’artefact, la preuve, la limite et la clôture ; son schéma est dans `gouvernance/schemas/` et son validateur est `gouvernance/outils/validate_run_card.py`, exécuté depuis la racine du paquet. Une validation de package ou de `RUN_CARD` confirme uniquement les contrôles exécutés ; elle ne prouve ni l’usage, ni l’accessibilité exécutée, ni la performance, ni la qualité visuelle du produit.
