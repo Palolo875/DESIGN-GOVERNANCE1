@@ -8,7 +8,7 @@
     "decision_intent": "Rendre la direction visible.",
     "risk": {"level": "important", "statement": "Risque principal : la décision « Rendre la direction visible » échoue dans le scope déclaré.", "critical_protection": null},
     "sources": ["DIRECTION/START", "ACTION/RUN-DIRECTION"],
-    "direction": {"thesis": "La matière porte le premier geste.", "anti_direction": ["Hero générique."], "first_object": "Objet directeur.", "identity_stake": "normal"},
+    "direction": {"thesis": "La matière porte le premier geste.", "modal": "Hero générique.", "parti": "S’en écarter : l’objet directeur ouvre la scène.", "first_object": "Objet directeur.", "identity_stake": "normal"},
     "artifact": {"locator": "local-artifact", "scope": "première scène", "rights_status": "not_applicable"},
     "next_proof": "Observer le premier objet dans le rendu réel.",
     "proof": {"observed": ["La scène a été construite."], "not_verified": ["Revue externe non réalisée."]},

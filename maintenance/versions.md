@@ -53,6 +53,8 @@ Les codes de route (`DIRECTION/START`) et les adresses lisibles (`agent/chemins#
 
 Une promotion, une dépréciation ou une migration décidée se reflète ici, dans l’état courant ; la règle de cycle de vie et le contrat de la décision sont dans `maintenance/evolution.md`.
 
+**Migration en cours — `RUN_CARD`, champ `direction`.** `direction.anti_direction` est retiré : le modal et le parti s’écrivent dans `direction.modal` et `direction.parti`, la trame modale, facultative, dans `direction.trame`. Une fiche qui porte encore `anti_direction` est refusée avec ce message de migration ; pour la convertir, le premier élément devient `modal` et la décision prise face à lui devient `parti`. Décidé le 2026-10-23 (A11).
+
 ## Sections à l’essai
 
 Ces sections et cette option sont des essais, suivis selon le cycle de vie de `maintenance/evolution.md` : aucune n’est adoptée. Owner : mainteneur du corpus ; revue avant 2027-04. Elles sont couvertes par les tests du paquet, pas encore éprouvées sur un run de design complet (`ACTION/MAINTENANCE`, « Run réel »).

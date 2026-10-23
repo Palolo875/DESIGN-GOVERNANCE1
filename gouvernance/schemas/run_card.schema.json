@@ -50,7 +50,9 @@
           "additionalProperties": false,
           "properties": {
             "thesis": {"type": "string", "minLength": 1},
-            "anti_direction": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "modal": {"type": "string", "minLength": 1},
+            "parti": {"type": "string", "minLength": 1},
+            "trame": {"type": "string", "minLength": 1},
             "first_object": {"type": "string", "minLength": 1},
             "scope": {"type": "string", "minLength": 1},
             "constraint": {"type": "string", "minLength": 1},

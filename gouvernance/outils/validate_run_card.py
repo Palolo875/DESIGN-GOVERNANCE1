@@ -414,13 +414,12 @@ def check_direction(card: dict[str, Any], closure: dict[str, Any]) -> None:
     verdict = closure.get("verdict")
     direction = card.get("direction")
     if not isinstance(direction, dict):
-        raise ValidationError("DIRECTION exige un objet direction avec thèse, anti-direction et premier objet")
-    for field in ("thesis", "anti_direction", "first_object"):
+        raise ValidationError("DIRECTION exige un objet direction avec thèse, modal, parti et premier objet")
+    if "anti_direction" in direction:
+        raise ValidationError("direction.anti_direction est retiré : utilisez direction.modal et direction.parti (direction.trame facultatif)")
+    for field in ("thesis", "modal", "parti", "first_object"):
         value = direction.get(field)
-        if field == "anti_direction":
-            if not isinstance(value, list) or not value or not all(isinstance(item, str) and item.strip() for item in value):
-                raise ValidationError("DIRECTION exige une anti_direction non vide")
-        elif not isinstance(value, str) or not value.strip():
+        if not isinstance(value, str) or not value.strip():
             raise ValidationError(f"DIRECTION exige le champ direction.{field}")
     if not card.get("trace_locator"):
         raise ValidationError("DIRECTION exige trace_locator pour une RUN_CARD persistante")
@@ -717,6 +716,7 @@ FIXTURE_TABLE: dict[str, str | None] = {
     "invalid_accepted_lost_in_build.json": "LOST-IN-BUILD ne peut pas produire un verdict accepté",
     "invalid_lite_missing_minimum.json": "run_card : champ obligatoire absent : risk",
     "invalid_direction_untransformed_anchor.json": "un verdict accepté exige transformation_status transformed",
+    "invalid_direction_legacy_anti_direction.json": "direction.anti_direction est retiré",
 }
 
 DELETE = object()

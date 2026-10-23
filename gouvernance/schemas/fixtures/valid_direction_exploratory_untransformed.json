@@ -17,9 +17,7 @@
     ],
     "direction": {
       "thesis": "La matière porte le geste.",
-      "anti_direction": [
-        "Copier la référence."
-      ],
+      "modal": "Copier la référence.", "parti": "S’écarter de la référence : en garder la relation, pas la forme.", "trame": "promesse → logos → trois bénéfices → tarifs → FAQ, rompue : l’objet de preuve ouvre la page.",
       "first_object": "Objet directeur.",
       "identity_stake": "normal"
     },

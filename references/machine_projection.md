@@ -26,8 +26,9 @@ run_card:
     - ACTION/RUN_CARD
   direction:
     thesis: "Position visuelle située."
-    anti_direction:
-      - "Pattern générique refusé."
+    modal: "Ce que n’importe quelle IA produirait ici."
+    parti: "Garder ou s’écarter : où et pourquoi."
+    trame: "Trame modale nommée, puis rompue ou gardée (facultatif)."
     first_object: "Objet qui matérialise la décision."
     identity_stake: normal
   anchors:

@@ -15,7 +15,7 @@ PROMISE: promesse à rendre perceptible
 PROOF-OBJECT: objet, état, donnée ou relation qui rend la promesse crédible
 GESTURE: premier geste ou action attendu
 MODAL: ce que n’importe quelle IA produirait ici (structure, palette, typo, assets) ; se nomme avec les marqueurs de vague datés de `SAVOIR/TOOLS`
-PARTI: garder ou s’écarter — où et pourquoi au regard de la thèse ; projeté dans `direction.anti_direction`
+PARTI: garder ou s’écarter — où et pourquoi au regard de la thèse ; projeté dans `direction.parti` (le modal dans `direction.modal`)
 STRUCTURAL-TENSION: axe(s) de tension selon BIBLIOTHEQUE (un ou deux, `BIBLIOTHEQUE/TENSION`)
 STRUCTURAL-SIGNATURE: relation que cette structure rend possible au-delà de l’héritage
 CFT-TARGETS: jusqu’à trois qualités créatives prioritaires pour la construction
@@ -64,9 +64,9 @@ Le Creative Boot, l’atelier, le cadrage du noyau, la trace légère et la `RUN
 | Objet de preuve | Objet de preuve | objet de preuve | `PROOF-OBJECT` | — | thèse (objet de preuve) | — |
 | Geste | Opération visuelle dominante | geste produit | `GESTURE` | geste produit | thèse (geste) | — |
 | Tension | Compilation (tension) | tension | `STRUCTURAL-TENSION` (`BIBLIOTHEQUE/TENSION`) | tension | — | — |
-| Modal et parti | Modal / parti | position/exclusion | `MODAL`, `PARTI` | position et exclusion | modal, trame et parti | `direction.anti_direction` |
+| Modal et parti | Modal / parti | position/exclusion | `MODAL`, `PARTI` | position et exclusion | modal, trame et parti | `direction.modal`, `direction.parti` |
 | Alternative écartée | — | contre-choix situé | — | contre-choix situé | proposition (alternative écartée) | — |
-| Trame modale | — (test de trame, `BIBLIOTHEQUE/SELECT`) | test de trame | — | — | modal, trame et parti | — |
+| Trame modale | — (test de trame, `BIBLIOTHEQUE/SELECT`) | test de trame | — | — | modal, trame et parti | `direction.trame` (facultatif) |
 | Ancre et moyens | Ancre ; matière / asset | ancre ; plafond | `FABRICATION` | — | plafond atteint et contenus marqués | `direction.calibration` |
 | Vérité | — | marquage de vérité | — | vérité de la scène | contenus marqués | — |
 | Premier objet | Résolution initiale | premier objet | `FIRST-OBJECT` | — | — | `direction.first_object` |

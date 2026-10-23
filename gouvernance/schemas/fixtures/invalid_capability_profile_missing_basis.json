@@ -19,9 +19,7 @@
     ],
     "direction": {
       "thesis": "La matière du produit doit guider le premier geste.",
-      "anti_direction": [
-        "Hero générique sans objet directeur."
-      ],
+      "modal": "Hero générique sans objet directeur.", "parti": "S’en écarter : l’objet directeur ouvre la scène.",
       "first_object": "Objet principal qui rend la relation produit-geste observable.",
       "identity_stake": "normal"
     },
