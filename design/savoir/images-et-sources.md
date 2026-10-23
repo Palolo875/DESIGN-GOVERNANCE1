@@ -5,7 +5,7 @@ Ancre, sourcing visuel et familles visuelles.
 <!-- origine:SAVOIR.md -->
 # SAVOIR/SOURCE — ancre et sourcing visuel
 
-[REQUIS PAR LE MODULE — surface `DIRECTION`] Regarder n’est pas lire une légende. Une description textuelle peut expliquer un principe ; elle ne transmet pas seule masse, lumière, trame, densité ou rapport image/texte.
+[REQUIS PAR LE MODULE — surface `DIRECTION`] Regarder n’est pas lire une légende. Une description textuelle peut expliquer un principe ; elle ne transmet pas seule masse, lumière, trame d’impression, densité ou rapport image/texte.
 
 Utilise les voies `ANCHOR-GENERATED` / `ANCHOR-OBSERVED` / `ANCHOR-PROVIDED` définies par `DIRECTION/VISUAL_TARGET` et exécutées dans `ACTION/PIPELINE-DIRECTION` seulement si une ancre peut modifier la décision et si sa limite sera déclarée. Pour une surface identitaire, l’ancre suit l’absolu 2 de `DIRECTION` : exploration possible sans ancre, limite déclarée ; acceptation avec une ancre, observée ou fournie pour un produit réel ; si elle manque, les axes concernés restent `NOT-VERIFIED` et le run suit l’issue ACTION appropriée (`ACTION/PIPELINE-DIRECTION`). Hors surface identitaire, justifie la non-applicabilité. Termine par une spec visuelle exploitable. Une image générée peut matérialiser une direction ; une référence observée peut calibrer une résolution ; une ancre fournie peut exprimer une intention ou un actif réel.
 
@@ -81,10 +81,10 @@ Avant de retenir un asset directeur, formule une contre-épreuve proportionnée 
 
 <!-- origine:SAVOIR.md -->
 <!-- noyau:début MOY-ASSETS -->
-**Traitement des assets moyens.** Quand les assets disponibles sont moyens (photos de téléphone, banque d’images), choisis le traitement que justifie la thèse — recadrage, étalonnage, duotone, grain ou trame — plutôt que de les poser bruts ou de les remplacer par un dessin. Un traitement commun peut unifier une série disparate ; plusieurs traitements se justifient si leurs rôles sont distincts et lisibles. Vérifie sur capture la relation entre les images et la composition. Le traitement ne masque ni un droit inconnu, ni une image hors sujet.
+**Traitement des assets moyens.** Quand les assets disponibles sont moyens (photos de téléphone, banque d’images), choisis le traitement que justifie la thèse — recadrage, étalonnage, duotone, grain ou trame d’impression — plutôt que de les poser bruts ou de les remplacer par un dessin. Un traitement commun peut unifier une série disparate ; plusieurs traitements se justifient si leurs rôles sont distincts et lisibles. Vérifie sur capture la relation entre les images et la composition. Le traitement ne masque ni un droit inconnu, ni une image hors sujet.
 <!-- noyau:fin MOY-ASSETS -->
 
-Une trame ou un grain proches des marqueurs de vague datés (`SAVOIR/TOOLS/CONVERGENCE`) restent permis lorsque la thèse les justifie : la question est celle de `MODIFIER/PRINT_FIELD` (que perd la page si l’on retire ce traitement ?), et un traitement repris d’un brief à l’autre est un signal d’enquête (`BIBLIOTHEQUE/SELECT`, signaux de convergence structurelle), jamais un interdit.
+Une trame d’impression ou un grain proches des marqueurs de vague datés (`SAVOIR/TOOLS/CONVERGENCE`) restent permis lorsque la thèse les justifie : la question est celle de `MODIFIER/PRINT_FIELD` (que perd la page si l’on retire ce traitement ?), et un traitement repris d’un brief à l’autre est un signal d’enquête (`BIBLIOTHEQUE/SELECT`, signaux de convergence structurelle), jamais un interdit.
 
 # SAVOIR/DESIGN-ATLAS — familles et responsabilités
 
@@ -106,7 +106,7 @@ Les familles ci-dessous orientent la recherche ; elles ne sont ni des quotas, ni
 | Relation à améliorer | Techniques possibles | Effets possibles |
 |---|---|---|
 | Hiérarchie et orientation | Échelle, contraste, espace négatif, groupement, grille, alignement, rythme | Perceptif, informationnel, comportemental |
-| Matière et contexte | Photographie, illustration, texture, trame, couleur, lumière, matériau code-native | Identitaire, atmosphérique, spatial |
+| Matière et contexte | Photographie, illustration, texture, trame d’impression, couleur, lumière, matériau code-native | Identitaire, atmosphérique, spatial |
 | Preuve et compréhension | Donnée, diagramme, comparaison, vue produit, annotation, séquence, avant/après | Informationnel, comportemental, narratif |
 | Rythme et feedback | Transition, motion d’état, progressive disclosure, scroll, réaction, son | Comportemental, narratif, perceptif |
 | Profondeur et espace | Couches, masque, blur, ombre, perspective, 3D, parallax | Spatial, perceptif, identitaire |

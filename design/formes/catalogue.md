@@ -62,7 +62,7 @@ Une grille est une infrastructure de lecture, jamais un overlay décoratif ajout
 
 ### `GRID/MODULAR`
 
-Unités répétables : cellules, blocs, images, chiffres et texte s’assemblent dans une trame.
+Unités répétables : cellules, blocs, images, chiffres et texte s’assemblent dans une grille.
 
 **Choisir lorsque :** collection, plans, cartes, dashboard, archive ou système avec plusieurs éléments de poids proche.
 
@@ -86,7 +86,7 @@ Lignes ou panneaux convergent vers un foyer.
 
 ### `GRID/HIERARCHICAL`
 
-Tailles et positions inégales selon priorité, avec ruptures contrôlées de trame.
+Tailles et positions inégales selon priorité, avec ruptures contrôlées de grille.
 
 **Choisir lorsque :** page narrative, annonce, pièce forte ou relation promesse/artefact/preuve.
 
@@ -354,7 +354,7 @@ Navigation comme couche de contrôle dans une scène, un cadre ou une image.
 
 ### `MODIFIER/PRINT_FIELD`
 
-Grain, trame, aplat, bordure ou hachure donnent un statut de matière conçue.
+Grain, trame d’impression, aplat, bordure ou hachure donnent un statut de matière conçue.
 
 **Conditions :** rôle perceptuel ou sémantique, test de retrait, contraste, performance et alternative lorsque la matière est informative. La sémantique ne dépend jamais de la texture ou de la couleur seule. La matière peut être produite par CSS, SVG, typographie, masque ou procédé local ; elle ne devient pas une recette réutilisable sans preuve de gain transversal.
 
@@ -368,7 +368,7 @@ Grain, trame, aplat, bordure ou hachure donnent un statut de matière conçue.
 | Couche | Responsabilité | Exemples |
 |---|---|---|
 | `LAYER/TOKENS` | Valeurs et relations durables. | Couleurs sémantiques, type, espacements, bordures, z-index, motion. |
-| `LAYER/BRAND_GRAMMAR` | Expression d’identité hors métier. | Cadres, règles, repères, trames, champs matière, signatures typographiques. |
+| `LAYER/BRAND_GRAMMAR` | Expression d’identité hors métier. | Cadres, règles, repères, trames d’impression, champs matière, signatures typographiques. |
 | `LAYER/PRIMITIVES` | Gestes universels et accessibilité. | Button, Link, Input, Select, Dialog, Tabs, Tooltip, Checkbox, Skeleton. |
 | `LAYER/OBJECTS` | Forme stable d’une preuve ou information. | Routes `OBJECT/*` ; `MICRO/*` est un sous-type d’objet dense soumis au même contrat, pas une couche indépendante. |
 | `LAYER/SCENES` | Composition, support et hiérarchie d’un écran. | Routes `SUPPORT/*`, `GRID/*`, `SCENE/*`. |

@@ -181,7 +181,7 @@ La cohérence vérifie si les éléments suivent les mêmes règles. L’harmoni
 
 Inspecte sur capture : typographie ↔ espace, image ou matière code-native ↔ hiérarchie, motion ↔ personnalité, densité ↔ usage, détail ↔ ambition. Une direction ambitieuse tenue par un craft faible se lit comme un potentiel non résolu ; une direction calme mais précisément exécutée peut être plus convaincante.
 
-Une matière créée par code — trame, règle, masque, gradient, SVG, découpe ou composition procédurale — doit expliquer la relation qu’elle porte avant d’être préférée à un asset externe.
+Une matière créée par code — trame d’impression, règle, masque, gradient, SVG, découpe ou composition procédurale — doit expliquer la relation qu’elle porte avant d’être préférée à un asset externe.
 
 Une observation de clarté, d’harmonie ou d’unité est perceptuelle. Pour la nommer utilisabilité, ajoute une tâche, un contexte et une preuve d’usage lorsque le risque U est dominant.
 

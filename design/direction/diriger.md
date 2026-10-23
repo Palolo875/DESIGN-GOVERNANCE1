@@ -7,7 +7,7 @@ Rendre la direction pilotable : cible visuelle, atelier de direction, direction 
 
 Pour une décision visuelle ouverte, active avant le build un **Creative Boot** court. Il ne crée ni mode, ni route, ni gate, ni statut, ni score esthétique, ni champ obligatoire concurrent de `RUN_CARD`.
 
-Le boot tient au maximum les décisions suivantes :
+Le boot est un sous-ensemble de la cible (`DIRECTION/VISUAL_TARGET`, « Correspondance des cadres ») ; il tient au maximum les décisions suivantes :
 
 ```text
 DECISION: décision que le premier rendu doit permettre de prendre
@@ -46,13 +46,34 @@ Sur une surface `DIRECTION`, la cible visuelle rassemble les décisions nécessa
 | **Silhouette** | Rapport vide/masses, foyer, axe, cadre ou circulation reconnaissable sans le contenu fin. |
 | **Relations de plans** | Relation entre premier plan, contexte, asset, preuve et action ; ne pas confondre profondeur décorative et hiérarchie de lecture. |
 | **Opération visuelle dominante** | Relation par laquelle un contenu, une preuve ou une donnée rend la promesse perceptible. |
-| **Matière / asset** | Rôle dans la promesse, route de production initiale, cadrage, zone sûre, contraste, mobile, fallback et condition de retrait. Une matière native au code — règle, trame, masque, gradient, typographie, SVG ou composition procédurale — est un choix complet lorsqu’elle porte mieux la relation qu’un asset externe. |
+| **Matière / asset** | Rôle dans la promesse, route de production initiale, cadrage, zone sûre, contraste, mobile, fallback et condition de retrait. Une matière native au code — règle, trame d’impression, masque, gradient, typographie, SVG ou composition procédurale — est un choix complet lorsqu’elle porte mieux la relation qu’un asset externe. |
 | **Typographie** | Rôle du display, du corps, des données et de l’action ; mesure, cadence et contre-indication. |
 | **Objet de preuve** | Objet, média, état ou fenêtre produit qui répond directement à la promesse. |
 | **Modal / parti** | Le modal nommé (ce que n’importe quelle IA produirait ici) et le parti : garder ou s’écarter, où et pourquoi, avec raison produit ou perceptuelle. |
 | **Résolution initiale** | Quel niveau de contenu réel, d’état, de responsive, d’asset et de détail doit déjà tenir au premier rendu ? |
 
 Cette table est la seule représentation canonique de la cible. L’opération dominante peut être discrète : retenue, vide, séquence, contraste de densité ou émergence d’un signal critique. Elle ne prescrit ni texture, ni type géant, ni masque, ni palette, ni composant.
+
+### Correspondance des cadres
+
+Le Creative Boot, l’atelier, le cadrage du noyau, la trace légère et la `RUN_CARD` sont des vues de cette cible. Une même notion y porte le nom suivant ; elle est écrite une fois, dans la vue qui la rend décisionnelle (règle de réconciliation du noyau).
+
+| Notion | Cible | Cadrage du noyau | Creative Boot | Atelier | Trace légère | `RUN_CARD` |
+|---|---|---|---|---|---|---|
+| Promesse | Thèse ; conséquence observable | situation ; promesse | `PROMISE` | moment humain | thèse | `direction.thesis` |
+| Objet de preuve | Objet de preuve | objet de preuve | `PROOF-OBJECT` | — | thèse (objet de preuve) | — |
+| Geste | Opération visuelle dominante | geste produit | `GESTURE` | geste produit | thèse (geste) | — |
+| Tension | Compilation (tension) | tension | `STRUCTURAL-TENSION` (`BIBLIOTHEQUE/TENSION`) | tension | — | — |
+| Modal et parti | Modal / parti | position/exclusion | `MODAL`, `PARTI` | position et exclusion | modal, trame et parti | `direction.anti_direction` |
+| Alternative écartée | — | contre-choix situé | — | contre-choix situé | proposition (alternative écartée) | — |
+| Trame modale | — (test de trame, `BIBLIOTHEQUE/SELECT`) | test de trame | — | — | modal, trame et parti | — |
+| Ancre et moyens | Ancre ; matière / asset | ancre ; plafond | `FABRICATION` | — | plafond atteint et contenus marqués | `direction.calibration` |
+| Vérité | — | marquage de vérité | — | vérité de la scène | contenus marqués | — |
+| Premier objet | Résolution initiale | premier objet | `FIRST-OBJECT` | — | — | `direction.first_object` |
+| Signature | Silhouette | — | `STRUCTURAL-SIGNATURE` | — | — | `creative_close.signature` |
+| Défaut dominant | — | — | `DOMINANT-DEFECT` | — | défaut dominant restant | `creative_close.dominant_defect` |
+
+Le boot et l’atelier n’ajoutent que ce que la cible ne porte pas : la décision du rendu (`DECISION`, la décision dominante de la ligne `RUN`), les qualités visées (`CFT-TARGETS`) et le défaut recherché pour le boot ; le moment humain et le contre-choix pour l’atelier.
 
 ### Compilation de la première proposition
 
@@ -116,7 +137,7 @@ La cible peut vivre dans la `RUN_CARD`, le ticket ou le manifeste local. Après 
 
 ### Noyau du contrat
 
-Le contrat utilise la cible visuelle existante ; il ne la remplace pas par un formulaire parallèle. Il rend explicites les décisions qui risquent autrement de se réduire à un adjectif, une palette ou une tendance.
+Le contrat utilise la cible visuelle existante ; il ne la remplace pas par un formulaire parallèle (voir « Correspondance des cadres » dans `DIRECTION/VISUAL_TARGET`). Il rend explicites les décisions qui risquent autrement de se réduire à un adjectif, une palette ou une tendance.
 
 | Élément | Décision à rendre retrouvable | Limite à conserver |
 |---|---|---|

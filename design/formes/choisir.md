@@ -32,8 +32,8 @@ Une structure ne choisit pas seule le goût, mais elle ouvre ou ferme des possib
 | **Monumentalité** | Un élément très grand (titre ou objet sur environ la moitié de la largeur ou de la hauteur) ; peu d’éléments ; axe ou symétrie fort ; approche resserrée en grand corps. | Titre géant sur fond sombre et dégradé, sans contenu qui le porte. |
 | **Précision** | Grille stricte et alignements sur une base (4 ou 8 px) ; chiffres tabulaires ; filets fins ; unités, légendes et valeurs réelles. | Signes techniques d’une vague datée (mono, repères) posés en décor. |
 | **Spontanéité** | Un ou deux éléments tracés ou légèrement tournés (1 à 3°) ; rythme irrégulier mais lisible ; écriture ou dessin réels ; recadrages libres. | Texture « fait main » générique, artisanat simulé. |
-| **Continuité** | Même trame sur toutes les sections ; objets qui gardent leur place d’un état à l’autre ; palette restreinte ; rythme vertical régulier. | Sections identiques empilées, monotonie. |
-| **Rupture** | Un changement d’échelle, de fond ou de densité placé à un moment précis du récit ; une section qui casse la trame ; inversion clair/sombre motivée. | Chaque section différente sans raison, patchwork. |
+| **Continuité** | Même grille sur toutes les sections ; objets qui gardent leur place d’un état à l’autre ; palette restreinte ; rythme vertical régulier. | Sections identiques empilées, monotonie. |
+| **Rupture** | Un changement d’échelle, de fond ou de densité placé à un moment précis du récit ; une section qui casse la grille ; inversion clair/sombre motivée. | Chaque section différente sans raison, patchwork. |
 | **Collection** | Items homogènes au même ratio ; tri ou filtre visibles ; légendes courtes ; l’item est la vedette, le cadre s’efface. | Grille de cartes génériques à ombre douce. |
 | **Instrument** | Contrôle direct au premier plan ; état visible et retour immédiat ; données réelles ; densité plus haute, décor minimal. | Tableau de bord décoratif, courbes factices. |
 | **Retenue** | Une ou deux teintes et des neutres teintés ; une seule voix expressive ; ornement absent ; le détail porté par la finition. | Neutre interchangeable « propre et moderne ». |
@@ -193,7 +193,7 @@ Lorsqu’une forme locale doit être inventée, ne crée pas immédiatement une 
 
 Une matière, une métaphore ou un phénomène n’est retenu que s’il modifie une de ces relations et survit aux états, à l’accessibilité, à la performance et au test de retrait. La forme reste locale jusqu’à ce que plusieurs usages contrastés prouvent qu’une route durable réduit une décision ou une erreur sans homogénéiser les rendus.
 
-`PRINT_FIELD` désigne ici une matière imprimée ou générée par code — CSS, SVG, masque, trame ou procédé local — et son nom historique ne limite pas le médium.
+`PRINT_FIELD` désigne ici une matière imprimée ou générée par code — CSS, SVG, masque, trame d’impression ou procédé local — et son nom historique ne limite pas le médium.
 
 ### BIBLIOTHEQUE/DERIVE — inventer sans fabriquer un menu
 

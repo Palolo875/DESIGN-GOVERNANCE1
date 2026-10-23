@@ -21,7 +21,7 @@ Trois groupes : [le design](#les-mots-du-design), [le travail](#les-mots-du-trav
 | **Creative Boot** | Le lancement créatif : un cadrage court avant le premier pixel d’une décision visuelle ouverte (promesse, objet de preuve, geste, `MODAL`, `PARTI`, trame modale, tension, `FABRICATION` et premier objet). |
 | **`MODAL`** | Ce que n’importe quelle IA produirait par défaut pour ce brief (structure, palette, typographie, images), nommé pour pouvoir le garder ou s’en écarter en connaissance de cause. |
 | **`PARTI`** | La décision prise face au `MODAL` : le garder ou s’en écarter, à quel endroit, et pour quelle raison liée à la thèse. |
-| **Trame modale** | L’ordre de sections que n’importe quelle IA produirait pour un brief. Le test de trame la nomme, puis la rompt ou la justifie par la tâche. |
+| **Trame modale** | L’ordre de sections que n’importe quelle IA produirait pour un brief. Le test de trame la nomme, puis la rompt ou la justifie par la tâche. Dans la trace et le cadrage, « trame » désigne toujours la trame modale ; la texture imprimée ou générée s’écrit « trame d’impression ». |
 | **`FABRICATION`** | Le bilan des moyens réels (images, marque, polices, composants, génération, contenu) et du niveau atteignable, couche par couche, avant de construire. |
 | **Plafond** | Le niveau qu’une couche peut atteindre avec les moyens disponibles ; s’il est bas, l’agent le dit, et dit ce qui le relèverait. |
 | **Carte des moyens** | Les sources gratuites, rangées par couche (bases techniques, typographie, couleur, icônes, composants, mouvement, données, textures, images, 3D, références), avec leurs restrictions connues. Des sources, pas des styles ; une ressource nommée n’est ni atteinte ni vérifiée (`savoir/gout-et-tendances#ressources`). |

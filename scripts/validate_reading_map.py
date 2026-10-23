@@ -512,7 +512,7 @@ WAVE_MARKERS = re.compile(r"hero SaaS|gradient décoratif|\bviolet\b|\bInter\b|\
 
 
 def boot_block(t: dict[str, str]) -> list[str]:
-    return fenced_after(t["D"], "Le boot tient au maximum les décisions suivantes").splitlines()
+    return fenced_after(t["D"], "il tient au maximum les décisions suivantes").splitlines()
 
 
 def skill_activates(t: dict[str, str], locator: str, mode: str | None = None) -> bool:
