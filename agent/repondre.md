@@ -44,4 +44,13 @@ L’agent active le système en silence : la personne donne l’objectif, le pé
 
 Le handoff réutilise les champs existants ; il ne crée ni statut, ni gate, ni nouveau schéma. Les champs non applicables sont marqués `N/A-JUSTIFIED`. Un run persistant utilise la projection `RUN_CARD` et son validateur, sauf la forme courte LITE définie ci-dessus : sa trace complète persiste dans l’artefact selon `ACTION/CLOSE-PACKAGE`. Cette exception ne dispense ni des preuves dues ni des conditions de reprise ; une demande de projection structurée requiert la `RUN_CARD` validée. Une sortie courte qui ne fournit pas le paquet applicable reste une préparation, une clarification ou une décision non clôturée.
 
+**Quatre registres de la trace.** Une trace ne mélange pas quatre registres, dans cet ordre : observation, interprétation, décision, persistance. La preuve réunit observation et interprétation ; elle ne se confond pas avec la décision. Ces registres structurent la trace sans créer d’état ni de statut.
+
+| Registre | Question | Sortie minimale |
+|---|---|---|
+| **Observation** | Qu’est-ce qui a été regardé, par quelle méthode, dans quel scope et quelle version ? | Artefact, méthode, scope, version, date et capacité. |
+| **Interprétation** | Que montre réellement l’observation, avec quelle couverture et quelle limite ? | Relation, effet, défaut dominant, incertitude et limite. |
+| **Décision** | Que fait-on maintenant et pourquoi ? | Correction, retour, acceptation, réserve, reclassification ou escalade. |
+| **Persistance** | Où la décision et ses limites restent-elles inspectables ? | Trace complète selon `ACTION/HANDOFF`, projection `RUN_CARD` selon la forme de clôture, trace locator, owner, prochaine preuve et condition de sortie. |
+
 **Condition d’arrêt de lecture :** arrêter lorsque le mode, le risque, la route, la preuve, la limite, le propriétaire et la prochaine action sont connus. Charger un registre, une route ou un gate supplémentaire uniquement s’il peut modifier l’un de ces éléments.

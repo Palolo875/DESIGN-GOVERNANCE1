@@ -1,33 +1,6 @@
 # Gouvernance — principes
 
-Ce qui distingue une relation d’un contrat, les registres à ne pas mélanger et la portée d’action de l’agent.
-
-<!-- origine:ACTION.md -->
-### Les quatre registres à ne pas mélanger
-
-Pour naviguer dans ACTION : la **route** dit quoi faire ; puis quatre registres, dans cet ordre : **observation**, **interprétation**, **décision**, **persistance**. La preuve réunit observation et interprétation ; elle ne se confond pas avec la décision. Ces quatre registres structurent la trace ; ils ne créent ni états ni statuts supplémentaires.
-
-| Registre | Question | Sortie minimale |
-|---|---|---|
-| **Observation** | Qu’est-ce qui a été regardé, par quelle méthode, dans quel scope et quelle version ? | Artefact, méthode, scope, version, date et capacité. |
-| **Interprétation** | Que montre réellement l’observation, avec quelle couverture et quelle limite ? | Relation, effet, défaut dominant, incertitude et limite. |
-| **Décision** | Que fait-on maintenant et pourquoi ? | Correction, retour, acceptation, réserve, reclassification ou escalade. |
-| **Persistance** | Où la décision et ses limites restent-elles inspectables ? | Trace complète selon `ACTION/HANDOFF`, projection `RUN_CARD` selon la forme de clôture, trace locator, owner, prochaine preuve et condition de sortie. |
-
-`STATE`, `ISSUE`, verdict d’axe, statut de direction et verdict global ne sont jamais des niveaux de maturité ni des synonymes. Le JSON Schema est l’autorité de structure de la projection ; les exemples YAML et textuels restent des vues de transport ou d’explication.
-
-**Ordre de preuve.** Vérifie d’abord le risque dominant. Pour une surface identitaire sans risque critique, vérifie que la direction `P0` et le craft visuel sont réellement tenus ; vérifie ensuite le plancher `P1` d’usage et d’accessibilité ; adapte `P2` au runtime et à la plateforme réels ; déclenche `P3` pour la robustesse, la performance, la compatibilité et le maintien lorsque le risque le requiert. En présence d’un risque critique de tâche, de santé, de sécurité, de confidentialité, de permission ou d’accessibilité, la protection critique passe avant l’optimisation visuelle. P1 est non négociable, mais aucun gate ne transforme une interface conforme en interface réussie si la décision visuelle et la tâche ne tiennent pas.
-
-ACTION ne remplace pas :
-
-| Responsabilité historique | Rôle des sections propriétaires |
-|---|---|
-| `DIRECTION` | Rôle, cinq absolus, classification, routage général et cadrage de capacité. |
-| `SAVOIR` | Principes de jugement, craft, styles, contexte, outils et intégrité. |
-| `BIBLIOTHEQUE` | Supports, grilles, scènes, objets, micro-interfaces et composants. |
-| `CHANGELOG` | État et décisions dans `maintenance/versions.md` ; cycle de vie et migrations dans `maintenance/evolution.md`. |
-
-**Chargement.** Dès qu’un build, une vérification ou un changement d’état est engagé, charge ACTION au niveau requis par le mode. Le contrat court suffit en `LITE` et `ITER`. Le pipeline et les gates complets sont chargés lorsque le périmètre les déclenche. Les recettes de code, prompts, packages et intégrations de stack sont des ressources techniques ; ils ne constituent jamais une preuve à eux seuls.
+La portée d’action de l’agent, la frontière du service et ce qui distingue une relation d’un contrat.
 
 <!-- origine:ACTION.md -->
 ### ACTION/AUTHORITY — portée d’action et reprise
