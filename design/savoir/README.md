@@ -1,6 +1,6 @@
 # Savoir — le livre de référence
 
-Le savoir de design, par sujet. Chaque fichier se lit seul ; le lecteur sert aussi chaque section par son adresse (`python3 scripts/read_route.py savoir/couleur`).
+Le savoir de design, par sujet. Chaque fichier se lit seul ; le lecteur sert aussi chaque section par son adresse (`python3 scripts/read_route.py savoir/typographie`).
 
 | Fichier | Sujet |
 |---|---|

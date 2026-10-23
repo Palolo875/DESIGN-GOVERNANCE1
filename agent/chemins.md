@@ -47,65 +47,6 @@ OWNER — responsable de la décision et de la prochaine action
 
 Ce gabarit est une vue d’activation, pas un second schéma : `ACTION/RUN_CARD` reste propriétaire des champs complets, des états, des issues, des verdicts et de la clôture. `OWNER` et `SCOPE` ne sont jamais omis : ils rendent la reprise et la portée vérifiables. Les autres lignes sont omises ou `N/A-JUSTIFIED` si elles ne peuvent rien changer.
 
-### DIRECTION/CREATIVE-BOOT — activer la boucle avant le premier pixel
-
-Pour une décision visuelle ouverte, active avant le build un **Creative Boot** court. Il ne crée ni mode, ni route, ni gate, ni statut, ni score esthétique, ni champ obligatoire concurrent de `RUN_CARD`.
-
-Le boot tient au maximum les décisions suivantes :
-
-```text
-DECISION: décision que le premier rendu doit permettre de prendre
-PROMISE: promesse à rendre perceptible
-PROOF-OBJECT: objet, état, donnée ou relation qui rend la promesse crédible
-GESTURE: premier geste ou action attendu
-MODAL: ce que n’importe quelle IA produirait ici (structure, palette, typo, assets) ; se nomme avec les marqueurs de vague datés de `SAVOIR/TOOLS`
-PARTI: garder ou s’écarter — où et pourquoi au regard de la thèse ; projeté dans `direction.anti_direction`
-STRUCTURAL-TENSION: axe(s) de tension selon BIBLIOTHEQUE (un ou deux, `BIBLIOTHEQUE/TENSION`)
-STRUCTURAL-SIGNATURE: relation que cette structure rend possible au-delà de l’héritage
-CFT-TARGETS: jusqu’à trois qualités créatives prioritaires pour la construction
-FABRICATION: moyens réels (assets, marque, polices, composants, génération, sources, contenu) → plafond par couche (structure, typo, couleur, assets, contenu) → construire, construire avec plafond déclaré, demander X ou changer de route ; inclut la base de l’ancre et ce qu’elle ne permet pas d’affirmer
-FIRST-OBJECT: artefact complet construit pour rendre les choix jugeables
-DOMINANT-DEFECT: défaut perceptuel ou structurel recherché en premier
-```
-
-`DIRECTION` possède la promesse, l’objet, le geste, `MODAL`/`PARTI` et `FABRICATION` ; `BIBLIOTHEQUE` possède la tension et la signature structurelles ; `SAVOIR/CRAFT` possède le jugement des qualités de présence et de fabrication ; `ACTION` possède l’observation, la preuve, la correction et la clôture. Les `CFT-TARGETS` sont un foyer de construction, pas un score : les autres dimensions restent applicables lorsqu’un risque ou une décision les active et ne deviennent `N/A-JUSTIFIED` que si elles sont réellement hors périmètre.
-
-<!-- noyau:début MOY-PLAFOND -->
-<!-- concept:HON-03 -->
-Avant le premier rendu, le boot doit conduire à un artefact complet, crédible et observable — jamais à un wireframe volontairement creux lorsque les capacités sont disponibles ; lorsqu’elles manquent, `FABRICATION` déclare le plafond avant le build et le rendu sort avec la meilleure route de `DIRECTION/VISUAL_TARGET`. Après observation, la boucle d’édition et la trace prennent le relais : **un défaut dominant**, la modification réelle ou la raison de l’arrêt (`DIRECTION/DOUBLE-LOOP`, one-shot).
-<!-- noyau:fin MOY-PLAFOND -->
-
-Sa valeur se juge à sa conséquence sur le premier objet, non à la complétude du formulaire ; il peut être omis pour un delta strictement local.
-
-### DIRECTION/DOMAIN-FRAME — adapter le design au domaine
-
-Pour une demande multi-domaines, nouvelle ou ambiguë, complète le cadrage avec les variables qui peuvent changer la structure, l’expression, la preuve ou la profondeur de recherche :
-
-```text
-domain: domaine, catégorie et sous-contexte
-audience: public et situation d’usage
-expertise: niveau de connaissance attendu
-jtbd: tâche principale et résultat attendu
-trust_model: ce qui doit inspirer confiance et ce qui pourrait la détruire
-critical_actions: gestes, décisions, permissions ou récupérations sensibles
-domain_conventions: conventions utiles, contraintes et conventions à contester
-cultural_context: langue, codes, références et risques de mauvaise lecture
-originality_tolerance: `low`, `medium`, `high` ou `unknown`, selon la marge d’écart compatible avec la tâche et le risque
-proof_requirements: ce qui doit être compris, démontré, mesuré ou testé
-domain_risks: risques propres au domaine et conséquences d’erreur
-required_research: recherches nécessaires avant décision ou build
-critical_states: états, erreurs, permissions et récupérations critiques
-design_constraints: contraintes de conception, contenu, plateforme ou gouvernance
-evidence_plan: méthode, scope, artefact, limite et prochaine preuve
-policy_profile: `risk_triggers`, `required_controls`, `risk_coverage`, `depth_rules` et `contraindications`
-```
-
-Ce gabarit reprend exactement les propriétés de `gouvernance/schemas/domain_frame.schema.json`. Toute projection machine doit utiliser ces clés et compléter les champs requis ; aucune clé abrégée telle que `DEPTH-TRIGGER` ne doit être sérialisée. `policy_profile.depth_rules` porte les conditions qui justifient une recherche, une variante, un prototype ou une preuve supplémentaire.
-
-Le `DOMAIN-FRAME` n’est ni un nouveau mode ni une taxonomie de secteurs. Il sert à décider ce qui mérite d’être recherché et ce qui doit être adapté. Ne déduis pas l’expression du domaine par stéréotype : un produit financier n’est pas minimaliste par défaut, un produit culturel n’est pas maximaliste par défaut et un outil technique n’est pas cyberpunk par défaut. Le domaine contraint la décision ; il ne fournit pas à lui seul la direction.
-
-La profondeur augmente lorsqu’un élément peut modifier la décision : public ou JTBD incertain, confiance critique, contexte culturel sensible, convention inconnue, forte conséquence d’erreur, contenu réel indisponible, ou écart créatif nécessitant une calibration. Lorsque ces déclencheurs sont absents et que le périmètre est stable, reste sur le chemin court. Lorsque plusieurs déclencheurs sont actifs, recherche, structure, UI/UX et preuve doivent être renforcés ensemble plutôt que compensés par une couche esthétique.
-
 ### Sortie immédiate
 
 Crée ou mets à jour une ligne de run :
@@ -207,7 +148,6 @@ Les codes du noyau et les adresses lisibles servent les mêmes sections : une se
 
 Aucun détail n’est considéré lu parce qu’il porte un marqueur « noyau » dans sa source.
 <!-- noyau:fin CHARGE-DETAILS -->
-
 
 **Déclenchement de l’atlas.** Si aucune famille ne peut être reliée à une décision modifiable, n’ouvre pas `SAVOIR/DESIGN-ATLAS` ; reste sur la route existante. Si le signal est ambigu, pose une seule clarification ciblée ou reviens à `DIRECTION/START` pour classer le mode et le risque. Si un risque critique apparaît, reclassifie avant de charger une famille. L’atlas ne sert jamais à résoudre par catalogue un JTBD, un mode ou une intention manquante.
 
@@ -349,3 +289,22 @@ Les tags indiquent le statut de lecture. Ils ne transforment pas une heuristique
 Un principe `[DURABLE]` qui concerne perception, esthétique, émotion ou culture conserve son statut de principe de jugement mais doit être lu avec sa portée et sa contre-indication. Les claims externes, mesures, standards et outils suivent le contrat `SAVOIR/TOOLS`.
 
 Les anciens identifiants de section sont documentés dans la table de migration de `maintenance/evolution.md` et ne doivent pas être utilisés comme instructions actives.
+
+<!-- origine:SAVOIR.md -->
+## SAVOIR/ROUTING — routes stables
+
+Une question possède une route principale. Les autres routes sont des renvois qui ne créent pas une seconde procédure.
+
+| Question | Route principale | Renvoi |
+|---|---|---|
+| Public, JTBD, décision, compromis | `SAVOIR/FRAME` | `ACTION` pour preuve et sortie. |
+| Direction, matière, composition, émotion | `SAVOIR/CRAFT` | `SOURCE` ou `STYLE` si nécessaire. |
+| Langue, lecture, données, ton | `SAVOIR/TYPE` | `CONTEXT` pour accessibilité et `ACTION` pour preuve. |
+| États, contenu extrême, récupération | `SAVOIR/STATE` | `CONTEXT` et `ACTION/GATE-A`. |
+| Ancre, référence, asset, droit | `SAVOIR/SOURCE` | `TOOLS` pour claims et `ACTION` pour trace. |
+| Profil ou dial d’expression | `SAVOIR/STYLE` | `CRAFT` et `BIBLIOTHEQUE`. |
+| Token, consumer, composant partagé | `SAVOIR/SYSTEM` | `ACTION/RUN-SYSTEM`. |
+| Accessibilité, responsive, performance, motion, risque critique | `SAVOIR/CONTEXT` | `TECH` ; `ACTION/GATE-A` pour le contrôle objectivable et l’axe `T` dans la portée de preuve d’ACTION. |
+| Technique, compatibilité, mesure | `SAVOIR/TECH` | `TOOLS` si claim daté. |
+| Source, tendance, outil, claim | `SAVOIR/TOOLS` | `maintenance/versions.md` si promotion. |
+| Récitation, limite, délégation | `SAVOIR/INTEGRITY` | `ACTION` pour issue et verdict. |

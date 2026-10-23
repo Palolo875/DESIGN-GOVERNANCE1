@@ -101,7 +101,7 @@ Pour lire une seule partie du système :
 
 ```bash
 python3 scripts/read_route.py --sommaire            # toutes les sections et leur rôle
-python3 scripts/read_route.py savoir/couleur        # une section, par son adresse
+python3 scripts/read_route.py savoir/typographie    # une section, par son adresse
 python3 scripts/read_route.py --trouver "contraste" # chercher un terme
 ```
 

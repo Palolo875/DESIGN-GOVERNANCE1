@@ -5,7 +5,7 @@
 <!-- lieux:début -->
 > **Ce fichier ne contient pas toute la responsabilité `BIBLIOTHEQUE`.** Il contient les sections rangées dans ce fichier ; les autres sections `BIBLIOTHEQUE` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
 >
-> - [`gouvernance/structure.md`](../gouvernance/structure.md) : `BIBLIOTHEQUE/CONTRACTS`
+> - [`gouvernance/structure.md`](../gouvernance/structure.md) : `BIBLIOTHEQUE/CONTRACTS`, `BIBLIOTHEQUE/GATE`
 > - [`design/formes/choisir.md`](../design/formes/choisir.md) : `BIBLIOTHEQUE/READ`, `BIBLIOTHEQUE/TENSION`, `BIBLIOTHEQUE/SIGNATURE`, `BIBLIOTHEQUE/SELECT`, `BIBLIOTHEQUE/AVANT-SELECTION`, `BIBLIOTHEQUE/DERIVE`
 > - [`design/formes/catalogue.md`](../design/formes/catalogue.md) : `BIBLIOTHEQUE/SUPPORT`, `BIBLIOTHEQUE/GRID`, `BIBLIOTHEQUE/SCENE`, `BIBLIOTHEQUE/SEQUENCE`, `BIBLIOTHEQUE/OBJECT`, `BIBLIOTHEQUE/MICRO`, `BIBLIOTHEQUE/MODIFIER`, `BIBLIOTHEQUE/COMPONENTS`, `BIBLIOTHEQUE/COMPAT`
 > - [`maintenance/evolution.md`](../maintenance/evolution.md) : `BIBLIOTHEQUE/EVOLUTION`
@@ -43,42 +43,3 @@ En run local, le contrat réduit de `BIBLIOTHEQUE/CONTRACTS` suffit ; si la stru
 <!-- noyau:début STRUCT-OU -->
 > L’interface ne commence ni avec une « landing premium », ni avec une grille de cartes, ni avec une image inspirante. Elle déclare d’abord **où elle vit**, **comment le regard circule**, **quelle preuve devient tangible** et **comment la personne agit**.
 <!-- noyau:fin STRUCT-OU -->
-
----
-
-## BIBLIOTHEQUE/GATE — contrôle de module structurel complémentaire
-
-Ce contrôle appartient au périmètre de BIBLIOTHEQUE. Il ne constitue pas un quatrième gate global : `ACTION/GATE-A`, `ACTION/GATE-B` et `ACTION/GATE-C` restent les gates canoniques du run.
-
-Il s’agit d’un **contrôle structurel complémentaire**, pas d’une route de clôture concurrente. BIBLIOTHEQUE peut décrire le parti structurel et sa limite ; `ACTION` reste propriétaire du scope, de la méthode, de la preuve, des statuts, des issues, du verdict de livraison et de la clôture. `BIBLIOTHEQUE/GATE` ne possède ni statut ni verdict propres.
-
-<!-- concept:PRC-01 -->
-Le contrôle de module vérifie support, grille, scène, objet, états, mobile et accessibilité structurelle, pas seulement code ou conformité d’une primitive. Il vérifie également que la thèse structurelle est visible dans le premier objet habitable et que la relation déclarée reste observable lorsque le contenu, le viewport ou l’état changent. Pour une micro-interface d’identification, de santé, de permission ou de récupération, reviens à `DIRECTION/START` pour la classification et à `ACTION` pour la preuve, le scope et le verdict ; le contrat structurel seul ne suffit jamais.
-
-| Test | Question | Type possible |
-|---|---|---|
-| Non-généricité | Sans image, données et nom, la structure pourrait-elle appartenir à cinquante produits ? Si oui, la structure dépend de ce qui a été retiré. Si la dépendance est porteuse (relation déclarée, fallback prévu par `DIRECTION/VISUAL_TARGET`), la conserver. Si elle est décorative, changer la relation support/grille/scène/preuve plutôt qu’ajouter du polish. Dans les deux cas, décider sur le rendu entier, la tâche et `ACTION/GATE-C`. | `PERCEPTUAL`, `EXPERT` |
-| Silhouette | Après floutage, support, foyer, masses et axes restent-ils perceptibles ? | `PERCEPTUAL` |
-| Grille | Éléments critiques partagent-ils un axe, rythme ou relation identifiable ? Les ruptures changent-elles une priorité ? | `PERCEPTUAL`, `EXPERT` |
-| Preuve | Objet ou micro-interface répond-il à la promesse avec contenu, état et action crédibles ? | `EXPERT`, `USER/TASK` |
-| Asset | Route de production, cadrage, occupation et contraste changent-ils support, scène ou preuve ? Source, droits, provenance et raison de route sont-ils tracés ? | `TECHNICAL`, `EXPERT` |
-| Clarté | Tâche, référence, conséquence et action sont-elles lisibles ? | `EXPERT`, `USER/TASK` |
-| États | Loading, empty, error, unavailable, disabled, succès, contenu long et données sensibles préservent-ils le rôle ? | `TECHNICAL`, `USER/TASK` |
-| Mobile | Priorité, voisinage, action, état, contenu et performance sont-ils recomposés plutôt que compressés ? | `TECHNICAL`, `USER/TASK` |
-| Accessibilité | Focus, clavier, contrastes, noms, alternatives et information non chromatique sont-ils présents ? | `TECHNICAL`, `USER/TASK` |
-| Contexte | La structure répond-elle au public, au JTBD et au risque dominant ? | `EXPERT`, `USER/TASK` |
-| `DECISION-CHANGE` | Après observation, la sélection a-t-elle changé, confirmé ou abandonné une décision, ou est-elle seulement documentée ? | Sortie de trace ACTION ; méthode et scope séparés |
-
-BIBLIOTHEQUE/GATE reste complémentaire d’ACTION/GATE-A, B et C. BIBLIOTHEQUE vérifie le parti structurel et rend explicite la limite ; ACTION contrôle scope, méthode, preuve et verdict de livraison.
-
-### Statut ACTION du contrôle structurel
-
-Ce contrôle ne possède ni statut ni verdict propres. Les statuts ACTION applicables sont `PASS`, `PASS-WITH-RESERVATION`, `RETURN`, `N/A-JUSTIFIED` ou `NOT-VERIFIED`, dans le registre de gate ou de preuve approprié.
-
-Une description dans la `RUN_CARD` peut suffire pour une relation simple et non critique. Une relation visuelle critique exige une capture annotée, un rendu ou une comparaison adaptée. Une description seule ne devient pas une preuve de rendu.
-
-Une chaîne de routes complète sans `DECISION-CHANGE` observable est une trace documentaire, pas une preuve de structure.
-
-La structure reçoit la route d’asset décidée par `DIRECTION` et vérifiée par `ACTION` seulement lorsqu’elle modifie support, scène, objet ou mobile. Elle ne source ni ne hiérarchise les outils. La preuve structurelle reste locale au run ; BIBLIOTHEQUE ne devient ni galerie d’assets, ni archive de références visuelles, ni corpus de goût.
-
----

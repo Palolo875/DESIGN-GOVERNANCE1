@@ -17,9 +17,10 @@ Ses sections se lisent aussi par leurs codes stables (`ACTION/…`, `DIRECTION/�
 |---|---|
 | [`principes.md`](principes.md) | Relation ou contrat, registres à ne pas mélanger, portée d’action |
 | [`statuts.md`](statuts.md) | États, issues et verdicts d’un travail |
-| [`travail.md`](travail.md) | Conditions de départ, fiche de travail |
+| [`travail.md`](travail.md) | Conditions de départ, fiche de travail, déroulé d’un run de direction |
 | [`verification.md`](verification.md) | Contrats de décision, vérification en contexte, dérogation |
 | [`cloture.md`](cloture.md) | Dossier de clôture, test de sortie, clôture de direction |
-| [`structure.md`](structure.md) | Contrats de structure et test de sortie des formes |
+| [`structure.md`](structure.md) | Contrats de structure et contrôle d’un module structurel |
+| [`integrite.md`](integrite.md) | Ce que le système peut affirmer : modes d’échec, contrôle d’intégrité, limites et délégation |
 | [`schemas/`](schemas/run_card.schema.json) | Schémas de la fiche de travail et des contrats, exemples et fichiers de test |
 | `outils/` | `validate_run_card.py` (fiches) et `validate_contracts.py` (contrats) : `python3 gouvernance/outils/validate_run_card.py chemin/vers/fiche.json` |

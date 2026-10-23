@@ -9,7 +9,7 @@ Tout ce qui sert à décider, savoir, construire et finir un design de qualité 
 | [`formes/`](formes/README.md) | Les structures : choisir une structure, catalogue des formes |
 | [`produit/`](produit/README.md) | Ce qui fait un vrai produit : premier rendu, plancher, finition, preuve visuelle, interface |
 
-Chaque section se lit par son adresse lisible (`savoir/couleur`) ou par son code stable (`SAVOIR/CRAFT/CFT-05`) ; les deux désignent la même section.
+Chaque section se lit par son adresse lisible (`savoir/typographie`) ou par son code stable (`SAVOIR/TYPE`) ; les deux désignent la même section.
 
 ## Créer puis apprendre
 

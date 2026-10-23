@@ -5,7 +5,7 @@
 <!-- lieux:début -->
 > **Ce fichier ne contient pas toute la responsabilité `SAVOIR`.** Il contient les sections rangées dans ce fichier ; les autres sections `SAVOIR` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
 >
-> - [`agent/chemins.md`](../agent/chemins.md) : `SAVOIR/READ`, `SAVOIR/JUGEMENT-COURT`
+> - [`agent/chemins.md`](../agent/chemins.md) : `SAVOIR/READ`, `SAVOIR/JUGEMENT-COURT`, `SAVOIR/ROUTING`
 > - [`design/savoir/fondements.md`](../design/savoir/fondements.md) : `SAVOIR/FRAME`
 > - [`design/savoir/qualite-creative.md`](../design/savoir/qualite-creative.md) : `SAVOIR/CRAFT`
 > - [`design/savoir/typographie.md`](../design/savoir/typographie.md) : `SAVOIR/TYPE`
@@ -16,6 +16,7 @@
 > - [`design/savoir/contexte.md`](../design/savoir/contexte.md) : `SAVOIR/CONTEXT`
 > - [`design/savoir/techniques.md`](../design/savoir/techniques.md) : `SAVOIR/TECH`
 > - [`design/savoir/gout-et-tendances.md`](../design/savoir/gout-et-tendances.md) : `SAVOIR/TOOLS`
+> - [`gouvernance/integrite.md`](../gouvernance/integrite.md) : `SAVOIR/INTEGRITY`
 <!-- lieux:fin -->
 
 <!-- orientation:début -->
@@ -40,131 +41,7 @@ SAVOIR ne remplace pas :
 
 ### Orientation interne et sortie vers ACTION
 
-`SAVOIR/ROUTING` est la carte de décision principale de ce fichier. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `sections/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
+`SAVOIR/ROUTING` (`agent/chemins#routes-du-savoir`) est la carte de décision principale de SAVOIR. Commencez par une seule route principale ; ajoutez une route de renvoi uniquement si elle peut modifier la décision, la preuve ou la limite. `sections/READING_MAP.md` fournit une vue dérivée des déclencheurs et du non-chargement ; il ne remplace ni DIRECTION ni ACTION.
 
 **Condition d’arrêt de lecture :** arrêter lorsque la question de jugement, le levier choisi, la contre-indication, la limite et la prochaine observation sont explicites.
 <!-- orientation:fin -->
-
-## SAVOIR/ROUTING — routes stables
-
-Une question possède une route principale. Les autres routes sont des renvois qui ne créent pas une seconde procédure.
-
-| Question | Route principale | Renvoi |
-|---|---|---|
-| Public, JTBD, décision, compromis | `SAVOIR/FRAME` | `ACTION` pour preuve et sortie. |
-| Direction, matière, composition, émotion | `SAVOIR/CRAFT` | `SOURCE` ou `STYLE` si nécessaire. |
-| Langue, lecture, données, ton | `SAVOIR/TYPE` | `CONTEXT` pour accessibilité et `ACTION` pour preuve. |
-| États, contenu extrême, récupération | `SAVOIR/STATE` | `CONTEXT` et `ACTION/GATE-A`. |
-| Ancre, référence, asset, droit | `SAVOIR/SOURCE` | `TOOLS` pour claims et `ACTION` pour trace. |
-| Profil ou dial d’expression | `SAVOIR/STYLE` | `CRAFT` et `BIBLIOTHEQUE`. |
-| Token, consumer, composant partagé | `SAVOIR/SYSTEM` | `ACTION/RUN-SYSTEM`. |
-| Accessibilité, responsive, performance, motion, risque critique | `SAVOIR/CONTEXT` | `TECH` ; `ACTION/GATE-A` pour le contrôle objectivable et l’axe `T` dans la portée de preuve d’ACTION. |
-| Technique, compatibilité, mesure | `SAVOIR/TECH` | `TOOLS` si claim daté. |
-| Source, tendance, outil, claim | `SAVOIR/TOOLS` | `maintenance/versions.md` si promotion. |
-| Récitation, limite, délégation | `SAVOIR/INTEGRITY` | `ACTION` pour issue et verdict. |
-
----
-
-# SAVOIR/INTEGRITY — limites, délégation et critique
-
-### Test de non-récitation
-
-Avant de conserver un artefact de jugement, demande : « Quelle décision concrète a changé grâce à ce module ? » Si la réponse est aucune, l’artefact est documentaire plutôt que décisionnel ; arrête ou simplifie. Une décision que le module a confirmée se déclare comme confirmation ; `N/A-JUSTIFIED` reste réservé au module qui ne pouvait rien changer.
-
-## Modes d’échec d’application
-
-[REQUIS PAR LE MODULE — avant verdict `DIRECTION` ou lorsqu’une règle risque d’être satisfaite dans la forme] Le danger principal n’est pas l’absence de règles ; c’est l’artefact textuel qui affirme qu’une règle a été suivie sans que décision, observation ou preuve aient réellement eu lieu.
-
-Les échecs récurrents sont :
-
-- mode choisi par confort ;
-- directions seulement adjectivales ;
-- fiche textuelle présentée comme ancre ;
-- référence citée mais non observée ;
-- test non rejoué après modification ;
-- compromis vague ;
-- retrait artificiel ;
-- effet de matière choisi avant la direction ;
-- feedback humain invoqué sans artefact regardable ;
-- preuve de contexte produit supposée plutôt qu’établie ;
-- style ou dial choisi sans décision réelle à modifier.
-
-Avant un verdict `DIRECTION`, réponds par une phrase liée à un objet concret :
-
-| Question | Bloque si… |
-|---|---|
-| Quelle ancre utile et quelle spec ont été réellement observées ? | Une ancre ou une spec est requise par le risque ou le contrat, mais aucune n’est exploitable ; si aucune ancre ne peut modifier la décision, justifie sa non-applicabilité. |
-| Quelle décision perceptible porte la direction ? | Rien ne dépasse un défaut de stack ou une intention déclarée. |
-| Quelle alternative située a été considérée ? | La décision est ouverte ou exposée à la convergence, mais aucune position distincte ni raison de non-comparaison n’est donnée. |
-| Quel écart entre spec et rendu reste ? | Écart important ignoré ou justifié après coup. |
-| Quelle preuve manque encore ? | `PASS` affirmé sans preuve adaptée. |
-| Quelle hypothèse de contexte reste incertaine ? | Coût d’erreur élevé sans owner ni prochaine preuve. |
-| Quelle décision concrète a changé grâce à cette procédure ? | Aucune décision modifiée, confirmée ou abandonnée, sans `N/A-JUSTIFIED` justifié ni `NOT-OBSERVED` déclaré (valeurs de repli d’`ACTION/STATUS`). |
-| Quelle règle risque d’être satisfaite dans la lettre seulement ? | Aucun test d’échappatoire théâtrale ni artefact de conséquence observable n’a été fourni. |
-
-## Contrôle d’intégrité
-
-Relie au moins une réponse portant sur le risque le plus élevé à un artefact consultable : capture, spec, diff, test, code, URL, donnée ou journal.
-
-Si le lien ne peut pas être inspecté, la réponse n’est pas une preuve. Si une capacité a été déléguée, inspecte l’artefact et le résultat ; la délégation seule ne constitue jamais une validation.
-
-Lorsque la règle est satisfaite par le texte mais qu’aucun objet ou changement de décision n’est inspectable, renvoie le run à ACTION avec le couple canonique approprié : `N/A-JUSTIFIED` si le contrôle ou la décision est réellement non applicable ; `NOT-VERIFIED` si la preuve pertinente manque ; `EXPLORATORY` si un artefact existe mais que le périmètre ou la preuve de décision est incomplet ; `RETURNED` si une correction ou une preuve doit être reprise. SAVOIR rend visible la limite ; ACTION décide si le run peut être fermé.
-
-## Limites, délégation et critique
-
-[REQUIS PAR LE MODULE — capacité incertaine, direction ambiguë, asset critique ou besoin de second regard] Distingue ce qui est connu, inféré, vérifié et hors de portée.
-
-Une capacité disponible modifie le type de preuve possible ; elle ne permet jamais d’affirmer une qualité sans examen du résultat. Toute délégation conserve délégataire, rôle, capacité déclarée, méthode, scope, artefact/résultat consulté, date/version, limite, owner de décision finale, `NEXT-PROOF` et condition de reprise ou d’escalade.
-
-<!-- noyau:début VER-FAUX-ASSET -->
-<!-- concept:HON-02 -->
-Ne fais jamais passer abstraction CSS, SVG, image générée ou placeholder pour photo, illustration, logomark, son ou asset authentique. Une abstraction assumée est autorisée si son rôle est honnête, son contenu non trompeur et son effet approprié. Un faux asset de marque ne l’est pas.
-<!-- noyau:fin VER-FAUX-ASSET -->
-
-Le modèle, le prompt ou l’outil de génération ne constituent jamais, à eux seuls, une preuve de qualité, de droit ou d’adéquation au contexte.
-
-La curation dirigée est admise lorsqu’elle comble un besoin réel, avec type d’origine, source/provenance, statut d’autorisation, portée d’usage, transformation, limite, owner et prochaine revue dans la trace locale du run. Ne la confonds pas avec une accumulation passive.
-
-Les rôles de critique sont des lentilles, non une simulation d’équipe. Chaque rôle identifie un problème observable, une correction, une preuve et un périmètre. Un regard humain distinct de l’auteur ou de l’owner peut apporter un contrepoint situé ; ne le qualifie pas d’indépendant sans déclarer relation, rôle, méthode, date et limites. Active `ACTION/GATE-B/B3` lorsque son scope est requis.
-
-L’autonomie accordée à l’agent par l’utilisateur ou l’owner couvre uniquement le périmètre `DIRECTION` explicitement annoncé. Elle ne remplace ni les droits, ni l’owner final, ni une escalade requise ; le checkpoint suit `ACTION/PIPELINE-DIRECTION` (la première proposition en tient lieu, sauf action irréversible ou coûteuse).
-
----
-
-## Règles d’or — lecture rapide
-
-Ce résumé n’est pas une procédure de livraison. Il ne crée aucune route, gate, issue ou verdict concurrent ; `DIRECTION` est propriétaire de la classification et du routage général, `SAVOIR` de ses routes de jugement, `BIBLIOTHEQUE` de ses routes structurelles et `ACTION` des routes d’exécution, preuves, gates, états, issues, verdicts et clôtures.
-
-1. Classe le mode dans `DIRECTION/START` avant de choisir la procédure.
-2. Cadre JTBD, décision dominante, contraintes et hypothèses à impact.
-3. Retire avant d’ajouter ; une décision tenue vaut mieux qu’une accumulation de signaux.
-4. Utilise contenu réel, états pertinents et microcopie honnête.
-5. Fais passer accessibilité, responsive, récupération et performance avant l’effet.
-6. Sur une surface `DIRECTION`, la spec est toujours requise ; l’ancre suit `DIRECTION/VISUAL_TARGET` (utile, ou absence déclarée en exploration ; avant l’acceptation, absolu 2 de `DIRECTION`).
-7. Exécute les preuves applicables au mode ; déclare `NOT-VERIFIED` plutôt que de le noter comme `PASS`.
-8. Si un risque bloquant reste, retourne, passe en `EXPLORATORY` ou journalise un `FAIL-ASSUMED` autorisé (échec connu) ; un risque non bloquant peut rester en réserve structurée (`ACCEPTED-WITH-RESERVATION`, `ACTION/STATUS`) ; ne compense jamais un axe bloquant par une moyenne.
-
----
-
-## Méthodologie studio
-
-[MÉTHODE] Le niveau de formalité dépend du mode :
-
-- cadrage et preuve de contexte ;
-- direction si `DIRECTION` ;
-- système si blast radius partagé ;
-- contrat de composant si pattern réutilisable ou critique ;
-- assemblage ;
-- repasse ciblée ;
-- QA et gates applicables ;
-- décision et persistance.
-
-<!-- noyau:début BOUCLE-REPASSE -->
-Une repasse complète est attendue en `DIRECTION`, recommandée en `STANDARD` et ciblée en `ITER` ou `LITE` sur le périmètre modifié. Cherche ce qui est resté par défaut : alignement optique, échelle, distance, état, composant, mouvement, contenu réel, breakpoint ou récupération. « Rendre plus fin » ou « harmoniser » seul n’est pas une résolution : nomme le geste et réinspecte son effet.
-<!-- noyau:fin BOUCLE-REPASSE -->
-
-Le système n’installe pas mécaniquement le goût. Il soutient la finesse par des gestes précis, conditionnés et réinspectés, et rend le jugement plus difficile à simuler : références observées, décisions nommées, preuves adaptées, compromis assumés et limites déclarées.
-
-> Ce résumé et cette méthodologie aident à lire SAVOIR ; ils ne créent pas de route, gate, statut ou obligation concurrente. Les routes de jugement et de structure restent définies par SAVOIR et BIBLIOTHEQUE ; les routes de classification et d’exécution, ainsi que les verdicts, restent définis par DIRECTION et ACTION.
-
-L’honnêteté sur ce qui manque fait partie de la qualité.

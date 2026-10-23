@@ -476,8 +476,8 @@ class SearchAndSummaryTests(unittest.TestCase):
         for new, old in reader.ADRESSES.items():
             self.assertEqual(reader.resolve(new)[:2], reader.resolve(old)[:2], new)
             self.assertEqual(reader.resolve("design/" + new)[2], reader.resolve(old)[2], new)
-        out = self.cli("savoir/couleur").stdout
-        self.assertIn("ROUTE: SAVOIR/CRAFT/CFT-05 (adresse : savoir/couleur)", out)
+        out = self.cli("savoir/qualite-creative#couleur").stdout
+        self.assertIn("ROUTE: SAVOIR/CRAFT/CFT-05 (adresse : savoir/qualite-creative#couleur)", out)
 
     def test_phrase_search_reaches_the_owner(self):
         # Une phrase d'humain trouve la route qui y répond, même si l'expression exacte n'existe pas.
@@ -503,7 +503,7 @@ class SearchAndSummaryTests(unittest.TestCase):
     def test_topic_map_heads_search(self):
         for query in ("couleur", "color"):
             out = self.cli("--trouver", query).stdout
-            self.assertIn("SUJET « couleur » (carte dérivée, READING_MAP) — propriétaire : savoir/couleur", out)
+            self.assertIn("SUJET « couleur » (carte dérivée, READING_MAP) — propriétaire : savoir/qualite-creative#couleur", out)
         self.assertNotIn("SUJET", self.cli("--trouver", "cohérence de rayon").stdout)
 
     def test_topic_map_owner_must_treat_topic(self):
@@ -511,7 +511,7 @@ class SearchAndSummaryTests(unittest.TestCase):
         text = reader.carte()
         errors = []; rmap.check_topics(text, errors)
         self.assertEqual(errors, [])
-        broken = text.replace("| couleur | `savoir/couleur` |", "| couleur | `agent/repondre` |")
+        broken = text.replace("| couleur | `savoir/qualite-creative#couleur` |", "| couleur | `agent/repondre` |")
         self.assertNotEqual(broken, text)  # la mutation porte bien sur la carte
         errors = []; rmap.check_topics(broken, errors)
         self.assertTrue(any("ne traite pas « couleur »" in e for e in errors), errors)
@@ -700,6 +700,30 @@ class TroncTests(unittest.TestCase):
             with self.subTest(field=field):
                 self.assertIn(field, text)
         self.assertIn("Relève six champs", text)
+
+
+class AdresseFichierTests(unittest.TestCase):
+    """A24 : une personne qui ouvre le fichier nommé par l'adresse y trouve la section servie."""
+
+    @staticmethod
+    def ecarts(adresses: dict[str, str]) -> list[str]:
+        out = []
+        for address, locator in adresses.items():
+            if locator == "CHANGELOG":
+                continue
+            path, _, _ = reader.resolve(locator)
+            real = path.resolve().relative_to(ROOT.resolve()).as_posix().removeprefix("design/").removesuffix(".md")
+            if real != address.split("#")[0]:
+                out.append(f"{address} → {real}")
+        return out
+
+    def test_each_address_opens_the_file_it_names(self):
+        self.assertEqual(self.ecarts(reader.ADRESSES), [])
+
+    def test_address_naming_another_file_is_reported(self):
+        # Mutation rouge : l'ancienne adresse de SAVOIR/ROUTING nommait un guide.
+        self.assertEqual(self.ecarts({"guides/2-comprendre#routes": "SAVOIR/ROUTING"}),
+                         ["guides/2-comprendre#routes → agent/chemins"])
 
 
 if __name__ == "__main__":

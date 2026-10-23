@@ -5,12 +5,12 @@
 <!-- lieux:début -->
 > **Ce fichier ne contient pas toute la responsabilité `DIRECTION`.** Il contient les sections rangées dans ce fichier ; les autres sections `DIRECTION` vivent à leur emplacement, avec la même autorité, et ne sont pas recopiées ici. Une route se lit avec `python3 scripts/read_route.py LOCATOR`, qui trouve son fichier. _Bandeau généré par `scripts/build_core.py` depuis le registre `LIEUX` ; ne pas modifier à la main._
 >
-> - [`agent/chemins.md`](../agent/chemins.md) : `DIRECTION/START`, `DIRECTION/CREATIVE-BOOT`, `DIRECTION/DOMAIN-FRAME`, `DIRECTION/CHARGE`, `DIRECTION/FAST-PATH`
+> - [`agent/chemins.md`](../agent/chemins.md) : `DIRECTION/START`, `DIRECTION/CHARGE`, `DIRECTION/FAST-PATH`
 > - [`gouvernance/principes.md`](../gouvernance/principes.md) : `DIRECTION/SERVICE-BOUNDARY`
 > - [`gouvernance/cloture.md`](../gouvernance/cloture.md) : `DIRECTION/LECTURE-INSTRUMENTEE`
-> - [`design/direction/cadrer.md`](../design/direction/cadrer.md) : `DIRECTION/EXTERNAL-START`
+> - [`design/direction/cadrer.md`](../design/direction/cadrer.md) : `DIRECTION/EXTERNAL-START`, `DIRECTION/DOMAIN-FRAME`
 > - [`design/direction/premier-objet.md`](../design/direction/premier-objet.md) : `DIRECTION/FIRST-OBJECT`
-> - [`design/direction/diriger.md`](../design/direction/diriger.md) : `DIRECTION/VISUAL_TARGET`, `DIRECTION/DIRECTION-ATELIER`, `DIRECTION/DIVERGENCE`
+> - [`design/direction/diriger.md`](../design/direction/diriger.md) : `DIRECTION/CREATIVE-BOOT`, `DIRECTION/VISUAL_TARGET`, `DIRECTION/DIRECTION-ATELIER`, `DIRECTION/DIVERGENCE`
 > - [`design/direction/boucle.md`](../design/direction/boucle.md) : `DIRECTION/DOUBLE-LOOP`
 > - [`design/direction/standard.md`](../design/direction/standard.md) : `DIRECTION/STANDARD`
 > - [`design/produit/interface.md`](../design/produit/interface.md) : `DIRECTION/CAPACITY`

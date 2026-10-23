@@ -11,7 +11,7 @@ Comme le validateur de carte : locator de table unique, propriétaire et titre c
 Les identifiants structurels documentés (GRID/…, OBJECT/…, etc.) sont des raccourcis
 vers BIBLIOTHEQUE : titre exact, ou section porteuse si l'identifiant est une ligne de table.
 Un identifiant absent, ambigu ou présent seulement dans un bloc de code est refusé.
-Une adresse lisible (`savoir/couleur`, `produit/plancher`, préfixe `design/` facultatif ; table ADRESSES)
+Une adresse lisible (`savoir/typographie`, `produit/plancher`, préfixe `design/` facultatif ; table ADRESSES)
 est servie comme le locator qu'elle désigne ; l'ancien locator reste accepté.
 
 Recherche de routes par terme : `--trouver TERME` cherche le terme en mots entiers, avec ses alias
@@ -152,7 +152,7 @@ LIEUX: dict[str, tuple[str, ...]] = {
     "SAVOIR.md": ("sections/SAVOIR.md", "agent/chemins.md", "design/savoir/fondements.md", "design/savoir/qualite-creative.md",
                   "design/savoir/typographie.md", "design/savoir/composition.md", "design/savoir/images-et-sources.md",
                   "design/savoir/styles.md", "design/savoir/systeme-de-design.md", "design/savoir/contexte.md",
-                  "design/savoir/techniques.md", "design/savoir/gout-et-tendances.md"),
+                  "design/savoir/techniques.md", "design/savoir/gout-et-tendances.md", "gouvernance/integrite.md"),
     "BIBLIOTHEQUE.md": ("sections/BIBLIOTHEQUE.md", "gouvernance/structure.md", "design/formes/choisir.md",
                         "design/formes/catalogue.md", "maintenance/evolution.md"),
     "CHANGELOG.md": ("maintenance/versions.md", "maintenance/evolution.md"),
@@ -171,14 +171,14 @@ ADRESSES: dict[str, str] = {
     "maintenance/versions": "CHANGELOG",
     "direction/cadrer#demande-vague": "DIRECTION/EXTERNAL-START", "direction/cadrer#domaine": "DIRECTION/DOMAIN-FRAME",
     "direction/diriger#lancement": "DIRECTION/CREATIVE-BOOT", "direction/diriger#cible-visuelle": "DIRECTION/VISUAL_TARGET",
-    "direction/diriger#atelier": "DIRECTION/DIRECTION-ATELIER", "direction/diriger#divergence": "DIRECTION/DIVERGENCE", "produit/interface#capacite": "DIRECTION/CAPACITY", "gouvernance/cloture#lecture-instrumentee": "DIRECTION/LECTURE-INSTRUMENTEE", "direction/premier-objet": "DIRECTION/FIRST-OBJECT",
+    "direction/diriger#atelier": "DIRECTION/DIRECTION-ATELIER", "direction/diriger#divergence": "DIRECTION/DIVERGENCE", "produit/interface": "DIRECTION/CAPACITY", "gouvernance/cloture#lecture-instrumentee": "DIRECTION/LECTURE-INSTRUMENTEE", "direction/premier-objet": "DIRECTION/FIRST-OBJECT",
     "direction/boucle": "DIRECTION/DOUBLE-LOOP", "direction/standard": "DIRECTION/STANDARD",
     "savoir/fondements": "SAVOIR/FRAME", "savoir/qualite-creative": "SAVOIR/CRAFT",
     "savoir/qualite-creative#ambition": "SAVOIR/CRAFT/CFT-00", "savoir/qualite-creative#forme-situee": "SAVOIR/CRAFT/CFT-01",
     "savoir/qualite-creative#registres": "SAVOIR/CRAFT/CFT-02", "savoir/qualite-creative#emotion": "SAVOIR/CRAFT/CFT-04",
     "savoir/qualite-creative#premier-contact": "SAVOIR/CRAFT/CFT-04a", "savoir/qualite-creative#ecriture": "SAVOIR/CRAFT/CFT-06",
-    "savoir/composition": "SAVOIR/CRAFT/CFT-03",
-    "savoir/composition#jugement-visuel": "SAVOIR/STATE", "savoir/couleur": "SAVOIR/CRAFT/CFT-05",
+    "savoir/qualite-creative#composition": "SAVOIR/CRAFT/CFT-03",
+    "savoir/composition#jugement-visuel": "SAVOIR/STATE", "savoir/qualite-creative#couleur": "SAVOIR/CRAFT/CFT-05",
     "savoir/typographie": "SAVOIR/TYPE", "savoir/images-et-sources": "SAVOIR/SOURCE",
     "savoir/images-et-sources#familles": "SAVOIR/DESIGN-ATLAS", "savoir/styles": "SAVOIR/STYLE",
     "savoir/systeme-de-design": "SAVOIR/SYSTEM", "savoir/contexte": "SAVOIR/CONTEXT", "savoir/techniques": "SAVOIR/TECH",
@@ -191,7 +191,7 @@ ADRESSES: dict[str, str] = {
     "formes/catalogue#sequence": "BIBLIOTHEQUE/SEQUENCE", "formes/catalogue#objets": "BIBLIOTHEQUE/OBJECT",
     "formes/catalogue#micro": "BIBLIOTHEQUE/MICRO", "formes/catalogue#modificateurs": "BIBLIOTHEQUE/MODIFIER",
     "formes/catalogue#composants": "BIBLIOTHEQUE/COMPONENTS", "formes/catalogue#compatibilite": "BIBLIOTHEQUE/COMPAT",
-    "produit/premier-rendu": "ACTION/FIRST-RENDER", "produit/interface": "ACTION/UI-UX-REALITY",
+    "produit/premier-rendu": "ACTION/FIRST-RENDER", "produit/premier-rendu#interface": "ACTION/UI-UX-REALITY",
     "produit/plancher": "ACTION/GATE-A", "produit/plancher#recette": "ACTION/RECETTE-RENDU", "produit/plancher#contraste": "ACTION/POLICIES",
     "produit/finition": "ACTION/GATE-C", "produit/finition#atelier": "ACTION/ATELIER-EDITION", "produit/finition#contre-le-generique": "ACTION/ANTI-SLOP",
     "produit/preuve-visuelle": "ACTION/VISUAL_PROOF", "produit/preuve-visuelle#caractere": "ACTION/RECETTE-CARACTERE",
@@ -209,17 +209,17 @@ ADRESSES: dict[str, str] = {
     "gouvernance/cloture#test-de-sortie": "ACTION/CLOSE-EXIT-CHECK", "gouvernance/verification": "ACTION/GATE-B",
     "gouvernance/verification#contrats": "ACTION/STRUCTURED-PROOF", "gouvernance/verification#derogation": "ACTION/OVERRIDE",
     "gouvernance/verification#comparaison-sur-capture": "ACTION/GATE-B/B1b",
-    "gouvernance/structure": "BIBLIOTHEQUE/CONTRACTS", "gouvernance/structure#avant-selection": "BIBLIOTHEQUE/AVANT-SELECTION",
+    "gouvernance/structure": "BIBLIOTHEQUE/CONTRACTS", "formes/choisir#avant-selection": "BIBLIOTHEQUE/AVANT-SELECTION",
     "gouvernance/structure#controle": "BIBLIOTHEQUE/GATE", "gouvernance/integrite": "SAVOIR/INTEGRITY",
     "maintenance/evolution": "ACTION/MAINTENANCE", "maintenance/evolution#routes": "BIBLIOTHEQUE/EVOLUTION",
-    "guides/2-comprendre#routes": "SAVOIR/ROUTING",
+    "agent/chemins#routes-du-savoir": "SAVOIR/ROUTING",
 }
 # Renvois sans contenu propre : pas d'adresse lisible, l'ancien locator reste servi.
 SANS_ADRESSE = {"DIRECTION/FAST-PATH"}
 ADRESSE_DE = {old: new for new, old in ADRESSES.items()}
 
 
-# Adresse entre accents graves, avec ou sans préfixe design/ (`savoir/couleur`, `design/savoir/couleur`).
+# Adresse entre accents graves, avec ou sans préfixe design/ (`savoir/typographie`, `design/savoir/typographie`).
 ADRESSE_CITEE = re.compile(r"`(?:design/)?([a-z][a-z0-9\-]*/[a-z0-9\-]+(?:#[a-z0-9\-]+)?)`")
 
 
