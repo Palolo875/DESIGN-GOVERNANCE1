@@ -820,6 +820,10 @@ SYMPTOM_GROUPS = (
     ("saccadé", "haché"),
     ("générique", "banal", "fade", "interchangeable"),
     ("ressort", "émerge"),
+    ("bouton", "cible", "cliquable", "tactile"),
+    ("marge", "espacement", "vide", "gouttière"),
+    ("lent", "lenteur", "performance", "poids"),
+    ("sombre", "thème", "dark"),
 )
 STOPWORDS = {"le", "la", "les", "un", "une", "des", "de", "du", "d", "l", "et", "ou", "en", "a", "au", "aux", "sur",
              "pour", "par", "avec", "dans", "the", "of", "and", "to", "for"}
@@ -843,7 +847,8 @@ def _word(term: str) -> re.Pattern:
 
 def search(term: str, include_guides: bool = False) -> tuple[str, list[str], list[tuple[str | None, str, int, str]]]:
     """(mode, termes cherchés, lignes). Mots entiers et alias d'abord ; sinon correspondance partielle ;
-    sinon tous les mots significatifs sur une même ligne."""
+    sinon, pour une phrase, ses mots significatifs ; sinon tous les mots sur une même ligne. La phrase passe avant
+    les mots séparés : une ligne longue contient presque toutes les combinaisons de mots (L7-01)."""
     terms = aliases(term)
     if not _fold(term.strip()):
         raise RouteError("terme de recherche vide")
@@ -859,16 +864,16 @@ def search(term: str, include_guides: bool = False) -> tuple[str, list[str], lis
     results = _scan(lambda folded: any(f in folded for f in folded_terms), include_guides)
     if enough(results):
         return "correspondance partielle", terms, results
-    words = [w for w in re.split(r"[^a-z0-9]+", _fold(term)) if len(w) > 1 and w not in STOPWORDS]
-    if len(words) > 1:
-        word_patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(w)) for w in words]
-        results = _scan(lambda folded: all(p.search(folded) for p in word_patterns), include_guides)
-        if enough(results):
-            return "mots séparés sur une même ligne", words, results
     if phrase:
         results = _scan(lambda folded: any(m(folded) for _, m in phrase), include_guides)
         if results:
             return "mots de la phrase", [w for w, _ in phrase], results
+    words = [w for w in re.split(r"[^a-z0-9]+", _fold(term)) if len(w) > 1 and w not in STOPWORDS]
+    if len(words) > 1:
+        word_patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(w)) for w in words]
+        results = _scan(lambda folded: all(p.search(folded) for p in word_patterns), include_guides)
+        if results:
+            return "mots séparés sur une même ligne", words, results
     return "aucun", terms, []
 
 
@@ -895,6 +900,16 @@ def phrase_patterns(term: str) -> list[tuple[str, list[re.Pattern]]]:
         patterns = [re.compile(r"(?<![a-z0-9])" + re.escape(_root(w)))] + [_word(a) for a in aliases(w)[1:]]
         patterns += [re.compile(r"(?<![a-z0-9])" + re.escape(_root(_fold(m)))) for m in symptoms(w)]
         out.append((w, patterns))
+    return out
+
+
+def strict_words(term: str) -> dict[str, object]:
+    """Mot significatif → test de ligne sur sa racine et ses alias stricts seulement, sans rapprochement de symptôme :
+    sert au bonus de titre, pour qu'un mot large (« visuel ») ne fasse pas monter une route par son titre."""
+    out = {}
+    for w, _ in phrase_patterns(term):
+        ps = [re.compile(r"(?<![a-z0-9])" + re.escape(_root(w)))] + [_word(a) for a in aliases(w)[1:]]
+        out[w] = lambda folded, ps=ps: any(p.search(folded) for p in ps)
     return out
 
 
@@ -952,7 +967,8 @@ def rank_phrase(results: list[tuple[str | None, str, int, str]], term: str) -> l
     while not kept and need > 1:  # aucune route n'a assez de mots : les meilleures routes partielles
         need -= 1
         kept = [(loc, lines) for loc, lines in grouped.items() if len(present[loc]) >= need]
-    titled = {loc: {w for w, m in phrase if any(line.lstrip().startswith("#") and m(_fold(line)) for _, _, _, line in lines)}
+    strict = strict_words(term)
+    titled = {loc: {w for w, _ in phrase if any(line.lstrip().startswith("#") and strict[w](_fold(line)) for _, _, _, line in lines)}
               for loc, lines in kept}
 
     patterns = phrase_patterns(term)

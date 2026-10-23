@@ -413,10 +413,13 @@ class SearchAndSummaryTests(unittest.TestCase):
             self.assertRegex(reader._fold(line), r"(?<![a-z0-9])tons?(?![a-z0-9])")
 
     def test_separate_words_fallback(self):
+        # La phrase passe avant les mots séparés (L7-01) ; ils ne servent qu'aux requêtes sans deux mots significatifs.
         mode, words, results = reader.search("image texte")
-        self.assertEqual(mode, "mots séparés sur une même ligne")
-        self.assertEqual(words, ["image", "texte"])
+        self.assertEqual(mode, "mots de la phrase")
         self.assertIn("SAVOIR/CRAFT/CFT-03", {r[0] for r in results})  # la sous-route précise, pas la route entière
+        mode, words, results = reader.search("ui ux")
+        self.assertEqual(mode, "mots séparés sur une même ligne")
+        self.assertEqual(words, ["ui", "ux"])
 
     def test_defining_route_ranked_first(self):
         routes = [l.split()[0] for l in self.cli("--trouver", "COHERENCE DE RAYON").stdout.splitlines() if l.startswith(("SAVOIR/", "ACTION/"))]
@@ -488,7 +491,7 @@ class SearchAndSummaryTests(unittest.TestCase):
         # Une expression trouvée seulement hors route ne bloque pas la recherche par mots.
         outside = [(None, "CHANGELOG.md", 1, "quelle police choisir")]
         inside = [("SAVOIR/TYPE", "SAVOIR.md", 2, "police à choisir")]
-        with patch.object(reader, "_scan", side_effect=[outside, outside, [], inside]):
+        with patch.object(reader, "_scan", side_effect=[outside, outside, inside]):
             self.assertEqual(reader.search("quelle police choisir")[0], "mots de la phrase")
         self.assertEqual(reader.phrase_words("police"), [])
 
@@ -728,6 +731,82 @@ class AdresseFichierTests(unittest.TestCase):
         # Mutation rouge : l'ancienne adresse de SAVOIR/ROUTING nommait un guide.
         self.assertEqual(self.ecarts({"guides/2-comprendre#routes": "SAVOIR/ROUTING"}),
                          ["guides/2-comprendre#routes → agent/chemins"])
+
+
+class FindabilityIndicatorTests(unittest.TestCase):
+    """A22 : trouvabilité de symptômes formulés librement, mesurée et protégée contre la régression.
+
+    Indicateur, pas exigence : la recherche lexicale plafonne autour d'une réponse juste sur deux, parce que les
+    sources décrivent les défauts en vocabulaire d'expert. Le jeu de réglage a servi aux corrections du 2026-10-23 ;
+    le jeu témoin n'a servi qu'à mesurer. Un score qui descend sous le plancher fait échouer ; un score qui monte
+    se reporte dans le plancher.
+    """
+
+    REGLAGE = [
+        ("l'image écrase le titre", {"SAVOIR/STATE", "SAVOIR/CRAFT/CFT-03"}),
+        ("la page fait générique", {"SAVOIR/CRAFT/CFT-01", "ACTION/ANTI-SLOP", "SAVOIR/CRAFT/CFT-00"}),
+        ("les boutons sont trop petits", {"ACTION/GATE-A"}),
+        ("texte gris peu lisible", {"SAVOIR/STATE", "ACTION/GATE-A", "SAVOIR/CRAFT/CFT-05"}),
+        ("le titre se coupe mal sur mobile", {"SAVOIR/TYPE"}),
+        ("les chiffres sautent quand ils changent", {"SAVOIR/STATE", "SAVOIR/TYPE"}),
+        ("trop de couleurs qui se battent", {"SAVOIR/CRAFT/CFT-05", "SAVOIR/STATE"}),
+        ("les cartes se ressemblent toutes", {"BIBLIOTHEQUE/SELECT", "SAVOIR/CRAFT/CFT-01"}),
+        ("on ne sait pas où cliquer", {"SAVOIR/STATE", "ACTION/UI-UX-REALITY", "SAVOIR/FRAME", "DIRECTION/FIRST-OBJECT"}),
+        ("le formulaire perd la saisie après une erreur", {"SAVOIR/STATE"}),
+        ("l'animation est saccadée", {"SAVOIR/STATE", "SAVOIR/CONTEXT"}),
+        ("le focus clavier est invisible", {"ACTION/GATE-A"}),
+        ("le texte sur la photo manque de contraste", {"SAVOIR/CRAFT/CFT-03", "ACTION/GATE-A", "SAVOIR/CRAFT/CFT-05", "SAVOIR/STATE"}),
+        ("la page ressemble à toutes les landing pages", {"BIBLIOTHEQUE/SELECT", "SAVOIR/CRAFT/CFT-01", "ACTION/ANTI-SLOP"}),
+        ("je n'ai pas le vrai contenu du client", {"DIRECTION/EXTERNAL-START"}),
+        ("quelle police choisir pour le titre", {"SAVOIR/TYPE"}),
+        ("le logo est flou", {"SAVOIR/STATE", "SAVOIR/SOURCE", "DIRECTION/ASSET-ROUTE"}),
+        ("l'icône n'est pas centrée dans le bouton", {"SAVOIR/STATE"}),
+        ("les marges sont incohérentes", {"SAVOIR/CRAFT/CFT-03", "SAVOIR/STATE", "SAVOIR/SYSTEM"}),
+        ("le site est lent à charger", {"SAVOIR/CONTEXT", "SAVOIR/TECH"}),
+        ("le texte déborde de la carte", {"ACTION/GATE-A", "ACTION/RECETTE-RENDU", "SAVOIR/STATE"}),
+        ("les coins arrondis ne vont pas ensemble", {"SAVOIR/STATE"}),
+        ("il faut une version en mode sombre", {"SAVOIR/SYSTEM", "SAVOIR/CRAFT/CFT-05"}),
+        ("la liste est vide quand il n'y a pas de résultats", {"SAVOIR/STATE", "ACTION/UI-UX-REALITY"}),
+        ("l'image générée paraît fausse", {"SAVOIR/SOURCE", "DIRECTION/ASSET-ROUTE", "DIRECTION/VISUAL_TARGET"}),
+        ("le menu sur mobile est confus", {"ACTION/UI-UX-REALITY", "SAVOIR/CONTEXT", "ACTION/GATE-A"}),
+        ("les témoignages ont l'air inventés", {"SAVOIR/INTEGRITY", "DIRECTION/GROUNDING", "DIRECTION/EXTERNAL-START"}),
+        ("le graphique ne dit rien", {"BIBLIOTHEQUE/OBJECT"}),
+        ("la hiérarchie n'est pas claire", {"SAVOIR/CRAFT/CFT-03", "ACTION/STRUCTURED-PROOF", "SAVOIR/STATE"}),
+        ("le design manque de personnalité", {"SAVOIR/CRAFT/CFT-00", "SAVOIR/CRAFT/CFT-01", "DIRECTION/DIVERGENCE", "SAVOIR/CRAFT/CFT-02"}),
+    ]
+    TEMOIN = [
+        ("le bouton principal ne ressort pas", {"SAVOIR/STATE", "SAVOIR/CRAFT/CFT-05", "DIRECTION/FIRST-OBJECT"}),
+        ("les sections sont toutes pareilles", {"BIBLIOTHEQUE/SELECT", "BIBLIOTHEQUE/SEQUENCE", "SAVOIR/CRAFT/CFT-01"}),
+        ("le texte est trop long sur une ligne", {"SAVOIR/TYPE"}),
+        ("les espaces entre les blocs sont irréguliers", {"SAVOIR/STATE", "SAVOIR/CRAFT/CFT-03", "SAVOIR/SYSTEM"}),
+        ("la photo est coupée sur mobile", {"SAVOIR/STATE", "SAVOIR/SOURCE"}),
+        ("le message d'erreur n'aide pas", {"SAVOIR/STATE", "SAVOIR/CRAFT/CFT-06"}),
+        ("le chargement fait sauter la page", {"SAVOIR/STATE", "SAVOIR/CONTEXT"}),
+        ("les liens ne se voient pas", {"ACTION/GATE-A", "SAVOIR/CRAFT/CFT-05", "SAVOIR/STATE"}),
+        ("la palette est terne", {"SAVOIR/CRAFT/CFT-05"}),
+        ("le hero est banal", {"SAVOIR/CRAFT/CFT-01", "ACTION/ANTI-SLOP", "SAVOIR/CRAFT/CFT-04a", "BIBLIOTHEQUE/SELECT"}),
+        ("le tableau de données est illisible", {"SAVOIR/TYPE", "SAVOIR/STATE", "BIBLIOTHEQUE/OBJECT", "BIBLIOTHEQUE/GRID"}),
+        ("le site ne marche pas au clavier", {"ACTION/GATE-A"}),
+        ("les animations donnent mal au cœur", {"SAVOIR/CONTEXT", "ACTION/GATE-A"}),
+        ("la police ne se charge pas", {"SAVOIR/TYPE", "ACTION/RECETTE-RENDU"}),
+        ("les icônes ne vont pas avec le reste", {"SAVOIR/STATE", "SAVOIR/TOOLS", "SAVOIR/STYLE"}),
+    ]
+    PLANCHERS = {"REGLAGE": 17, "TEMOIN": 9}
+
+    @staticmethod
+    def top3(query: str) -> list[str]:
+        mode, terms, results = reader.search(query)
+        names = {reader.nom(p) for p in reader.sources_normatives()}
+        normative = [r for r in results if r[1] in names]
+        ranked = reader.rank_phrase(normative, query) if mode == "mots de la phrase" else reader.rank_routes(normative, terms)
+        return [loc for loc, _ in ranked[:3]]
+
+    def test_scores_stay_at_or_above_their_floor(self):
+        for name in ("REGLAGE", "TEMOIN"):
+            jeu = getattr(self, name)
+            score = sum(bool(want & set(self.top3(query))) for query, want in jeu)
+            with self.subTest(jeu=name):
+                self.assertGreaterEqual(score, self.PLANCHERS[name], f"{name} : {score}/{len(jeu)}")
 
 
 if __name__ == "__main__":
