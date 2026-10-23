@@ -1,20 +1,6 @@
 # Gouvernance — contrats de structure
 
-Les contrats, contrôles et tests de sortie qui encadrent l’usage des formes.
-
-<!-- origine:BIBLIOTHEQUE.md -->
-### Entrée prioritaire — à lire avant le catalogue
-
-Avant de parcourir les routes détaillées, retiens ces décisions de protection :
-
-1. **Responsabilité :** BIBLIOTHEQUE transforme une décision située en structure habitable ; elle ne choisit ni le mode, ni le style, ni le verdict de livraison.
-2. **Zéro route est valide :** si la structure existante suffit, conserve-la par héritage ou comme cas documentaire, avec sa source et sa justification. `N/A-JUSTIFIED` est réservé à une non-applicabilité réelle selon ACTION. Une route n’est sélectionnée que si elle peut changer une décision d’espace, de hiérarchie, de comportement ou de preuve.
-3. **Premier objet :** toute sélection ouverte doit relier une thèse structurelle, une tension et, lorsque l’écart est ouvert, une signature à un premier objet habitable, avec contenu crédible, hiérarchie, action, états et résolution proportionnée.
-4. **Preuve :** distingue ce que la structure rend perceptible, ce qu’un regard expert interprète, ce qu’un contrôle technique mesure et ce qu’une personne accomplit dans une tâche. Une chaîne de routes ne constitue jamais une preuve à elle seule.
-5. **Proportion :** commence par le niveau minimal qui peut changer la décision ; ajoute support, grille, scène, objet, micro, modificateur ou couche seulement lorsque leur responsabilité est active.
-6. **Promotion :** une route partagée ou candidate à la durée suit `DIRECTION/START` → `ACTION/RUN-SYSTEM` → `BIBLIOTHEQUE/EVOLUTION` → `maintenance/versions.md`. Cette chaîne organise la décision et la preuve ; elle n’accorde aucune promotion.
-
-Cette entrée est un **résumé de protection**, pas une nouvelle route, un nouveau gate, un nouveau statut ou un second contrat machine. Les sections détaillées et les propriétaires existants prévalent en cas de différence.
+Les contrats et contrôles qui encadrent l’usage des formes.
 
 <!-- origine:BIBLIOTHEQUE.md -->
 ## BIBLIOTHEQUE/CONTRACTS — contrat commun de route
@@ -64,22 +50,3 @@ Si la ressource reste ouverte, nomme la primitive, le pack ou le fichier réelle
 **Exemples de traduction, à adapter.** Pour une scène à deux masses, un rapport initial `3:2` peut privilégier l’objet ; le vrai titre et la lecture au format étroit peuvent imposer `1:1` ou une autre relation. Pour un groupement simple, tester une distance entre groupes supérieure à celle entre membres, puis vérifier que les unités restent perceptibles. Pour un arrondi emboîté ou un bord éclairé, utiliser les conditions de `SAVOIR/STATE`. Ces essais n’établissent aucune valeur universelle et ne sont pas des tokens partagés.
 
 Avant le build, indique l’effet attendu du levier retenu ; après le rendu ou l’interaction, compare cet effet à ce qui est réellement observable dans le même scope. Conserve, ajuste ou retire le choix et vérifie l’ensemble. Sans observation, conserve la limite prévue par ACTION. Un paramètre inscrit dans la spec, un token ou une route nommée ne constitue pas sa réussite visuelle. Une calibration locale ne devient une règle partagée que par le parcours système et la gouvernance existants.
-
----
-
-<!-- origine:BIBLIOTHEQUE.md -->
-## Test de sortie BIBLIOTHEQUE
-
-Avant de clôturer une sélection, vérifie :
-
-1. Chaque route sélectionnée change-t-elle une décision réelle ?
-2. Chaque route possède-t-elle une responsabilité et une contre-indication claires ?
-3. L’objet ou la micro-interface porte-t-il une preuve, un état et une action crédibles ?
-4. Le type, le scope et la limite de preuve sont-ils déclarés ?
-5. La recomposition mobile couvre-t-elle priorité, voisinage, action, état, contenu et performance lorsque le risque le requiert ?
-6. La combinaison choisie est-elle justifiée par JTBD, preuve, risque et condition de sortie ?
-7. Chaque identifiant sélectionné existe-t-il dans le catalogue canonique, ou est-il explicitement marqué local ou `PILOT` ?
-8. En trace complète, la sélection structurelle et sa justification sont-elles persistées dans la `RUN_CARD` ou la trace canonique référencée par `trace_locator`, le paquet de preuve n’étant qu’une pièce jointe localisable ?
-9. Les routes et identifiants respectent-ils le bon niveau : support, grille, scène, objet, micro, modificateur ou couche ?
-
-Si une réponse reste inconnue, utilise `NOT-VERIFIED`. Si un contrôle doit être repris, utilise `RETURN`; si le périmètre reste exploratoire, utilise l’issue ACTION appropriée, par exemple `EXPLORATORY` ou `RETURNED`. Ne transforme pas une chaîne complète de routes en preuve de qualité et ne remplace pas `ACTION/CLOSE-EXIT-CHECK`.

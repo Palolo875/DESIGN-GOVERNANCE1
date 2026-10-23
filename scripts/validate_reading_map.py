@@ -612,7 +612,7 @@ def lcf_50(t: dict[str, str]) -> bool:
 
 # Corrections de la révision de mobilisation ; chaque condition possède sa mutation rouge.
 def lcf_51(t: dict[str, str]) -> bool:
-    entry = next((l for l in t["B"].splitlines() if l.startswith("2. **Zéro route")), "")
+    entry = next((l for l in t["B"].splitlines() if l.startswith("**Zéro route est valide")), "")
     local = row(t["B"], "Local")
     return (all(word in entry for word in ("héritage", "source", "justification", "non-applicabilité réelle"))
             and "conserve-la et justifie `N/A-JUSTIFIED`" not in entry

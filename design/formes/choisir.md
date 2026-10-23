@@ -9,7 +9,7 @@ La chaîne canonique est une carte de responsabilités, non une séquence obliga
 
 > **support → grille → scène → objet → primitive**
 
-Une surface peut hériter d’un niveau ou n’en sélectionner aucun si aucune décision structurelle ne change. Le **support** définit le champ spatial dans lequel vit la surface. La **grille** organise la circulation, les axes, le rythme, le foyer et la hiérarchie dans ce champ. La **scène** définit le scénario de lecture et de preuve entre promesse, contenu, média et action. L’**objet** rend une preuve, un état ou une action locale tangible. La **primitive** porte le geste accessible et la sémantique de base.
+Une surface peut hériter d’un niveau ou n’en sélectionner aucun si aucune décision structurelle ne change. Le **support** définit le champ spatial dans lequel vit la surface. La **grille** organise la circulation, les axes, le rythme, le foyer et la hiérarchie dans ce champ. La **scène** définit le scénario de lecture et de preuve entre promesse, contenu, média et action. L’**objet** rend une preuve, un état ou une action locale tangible. La **primitive** porte le geste accessible et la sémantique de base. Commence par le niveau minimal qui peut changer la décision ; ajoute support, grille, scène, objet, micro, modificateur ou couche seulement lorsque leur responsabilité est active.
 
 Sur une page de plusieurs sections, la **séquence** ordonne les scènes, leur rythme et leur fin (`BIBLIOTHEQUE/SEQUENCE`). Cette chaîne décrit une responsabilité, pas un ordre de lecture rigide. Une micro-interface peut être le point de départ d’une surface dense. Un modificateur intervient seulement après la structure lorsqu’il change un comportement réel.
 
@@ -113,7 +113,7 @@ Toute route peut indiquer le type de preuve attendu :
 | `TECHNICAL` | Structure, responsive, performance, compatibilité ou contrôle mesuré. | Qualité de direction ou compréhension globale. |
 | `USER/TASK` | Compréhension, réussite, erreur, effort ou satisfaction dans une tâche déclarée. | Conformité technique complète ou validité dans tous les contextes. |
 
-Une route peut exiger plusieurs types. Une preuve perceptuelle ou experte ne devient pas une preuve d’utilisabilité par changement de vocabulaire.
+Une route peut exiger plusieurs types. Une preuve perceptuelle ou experte ne devient pas une preuve d’utilisabilité par changement de vocabulaire, et une chaîne de routes ne constitue jamais une preuve à elle seule.
 
 La typologie BIBLIOTHEQUE décrit **ce qui est prouvé**. Les méthodes ACTION — `AUTOMATED`, `MANUAL`, `EXPERT`, `USER` ou combinaison — décrivent **comment la preuve est obtenue**. Correspondance indicative : `PERCEPTUAL` peut s’appuyer sur capture ou comparaison ; `TECHNICAL` sur script ou inspection ; `USER/TASK` sur observation d’une tâche utilisateur. Une preuve peut combiner plusieurs types et plusieurs méthodes ; aucune correspondance ne constitue un mapping automatique de verdict. `EXPERT` comme type de preuve ne doit pas être confondu avec `METHOD: EXPERT` ; le premier qualifie ce qui est établi, le second la manière dont le regard est obtenu.
 
@@ -150,6 +150,8 @@ La qualité expressive relève du jugement de SAVOIR ; cette table rend son hypo
 ### BIBLIOTHEQUE/AVANT-SELECTION — vérifier avant de sélectionner
 
 Pour un delta local, réponds avant toute sélection aux quatre questions d’`ACTION/FAST-PATH`, en nommant la relation qui change. Si aucune décision ne change, conserve la structure existante et inscris l’héritage ou le cas documentaire ; utilise `N/A-JUSTIFIED` seulement si le contrôle ou la décision est réellement non applicable dans le scope déclaré, avec justification ACTION, owner et prochaine preuve.
+
+**Zéro route est valide :** si la structure existante suffit, conserve-la par héritage ou comme cas documentaire, avec sa source et sa justification. `N/A-JUSTIFIED` est réservé à une non-applicabilité réelle selon ACTION. Une route n’est sélectionnée que si elle peut changer une décision d’espace, de hiérarchie, de comportement ou de preuve.
 
 `N/A-JUSTIFIED` n’est pas une sortie de confort. Elle n’est valable que lorsque le contrôle ou la décision principale est réellement non applicable dans le scope déclaré, ou lorsqu’une paire équivalente reste valide après le dernier changement substantiel, avec artefact, owner et `NEXT-PROOF` selon ACTION. Paire équivalente : seulement lorsque B1b est déclenché et que la paire couvre exactement la même décision — voir `ACTION/GATE-B/B1b`. Un héritage documentaire sans contrôle applicable doit être marqué comme tel dans la trace, sans transformer l’absence de changement en verdict.
 
@@ -243,5 +245,21 @@ Les compositions suivantes sont des signaux d’enquête, pas des interdits styl
 
 Un signal de convergence déclenche une reformulation de la tension, de la signature ou de l’objet ; il ne justifie pas l’ajout mécanique d’une nouvelle scène. La diversité crédible vient de la relation entre contenu réel, mécanisme de preuve, geste, contrainte et structure, et non d’un changement de nom ou de peau.
 <!-- noyau:fin STRUCT-SIGNAUX -->
+
+### Test de sortie de la sélection
+
+Avant de clôturer une sélection, vérifie :
+
+1. Chaque route sélectionnée change-t-elle une décision réelle ?
+2. Chaque route possède-t-elle une responsabilité et une contre-indication claires ?
+3. L’objet ou la micro-interface porte-t-il une preuve, un état et une action crédibles ?
+4. Le type, le scope et la limite de preuve sont-ils déclarés ?
+5. La recomposition mobile couvre-t-elle priorité, voisinage, action, état, contenu et performance lorsque le risque le requiert ?
+6. La combinaison choisie est-elle justifiée par JTBD, preuve, risque et condition de sortie ?
+7. Chaque identifiant sélectionné existe-t-il dans le catalogue canonique, ou est-il explicitement marqué local ou `PILOT` ?
+8. En trace complète, la sélection structurelle et sa justification sont-elles persistées dans la `RUN_CARD` ou la trace canonique référencée par `trace_locator`, le paquet de preuve n’étant qu’une pièce jointe localisable ?
+9. Les routes et identifiants respectent-ils le bon niveau : support, grille, scène, objet, micro, modificateur ou couche ?
+
+Si une réponse reste inconnue, utilise `NOT-VERIFIED`. Si un contrôle doit être repris, utilise `RETURN`; si le périmètre reste exploratoire, utilise l’issue ACTION appropriée, par exemple `EXPLORATORY` ou `RETURNED`. Ne transforme pas une chaîne complète de routes en preuve de qualité et ne remplace pas `ACTION/CLOSE-EXIT-CHECK`.
 
 ---
